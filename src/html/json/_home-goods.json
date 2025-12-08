@@ -1,0 +1,62 @@
+[
+    {
+        "className": " swiper-slide",
+        "price": "От 120₽",
+        "image": "@img/goods/01.png",
+        "description": "Блесна для рыбалки D-Ocean Chinook 62 21g колеблющаяся, колебалка на форель, цвет 11"
+    },
+    {
+        "className": " swiper-slide",
+        "price": "От 99₽",
+        "image": "@img/goods/02.png",
+        "description": "Воблер раттлин на судака и щуку для рыбалки D-Ocean VIB Smolti"
+    },
+    {
+        "className": " swiper-slide",
+        "price": "От 129₽",
+        "image": "@img/goods/03.png",
+        "description": "Блесна для рыбалки D-Ocean Chinook 62 21g колеблющаяся, колебалка на форель, цвет 11"
+    },
+    {
+        "className": " swiper-slide",
+        "price": "От 89₽",
+        "image": "@img/goods/04.png",
+        "description": "Блесна для рыбалки D-Ocean Chinook 62 21g колеблющаяся, колебалка на форель, цвет 11"
+    },
+    {
+        "className": " swiper-slide",
+        "price": "От 106₽",
+        "image": "@img/goods/05.png",
+        "description": "Воблер для рыбалки Ikigai 16g, цвет 28 на летнюю рыбалку, рыболовная снасть на лосося и горбушу, симу и кумжу, форель и судака, на троллинг, подарок"
+    },
+    {
+        "className": " swiper-slide",
+        "price": "От 120₽",
+        "image": "@img/goods/01.png",
+        "description": "Блесна для рыбалки D-Ocean Chinook 62 21g колеблющаяся, колебалка на форель, цвет 11"
+    },
+    {
+        "className": " swiper-slide",
+        "price": "От 99₽",
+        "image": "@img/goods/02.png",
+        "description": "Воблер раттлин на судака и щуку для рыбалки D-Ocean VIB Smolti"
+    },
+    {
+        "className": " swiper-slide",
+        "price": "От 129₽",
+        "image": "@img/goods/03.png",
+        "description": "Блесна для рыбалки D-Ocean Chinook 62 21g колеблющаяся, колебалка на форель, цвет 11"
+    },
+    {
+        "className": " swiper-slide",
+        "price": "От 89₽",
+        "image": "@img/goods/04.png",
+        "description": "Блесна для рыбалки D-Ocean Chinook 62 21g колеблющаяся, колебалка на форель, цвет 11"
+    },
+    {
+        "className": " swiper-slide",
+        "price": "От 106₽",
+        "image": "@img/goods/05.png",
+        "description": "Воблер для рыбалки Ikigai 16g, цвет 28 на летнюю рыбалку, рыболовная снасть на лосося и горбушу, симу и кумжу, форель и судака, на троллинг, подарок"
+    }
+]

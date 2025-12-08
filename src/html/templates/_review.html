@@ -1,0 +1,29 @@
+<div class="review@@className">
+
+    @@if(typeof images !== 'undefined' && images.length > 0) {
+    <div class="review__images swiper">
+        <div class="swiper-wrapper">
+            @@for (var i = 0; i < images.length; i++) { <a href="`+images[i]+`" data-fancybox="review-gallery-@@id" class="review__image swiper-slide">
+                <img src="`+images[i]+`" alt="Фото отзыва">
+                </a>
+                }
+        </div>
+    </div>
+    }
+
+    <blockquote class="review__text">@@quote</blockquote>
+    <div class="review__footer">
+        <div class="review__author">
+            <div class="review__author-thumb">
+                <img src="@@thumb" class="cover-image" alt="Фото автора">
+            </div>
+            <div class="review__author-content">
+                <div class="review__author-name">@@name</div>
+                <time datetime="@@datetime" class="review__author-time">@@time</time>
+            </div>
+        </div>
+        <a href="" class="review__link">
+            <img src="@img/logo-ozon.svg" alt="ozon лого">
+        </a>
+    </div>
+</div>

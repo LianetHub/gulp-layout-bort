@@ -1,0 +1,118 @@
+[data-animate="bottom"] {
+	transition-timing-function: ease;
+	transition-duration: 0.6s;
+	transition-property: transform, opacity;
+	transform: translateY(40px);
+	opacity: 0;
+	&.animated {
+		transform: none;
+		opacity: 1;
+	}
+	&.animation-end {
+		transition-delay: 0s;
+	}
+}
+
+[data-animate="fade"] {
+	transition-timing-function: ease-in-out;
+	transition-duration: 0.6s;
+	transition-delay: 0.15s;
+	transition-property: opacity, visibility;
+	opacity: 0;
+	visibility: hidden;
+	&.animated {
+		opacity: 1;
+		visibility: visible;
+	}
+	&.animation-end {
+		transition-delay: 0s;
+	}
+}
+
+[data-animate="scale"] {
+	transition-timing-function: ease-in-out;
+	transition-duration: 0.3s;
+	transition-delay: 0.3s;
+	transition-property: transform, opacity, visibility;
+	transform: scale(0);
+	&.animated {
+		opacity: 1;
+		visibility: visible;
+		transform: scale(1);
+	}
+	&.animation-end {
+		transition-delay: 0s;
+	}
+}
+
+// @media (min-width: $md4) and (max-width: $md3) {
+// 	@for $i from 1 through 2 {
+// 		&:nth-child(2n + #{$i}) {
+// 			transition-delay: $i * 0.25s;
+// 		}
+// 	}
+// }
+// @media (min-width: $md3) {
+// 	@for $i from 1 through 3 {
+// 		&:nth-child(3n + #{$i}) {
+// 			transition-delay: $i * 0.25s;
+// 		}
+// 	}
+// }
+
+// [data-animate="bounce"] {
+// 	opacity: 0;
+// 	transition: opacity 0.6s ease;
+// 	&.animated {
+// 		opacity: 1;
+// 		animation: bounce 0.6s ease;
+// 	}
+// }
+
+// @keyframes bounce {
+// 	0%,
+// 	100% {
+// 		transform: scale(1);
+// 	}
+// 	10% {
+// 		transform: scale(0.9);
+// 	}
+// 	30% {
+// 		transform: scale(1.1);
+// 	}
+// 	50% {
+// 		transform: scale(0.95);
+// 	}
+// 	70% {
+// 		transform: scale(1.05);
+// 	}
+// 	90% {
+// 		transform: scale(0.98);
+// 	}
+// }
+
+// @keyframes shake {
+// 	0%,
+// 	100% {
+// 		transform: translateX(0);
+// 	}
+// 	10%,
+// 	30%,
+// 	50%,
+// 	70%,
+// 	90% {
+// 		transform: translateX(-1px);
+// 	}
+// 	20%,
+// 	40%,
+// 	60%,
+// 	80% {
+// 		transform: translateX(1px);
+// 	}
+// }
+
+// [data-animate="shake"] {
+// 	&.animated {
+// 		animation: shake 0.8s ease;
+// 	}
+// }

@@ -1,0 +1,458 @@
+<header class="header">
+    <div class="header__wrapper">
+        <a href="catalog.html" class="header__catalog-link btn btn-white btn-large icon-grid" aria-label="Перейти в каталог"></a>
+        <button type="button" class="header__catalog btn btn-white btn-large icon-grid">КАТАЛОГ</button>
+        <nav aria-label="Основное меню" class="header__menu menu">
+            <div class="menu__header">
+                <a href="/" class="menu__logo">
+                    <img src="@img/logo.svg" alt="Логотип D-Ocean">
+                </a>
+            </div>
+            <ul class="menu__list">
+                <li class="menu__item">
+                    <a href="/" class="menu__link">Главная</a>
+                </li>
+                <li class="menu__item">
+                    <a href="about.html" class="menu__link @@if(typeof active !== 'undefined' && active == 2){ active}">О&nbsp;компании</a>
+                </li>
+                <li class="menu__item menu__item--parent">
+                    <button type="button" class="menu__btn icon-chevron-down">Помощь</button>
+                    <div class="submenu">
+                        <ul class="submenu__list">
+                            <li class="submenu__item"><a href="payment.html" class="submenu__link icon-chevron-right @@if(typeof active !== 'undefined' && active == 3){ active}">Оплата</a></li>
+                            <li class="submenu__item"><a href="delivery.html" class="submenu__link icon-chevron-right @@if(typeof active !== 'undefined' && active == 4){ active}">Доставка</a></li>
+                            <li class="submenu__item"><a href="return.html" class="submenu__link icon-chevron-right @@if(typeof active !== 'undefined' && active == 5){ active}">Возврат товара</a></li>
+                            <li class="submenu__item"><a href="how-to-create-order.html" class="submenu__link icon-chevron-right @@if(typeof active !== 'undefined' && active == 6){ active}">Как сделать заказ?</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu__item">
+                    <a href="blog.html" class="menu__link@@if(typeof active !== 'undefined' && active == 7){ active}">Блог</a>
+                </li>
+            </ul>
+            <ul class="menu__list">
+                <li class="menu__item menu__item--parent">
+                    <button type="button" class="menu__btn icon-chevron-down">Документы</button>
+                    <div class="submenu">
+                        @@include('./templates/_docs-submenu.html', {
+                        "active": "@@active"
+                        })
+                    </div>
+                </li>
+                <li class="menu__item menu__item--parent">
+                    <button type="button" class="menu__btn icon-chevron-down">Оптовикам</button>
+                    <div class="submenu">
+                        <ul class="submenu__list">
+                            <li class="submenu__item"><a href="" class="submenu__link icon-chevron-right">Войти в личный кабинет</a></li>
+                            <li class="submenu__item"><a href="" class="submenu__link icon-chevron-right">Зарегистрироваться</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="menu__item menu__item--parent">
+                    <button type="button" class="menu__btn icon-chevron-down">Контакты</button>
+                    <div class="submenu">
+                        <ul class="submenu__list">
+                            <li class="submenu__contacts">
+                                <div class="submenu__contacts-block">
+                                    <div class="submenu__contacts-caption">Телефон:</div>
+                                    <a href="tel:+79251398515" class="submenu__contacts-phone">+7 (925) 139-85-15</a>
+                                    <a href="mailto:info@d-ocean.su" class="submenu__contacts-mail">info@d-ocean.su</a>
+                                    <a href="" class="submenu__contacts-callback btn btn-primary">заказать звонок</a>
+                                </div>
+                                <div class="submenu__contacts-block">
+                                    <div class="submenu__contacts-caption">Мессенджеры:</div>
+                                    <div class="submenu__contacts-socials socials">
+                                        <a href="" aria-label="Следите за нами в Telegram" class="socials__link icon-telegram"></a>
+                                        <a href="" aria-label="Следите за нами в WhatsApp" class="socials__link icon-whatsapp"></a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="submenu__item"><a href="contacts.html" class="submenu__link icon-chevron-right@@if(typeof active !== 'undefined' && active == 13){ active}">Контакты</a></li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <a href="index.html" class="header__logo">
+            <img src="@img/logo.svg" alt="Логотип D-Ocean">
+        </a>
+        <div class="header__actions">
+            <div data-da=".menu__header, 768" class="header__switch switch">
+                <label class="switch__item">
+                    <input type="radio" name="orderType" value="retail" checked class="switch__item-input" hidden>
+                    <span class="switch__item-btn">Розница</span>
+                </label>
+                <label class="switch__item">
+                    <input type="radio" name="orderType" value="wholesale" class="switch__item-input" hidden>
+                    <span class="switch__item-btn">Опт</span>
+                </label>
+            </div>
+            <a href="cart.html" class="header__cart icon-shopping-cart">
+                <span class="header__cart-quantity">6</span>
+            </a>
+        </div>
+        <button type="button" aria-label="Открыть мобильное меню" class="header__menu-toggler icon-menu"><span></span><span></span><span></span></button>
+    </div>
+</header>
+<div class="catalog">
+    <div class="catalog__header">
+        <div class="catalog__title">Каталог товаров</div>
+        <button type="button" aria-label="Закрыть каталог" class="catalog__close icon-cross"></button>
+    </div>
+    <form action="#" class="catalog__search">
+        <div class="catalog__search-header">
+            <button type="search" class="catalog__search-btn icon-search"></button>
+            <input type="text" name="s" autocomplete="off" class="catalog__search-input" placeholder="Поиск по каталогу...">
+            <button type="reset" class="catalog__search-reset icon-cross"></button>
+        </div>
+        <div class="catalog__searchbar">
+            <div class="catalog__searchbar-header">
+                <div class="catalog__searchbar-results">
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> D-Ocean</a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> для рыбалки D-Ocean Chinook 62 Red колеблющаяся,</a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> D-Ocean для рыбалки колеблющаяся, колебалка на крупную щуку,чавычу,</a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> D-Ocean для рыбалки колеблющаяся, колебалка на крупную щуку,чавы</a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> для рыбалки D-Ocean Chinook 62 21g </a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> для рыбалки D-Ocean PROKHOROVKA 22</a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> D-Ocean для рыбалки колеблющаяся, колебалка на крупную щуку,чавы</a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> для рыбалки D-Ocean Salmon Marine 37g колеблющаяся, колебалка на фор</a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> для рыбалки D-Ocean Chinook 62 21g </a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> D-Ocean для рыбалки колеблющаяся, колебалка на крупную щуку,чавычу,</a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> D-Ocean для рыбалки колеблющаяся, колебалка на крупную щуку,чавы</a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> для рыбалки D-Ocean Chinook 62 21g </a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> для рыбалки D-Ocean PROKHOROVKA 22</a>
+                    <a href="" class="catalog__searchbar-result"><b>Блесны</b> D-Ocean для рыбалки колеблющаяся, колебалка на крупную щуку,чавычу,</a>
+                </div>
+                <div class="catalog__searchbar-popular">
+                    <div class="catalog__searchbar-popular-title">Популярное:</div>
+                    <ul class="catalog__searchbar-products">
+                        <li class="catalog__searchbar-product search-product">
+                            <div class="search-product__side">
+                                <div class="search-product__labels">
+                                    <span class="search-product__label label label--small label--violet">Новинка</span>
+                                </div>
+                                <a href="" class="search-product__image">
+                                    <img src="@img/goods/01.png" alt="Фото товара">
+                                </a>
+                            </div>
+                            <div class="search-product__body">
+                                <a href="" class="search-product__name">
+                                    Блесна для рыбалки D-Ocean Chinook 62 21g колеблющаяся, колебалка
+                                </a>
+                                <div class="search-product__footer">
+                                    <div class="search-product__price">
+                                        <div class="search-product__price-old">2 244 ₽</div>
+                                        <div class="search-product__price-current">799 ₽</div>
+                                    </div>
+                                    <button type="button" aria-label="Добавить товар в корзину" class="search-product__add-to-cart btn btn-primary btn-icon icon-shopping-cart"></button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="catalog__searchbar-product search-product">
+                            <div class="search-product__side">
+                                <div class="search-product__labels">
+                                    <span class="search-product__label label label--small label--yellow">Хит</span>
+                                </div>
+                                <a href="" class="search-product__image">
+                                    <img src="@img/goods/03.png" alt="Фото товара">
+                                </a>
+                            </div>
+                            <div class="search-product__body">
+                                <a href="" class="search-product__name">
+                                    Блесна D-Ocean для рыбалки колеблющаяся, колебалка на крупную щуку,чавы
+                                </a>
+                                <div class="search-product__footer">
+                                    <div class="search-product__price">
+                                        <div class="search-product__price-old">1890 ₽</div>
+                                        <div class="search-product__price-current">745 ₽</div>
+                                    </div>
+                                    <button type="button" aria-label="Добавить товар в корзину" class="search-product__add-to-cart btn btn-primary btn-icon icon-shopping-cart"></button>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="catalog__searchbar-product search-product">
+                            <div class="search-product__side">
+                                <div class="search-product__labels">
+                                    <span class="search-product__label label label--small label--yellow">Хит</span>
+                                </div>
+                                <a href="" class="search-product__image">
+                                    <img src="@img/goods/04.png" alt="Фото товара">
+                                </a>
+                            </div>
+                            <div class="search-product__body">
+                                <a href="" class="search-product__name">
+                                    Блесна для рыбалки D-Ocean YOKO-S 7 g, цвет 133 колеблющаяся, колебалка на
+                                </a>
+                                <div class="search-product__footer">
+                                    <div class="search-product__price">
+                                        <div class="search-product__price-current">933 ₽</div>
+                                    </div>
+                                    <button type="button" aria-label="Добавить товар в корзину" class="search-product__add-to-cart btn btn-primary btn-icon icon-shopping-cart"></button>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <a href="" class="catalog__searchbar-more icon-chevron-right">Все результаты</a>
+        </div>
+    </form>
+    <div class="catalog__body">
+        <ul class="catalog__categories">
+            <li class="catalog__categories-item">
+                <button type="button" class="catalog__categories-btn icon-chevron-right active">
+                    <span class="catalog__categories-thumb">
+                        <img src="@img/goods/categories/lures.jpg" class="cover-image" alt="Фото категории">
+                    </span>
+                    <span class="catalog__categories-text">Приманки</span>
+                </button>
+            </li>
+            <li class="catalog__categories-item">
+                <button type="button" class="catalog__categories-btn icon-chevron-right">
+                    <span class="catalog__categories-thumb">
+                        <img src="@img/goods/categories/rods.jpg" class="cover-image" alt="Фото категории">
+                    </span>
+                    <span class="catalog__categories-text">Удилища</span>
+                </button>
+            </li>
+            <li class="catalog__categories-item">
+                <button type="button" class="catalog__categories-btn icon-chevron-right">
+                    <span class="catalog__categories-thumb">
+                        <img src="@img/goods/categories/fishing-lines.jpg" class="cover-image" alt="Фото категории">
+                    </span>
+                    <span class="catalog__categories-text">Лески</span>
+                </button>
+            </li>
+            <li class="catalog__categories-item">
+                <button type="button" class="catalog__categories-btn icon-chevron-right">
+                    <span class="catalog__categories-thumb">
+                        <img src="@img/goods/categories/loads.jpg" class="cover-image" alt="Фото категории">
+                    </span>
+                    <span class="catalog__categories-text">Грузы</span>
+                </button>
+            </li>
+            <li class="catalog__categories-item">
+                <button type="button" class="catalog__categories-btn icon-chevron-right">
+                    <span class="catalog__categories-thumb">
+                        <img src="@img/goods/categories/equipment.jpg" class="cover-image" alt="Фото категории">
+                    </span>
+                    <span class="catalog__categories-text">Оснастка</span>
+                </button>
+            </li>
+        </ul>
+        <div class="catalog__content">
+            <div class="catalog__block active">
+                <div class="catalog__block-header">
+                    <div class="catalog__block-caption">Бренды</div>
+                    <div class="catalog__block-controls">
+                        <button type="button" class="catalog__block-prev swiper-button-prev"></button>
+                        <button type="button" class="catalog__block-next swiper-button-next"></button>
+                    </div>
+                </div>
+                <div class="catalog__block-slider swiper">
+                    <div class="swiper-wrapper">
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/fhm.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/zetrix.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/dawa.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/shiman.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/duo.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/graff.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/abu-garcia.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/norfin.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/simms.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/hr.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/boyscout.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/aiko.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/graphiteleader.png" alt="Лого бренда">
+                        </div>
+                    </div>
+                </div>
+                <ul class="catalog__block-list">
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Блесны</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Балансиры</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Раттлины</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Силиконовые</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Воблеры</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Поролоновые</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Тейл-спиннеры</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Спиннербейты</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Оснастка</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Бойлы</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Блесны</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Мормышки</a></li>
+                </ul>
+                <div class="catalog__offer">
+                    <div class="catalog__offer-hint hint">Специальное предложение</div>
+                    <div class="catalog__offer-caption">Скидка 15% на всю категорию воблеров</div>
+                    <p class="catalog__offer-subtitle">Распродажа воблеров до 30 мая 2024, торопитесь! Подробности уточняйте у менеджера</p>
+                </div>
+            </div>
+            <div class="catalog__block">
+                <div class="catalog__block-header">
+                    <div class="catalog__block-caption">Бренды</div>
+                    <div class="catalog__block-controls">
+                        <button type="button" class="catalog__block-prev swiper-button-prev"></button>
+                        <button type="button" class="catalog__block-next swiper-button-next"></button>
+                    </div>
+                </div>
+                <div class="catalog__block-slider swiper">
+                    <div class="swiper-wrapper">
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/duo.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/abu-garcia.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/norfin.png" alt="Лого бренда">
+                        </div>
+                    </div>
+                </div>
+                <ul class="catalog__block-list">
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Спиннинговые</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Фидерные</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Кастинговые</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Зимние</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Поплавочные</a></li>
+                </ul>
+                <div class="catalog__offer">
+                    <div class="catalog__offer-hint hint">Специальное предложение</div>
+                    <div class="catalog__offer-caption">Скидка 20% на все фидерные удилища</div>
+                    <p class="catalog__offer-subtitle">Распродажа до 1 июня, успейте приобрести!</p>
+                </div>
+            </div>
+            <div class="catalog__block">
+                <div class="catalog__block-header">
+                    <div class="catalog__block-caption">Бренды</div>
+                    <div class="catalog__block-controls">
+                        <button type="button" class="catalog__block-prev swiper-button-prev"></button>
+                        <button type="button" class="catalog__block-next swiper-button-next"></button>
+                    </div>
+                </div>
+                <div class="catalog__block-slider swiper">
+                    <div class="swiper-wrapper">
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/fhm.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/zetrix.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/dawa.png" alt="Лого бренда">
+                        </div>
+                    </div>
+                </div>
+                <ul class="catalog__block-list">
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Монофильная</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Флюорокарбоновая</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Плетеная</a></li>
+                </ul>
+                <div class="catalog__offer">
+                    <div class="catalog__offer-hint hint">Специальное предложение</div>
+                    <div class="catalog__offer-caption">Бесплатная доставка при покупке от 3000 рублей</div>
+                    <p class="catalog__offer-subtitle">Только до конца недели!</p>
+                </div>
+            </div>
+            <div class="catalog__block">
+                <div class="catalog__block-header">
+                    <div class="catalog__block-caption">Бренды</div>
+                    <div class="catalog__block-controls">
+                        <button type="button" class="catalog__block-prev swiper-button-prev"></button>
+                        <button type="button" class="catalog__block-next swiper-button-next"></button>
+                    </div>
+                </div>
+                <div class="catalog__block-slider swiper">
+                    <div class="swiper-wrapper">
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/shiman.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/graphiteleader.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/hr.png" alt="Лого бренда">
+                        </div>
+                    </div>
+                </div>
+                <ul class="catalog__block-list">
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Джиг-головки</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Крючки</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Поводки</a></li>
+                </ul>
+                <div class="catalog__offer">
+                    <div class="catalog__offer-hint hint">Специальное предложение</div>
+                    <div class="catalog__offer-caption">Скидка 10% на все крючки</div>
+                    <p class="catalog__offer-subtitle">Акция действует до 10 июня</p>
+                </div>
+            </div>
+            <div class="catalog__block">
+                <div class="catalog__block-header">
+                    <div class="catalog__block-caption">Бренды</div>
+                    <div class="catalog__block-controls">
+                        <button type="button" class="catalog__block-prev swiper-button-prev"></button>
+                        <button type="button" class="catalog__block-next swiper-button-next"></button>
+                    </div>
+                </div>
+                <div class="catalog__block-slider swiper">
+                    <div class="swiper-wrapper">
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/fhm.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/zetrix.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/dawa.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/shiman.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/duo.png" alt="Лого бренда">
+                        </div>
+                        <div class="catalog__slide swiper-slide">
+                            <img src="@img/brands/graff.png" alt="Лого бренда">
+                        </div>
+                    </div>
+                </div>
+                <ul class="catalog__block-list">
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Катушки</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Крючки</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Поплавки</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Поводки</a></li>
+                    <li class="catalog__block-item"><a href="" class="catalog__block-link">Коробочки и ящики</a></li>
+                </ul>
+                <div class="catalog__offer">
+                    <div class="catalog__offer-hint hint">Специальное предложение</div>
+                    <div class="catalog__offer-caption">Скидка 15% на все катушки</div>
+                    <p class="catalog__offer-subtitle">Успейте приобрести до 10 июня</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

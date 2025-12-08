@@ -1,0 +1,72 @@
+.policy {
+	padding: 1.5rem 0 2.5rem;
+	@media (min-width: $md3) {
+		padding: rem(80) 0;
+	}
+	// .policy__container
+	&__container {
+		gap: 1.5rem;
+		display: flex;
+		flex-direction: column-reverse;
+		@media (min-width: $md3) {
+			align-items: flex-start;
+			flex-direction: row;
+		}
+	}
+	// .policy__content
+	&__content {
+	}
+	// .policy__title
+	&__title {
+		font-family: $font-dela;
+		line-height: 120%;
+		letter-spacing: 0.04rem;
+		font-size: 1.5rem;
+		@media (min-width: $md4) {
+			font-size: 2rem;
+		}
+	}
+	// .policy__subtitle
+	&__subtitle {
+		color: #ff7dbc;
+		font-weight: 500;
+		font-size: 1.25rem;
+		margin-top: rem(18);
+		line-height: 140%;
+		@media (min-width: $md3) {
+			margin-top: rem(42);
+			font-size: 1.5rem;
+			line-height: 133.333%;
+		}
+	}
+	// .policy__body
+	&__body {
+		color: #414651;
+		margin-top: 1.5rem;
+		line-height: 150%;
+		@media (min-width: $md2) {
+			line-height: 166.667%;
+			margin-top: 1rem;
+			font-size: 1.125rem;
+		}
+		& p {
+			& a {
+				color: #1570ef;
+				@media (any-hover: hover) {
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+			&:not(:last-child) {
+				margin-bottom: 1.5rem;
+				@media (min-width: $md2) {
+					margin-bottom: 1.875rem;
+				}
+			}
+		}
+	}
+	// .policy__sidebar
+	&__sidebar {
+	}
+}

@@ -1,0 +1,37 @@
+[
+    {
+        "extrasClass": "",
+        "image": "@img/products/rattlins.png",
+        "imageClass": "products__image--yellow-light-shadow",
+        "name": "Раттлины",
+        "description": "Воблер часто используют для ловли хищной рыбы на спиннинг. Благодаря разнообразию форм и параметров, с воблерами рыбачат как с заросшего берега, так и с лодки посреди моря"
+    },
+    {
+        "extrasClass": "",
+        "image": "@img/products/wobblers.png",
+        "imageClass": "products__image--red-shadow",
+        "name": "Воблеры",
+        "description": "Воблер часто используют для ловли хищной рыбы на спиннинг. Благодаря разнообразию форм и параметров, с воблерами рыбачат как с заросшего берега, так и с лодки посреди моря"
+    },
+    {
+        "extrasClass": "",
+        "image": "@img/products/spoons.png",
+        "imageClass": "products__image--yellow-dark-shadow",
+        "name": "Блесны",
+        "description": "Воблер часто используют для ловли хищной рыбы на спиннинг. Благодаря разнообразию форм и параметров, с воблерами рыбачат как с заросшего берега, так и с лодки посреди моря"
+    },
+    {
+        "extrasClass": "",
+        "image": "@img/products/tail-spinners.png",
+        "imageClass": "products__image--red-shadow",
+        "name": "Тейл-спиннеры",
+        "description": "Воблер часто используют для ловли хищной рыбы на спиннинг. Благодаря разнообразию форм и параметров, с воблерами рыбачат как с заросшего берега, так и с лодки посреди моря"
+    },
+    {
+        "extrasClass": " products__item--large",
+        "image": "@img/products/equipment.png",
+        "imageClass": "products__image--yellow-light-shadow",
+        "name": "Оснастка",
+        "description": "Воблер часто используют для ловли хищной рыбы на спиннинг. Благодаря разнообразию форм и параметров, с воблерами рыбачат как с заросшего берега, так и с лодки посреди моря"
+    }
+]

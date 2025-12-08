@@ -1,0 +1,73 @@
+// Использование модулей SASS
+@use "sass:math";
+// Использование модулей SASS
+// ======================================МИКСИНЫ==============================================
+@import "mixins";
+// ======================================МИКСИНЫ==============================================
+
+// ======================================ШРИФТЫ===============================================
+@import "fonts";
+@import "icons";
+// ======================================ШРИФТЫ===============================================
+
+// Шрифт по умолчанию
+$fontfamily: "Jost";
+$font-dela: "DelaGothicOne";
+$font-lighthaus: "Manrope";
+// Шрифт по умолчанию
+
+$md0: 1661.98px;
+$md1: 1399.98px;
+$md2: 1199.98px;
+$md3: 991.98px;
+$md4: 767.98px;
+$md5: 575.98px;
+$md6: 389.98px;
+
+// ПЕРЕМЕННЫЕ
+
+$minWidth: 360; // Минимальная ширина страницы
+$maxWidth: 1920; // Ширина макета
+$maxWidthContainer: rem(1632); // Максимальная ширина ограничивающего контейнера
+$containerPadding: 30;
+
+// ЦВЕТА
+
+$pink: #ff7dbc;
+$black: #101828;
+
+$header: var(--header-height, 11.375rem);
+
+// Z-Index
+
+$ui-index-1: 1; // Для наполняющих элементов в общем потоке
+$ui-index-2: 2; // Для наполняющих элементов в общем потоке
+$ui-index-3: 3; // Для масок
+$ui-index-4: 4; // Для сайдбаров
+$ui-index-5: 5; // Для модалок
+$ui-index-6: 6; // Для элементов, перекрывающих все
+
+// ОБЩИЕ ПАРАМЕТРЫ
+
+@import "ui";
+@import "forms";
+@import "common";
+@import "header";
+@import "modules/catalog";
+@import "modules/range-slider";
+@import "footer";
+
+//=======================================
+
+// СТИЛИ СТРАНИЦ
+
+@import "pages/home";
+@import "pages/catalog";
+@import "pages/product";
+@import "pages/about";
+@import "pages/support";
+@import "pages/policy";
+@import "pages/error";
+@import "pages/blog";
+@import "pages/article";
+@import "pages/cart";

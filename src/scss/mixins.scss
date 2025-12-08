@@ -1,0 +1,174 @@
+//Подключение шрифтов
+@mixin font($font_name, $file_name, $weight, $style) {
+	@font-face {
+		font-family: $font_name;
+		font-display: swap;
+		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		font-weight: #{$weight};
+		font-style: #{$style};
+	}
+}
+
+// rem
+@function rem($px) {
+	$result: math.div($px, 16);
+	@return #{$result}rem;
+}
+// rem
+
+// rem
+@function em($px, $value: 16) {
+	$result: math.div($px, $value);
+	@return #{$result}em;
+}
+// rem
+
+//К псевдоэлементам
+@mixin pseudo($display: block, $pos: absolute, $content: "") {
+	content: $content;
+	display: $display;
+	position: $pos;
+}
+
+@mixin drop-border($size, $color) {
+	filter: drop-shadow(0 0 rem(math.div($size, 4)) $color) drop-shadow(0 0 rem(math.div($size, 4)) $color) drop-shadow(0 0 rem(math.div($size, 4)) $color);
+}
+
+//Cтилизация плэйсхолдеров
+@mixin placeholder($color: currentColor, $size: inherit, $weight: 400) {
+	&::-webkit-input-placeholder {
+		color: $color;
+		font-size: $size;
+		font-weight: $weight;
+	}
+	&:-moz-placeholder {
+		color: $color;
+		font-size: $size;
+		font-weight: $weight;
+	}
+	&::-moz-placeholder {
+		color: $color;
+		font-size: $size;
+		font-weight: $weight;
+	}
+	&:-ms-input-placeholder {
+		color: $color;
+		font-size: $size;
+		font-weight: $weight;
+	}
+}
+
+//Aдаптивное свойствo
+
+@mixin adaptiv-value($property, $startSize, $minSize, $type) {
+	$addSize: $startSize - $minSize;
+	$minSizeValue: rem($minSize);
+	$regularSize: rem($startSize);
+
+	@if $property == "font-size" {
+		$minSizeValue: math.div($minSize, 16) + rem;
+		$regularSize: math.div($startSize, 16) + rem;
+	}
+
+	@if $type == 1 {
+		//только если меньше контейнера
+		#{$property}: $regularSize;
+		@media (max-width: $md0) {
+			#{$property}: calc(#{$minSizeValue} + #{rem($addSize)} * ((100vw - #{rem($minWidth)}) / #{$maxWidthContainer - rem($minWidth)}));
+		}
+	} @else if $type == 2 {
+		//только если больше контейнера
+		#{$property}: $regularSize;
+		@media (min-width: $md0) {
+			#{$property}: calc(#{$minSizeValue} + #{rem($addSize)} * ((100vw - #{rem($minWidth)}) / #{$maxWidth - rem($minWidth)}));
+		}
+	} @else {
+		// всегда
+		#{$property}: calc(#{$minSizeValue} + #{rem($addSize)} * ((100vw - #{rem($minWidth)}) / #{$maxWidth - rem($minWidth)}));
+	}
+}
+
+// Поддрежка свойств
+
+// $dimensions: (
+// 	desktop: 1708,
+// 	tablet: 768,
+// 	mobile: 360,
+// );
+
+$dimensions: (
+	fullHD: 2560,
+	desktop: 1024,
+	tablet: 768,
+	mobile: 320,
+);
+
+@function pxToVw($value, $dimension) {
+	@return math.div($value * 100, map-get($dimensions, $dimension)) + vw;
+}
+
+@mixin font-size($sizeValue, $sizeValueTablet, $sizeValueMobile) {
+	font-size: pxToVw($sizeValueMobile, mobile);
+
+	@media (min-width: $md5) {
+		font-size: pxToVw($sizeValueTablet, tablet);
+	}
+
+	@media (min-width: $md3) and (max-width: $md2) {
+		font-size: pxToVw($sizeValue, desktop);
+	}
+	@media (min-width: $md1) {
+		font-size: $sizeValue + px;
+	}
+}
+@mixin fs($sizeValue, $sizeValueTablet: $sizeValue, $sizeValueMobile: $sizeValue) {
+	@include font-size($sizeValue, $sizeValueTablet, $sizeValueMobile);
+}
+
+@function vw($value) {
+	@return pxToVw($value, fullHD);
+}
+@function vwd($value) {
+	@return pxToVw($value, desktop);
+}
+@function vwt($value) {
+	@return pxToVw($value, tablet);
+}
+@function vwm($value) {
+	@return pxToVw($value, mobile);
+}
+
+// @function pxToVw($value, $dimension) {
+// 	@return math.div($value * 100, map-get($dimensions, $dimension)) + vw;
+// }
+
+// @mixin font-size($sizeValue, $sizeValueTablet, $sizeValueMobile) {
+// 	// font-size: $sizeValue + px;
+// 	font-size: pxToVw($sizeValueMobile, mobile);
+
+// 	@media (min-width: $md5) {
+// 		font-size: pxToVw($sizeValueTablet, tablet);
+// 	}
+
+// 	@media (min-width: $md3) and (max-width: $md2) {
+// 		font-size: pxToVw($sizeValue, desktop);
+// 	}
+// 	@media (min-width: $md1) {
+// 		font-size: $sizeValue + px;
+// 	}
+// }
+// @mixin fs($sizeValue, $sizeValueTablet: $sizeValue, $sizeValueMobile: $sizeValue) {
+// 	@include font-size($sizeValue, $sizeValueTablet, $sizeValueMobile);
+// }
+// // @function vw($value, $dimension: mobile) {
+// // 	@return pxToVw($value, $dimension);
+// // }
+// @function vw($value) {
+// 	@return pxToVw($value, desktop);
+// }
+// @function vwt($value) {
+// 	@return pxToVw($value, tablet);
+// }
+// @function vwm($value) {
+// 	@return pxToVw($value, mobile);
+// }

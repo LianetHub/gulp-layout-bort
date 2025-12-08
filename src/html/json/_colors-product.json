@@ -1,0 +1,79 @@
+[
+    {
+        "name": "product-color",
+        "checked": true,
+        "colors": [
+            "#000",
+            "#F00"
+        ],
+        "text": "009",
+        "withoutText": true
+    },
+    {
+        "name": "product-color",
+        "colors": [
+            "#FF7DBC"
+        ],
+        "text": "019",
+        "withoutText": true
+    },
+    {
+        "name": "product-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "101",
+        "withoutText": true
+    },
+    {
+        "name": "product-color",
+        "colors": [
+            "#9B2D30",
+            "#287A41",
+            "#FFFF00",
+            "#0000FF"
+        ],
+        "text": "097",
+        "withoutText": true
+    },
+    {
+        "name": "product-color",
+        "colors": [
+            "#000",
+            "#F4D400"
+        ],
+        "text": "065",
+        "withoutText": true
+    },
+    {
+        "name": "product-color",
+        "colors": [
+            "#FF0007",
+            "#2E90FA",
+            "#FF0",
+            "#0F0"
+        ],
+        "text": "002",
+        "withoutText": true
+    },
+    {
+        "name": "product-color",
+        "colors": [
+            "#F4D400"
+        ],
+        "text": "007",
+        "withoutText": true
+    },
+    {
+        "name": "product-color",
+        "colors": [
+            "#17B26A",
+            "#9E77ED",
+            "#F79009"
+        ],
+        "text": "023",
+        "withoutText": true
+    }
+]

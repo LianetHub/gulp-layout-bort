@@ -1,0 +1,68 @@
+<section class="contacts">
+    <div class="contacts__container">
+        <div class="contacts__hint hint">Как нас найти?</div>
+        <h2 class="contacts__title title">Контакты</h2>
+        <div class="contacts__body">
+            <div class="contacts__map">
+                <div class="contacts__map-header">
+                    <div id="map" class="contacts__map-block"></div>
+                </div>
+                <ul class="contacts__list">
+                    <li class="contacts__list-item">
+                        <div class="contacts__caption">Адрес</div>
+                        <address class="contacts__text">г. Москва, Волоколамское&nbsp;ш., 114, к. 2, ст. 2, оф. 9/4</address>
+                    </li>
+                    <li class="contacts__list-item">
+                        <div class="contacts__caption">Режим работы</div>
+                        <div class="contacts__text">Ежедневно с 10:00 до 20:00</div>
+                    </li>
+                    <li class="contacts__list-item">
+                        <div class="contacts__caption">Телефон</div>
+                        <a href="tel:+79251398515" class="contacts__link">+7 (925) 139-85-15</a>
+                        <div class="contacts__socials socials">
+                            <a href="" aria-label="Следите за нами в Telegram" class="socials__link icon-telegram"></a>
+                            <a href="" aria-label="Следите за нами в WhatsApp" class="socials__link icon-whatsapp"></a>
+                        </div>
+                    </li>
+                    <li class="contacts__list-item">
+                        <div class="contacts__caption">Email</div>
+                        <a href="mailto:info@d-ocean.su" class="contacts__link">info@d-ocean.su</a>
+                    </li>
+                </ul>
+            </div>
+            <form action="#" class="contacts__form form">
+                <div class="contacts__form-header">
+                    <div class="contacts__form-caption">Остались вопросы?</div>
+                    <div class="contacts__form-text">Напишите нам через форму обратной связи, мы ответим максимально оперативно на любой ваш вопрос.</div>
+                </div>
+                <div class="contacts__form-fields">
+                    <label class="contacts__form-field contacts__form-field--large form__field">
+                        <input type="text" name="name" data-required class="form__control" placeholder="">
+                        <span class="form__field-placeholder">Ваше имя</span>
+                    </label>
+                    <label class="contacts__form-field form__field">
+                        <input type="tel" name="phone" data-required class="form__control" placeholder="">
+                        <span class="form__field-placeholder">Телефон</span>
+                    </label>
+                    <label class="contacts__form-field form__field">
+                        <input type="email" name="email" data-required class="form__control" placeholder="">
+                        <span class="form__field-placeholder">Email</span>
+                    </label>
+                    <label class="contacts__form-field contacts__form-field--large form__field">
+                        <textarea name="message" class="form__control" placeholder=""></textarea>
+                        <span class="form__field-placeholder">Ваш вопрос или предложение...</span>
+                    </label>
+                    <label class="form__file contacts__form-field--large">
+                        <input type="file" name="file" class="form__file-input" hidden>
+                        <span class="form__file-btn icon-clip">Прикрепить (до 10 мб.)</span>
+                    </label>
+                </div>
+                <label class="form__checkbox">
+                    <input type="checkbox" name="agree" data-required class="form__checkbox-input" hidden>
+                    <span class="form__checkbox-text">Отправляя заявку, Вы даёте согласие на храниние и <a href="">обработку персональных данных</a></span>
+                </label>
+                <button type="submit" class="form__btn btn btn-primary icon-chevron-right">Отправить</button>
+            </form>
+        </div>
+    </div>
+</section>

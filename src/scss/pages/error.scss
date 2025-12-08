@@ -1,0 +1,78 @@
+.error-page {
+	min-height: 100vh;
+
+	color: #fff;
+	text-align: center;
+	position: relative;
+	background: url("@img/decor/error-tentacle-1.svg") 0 100% / rem(70) auto no-repeat, url("@img/decor/error-tentacle-2.svg") 100% 100% / rem(75) auto no-repeat,
+		url("@img/decor/error-bg.svg") center 0 / cover no-repeat, #131416;
+	@media (min-width: $md4) {
+		background: url("@img/decor/error-tentacle-1.svg") 0 100% / rem(158) auto no-repeat, url("@img/decor/error-tentacle-2.svg") 100% 100% / rem(190) auto no-repeat,
+			url("@img/decor/error-bg.svg") center 0 / cover no-repeat, #131416;
+	}
+	// .error-page__container
+	&__container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	// .error-page__status
+	&__status {
+		margin-left: -1.5rem;
+		margin-right: -2rem;
+		margin-bottom: 0.25rem;
+		@media (min-width: $md4) {
+			margin-left: 0;
+			margin-right: 0;
+			margin-bottom: -1rem;
+		}
+	}
+	// .error-page__title
+	&__title {
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 131.25%;
+		letter-spacing: -0.00625rem;
+	}
+	// .error-page__subtitle
+	&__subtitle {
+		max-width: 32.4375rem;
+
+		font-size: 1rem;
+		line-height: 137.5%;
+		margin-top: 1.25rem;
+		@media (min-width: $md4) {
+			margin-top: 0.5rem;
+			line-height: 150%;
+			font-size: 1.25rem;
+		}
+	}
+	// .error-page__btn
+	&__btn {
+		margin-top: 1.25rem;
+		@media (min-width: $md4) {
+			margin-top: 2rem;
+		}
+	}
+	// .error-page__copyright
+	&__copyright {
+		font-size: 1rem;
+		line-height: 150%;
+		opacity: 0.8;
+		margin-top: 3rem;
+		width: 100%;
+		max-width: rem(207);
+		@media (min-width: $md4) {
+			max-width: 100%;
+			letter-spacing: -0.00625rem;
+		}
+		@media (min-height: 780px) {
+			position: absolute;
+			left: 50%;
+			transform: translateX(-50%);
+			@media (min-width: $md4) {
+				bottom: rem(42);
+			}
+		}
+	}
+}

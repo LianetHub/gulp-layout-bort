@@ -1,0 +1,72 @@
+.breadcrumbs {
+	position: relative;
+	z-index: 3;
+	margin-top: 0.75rem;
+
+	@media (min-width: $md5) {
+		margin-top: 1.12rem;
+	}
+
+	&__list {
+		display: flex;
+		flex-wrap: nowrap;
+		overflow: hidden;
+		white-space: nowrap;
+		gap: 0.5rem;
+	}
+
+	&__item {
+		display: inline-block;
+		white-space: nowrap;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		min-width: 0;
+		line-height: 120%;
+		font-size: 0.875rem;
+
+		@media (min-width: $md5) {
+			font-size: 1rem;
+		}
+
+		@media (min-width: $md3) {
+			font-size: 1.125rem;
+		}
+
+		&:not(:last-child) {
+			flex-shrink: 1;
+			&::after {
+				content: "/";
+				opacity: 0.5;
+				margin-left: 0.25rem;
+				@media (min-width: $md5) {
+					margin-left: 0.5rem;
+				}
+			}
+		}
+
+		&:not(:last-child) {
+			flex-shrink: 0;
+			overflow: visible;
+			text-overflow: clip;
+		}
+	}
+
+	&__link {
+		word-break: break-all;
+		overflow: hidden;
+		text-overflow: ellipsis;
+
+		&:is(a) {
+			transition: color 0.3s ease;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $pink;
+				}
+			}
+		}
+
+		&.active {
+			opacity: 0.5;
+		}
+	}
+}

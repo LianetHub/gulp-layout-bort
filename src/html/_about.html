@@ -1,0 +1,12 @@
+<section class="about">
+    <div class="about__container">
+        <div class="about__header">
+            <div class="about__hint hint" data-animate="bottom">Преимущества компании</div>
+            <h2 class="about__title title" data-animate="bottom">О компании D-Ocean</h2>
+            <p class="about__subtitle" data-animate="bottom">Расскажем кратко о сильных сторонах нашей компании</p>
+        </div>
+        <ul class="about__list">
+            @@loop('./templates/_about-item.html', './html/json/_about.json')
+        </ul>
+    </div>
+</section>

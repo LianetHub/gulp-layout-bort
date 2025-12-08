@@ -1,0 +1,732 @@
+[
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF7DBC"
+        ],
+        "text": "019"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#9B2D30",
+            "#287A41",
+            "#FFFF00",
+            "#0000FF"
+        ],
+        "text": "097"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F4D400"
+        ],
+        "text": "065"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "101"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF0007",
+            "#2E90FA",
+            "#FF0",
+            "#0F0"
+        ],
+        "text": "002"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#98FF3C"
+        ],
+        "text": "007"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000000",
+            "#F4D400"
+        ],
+        "text": "023"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "079"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F00"
+        ],
+        "text": "009"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff"
+        ],
+        "text": "122"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#7C2D9B",
+            "#3ACD99",
+            "#FFFF00",
+            "#FF7700"
+        ],
+        "text": "002"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#17B26A"
+        ],
+        "text": "097"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "019"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#C0F",
+            "#F4D400"
+        ],
+        "text": "122"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#F4D400"
+        ],
+        "text": "065"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF0007",
+            "#2E90FA",
+            "#FF0",
+            "#0F0"
+        ],
+        "text": "023"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#CC00FF",
+            "#F4D400"
+        ],
+        "text": "009"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "101"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#C0F",
+            "#FF0"
+        ],
+        "text": "007"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#C0F",
+            "#FF0"
+        ],
+        "text": "079"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#287A41",
+            "#0000FF"
+        ],
+        "text": "019"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF7DBC"
+        ],
+        "text": "097"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF63EF",
+            "#287A41",
+            "#FF0",
+            "#00FFEA"
+        ],
+        "text": "122"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "002"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#287A41",
+            "#F4D400"
+        ],
+        "text": "007"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#1A00FF",
+            "#2E90FA",
+            "#FF0",
+            "#0F0"
+        ],
+        "text": "065"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#D444F1"
+        ],
+        "text": "023"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#287A41",
+            "#F4D400"
+        ],
+        "text": "079"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "009"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF0",
+            "#00F"
+        ],
+        "text": "101"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#F4D400"
+        ],
+        "text": "122"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF7DBC"
+        ],
+        "text": "097"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "097"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#2970FF"
+        ],
+        "text": "019"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#9B2D30",
+            "#287A41",
+            "#FFFF00",
+            "#0000FF"
+        ],
+        "text": "007"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "023"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF0007",
+            "#2E90FA",
+            "#FF0",
+            "#0F0"
+        ],
+        "text": "101"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F4D400"
+        ],
+        "text": "065"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#419772"
+        ],
+        "text": "079"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F00"
+        ],
+        "text": "009"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F00"
+        ],
+        "text": "065"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "065"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#F5E0C4"
+        ],
+        "text": "122"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#9B2D30",
+            "#287A41",
+            "#FFFF00",
+            "#0000FF"
+        ],
+        "text": "097"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F4D400"
+        ],
+        "text": "019"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF0007",
+            "#2E90FA",
+            "#FF0",
+            "#0F0"
+        ],
+        "text": "007"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#7CD4FD"
+        ],
+        "text": "023"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F4D400"
+        ],
+        "text": "019"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "101"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F00"
+        ],
+        "text": "079"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#9B2D30",
+            "#287A41",
+            "#FFFF00",
+            "#0000FF"
+        ],
+        "text": "019"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F00"
+        ],
+        "text": "019"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#FF7DBC"
+        ],
+        "text": "065"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#98FF3C"
+        ],
+        "text": "101"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#B692F6"
+        ],
+        "text": "002"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "007"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F4D400"
+        ],
+        "text": "023"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "079"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F00"
+        ],
+        "text": "009"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#9B2D30",
+            "#287A41",
+            "#FFFF00",
+            "#0000FF"
+        ],
+        "text": "122"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#FF7700"
+        ],
+        "text": "002"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#D444F1"
+        ],
+        "text": "097"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F00"
+        ],
+        "text": "019"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "122"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F4D400"
+        ],
+        "text": "065"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF0007",
+            "#2E90FA",
+            "#FF0",
+            "#0F0"
+        ],
+        "text": "023"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#F4D400"
+        ],
+        "text": "009"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#9B2D30",
+            "#287A41",
+            "#FFFF00",
+            "#0000FF"
+        ],
+        "text": "009"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F4D400"
+        ],
+        "text": "007"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "079"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#3F8BEF",
+            "#F00"
+        ],
+        "text": "019"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#9B2D30",
+            "#287A41",
+            "#FFFF00",
+            "#0000FF"
+        ],
+        "text": "097"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F4D400"
+        ],
+        "text": "122"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF0007",
+            "#2E90FA",
+            "#FF0",
+            "#0F0"
+        ],
+        "text": "002"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#17B26A"
+        ],
+        "text": "007"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "065"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F4D400"
+        ],
+        "text": "023"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "079"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F00"
+        ],
+        "text": "009"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF7DBC"
+        ],
+        "text": "101"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF7DBC"
+        ],
+        "text": "023"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#F0A",
+            "#6ECF18"
+        ],
+        "text": "023"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#fff",
+            "#6C6DFF",
+            "#FF696B"
+        ],
+        "text": "122"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#9B2D30",
+            "#287A41",
+            "#FFFF00",
+            "#0000FF"
+        ],
+        "text": "097"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#000",
+            "#F4D400"
+        ],
+        "text": "007"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF0007",
+            "#2E90FA",
+            "#FF0",
+            "#0F0"
+        ],
+        "text": "065"
+    },
+    {
+        "name": "modal-color",
+        "colors": [
+            "#FF9C66"
+        ],
+        "text": "002"
+    }
+]

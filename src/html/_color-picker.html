@@ -1,0 +1,16 @@
+<div id="color-picker" class="popup">
+    <div class="popup__header">
+        <div class="popup__title">
+            Цвета товаров
+            <sup class="popup__title-quantity">87</sup>
+        </div>
+        <button type="button" data-fancybox-close class="popup__close icon-cross"></button>
+    </div>
+    <form action="#" class="popup__search">
+        <button type="search" class="popup__search-btn icon-search"></button>
+        <input type="text" name="s" autocomplete="off" class="popup__search-input" placeholder="Поиск цвета...">
+    </form>
+    <div class="popup__colors">
+        @@loop('./templates/_color-item.html', './html/json/_colors.json')
+    </div>
+</div>

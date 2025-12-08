@@ -1,0 +1,93 @@
+<div id="question" class="popup popup--large">
+    <div class="popup__content">
+        <div class="popup__image">
+            <img src="@img/question-modal.jpg" class="cover-image" alt="Фото">
+        </div>
+        <form action="#" class="popup__form">
+            <h3 class="popup__form-title">Задать нам вопрос</h3>
+            <div class="popup__form-fields">
+                <label class="popup__form-field popup__form-field--large form__field">
+                    <input type="text" name="name" data-required class="form__control" placeholder="">
+                    <span class="form__field-placeholder">Ваше имя</span>
+                </label>
+                <label class="popup__form-field form__field">
+                    <input type="tel" name="phone" data-required class="form__control" placeholder="">
+                    <span class="form__field-placeholder">Телефон</span>
+                </label>
+                <label class="popup__form-field form__field">
+                    <input type="email" name="email" data-required class="form__control" placeholder="">
+                    <span class="form__field-placeholder">Email</span>
+                </label>
+                <label class="popup__form-field popup__form-field--large form__field">
+                    <textarea name="message" class="form__control" placeholder=""></textarea>
+                    <span class="form__field-placeholder">Ваш вопрос или предложение...</span>
+                </label>
+                <label class="form__file popup__form-field--large">
+                    <input type="file" name="file" class="form__file-input" hidden>
+                    <span class="form__file-btn icon-clip">Прикрепить (до 10 мб.)</span>
+                </label>
+            </div>
+            <div class="popup__form-footer">
+                <label class="form__checkbox">
+                    <input type="checkbox" name="agree" data-required checked class="form__checkbox-input" hidden>
+                    <span class="form__checkbox-text">Я даю согласие на <a href="">обработку персональных данных</a></span>
+                </label>
+                <button type="submit" class="form__btn btn btn-primary btn-sm icon-chevron-right">Отправить</button>
+
+            </div>
+        </form>
+        <button type="button" data-fancybox-close class="popup__close icon-cross"></button>
+    </div>
+</div>
+<div id="callback" class="popup popup--large">
+    <div class="popup__content">
+        <div class="popup__image">
+            <img src="@img/feedback-modal.jpg" class="cover-image" alt="Фото">
+        </div>
+        <form action="#" class="popup__form">
+            <h3 class="popup__form-title">Заказать обратный звонок</h3>
+            <p class="popup__form-subtitle">Наши специалисты свяжутся с вами в ближайшее время и&nbsp;ответят на вопросы, помогут решить вашу проблему</p>
+            <div class="popup__form-fields">
+                <label class="popup__form-field popup__form-field--large form__field">
+                    <input type="text" name="name" data-required class="form__control" placeholder="">
+                    <span class="form__field-placeholder">Ваше имя</span>
+                </label>
+                <label class="popup__form-field popup__form-field--large form__field">
+                    <input type="tel" name="phone" data-required class="form__control" placeholder="">
+                    <span class="form__field-placeholder">Телефон</span>
+                </label>
+            </div>
+            <div class="popup__form-footer">
+                <label class="form__checkbox">
+                    <input type="checkbox" name="agree" data-required checked class="form__checkbox-input" hidden>
+                    <span class="form__checkbox-text">Я даю согласие на <a href="">обработку персональных данных</a></span>
+                </label>
+                <button type="submit" class="form__btn btn btn-primary btn-sm icon-chevron-right">Отправить</button>
+
+            </div>
+        </form>
+        <button type="button" data-fancybox-close class="popup__close icon-cross"></button>
+    </div>
+</div>
+<div id="success" class="popup popup--medium">
+    <div class="popup__success">
+        <div class="popup__success-icon">
+            <img src="@img/tick-circle.svg" alt="Иконка">
+        </div>
+        <div class="popup__success-title">Готово!</div>
+        <p class="popup__success-subtitle">Вы успешно отправили заявку. Наши специалисты скоро свяжутся с вами и ответят на все вопросы.</p>
+        <button type="button" data-fancybox-close class="popup__success-btn btn btn-primary">ок, закрыть</button>
+    </div>
+</div>
+<div id="order-success" class="popup popup--medium">
+    <div class="popup__success">
+        <div class="popup__success-icon">
+            <img src="@img/tick-circle.svg" alt="Иконка">
+        </div>
+        <div class="popup__success-title">Готово!</div>
+        <p class="popup__success-subtitle">
+            Заказ <a href="">№ 0012374 </a>успешно оплачен. Менеджер свяжется с вами в ближайшее время для подтверждения заказа. Вы можете отслеживать статусы заказа в своём <a href="">личном кабинете</a>.
+        </p>
+        <button type="button" data-fancybox-close class="popup__success-btn btn btn-primary">ок, закрыть</button>
+    </div>
+</div>

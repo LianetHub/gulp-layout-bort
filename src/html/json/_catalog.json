@@ -1,0 +1,203 @@
+[
+    {
+        "id": "180900",
+        "labels": [
+            "new",
+            "360"
+        ],
+        "image": "@img/goods/herring-45g/01.jpg",
+        "name": "Блесна D-Ocean для рыбалки колеблющаяся, колебалка на крупную щуку, чавычу, семгу, кету Herring 45g, цвет 19",
+        "oldPrice": "1 644 ₽",
+        "sale": "-55%",
+        "price": "799 ₽"
+    },
+    {
+        "id": "180901",
+        "labels": [
+            "video"
+        ],
+        "image": "@img/goods/06.png",
+        "name": "Блесна D-Ocean для рыбалки колеблющаяся, колебалка на крупную щуку,чавычу,семгу,кету Herring 37g , цвет 05",
+        "price": "867 ₽"
+    },
+    {
+        "id": "180902",
+        "labels": [
+            "discount",
+            "360"
+        ],
+        "image": "@img/goods/07.jpg",
+        "name": "Блесна для рыбалки D-Ocean PROKHOROVKA 22g колеблющаяся, колебалка на форель, цвет 120",
+        "oldPrice": "1 834 ₽",
+        "sale": "-25%",
+        "price": "1245 ₽"
+    },
+    {
+        "id": "180903",
+        "labels": [
+            "new",
+            "360"
+        ],
+        "image": "@img/goods/08.jpg",
+        "name": "Блесна для рыбалки D-Ocean Salmon Marine 37g колеблющаяся, колебалка на форель, цвет 198",
+        "price": "799 ₽"
+    },
+    {
+        "id": "180904",
+        "labels": [
+            "cashback"
+        ],
+        "image": "@img/goods/09.jpg",
+        "name": "Блесна для рыбалки D-Ocean PROKHOROVKA 22g колеблющаяся, колебалка на форель, цвет 120",
+        "price": "673 ₽"
+    },
+    {
+        "id": "180905",
+        "labels": [
+            "discount",
+            "video"
+        ],
+        "image": "@img/goods/10.jpg",
+        "name": "Блесна для рыбалки D-Ocean PROKHOROVKA 22g колеблющаяся, колебалка на форель, цвет 120",
+        "oldPrice": "1 577 ₽",
+        "sale": "-45%",
+        "price": "748 ₽"
+    },
+    {
+        "id": "180906",
+        "labels": [
+            "discount",
+            "360"
+        ],
+        "image": "@img/goods/03.png",
+        "name": "Блесна для рыбалки D-Ocean PROKHOROVKA 22g колеблющаяся, колебалка на форель, цвет 120",
+        "oldPrice": "1 644 ₽",
+        "sale": "-55%",
+        "price": "803 ₽"
+    },
+    {
+        "id": "180907",
+        "labels": [
+            "new"
+        ],
+        "image": "@img/goods/04.png",
+        "name": "Блесна для рыбалки D-Ocean PROKHOROVKA 22g колеблющаяся, колебалка на форель, цвет 120",
+        "oldPrice": "1 834 ₽",
+        "sale": "-25%",
+        "price": "1245 ₽"
+    },
+    {
+        "id": "180908",
+        "labels": [
+            "discount",
+            "cashback"
+        ],
+        "image": "@img/goods/11.jpg",
+        "name": "Блесна D-Ocean для рыбалки колеблющаяся, колебалка на крупную щуку, чавычу, семгу, кету Herring 45g, цвет 19",
+        "oldPrice": "1 257 ₽",
+        "sale": "-40%",
+        "price": "877 ₽"
+    },
+    {
+        "id": "180909",
+        "image": "@img/goods/06.png",
+        "name": "Блесна D-Ocean для рыбалки колеблющаяся, колебалка на крупную щуку,чавычу,семгу,кету Herring 37g , цвет 05",
+        "price": "867 ₽"
+    },
+    {
+        "id": "180910",
+        "labels": [
+            "360",
+            "video"
+        ],
+        "image": "@img/goods/07.jpg",
+        "name": "Блесна для рыбалки D-Ocean PROKHOROVKA 22g колеблющаяся, колебалка на форель, цвет 120",
+        "oldPrice": "1 834 ₽",
+        "sale": "-25%",
+        "price": "1245 ₽"
+    },
+    {
+        "id": "180911",
+        "image": "@img/goods/08.jpg",
+        "name": "Блесна для рыбалки D-Ocean Salmon Marine 37g колеблющаяся, колебалка на форель, цвет 198",
+        "price": "799 ₽"
+    },
+    {
+        "id": "180912",
+        "labels": [
+            "discount",
+            "360"
+        ],
+        "image": "@img/goods/03.png",
+        "name": "Блесна для рыбалки D-Ocean PROKHOROVKA 22g колеблющаяся, колебалка на форель, цвет 120",
+        "oldPrice": "1 644 ₽",
+        "sale": "-55%",
+        "price": "803 ₽"
+    },
+    {
+        "id": "180913",
+        "labels": [
+            "sale",
+            "video"
+        ],
+        "image": "@img/goods/06.png",
+        "name": "Блесна D-Ocean для рыбалки колеблющаяся, колебалка на крупную щуку,чавычу,семгу,кету Herring 37g , цвет 05",
+        "price": "867 ₽"
+    },
+    {
+        "id": "180914",
+        "labels": [
+            "discount"
+        ],
+        "image": "@img/goods/07.jpg",
+        "name": "Блесна для рыбалки D-Ocean PROKHOROVKA 22g колеблющаяся, колебалка на форель, цвет 120",
+        "oldPrice": "1 834 ₽",
+        "sale": "-25%",
+        "price": "1245 ₽"
+    },
+    {
+        "id": "180915",
+        "labels": [
+            "new"
+        ],
+        "image": "@img/goods/08.jpg",
+        "name": "Блесна для рыбалки D-Ocean Salmon Marine 37g колеблющаяся, колебалка на форель, цвет 198",
+        "price": "799 ₽"
+    },
+    {
+        "id": "180916",
+        "labels": [
+            "sale"
+        ],
+        "image": "@img/goods/09.jpg",
+        "name": "Блесна для рыбалки D-Ocean PROKHOROVKA 22g колеблющаяся, колебалка на форель, цвет 120",
+        "price": "673 ₽"
+    },
+    {
+        "id": "180917",
+        "image": "@img/goods/10.jpg",
+        "name": "Блесна для рыбалки D-Ocean PROKHOROVKA 22g колеблющаяся, колебалка на форель, цвет 120",
+        "oldPrice": "1 577 ₽",
+        "sale": "-45%",
+        "price": "748 ₽"
+    },
+    {
+        "id": "180918",
+        "image": "@img/goods/03.png",
+        "name": "Блесна для рыбалки D-Ocean PROKHOROVKA 22g колеблющаяся, колебалка на форель, цвет 120",
+        "oldPrice": "1 644 ₽",
+        "sale": "-55%",
+        "price": "803 ₽"
+    },
+    {
+        "id": "180919",
+        "labels": [
+            "new"
+        ],
+        "image": "@img/goods/04.png",
+        "name": "Блесна для рыбалки D-Ocean PROKHOROVKA 22g колеблющаяся, колебалка на форель, цвет 120",
+        "oldPrice": "1 834 ₽",
+        "sale": "-25%",
+        "price": "1245 ₽"
+    }
+]
