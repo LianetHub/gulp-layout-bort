@@ -266,6 +266,68 @@ $(function () {
     window.CatalogController = new CatalogController();
 
 
+    /**
+     * @class SearchController
+     * @description Manages the search input behavior, search bar visibility, and results interaction.
+     */
+    class SearchController {
+        constructor() {
+            this.selectors = {
+                search: '.search',
+                input: '.search__form-input',
+                bar: '.search__bar',
+                visibleClass: 'visible'
+            };
+
+            this.init();
+        }
+
+        init() {
+            $(document).on('input', this.selectors.input, (e) => {
+                this.handleInput($(e.target));
+            });
+
+            $(document).on('focus', this.selectors.input, (e) => {
+                this.handleInput($(e.target));
+            });
+
+            $(document).on('click', (e) => {
+                if (!$(e.target).closest(this.selectors.search).length) {
+                    this.closeBar();
+                }
+            });
+
+            $(document).on('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    this.closeBar();
+                }
+            });
+        }
+
+        handleInput($input) {
+            const query = $input.val().trim();
+            const $bar = $input.closest(this.selectors.search).find(this.selectors.bar);
+
+            if (query.length >= 1) {
+                this.openBar($bar);
+            } else {
+                this.closeBar($bar);
+            }
+        }
+
+        openBar($bar) {
+            $bar.addClass(this.selectors.visibleClass);
+        }
+
+        closeBar($bar = $(this.selectors.bar)) {
+            $bar.removeClass(this.selectors.visibleClass);
+        }
+    }
+
+    window.SearchController = new SearchController();
+
+
+
     // sliders
 
     /**

@@ -46,6 +46,13 @@
 	text-transform: uppercase;
 }
 
+.title-xs {
+	font-family: $font-russo;
+	font-size: 0.875rem;
+	line-height: 125%;
+	text-transform: uppercase;
+}
+
 .desktop-only {
 	@media (max-width: $md2) {
 		display: none;
