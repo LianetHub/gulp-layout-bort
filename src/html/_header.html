@@ -1,100 +1,7 @@
 <header class="header">
-    <div class="header__wrapper">
-        <a href="catalog.html" class="header__catalog-link btn btn-white btn-large icon-grid" aria-label="Перейти в каталог"></a>
-        <button type="button" class="header__catalog btn btn-white btn-large icon-grid">КАТАЛОГ</button>
-        <nav aria-label="Основное меню" class="header__menu menu">
-            <div class="menu__header">
-                <a href="/" class="menu__logo">
-                    <img src="@img/logo.svg" alt="Логотип D-Ocean">
-                </a>
-            </div>
-            <ul class="menu__list">
-                <li class="menu__item">
-                    <a href="/" class="menu__link">Главная</a>
-                </li>
-                <li class="menu__item">
-                    <a href="about.html" class="menu__link @@if(typeof active !== 'undefined' && active == 2){ active}">О&nbsp;компании</a>
-                </li>
-                <li class="menu__item menu__item--parent">
-                    <button type="button" class="menu__btn icon-chevron-down">Помощь</button>
-                    <div class="submenu">
-                        <ul class="submenu__list">
-                            <li class="submenu__item"><a href="payment.html" class="submenu__link icon-chevron-right @@if(typeof active !== 'undefined' && active == 3){ active}">Оплата</a></li>
-                            <li class="submenu__item"><a href="delivery.html" class="submenu__link icon-chevron-right @@if(typeof active !== 'undefined' && active == 4){ active}">Доставка</a></li>
-                            <li class="submenu__item"><a href="return.html" class="submenu__link icon-chevron-right @@if(typeof active !== 'undefined' && active == 5){ active}">Возврат товара</a></li>
-                            <li class="submenu__item"><a href="how-to-create-order.html" class="submenu__link icon-chevron-right @@if(typeof active !== 'undefined' && active == 6){ active}">Как сделать заказ?</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="menu__item">
-                    <a href="blog.html" class="menu__link@@if(typeof active !== 'undefined' && active == 7){ active}">Блог</a>
-                </li>
-            </ul>
-            <ul class="menu__list">
-                <li class="menu__item menu__item--parent">
-                    <button type="button" class="menu__btn icon-chevron-down">Документы</button>
-                    <div class="submenu">
-                        @@include('./templates/_docs-submenu.html', {
-                        "active": "@@active"
-                        })
-                    </div>
-                </li>
-                <li class="menu__item menu__item--parent">
-                    <button type="button" class="menu__btn icon-chevron-down">Оптовикам</button>
-                    <div class="submenu">
-                        <ul class="submenu__list">
-                            <li class="submenu__item"><a href="" class="submenu__link icon-chevron-right">Войти в личный кабинет</a></li>
-                            <li class="submenu__item"><a href="" class="submenu__link icon-chevron-right">Зарегистрироваться</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="menu__item menu__item--parent">
-                    <button type="button" class="menu__btn icon-chevron-down">Контакты</button>
-                    <div class="submenu">
-                        <ul class="submenu__list">
-                            <li class="submenu__contacts">
-                                <div class="submenu__contacts-block">
-                                    <div class="submenu__contacts-caption">Телефон:</div>
-                                    <a href="tel:+79251398515" class="submenu__contacts-phone">+7 (925) 139-85-15</a>
-                                    <a href="mailto:info@d-ocean.su" class="submenu__contacts-mail">info@d-ocean.su</a>
-                                    <a href="" class="submenu__contacts-callback btn btn-primary">заказать звонок</a>
-                                </div>
-                                <div class="submenu__contacts-block">
-                                    <div class="submenu__contacts-caption">Мессенджеры:</div>
-                                    <div class="submenu__contacts-socials socials">
-                                        <a href="" aria-label="Следите за нами в Telegram" class="socials__link icon-telegram"></a>
-                                        <a href="" aria-label="Следите за нами в WhatsApp" class="socials__link icon-whatsapp"></a>
-                                    </div>
-                                </div>
-                            </li>
-                            <li class="submenu__item"><a href="contacts.html" class="submenu__link icon-chevron-right@@if(typeof active !== 'undefined' && active == 13){ active}">Контакты</a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </nav>
-        <a href="index.html" class="header__logo">
-            <img src="@img/logo.svg" alt="Логотип D-Ocean">
-        </a>
-        <div class="header__actions">
-            <div data-da=".menu__header, 768" class="header__switch switch">
-                <label class="switch__item">
-                    <input type="radio" name="orderType" value="retail" checked class="switch__item-input" hidden>
-                    <span class="switch__item-btn">Розница</span>
-                </label>
-                <label class="switch__item">
-                    <input type="radio" name="orderType" value="wholesale" class="switch__item-input" hidden>
-                    <span class="switch__item-btn">Опт</span>
-                </label>
-            </div>
-            <a href="cart.html" class="header__cart icon-shopping-cart">
-                <span class="header__cart-quantity">6</span>
-            </a>
-        </div>
-        <button type="button" aria-label="Открыть мобильное меню" class="header__menu-toggler icon-menu"><span></span><span></span><span></span></button>
-    </div>
+
 </header>
-<div class="catalog">
+<!-- <div class="catalog">
     <div class="catalog__header">
         <div class="catalog__title">Каталог товаров</div>
         <button type="button" aria-label="Закрыть каталог" class="catalog__close icon-cross"></button>
@@ -455,4 +362,4 @@
             </div>
         </div>
     </div>
-</div>
+</div> -->

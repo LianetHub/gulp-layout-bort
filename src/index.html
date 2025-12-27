@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Главная страница'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {
+            "auth": false
+            })
+            <main class="page">
+                <section class="promo">
+                    <div class="promo__container">
+
+                    </div>
+                </section>
+                <section class="nums">
+                    <div class="nums__container">
+
+                    </div>
+                </section>
+
+                @@include('./html/includes/_benefits.html')
+                @@include('./html/includes/_popular-products.html')
+                @@include('./html/includes/_news.html')
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

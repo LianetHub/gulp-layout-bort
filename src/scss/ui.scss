@@ -1,5 +1,5 @@
 .color-accent {
-	color: #ff7dbc;
+	color: $orange;
 }
 
 .color-red {
@@ -28,23 +28,14 @@
 }
 
 .title {
-	text-align: center;
-	font-family: $font-dela;
-	line-height: 120%;
-	font-size: 1.5rem;
-	letter-spacing: 0.03rem;
-	@media (min-width: $md4) {
-		letter-spacing: 0.05rem;
-		font-size: 2.5rem;
-	}
-	@media (min-width: $md2) {
-		letter-spacing: 0.07rem;
-		font-size: 3.5rem;
-	}
+	font-family: $font-russo;
+	font-size: 2.25rem;
+	line-height: 125%;
+	text-transform: uppercase;
 }
 
 .title-sm {
-	font-family: $font-dela;
+	font-family: $font-russo;
 	line-height: 120%;
 	font-size: 1.5rem;
 	letter-spacing: 0.03rem;

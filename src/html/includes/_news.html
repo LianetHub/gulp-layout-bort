@@ -1,0 +1,15 @@
+<section class="news">
+    <div class="news__container">
+        <h2 class="news__title title">новости</h2>
+        <div class="news__slider">
+            <div class="swiper">
+                <div class="swiper-wrapper">
+                    @@loop('../templates/_news-card.html', './html/json/news.json')
+                </div>
+            </div>
+            <button type="button" class="news__prev swiper-button-prev"></button>
+            <button type="button" class="news__next swiper-button-next"></button>
+        </div>
+        <a href="/blog.html" class="news__btn btn btn-secondary">Все новости</a>
+    </div>
+</section>
