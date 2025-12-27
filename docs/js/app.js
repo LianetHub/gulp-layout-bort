@@ -14,36 +14,6 @@ $(function () {
     $(document).on("click", function (e) {
         const $target = $(e.target);
 
-        // Close the modal catalog on button click or outside click
-        if ($target.is(".catalog__close") || (!$target.closest(".catalog").length && $(".catalog").hasClass("catalog--open"))) {
-            $(".catalog").removeClass("catalog--open");
-            $("body").removeClass("catalog-lock");
-        }
-
-        // Open the modal catalog when a user clicks the button
-        if ($target.closest(".header__catalog").length) {
-            $(".catalog").addClass("catalog--open");
-            $("body").addClass("catalog-lock");
-        }
-
-        // Clear search input and hide the search bar within the modal catalog
-        if ($target.closest(".catalog__search-reset").length) {
-            $(".catalog__search-input").val("").trigger("input");
-            $(".catalog__searchbar").removeClass("active");
-        }
-
-        // Handle tabs inside the modal catalog
-        if ($target.closest(".catalog__categories-btn").length) {
-            const $button = $target.closest(".catalog__categories-btn");
-            const index = $button.parent().index();
-
-            $(".catalog__categories-btn").removeClass("active");
-            $button.addClass("active");
-
-            $(".catalog__block").removeClass("active");
-            $(".catalog__block").eq(index).addClass("active");
-        }
-
         // Handle submenu logic
         if ($target.closest('.menu__btn').length) {
             const $parentItem = $target.closest('.menu__btn').parent();
@@ -186,41 +156,6 @@ $(function () {
     });
 
 
-    $(document).on("keydown", function (e) {
-        if (e.key === "Escape" && $(".catalog").hasClass("catalog--open")) {
-            $(".catalog").removeClass("catalog--open");
-            $("body").removeClass("catalog-lock");
-        }
-    });
-
-    // searchbar logic
-    $(".catalog__search-input").on("input", function () {
-        const query = $(this).val().toLowerCase();
-        const $resetBtn = $(".catalog__search-reset");
-        if (query.length > 0) {
-            $resetBtn.addClass("active");
-            $(".catalog__searchbar").addClass("active");
-        } else {
-            $resetBtn.removeClass("active");
-            $(".catalog__searchbar").removeClass("active");
-        }
-    });
-
-
-
-    // "grid" или "rows" в Каталоге
-
-    $('.shop__grid-input').on('change', function () {
-        const gridType = $(this).val();
-        const $shopItems = $('.shop__items');
-
-        if (gridType === 'rows') {
-            $shopItems.addClass('shop__items--row');
-        } else {
-            $shopItems.removeClass('shop__items--row');
-        }
-    });
-
 
     // quantity block
     $('.quantity-block').each(function () {
@@ -262,6 +197,73 @@ $(function () {
 
     /* =========== Event Handlers ============== */
 
+    /**
+     * @class CatalogController
+     * @description Manages the header catalog visibility, submenus on touch devices, and outside clicks.
+     */
+    class CatalogController {
+        constructor() {
+            this.selectors = {
+                catalog: '.header-catalog',
+                toggler: '.header-catalog__toggler',
+                list: '.header-catalog__list',
+                itemParent: '.header-catalog__item--parent',
+                moreBtn: '.header-catalog__more',
+                activeClass: 'active',
+                visibleClass: 'visible',
+                openSubmenuClass: 'open-submenu'
+            };
+
+            this.init();
+        }
+
+        init() {
+            $(document).on('click', this.selectors.toggler, (e) => {
+                e.stopPropagation();
+                this.toggleCatalog();
+            });
+
+            $(document).on('click', (e) => {
+                if (!$(e.target).closest(this.selectors.catalog).length) {
+                    this.closeCatalog();
+                }
+            });
+
+            $(document).on('click', this.selectors.moreBtn, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+
+                const $item = $(e.target).closest(this.selectors.itemParent);
+                this.toggleSubmenu($item);
+            });
+        }
+
+        toggleCatalog() {
+            const $toggler = $(this.selectors.toggler);
+            const $list = $(this.selectors.list);
+
+            $toggler.toggleClass(this.selectors.activeClass);
+            $list.toggleClass(this.selectors.visibleClass);
+        }
+
+        closeCatalog() {
+            $(this.selectors.toggler).removeClass(this.selectors.activeClass);
+            $(this.selectors.list).removeClass(this.selectors.visibleClass);
+            $(this.selectors.itemParent).removeClass(this.selectors.openSubmenuClass);
+        }
+
+        toggleSubmenu($item) {
+            const isOpen = $item.hasClass(this.selectors.openSubmenuClass);
+
+            $(this.selectors.itemParent).removeClass(this.selectors.openSubmenuClass);
+
+            if (!isOpen) {
+                $item.addClass(this.selectors.openSubmenuClass);
+            }
+        }
+    }
+
+    window.CatalogController = new CatalogController();
 
 
     // sliders
@@ -990,8 +992,11 @@ $(function () {
     }
 
 
-    // arrow top
-
+    /**
+     * @function initScrollToTop
+     * @description Manages the "scroll to top" button visibility and smooth scrolling behavior, 
+     * resolving conflicts with CSS scroll-behavior.
+     */
     const $arrowTop = $('.arrow-top');
 
     if ($arrowTop.length) {
@@ -1024,9 +1029,9 @@ $(function () {
     }
 
     /**
- * @function initHeaderScroll
- * @description Manages header state on scroll to hide the top bar.
- */
+     * @function initHeaderScroll
+     * @description Manages header state on scroll to hide the top bar.
+     */
     const $header = $('.header');
     if ($header.length) {
 
