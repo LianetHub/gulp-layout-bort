@@ -550,6 +550,61 @@ $(function () {
     window.FormController = new FormController();
 
 
+    /**
+     * @class NotifyController
+     * @description Class for managing shopping cart notifications.
+     */
+    class NotifyController {
+        constructor() {
+            this.containerSelector = '.notify-container';
+            this.productSelector = '.product';
+            this.btnSelector = '.add-to-cart-btn';
+            this.displayTime = 4000;
+
+            this.init();
+        }
+
+        init() {
+            $(document).on('click', this.btnSelector, (e) => {
+                const $btn = $(e.currentTarget);
+                const $product = $btn.closest(this.productSelector);
+                this.handleAddToCart($product);
+            });
+        }
+
+        handleAddToCart($product) {
+            const name = $product.find('.product__name').text().trim();
+            const quantity = $product.find('.quantity-block__input').val() || 1;
+
+            this.show(name, quantity);
+        }
+
+        show(name, quantity) {
+            const $notify = $(`
+            <div class="notify">
+                <div class="notify__title title-sm">
+                    Товар добавлен <span class="color-accent">в корзину</span>
+                </div>
+                <div class="notify__text">Добавлено: ${name} (${quantity} шт.)</div>
+            </div>
+        `);
+
+            $(this.containerSelector).append($notify);
+
+            $notify.hide().fadeIn(300);
+
+            setTimeout(() => {
+                $notify.fadeOut(300, function () {
+                    $(this).remove();
+                });
+            }, this.displayTime);
+        }
+    }
+
+    window.NotifyController = new NotifyController();
+
+
+
     // Contacts Block Map
     if ($("#map").length) {
         ymaps.ready(function () {

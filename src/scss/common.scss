@@ -24,96 +24,60 @@ body {
 	margin-right: 0 !important;
 	background: #f9f9f9;
 
-	&.catalog-lock {
-		overflow: hidden;
-		position: relative;
-		.wrapper {
-			&::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: rgba($color: #000, $alpha: 0.6);
-				z-index: 7;
-				cursor: pointer;
-			}
+	// &.catalog-lock {
+	// 	overflow: hidden;
+	// 	position: relative;
+	// 	.wrapper {
+	// 		&::before {
+	// 			content: "";
+	// 			position: absolute;
+	// 			top: 0;
+	// 			left: 0;
+	// 			width: 100%;
+	// 			height: 100%;
+	// 			background: rgba($color: #000, $alpha: 0.6);
+	// 			z-index: 7;
+	// 			cursor: pointer;
+	// 		}
+	// 	}
+	// }
+	// &.menu-lock {
+	// 	overflow: hidden;
+	// 	position: relative;
+	// 	.wrapper {
+	// 		&::before {
+	// 			content: "";
+	// 			position: absolute;
+	// 			top: 0;
+	// 			left: 0;
+	// 			width: 100%;
+	// 			height: 100%;
+	// 			background: rgba($color: #000, $alpha: 0.6);
+	// 			z-index: 6;
+	// 			cursor: pointer;
+	// 		}
+	// 	}
+	// 	.header {
+	// 		&::before {
+	// 			content: "";
+	// 			position: absolute;
+	// 			top: 0;
+	// 			left: 0;
+	// 			width: 100%;
+	// 			height: 100%;
+	// 			background: rgba($color: #000, $alpha: 0.6);
+	// 			z-index: 6;
+	// 			cursor: pointer;
+	// 		}
+	// 	}
+	// }
+	// &.lock {
+	// 	overflow: hidden;
+	// }
+	&:has(.arrow-top.visible) {
+		.notify-container {
+			right: 7.5rem;
 		}
-	}
-	&.menu-lock {
-		overflow: hidden;
-		position: relative;
-		.wrapper {
-			&::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: rgba($color: #000, $alpha: 0.6);
-				z-index: 6;
-				cursor: pointer;
-			}
-		}
-		.header {
-			&::before {
-				content: "";
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				background: rgba($color: #000, $alpha: 0.6);
-				z-index: 6;
-				cursor: pointer;
-			}
-		}
-	}
-	&.lock {
-		overflow: hidden;
-	}
-	&.filters-lock {
-		@media (max-width: $md3) {
-			overflow: hidden;
-			position: relative;
-			.wrapper {
-				&::before {
-					content: "";
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-					background: rgba($color: #000, $alpha: 0.6);
-					z-index: 7;
-					cursor: pointer;
-				}
-			}
-		}
-	}
-	&.article-lock {
-		@media (max-width: $md3) {
-			overflow: hidden;
-			position: relative;
-			.wrapper {
-				&::before {
-					content: "";
-					position: absolute;
-					top: 0;
-					left: 0;
-					width: 100%;
-					height: 100%;
-					background: rgba($color: #000, $alpha: 0.6);
-					z-index: 7;
-					cursor: pointer;
-				}
-			}
-		}
-	}
-	&.preloading {
-		overflow: hidden;
 	}
 }
 
