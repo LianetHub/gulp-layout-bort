@@ -16,6 +16,8 @@
   "devDependencies": {
     "@babel/core": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
+    "@types/fancybox": "^3.5.7",
+    "@types/jquery": "^3.5.33",
     "autoprefixer": "^10.3.1",
     "browser-sync": "^2.27.7",
     "del": "^6.0.0",
@@ -42,6 +44,8 @@
     "gulp-shorthand": "^1.1.0",
     "gulp-ttf2woff": "^1.1.1",
     "gulp-ttf2woff2": "^4.0.1",
+    "gulp-typescript": "^6.0.0-alpha.1",
+    "gulp-uglify": "^3.0.2",
     "gulp-uglify-es": "^2.0.0",
     "gulp-version-number": "^0.2.4",
     "gulp-webp": "^4.0.1",
@@ -50,6 +54,8 @@
     "gulp-webpcss": "^1.1.1",
     "gulp-zip": "^5.1.0",
     "sass": "^1.45.2",
+    "ts-loader": "^9.5.4",
+    "typescript": "^5.9.3",
     "webp-converter": "2.2.3",
     "webpack": "^5.65.0",
     "webpack-stream": "^7.0.0"

@@ -73,13 +73,13 @@
 	@if $type == 1 {
 		//только если меньше контейнера
 		#{$property}: $regularSize;
-		@media (max-width: $md0) {
+		@media (max-width: $md1) {
 			#{$property}: calc(#{$minSizeValue} + #{rem($addSize)} * ((100vw - #{rem($minWidth)}) / #{$maxWidthContainer - rem($minWidth)}));
 		}
 	} @else if $type == 2 {
 		//только если больше контейнера
 		#{$property}: $regularSize;
-		@media (min-width: $md0) {
+		@media (min-width: $md1) {
 			#{$property}: calc(#{$minSizeValue} + #{rem($addSize)} * ((100vw - #{rem($minWidth)}) / #{$maxWidth - rem($minWidth)}));
 		}
 	} @else {

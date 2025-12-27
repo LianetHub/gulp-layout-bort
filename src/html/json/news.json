@@ -1,3 +1,18 @@
 [
-    {}
+    {
+        "className": " swiper-slide",
+        "image": "@img/blog/01.png"
+    },
+    {
+        "className": " swiper-slide",
+        "image": "@img/blog/02.jpg"
+    },
+    {
+        "className": " swiper-slide",
+        "image": "@img/blog/01.png"
+    },
+    {
+        "className": " swiper-slide",
+        "image": "@img/blog/02.jpg"
+    }
 ]

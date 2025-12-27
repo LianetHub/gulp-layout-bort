@@ -46,7 +46,78 @@
     <body>
         <div class="wrapper">
             <header class="header">
+                <div class="header__top">
+                    <div class="container header__top-container">
+                        <a href="tel:+74997057979" class="header__phone icon-phone">+7 (499) 705 79-79</a>
+                        <nav aria-label="Меню в шапке" class="header__menu menu">
+                            <ul class="menu__list">
+                                <li class="menu__item">
+                                    <a href="about.html" class="menu__link">Компания</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="blog.html" class="menu__link">Новости</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="" class="menu__link">Контакты</a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="header__body">
+                    <div class="container header__body-container">
+                        <a href="index.html" class="header__logo">
+                            <img src="img/logo.svg" alt="Логотип сайта Bort">
+                        </a>
+                        <button type="button" class="header__catalog-toggler btn btn-primary icon-burger">
+                            Каталог
+                        </button>
+                        <div class="header__search search">
+                            <form action="#" class="search__form">
+                                <input type="text" name="s" class="search__form-input form__control" placeholder="Поиск">
+                                <button type="submit" aria-label="" class="search__form-btn icon-search"></button>
+                            </form>
+                            <div class="search__bar"></div>
+                        </div>
+                        <div class="header__actions main-actions">
+                            <a href="cart.html" class="main-actions__item icon-cart">
+                                <span class="main-actions__item-text">
+                                    Корзина
+                                </span>
+                            </a>
+                            <a href="favorite.html" class="main-actions__item icon-heart">
+                                <span class="main-actions__item-text">
+                                    Избранное
+                                </span>
+                            </a>
+                            <a href="cart.html" class="main-actions__item icon-compare">
+                                <span class="main-actions__item-text">
+                                    Сравнение
+                                </span>
+                            </a>
+                            <a href="cart.html" class="main-actions__item icon-grid main-actions__item--mobile">
+                                <span class="main-actions__item-text">
+                                    Компания
+                                </span>
+                            </a>
+                            
+                            <a href="login.html" class="main-actions__item icon-user main-actions__item--mobile">
+                                <span class="main-actions__item-text">
+                                    Войти
+                                </span>
+                            </a>
+                            
+                            
+                        </div>
+                        
+                        <a href="login.html" class="header__auth-btn btn btn-secondary icon-user">
+                            Войти
+                        </a>
+                        
+                        
+                    </div>
 
+                </div>
             </header>
             <!-- <div class="catalog">
                 <div class="catalog__header">
@@ -412,73 +483,396 @@
             </div> -->
             <main class="page">
                 <section class="promo">
-                    <div class="promo__container">
-
+                    <div class="container">
+                        <div class="promo__body">
+                            <h1 class="promo__title title-xxl">
+                                <span class="color-accent">Bort</span> Global
+                            </h1>
+                            <p class="promo__description">
+                                Как уже неоднократно упомянуто, непосредственные участники технического прогресса набирают популярность среди определенных слоев населения
+                            </p>
+                            <a href="catalog.html" class="promo__btn btn btn-primary">В каталог</a>
+                        </div>
                     </div>
                 </section>
                 <section class="nums">
-                    <div class="nums__container">
-
+                    <div class="container">
+                        <h2 class="nums__title title">
+                            За последние <span class="color-accent">100500 лет</span> работы мы <span class="color-grey">добились</span>
+                        </h2>
+                        <ul class="nums__list">
+                            <li class="nums__item">
+                                <div class="nums__item-value title-xxl color-accent">>100500</div>
+                                <div class="nums__item-text color-grey">Инструментов было произведено на&nbsp;нашем производстве</div>
+                            </li>
+                            <li class="nums__item">
+                                <div class="nums__item-value title-xxl color-accent">>100500</div>
+                                <div class="nums__item-text color-grey">Клиентов остались довольными после&nbsp;сотрудничества с нами</div>
+                            </li>
+                            <li class="nums__item">
+                                <div class="nums__item-value title-xxl color-accent">>100500</div>
+                                <div class="nums__item-text color-grey">Обращений было отправлено нам на покупку фирменных инструментов</div>
+                            </li>
+                            <li class="nums__item">
+                                <div class="nums__item-value title-xxl color-accent">>100500</div>
+                                <div class="nums__item-text color-grey">Составила выручка компании за текущий период времени</div>
+                            </li>
+                        </ul>
                     </div>
                 </section>
-
                 <section class="benefits">
-                    <div class="benefits__container">
+                    <div class="container">
                         <h2 class="benefits__title title">
                             <span class="color-grey">Наши</span> заслуги
                         </h2>
                         <div class="benefits__list">
                             <div class="swiper">
                                 <ul class="swiper-wrapper">
-                                    <li class="benefit-card swiper-slide">хуйпиздасковорода</li>
-                                    <li class="benefit-card swiper-slide">хуйпиздасковорода</li>
-                                    <li class="benefit-card swiper-slide">хуйпиздасковорода</li>
-                                    <li class="benefit-card swiper-slide">хуйпиздасковорода</li>
-                                    <li class="benefit-card swiper-slide">хуйпиздасковорода</li>
-                                    <li class="benefit-card swiper-slide">хуйпиздасковорода</li>
+                                    <li class="benefit-card swiper-slide">
+                                        <div class="benefit-card__body">
+                                            <div class="benefit-card__icon">
+                                                <img src="img/icons/star.svg" alt="Иконка">
+                                            </div>
+                                            <div class="benefit-card__title title-sm">
+                                                <span class="color-accent">Выгодные</span> условия для&nbsp;наших партнеров
+                                            </div>
+                                            <div class="benefit-card__description color-grey">Мы вынуждены отталкиваться от того, что внедрение современных методик обеспечивает актуальность благоприятных перспектив.</div>
+                                        </div>
+                                    </li>
+                                    <li class="benefit-card swiper-slide">
+                                        <div class="benefit-card__body">
+                                            <div class="benefit-card__icon">
+                                                <img src="img/icons/star.svg" alt="Иконка">
+                                            </div>
+                                            <div class="benefit-card__title title-sm">
+                                                <span class="color-accent">Выгодные</span> условия для&nbsp;наших партнеров
+                                            </div>
+                                            <div class="benefit-card__description color-grey">Мы вынуждены отталкиваться от того, что внедрение современных методик обеспечивает актуальность благоприятных перспектив.</div>
+                                        </div>
+                                    </li>
+                                    <li class="benefit-card swiper-slide">
+                                        <div class="benefit-card__body">
+                                            <div class="benefit-card__icon">
+                                                <img src="img/icons/star.svg" alt="Иконка">
+                                            </div>
+                                            <div class="benefit-card__title title-sm">
+                                                <span class="color-accent">Выгодные</span> условия для&nbsp;наших партнеров
+                                            </div>
+                                            <div class="benefit-card__description color-grey">Мы вынуждены отталкиваться от того, что внедрение современных методик обеспечивает актуальность благоприятных перспектив.</div>
+                                        </div>
+                                    </li>
+                                    <li class="benefit-card swiper-slide">
+                                        <div class="benefit-card__body">
+                                            <div class="benefit-card__icon">
+                                                <img src="img/icons/star.svg" alt="Иконка">
+                                            </div>
+                                            <div class="benefit-card__title title-sm">
+                                                <span class="color-accent">Выгодные</span> условия для&nbsp;наших партнеров
+                                            </div>
+                                            <div class="benefit-card__description color-grey">Мы вынуждены отталкиваться от того, что внедрение современных методик обеспечивает актуальность благоприятных перспектив.</div>
+                                        </div>
+                                    </li>
+                                    <li class="benefit-card swiper-slide">
+                                        <div class="benefit-card__body">
+                                            <div class="benefit-card__icon">
+                                                <img src="img/icons/star.svg" alt="Иконка">
+                                            </div>
+                                            <div class="benefit-card__title title-sm">
+                                                <span class="color-accent">Выгодные</span> условия для&nbsp;наших партнеров
+                                            </div>
+                                            <div class="benefit-card__description color-grey">Мы вынуждены отталкиваться от того, что внедрение современных методик обеспечивает актуальность благоприятных перспектив.</div>
+                                        </div>
+                                    </li>
+                                    <li class="benefit-card swiper-slide">
+                                        <div class="benefit-card__body">
+                                            <div class="benefit-card__icon">
+                                                <img src="img/icons/star.svg" alt="Иконка">
+                                            </div>
+                                            <div class="benefit-card__title title-sm">
+                                                <span class="color-accent">Выгодные</span> условия для&nbsp;наших партнеров
+                                            </div>
+                                            <div class="benefit-card__description color-grey">Мы вынуждены отталкиваться от того, что внедрение современных методик обеспечивает актуальность благоприятных перспектив.</div>
+                                        </div>
+                                    </li>
                                 </ul>
                             </div>
-                            <button type="button" class="benefits__prev swiper-button-prev"></button>
-                            <button type="button" class="benefits__next swiper-button-next"></button>
-                            <div class="benefits__pagination swiper-pagination"></div>
+                            <div class="benefits__controls">
+                                <button type="button" class="benefits__prev swiper-button-prev"></button>
+                                <button type="button" class="benefits__next swiper-button-next"></button>
+                                <div class="benefits__pagination swiper-pagination"></div>
+                            </div>
                         </div>
                     </div>
                 </section>
                 <section class="products">
-                    <div class="products__container">
+                    <div class="container">
                         <h2 class="products__title title">
                             <span class="color-grey">Популярные</span> товары
                         </h2>
+                        <div class="products__slider">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <div id="1127811827" class="product swiper-slide">
+                                        <div class="product__header">
+                                            
+                                            <div class="product__label">Осталось мало!</div>
+                                            
+                                            <a href="product.html" class="product__image" aria-label="Перейти к товару Воздуходувка Bort BSS-600-R">
+                                                <img src="img/goods/BSS-600-R.png" alt="Фото товара Воздуходувка Bort BSS-600-R">
+                                            </a>
+                                        </div>
+                                        <div class="product__info">
+
+                                            <div class="product__availability">
+                                                В наличии <span class="product__availability-value">10 шт.</span>
+                                            </div>
+                                            <a href="" class="product__name title-sm">Воздуходувка Bort BSS-600-R</a>
+                                        </div>
+                                        <div class="product__price">
+                                            <div class="product__price-current">14 490₽</div>
+                                            
+                                            <div class="product__price-old">14 490₽</div>
+                                            
+                                            
+                                            <div class="product__price-sale">-20%</div>
+                                            
+                                        </div>
+                                        <div class="product__quantity">
+                                            <div class="product__quantity-caption">количество:</div>
+                                            <div class="quantity-block">
+                                                <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
+                                                <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
+                                                <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+                                            </div>
+                                            <div class="product__quantity-unit">шт</div>
+                                        </div>
+                                        <div class="product__actions">
+                                            <button type="button" class="product__btn btn btn-primary add-to-cart-btn icon-cart">
+                                                В корзину
+                                            </button>
+                                            <button type="button" aria-label="Добавить Воздуходувка Bort BSS-600-R в избранное" class="product__action favorite-btn icon-heart"></button>
+                                            <button type="button" aria-label="Добавить Воздуходувка Bort BSS-600-R к сравнению" class="product__action compare-btn icon-compare"></button>
+                                        </div>
+                                    </div><div id="1127811828" class="product swiper-slide">
+                                        <div class="product__header">
+                                            
+                                            <a href="product.html" class="product__image" aria-label="Перейти к товару Пила цепная аккумуляторная Bort BKS 216 Li">
+                                                <img src="img/goods/BKS-216-Li.png" alt="Фото товара Пила цепная аккумуляторная Bort BKS 216 Li">
+                                            </a>
+                                        </div>
+                                        <div class="product__info">
+
+                                            <div class="product__availability">
+                                                В наличии <span class="product__availability-value">144 шт.</span>
+                                            </div>
+                                            <a href="" class="product__name title-sm">Пила цепная аккумуляторная Bort BKS 216 Li</a>
+                                        </div>
+                                        <div class="product__price">
+                                            <div class="product__price-current">14 490₽</div>
+                                            
+                                            <div class="product__price-old">14 490₽</div>
+                                            
+                                            
+                                            <div class="product__price-sale">-20%</div>
+                                            
+                                        </div>
+                                        <div class="product__quantity">
+                                            <div class="product__quantity-caption">количество:</div>
+                                            <div class="quantity-block">
+                                                <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
+                                                <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
+                                                <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+                                            </div>
+                                            <div class="product__quantity-unit">шт</div>
+                                        </div>
+                                        <div class="product__actions">
+                                            <button type="button" class="product__btn btn btn-primary add-to-cart-btn icon-cart">
+                                                В корзину
+                                            </button>
+                                            <button type="button" aria-label="Добавить Пила цепная аккумуляторная Bort BKS 216 Li в избранное" class="product__action favorite-btn icon-heart"></button>
+                                            <button type="button" aria-label="Добавить Пила цепная аккумуляторная Bort BKS 216 Li к сравнению" class="product__action compare-btn icon-compare"></button>
+                                        </div>
+                                    </div><div id="1127811829" class="product swiper-slide">
+                                        <div class="product__header">
+                                            
+                                            <a href="product.html" class="product__image" aria-label="Перейти к товару Набор ударных головок Bort BTK-3M">
+                                                <img src="img/goods/btk-3m.png" alt="Фото товара Набор ударных головок Bort BTK-3M">
+                                            </a>
+                                        </div>
+                                        <div class="product__info">
+
+                                            <div class="product__availability">
+                                                В наличии <span class="product__availability-value">0 шт.</span>
+                                            </div>
+                                            <a href="" class="product__name title-sm">Набор ударных головок Bort BTK-3M</a>
+                                        </div>
+                                        <div class="product__price">
+                                            <div class="product__price-current">14 490₽</div>
+                                            
+                                            
+                                        </div>
+                                        <div class="product__quantity">
+                                            <div class="product__quantity-caption">количество:</div>
+                                            <div class="quantity-block">
+                                                <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
+                                                <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
+                                                <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+                                            </div>
+                                            <div class="product__quantity-unit">шт</div>
+                                        </div>
+                                        <div class="product__actions">
+                                            <button type="button" class="product__btn btn btn-primary add-to-cart-btn icon-cart">
+                                                В корзину
+                                            </button>
+                                            <button type="button" aria-label="Добавить Набор ударных головок Bort BTK-3M в избранное" class="product__action favorite-btn icon-heart"></button>
+                                            <button type="button" aria-label="Добавить Набор ударных головок Bort BTK-3M к сравнению" class="product__action compare-btn icon-compare"></button>
+                                        </div>
+                                    </div><div id="1127811830" class="product swiper-slide">
+                                        <div class="product__header">
+                                            
+                                            <div class="product__label">Осталось мало!</div>
+                                            
+                                            <a href="product.html" class="product__image" aria-label="Перейти к товару Рассекатель Bort Seal Splash Guard Protecti...">
+                                                <img src="img/goods/Seal-Splash-Guard-Protection.png" alt="Фото товара Рассекатель Bort Seal Splash Guard Protecti...">
+                                            </a>
+                                        </div>
+                                        <div class="product__info">
+
+                                            <div class="product__availability">
+                                                В наличии <span class="product__availability-value">10 шт.</span>
+                                            </div>
+                                            <a href="" class="product__name title-sm">Рассекатель Bort Seal Splash Guard Protecti...</a>
+                                        </div>
+                                        <div class="product__price">
+                                            <div class="product__price-current">14 490₽</div>
+                                            
+                                            <div class="product__price-old">14 490₽</div>
+                                            
+                                            
+                                            <div class="product__price-sale">-20%</div>
+                                            
+                                        </div>
+                                        <div class="product__quantity">
+                                            <div class="product__quantity-caption">количество:</div>
+                                            <div class="quantity-block">
+                                                <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
+                                                <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
+                                                <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+                                            </div>
+                                            <div class="product__quantity-unit">шт</div>
+                                        </div>
+                                        <div class="product__actions">
+                                            <button type="button" class="product__btn btn btn-primary add-to-cart-btn icon-cart">
+                                                В корзину
+                                            </button>
+                                            <button type="button" aria-label="Добавить Рассекатель Bort Seal Splash Guard Protecti... в избранное" class="product__action favorite-btn icon-heart"></button>
+                                            <button type="button" aria-label="Добавить Рассекатель Bort Seal Splash Guard Protecti... к сравнению" class="product__action compare-btn icon-compare"></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="button" class="products__prev swiper-button-prev"></button>
+                            <button type="button" class="products__next swiper-button-next"></button>
+                        </div>
                     </div>
                 </section>
                 <section class="news">
-                    <div class="news__container">
+                    <div class="container">
                         <h2 class="news__title title">новости</h2>
                         <div class="news__slider">
                             <div class="swiper">
                                 <div class="swiper-wrapper">
-                                    <div class="news-card@@className">
-                                        <a href="" class="news-card__poster">
-                                            <img src="@@image" alt="@@poster">
+                                    <div class="news-card swiper-slide">
+                                        <a href="article.html" class="news-card__poster">
+                                            <img src="img/blog/01.png" class="cover-image" alt="@@poster">
                                         </a>
                                         <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                        <a href="" class="news-card__title">
+                                        <a href="article.html" class="news-card__title title-sm">
                                             <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
                                         </a>
                                         <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                        <a href="" class="news-card__more icon-chevron-right">Читать подробнее</a>
+                                        <a href="" class="news-card__more more-link icon-right">Читать подробнее</a>
+                                    </div><div class="news-card swiper-slide">
+                                        <a href="article.html" class="news-card__poster">
+                                            <img src="img/blog/02.jpg" class="cover-image" alt="@@poster">
+                                        </a>
+                                        <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
+                                        <a href="article.html" class="news-card__title title-sm">
+                                            <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
+                                        </a>
+                                        <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
+                                        <a href="" class="news-card__more more-link icon-right">Читать подробнее</a>
+                                    </div><div class="news-card swiper-slide">
+                                        <a href="article.html" class="news-card__poster">
+                                            <img src="img/blog/01.png" class="cover-image" alt="@@poster">
+                                        </a>
+                                        <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
+                                        <a href="article.html" class="news-card__title title-sm">
+                                            <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
+                                        </a>
+                                        <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
+                                        <a href="" class="news-card__more more-link icon-right">Читать подробнее</a>
+                                    </div><div class="news-card swiper-slide">
+                                        <a href="article.html" class="news-card__poster">
+                                            <img src="img/blog/02.jpg" class="cover-image" alt="@@poster">
+                                        </a>
+                                        <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
+                                        <a href="article.html" class="news-card__title title-sm">
+                                            <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
+                                        </a>
+                                        <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
+                                        <a href="" class="news-card__more more-link icon-right">Читать подробнее</a>
                                     </div>
                                 </div>
                             </div>
-                            <button type="button" class="news__prev swiper-button-prev"></button>
-                            <button type="button" class="news__next swiper-button-next"></button>
+                            <div class="news__controls">
+                                <button type="button" class="news__prev swiper-button-prev"></button>
+                                <button type="button" class="news__next swiper-button-next"></button>
+                                <div class="news__pagination swiper-pagination"></div>
+                            </div>
                         </div>
                         <a href="/blog.html" class="news__btn btn btn-secondary">Все новости</a>
                     </div>
                 </section>
             </main>
             <footer class="footer">
-
+                <div class="container">
+                    <div class="footer__header">
+                        <a href="index.html" class="footer__logo">
+                            <img src="img/logo-white.svg" alt="Логотип сайта Bort">
+                        </a>
+                        <nav aria-label="Меню в подвале" class="footer__menu">
+                            <ul class="footer__menu-list">
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">О компании</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Личный кабинет</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Новости</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Быстрый заказ</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Обратная связь</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Наши партнёры</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Карта сайта</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Выход</a></li>
+                            </ul>
+                        </nav>
+                        <div class="footer__socials">
+                            <a href="" aria-label="Мы в Telegram" class="footer__social">
+                                <img src="img/icons/telegram.svg" alt="Иконка Telegram">
+                            </a>
+                            <a href="" aria-label="Мы в Telegram" class="footer__social">
+                                <img src="img/icons/telegram.svg" alt="Иконка Telegram">
+                            </a>
+                            <a href="" aria-label="Мы в Telegram" class="footer__social">
+                                <img src="img/icons/telegram.svg" alt="Иконка Telegram">
+                            </a>
+                            <a href="" aria-label="Мы в Telegram" class="footer__social">
+                                <img src="img/icons/telegram.svg" alt="Иконка Telegram">
+                            </a>
+                        </div>
+                        <a href="#callback" data-fancybox class="footer__callback btn btn-primary">Обратный звонок</a>
+                    </div>
+                    <div class="footer__bottom">
+                        <div class="footer__copyright">Bort. 2025</div>
+                    </div>
+                </div>
             </footer>
             <!-- plugins -->
             <script src="js/libs/jquery-3.7.1.min.js"></script>

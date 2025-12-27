@@ -1,5 +1,83 @@
 <header class="header">
+    <div class="header__top">
+        <div class="container header__top-container">
+            <a href="tel:+74997057979" class="header__phone icon-phone">+7 (499) 705 79-79</a>
+            <nav aria-label="Меню в шапке" class="header__menu menu">
+                <ul class="menu__list">
+                    <li class="menu__item">
+                        <a href="about.html" class="menu__link">Компания</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="blog.html" class="menu__link">Новости</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="@@if(auth === true){contacts-auth.html}@@if(auth === true){contacts.html}" class="menu__link">Контакты</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <div class="header__body">
+        <div class="container header__body-container">
+            <a href="index.html" class="header__logo">
+                <img src="@img/logo.svg" alt="Логотип сайта Bort">
+            </a>
+            <button type="button" class="header__catalog-toggler btn btn-primary icon-burger">
+                Каталог
+            </button>
+            @@include('./includes/_search.html')
+            <div class="header__actions main-actions">
+                <a href="cart.html" class="main-actions__item icon-cart">
+                    <span class="main-actions__item-text">
+                        Корзина
+                    </span>
+                </a>
+                <a href="favorite.html" class="main-actions__item icon-heart">
+                    <span class="main-actions__item-text">
+                        Избранное
+                    </span>
+                </a>
+                <a href="cart.html" class="main-actions__item icon-compare">
+                    <span class="main-actions__item-text">
+                        Сравнение
+                    </span>
+                </a>
+                <a href="cart.html" class="main-actions__item icon-grid main-actions__item--mobile">
+                    <span class="main-actions__item-text">
+                        Компания
+                    </span>
+                </a>
+                @@if(auth === false) {
+                <a href="login.html" class="main-actions__item icon-user main-actions__item--mobile">
+                    <span class="main-actions__item-text">
+                        Войти
+                    </span>
+                </a>
+                }
+                @@if(auth === true) {
+                <a href="lk.html" class="main-actions__item icon-user main-actions__item--mobile">
+                    <span class="main-actions__item-text">
+                        Кабинет
+                    </span>
+                </a>
+                }
+            </div>
+            @@if(auth === false) {
+            <a href="login.html" class="header__auth-btn btn btn-secondary icon-user">
+                Войти
+            </a>
+            }
+            @@if(auth === true) {
+            <a href="lk.html" class="header__auth-btn btn btn-secondary icon-chevron-down">
+                <span class="text-ellipsis">ООО “ЭКСТЕГО”</span>
+            </a>
+            <!-- Ограничение символов в имени пользователя: 15.
+    Если больше 15, то замена последних 3-х символов на многоточие
+    Пр. - ООО "Компания12" (16 символов), замена идёт на ООО "Компани... -->
+            }
+        </div>
 
+    </div>
 </header>
 <!-- <div class="catalog">
     <div class="catalog__header">

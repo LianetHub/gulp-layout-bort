@@ -1,0 +1,63 @@
+.promo {
+	background: $black;
+	color: $white;
+	padding: rem(253) 0;
+	background: radial-gradient(50% 50% at 50% 50%, rgba(32, 32, 32, 0.2) 31.15%, rgba(32, 32, 32, 0.8) 100%), url("@img/hero-bg.jpg") 0 0 / cover no-repeat;
+	// .promo__body
+	&__body {
+		max-width: 35.1875rem;
+		width: 100%;
+		border-radius: 1.25rem;
+		background: rgba(32, 32, 32, 0.8);
+		backdrop-filter: blur(rem(10));
+		-webkit-backdrop-filter: blur(rem(10));
+		padding: 2.5rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+	}
+	// .promo__title
+	&__title {
+	}
+	// .promo__description
+	&__description {
+		margin-top: 1.25rem;
+		font-size: 1rem;
+		line-height: 125%;
+	}
+	// .promo__btn
+	&__btn {
+		margin-top: 1.125rem;
+		min-width: 11.25rem;
+	}
+}
+
+.nums {
+	margin-bottom: rem(50);
+	padding: 3.125rem 0rem;
+	background: #202020;
+	color: #fff;
+	// .nums__title
+	&__title {
+	}
+	// .nums__list
+	&__list {
+		margin-top: 2.5rem;
+		padding-top: 2.5rem;
+		border-top: rem(1) solid #2c2c2c;
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.25rem;
+	}
+	// .nums__item
+	&__item {
+	}
+	// .nums__item-value
+	&__item-value {
+	}
+	// .nums__item-text
+	&__item-text {
+		margin-top: 1.25rem;
+		line-height: 125%;
+	}
+}

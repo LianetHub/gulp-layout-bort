@@ -1,42 +1,42 @@
-<div class="product@@className">
+<div id="@@id" class="product@@className">
     <div class="product__header">
         @@if(typeof label !== 'undefined') {
-        <div class="product__labels">
-            <div class="product__label">@@label</div>
-        </div>
+        <div class="product__label">@@label</div>
         }
-        <a href="product.html" class="product__image">
-            <img src="@@image" alt="Фото товара">
+        <a href="product.html" class="product__image" aria-label="Перейти к товару @@name">
+            <img src="@@image" alt="Фото товара @@name">
         </a>
+    </div>
+    <div class="product__info">
+
         <div class="product__availability">
             В наличии <span class="product__availability-value">@@quantity шт.</span>
         </div>
-        <a href="" class="product__availability-name">@@name</a>
-        <div class="product__quantity">
-            <div class="product__quantity-caption">количество:</div>
-            <div class="quantity-block">
-                <button type="button" aria-label="" class="quantity-block__down icon-minus"></button>
-                <input type="number" name="quantity" class="quantity-block__input" value="1">
-                <button type="button" aria-label="" class="quantity-block__up icon-plus"></button>
-            </div>
-            <div class="product__quantity-unit">шт</div>
+        <a href="" class="product__name title-sm">@@name</a>
+    </div>
+    <div class="product__price">
+        <div class="product__price-current">@@currentPrice</div>
+        @@if(typeof oldPrice !== 'undefined') {
+        <div class="product__price-old">@@oldPrice</div>
+        }
+        @@if(typeof sale !== 'undefined') {
+        <div class="product__price-sale">@@sale</div>
+        }
+    </div>
+    <div class="product__quantity">
+        <div class="product__quantity-caption">количество:</div>
+        <div class="quantity-block">
+            <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
+            <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
+            <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
         </div>
-        <div class="product__price">
-            <div class="product__price-current">@@currentPrice</div>
-            @@if(typeof oldPrice !== 'undefined') {
-            <div class="product__price-old">@@oldPrice</div>
-            }
-            @@if(typeof sale !== 'undefined') {
-            <div class="product__price-sale">@@sale</div>
-            }
-
-        </div>
-        <div class="product__actions">
-            <button type="button" class="product__btn add-to-cart-btn icon-cart">
-                В корзину
-            </button>
-            <button type="button" aria-label="" class="product__action favorite-btn"></button>
-            <button type="button" aria-label="" class="product__action comparte-btn"></button>
-        </div>
+        <div class="product__quantity-unit">шт</div>
+    </div>
+    <div class="product__actions">
+        <button type="button" class="product__btn btn btn-primary add-to-cart-btn icon-cart">
+            В корзину
+        </button>
+        <button type="button" aria-label="Добавить @@name в избранное" class="product__action favorite-btn icon-heart"></button>
+        <button type="button" aria-label="Добавить @@name к сравнению" class="product__action compare-btn icon-compare"></button>
     </div>
 </div>

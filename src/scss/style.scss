@@ -16,8 +16,7 @@ $font-russo: "RussoOne";
 
 // Шрифт по умолчанию
 
-$md0: 1661.98px;
-$md1: 1399.98px;
+$md1: 1419.98px;
 $md2: 1199.98px;
 $md3: 991.98px;
 $md4: 767.98px;
@@ -28,8 +27,7 @@ $md6: 389.98px;
 
 $minWidth: 360; // Минимальная ширина страницы
 $maxWidth: 1920; // Ширина макета
-$maxWidthContainer: rem(1632); // Максимальная ширина ограничивающего контейнера
-$containerPadding: 30;
+$maxWidthContainer: rem(1380); // Максимальная ширина ограничивающего контейнера
 
 // ЦВЕТА
 
@@ -37,6 +35,8 @@ $orange: #ea7600;
 $blue: #00778b;
 $pink: #ff7dbc;
 $black: #202020;
+$grey: #a7a8aa;
+$white: #fff;
 
 $header: var(--header-height, 11.375rem);
 
@@ -64,6 +64,7 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 // СТИЛИ СТРАНИЦ
 
 @import "pages/home";
+@import "pages/products";
 
 .typography-block {
 	.sm-size {

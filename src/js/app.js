@@ -339,7 +339,7 @@ $(function () {
 
         $btnUp.on('click', function () {
             let currentVal = parseInt($input.val()) || 0;
-            if (currentVal < 999) {
+            if (currentVal < 9999) {
                 $input.val(currentVal + 1);
             }
         });
@@ -355,7 +355,7 @@ $(function () {
             let val = $input.val().replace(/\D/g, '');
             val = parseInt(val) || 1;
             if (val < 1) val = 1;
-            if (val > 999) val = 999;
+            if (val > 9999) val = 9999;
             $input.val(val);
         });
 
@@ -393,419 +393,104 @@ $(function () {
 
     // sliders
 
-    // Extend Class for Swiper.js add wrap progress
+    /**
+    * @class MobileSwiper
+    * @param {string} sliderName
+    * @param {Object} options
+    * * @see https://swiperjs.com/get-started
+    */
 
-    class SwiperWithProgress {
-        constructor(selector, options) {
-            this.selector = selector;
+    class MobileSwiper {
+        constructor(sliderName, options) {
+            this.$slider = $(sliderName);
             this.options = options;
-            this.init();
+            this.init = false;
+            this.swiper = null;
+
+            if (this.$slider.length) {
+                this.handleResize();
+                $(window).on("resize", () => this.handleResize());
+            }
         }
 
-        init() {
-            if ($(this.selector).length) {
-                new Swiper(this.selector, {
-                    ...this.options,
-                    speed: 800,
-                    autoplay: {
-                        delay: 8000,
-                        stopOnLastSlide: false,
-                    },
-                    pagination: {
-                        el: this.options.paginationEl,
-                        type: "fraction",
-                        formatFractionCurrent: (number) => {
-                            return number < 10 ? '0' + number : number;
-                        },
-                        formatFractionTotal: (number) => {
-                            return number < 10 ? '0' + number : number;
-                        },
-                        renderFraction: (currentClass, totalClass) => {
-                            return '<span class="' + currentClass + '"></span>' +
-                                ' <span class="swiper-pagination-progress"></span> ' +
-                                '<span class="' + totalClass + '"></span>';
-                        }
-                    },
-                    on: {
-                        init: (swiper) => {
-                            const progressEl = swiper.pagination.el.querySelector('.swiper-pagination-progress');
-                            let speed = swiper.params.speed;
-                            let autoplaySpeed = swiper.params.autoplay.delay;
-                            progressEl.style.setProperty('--counting-speed', ((speed + autoplaySpeed) / 1000) + 's');
-                            progressEl.classList.add('counting');
-                        },
-                        slideChangeTransitionStart: (swiper) => {
-                            const progressEl = swiper.pagination.el.querySelector('.swiper-pagination-progress');
-                            progressEl.classList.remove('counting');
-                            void progressEl.offsetWidth;
-                            progressEl.classList.add('counting');
-                        }
-                    }
-                });
+        handleResize() {
+            if (window.innerWidth <= 767.98) {
+                if (!this.init) {
+                    this.init = true;
+                    this.swiper = new Swiper(this.$slider[0], this.options);
+                }
+            } else if (this.init) {
+                this.swiper.destroy();
+                this.swiper = null;
+                this.init = false;
             }
         }
     }
 
-    if ($('.promo__slider').length) {
-        new SwiperWithProgress('.promo__slider', {
-            slidesPerView: 1,
-            effect: "fade",
-            fadeEffect: {
-                crossFade: true
-            },
+    if ($('.benefits__list')) {
+        new MobileSwiper('.benefits__list .swiper', {
+            spaceBetween: 20,
             navigation: {
-                prevEl: '.promo__controls-prev',
-                nextEl: '.promo__controls-next'
+                nextEl: '.benefits__next',
+                prevEl: '.benefits__prev'
             },
-            paginationEl: '.promo__pagination'
-        });
-    }
-
-    if ($('.promo__categories').length) {
-        new Swiper('.promo__categories', {
-            slidesPerView: 1,
-            speed: 800,
-            loop: true,
-            autoplay: {
-                delay: 2000,
-                stopOnLastSlide: false,
-            },
-        })
-    }
-
-    if ($('.offers__slider').length) {
-        new Swiper('.offers__slider', {
-            slidesPerView: 1,
-            watchOverflow: true,
-            autoHeight: true,
-            navigation: {
-                nextEl: '.offers__next',
-                prevEl: '.offers__prev'
-            },
-        })
-    }
-
-    if ($('.goods__slider').length) {
-        new Swiper('.goods__slider', {
-            slidesPerView: "auto",
-            spaceBetween: 24,
-            watchOverflow: true,
-            navigation: {
-                nextEl: '.goods__next',
-                prevEl: '.goods__prev'
-            },
-            breakpoints: {
-                1661.98: {
-                    slidesPerView: 4,
-                },
-                1819.98: {
-                    slidesPerView: 5,
-                }
+            pagination: {
+                el: '.benefits__pagination',
+                clickable: true
             }
         })
     }
 
-    if ($('.catalog__block').length) {
-        $('.catalog__block').each(function (index, element) {
-
-            const $block = $(element);
-            const slider = $block.find('.catalog__block-slider')[0];
-            const nextBtn = $block.find('.catalog__block-next')[0];
-            const prevBtn = $block.find('.catalog__block-prev')[0];
-
-            new Swiper(slider, {
-                slidesPerView: "auto",
-                spaceBetween: 16,
-                watchOverflow: true,
-                navigation: {
-                    nextEl: nextBtn,
-                    prevEl: prevBtn
-                },
-
-            })
-        })
-
-    }
-
-    if ($('.reviews__slider').length) {
-        new SwiperWithProgress('.reviews__slider', {
-            spaceBetween: 8,
-            watchOverflow: true,
-            autoHeight: true,
+    if ($('.news__slider')) {
+        new MobileSwiper('.news__slider .swiper', {
+            spaceBetween: 20,
             navigation: {
-                nextEl: '.reviews__next',
-                prevEl: '.reviews__prev'
+                nextEl: '.news__next',
+                prevEl: '.news__prev'
             },
-            paginationEl: '.reviews__pagination',
-            breakpoints: {
-                767.98: {
-                    slidesPerView: 2,
-                    spaceBetween: 16,
-                    autoHeight: false
-                },
-                1399.98: {
-                    slidesPerView: 3,
-                    spaceBetween: 20,
-                    autoHeight: false
-                },
-                1661.98: {
-                    slidesPerView: 4,
-                    spaceBetween: 24,
-                    autoHeight: false
-                }
+            pagination: {
+                el: '.news__pagination',
+                clickable: true
             }
         })
     }
 
-    if ($('.review__images').length) {
-        $('.review__images').each(function (index, element) {
-            new Swiper(element, {
-                slidesPerView: "auto",
-                spaceBetween: 8,
-                watchOverflow: true,
-            })
-        })
-    }
-
-    if ($('.gallery__slider').length) {
-        new SwiperWithProgress('.gallery__slider', {
-            slidesPerView: 1,
-            spaceBetween: 180,
-
-            watchOverflow: true,
-            effect: 'coverflow',
-            coverflowEffect: {
-                rotate: 0,
-                stretch: 10,
-                depth: 120,
-                modifier: 1,
-                slideShadows: false,
-            },
-            navigation: {
-                nextEl: '.gallery__next',
-                prevEl: '.gallery__prev'
-            },
-            paginationEl: '.gallery__pagination',
-
-        })
-
-    }
-
-    if ($('.nav-slider').length) {
-
-        new Swiper('.nav-slider', {
-            slidesPerView: "auto",
-            spaceBetween: 4,
-            initialSlide: $('.nav-slider__item .nav-slider__link.active').parent().index()
-        })
-    }
-
-    if ($('.blog__slider').length) {
-        if (window.innerWidth > 767.98) {
-
-            new Swiper('.blog__slider', {
-                slidesPerView: 1,
-                spaceBetween: 24,
-                watchOverflow: true,
-                navigation: {
-                    nextEl: '.blog__next',
-                    prevEl: '.blog__prev'
-                },
-                breakpoints: {
-                    767.98: {
-                        slidesPerView: 3,
-                    },
-                    1199.98: {
-                        slidesPerView: 3,
-                    },
-                    1661.98: {
-                        slidesPerView: 4,
-                    },
-                }
-            })
-        }
-    }
-
-    if ($('.article__slider').length) {
-        $('.article__slider').each(function (index, element) {
-
-            const $slider = $(element);
-            const nextBtn = $slider.find('.article__next')[0];
-            const prevBtn = $slider.find('.article__prev')[0];
-            const pagination = $slider.find('.article__pagination')[0];
-
-            new SwiperWithProgress($slider[0], {
-                slidesPerView: 1,
-                watchOverflow: true,
-                navigation: {
-                    nextEl: nextBtn,
-                    prevEl: prevBtn
-                },
-                paginationEl: pagination,
-
-            })
-        })
-
-    }
-
-    if ($('.shop__brands-slider').length) {
-        new Swiper('.shop__brands-slider', {
-            slidesPerView: "auto",
-            spaceBetween: 24,
-            watchOverflow: true,
-            navigation: {
-                nextEl: '.shop__brands-next',
-                prevEl: '.shop__brands-prev'
-            },
-            breakpoints: {
-                767.98: {
-                    spaceBetween: 42,
-                },
-            }
-        })
-    }
-
-    if ($('.shop__categories').length) {
-        new Swiper('.shop__categories', {
-            slidesPerView: "auto",
-            spaceBetween: 16,
-            watchOverflow: true,
-
-        })
-
-    }
-
-    if ($('.shop-item').length) {
-        $('.shop-item').each(function (index, element) {
-            const $slider = $(element).find('.shop-item__slider');
+    if ($('.products__slider').length) {
+        $('.products__slider').each(function (index, element) {
+            const $slider = $(element).find('.swiper');
             if (!$slider.length) return;
 
-            const pagination = $(element).find('.shop-item__pagination')[0];
+            const nextBtn = $(element).find('.products__next')[0];
+            const prevBtn = $(element).find('.products__prev')[0];
 
-            const swiper = new Swiper($slider[0], {
-                slidesPerView: 1,
-                speed: 0,
-                lazy: true,
+            new Swiper($slider[0], {
+                slidesPerView: 4,
+                spaceBetween: 15,
                 watchOverflow: true,
-                pagination: {
-                    el: pagination,
-                    clickable: true
+                navigation: {
+                    nextEl: nextBtn,
+                    prevEl: prevBtn
                 }
             });
 
-            const $areasWrapper = $('<div class="shop-item__hover-areas"></div>');
-            $areasWrapper.css({
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                display: 'flex',
-                zIndex: 10
-            });
-
-            const slidesCount = swiper.slides.length;
-
-            for (let i = 0; i < slidesCount; i++) {
-                const $area = $('<div class="shop-item__hover-area"></div>');
-                $area.css({
-                    flex: '1 1 0',
-                    cursor: 'pointer'
-                });
-
-                $area.on('mouseenter', () => {
-                    swiper.slideTo(i);
-                });
-
-                $areasWrapper.append($area);
-            }
-
-
-            $slider.css('position', 'relative').append($areasWrapper);
         });
     }
 
-    if ($('.goods-item__slider').length) {
-
-
-        const thumbsSlider = new Swiper('.goods-item__thumbs', {
-            slidesPerView: "auto",
-            spaceBetween: 8,
-            breakpoints: {
-                767.98: {
-                    spaceBetween: 12,
-                }
+    if ($('.news__slider')) {
+        new Swiper('.news__slider .swiper', {
+            spaceBetween: 20,
+            slidesPerView: 4,
+            navigation: {
+                nextEl: '.news__next',
+                prevEl: '.news__prev'
+            },
+            pagination: {
+                el: '.news__pagination',
+                clickable: true
             }
         })
-
-
-        const mainSwiper = new Swiper('.goods-item__main-slider', {
-            slidesPerView: 1,
-            speed: 0,
-            watchOverflow: true,
-            thumbs: {
-                swiper: thumbsSlider
-            }
-        });
-
-
-        const $areasWrapper = $('<div class="good-item__hover-areas"></div>');
-        $areasWrapper.css({
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            right: 0,
-            bottom: 0,
-            display: 'flex',
-            zIndex: 10
-        });
-
-        const slidesCount = mainSwiper.slides.length;
-
-        for (let i = 0; i < slidesCount; i++) {
-            const $area = $('<div class="good-item__hover-area"></div>');
-            $area.css({
-                flex: '1 1 0',
-                cursor: 'pointer'
-            });
-
-            $area.on('mouseenter', () => {
-                mainSwiper.slideTo(i);
-            });
-
-            $areasWrapper.append($area);
-        }
-
-
-        $('.goods-item__main-slider').css('position', 'relative').append($areasWrapper);
     }
 
-    if ($('.shop__slider').length) {
-
-        if (window.innerWidth > 767.98) {
-            new SwiperWithProgress('.shop__slider-block', {
-                spaceBetween: 8,
-                watchOverflow: true,
-                slidesPerView: "auto",
-                navigation: {
-                    nextEl: '.shop__next',
-                    prevEl: '.shop__prev'
-                },
-                paginationEl: '.shop__slider-pagination',
-                breakpoints: {
-                    767.98: {
-                        spaceBetween: 16
-                    },
-                    1399.98: {
-                        spaceBetween: 20,
-                    },
-                    1661.98: {
-                        spaceBetween: 32,
-                    }
-                }
-            })
-        }
-    }
 
 
     // amination

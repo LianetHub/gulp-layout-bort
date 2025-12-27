@@ -1,0 +1,134 @@
+.products {
+	padding: rem(50) 0;
+	// .products__title
+	&__title {
+	}
+	// .products__slider
+	&__slider {
+		margin-top: 2.5rem;
+		position: relative;
+	}
+	// .products__prev
+	&__prev {
+	}
+	// .products__next
+	&__next {
+	}
+}
+
+.product {
+	background: #fff;
+	padding: 1.25rem;
+	border-radius: 1.25rem;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	gap: rem(15);
+	// .product__header
+	&__header {
+	}
+	// .product__label
+	&__label {
+		border-radius: 1.25rem 0;
+		background: #00778b;
+		color: #fff;
+		font-size: 0.875rem;
+		font-weight: 700;
+		line-height: 125%;
+		text-transform: uppercase;
+		position: absolute;
+		top: 0;
+		left: 0;
+		padding: 0.625rem 0.9375rem;
+	}
+	// .product__image
+	&__image {
+		height: 12.5rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		& img {
+			max-height: 100%;
+		}
+	}
+	// .product__availability
+	&__availability {
+		color: #63666a;
+		font-size: 0.875rem;
+		line-height: 125%;
+	}
+	// .product__availability-value
+	&__availability-value {
+		color: #ea7600;
+	}
+	// .product__name
+	&__name {
+		margin-top: 0.625rem;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 2;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+
+	// .product__price
+	&__price {
+		display: flex;
+		align-items: center;
+		gap: 0.625rem;
+		text-transform: uppercase;
+	}
+	// .product__price-current
+	&__price-current {
+		font-size: 1.5rem;
+		font-weight: 600;
+		line-height: 125%;
+	}
+	// .product__price-old
+	&__price-old {
+		color: #a7a8aa;
+		font-size: 1.25rem;
+		font-weight: 500;
+		line-height: 125%;
+		text-decoration-line: line-through;
+	}
+	// .product__price-sale
+	&__price-sale {
+		color: #fff;
+		font-size: 1rem;
+		padding: 0.3125rem 0.625rem;
+		font-weight: 600;
+		line-height: 125%;
+		text-transform: uppercase;
+		border-radius: 0.625rem;
+		background: #00778b;
+	}
+	// .product__quantity
+	&__quantity {
+		color: #a7a8aa;
+		font-size: 1rem;
+		line-height: 125%;
+		display: flex;
+		align-items: center;
+		gap: 0.3125rem;
+	}
+	// .product__quantity-caption
+	&__quantity-caption {
+	}
+	// .product__quantity-unit
+	&__quantity-unit {
+	}
+	// .product__actions
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+	}
+	// .product__btn
+	&__btn {
+		flex: 1 1 auto;
+	}
+	// .product__action
+	&__action {
+	}
+}
