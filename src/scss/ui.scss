@@ -24,6 +24,16 @@
 	text-transform: uppercase;
 }
 
+.title-md {
+	font-family: $font-russo;
+	line-height: 125%;
+	text-transform: uppercase;
+	font-size: 1.25rem;
+	@media (min-width: $md4) {
+		font-size: 1.75rem;
+	}
+}
+
 .title-sm {
 	font-family: $font-russo;
 	font-size: 1.25rem;

@@ -4,22 +4,18 @@
 		position: relative;
 		display: block;
 		&._error {
-			& + .form__error {
-				display: flex;
+			.form__control {
 			}
 		}
 	}
-	// .form__field-placeholder
-	&__field-placeholder {
-		position: absolute;
-		top: 1.5rem;
-		left: 0;
-		color: #717680;
-		display: block;
-		transition: all 0.3s ease;
-		font-size: 1.125rem;
-		line-height: 122.222%;
+
+	// .form__label
+	&__label {
+		font-size: 1rem;
+		line-height: 125%;
+		margin-bottom: 0.31rem;
 	}
+
 	// .form__control
 	&__control {
 		text-overflow: ellipsis;
@@ -55,6 +51,19 @@
 			height: 7.5rem;
 			resize: none;
 		}
+	}
+	// .form__error-message
+	&__error-message {
+		margin-top: 0.125rem;
+		color: #ed3939;
+		font-size: 0.75rem;
+		line-height: 125%;
+		display: none;
+	}
+
+	&__submit {
+		align-self: center;
+		min-width: 11.25rem;
 	}
 
 	// .form__checkbox

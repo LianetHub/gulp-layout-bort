@@ -2,38 +2,12 @@
 
 $(function () {
 
-    // preloader
-    if ($('.preloader').length > 0) {
-        let counting = setInterval(function () {
-            let loader = $('#percentage');
-            let currval = parseInt(loader.text());
-
-            if (currval < 90) {
-                loader.text(++currval);
-            } else if (currval < 95 && document.readyState === "interactive") {
-                loader.text(95);
-            } else if (currval < 99 && document.readyState === "complete") {
-                loader.text(99);
-            }
-
-            if (currval >= 99 && document.readyState === "complete") {
-                clearInterval(counting);
-                loader.text(100);
-                setTimeout(function () {
-                    $('body').removeClass('preloading').addClass('is-loaded');
-                }, 300);
-            }
-        }, 20);
-    }
 
     if (typeof Fancybox !== "undefined" && Fancybox !== null) {
-        Fancybox.bind("[data-fancybox]", {
-            dragToClose: false,
-            closeButton: false,
-            closeClick: "outside",
-
-        });
+        Fancybox.bind("[data-fancybox]", {});
     }
+
+
 
     /* =========== Event Handlers ============== */
 
@@ -233,79 +207,6 @@ $(function () {
     });
 
 
-    // form submit validation
-
-    function initFormValidation($form) {
-        $form.on('submit', function (e) {
-            let isValid = true;
-
-            $form.find('[data-required]').each(function () {
-                const $input = $(this);
-                const inputType = $input.attr('type');
-                const inputName = $input.attr('name');
-
-                $input.removeClass('_error');
-                $input.parent().removeClass('_error');
-
-                if (inputType === 'checkbox' && !$input.is(':checked')) {
-                    $input.addClass('_error');
-                    isValid = false;
-                } else if (inputName === 'phone' && !phoneTest($input.val())) {
-                    $input.addClass('_error');
-                    isValid = false;
-                } else if (inputName === 'email' && !emailTest($input.val())) {
-                    $input.addClass('_error');
-                    isValid = false;
-                } else if ($input.val().trim() === '') {
-                    $input.addClass('_error');
-                    isValid = false;
-                }
-            });
-
-            if (!isValid) {
-                e.preventDefault();
-            }
-        });
-
-        $form.find('[data-required]').on('input change', function () {
-            const $input = $(this);
-            const inputType = $input.attr('type');
-            const inputName = $input.attr('name');
-
-            if (inputType === 'checkbox') {
-                if ($input.is(':checked')) {
-                    $input.removeClass('_error');
-                }
-            } else if (inputName === 'phone') {
-                if (phoneTest($input.val())) {
-                    $input.removeClass('_error');
-                }
-            } else if (inputName === 'email') {
-                if (emailTest($input.val())) {
-                    $input.removeClass('_error');
-                }
-            } else {
-                if ($input.val().trim() !== '') {
-                    $input.removeClass('_error');
-                }
-            }
-        });
-    }
-
-    // Запуск для всех форм
-    $('form').each(function () {
-        initFormValidation($(this));
-    });
-
-    function emailTest(email) {
-        const re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-        return re.test(String(email).toLowerCase());
-    }
-
-    function phoneTest(phone) {
-        const cleaned = phone.replace(/\D/g, '');
-        return cleaned.length >= 10 && /^[1-9]\d{9,14}$/.test(cleaned);
-    }
 
 
     // Display filter block in Сatalog if title is active
@@ -370,25 +271,6 @@ $(function () {
 
     /* =========== Event Handlers ============== */
 
-
-    // floating Labels
-    $('.form__field > .form__control').on('input blur focus change keyup mouseup', function () {
-        if ($(this).val().length > 0) {
-            $(this).addClass('_input');
-        } else {
-            $(this).removeClass('_input');
-        }
-    }).each(function () {
-        if ($(this).val().length > 0) {
-            $(this).addClass('_input');
-        }
-    });
-
-    $('.form__field > .form__control').on('animationstart', function (e) {
-        if (e.originalEvent.animationName === 'onAutoFillStart' || e.originalEvent.animationName === 'onAutoFillCancel') {
-            $(this).addClass('_input');
-        }
-    });
 
 
     // sliders
@@ -493,316 +375,188 @@ $(function () {
 
 
 
-    // amination
-
-    // benefits image animation
-
-    const benefitsSection = $('.benefits');
-    if (benefitsSection.length) {
-
-        const benefitsLists = $('.benefits__list');
-        const benefitsPicture = $('.benefits__picture');
-
-        // image rotation animation
-
-        const maxRotation = 8;
-        const isMobile = window.matchMedia("(max-width: 768px)").matches;
-
-        benefitsSection.on('mousemove', function (e) {
-            if (!isMobile) {
-                const width = benefitsSection.width();
-                const height = benefitsSection.height();
-                const left = benefitsSection.offset().left;
-                const top = benefitsSection.offset().top;
-                const mouseX = e.pageX - left - width / 2;
-                const mouseY = e.pageY - top - height / 2;
-                const rotateY = (mouseX / (width / 2)) * maxRotation;
-                const rotateX = (mouseY / (height / 2)) * -maxRotation;
-                benefitsPicture.css('transform', `
-            perspective(1000px) 
-            rotateX(${rotateX}deg) 
-            rotateY(${rotateY}deg)
-        `);
-            }
-        });
-
-        benefitsSection.on('mouseleave', function () {
-            if (!isMobile) {
-                benefitsPicture.css('transform', `
-            perspective(1000px)
-            rotateX(0deg) 
-            rotateY(0deg)
-        `);
-            }
-        });
-
-        benefitsLists.each(function () {
-            const startValue = $(this).attr('start');
-            if (startValue) {
-                $(this).css('--start-num', parseInt(startValue) - 1);
-            }
-        });
-
-        if (isMobile) {
-            const firstItem = benefitsLists.find('.benefits__item').first();
-            firstItem.addClass('active');
-            firstItem.find('.benefits__item-description').slideDown(150);
-        }
-
-        benefitsSection.on('pointerenter', '.benefits__item', function (event) {
-            if (event.pointerType === 'mouse') {
-                const currentItem = $(this);
-                const currentDescription = currentItem.find('.benefits__item-description');
-                $('.benefits__item').removeClass('active');
-                currentItem.addClass('active');
-                $('.benefits__item-description').not(currentDescription).stop().slideUp(150);
-                currentDescription.stop().slideDown(150);
-            }
-        });
-
-        benefitsLists.on('pointerleave', '.benefits__item', function (event) {
-            if (event.pointerType === 'mouse') {
-                const currentDescription = $(this).find('.benefits__item-description');
-                $(this).removeClass('active');
-                currentDescription.stop().slideUp(150);
-            }
-        });
-
-        benefitsSection.on('click', '.benefits__item', function (e) {
-            e.preventDefault();
-            const currentItem = $(this);
-            const currentDescription = currentItem.find('.benefits__item-description');
-            if (currentItem.hasClass('active')) {
-                currentItem.removeClass('active');
-                currentDescription.stop().slideUp(300);
-            } else {
-                $('.benefits__item').removeClass('active');
-                currentItem.addClass('active');
-                $('.benefits__item-description').not(currentDescription).stop().slideUp(300);
-                currentDescription.stop().slideDown(300);
-            }
-        });
-    }
-
-
-    // animation on scroll
-    const $sections = $('[data-animate]');
-    if ($sections.length) {
-        $sections.each(function () {
-            const $section = $(this);
-
-            const callback = function (entries, observer) {
-                if (entries[0].isIntersecting) {
-                    if ($section.data('animate') === "number" && !$section.hasClass('animated')) {
-                        counter($section);
-                    }
-                    $section.addClass('animated');
-                    setTimeout(() => {
-                        $section.addClass('animation-end');
-                    }, 600)
-                }
+    /**
+     * @class FormController
+     * @description Class for managing form validation, phone masking, and error display.
+     */
+    class FormController {
+        constructor() {
+            this.selectors = {
+                field: '.form__field',
+                control: '.form__control',
+                errorClass: '_error',
+                errorMsg: '.form__error-message',
+                requiredAttr: '[data-required]',
+                submitBtn: '[type="submit"]'
             };
 
-            const observer = new IntersectionObserver(callback);
-            observer.observe(this);
-        });
-
-        function counter($counter) {
-            let countFinish = parseInt($counter.text(), 10);
-            $counter.text("0");
-
-            const updateCounter = () => {
-                const target = countFinish;
-                const count = parseInt($counter.text(), 10);
-                const increment = Math.ceil(target / 20);
-
-                if (count + increment < target) {
-                    $counter.text(count + increment);
-                    setTimeout(updateCounter, 100);
-                } else {
-                    $counter.text(target);
-                }
+            this.messages = {
+                empty: 'Поле обязательно для заполнения',
+                tel: 'Введите корректный номер телефона',
+                email: 'Введите корректный e-mail',
+                checkbox: 'Необходимо ваше согласие'
             };
-            updateCounter();
-        }
-    }
 
-
-    // Phone Russia Mask
-
-    var phoneInputs = document.querySelectorAll('input[type="tel"]');
-    var getInputNumbersValue = function (input) {
-        return input.value.replace(/\D/g, '');
-    };
-    var onPhonePaste = function (e) {
-        var input = e.target,
-            inputNumbersValue = getInputNumbersValue(input);
-        var pasted = e.clipboardData || window.clipboardData;
-        if (pasted) {
-            var pastedText = pasted.getData('Text');
-            if (/\D/g.test(pastedText)) {
-                input.value = inputNumbersValue;
-                return;
-            }
-        }
-    };
-    var onPhoneInput = function (e) {
-        var input = e.target,
-            inputNumbersValue = getInputNumbersValue(input),
-            selectionStart = input.selectionStart,
-            formattedInputValue = "";
-        if (!inputNumbersValue) {
-            return input.value = "";
-        }
-        if (input.value.length != selectionStart) {
-            if (e.data && /\D/g.test(e.data)) {
-                input.value = inputNumbersValue;
-            }
-            return;
-        }
-        if (inputNumbersValue.length > 11) {
-            inputNumbersValue = inputNumbersValue.substring(0, 11);
-        }
-        formattedInputValue = "+7 (";
-        if (inputNumbersValue.length >= 2) {
-            formattedInputValue += inputNumbersValue.substring(1, 4);
-        }
-        if (inputNumbersValue.length >= 5) {
-            formattedInputValue += ") " + inputNumbersValue.substring(4, 7);
-        }
-        if (inputNumbersValue.length >= 8) {
-            formattedInputValue += "-" + inputNumbersValue.substring(7, 9);
-        }
-        if (inputNumbersValue.length >= 10) {
-            formattedInputValue += "-" + inputNumbersValue.substring(9, 11);
-        }
-        input.value = formattedInputValue;
-    };
-    var onPhoneKeyDown = function (e) {
-        var inputValue = e.target.value.replace(/\D/g, '');
-        if (e.keyCode == 8 && inputValue.length == 1) {
-            e.target.value = "";
-        }
-    };
-    for (var phoneInput of phoneInputs) {
-        phoneInput.addEventListener('focus', function () {
-            if (!this.value) {
-                this.value = "+7 ";
-            }
-        });
-        phoneInput.addEventListener('keydown', onPhoneKeyDown);
-        phoneInput.addEventListener('input', onPhoneInput, false);
-        phoneInput.addEventListener('paste', onPhonePaste, false);
-    }
-
-
-    // Function for handling dynamic adaptation
-    class DynamicAdapt {
-        constructor(type) {
-            this.type = type;
-            this.оbjects = [];
-            this.daClassname = "_dynamic_adapt_";
-            this.nodes = $('[data-da]');
+            this.init();
         }
 
         init() {
-            // Populate the objects array
-            this.nodes.each((i, node) => {
-                const $node = $(node);
-                const data = $node.data('da').trim();
-                const dataArray = data.split(",");
-                const оbject = {};
-                оbject.element = $node;
-                оbject.parent = $node.parent();
-                оbject.destination = $(dataArray[0].trim());
-                оbject.breakpoint = dataArray[1] ? dataArray[1].trim() : "767";
-                оbject.place = dataArray[2] ? dataArray[2].trim() : "last";
-                оbject.index = this.indexInParent(оbject.parent, оbject.element);
-                this.оbjects.push(оbject);
+            $(document).on('submit', 'form', (e) => this.handleSubmit(e));
+
+            $(document).on('input change', this.selectors.requiredAttr, (e) => {
+                const $field = $(e.target);
+                const $parent = $field.closest(this.selectors.field);
+
+                if ($field.hasClass(this.selectors.errorClass) || $parent.hasClass(this.selectors.errorClass)) {
+                    this.validateField($field);
+                }
             });
 
-            this.arraySort(this.оbjects);
-
-            // Array of unique media queries
-            this.mediaQueries = this.оbjects.map(item => {
-                return `(${this.type}-width: ${item.breakpoint}px),${item.breakpoint}`;
-            }).filter((item, index, self) => {
-                return self.indexOf(item) === index;
-            });
-
-            // Attach listener to media query and call handler on first load
-            this.mediaQueries.forEach(media => {
-                const mediaSplit = media.split(',');
-                const matchMedia = window.matchMedia(mediaSplit[0]);
-                const mediaBreakpoint = mediaSplit[1];
-
-                // Array of objects with matching breakpoint
-                const objectsFilter = this.оbjects.filter(item => {
-                    return item.breakpoint === mediaBreakpoint;
-                });
-
-                matchMedia.addListener(() => {
-                    this.mediaHandler(matchMedia, objectsFilter);
-                });
-                this.mediaHandler(matchMedia, objectsFilter);
+            $(document).on('keydown', 'input[type="tel"]', (e) => this.onPhoneKeyDown(e));
+            $(document).on('input', 'input[type="tel"]', (e) => this.onPhoneInput(e));
+            $(document).on('paste', 'input[type="tel"]', (e) => this.onPhonePaste(e));
+            $(document).on('focus', 'input[type="tel"]', (e) => {
+                if (!e.target.value) {
+                    e.target.value = "+7 ";
+                }
             });
         }
 
-        mediaHandler(matchMedia, оbjects) {
-            if (matchMedia.matches) {
-                оbjects.forEach(оbject => {
-                    оbject.index = this.indexInParent(оbject.parent, оbject.element);
-                    this.moveTo(оbject.place, оbject.element, оbject.destination);
-                });
-            } else {
-                оbjects.forEach(оbject => {
-                    if (оbject.element.hasClass(this.daClassname)) {
-                        this.moveBack(оbject.parent, оbject.element, оbject.index);
-                    }
-                });
+        handleSubmit(e) {
+            const $form = $(e.target);
+
+            if (!this.validateForm($form)) {
+                e.preventDefault();
+                e.stopImmediatePropagation();
+                return false;
             }
         }
 
-        // Move function
-        moveTo(place, element, destination) {
-            element.addClass(this.daClassname);
-            if (place === 'last' || place >= destination.children().length) {
-                destination.append(element);
-            } else if (place === 'first') {
-                destination.prepend(element);
+        validateForm($form) {
+            let isValid = true;
+            const $requiredFields = $form.find(this.selectors.requiredAttr);
+
+            $requiredFields.each((_, el) => {
+                if (!this.validateField($(el))) {
+                    isValid = false;
+                }
+            });
+
+            return isValid;
+        }
+
+        validateField($field) {
+            const value = $field.val().trim();
+            let isError = false;
+            let currentMsg = this.messages.empty;
+
+            if ($field.attr('type') === 'tel') {
+                if (value.replace(/\D/g, '').length < 11) {
+                    isError = true;
+                    currentMsg = this.messages.tel;
+                }
+            } else if ($field.attr('type') === 'email') {
+                const emailReg = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                if (!emailReg.test(value)) {
+                    isError = true;
+                    currentMsg = this.messages.email;
+                }
+            } else if ($field.attr('type') === 'checkbox' || $field.attr('type') === 'radio') {
+                if (!$field.prop('checked')) {
+                    isError = true;
+                    currentMsg = this.messages.checkbox;
+                }
             } else {
-                destination.children().eq(place).before(element);
+                if (value === "") {
+                    isError = true;
+                    currentMsg = this.messages.empty;
+                }
+            }
+
+            this.toggleErrorState($field, isError, currentMsg);
+            return !isError;
+        }
+
+        toggleErrorState($field, isError, message) {
+            const $parent = $field.closest(this.selectors.field);
+            const $errorLabel = $parent.find(this.selectors.errorMsg);
+            const target = $parent.length ? $parent : $field;
+
+            if (isError) {
+                target.addClass(this.selectors.errorClass);
+                $field.addClass(this.selectors.errorClass);
+                if ($errorLabel.length) {
+                    $errorLabel.text(message).show();
+                }
+            } else {
+                target.removeClass(this.selectors.errorClass);
+                $field.removeClass(this.selectors.errorClass);
+                if ($errorLabel.length) {
+                    $errorLabel.hide();
+                }
             }
         }
 
-        // Return function
-        moveBack(parent, element, index) {
-            element.removeClass(this.daClassname);
-            if (parent.children().eq(index).length) {
-                parent.children().eq(index).before(element);
+        onPhoneInput(e) {
+            const input = e.target;
+            let inputNumbersValue = input.value.replace(/\D/g, '');
+            let formattedInputValue = "";
+            const selectionStart = input.selectionStart;
+
+            if (!inputNumbersValue) {
+                return input.value = "";
+            }
+
+            if (input.value.length != selectionStart) {
+                if (e.originalEvent.data && /\D/g.test(e.originalEvent.data)) {
+                    input.value = inputNumbersValue;
+                }
+                return;
+            }
+
+            if (["7", "8", "9"].indexOf(inputNumbersValue[0]) > -1) {
+                if (inputNumbersValue[0] == "9") inputNumbersValue = "7" + inputNumbersValue;
+                let firstChar = "+7";
+                formattedInputValue = firstChar + " (";
+                if (inputNumbersValue.length > 1) {
+                    formattedInputValue += inputNumbersValue.substring(1, 4);
+                }
+                if (inputNumbersValue.length >= 5) {
+                    formattedInputValue += ") " + inputNumbersValue.substring(4, 7);
+                }
+                if (inputNumbersValue.length >= 8) {
+                    formattedInputValue += "-" + inputNumbersValue.substring(7, 9);
+                }
+                if (inputNumbersValue.length >= 10) {
+                    formattedInputValue += "-" + inputNumbersValue.substring(9, 11);
+                }
             } else {
-                parent.append(element);
+                formattedInputValue = "+" + inputNumbersValue.substring(0, 16);
+            }
+
+            input.value = formattedInputValue;
+        }
+
+        onPhoneKeyDown(e) {
+            const inputValue = e.target.value.replace(/\D/g, '');
+            if (e.keyCode == 8 && inputValue.length == 1) {
+                e.target.value = "";
             }
         }
 
-        // Get index within parent
-        indexInParent(parent, element) {
-            const parentChildren = parent.children();
-            return parentChildren.index(element);
-        }
-
-        // Sort array by breakpoint and place
-        arraySort(arr) {
-            if (this.type === "min") {
-                arr.sort((a, b) => a.breakpoint - b.breakpoint || a.place - b.place);
-            } else {
-                arr.sort((a, b) => b.breakpoint - a.breakpoint || b.place - a.place);
+        onPhonePaste(e) {
+            const input = e.target;
+            const pasted = e.originalEvent.clipboardData || window.clipboardData;
+            if (pasted) {
+                const pastedText = pasted.getData('Text');
+                if (/\D/g.test(pastedText)) {
+                    input.value = input.value.replace(/\D/g, '');
+                }
             }
         }
     }
 
-    const da = new DynamicAdapt("max");
-    da.init();
+    window.FormController = new FormController();
 
 
     // Contacts Block Map
