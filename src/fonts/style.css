@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icons';
-  src:  url('fonts/icons.eot?xkftp0');
-  src:  url('fonts/icons.eot?xkftp0#iefix') format('embedded-opentype'),
-    url('fonts/icons.ttf?xkftp0') format('truetype'),
-    url('fonts/icons.woff?xkftp0') format('woff'),
-    url('fonts/icons.svg?xkftp0#icons') format('svg');
+  src:  url('fonts/icons.eot?yy41s6');
+  src:  url('fonts/icons.eot?yy41s6#iefix') format('embedded-opentype'),
+    url('fonts/icons.ttf?yy41s6') format('truetype'),
+    url('fonts/icons.woff?yy41s6') format('woff'),
+    url('fonts/icons.svg?yy41s6#icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,9 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-up:before {
+  content: "\e91a";
+}
 .icon-grid:before {
   content: "\e919";
 }
@@ -67,7 +70,7 @@
 .icon-minus:before {
   content: "\e90c";
 }
-.icon-news:before {
+.icon-calendar:before {
   content: "\e90d";
 }
 .icon-next:before {

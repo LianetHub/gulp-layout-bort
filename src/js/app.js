@@ -208,15 +208,6 @@ $(function () {
 
 
 
-
-    // Display filter block in Сatalog if title is active
-    $('.filter__block-title.active').each(function () {
-        const $title = $(this);
-        const $content = $title.next('.filter__block-content');
-        $content.slideDown(0);
-    });
-
-
     // "grid" или "rows" в Каталоге
 
     $('.shop__grid-input').on('change', function () {
@@ -943,93 +934,39 @@ $(function () {
         });
     }
 
-    // order form validation
 
-    function validateStep($step) {
-        let isValid = true;
+    // arrow top
 
-        $step.find("[data-required]").each(function () {
-            const $field = $(this);
-            const value = $field.val().trim();
+    const $arrowTop = $('.arrow-top');
 
-            if (!value) {
-                isValid = false;
-                return;
-            }
+    if ($arrowTop.length) {
+        const $html = $('html');
+        const scrollThreshold = 300;
 
-            if ($field.attr("type") === "email") {
-                const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!emailPattern.test(value)) {
-                    isValid = false;
-                }
-            }
-
-            if ($field.attr("type") === "tel") {
-                const phonePattern = /^[0-9\-\+\(\)\s]{5,20}$/;
-                if (!phonePattern.test(value)) {
-                    isValid = false;
-                }
-            }
-        });
-
-        const $radioGroups = $step.find("input[type=radio]").map(function () {
-            return $(this).attr("name");
-        }).get();
-
-        const uniqueGroups = [...new Set($radioGroups)];
-
-        uniqueGroups.forEach(function (name) {
-            if ($step.find(`input[name="${name}"]`).length) {
-                if (!$step.find(`input[name="${name}"]:checked`).length) {
-                    isValid = false;
-                }
-            }
-        });
-
-        return isValid;
-    }
-
-    function checkSteps() {
-        let allValid = true;
-
-        $(".order__step").each(function (index) {
-            const $step = $(this);
-            const $next = $(".order__step").eq(index + 1);
-
-            if (validateStep($step)) {
-                $step.addClass("order__step--done");
-                if ($next.length) {
-                    $next.removeClass("hidden");
-                }
+        $(window).on('scroll', function () {
+            if ($(window).scrollTop() > scrollThreshold) {
+                $arrowTop.addClass('visible');
             } else {
-                $step.removeClass("order__step--done");
-                if ($next.length) {
-                    $next.addClass("hidden");
-                }
-                allValid = false;
+                $arrowTop.removeClass('visible');
             }
         });
 
-        const $btn = $(".order__form button[type=submit]");
-        const $notifyWarning = $(".order__form-notify--warning");
-        const $notifySuccess = $(".order__form-notify--success");
+        $arrowTop.on('click', function () {
+            const hasSmoothScroll = $html.css('scroll-behavior') === 'smooth';
 
-        if (allValid) {
-            $btn.prop("disabled", false);
-            $notifyWarning.addClass("hidden");
-            $notifySuccess.removeClass("hidden");
-        } else {
-            $btn.prop("disabled", true);
-            $notifyWarning.removeClass("hidden");
-            $notifySuccess.addClass("hidden");
-        }
+            if (hasSmoothScroll) {
+                $html.css('scroll-behavior', 'auto');
+            }
+
+            $('html, body').animate({
+                scrollTop: 0
+            }, 600, function () {
+                if (hasSmoothScroll) {
+                    $html.css('scroll-behavior', 'smooth');
+                }
+            });
+        });
     }
-
-    $(document).on("input change", ".order__step input, .order__step textarea", function () {
-        checkSteps();
-    });
-
-    checkSteps();
 });
 
 

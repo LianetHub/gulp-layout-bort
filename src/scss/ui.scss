@@ -127,65 +127,6 @@
 	}
 }
 
-.swiper-lazy-preloader {
-	--swiper-preloader-color: #{$pink};
-}
-
-.socials {
-	display: flex;
-	flex-wrap: wrap;
-	gap: rem(12);
-	// .socials__link
-	&__link {
-		width: rem(32);
-		height: rem(32);
-		font-size: rem(20);
-		flex-shrink: 0;
-		background: #4e4e4e;
-		color: #fff;
-		border-radius: 50%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		transition: background-color 0.3s ease;
-		&.icon-telegram {
-			@media (any-hover: hover) {
-				&:hover {
-					background-color: #00b0f2;
-				}
-			}
-		}
-		&.icon-whatsapp {
-			@media (any-hover: hover) {
-				&:hover {
-					background-color: #00e510;
-				}
-			}
-		}
-		&.icon-youtube {
-			@media (any-hover: hover) {
-				&:hover {
-					background-color: #ff0000;
-				}
-			}
-		}
-		&.icon-rutube {
-			@media (any-hover: hover) {
-				&:hover {
-					background-color: #13141c;
-				}
-			}
-		}
-		&.icon-vk {
-			@media (any-hover: hover) {
-				&:hover {
-					background-color: #2688eb;
-				}
-			}
-		}
-	}
-}
-
 .label {
 	display: inline-flex;
 	align-items: center;
@@ -674,6 +615,37 @@
 				transform: translateX(0.5rem);
 			}
 		}
+	}
+}
+
+.arrow-top {
+	display: flex;
+	width: 3.75rem;
+	height: 3.75rem;
+	font-size: 2.25rem;
+	padding: 0.75rem;
+	justify-content: center;
+	align-items: center;
+	position: fixed;
+	bottom: 2.5rem;
+	right: 2.5rem;
+	border-radius: 62.4375rem;
+	background: #ea7600;
+	color: #fff;
+	z-index: 5;
+	opacity: 0;
+	visibility: hidden;
+	transition: all 0.3s ease;
+	&.visible {
+		opacity: 1;
+		visibility: visible;
+	}
+	&:hover {
+		background-color: #f5912b;
+	}
+	&:active {
+		background-color: #f5912b;
+		color: #ea7600;
 	}
 }
 
