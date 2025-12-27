@@ -2594,7 +2594,20 @@ body:has(.arrow-top.visible) .notify-container {
   margin-top: 1.25rem;
 }
 
+.header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 6;
+  background: #fff;
+  box-shadow: 0 0 1.25rem 0 rgba(64, 64, 64, 0.1);
+}
+.header.scroll .header__top {
+  margin-top: -2.5rem;
+}
 .header__top {
+  transition: margin-top 0.3s ease;
   background: #202020;
   color: #a7a8aa;
   padding: 0.625rem 0;

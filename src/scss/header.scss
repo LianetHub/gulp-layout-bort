@@ -1,6 +1,19 @@
 .header {
+	position: sticky;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: $ui-index-6;
+	background: $white;
+	box-shadow: 0 0 rem(20) 0 rgba(64, 64, 64, 0.1);
+	&.scroll {
+		.header__top {
+			margin-top: rem(-40);
+		}
+	}
 	// .header__top
 	&__top {
+		transition: margin-top 0.3s ease;
 		background: $black;
 		color: $grey;
 		padding: 0.625rem 0;
@@ -52,6 +65,9 @@
 		& img {
 			width: 100%;
 		}
+	}
+	// .header__catalog
+	&__catalog {
 	}
 	// .header__catalog-toggler
 	&__catalog-toggler {

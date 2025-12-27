@@ -1022,6 +1022,29 @@ $(function () {
             });
         });
     }
+
+    /**
+ * @function initHeaderScroll
+ * @description Manages header state on scroll to hide the top bar.
+ */
+    const $header = $('.header');
+    if ($header.length) {
+
+        const $window = $(window);
+        const scrollThreshold = 100;
+
+        $window.on('scroll', function () {
+            const scrollTop = $window.scrollTop();
+
+            if (scrollTop > scrollThreshold) {
+                $header.addClass('scroll');
+            } else if (scrollTop <= 10) {
+                $header.removeClass('scroll');
+            }
+        });
+    }
+
+
 });
 
 
