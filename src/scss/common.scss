@@ -60,8 +60,10 @@ body {
 	overflow-x: hidden;
 	padding-bottom: rem(25);
 	@media (min-width: $md4) {
-		background: url("@img/decor/bg-wave.svg") 0 100% / 100% auto no-repeat;
 		padding-bottom: rem(50);
+		@media (min-height: rem(2000)) {
+			background: url("@img/decor/bg-wave.svg") 0 100% / 100% auto no-repeat;
+		}
 	}
 }
 

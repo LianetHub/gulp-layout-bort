@@ -9,7 +9,16 @@
             "auth": false
             })
             <main class="page">
-
+                <section class="error">
+                    <div class="container">
+                        <div class="error__body">
+                            <div class="error__status color-accent">404</div>
+                            <h1 class="error__title title">Ошибка</h1>
+                            <p class="error__subtitle">Запрашиваемая страница не найдена или не существует</p>
+                            <a href="index.html" class="error__btn btn btn-secondary">На главную</a>
+                        </div>
+                    </div>
+                </section>
             </main>
             @@include('html/_footer.html', {})
             @@include('html/_js.html', {})

@@ -1426,8 +1426,12 @@ body:has(.arrow-top.visible) .notify-container {
 }
 @media (min-width: 767.98px) {
   .page {
-    background: url("../img/decor/bg-wave.svg") 0 100%/100% auto no-repeat;
     padding-bottom: 3.125rem;
+  }
+}
+@media (min-width: 767.98px) and (min-height: 125rem) {
+  .page {
+    background: url("../img/decor/bg-wave.svg") 0 100%/100% auto no-repeat;
   }
 }
 
@@ -4658,6 +4662,56 @@ body:has(.arrow-top.visible) .notify-container {
     font-size: 1rem;
   }
 }
+.error {
+  padding: 3.125rem 0;
+}
+@media (min-width: 767.98px) {
+  .error {
+    padding: 6.25rem 0;
+  }
+}
+.error__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.error__status {
+  color: #ea7600;
+  font-family: "RussoOne";
+  line-height: 90%;
+  text-transform: uppercase;
+  font-size: 5.75rem;
+}
+@media (min-width: 767.98px) {
+  .error__status {
+    font-size: 8rem;
+  }
+}
+.error__title {
+  margin-top: 1.25rem;
+}
+.error__subtitle {
+  margin-top: 0.625rem;
+  color: #63666a;
+  line-height: 125%;
+  font-size: 1rem;
+}
+@media (min-width: 767.98px) {
+  .error__subtitle {
+    font-size: 1.25rem;
+  }
+}
+.error__btn {
+  margin-top: 1.25rem;
+  min-width: 10rem;
+}
+@media (min-width: 767.98px) {
+  .error__btn {
+    min-width: 11.25rem;
+  }
+}
+
 .typography-block .sm-size {
   font-size: 1rem;
 }
