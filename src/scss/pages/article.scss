@@ -1,0 +1,24 @@
+.article {
+	padding: rem(25) 0;
+	@media (min-width: $md4) {
+		padding: rem(50) 0;
+	}
+	// .article__title
+	&__title {
+		margin-bottom: 1.25rem;
+		@media (min-width: $md4) {
+			margin-bottom: 2.5rem;
+		}
+	}
+	// .article__body
+	&__body {
+		background: #fff;
+		padding: 1.25rem;
+		margin-inline: -1.25rem;
+		border-radius: 1.25rem;
+		@media (min-width: $md5) {
+			padding: 2.5rem;
+			margin-inline: 0;
+		}
+	}
+}
