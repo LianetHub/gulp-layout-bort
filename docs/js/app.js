@@ -582,13 +582,40 @@ $(function () {
         })
     }
 
-    if ($('.product-details__gallery')) {
-        new Swiper('.product-details__gallery .swiper', {
+    if ($('.product-details__gallery').length) {
+        const productMainSwiper = new Swiper('.product-details__gallery .swiper', {
             slidesPerView: 1,
             watchOverflow: true,
-        })
-    }
+            on: {
+                slideChange: function () {
+                    const index = this.activeIndex;
+                    const $thumbs = $('.product-details__thumb');
+                    $thumbs.removeClass('active').eq(index).addClass('active');
 
+                    if (thumbMobileSlider.swiper) {
+                        thumbMobileSlider.swiper.slideTo(index);
+                    }
+                }
+            }
+        });
+
+        const thumbMobileSlider = new MobileSwiper('.product-details__thumbs .swiper', {
+            slidesPerView: 'auto',
+            spaceBetween: 10,
+            freeMode: true,
+            watchSlidesProgress: true,
+        });
+
+        $(document).on('click', '.product-details__thumb', function () {
+            const $thumb = $(this).closest('.product-details__thumb');
+            const index = $thumb.index();
+
+            $('.product-details__thumb').removeClass('active');
+            $thumb.addClass('active');
+
+            productMainSwiper.slideTo(index);
+        });
+    }
 
     /**
      * @class FormController

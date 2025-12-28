@@ -18,7 +18,11 @@
         <div class="product-details__header">
             <div class="product-details__images">
                 <div class="product-details__thumbs">
-                    @@loop('../templates/_gallery-thumb.html', './html/json/gallery.json')
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            @@loop('../templates/_gallery-thumb.html', './html/json/gallery.json')
+                        </div>
+                    </div>
                 </div>
                 <div class="product-details__gallery ">
                     <div class="swiper">
@@ -128,14 +132,14 @@
                 <div class="product-details__block-title title-sm">Комплектация</div>
                 <div class="product-details__block-desc typography-block">
                     <ul class="row">
-                        <li class="col-md-3">Монтажный узел (1 шт)</li>
-                        <li class="col-md-3">Сливная труба (1 шт)</li>
-                        <li class="col-md-3">Гидрозатвор (1 шт)</li>
-                        <li class="col-md-3">Пневмовыключатель (1 шт)</li>
-                        <li class="col-md-3">Проталкиватель (1 шт)</li>
-                        <li class="col-md-3">Сито-пробка + проталкиватель (1 шт)</li>
-                        <li class="col-md-3">Защитный экран (1 шт)</li>
-                        <li class="col-md-3">Инструкция (1 шт)</li>
+                        <li class="col-xl-3 col-lg-4 col-md-6">Монтажный узел (1 шт)</li>
+                        <li class="col-xl-3 col-lg-4 col-md-6">Сливная труба (1 шт)</li>
+                        <li class="col-xl-3 col-lg-4 col-md-6">Гидрозатвор (1 шт)</li>
+                        <li class="col-xl-3 col-lg-4 col-md-6">Пневмовыключатель (1 шт)</li>
+                        <li class="col-xl-3 col-lg-4 col-md-6">Проталкиватель (1 шт)</li>
+                        <li class="col-xl-3 col-lg-4 col-md-6">Сито-пробка + проталкиватель (1 шт)</li>
+                        <li class="col-xl-3 col-lg-4 col-md-6">Защитный экран (1 шт)</li>
+                        <li class="col-xl-3 col-lg-4 col-md-6">Инструкция (1 шт)</li>
                     </ul>
                 </div>
             </div>
