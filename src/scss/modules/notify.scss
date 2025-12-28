@@ -1,13 +1,20 @@
 .notify-container {
 	position: fixed;
-	max-width: 25.375rem;
 	width: 100%;
 	display: flex;
 	flex-direction: column;
-	gap: 1.5rem;
-	z-index: 6;
-	bottom: 1.5rem;
-	right: 1.5rem;
+	z-index: 5;
+	bottom: rem(70);
+	left: 0;
+	right: 0;
+	gap: 0.625rem;
+	@media (min-width: $md4) {
+		gap: 1.5rem;
+		max-width: 25.375rem;
+		bottom: 1.5rem;
+		right: 1.5rem;
+		left: auto;
+	}
 	@media (min-width: $md3) {
 		right: 2.5rem;
 		bottom: 2.5rem;
@@ -15,23 +22,29 @@
 }
 
 .notify {
-	border-radius: 1.25rem;
 	background: #252525;
 	color: #fff;
 	z-index: 6;
 	box-shadow: 0 0 rem(20) 0 rgba(64, 64, 64, 0.05);
 	padding: 1.25rem;
-	gap: 1.125rem;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
+	gap: 0.625rem;
+	@media (min-width: $md4) {
+		gap: 1.125rem;
+		border-radius: 1.25rem;
+	}
 	// .notify__title
 	&__title {
 	}
 	// .notify__text
 	&__text {
 		color: #a7a8aa;
-		font-size: 1rem;
 		line-height: 125%;
+		font-size: 0.875rem;
+		@media (min-width: $md4) {
+			font-size: 1rem;
+		}
 	}
 }

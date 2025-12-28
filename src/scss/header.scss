@@ -584,6 +584,7 @@
 	background: #202020;
 	box-shadow: 0 0 rem(20) 0 rgba(64, 64, 64, 0.05);
 	padding: 0.9375rem 1.25rem;
+	min-height: rem(70);
 	@media (min-width: $md4) {
 		gap: 1.25rem;
 		position: relative;
@@ -594,6 +595,7 @@
 		display: flex;
 		align-items: center;
 		width: auto;
+		min-height: auto;
 	}
 	// .main-actions__item
 	&__item {
