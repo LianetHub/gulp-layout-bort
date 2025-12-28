@@ -4722,6 +4722,12 @@ body:has(.arrow-top.visible) .notify-container {
     min-width: 11.25rem;
   }
 }
+.products__grid {
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(13.3125rem, 1fr));
+  gap: 1.25rem;
+}
 
 .product {
   background: #fff;

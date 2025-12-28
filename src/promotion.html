@@ -49,6 +49,16 @@
                         </div>
                     </div>
                 </section>
+                <section class="products">
+                    <div class="container">
+                        <h2 class="products__title title">
+                            <span class="color-grey">товары</span> в акции
+                        </h2>
+                        <div class="products__grid">
+                            @@loop('./html/templates/_product-card-promo.html', './html/json/products-promo.json')
+                        </div>
+                    </div>
+                </section>
 
             </main>
             @@include('html/_footer.html', {})

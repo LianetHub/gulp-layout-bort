@@ -41,6 +41,12 @@
 			min-width: 11.25rem;
 		}
 	}
+	&__grid {
+		margin-top: rem(40);
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(rem(213), 1fr));
+		gap: 1.25rem;
+	}
 }
 
 .product {
