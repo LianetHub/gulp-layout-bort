@@ -4907,8 +4907,15 @@ body:has(.arrow-top.visible) .notify-container {
   gap: 0.3125rem;
 }
 .product__price-more.more-link {
-  font-size: 1rem;
   font-weight: 600;
+}
+@media (min-width: 767.98px) {
+  .product__price-more.more-link {
+    font-size: 1.5rem;
+  }
+  .product__price-more.more-link::before {
+    font-size: 1.875rem;
+  }
 }
 .product__price-current {
   font-weight: 600;

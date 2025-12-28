@@ -24,22 +24,14 @@
         </div>
     </div>
     <div class="product__price">
-        <div class="product__price-current">@@currentPrice</div>
-        @@if(typeof oldPrice !== 'undefined') {
-        <div class="product__price-old">@@oldPrice</div>
-        }
-        @@if(typeof sale !== 'undefined') {
-        <div class="product__price-sale">@@sale</div>
-        }
-    </div>
-    <div class="product__quantity">
-        <div class="product__quantity-caption">количество:</div>
-        <div class="quantity-block@@if(type==='small'){ quantity-block--small}">
-            <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
-            <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
-            <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+        <div class="product__price-block">
+            <div class="product__price-caption">Розничная цена:</div>
+            <div class="product__price-current">14 490₽</div>
         </div>
-        <div class="product__quantity-unit">шт</div>
+        <div class="product__price-block">
+            <div class="product__price-caption">Оптовая цена:</div>
+            <a href="" class="product__price-more more-link icon-right">Запросить цену</a>
+        </div>
     </div>
     <div class="product__actions">
         @@if(quantity > 0) {

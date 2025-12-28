@@ -231,8 +231,13 @@
 	// .product__price-more
 	&__price-more {
 		&.more-link {
-			font-size: 1rem;
 			font-weight: 600;
+			@media (min-width: $md4) {
+				font-size: 1.5rem;
+				&::before {
+					font-size: 1.875rem;
+				}
+			}
 		}
 	}
 	// .product__price-current
