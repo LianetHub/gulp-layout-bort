@@ -23,6 +23,15 @@
                 </nav>
                 @@include('./html/includes/_category.html')
                 @@include('./html/includes/_compare.html')
+                <section class="marketing">
+                    <div class="container">
+                        <h2 class="marketing__title title">маркетинговая <span class="color-grey">активность</span></h2>
+                        <ul class="marketing__list">
+                            @@loop('./html/templates/_marketing-card.html', './html/json/marketing-category.json')
+                        </ul>
+                        <button type="button" class="marketing__more btn btn-secondary">Показать больше</button>
+                    </div>
+                </section>
             </main>
             @@include('html/_footer.html', {})
             @@include('html/_js.html', {})

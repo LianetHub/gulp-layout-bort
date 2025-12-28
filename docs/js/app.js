@@ -1267,6 +1267,59 @@ $(function () {
 
 
 
+    /**
+    * Updates the visibility of comparison rows on mobile devices.
+    * Shows only the first 3 rows unless expanded.
+    */
+    const $compareTable = $('.compare__table');
+    if ($compareTable.length) {
+
+        const $rows = $compareTable.find('.compare__row');
+        const $moreBtn = $('.compare__more-btn');
+        const mobileBreakpoint = 767.98;
+
+
+        function updateCompareRowsVisibility() {
+            if (window.innerWidth <= mobileBreakpoint) {
+                if (!$moreBtn.hasClass('is-expanded')) {
+                    $rows.each(function (index) {
+                        if (index >= 3) {
+                            $(this).hide();
+                        } else {
+                            $(this).show();
+                        }
+                    });
+                    $moreBtn.show().text('Показать больше');
+                }
+            } else {
+                $rows.show();
+                $moreBtn.hide();
+            }
+        }
+
+
+        $moreBtn.on('click', function () {
+            const $btn = $(this);
+
+            if (!$btn.hasClass('is-expanded')) {
+                $rows.fadeIn(300);
+                $btn.addClass('is-expanded').text('Скрыть');
+            } else {
+                $rows.each(function (index) {
+                    if (index >= 3) {
+                        $(this).fadeOut(300);
+                    }
+                });
+                $btn.removeClass('is-expanded').text('Показать больше');
+
+
+
+            }
+        });
+
+        updateCompareRowsVisibility();
+        $(window).on('resize', updateCompareRowsVisibility);
+    }
 
 });
 

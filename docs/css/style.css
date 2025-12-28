@@ -5992,3 +5992,284 @@ body:has(.arrow-top.visible) .notify-container {
   flex-wrap: wrap;
   gap: 1.25rem;
 }
+.compare {
+  padding: 1.5625rem 0;
+}
+@media (min-width: 767.98px) {
+  .compare {
+    padding: 3.125rem 0;
+  }
+}
+.compare__title {
+  margin-bottom: 1.25rem;
+}
+@media (min-width: 767.98px) {
+  .compare__title {
+    margin-bottom: 2.5rem;
+  }
+}
+.compare__body {
+  background: #fff;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+}
+.compare__products {
+  display: none;
+}
+@media (min-width: 991.98px) {
+  .compare__products {
+    display: grid;
+    grid-template-columns: 12.5rem repeat(5, 1fr);
+  }
+}
+@media (min-width: 1199.98px) {
+  .compare__products {
+    grid-template-columns: 15.625rem repeat(5, 1fr);
+  }
+}
+.compare__product-card {
+  grid-column: span 1;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1.25rem 0;
+}
+.compare__product-card:first-child {
+  grid-column-start: 2;
+}
+.compare__product-img {
+  aspect-ratio: 0.9368421053;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.compare__product-img img {
+  width: auto;
+  max-width: 100%;
+  max-height: 100%;
+}
+.compare__product-name {
+  margin-top: 0.625rem;
+  font-family: "RussoOne";
+  line-height: 125%;
+  font-size: 0.875rem;
+  margin-bottom: auto;
+}
+@media (min-width: 1199.98px) {
+  .compare__product-name {
+    font-size: 1rem;
+  }
+}
+.compare__product-link {
+  margin-top: 0.625rem;
+}
+.compare__row {
+  display: grid;
+  align-items: center;
+  color: #202020;
+  font-size: 1rem;
+  line-height: 125%;
+  padding: 1.25rem 0;
+}
+@media (min-width: 991.98px) {
+  .compare__row {
+    grid-template-columns: 12.5rem 1fr;
+  }
+}
+@media (min-width: 1199.98px) {
+  .compare__row {
+    grid-template-columns: 15.625rem 1fr;
+  }
+}
+.compare__row:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+@media (max-width: 991.98px) {
+  .compare__row {
+    display: block;
+    background: none !important;
+    padding: 0;
+    padding-bottom: 1.25rem;
+    border-bottom: 0.0625rem solid #efefef;
+  }
+  .compare__row:not(:last-child) {
+    margin-bottom: 1.25rem;
+  }
+}
+.compare__label {
+  padding-left: 0.625rem;
+  color: #63666a;
+  font-size: 1rem;
+  line-height: 125%;
+}
+@media (max-width: 991.98px) {
+  .compare__label {
+    padding: 0;
+    color: #202020;
+    font-family: "RussoOne";
+    font-size: 1rem;
+    line-height: 125%;
+    text-transform: uppercase;
+    margin-bottom: 0.625rem;
+  }
+}
+.compare__values {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .compare__values {
+    display: block;
+    text-align: left;
+  }
+}
+.compare__val {
+  font-size: 1rem;
+  font-weight: 500;
+}
+.compare__val .icon-check, .compare__val .form__checkbox-input:checked + .form__checkbox-text::before, .compare__val .dropdown__list-item.active::before, .compare__val .dropdown__list-item[aria-checked=true]::before, .compare__val .filter-option__input[type=checkbox]:checked ~ span::before {
+  color: #ea7600;
+  width: 1.5625rem;
+  height: 1.5625rem;
+  font-size: 1.5625rem;
+}
+@media (max-width: 991.98px) {
+  .compare__val {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.625rem;
+    font-weight: 400;
+    color: #63666a;
+  }
+  .compare__val::before {
+    content: attr(data-name);
+    flex-shrink: 0;
+  }
+  .compare__val::after {
+    content: "";
+    flex-grow: 1;
+    border-bottom: 1px dotted #a7a8aa;
+    margin: 0 1.25rem;
+    order: 0;
+  }
+  .compare__val span {
+    order: 1;
+    font-weight: 500;
+    color: #202020;
+  }
+}
+@media (max-width: 575.98px) {
+  .compare__val {
+    font-size: 0.875rem;
+  }
+  .compare__val::after {
+    margin: 0 0.5rem;
+  }
+}
+.compare__more-btn {
+  display: none;
+}
+@media (max-width: 991.98px) {
+  .compare__more-btn {
+    display: flex;
+    width: fit-content;
+    margin-inline: auto;
+    min-width: 10rem;
+    margin-top: 1.25rem;
+  }
+}
+
+.marketing {
+  padding: 1.5625rem 0;
+}
+@media (min-width: 767.98px) {
+  .marketing {
+    padding: 3.125rem 0;
+  }
+}
+.marketing__list {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+@media (min-width: 575.98px) {
+  .marketing__list {
+    margin-top: 2.5rem;
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 991.98px) {
+  .marketing__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+@media (min-width: 1199.98px) {
+  .marketing__list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+.marketing__card {
+  border-radius: 1.25rem;
+  background: #fff;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.marketing__card-time {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  color: #a7a8aa;
+  font-size: 0.875rem;
+  line-height: 125%;
+  gap: 0.3125rem;
+}
+.marketing__card-time::before {
+  width: 1.125rem;
+  height: 1.125rem;
+  flex-shrink: 0;
+  font-size: 1.125rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.marketing__card-name {
+  font-family: "RussoOne";
+  font-size: 1rem;
+  line-height: 125%;
+  text-transform: uppercase;
+  margin-top: 1.25rem;
+  transition: color 0.3s ease;
+}
+@media (any-hover: hover) {
+  .marketing__card-name:hover {
+    color: #ea7600;
+  }
+}
+.marketing__card-category {
+  margin-top: 0.625rem;
+  color: #63666a;
+  font-size: 1rem;
+  line-height: 125%;
+  margin-bottom: auto;
+}
+.marketing__card-more {
+  margin-top: 1.25rem;
+}
+.marketing__more {
+  display: flex;
+  width: fit-content;
+  margin-inline: auto;
+  min-width: 10rem;
+  margin-top: 1.25rem;
+}
+@media (min-width: 767.98px) {
+  .marketing__more {
+    margin-top: 2.5rem;
+    min-width: 11.25rem;
+  }
+}
