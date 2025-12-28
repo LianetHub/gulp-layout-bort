@@ -1,0 +1,203 @@
+<nav aria-label="Хлебные крошки" class="breadcrumbs">
+    <div class="container">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="/" class="breadcrumbs__link">Главная</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="category.html" class="breadcrumbs__link">Каталог</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <span class="breadcrumbs__link active">Товар</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<section class="product-details">
+    <div class="container">
+        <div class="product-details__header">
+            <div class="product-details__images">
+                <div class="product-details__thumbs">
+                    @@loop('../templates/_gallery-thumb.html', './html/json/gallery.json')
+                </div>
+                <div class="product-details__gallery ">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            @@loop('../templates/_gallery-image.html', './html/json/gallery.json')
+                        </div>
+                    </div>
+                    <div class="product-details__labels">
+                        <div class="product-details__label">Осталось мало!</div>
+                        <div class="product-details__label orange">новинка!</div>
+                        <div class="product-details__label orange">Акция!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-details__main">
+                <h1 class="product-details__title title-md">Измельчитель пищевых отходов Bort TITAN MAX Power</h1>
+                <div class="product-details__info">
+                    <div class="product-details__sku">Артикул товара: 11223344</div>
+                    <span class="product-details__separator"></span>
+                    <button type="button" class="product-details__share icon-share">Поделиться</button>
+                </div>
+                <div class="product-details__price">
+                    <div class="product-details__price-block">
+                        <div class="product-details__price-caption">Цена за один товар:</div>
+                        <a href="" class="product-details__price-order more-link icon-right">Запросить цену</a>
+                    </div>
+                    <div class="product-details__price-block">
+                        <div class="product-details__price-caption">Рекомендованная розничная цена:</div>
+                        <div class="product-details__price-value">60 000₽</div>
+                    </div>
+                </div>
+                <div class="product-details__quantity">
+                    <div class="quantity-block quantity-block--large">
+                        <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
+                        <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
+                        <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+                    </div>
+                </div>
+                <div class="product-details__actions">
+                    <button type="button" class="product__btn btn btn-primary add-to-cart-btn icon-cart">
+                        В корзину
+                    </button>
+                    <button type="button" aria-label="Добавить @@name в избранное" class="product__action favorite-btn icon-heart"></button>
+                    <button type="button" aria-label="Добавить @@name к сравнению" class="product__action compare-btn icon-compare"></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-details__banner banner" style="background-image: url('@img/banner.jpg');">
+            <div class="banner__title title">Сотрудничество с <span class="color-accent">BORT</span></div>
+            <p class="banner__subtitle">Британские «ученые» заявили, что частокол на границе починят</p>
+            <a href="" class="banner__btn btn btn-primary">Подробнее</a>
+        </div>
+        <nav aria-label="Навигация по товару" class="product-details__navigation">
+            <ul class="product-details__navigation-menu">
+                <li class="product-details__navigation-item">
+                    <a href="#stats" class="product-details__navigation-link">Характеристики</a>
+                </li>
+                <li class="product-details__navigation-item">
+                    <a href="#description" class="product-details__navigation-link">Описание</a>
+                </li>
+                <li class="product-details__navigation-item">
+                    <a href="#complect" class="product-details__navigation-link">Комплектация</a>
+                </li>
+                <li class="product-details__navigation-item">
+                    <a href="#docs" class="product-details__navigation-link">Дополнительные материалы</a>
+                </li>
+                <li class="product-details__navigation-item">
+                    <a href="#marketing-activity" class="product-details__navigation-link">Маркетинговая активность</a>
+                </li>
+                <li class="product-details__navigation-item">
+                    <a href="#reviews" class="product-details__navigation-link">Отзывы</a>
+                </li>
+                <li class="product-details__navigation-item">
+                    <a href="#related-products" class="product-details__navigation-link">Сопутствующие товары</a>
+                </li>
+                <li class="product-details__navigation-item">
+                    <a href="#simular-products" class="product-details__navigation-link">С этим товаром покупают</a>
+                </li>
+                @@if(auth === true) {
+                <li class="product-details__navigation-item">
+                    <a href="#compare" class="product-details__navigation-link">Мойки высокого давления BHR</a>
+                </li>
+                }
+                <li class="product-details__navigation-item">
+                    <a href="#tags" class="product-details__navigation-link">Теги</a>
+                </li>
+            </ul>
+        </nav>
+        <div class="product-details__blocks">
+            <div id="stats" class="product-details__block">
+                <div class="product-details__block-title title-sm">характеристики <span class="color-grey">товара</span></div>
+                @@include('./_product-stats.html')
+            </div>
+            <div id="description" class="product-details__block">
+                <div class="product-details__block-title title-sm">описание <span class="color-grey">товара</span></div>
+                <div class="product-details__block-desc typography-block">
+                    <p>Однозначно, ключевые особенности структуры проекта призывают нас к новым свершениям, которые, в свою очередь, должны быть преданы социально-демократической анафеме. Картельные сговоры не допускают ситуации, при которой независимые государства объединены в целые кластеры себе подобных. Принимая во внимание показатели успешности, семантический разбор внешних противодействий не оставляет шанса для поставленных обществом задач.</p>
+                    <p>Противоположная точка зрения подразумевает, что тщательные исследования конкурентов неоднозначны и будут разоблачены. Предварительные выводы неутешительны: сплочённость команды профессионалов является качественно новой ступенью своевременного выполнения сверхзадачи.</p>
+                    <ul>
+                        <li>Новый закон накладывает вето на песнь светлого будущего</li>
+                        <li>Сейчас всё чаще звучит шёпот бессменных лидеров</li>
+                        <li>Все чаще появляется информация о том, что курс ценных бумаг так же органично вписывается в наши планы</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="complect" class="product-details__block">
+                <div class="product-details__block-title title-sm">Комплектация</div>
+                <div class="product-details__block-desc typography-block">
+                    <ul class="row">
+                        <li class="col-md-3">Монтажный узел (1 шт)</li>
+                        <li class="col-md-3">Сливная труба (1 шт)</li>
+                        <li class="col-md-3">Гидрозатвор (1 шт)</li>
+                        <li class="col-md-3">Пневмовыключатель (1 шт)</li>
+                        <li class="col-md-3">Проталкиватель (1 шт)</li>
+                        <li class="col-md-3">Сито-пробка + проталкиватель (1 шт)</li>
+                        <li class="col-md-3">Защитный экран (1 шт)</li>
+                        <li class="col-md-3">Инструкция (1 шт)</li>
+                    </ul>
+                </div>
+            </div>
+            <div id="docs" class="product-details__block">
+                <div class="product-details__block-title title-sm"><span class="color-grey">Дополнительные</span> материалы</div>
+                <ul class="product-details__documents">
+                    <li class="product-details__document icon-file">
+                        <div class="product-details__document-content">
+                            <div class="product-details__document-name">заполнение гарантийных талонов</div>
+                            <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                        </div>
+                    </li>
+                    <li class="product-details__document icon-file">
+                        <div class="product-details__document-content">
+                            <div class="product-details__document-name">Гарантийное обслуживание</div>
+                            <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                        </div>
+                    </li>
+                    <li class="product-details__document icon-file">
+                        <div class="product-details__document-content">
+                            <div class="product-details__document-name">Правила обмена брака</div>
+                            <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                        </div>
+                    </li>
+                    <li class="product-details__document icon-file">
+                        <div class="product-details__document-content">
+                            <div class="product-details__document-name">Список сервисных центров</div>
+                            <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                        </div>
+                    </li>
+                    <li class="product-details__document icon-file">
+                        <div class="product-details__document-content">
+                            <div class="product-details__document-name">скачать инструкцию</div>
+                            <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                        </div>
+                    </li>
+                    <li class="product-details__document icon-file">
+                        <div class="product-details__document-content">
+                            <div class="product-details__document-name">Сертификат №1</div>
+                            <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                        </div>
+                    </li>
+                    <li class="product-details__document icon-file">
+                        <div class="product-details__document-content">
+                            <div class="product-details__document-name">Сертификат №2</div>
+                            <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                        </div>
+                    </li>
+                </ul>
+                <div class="product-details__btns">
+                    <button type="button" class="product-details__btn btn btn-secondary">Показать больше</button>
+                    <a href="" class="product-details__btn btn btn-primary">Скачать всё</a>
+                </div>
+            </div>
+            <div id="marketing-activity" class="product-details__block">
+                <div class="product-details__block-title title-sm">маркетинговая <span class="color-grey">активность</span></div>
+                <ul class="marketing__list">
+                    @@loop('../templates/_marketing-card.html', './html/json/marketing-product.json')
+                </ul>
+                <button type="button" class="marketing__more btn btn-secondary">Показать больше</button>
+
+            </div>
+        </div>
+    </div>
+</section>

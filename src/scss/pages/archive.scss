@@ -50,6 +50,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+
 	text-align: center;
 	position: relative;
 	z-index: 1;
@@ -70,7 +71,7 @@
 	@media (min-width: $md4) {
 		padding: rem(40);
 		text-align: left;
-		align-items: stretch;
+		align-items: flex-start;
 		min-height: rem(200);
 	}
 	// .banner__title
@@ -85,5 +86,8 @@
 			margin-top: rem(20);
 			font-size: 1rem;
 		}
+	}
+	&__btn {
+		margin-top: 1.25rem;
 	}
 }

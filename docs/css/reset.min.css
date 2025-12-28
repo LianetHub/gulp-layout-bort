@@ -23,6 +23,15 @@ body {
   scrollbar-gutter: stable;
 }
 
+* {
+  scroll-margin-top: 5rem;
+}
+@media (min-width: 767.98px) {
+  * {
+    scroll-margin-top: 10rem;
+  }
+}
+
 article,
 aside,
 details,

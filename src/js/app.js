@@ -25,8 +25,27 @@ $(function () {
             $target.toggleClass('active')
         }
 
+        // toggle review card content
+        if ($target.closest('.review-card__toggle').length) {
+            const $btn = $target.closest('.review-card__toggle');
+            const $content = $btn.prev('.review-card__content');
+
+            if (!$btn.hasClass('is-active')) {
+                $content.addClass('expanded');
+                $btn.addClass('is-active').text('Скрыть отзыв');
+            } else {
+                $content.removeClass('expanded');
+                $btn.removeClass('is-active').text('Показать полностью');
+            }
+        }
+
+
 
     });
+
+
+
+
 
     // quantity block
     $('.quantity-block').each(function () {
@@ -560,6 +579,13 @@ $(function () {
                     slidesPerView: 4,
                 }
             }
+        })
+    }
+
+    if ($('.product-details__gallery')) {
+        new Swiper('.product-details__gallery .swiper', {
+            slidesPerView: 1,
+            watchOverflow: true,
         })
     }
 
@@ -1200,11 +1226,11 @@ $(function () {
     * @returns {void}
     */
     /**
- * @function initMaps
- * @description Initializes all map blocks on the page using Yandex Maps API.
- * Supports multiple maps, custom markers, and mobile behavior adjustments.
- * @returns {void}
- */
+    * @function initMaps
+    * @description Initializes all map blocks on the page using Yandex Maps API.
+    * Supports multiple maps, custom markers, and mobile behavior adjustments.
+    * @returns {void}
+    */
     function initMaps() {
         $('.map-block').each(function () {
             const $mapContainer = $(this);

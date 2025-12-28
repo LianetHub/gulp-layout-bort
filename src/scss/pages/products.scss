@@ -420,3 +420,260 @@
 		}
 	}
 }
+
+.reviews {
+	padding: rem(25) 0;
+	@media (min-width: $md4) {
+		padding: rem(50) 0;
+	}
+
+	&__body {
+		display: grid;
+		gap: rem(20);
+		align-items: start;
+		margin-top: rem(40);
+		@media (min-width: $md3) {
+			grid-template-columns: 1fr rem(388);
+		}
+	}
+
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+	&__more {
+		display: flex;
+		width: fit-content;
+		margin-inline: auto;
+		min-width: 10rem;
+		margin-top: 1.25rem;
+		@media (min-width: $md4) {
+			margin-top: 2.5rem;
+			min-width: 11.25rem;
+		}
+	}
+	&__sidebar {
+		order: -1;
+		@media (min-width: $md3) {
+			order: 0;
+		}
+	}
+	.icon-star {
+		width: 1.25rem;
+		height: 1.25rem;
+		display: inline-block;
+		color: $orange;
+
+		&::before {
+			font-size: 1.25rem;
+			line-height: 1;
+		}
+
+		&--grey {
+			color: #efefef;
+		}
+		&--half {
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			text-fill-color: transparent;
+			background-image: linear-gradient(90deg, $orange 50%, #efefef 50%);
+		}
+	}
+}
+
+.review-card {
+	border-radius: 1.25rem;
+	background: #fff;
+	padding: 1.25rem;
+
+	&__header {
+		margin-bottom: 1.25rem;
+	}
+
+	&__row {
+		display: flex;
+		flex-direction: column-reverse;
+		gap: 1.25rem;
+		@media (min-width: $md5) {
+			justify-content: space-between;
+			align-items: center;
+			flex-wrap: wrap;
+			flex-direction: row;
+		}
+	}
+
+	&__name {
+		font-family: $font-russo;
+		font-size: 1rem;
+		line-height: 125%;
+		text-transform: uppercase;
+		align-self: flex-start;
+	}
+
+	&__brand {
+		max-width: 8.75rem;
+	}
+
+	&__meta {
+		display: flex;
+		color: #63666a;
+		font-size: 1rem;
+		line-height: 125%;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.625rem;
+		margin-top: 0.625rem;
+		@media (min-width: $md5) {
+			margin-top: 0;
+			gap: 1.25rem;
+			align-items: center;
+			flex-wrap: wrap;
+			flex-direction: row;
+		}
+	}
+
+	&__rate {
+		display: flex;
+		align-items: center;
+		gap: 0.5rem;
+	}
+
+	&__separator {
+		display: none;
+		@media (min-width: $md5) {
+			display: block;
+			width: 0.4375rem;
+			height: 0.4375rem;
+			background: currentColor;
+			border-radius: 50%;
+		}
+	}
+
+	&__stars {
+		display: flex;
+		gap: rem(2);
+	}
+
+	&__content {
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+		&.expanded {
+			.review-card__block {
+				display: block !important;
+			}
+		}
+	}
+
+	&__block {
+		&:first-child {
+			display: block;
+		}
+		display: none;
+	}
+
+	&__label {
+		font-size: 1rem;
+		font-weight: 500;
+		line-height: 125%;
+	}
+
+	&__text {
+		margin-top: rem(10);
+		font-size: 1rem;
+		line-height: 125%;
+	}
+
+	&__toggle {
+		position: relative;
+		z-index: 2;
+		background: transparent;
+		margin-top: 1.25rem;
+	}
+}
+
+.rating-summary {
+	border-radius: 1.25rem;
+	background: #fff;
+	padding: 1.25rem;
+	display: flex;
+	flex-direction: column;
+
+	@media (min-width: $md4) {
+		padding: 2.5rem;
+	}
+
+	&__title {
+		padding-bottom: 1.25rem;
+		margin-bottom: 1.25rem;
+		border-bottom: rem(1) solid #efefef;
+	}
+
+	&__main {
+		display: flex;
+		align-items: center;
+		gap: 1rem;
+		margin-bottom: rem(20);
+	}
+
+	&__score {
+		font-size: 3rem;
+		font-weight: 600;
+		line-height: 125%;
+	}
+
+	&__stars {
+		display: flex;
+		gap: 0.25rem;
+	}
+
+	&__count {
+		margin-top: 0.13rem;
+		font-size: 1rem;
+		line-height: 125%;
+	}
+
+	&__bars {
+	}
+
+	&__bar-row {
+		display: flex;
+		align-items: center;
+		gap: rem(10);
+		&:not(:last-child) {
+			margin-bottom: rem(10);
+		}
+	}
+
+	&__bar-label {
+		font-size: 1rem;
+		font-weight: 500;
+		line-height: 125%;
+	}
+
+	&__line-wrapper {
+		flex-grow: 1;
+		height: 0.25rem;
+		background-color: #efefef;
+		border-radius: 0.25rem;
+		overflow: hidden;
+	}
+
+	&__line {
+		height: 100%;
+		background-color: $orange;
+		border-radius: rem(4);
+	}
+
+	&__btn {
+		margin-top: 1.25rem;
+		min-width: 10rem;
+		align-self: center;
+		@media (min-width: $md4) {
+			align-self: flex-start;
+			min-width: 11.25rem;
+		}
+	}
+}
