@@ -58,8 +58,9 @@
                                     <a href="blog.html" class="menu__link">Новости</a>
                                 </li>
                                 <li class="menu__item">
-                                    <a href="" class="menu__link">Контакты</a>
+                                    <a href="contacts.html" class="menu__link">Контакты</a>
                                 </li>
+                                
                             </ul>
                         </nav>
                     </div>
@@ -328,7 +329,94 @@
                 </div>
             </header>
             <main class="page">
-
+                <nav aria-label="Хлебные крошки" class="breadcrumbs">
+                    <div class="container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a href="/" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active">О компании</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="contacts">
+                    <div class="container">
+                        <h2 class="contacts__title title">Контакты</h2>
+                        <div class="contacts__block">
+                            <h2 class="contacts__block-title title-md">офис</h2>
+                            <ul class="contacts__list">
+                                <li class="contacts__item">
+                                    <div class="contacts__item-name">Адрес:</div>
+                                    <address class="contacts__item-value icon-location">г. Москва, 1-й Волоколамский проезд, 10с16</address>
+                                </li>
+                                <li class="contacts__item">
+                                    <div class="contacts__item-name">Телефон:</div>
+                                    <a href="tel:+74997001034" class="contacts__item-value icon-phone">+7 (499) 700-10-34</a>
+                                </li>
+                                <li class="contacts__item">
+                                    <div class="contacts__item-name">Электронная почта:</div>
+                                    <a href="" class="contacts__item-value icon-envelope">info@bort-global.com</a>
+                                </li>
+                            </ul>
+                            <div class="contacts__map">
+                                <div class="map-block" data-coords="55.803544456769224,37.4905014748688" data-placemark-logo="img/icons/location.svg"></div>
+                            </div>
+                            
+                        </div>
+                        
+                        <div class="contacts__block">
+                            <h2 class="contacts__block-title title-md">Информация для клиентов</h2>
+                            <div class="contacts__info typography-block">
+                                <h4>общая информация</h4>
+                                <p>Для того чтобы начать работать с компанией Bort Global по закупкам, заполните анкету в разделе <a href="">Сотрудничество</a>.</p>
+                                <h4>Сервис и гарантия</h4>
+                                <p>Вопросы по гарантийному сервисному обслуживанию присылайте в <a href="">отдел гарантии и рекламации</a> компании Bort Global.</p>
+                                <p>Адреса и контакты сервисных центров вы можете посмотреть на <a href="">интерактивной карте.</a></p>
+                                <h4>Общие вопросы</h4>
+                                <p>По общим вопросам обращайтесь по адресу: <a href="info@bort-global.com">info@bort-global.com</a></p>
+                            </div>
+                        </div>
+                        <div class="contacts__block">
+                            <h2 class="contacts__block-title title-md"><span class="color-grey">обратная</span> связь</h2>
+                            <form action="#" class="contacts__form">
+                                <div class="row">
+                                    <div class="col-lg-4">
+                                        <div class="form__field">
+                                            <div class="form__label">Имя:</div>
+                                            <input type="text" name="username" data-required class="form__control" placeholder="Имя">
+                                            <div class="form__error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form__field">
+                                            <div class="form__label">Электронная почта:</div>
+                                            <input type="email" name="email" data-required class="form__control" placeholder="Электронная почта">
+                                            <div class="form__error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <div class="form__field">
+                                            <div class="form__label">Телефон:</div>
+                                            <input type="tel" name="phone" data-required class="form__control" placeholder="+7 (999) 999-99-99">
+                                            <div class="form__error-message"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <div class="form__field">
+                                            <div class="form__label">Текст сообщения::</div>
+                                            <input type="message" name="message" class="form__control" placeholder="+7 (999) 999-99-99">
+                                        </div>
+                                    </div>
+                                    <div class="col-12">
+                                        <button type="submit" class="form__submit btn btn-secondary">Отправить</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </section>
             </main>
             <footer class="footer">
                 <div class="container">

@@ -1149,6 +1149,81 @@ $(function () {
     }
 
 
+    /**
+    * @function initMaps
+    * @description Finds all uninitialized map blocks on the page and creates ymaps.Map objects.
+    * Requires data-coords (string with coordinates separated by "; ") and data-placemark-logo.
+    * @returns {void}
+    */
+    /**
+ * @function initMaps
+ * @description Initializes all map blocks on the page using Yandex Maps API.
+ * Supports multiple maps, custom markers, and mobile behavior adjustments.
+ * @returns {void}
+ */
+    function initMaps() {
+        $('.map-block').each(function () {
+            const $mapContainer = $(this);
+
+            if ($mapContainer.hasClass('is-initialized')) return;
+
+            const coordsData = $mapContainer.data('coords');
+            const placemarkURL = $mapContainer.data('placemark-logo');
+
+            if (!coordsData) return;
+
+            const coordsArray = coordsData.split(',').map(item => parseFloat(item.trim()));
+
+            const myMap = new ymaps.Map($mapContainer[0], {
+                center: coordsArray,
+                zoom: 16,
+                controls: ['zoomControl']
+            }, {
+                suppressMapOpenBlock: true
+            });
+
+            const placemark = new ymaps.Placemark(coordsArray, {}, {
+                iconLayout: 'default#image',
+                iconImageHref: placemarkURL,
+                iconImageSize: [40, 40],
+                iconImageOffset: [-20, -20]
+            });
+
+            myMap.geoObjects.add(placemark);
+
+            if (window.innerWidth < 768) {
+                myMap.behaviors.disable('scrollZoom');
+                myMap.behaviors.disable('drag');
+            }
+
+            $mapContainer.addClass('is-initialized');
+
+            myMap.container.fitToViewport();
+
+            window.addEventListener('resize', () => {
+                myMap.container.fitToViewport();
+            });
+        });
+    }
+
+    (function loadYandexMaps() {
+        if ($('.map-block').length) {
+            if (typeof ymaps !== 'undefined') {
+                ymaps.ready(initMaps);
+            } else {
+                const script = document.createElement("script");
+                script.async = true;
+                script.defer = true;
+                script.src = "https://api-maps.yandex.ru/2.1/?lang=ru_RU";
+                script.onload = () => ymaps.ready(initMaps);
+                document.head.append(script);
+            }
+        }
+    })();
+
+
+
+
 });
 
 

@@ -65,8 +65,13 @@
 	}
 
 	&__submit {
-		align-self: center;
-		min-width: 11.25rem;
+		&.btn {
+			align-self: center;
+			min-width: 11.25rem;
+			width: fit-content;
+			display: flex;
+			margin-inline: auto;
+		}
 	}
 
 	// .form__checkbox

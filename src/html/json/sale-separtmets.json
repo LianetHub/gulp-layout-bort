@@ -1,0 +1,42 @@
+[
+    {
+        "name": "ЖЕМЕРЯ НИКОЛАЙ",
+        "position": "Коммерческий директор",
+        "phone": "+74997001034,2235",
+        "formattedPhone": "+7 (499) 700-10-34 (2235)",
+        "email": "n.zhemerya@bort-global.com",
+        "skype": "nz.sbmgroup"
+    },
+    {
+        "name": "БУРЬЯНОВ АНДРЕЙ",
+        "position": "Сотрудник отдела",
+        "phone": "+74997001034,2156",
+        "formattedPhone": "+7 (499) 700-10-34 (2156)",
+        "email": "andrey.burianov@bort-global.com",
+        "skype": "andrey.burianov1982"
+    },
+    {
+        "name": "ПОЛЯКОВ НИКОЛАЙ",
+        "position": "Сотрудник отдела",
+        "phone": "+74997001034,2109",
+        "formattedPhone": "+7 (499) 700-10-34 (2109)",
+        "email": "n.polyakov@bort-global.com",
+        "skype": "Homb-r-r-e"
+    },
+    {
+        "name": "МОНГАЛЁВА ТАТЬЯНА",
+        "position": "Сотрудник отдела",
+        "phone": "+74997001034,2129",
+        "formattedPhone": "+7 (499) 700-10-34 (2129)",
+        "email": "tatyana.mongaleva@bort-global.com",
+        "skype": "tahka-2006"
+    },
+    {
+        "name": "СОКОЛОВА МАРГАРИТА",
+        "position": "Сотрудник отдела",
+        "phone": "+74997001034,2196",
+        "formattedPhone": "+7 (499) 700-10-34 (2196)",
+        "email": "m.burakova@bort-global.com",
+        "skype": "rita.burakova"
+    }
+]

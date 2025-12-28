@@ -1,0 +1,216 @@
+.contacts {
+	padding: rem(25) 0;
+	@media (min-width: $md4) {
+		padding: rem(50) 0;
+	}
+	// .contacts__title
+	&__title {
+		margin-bottom: 1.25rem;
+		@media (min-width: $md4) {
+			margin-bottom: 2.5rem;
+		}
+	}
+	// .contacts__block
+	&__block {
+		background: #fff;
+		padding: 1.25rem;
+		margin-inline: -1.25rem;
+		@media (min-width: $md5) {
+			border-radius: 1.25rem;
+			padding: 2.5rem;
+			margin-inline: 0;
+		}
+		&:not(:last-child) {
+			margin-bottom: 1.25rem;
+			@media (min-width: $md5) {
+				margin-bottom: 2.5rem;
+			}
+		}
+	}
+	// .contacts__block-title
+	&__block-title {
+		padding-bottom: 1.25rem;
+		margin-bottom: 1.25rem;
+		border-bottom: rem(1) solid #efefef;
+	}
+	// .contacts__list
+	&__list {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.25rem;
+		@media (min-width: $md4) {
+			gap: 2.5rem;
+		}
+	}
+	// .contacts__map
+	&__map {
+		margin-top: 1.25rem;
+		padding-bottom: 1.25rem;
+		border-bottom: rem(1) solid #efefef;
+	}
+	// .contacts__item
+	&__item {
+	}
+	// .contacts__item-name
+	&__item-name {
+	}
+	// .contacts__item-value
+	&__item-value {
+		margin-top: 0.63rem;
+		display: flex;
+		align-items: center;
+		gap: 0.3125rem;
+		color: #202020;
+		font-weight: 600;
+		line-height: 125%;
+		font-size: 1rem;
+		@media (min-width: $md5) {
+			font-size: 1.25rem;
+		}
+		&:is(a) {
+			transition: color 0.3s ease;
+			@media (any-hover: hover) {
+				&:hover {
+					color: $orange;
+				}
+			}
+		}
+		&::before {
+			flex-shrink: 0;
+			color: $orange;
+			align-self: flex-start;
+			width: 1.25rem;
+			height: 1.25rem;
+			font-size: 1.25rem;
+			@media (min-width: $md5) {
+				font-size: 1.5625rem;
+				width: 1.5625rem;
+				height: 1.5625rem;
+			}
+		}
+	}
+	// .contacts__info
+	&__info {
+	}
+	// .contacts__form
+	&__form {
+	}
+
+	// .contacts__sales-department
+	&__sales-department {
+		margin-top: 1.25rem;
+	}
+}
+
+.sales-department {
+	// .sales-department__title
+	&__title {
+	}
+	// .sales-department__list
+	&__list {
+		margin-top: 1.25rem;
+		display: grid;
+		gap: 1.25rem;
+		@media (min-width: $md4) {
+			grid-template-columns: repeat(2, 1fr);
+		}
+		@media (min-width: $md2) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+	}
+	// .sales-department__card
+	&__card {
+		border-radius: 0.625rem;
+		background: #f9f9f9;
+		padding: 1.25rem;
+		display: flex;
+		flex-direction: column;
+	}
+	// .sales-department__card-name
+	&__card-name {
+		font-family: $font-russo;
+		line-height: 125%;
+		text-transform: uppercase;
+		font-size: 0.875rem;
+		@media (min-width: $md5) {
+			font-size: 1rem;
+		}
+	}
+	// .sales-department__card-position
+	&__card-position {
+		margin-top: 0.3125rem;
+		color: #a7a8aa;
+		line-height: 125%;
+		font-size: 0.75rem;
+		@media (min-width: $md5) {
+			font-size: 0.875rem;
+		}
+	}
+	// .sales-department__card-contacts
+	&__card-contacts {
+		margin-top: 1.25rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: rem(10);
+	}
+	// .sales-department__card-contact
+	&__card-contact {
+	}
+	// .sales-department__card-label
+	&__card-label {
+		color: #63666a;
+		line-height: 125%;
+		margin-bottom: 0.31rem;
+		font-size: 0.75rem;
+		@media (min-width: $md5) {
+			font-size: 0.875rem;
+		}
+	}
+	// .sales-department__card-link
+	&__card-link {
+		display: flex;
+		align-items: center;
+		gap: 0.3121rem;
+		transition: color 0.3s ease;
+		line-height: 125%;
+		font-size: 0.875rem;
+
+		@media (min-width: $md5) {
+			font-size: 1rem;
+		}
+		&::before {
+			color: $orange;
+			flex-shrink: 0;
+			width: 1.125rem;
+			height: 1.125rem;
+			font-size: 1.125rem;
+			@media (min-width: $md5) {
+				width: 1.25rem;
+				height: 1.25rem;
+				font-size: 1.25rem;
+			}
+		}
+		@media (any-hover: hover) {
+			&:hover {
+				color: $orange;
+			}
+		}
+	}
+}
+
+.map-block {
+	background: $grey;
+	width: 100%;
+	border-radius: 1.25rem;
+	overflow: hidden;
+	height: 17.5rem;
+	@media (min-width: $md5) {
+		height: 21.875rem;
+	}
+}
+
+.ymaps-2-1-79-copyright__wrap,
+.ymaps-2-1-79-map-copyrights-promo {
+	display: none !important;
+}

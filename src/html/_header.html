@@ -11,8 +11,13 @@
                         <a href="blog.html" class="menu__link">Новости</a>
                     </li>
                     <li class="menu__item">
-                        <a href="@@if(auth === true){contacts-auth.html}@@if(auth === true){contacts.html}" class="menu__link">Контакты</a>
+                        <a href="@@if(auth === true){contacts-auth.html}@@if(auth === false){contacts.html}" class="menu__link">Контакты</a>
                     </li>
+                    @@if(auth === true) {
+                    <li class="menu__item">
+                        <a href="" class="menu__link">Быстрый заказ</a>
+                    </li>
+                    }
                 </ul>
             </nav>
         </div>

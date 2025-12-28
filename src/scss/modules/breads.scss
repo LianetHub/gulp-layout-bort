@@ -1,10 +1,9 @@
 .breadcrumbs {
 	position: relative;
 	z-index: 3;
-	margin-top: 0.75rem;
-
-	@media (min-width: $md5) {
-		margin-top: 1.12rem;
+	padding: rem(20) 0 0;
+	@media (min-width: $md4) {
+		padding: rem(50) 0 0;
 	}
 
 	&__list {
@@ -23,13 +22,9 @@
 		min-width: 0;
 		line-height: 120%;
 		font-size: 0.875rem;
-
+		color: #a7a8aa;
 		@media (min-width: $md5) {
 			font-size: 1rem;
-		}
-
-		@media (min-width: $md3) {
-			font-size: 1.125rem;
 		}
 
 		&:not(:last-child) {
@@ -60,13 +55,9 @@
 			transition: color 0.3s ease;
 			@media (any-hover: hover) {
 				&:hover {
-					color: $pink;
+					color: $orange;
 				}
 			}
-		}
-
-		&.active {
-			opacity: 0.5;
 		}
 	}
 }
