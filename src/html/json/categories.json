@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Аккумуляторный инструмент",
+        "desc": "Запустили программы выгодной выгоды",
+        "image": "@img/categories/cordless-tool.png"
+    },
+    {
+        "name": "Измельчители <br> пищевых отходов",
+        "desc": "Запустили программы выгодной выгоды",
+        "image": "@img/categories/food-waste-disposers.png"
+    },
+    {
+        "name": "бытовая техника",
+        "desc": "Запустили программы выгодной выгоды",
+        "image": "@img/categories/household-appliances.png"
+    },
+    {
+        "name": "Аккумуляторный инструмент",
+        "desc": "Запустили программы выгодной выгоды",
+        "image": "@img/categories/cordless-tool.png"
+    }
+]

@@ -39,6 +39,31 @@
                         </div>
                     </div>
                 </div>
+                <section class="sales">
+                    <div class="container">
+                        <h2 class="sales__title title">Акции</h2>
+                        <div class="sales__slider">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    @@loop('./html/templates/_sales-card.html', './html/json/sales.json')
+                                </div>
+                            </div>
+                            <button type="button" class="sales__prev swiper-button-prev"></button>
+                            <button type="button" class="sales__next swiper-button-next"></button>
+                            <div class="sales__pagination swiper-pagination"></div>
+                        </div>
+                    </div>
+                </section>
+                <section class="categories">
+                    <div class="container">
+                        <h2 class="categories__title title">
+                            <span>Популярные</span> категории
+                        </h2>
+                        <ul class="categories__list">
+                            @@loop('./html/templates/_category.html', './html/json/categories.json')
+                        </ul>
+                    </div>
+                </section>
                 @@include('./html/includes/_popular-products.html')
                 @@include('./html/includes/_new-products.html')
                 @@include('./html/includes/_last-arrives-products.html')

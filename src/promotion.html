@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Страница акции'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {
+            "auth": false
+            })
+            <main class="page">
+                <nav aria-label="Хлебные крошки" class="breadcrumbs">
+                    <div class="container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a href="/" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <a href="promotions.html" class="breadcrumbs__link">Акции</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active">Акция</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="promotion">
+                    <div class="container">
+                        <h2 class="promotion__title title">Без проводов и&nbsp;без компромиссов — <span class="color-grey">скидки как бонус!</span></h2>
+                        <p class="promotion__description">
+                            Акция действует <strong class="color-accent">с 29 мая по 31 июля.</strong> Количество товара ограничено.
+                        </p>
+                        <div class="promotion__banner">
+                            <img src="@img/promotions/02.png" class="cover-image" alt="Баннер акции">
+                        </div>
+                        <div class="promotion__conditions">
+                            <h3 class="promotion__conditions-title title-sm">Условия акции</h3>
+                            <div class="promotion__conditions-body typography-block">
+                                <p>В частности, дальнейшее развитие различных форм деятельности предопределяет высокую востребованность дальнейших направлений развития. Идейные соображения высшего порядка, а также новая модель организационной деятельности обеспечивает актуальность форм воздействия. Приятно, граждане, наблюдать, как сделанные на базе интернет-аналитики выводы неоднозначны и будут ограничены исключительно образом мышления.</p>
+                                <ul>
+                                    <li>Есть над чем задуматься: независимые государства, которые представляют собой яркий пример континентально-европейского типа политической культуры, будут своевременно верифицированы.</li>
+                                    <li>Но активно развивающиеся страны третьего мира объединены в целые кластеры себе подобных.</li>
+                                    <li>Все чаще появляется информация о том, что постоянный количественный рост развеял последние сомнения</li>
+                                    <li>Внезапно, спикеры палаты госдумы негодуют</li>
+                                    <li>Давайте не будем укрепляться в мысли, что цены на бензин начинают падать</li>
+                                    <li>Мелочь, а приятно: потускнели светлые лики икон</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

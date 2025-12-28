@@ -165,3 +165,51 @@
 		}
 	}
 }
+
+.promotion {
+	padding: rem(25) 0;
+	@media (min-width: $md4) {
+		padding: rem(50) 0;
+	}
+	// .promotion__title
+	&__title {
+	}
+	// .promotion__description
+	&__description {
+		line-height: 125%;
+		margin-top: 0.625rem;
+		& strong {
+			@media (max-width: $md5) {
+				display: block;
+			}
+		}
+		@media (min-width: $md4) {
+			font-size: 1.25rem;
+			margin-top: 1.25rem;
+		}
+	}
+	// .promotion__banner
+	&__banner {
+		height: 20rem;
+		margin-top: 1.25rem;
+		@media (min-width: $md4) {
+			margin-top: 2.5rem;
+			height: 15.625rem;
+		}
+	}
+	// .promotion__conditions
+	&__conditions {
+		margin-top: 1.25rem;
+		@media (min-width: $md4) {
+			margin-top: 2.5rem;
+		}
+		@extend .contacts__block;
+	}
+	// .promotion__conditions-title
+	&__conditions-title {
+		@extend.contacts__block-title;
+	}
+	// .promotion__conditions-body
+	&__conditions-body {
+	}
+}

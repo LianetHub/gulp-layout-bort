@@ -1,0 +1,90 @@
+[
+    {
+        "className": " swiper-slide",
+        "type": "small",
+        "id": 1127811827,
+        "label": "Осталось мало!",
+        "image": "@img/goods/BSS-600-R.png",
+        "quantity": 10,
+        "name": "Воздуходувка Bort BSS-600-R",
+        "currentPrice": "14 490₽",
+        "oldPrice": "14 490₽",
+        "sale": "-20%"
+    },
+    {
+        "className": " swiper-slide",
+        "type": "small",
+        "id": 1127811828,
+        "image": "@img/goods/BKS-216-Li.png",
+        "quantity": 144,
+        "name": "Пила цепная аккумуляторная Bort BKS 216 Li",
+        "currentPrice": "14 490₽",
+        "oldPrice": "14 490₽",
+        "sale": "-20%"
+    },
+    {
+        "className": " swiper-slide",
+        "type": "small",
+        "id": 1127811829,
+        "image": "@img/goods/btk-3m.png",
+        "quantity": 0,
+        "name": "Набор ударных головок Bort BTK-3M",
+        "currentPrice": "14 490₽"
+    },
+    {
+        "className": " swiper-slide",
+        "type": "small",
+        "id": 1127811830,
+        "label": "Осталось мало!",
+        "image": "@img/goods/Seal-Splash-Guard-Protection.png",
+        "quantity": 10,
+        "name": "Рассекатель Bort Seal Splash Guard Protection",
+        "currentPrice": "14 490₽",
+        "oldPrice": "14 490₽",
+        "sale": "-20%"
+    },
+    {
+        "className": " swiper-slide",
+        "type": "small",
+        "id": 1127811831,
+        "label": "Осталось мало!",
+        "image": "@img/goods/BSS-600-R.png",
+        "quantity": 10,
+        "name": "Воздуходувка Bort BSS-600-R",
+        "currentPrice": "14 490₽",
+        "oldPrice": "14 490₽",
+        "sale": "-20%"
+    },
+    {
+        "className": " swiper-slide",
+        "type": "small",
+        "id": 1127811832,
+        "image": "@img/goods/BKS-216-Li.png",
+        "quantity": 144,
+        "name": "Пила цепная аккумуляторная Bort BKS 216 Li",
+        "currentPrice": "14 490₽",
+        "oldPrice": "14 490₽",
+        "sale": "-20%"
+    },
+    {
+        "className": " swiper-slide",
+        "type": "small",
+        "id": 1127811833,
+        "image": "@img/goods/btk-3m.png",
+        "quantity": 0,
+        "name": "Набор ударных головок Bort BTK-3M",
+        "currentPrice": "14 490₽"
+    },
+    {
+        "className": " swiper-slide",
+        "type": "small",
+        "id": 1127811835,
+        "label": "Осталось мало!",
+        "image": "@img/goods/Seal-Splash-Guard-Protection.png",
+        "quantity": 10,
+        "name": "Рассекатель Bort Seal Splash Guard Protection",
+        "currentPrice": "14 490₽",
+        "oldPrice": "14 490₽",
+        "sale": "-20%"
+    }
+]

@@ -431,11 +431,27 @@ $(function () {
 
     if ($('.products__slider').length) {
         $('.products__slider').each(function (index, element) {
-            const $slider = $(element).find('.swiper');
+            const $container = $(element);
+            const $slider = $container.find('.swiper');
             if (!$slider.length) return;
 
-            const nextBtn = $(element).find('.products__next')[0];
-            const prevBtn = $(element).find('.products__prev')[0];
+            const nextBtn = $container.find('.products__next')[0];
+            const prevBtn = $container.find('.products__prev')[0];
+
+            const isSmall = $container.hasClass('products__slider--small');
+
+            const breakpoints = isSmall
+                ? {
+                    767.98: { slidesPerView: 3 },
+                    991.98: { slidesPerView: 4 },
+                    1199.98: { slidesPerView: 5 },
+                    1419.98: { slidesPerView: 6 }
+                }
+                : {
+                    767.98: { slidesPerView: 2 },
+                    991.98: { slidesPerView: 3 },
+                    1419.98: { slidesPerView: 4 }
+                };
 
             new Swiper($slider[0], {
                 slidesPerView: "auto",
@@ -445,19 +461,8 @@ $(function () {
                     nextEl: nextBtn,
                     prevEl: prevBtn
                 },
-                breakpoints: {
-                    767.98: {
-                        slidesPerView: 2,
-                    },
-                    991.98: {
-                        slidesPerView: 3,
-                    },
-                    1419.98: {
-                        slidesPerView: 4,
-                    }
-                }
+                breakpoints: breakpoints
             });
-
         });
     }
 
@@ -505,6 +510,38 @@ $(function () {
             }
         })
     }
+
+    if ($('.sales__slider')) {
+        new Swiper('.sales__slider .swiper', {
+
+            slidesPerView: 1,
+            spaceBetween: 20,
+            watchOverflow: true,
+            navigation: {
+                nextEl: '.sales__next',
+                prevEl: '.sales__prev'
+            },
+            pagination: {
+                el: '.sales__pagination',
+                clickable: true
+            },
+            breakpoints: {
+                575.98: {
+                    slidesPerView: 1.5
+                },
+                767.98: {
+                    slidesPerView: 2,
+                },
+                991.98: {
+                    slidesPerView: 3,
+                },
+                1419.98: {
+                    slidesPerView: 4,
+                }
+            }
+        })
+    }
+
 
 
 
