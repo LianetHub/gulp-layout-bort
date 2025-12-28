@@ -1,0 +1,40 @@
+.category {
+	padding: rem(25) 0;
+	@media (min-width: $md4) {
+		padding: rem(50) 0;
+	}
+	// .category__title
+	&__title {
+		margin-bottom: 1.25rem;
+		@media (min-width: $md4) {
+			margin-bottom: 2.5rem;
+		}
+	}
+	// .category__banner
+	&__banner {
+		height: 12.5rem;
+		border-radius: 1.25rem;
+		overflow: hidden;
+		& img {
+			object-position: 42% center;
+		}
+	}
+	&__products {
+		margin-top: rem(40);
+		display: grid;
+		grid-template-columns: repeat(auto-fill, minmax(rem(213), 1fr));
+		gap: 1.25rem;
+	}
+
+	&__more {
+		display: flex;
+		width: fit-content;
+		margin-inline: auto;
+		min-width: 10rem;
+		margin-top: 1.25rem;
+		@media (min-width: $md4) {
+			margin-top: 2.5rem;
+			min-width: 11.25rem;
+		}
+	}
+}

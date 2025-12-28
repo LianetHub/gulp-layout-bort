@@ -7,6 +7,34 @@ $(function () {
         Fancybox.bind("[data-fancybox]", {});
     }
 
+
+
+    /* =========== Event Handlers ============== */
+
+    $(document).on("click", function (e) {
+        const $target = $(e.target);
+
+
+        // toggle active state favorite
+        if ($target.closest('.favorite-btn').length) {
+            $target.closest('.favorite-btn').toggleClass('active')
+        }
+
+        // toggle active compare btn
+        if ($target.closest('.compare-btn').length) {
+            $target.toggleClass('active')
+        }
+
+        // toggle active setting btn
+        if ($target.closest('.setting-btn').length) {
+            $target.toggleClass('active')
+        }
+
+
+
+
+    });
+
     // quantity block
     $('.quantity-block').each(function () {
         const $block = $(this);

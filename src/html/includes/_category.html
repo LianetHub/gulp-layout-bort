@@ -1,0 +1,27 @@
+<section class="category">
+    <div class="container">
+        <h1 class="category__title title">воздуходувки</h1>
+        <div class="category__banner">
+            <img src="@img/promotions/08.png" class="cover-image" alt="Баннер">
+        </div>
+        <form action="#" class="category__filters filters">
+            <div class="filters__items">
+                <div class="filters__item">
+                    <button class="filters__button"></button>
+                </div>
+            </div>
+        </form>
+        <div class="category__products">
+            @@loop('../templates/_product-card-category.html', './html/json/products-category.json')
+        </div>
+        <button type="button" class="category__more btn btn-secondary">Показать больше</button>
+        <div class="pagination">
+            <a href="" class="pagination__item active">1</a>
+            <a href="" class="pagination__item">2</a>
+            <a href="" class="pagination__item">3</a>
+            <a href="" class="pagination__item">4</a>
+            <span class="pagination__item">...</span>
+            <a href="" class="pagination__item">99</a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Страница товара | Авторизованный пользователь'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {
+            "auth": true
+            })
+            <main class="page">
+                @@include('./html/includes/_product-details.html', {
+                "auth": true
+                })
+                @@include('./html/includes/_reviews.html')
+                @@include('./html/includes/_related-products.html')
+                @@include('./html/includes/_simular-products.html')
+                @@include('./html/includes/_compare.html')
+                @@include('./html/includes/_tags.html')
+
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

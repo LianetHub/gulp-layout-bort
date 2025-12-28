@@ -29,6 +29,18 @@
 	// .products__next
 	&__next {
 	}
+	// .products__next
+	&__more {
+		display: flex;
+		width: fit-content;
+		margin-inline: auto;
+		min-width: 10rem;
+		margin-top: 1.25rem;
+		@media (min-width: $md4) {
+			margin-top: 2.5rem;
+			min-width: 11.25rem;
+		}
+	}
 }
 
 .product {
@@ -60,6 +72,29 @@
 	// .product__header
 	&__header {
 	}
+	// .product__labels
+	&__labels {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+	}
+	&__order {
+		font-family: $font-russo;
+		font-size: 0.875rem;
+		line-height: 125%;
+		text-transform: uppercase;
+		color: #fff;
+		background: $orange;
+		border-radius: 50%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		z-index: 2;
+		width: 1.875rem;
+		height: 1.875rem;
+		margin: 0.625rem;
+	}
 	// .product__label
 	&__label {
 		border-radius: 1.25rem 0;
@@ -68,9 +103,6 @@
 		font-weight: 700;
 		line-height: 125%;
 		text-transform: uppercase;
-		position: absolute;
-		top: 0;
-		left: 0;
 		font-size: 0.75rem;
 		padding: 0.625rem 0.9375rem;
 		.product.product--small & {
@@ -80,12 +112,23 @@
 			font-size: 0.875rem;
 		}
 	}
+	// .product__sku
+	&__sku {
+		color: #63666a;
+		font-size: 0.75rem;
+		line-height: 125%;
+	}
 	// .product__image
 	&__image {
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		height: 8.4375rem;
+		.product.product--archive & {
+			@media (max-width: $md5) {
+				height: rem(165);
+			}
+		}
 		.product.product--small & {
 			height: 8.4375rem;
 		}
@@ -134,14 +177,38 @@
 		display: flex;
 		align-items: center;
 		gap: 0.625rem;
-		text-transform: uppercase;
 		flex-wrap: wrap;
+	}
+	// .product__price-block
+	&__price-block {
+		flex: 0 0 100%;
+		border-radius: 0.625rem;
+		background: #f9f9f9;
+		padding: 0.625rem;
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: 0.3125rem;
+	}
+	// .product__price-caption
+	&__price-caption {
+	}
+	// .product__price-current
+	&__price-current {
+	}
+	// .product__price-more
+	&__price-more {
+		&.more-link {
+			font-size: 1rem;
+			font-weight: 600;
+		}
 	}
 	// .product__price-current
 	&__price-current {
 		font-weight: 600;
 		line-height: 125%;
 		font-size: 1rem;
+		text-transform: uppercase;
 		.product.product--small & {
 			font-size: 1rem;
 		}
@@ -151,6 +218,7 @@
 	}
 	// .product__price-old
 	&__price-old {
+		text-transform: uppercase;
 		color: #a7a8aa;
 		font-weight: 500;
 		line-height: 125%;
@@ -231,6 +299,9 @@
 		}
 		font-size: 0.875em;
 		padding: rem(10) rem(5);
+		&.icon-arrows {
+			max-width: 11.25rem;
+		}
 		@media (min-width: $md4) {
 			padding: 0.9375rem 1.25rem;
 			font-size: 1rem;

@@ -1,14 +1,15 @@
 <div id="@@id" class="product@@className@@if(type==='small'){ product--small}">
     <div class="product__header">
         @@if(typeof label !== 'undefined') {
-        <div class="product__label">@@label</div>
+        <div class="product__labels">
+            <div class="product__label">@@label</div>
+        </div>
         }
         <a href="product.html" class="product__image" aria-label="Перейти к товару @@name">
             <img src="@@image" alt="Фото товара @@name">
         </a>
     </div>
     <div class="product__info">
-
         <div class="product__availability">
             @@if(quantity > 0) {
             В наличии <span class="product__availability-value">@@quantity шт.</span>

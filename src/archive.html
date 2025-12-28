@@ -21,7 +21,27 @@
                         </ul>
                     </div>
                 </nav>
-
+                <section class="archive">
+                    <div class="container">
+                        <h1 class="archive__title title">Архив</h1>
+                        <div class="archive__banner banner" style="background-image: url('@img/banner.jpg');">
+                            <div class="banner__title title"><span class="color-accent">баннер</span> страницы</div>
+                            <p class="banner__subtitle">Частотность поисковых запросов процветает, как ни в чем не бывало</p>
+                        </div>
+                        <div class="archive__products">
+                            @@loop('./html/templates/_product-card-archive.html', './html/json/products-archive.json')
+                        </div>
+                        <button type="button" class="archive__more btn btn-secondary">Показать больше</button>
+                        <div class="pagination">
+                            <a href="" class="pagination__item active">1</a>
+                            <a href="" class="pagination__item">2</a>
+                            <a href="" class="pagination__item">3</a>
+                            <a href="" class="pagination__item">4</a>
+                            <span class="pagination__item">...</span>
+                            <a href="" class="pagination__item">99</a>
+                        </div>
+                    </div>
+                </section>
             </main>
             @@include('html/_footer.html', {})
             @@include('html/_js.html', {})

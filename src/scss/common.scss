@@ -61,7 +61,7 @@ body {
 	padding-bottom: rem(25);
 	@media (min-width: $md4) {
 		padding-bottom: rem(50);
-		@media (min-height: rem(2000)) {
+		&:has(.news) {
 			background: url("@img/decor/bg-wave.svg") 0 100% / 100% auto no-repeat;
 		}
 	}
