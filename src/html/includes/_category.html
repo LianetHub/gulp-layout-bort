@@ -1,14 +1,145 @@
 <section class="category">
     <div class="container">
         <h1 class="category__title title">воздуходувки</h1>
-        <div class="category__banner">
-            <img src="@img/promotions/08.png" class="cover-image" alt="Баннер">
+        <div class="category__banner banner" style="background-image: url('@img/banner.jpg');">
+            <div class="banner__title title">воздуходувки <span class="color-accent">bort</span></div>
+            <p class="banner__subtitle">Найдено 23 товара</p>
         </div>
         <form action="#" class="category__filters filters">
-            <div class="filters__items">
-                <div class="filters__item">
-                    <button class="filters__button"></button>
+            <div class="filters__header">
+                <div class="filter-dropdown" data-type="range">
+                    <button type="button" class="filter-dropdown__trigger">
+                        <span class="filter-dropdown__text" data-default="Цена, ₽">Цена, ₽</span>
+                        <span class="filter-dropdown__icon icon-chevron-down"></span>
+                    </button>
+                    <div class="filter-dropdown__body">
+                        <div class="filter-dropdown__inputs">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form__field">
+                                        <div class="form__label">От:</div>
+                                        <input type="number" class="form__control" placeholder="0" name="min_price">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form__field">
+                                        <div class="form__label">До:</div>
+                                        <input type="number" class="form__control" placeholder="999 999" name="max_price">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-dropdown__footer">
+                            <button type="button" class="btn btn-primary btn-apply">Применить</button>
+                        </div>
+                    </div>
                 </div>
+
+                <div class="filter-dropdown" data-type="range">
+                    <button type="button" class="filter-dropdown__trigger">
+                        <span class="filter-dropdown__text" data-default="Мощность, Вт">Мощность, Вт</span>
+                        <span class="filter-dropdown__icon icon-chevron-down"></span>
+                    </button>
+                    <div class="filter-dropdown__body">
+                        <div class="filter-dropdown__inputs">
+                            <div class="row">
+                                <div class="col-6">
+                                    <div class="form__field">
+                                        <div class="form__label">От:</div>
+                                        <input type="number" class="form__control" placeholder="0" name="min_power">
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="form__field">
+                                        <div class="form__label">До:</div>
+                                        <input type="number" class="form__control" placeholder="3000" name="max_power">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="filter-dropdown__footer">
+                            <button type="button" class="btn btn-primary btn-apply">Применить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-dropdown" data-type="checkbox">
+                    <button type="button" class="filter-dropdown__trigger">
+                        <span class="filter-dropdown__text" data-default="Максимальная производительность, м3/час">Максимальная производительность, м3/час, м3/час</span>
+                        <span class="filter-dropdown__icon icon-chevron-down"></span>
+                    </button>
+                    <div class="filter-dropdown__body">
+                        <div class="filter-dropdown__list">
+                            <label class="filter-option">
+                                <input type="checkbox" name="perf" value="100-300" class="filter-option__input hidden" hidden>
+                                <span>100 - 300</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="perf" value="300-600" class="filter-option__input hidden" hidden>
+                                <span>300 - 600</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="checkbox" name="perf" value="600+" class="filter-option__input hidden" hidden>
+                                <span>Свыше 600</span>
+                            </label>
+                        </div>
+                        <div class="filter-dropdown__footer">
+                            <button type="button" class="btn btn-primary btn-apply">Применить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-dropdown" data-type="radio">
+                    <button type="button" class="filter-dropdown__trigger">
+                        <span class="filter-dropdown__text" data-default="Функции выдува">Функции выдува</span>
+                        <span class="filter-dropdown__icon icon-chevron-down"></span>
+                    </button>
+                    <div class="filter-dropdown__body">
+                        <div class="filter-dropdown__list">
+                            <label class="filter-option">
+                                <input type="radio" name="blow_func" value="yes" class="filter-option__input hidden" hidden>
+                                <span>Есть</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="blow_func" value="no" class="filter-option__input hidden" hidden>
+                                <span>Нет</span>
+                            </label>
+                        </div>
+                        <div class="filter-dropdown__footer">
+                            <button type="button" class="btn btn-primary btn-apply">Применить</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="filter-dropdown" data-type="radio">
+                    <button type="button" class="filter-dropdown__trigger">
+                        <span class="filter-dropdown__text" data-default="Регулировка скорости">Регулировка скорости</span>
+                        <span class="filter-dropdown__icon icon-chevron-down"></span>
+                    </button>
+                    <div class="filter-dropdown__body">
+                        <div class="filter-dropdown__list">
+                            <label class="filter-option">
+                                <input type="radio" name="speed_reg" value="step" class="filter-option__input hidden" hidden>
+                                <span>Ступенчатая</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="speed_reg" value="smooth" class="filter-option__input hidden" hidden>
+                                <span>Плавная</span>
+                            </label>
+                            <label class="filter-option">
+                                <input type="radio" name="speed_reg" value="none" class="filter-option__input hidden" hidden>
+                                <span>Отсутствует</span>
+                            </label>
+                        </div>
+                        <div class="filter-dropdown__footer">
+                            <button type="button" class="btn btn-primary btn-apply">Применить</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="filters__footer">
+                <button type="button" class="filters__more btn btn-primary">Больше фильтров</button>
+                <button type="reset" class="filters__more btn btn-secondary">Очистить все</button>
             </div>
         </form>
         <div class="category__products">

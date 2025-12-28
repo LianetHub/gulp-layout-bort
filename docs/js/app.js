@@ -25,13 +25,6 @@ $(function () {
             $target.toggleClass('active')
         }
 
-        // toggle active setting btn
-        if ($target.closest('.setting-btn').length) {
-            $target.toggleClass('active')
-        }
-
-
-
 
     });
 
@@ -810,20 +803,28 @@ $(function () {
 
 
 
+    /**
+    * Base class for managing dropdown filters.
+    * Handles opening/closing logic, applying filters, and resetting state.
+    */
     class BaseFilter {
+
         constructor(element) {
+
             this.$el = $(element);
+
             this.$trigger = this.$el.find('.filter-dropdown__trigger');
             this.$text = this.$el.find('.filter-dropdown__text');
             this.$icon = this.$el.find('.filter-dropdown__icon');
             this.$body = this.$el.find('.filter-dropdown__body');
             this.$applyBtn = this.$el.find('.btn-apply');
-
             this.defaultText = this.$text.data('default');
             this.isApplied = false;
 
             this.init();
+            this._bindFormReset();
         }
+
 
         init() {
             this.$trigger.on('click', (e) => {
@@ -846,12 +847,22 @@ $(function () {
             });
         }
 
+        _bindFormReset() {
+            const $parentForm = this.$el.closest('form');
+            if ($parentForm.length) {
+                $parentForm.on('reset', () => {
+                    setTimeout(() => this.reset(), 0);
+                });
+            }
+        }
+
+
         toggle() {
             $('.filter-dropdown').not(this.$el).removeClass('active').find('.filter-dropdown__body').slideUp(200);
-
             this.$el.toggleClass('active');
             this.$body.slideToggle(200);
         }
+
 
         close() {
             this.$el.removeClass('active');
@@ -870,6 +881,7 @@ $(function () {
             this.close();
         }
 
+
         reset() {
             this.clearInputs();
             this.isApplied = false;
@@ -882,19 +894,22 @@ $(function () {
             }
         }
 
+
         hasValue() {
             return false;
         }
 
-        updateView() {
-            // Override in subclass
-        }
 
-        clearInputs() {
-            // Override in subclass
-        }
+        updateView() { }
+
+
+        clearInputs() { }
     }
 
+    /**
+    * Filter for single-choice selection (Radio buttons).
+    * @extends BaseFilter
+    */
     class RadioFilter extends BaseFilter {
         hasValue() {
             return this.$el.find('input[type="radio"]:checked').length > 0;
@@ -909,10 +924,16 @@ $(function () {
         }
     }
 
+    /**
+    * Filter for multiple-choice selection (Checkboxes).
+    * @extends BaseFilter
+    */
     class CheckboxFilter extends BaseFilter {
+
         hasValue() {
             return this.$el.find('input[type="checkbox"]:checked').length > 0;
         }
+
 
         updateView() {
             const count = this.$el.find('input[type="checkbox"]:checked').length;
@@ -924,11 +945,16 @@ $(function () {
         }
     }
 
+    /**
+    * Filter for numeric ranges (Min/Max inputs).
+    * @extends BaseFilter
+    */
     class RangeFilter extends BaseFilter {
+
         hasValue() {
-            const min = this.$el.find('input[name="min_price"]').val();
-            const max = this.$el.find('input[name="max_price"]').val();
-            return min !== '' || max !== '';
+            const min = this.$el.find('input[name*="min"]').val();
+            const max = this.$el.find('input[name*="max"]').val();
+            return (min !== undefined && min !== '') || (max !== undefined && max !== '');
         }
 
         updateView() {
@@ -940,23 +966,24 @@ $(function () {
         }
     }
 
-    $(document).ready(function () {
-        $('.filter-dropdown').each(function () {
-            const type = $(this).data('type');
+    // init
+    $('.filter-dropdown').each(function () {
+        const type = $(this).data('type');
 
-            switch (type) {
-                case 'radio':
-                    new RadioFilter(this);
-                    break;
-                case 'checkbox':
-                    new CheckboxFilter(this);
-                    break;
-                case 'range':
-                    new RangeFilter(this);
-                    break;
-            }
-        });
+        switch (type) {
+            case 'radio':
+                new RadioFilter(this);
+                break;
+            case 'checkbox':
+                new CheckboxFilter(this);
+                break;
+            case 'range':
+                new RangeFilter(this);
+                break;
+        }
     });
+
+
 
     // range slider
 

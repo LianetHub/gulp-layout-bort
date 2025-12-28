@@ -19,6 +19,28 @@
 			object-position: 42% center;
 		}
 	}
+
+	&__filters {
+		background: #fff;
+		padding: rem(20);
+
+		margin-top: rem(20);
+		margin-inline: rem(-20);
+		@media (min-width: $md5) {
+			margin-top: 2.5rem;
+			border-radius: 1.25rem;
+		}
+		@media (min-width: $md4) {
+			padding: 2.5rem;
+		}
+	}
+
+	&__filters-header {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(10);
+	}
+
 	&__products {
 		margin-top: rem(40);
 		display: grid;
@@ -36,5 +58,24 @@
 			margin-top: 2.5rem;
 			min-width: 11.25rem;
 		}
+	}
+}
+
+.filters {
+	// .filters__header
+	&__header {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(10);
+	}
+	// .filters__footer
+	&__footer {
+		margin-top: 1.25rem;
+		display: flex;
+		flex-wrap: wrap;
+		gap: 1.25rem;
+	}
+	// .filters__more
+	&__more {
 	}
 }

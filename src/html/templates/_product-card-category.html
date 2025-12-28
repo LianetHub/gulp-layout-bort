@@ -28,6 +28,14 @@
         <button type="button" aria-label="В корзину" class="product__btn btn btn-primary add-to-cart-btn icon-cart"></button>
         <button type="button" aria-label="Добавить @@name в избранное" class="product__action favorite-btn icon-heart"></button>
         <button type="button" aria-label="Добавить @@name к сравнению" class="product__action compare-btn icon-compare"></button>
-        <button type="button" aria-label="Настройки @@name" class="product__action setting-btn icon-gear"></button>
+        <a href="#props-product-@@id" data-fancybox aria-label="Смотреть характеристики товара @@name" class="product__action setting-btn icon-gear"></a>
+    </div>
+    <div class="hidden">
+        <div id="props-product-@@id" class="popup popup--large">
+            <div class="popup__title text-left title-md">
+                характеристики <span class="color-grey">@@name</span>
+            </div>
+            @@include('../includes/_product-stats.html')
+        </div>
     </div>
 </div>

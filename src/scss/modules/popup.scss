@@ -59,8 +59,14 @@
 	@media (min-width: $md4) {
 		padding: 2.5rem;
 	}
+	&.popup--large {
+		max-width: rem(1380);
+	}
 	&__title {
 		text-align: center;
+		&.text-left {
+			text-align: left;
+		}
 	}
 
 	&__subtitle {
