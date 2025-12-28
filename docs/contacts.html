@@ -245,29 +245,36 @@
                             </ul>
                         </div>
                         <div class="header__search search">
-                            <form action="#" class="search__form">
-                                <input type="text" name="s" class="search__form-input form__control" placeholder="Поиск">
-                                <button type="submit" aria-label="Искать" class="search__form-btn icon-search"></button>
-                            </form>
-                            <div class="search__bar">
-                                <div class="search__bar-block">
-                                    <div class="search__bar-caption title-xs">
-                                        Товары
-                                    </div>
-                                    <div class="search__bar-list">
-                                        <a href="" class="search__bar-result icon-search">Мойка высокого давления Bort KEX-3000</a>
-                                        <a href="" class="search__bar-result icon-search">Пылесос универсальный Bort BSS-1220-Pro</a>
-                                        <a href="" class="search__bar-result icon-search">Измельчитель пищевых отходов Bort Caiman</a>
-                                        <a href="" class="search__bar-result icon-search">Мойка высокого давления Bort BHR-2000M-Pro</a>
-                                    </div>
-                                </div>
-                                <div class="search__bar-block">
-                                    <div class="search__bar-caption title-xs">
-                                        Категории
-                                    </div>
-                                    <div class="search__bar-list">
-                                        <a href="" class="search__bar-result icon-search">Дрели и перфораторы</a>
-                                        <a href="" class="search__bar-result icon-search">Измерительная техника</a>
+                            <button type="button" class="search__toggler icon-search">
+                                <span class="search__toggler-text">Поиск</span>
+                            </button>
+                            <div class="search__content">
+                                <div class="container">
+                                    <form action="#" class="search__form">
+                                        <input type="text" name="s" class="search__form-input form__control" placeholder="Поиск">
+                                        <button type="submit" aria-label="Искать" class="search__form-btn icon-search"></button>
+                                    </form>
+                                    <div class="search__bar">
+                                        <div class="search__bar-block">
+                                            <div class="search__bar-caption title-xs">
+                                                Товары
+                                            </div>
+                                            <div class="search__bar-list">
+                                                <a href="" class="search__bar-result icon-search">Мойка высокого давления Bort KEX-3000</a>
+                                                <a href="" class="search__bar-result icon-search">Пылесос универсальный Bort BSS-1220-Pro</a>
+                                                <a href="" class="search__bar-result icon-search">Измельчитель пищевых отходов Bort Caiman</a>
+                                                <a href="" class="search__bar-result icon-search">Мойка высокого давления Bort BHR-2000M-Pro</a>
+                                            </div>
+                                        </div>
+                                        <div class="search__bar-block">
+                                            <div class="search__bar-caption title-xs">
+                                                Категории
+                                            </div>
+                                            <div class="search__bar-list">
+                                                <a href="" class="search__bar-result icon-search">Дрели и перфораторы</a>
+                                                <a href="" class="search__bar-result icon-search">Измерительная техника</a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -294,7 +301,7 @@
                                 </span>
                             </a>
                             
-                            <a href="login.html" class="main-actions__item icon-user main-actions__item--mobile">
+                            <a href="login.html" class="main-actions__item icon-user main-actions__item--tablet">
                                 <span class="main-actions__item-text">
                                     Войти
                                 </span>
@@ -383,7 +390,6 @@
             <script src="js/libs/fancybox.umd.js"></script>
             <script src="js/libs/swiper-bundle.min.js"></script>
             <script src="js/libs/nouislider.min.js"></script>
-            <script defer src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=ВАШ_API_КЛЮЧ"></script>
             <!-- plugins -->
 
             <script src="js/app.min.js"></script>

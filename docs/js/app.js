@@ -198,9 +198,9 @@ $(function () {
     /* =========== Event Handlers ============== */
 
     /**
-     * @class CatalogController
-     * @description Manages the header catalog visibility, submenus on touch devices, and outside clicks.
-     */
+ * @class CatalogController
+ * @description Manages the header catalog visibility, submenus on touch devices, and outside clicks.
+ */
     class CatalogController {
         constructor() {
             this.selectors = {
@@ -242,6 +242,10 @@ $(function () {
             const $toggler = $(this.selectors.toggler);
             const $list = $(this.selectors.list);
 
+            if (!$list.hasClass(this.selectors.visibleClass)) {
+                window.SearchController?.closeBar();
+            }
+
             $toggler.toggleClass(this.selectors.activeClass);
             $list.toggleClass(this.selectors.visibleClass);
         }
@@ -258,6 +262,7 @@ $(function () {
             $(this.selectors.itemParent).removeClass(this.selectors.openSubmenuClass);
 
             if (!isOpen) {
+                window.SearchController?.closeBar();
                 $item.addClass(this.selectors.openSubmenuClass);
             }
         }
@@ -265,17 +270,19 @@ $(function () {
 
     window.CatalogController = new CatalogController();
 
-
     /**
      * @class SearchController
-     * @description Manages the search input behavior, search bar visibility, and results interaction.
+     * @description Manages the search behavior, including mobile toggling, input results, and layout conflicts.
      */
     class SearchController {
         constructor() {
             this.selectors = {
                 search: '.search',
+                content: '.search__content',
                 input: '.search__form-input',
+                toggler: '.search__toggler',
                 bar: '.search__bar',
+                activeClass: 'active',
                 visibleClass: 'visible'
             };
 
@@ -283,6 +290,11 @@ $(function () {
         }
 
         init() {
+            $(document).on('click', this.selectors.toggler, (e) => {
+                e.stopPropagation();
+                this.toggleSearch();
+            });
+
             $(document).on('input', this.selectors.input, (e) => {
                 this.handleInput($(e.target));
             });
@@ -293,15 +305,35 @@ $(function () {
 
             $(document).on('click', (e) => {
                 if (!$(e.target).closest(this.selectors.search).length) {
-                    this.closeBar();
+                    this.closeSearch();
                 }
             });
 
             $(document).on('keydown', (e) => {
                 if (e.key === 'Escape') {
-                    this.closeBar();
+                    this.closeSearch();
                 }
             });
+        }
+
+        toggleSearch() {
+            const $search = $(this.selectors.search);
+            const $toggler = $(this.selectors.toggler);
+            const $content = $(this.selectors.content);
+            const isOpening = !$content.hasClass(this.selectors.activeClass);
+
+            if (isOpening) {
+                window.CatalogController?.closeCatalog();
+            }
+
+            $toggler.toggleClass(this.selectors.activeClass);
+            $content.toggleClass(this.selectors.activeClass);
+
+            if (isOpening) {
+                setTimeout(() => {
+                    $search.find(this.selectors.input).focus();
+                }, 100);
+            }
         }
 
         handleInput($input) {
@@ -321,6 +353,12 @@ $(function () {
 
         closeBar($bar = $(this.selectors.bar)) {
             $bar.removeClass(this.selectors.visibleClass);
+        }
+
+        closeSearch() {
+            $(this.selectors.toggler).removeClass(this.selectors.activeClass);
+            $(this.selectors.content).removeClass(this.selectors.activeClass);
+            this.closeBar();
         }
     }
 
@@ -401,12 +439,20 @@ $(function () {
             const prevBtn = $(element).find('.products__prev')[0];
 
             new Swiper($slider[0], {
-                slidesPerView: 4,
-                spaceBetween: 15,
+                slidesPerView: 2,
+                spaceBetween: 20,
                 watchOverflow: true,
                 navigation: {
                     nextEl: nextBtn,
                     prevEl: prevBtn
+                },
+                breakpoints: {
+                    991.98: {
+                        slidesPerView: 3,
+                    },
+                    1419.98: {
+                        slidesPerView: 4,
+                    }
                 }
             });
 
@@ -415,8 +461,9 @@ $(function () {
 
     if ($('.news__slider')) {
         new Swiper('.news__slider .swiper', {
+            slidesPerView: 2,
             spaceBetween: 20,
-            slidesPerView: 4,
+            watchOverflow: true,
             navigation: {
                 nextEl: '.news__next',
                 prevEl: '.news__prev'
@@ -424,6 +471,14 @@ $(function () {
             pagination: {
                 el: '.news__pagination',
                 clickable: true
+            },
+            breakpoints: {
+                991.98: {
+                    slidesPerView: 3,
+                },
+                1419.98: {
+                    slidesPerView: 4,
+                }
             }
         })
     }
@@ -667,33 +722,6 @@ $(function () {
 
     window.NotifyController = new NotifyController();
 
-
-
-    // Contacts Block Map
-    if ($("#map").length) {
-        ymaps.ready(function () {
-            var coordinates = [55.83060906893058, 37.416250999999946];
-            var myMap = new ymaps.Map('map', {
-                center: coordinates,
-                zoom: 16,
-                controls: ['zoomControl']
-            });
-            var placemark = new ymaps.Placemark(coordinates, {}, {
-                iconLayout: 'default#image',
-                iconImageHref: 'img/placemark.svg',
-                iconImageSize: [73, 97],
-                iconImageOffset: [-36, -97]
-            });
-            myMap.geoObjects.add(placemark);
-            if (window.innerWidth < 768) {
-                myMap.behaviors.disable('scrollZoom');
-                myMap.behaviors.disable('drag');
-            }
-            window.addEventListener('resize', function () {
-                myMap.container.fitToViewport();
-            });
-        });
-    }
 
 
     // custom select

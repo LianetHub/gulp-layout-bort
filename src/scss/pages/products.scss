@@ -24,6 +24,9 @@
 	display: flex;
 	flex-direction: column;
 	gap: rem(15);
+	&.swiper-slide {
+		height: auto;
+	}
 	// .product__header
 	&__header {
 	}
@@ -77,6 +80,7 @@
 		align-items: center;
 		gap: 0.625rem;
 		text-transform: uppercase;
+		flex-wrap: wrap;
 	}
 	// .product__price-current
 	&__price-current {
@@ -105,6 +109,7 @@
 	}
 	// .product__quantity
 	&__quantity {
+		margin-top: auto;
 		color: #a7a8aa;
 		font-size: 1rem;
 		line-height: 125%;

@@ -1,13 +1,17 @@
 .footer {
-	margin-top: rem(50);
 	background: #202020;
 	color: #fff;
 	padding: 2.5rem 0;
 	// .footer__header
 	&__header {
-		display: flex;
-		justify-content: space-between;
-		align-items: flex-start;
+		gap: 1.25rem;
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		@media (min-width: $md3) {
+			display: flex;
+			justify-content: space-between;
+			align-items: flex-start;
+		}
 	}
 	// .footer__logo
 	&__logo {
@@ -18,12 +22,23 @@
 	// .footer__menu-list
 	&__menu-list {
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
 		gap: 0.75rem;
+		grid-template-columns: repeat(2, 1fr);
+		@media (min-width: $md3) {
+			grid-template-columns: 1fr;
+		}
+		@media (min-width: $md2) {
+			grid-template-columns: repeat(2, 1fr);
+		}
 	}
 	// .footer__menu-item
 	&__menu-item {
-		min-width: rem(220);
+		@media (min-width: $md2) {
+			min-width: rem(180);
+		}
+		@media (min-width: $md1) {
+			min-width: rem(220);
+		}
 	}
 	// .footer__menu-link
 	&__menu-link {

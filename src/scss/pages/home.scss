@@ -1,8 +1,17 @@
 .promo {
 	background: $black;
 	color: $white;
-	padding: rem(253) 0;
-	background: radial-gradient(50% 50% at 50% 50%, rgba(32, 32, 32, 0.2) 31.15%, rgba(32, 32, 32, 0.8) 100%), url("@img/hero-bg.jpg") 0 0 / cover no-repeat;
+	padding: rem(180) 0;
+	background: radial-gradient(50% 50% at 50% 50%, rgba(32, 32, 32, 0.2) 31.15%, rgba(32, 32, 32, 0.8) 100%), url("@img/hero-bg-mobile.jpg") 0 0 / cover no-repeat;
+	@media (min-width: $md4) {
+		background: radial-gradient(50% 50% at 50% 50%, rgba(32, 32, 32, 0.2) 31.15%, rgba(32, 32, 32, 0.8) 100%), url("@img/hero-bg.jpg") 0 0 / cover no-repeat;
+	}
+	@media (min-width: $md2) {
+		padding: rem(220) 0;
+	}
+	@media (min-width: $md1) {
+		padding: rem(253) 0;
+	}
 	// .promo__body
 	&__body {
 		max-width: 35.1875rem;
@@ -46,8 +55,11 @@
 		padding-top: 2.5rem;
 		border-top: rem(1) solid #2c2c2c;
 		display: grid;
-		grid-template-columns: repeat(4, 1fr);
 		gap: 1.25rem;
+		grid-template-columns: repeat(2, 1fr);
+		@media (min-width: $md2) {
+			grid-template-columns: repeat(4, 1fr);
+		}
 	}
 	// .nums__item
 	&__item {

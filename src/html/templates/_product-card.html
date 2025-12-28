@@ -10,7 +10,12 @@
     <div class="product__info">
 
         <div class="product__availability">
+            @@if(quantity > 0) {
             В наличии <span class="product__availability-value">@@quantity шт.</span>
+            }
+            @@if(quantity == 0) {
+            Нет в наличии
+            }
         </div>
         <a href="" class="product__name title-sm">@@name</a>
     </div>

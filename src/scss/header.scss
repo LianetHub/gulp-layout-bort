@@ -51,6 +51,18 @@
 	&__body {
 		background: #fff;
 		padding: 1.25rem 0;
+		position: relative;
+		z-index: 2;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: #fff;
+			z-index: 1;
+		}
 	}
 	// .header__body-container
 	&__body-container {
@@ -60,8 +72,13 @@
 	}
 	// .header__logo
 	&__logo {
-		width: 13.75rem;
+		position: relative;
+		z-index: 1;
 		flex-shrink: 0;
+		width: 10rem;
+		@media (min-width: $md3) {
+			width: 13.75rem;
+		}
 		& img {
 			width: 100%;
 		}
@@ -72,15 +89,22 @@
 
 	// .header__search
 	&__search {
-		flex: 1 1 auto;
+		margin-left: auto;
+		@media (min-width: $md2) {
+			flex: 1 1 auto;
+			margin-left: 0;
+		}
 	}
 	// .header__actions
 	&__actions {
 	}
 	// .header__auth-btn
 	&__auth-btn {
-		min-width: none;
-		width: 7.5rem;
+		display: none;
+		@media (min-width: $md3) {
+			display: inline-flex;
+			min-width: 7.5rem;
+		}
 	}
 }
 
@@ -105,10 +129,74 @@
 }
 
 .search {
-	position: relative;
+	@media (min-width: $md2) {
+		position: relative;
+		z-index: 2;
+		.container {
+			display: contents;
+		}
+	}
+	// .search__toggler
+	&__toggler {
+		position: relative;
+		z-index: 2;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		color: #63666a;
+		transition: color 0.3s ease;
+		&.active {
+			color: $orange;
+		}
+		&::before {
+			width: 1.875rem;
+			height: 1.875rem;
+			font-size: 1.875rem;
+		}
+		@media (min-width: $md2) {
+			display: none;
+		}
+	}
+	// .search__toggler-text
+	&__toggler-text {
+		font-size: 0.75rem;
+		line-height: 125%;
+	}
+	// .search__content
+	&__content {
+		position: absolute;
+		top: 100%;
+		left: 0;
+		width: 100%;
+		background: #fff;
+		padding: 0.625rem 0;
+		transition: all 0.3s ease;
+		transform: translateY(-100%);
+		opacity: 0;
+		visibility: hidden;
+		&.active {
+			opacity: 1;
+			visibility: visible;
+			transform: none;
+		}
+		@media (min-width: $md2) {
+			padding: 0;
+			background: transparent;
+			position: static;
+			width: auto;
+			left: auto;
+			top: auto;
+			opacity: 1;
+			visibility: visible;
+			transform: none;
+			transition: none;
+		}
+	}
 	// .search__form
 	&__form {
 		display: flex;
+		position: relative;
 	}
 	// .search__form-input
 	&__form-input {
@@ -136,16 +224,20 @@
 	// .search__bar
 	&__bar {
 		position: absolute;
-		top: calc(100% + 0.625rem);
-		border-radius: 1.25rem;
+		top: 100%;
+		left: 0;
 		background: #fff;
 		width: 100%;
 		padding: rem(20) 0;
-		box-shadow: 0 0 rem(20) 0 rgba(64, 64, 64, 0.1);
 		opacity: 0;
 		visibility: hidden;
 		transform: translateY(-1.25rem);
 		transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.2s ease;
+		@media (min-width: $md2) {
+			box-shadow: 0 0 rem(20) 0 rgba(64, 64, 64, 0.1);
+			border-radius: 1.25rem;
+			top: calc(100% + 0.625rem);
+		}
 		&.visible {
 			opacity: 1;
 			visibility: visible;
@@ -193,6 +285,8 @@
 }
 
 .main-actions {
+	position: relative;
+	z-index: 1;
 	display: flex;
 	align-items: center;
 	gap: 1.25rem;
@@ -220,6 +314,12 @@
 				display: none;
 			}
 		}
+		// .main-actions__item--tablet
+		&--tablet {
+			@media (min-width: $md3) {
+				display: none;
+			}
+		}
 	}
 	// .main-actions__item-text
 	&__item-text {
@@ -232,8 +332,11 @@
 	position: relative;
 	// .header-catalog__toggler
 	&__toggler {
-		min-width: 11.25rem;
 		border-radius: 0.3125rem;
+		min-width: 9rem;
+		@media (min-width: $md1) {
+			min-width: 11.25rem;
+		}
 		&.active {
 			&::before {
 				@extend .icon-cross;
@@ -245,13 +348,16 @@
 		position: absolute;
 		top: calc(100% + 1.25rem);
 		background: #fff;
-		width: rem(344);
 		border-radius: 0.625rem;
 		box-shadow: 0 0 rem(20) 0 rgba(64, 64, 64, 0.1);
 		opacity: 0;
 		visibility: hidden;
 		transform: translateY(-1.25rem);
 		transition: opacity 0.15s ease, visibility 0.15s ease, transform 0.2s ease;
+		width: rem(280);
+		@media (min-width: $md3) {
+			width: rem(344);
+		}
 		&.visible {
 			opacity: 1;
 			visibility: visible;
@@ -319,13 +425,16 @@
 		left: 100%;
 		top: 0;
 		background: #fff;
-		width: 21.5rem;
 		opacity: 0;
 		visibility: hidden;
 		padding: 0.625rem 0;
 		background: #fff;
 		border-radius: 0.625rem;
 		box-shadow: 0 0 rem(20) 0 rgba(64, 64, 64, 0.1);
+		width: rem(280);
+		@media (min-width: $md2) {
+			width: 21.5rem;
+		}
 	}
 	// .header-catalog__submenu-list
 	&__submenu-list {

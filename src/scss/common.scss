@@ -99,6 +99,7 @@ body {
 	flex: 1 1 auto;
 	overflow-x: clip;
 	background: url("@img/decor/bg-wave.svg") 0 100% / 100% auto no-repeat;
+	padding-bottom: rem(50);
 }
 
 // ================== ОБОЛОЧКА ===============================
@@ -161,10 +162,11 @@ body {
 				display: contents;
 			}
 		}
-		@media (min-width: $md3) {
+		@media (min-width: $md2) {
 			grid-template-columns: repeat(3, 1fr);
 		}
 	}
+	// .benefits__controls
 	&__controls {
 		@media (min-width: $md4) {
 			display: none;
@@ -269,6 +271,7 @@ body {
 
 	&.swiper-slide {
 		height: auto;
+		width: rem(330);
 	}
 	// .news-card__poster
 	&__poster {
