@@ -1,6 +1,11 @@
 <section class="news">
     <div class="container">
+        @@if (typeof isArticle !== 'undefined') {
+        <h2 class="news__title title">Смотрите <span class="color-grey">также</span></h2>
+        }
+        @@if (typeof isArticle == 'undefined') {
         <h2 class="news__title title">новости</h2>
+        }
         <div class="news__slider">
             <div class="swiper">
                 <div class="swiper-wrapper">

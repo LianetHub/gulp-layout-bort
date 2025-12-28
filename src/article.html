@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Страница статьи'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {
+            "auth": false
+            })
+            <main class="page">
+                <nav aria-label="Хлебные крошки" class="breadcrumbs">
+                    <div class="container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a href="/" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <a href="blog.html" class="breadcrumbs__link">Новости</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active">Новость</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <article class="article">
+                    <div class="container">
+                        <h2 class="article__title title">
+                            <span class="color-grey">Bort Power Platform:</span> Один аккумулятор — десятки возможностей
+                        </h2>
+                        <div class="article__body">
+                            <div class="article__stats">
+                                <time datetime="2024-10-26" class="article__time icon-calendar">26.10.2024</time>
+                                <div class="article__category icon-category">Наименование категории</div>
+                            </div>
+                            <div class="article__blocks">
+                                <div class="article__block">
+                                    <div class="article__block-text typography-block">
+                                        <p>Представьте мастерскую, в которой для каждой задаче уже готов подходящий инструмент: ремонт дома, уход за участком, сезонная подготовка автомобиля или строительство террасы. И вся эта техника заряжается одним ЗУ и работает на одном аккумуляторе, а значит – избавляет вас от проводов, путаницы зарядных устройств и лишних трат. Именно так работает Bort Power Platform – единая аккумуляторная экосистема, которая к лету 2025 года объединила уже более 30-ти моделей инструмента и стремительно расширяется дальше.</p>
+                                        <h4>Почему это важно?</h4>
+                                        <p>Потому что для большинства домашних мастеров и увлечённых любителей главным барьером остаётся дорогостоящий «входной билет» в мир аккумуляторной техники: купил дрель – заплатил за АКБ, захотел лобзик – снова плати, а спустя год обнаруживаешь целую коробку однотипных батарей и зарядок. Bort ломает этот стереотип: достаточно взять стартовый комплект с АКБ и ЗУ один раз, а потом приобретать любые новые инструменты в версии Solo – без лишних расходов.</p>
+                                    </div>
+                                    <div class="article__block-image">
+                                        <img src="@img/article/01.jpg" class="cover-image" alt="Фото статьи">
+                                    </div>
+                                </div>
+                                <div class="article__block">
+                                    <div class="article__block-text typography-block">
+                                        <h4>
+                                            Главные технологические козыри Bort Power Platform
+                                        </h4>
+                                        <ul>
+                                            <li>
+                                                <strong>Бесщеточные двигатели.</strong> Все модели (кроме некоторых воздуходувок) сконструированы на brushless-технологии: выше КПД, меньше нагрев, отсутствие расходных щёток
+                                                и до 30 % больше времени работы на том же заряде.
+                                            </li>
+                                            <li>
+                                                <strong>Высокотоковые аккумуляторы</strong> серии Bort ReX. Это АКБ c ячейками повышенной (до 100Ампер) токоотдачи, интеллектуальной защитой и балансировкой, утолщенными металлическими контактами со специальной токопроводящей смазкой, и усиленной обвязкой. Они не «проседают» под нагрузкой перфоратора, болгарки или циркулярной пилы и сохраняют 80 % ёмкости даже после 1000 циклов.
+                                            </li>
+                                            <li>
+                                                <strong>Разнообразие ёмкостей.</strong> 2,0; 3,0; 4,0; 6,0 и 9,0 А·ч – подбирайте вес и размер под задачу и инструмент. Все батареи оснащены LED-индикатором заряда.
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="article__block-image">
+                                        <img src="@img/article/02.jpg" class="cover-image" alt="Фото статьи">
+                                    </div>
+                                </div>
+                                <div class="article__block">
+                                    <div class="article__block-text typography-block">
+                                        <ul>
+                                            <li>Brushless Motor - нет щеток, которые могут изнашиваться.</li>
+                                            <li>Электронная плата (ECU) - контролирует нагрузку и момент затяжки.</li>
+                                            <li>Алгоритмы адаптивного управления - динамическая настройка работы.</li>
+                                            <li>Высокоточные датчики - быстрое и точное срабатывание на изменение нагрузки.</li>
+                                            <li>Меньше нагрев - работает дольше без перегрева.</li>
+                                            <li>Расширенная гарантия 5 лет на инструмент. Мы уверены в качестве компонентов и программе контроля на заводах.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="article__block-image">
+                                        <img src="@img/article/03.jpg" class="cover-image" alt="Фото статьи">
+                                    </div>
+                                </div>
+                                <div class="article__block">
+                                    <div class="article__block-text typography-block">
+                                        <h4>Полная совместимость с Makita LXT и 5-летняя гарантия: знакомьтесь с обновлённой линейкой Bort</h4>
+                                        <p>
+                                            Зачем Bort пошёл на совместимость с Makita 18V LXT? Инженеры Bort не просто скопировали популярную платформу– они создали надёжный, безопасный и совместимый с Makita 18 V LXT тип аккумуляторов. Для пользователя это означает сразу шесть реальных выгод:
+                                        </p>
+                                        <ul>
+                                            <li><strong>Защита инвестиций.</strong> Уже есть парк Makita? Ваши «старые» АКБ без переходников встают на инструменты Bort.</li>
+                                            <li><strong>Экономия при старте.</strong> Можно купить только инструмент Bort Solo и зарядить его своими батареями Makita.</li>
+                                            <li><strong>Свобода апгрейда.</strong> При необходимости докупите более ёмкие или высокотоковые АКБ Bort ReX, не меняя весь парк инструмента.</li>
+                                            <li><strong>Простая логистика.</strong> Один тип ячеек, один форм-фактор, один стандарт зарядки.</li>
+                                            <li><strong>Уверенность в надёжности:</strong> раз схема признана миллионами пользователей по всему миру, значит, она действительно долговечна.</li>
+                                            <li><strong>Баланс цены и качества.</strong> Инструменты Bort стоят заметно дешевле профессиональных аналогов с такими же характеристиками, но сохраняют совместимость и производительность.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="article__block-image">
+                                        <img src="@img/article/04.jpg" class="cover-image" alt="Фото статьи">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="article__footer">
+                                <h4 class="article__footer-caption title-sm">Теги</h4>
+                                <div class="article__tags">
+                                    <a href="" class="tag">Измельчитель</a>
+                                    <a href="" class="tag">Bort</a>
+                                    <a href="" class="tag">Пищевые отходы</a>
+                                    <a href="" class="tag">Измельчитель</a>
+                                    <a href="" class="tag">Bort</a>
+                                    <a href="" class="tag">Пищевые отходы</a>
+                                    <a href="" class="tag">Titan</a>
+                                    <a href="" class="tag">Измельчать</a>
+                                    <a href="" class="tag">Titan</a>
+                                    <a href="" class="tag">Измельчать</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                @@include('./html/includes/_related-products.html', {
+                'sliderType': "default"
+                })
+
+                @@include('./html/includes/_news.html', {
+                'isArticle': true
+                })
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

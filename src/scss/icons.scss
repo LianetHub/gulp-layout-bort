@@ -17,7 +17,9 @@
 		display: block;
 	}
 }
-
+.icon-category:before {
+	content: "\e91d";
+}
 .icon-up:before {
 	content: "\e91a";
 }

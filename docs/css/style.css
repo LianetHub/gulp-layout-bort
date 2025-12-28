@@ -6,19 +6,19 @@
   font-style: normal;
 }
 @font-face {
-  font-family: "RussoOne";
-  font-display: swap;
-  src: url("../fonts/RussoOne-Regular.woff2") format("woff2"), url("../fonts/RussoOne-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
-}
-@font-face {
   font-family: "Roboto";
   src: url("../fonts/Roboto-VariableFont_wdth,wght.woff2") format("woff2 supports variations"), url("../fonts/Roboto-VariableFont_wdth,wght.woff2") format("woff2-variations"), url("../fonts/Roboto-VariableFont_wdth,wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
   font-display: swap;
+}
+@font-face {
+  font-family: "RussoOne";
+  font-display: swap;
+  src: url("../fonts/RussoOne-Regular.woff2") format("woff2"), url("../fonts/RussoOne-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
 }
 .blog__tag.active::before, .filter-option__input[type=checkbox]:checked ~ span::before, .dropdown__list-item.active::before, .dropdown__list-item[aria-checked=true]::before, .form__checkbox-input:checked + .form__checkbox-text::before, .swiper-button-next, .swiper-button-prev, [class^=icon-]:before,
 [class*=" icon-"]:before {
@@ -36,6 +36,10 @@
 [class^=icon-]:before,
 [class*=" icon-"]:before {
   display: block;
+}
+
+.icon-category:before {
+  content: "\e91d";
 }
 
 .icon-up:before {
@@ -5163,6 +5167,7 @@ body:has(.arrow-top.visible) .notify-container {
 }
 .article__title {
   margin-bottom: 1.25rem;
+  max-width: 68rem;
 }
 @media (min-width: 767.98px) {
   .article__title {
@@ -5180,6 +5185,114 @@ body:has(.arrow-top.visible) .notify-container {
     padding: 2.5rem;
     margin-inline: 0;
   }
+}
+.article__stats {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  border-bottom: 0.0625rem solid #e2e2e2;
+  gap: 0.625rem;
+  padding-bottom: 0.625rem;
+}
+@media (min-width: 767.98px) {
+  .article__stats {
+    gap: 1.25rem;
+    padding-bottom: 1.25rem;
+  }
+}
+.article__time {
+  color: #a7a8aa;
+  font-size: 1rem;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+}
+.article__time::before {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.article__category {
+  color: #a7a8aa;
+  font-size: 1rem;
+  line-height: 125%;
+  display: flex;
+  align-items: center;
+  gap: 0.3125rem;
+}
+.article__category::before {
+  font-size: 1.25rem;
+  flex-shrink: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.article__blocks {
+  margin-top: 0.625rem;
+}
+@media (min-width: 767.98px) {
+  .article__blocks {
+    margin-top: 1.25rem;
+  }
+}
+.article__block {
+  padding-bottom: 1.25rem;
+  border-bottom: 0.0625rem solid #e2e2e2;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+.article__block:not(:last-child) {
+  margin-bottom: 0.625rem;
+}
+@media (min-width: 767.98px) {
+  .article__block:not(:last-child) {
+    margin-bottom: 1.25rem;
+  }
+}
+@media (min-width: 1199.98px) {
+  .article__block {
+    align-items: center;
+    flex-direction: row;
+  }
+  .article__block:nth-child(even) .article__block-image {
+    order: -1;
+  }
+}
+.article__block-text {
+  flex: 1 1 auto;
+  padding: 0.625rem 0;
+}
+@media (min-width: 767.98px) {
+  .article__block-text {
+    padding: 1.25rem 0;
+  }
+}
+.article__block-image {
+  border-radius: 1.25rem;
+  overflow: hidden;
+}
+@media (min-width: 1199.98px) {
+  .article__block-image {
+    align-self: flex-start;
+    flex: 0 0 34.375rem;
+  }
+}
+.article__footer {
+  margin-top: 1.25rem;
+}
+.article__tags {
+  margin-top: 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.625rem;
 }
 
 .typography-block p {
@@ -5387,6 +5500,23 @@ body:has(.arrow-top.visible) .notify-container {
 }
 .typography-block ol li:not(:last-child) {
   margin-bottom: 0.75rem;
+}
+
+.tag {
+  color: #ea7600;
+  border-radius: 6.1875rem;
+  background: #fae7d3;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 125%;
+  padding: 0.3125rem 0.625rem;
+  transition: all 0.3s ease;
+}
+@media (any-hover: hover) {
+  .tag:hover {
+    background: #ea7600;
+    color: #fff;
+  }
 }
 
 .promotions {
