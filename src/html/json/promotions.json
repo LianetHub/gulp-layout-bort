@@ -1,0 +1,34 @@
+[
+    {
+        "image": "@img/promotions/01.png",
+        "name": "<span class='color-accent'>чистота по акции</span> - всё для безупречного порядка!"
+    },
+    {
+        "image": "@img/promotions/02.png",
+        "name": "<span class='color-accent'>без проводов и компромиссов</span> - скидки как бонус!"
+    },
+    {
+        "image": "@img/promotions/02.png",
+        "name": "<span class='color-accent'>без проводов и компромиссов</span> - скидки как бонус!"
+    },
+    {
+        "image": "@img/promotions/01.png",
+        "name": "<span class='color-accent'>чистота по акции</span> - всё для безупречного порядка!"
+    },
+    {
+        "image": "@img/promotions/01.png",
+        "name": "<span class='color-accent'>чистота по акции</span> - всё для безупречного порядка!"
+    },
+    {
+        "image": "@img/promotions/02.png",
+        "name": "<span class='color-accent'>без проводов и компромиссов</span> - скидки как бонус!"
+    },
+    {
+        "image": "@img/promotions/02.png",
+        "name": "<span class='color-accent'>без проводов и компромиссов</span> - скидки как бонус!"
+    },
+    {
+        "image": "@img/promotions/01.png",
+        "name": "<span class='color-accent'>чистота по акции</span> - всё для безупречного порядка!"
+    }
+]

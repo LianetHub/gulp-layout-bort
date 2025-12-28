@@ -492,6 +492,20 @@ $(function () {
         })
     }
 
+    if ($('.promotions__grid')) {
+        new MobileSwiper('.promotions__grid .swiper', {
+            spaceBetween: 20,
+            navigation: {
+                nextEl: '.promotions__next',
+                prevEl: '.promotions__prev'
+            },
+            pagination: {
+                el: '.promotions__pagination',
+                clickable: true
+            }
+        })
+    }
+
 
 
     /**
