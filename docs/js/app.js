@@ -7,156 +7,6 @@ $(function () {
         Fancybox.bind("[data-fancybox]", {});
     }
 
-
-
-    /* =========== Event Handlers ============== */
-
-    $(document).on("click", function (e) {
-        const $target = $(e.target);
-
-        // Handle submenu logic
-        if ($target.closest('.menu__btn').length) {
-            const $parentItem = $target.closest('.menu__btn').parent();
-            const isMobile = window.matchMedia("(max-width: 1300px)").matches;
-
-            if (isMobile) {
-                $parentItem.toggleClass('active');
-                $parentItem.find('.submenu').slideToggle(300);
-            } else {
-                if ($parentItem.hasClass('active')) {
-                    $parentItem.removeClass('active');
-                } else {
-                    $('.menu__item.active').removeClass('active');
-                    $parentItem.addClass('active');
-                }
-            }
-        }
-
-        // Close all submenus when clicking outside the menu
-        if (!$target.closest('.menu__btn').length && !$target.closest(".menu").length) {
-            $('.menu__item.active').removeClass('active');
-        }
-
-        // Close all submenus when clicking outside the menu
-        if (!$target.closest('.menu').length && !$target.closest('.icon-menu').length) {
-            $('.menu__item.active').removeClass('active');
-        }
-
-        // Open/close the mobile menu
-        if ($target.closest('.icon-menu').length) {
-            $('.icon-menu').toggleClass("active");
-            $('.menu').toggleClass("menu--open");
-            $('body').toggleClass('menu-lock');
-        }
-
-        // Correctly close the mobile menu on outside click
-        if ($(".menu").hasClass("menu--open") && !$target.closest(".menu").length && !$target.closest(".icon-menu").length) {
-            $('.icon-menu').removeClass("active");
-            $('.menu').removeClass("menu--open");
-            $('body').removeClass('menu-lock');
-        }
-
-        // Close Fancybox (modal window) when clicking on the backdrop
-        if ($target.is('.fancybox__backdrop')) {
-            //    Fancybox.close();
-            console.log('tatata');
-
-        }
-
-        // FAQ accordion logic
-        if ($target.is('.faq__question')) {
-            $target.toggleClass('active');
-            $target.next().slideToggle();
-        }
-
-        // Catalog filter block accordion
-        if ($target.closest('.filter__block-title').length) {
-            const $title = $target.closest('.filter__block-title');
-            const $content = $title.next('.filter__block-content');
-
-            $title.toggleClass('active');
-            $content.stop(true, true).slideToggle();
-        }
-
-        // toggle active state favorite
-        if ($target.closest('.favorite-btn').length) {
-            $target.closest('.favorite-btn').toggleClass('active')
-        }
-
-        // toggle active compare btn
-        if ($target.closest('.compare-btn').length) {
-            $target.toggleClass('active')
-        }
-
-        // add to cart btn
-        if ($target.closest(".cart-btn").length) {
-            const $button = $target.closest(".cart-btn");
-            const $span = $button.find("span");
-
-            $button.toggleClass("active");
-
-            if ($button.hasClass("active")) {
-                $span.text("в корзине");
-            } else {
-                $span.text("в корзину");
-            }
-        }
-
-        // Close filter on button click or outside click
-        if ($target.is(".filter__close") || (!$target.closest(".filter").length && $(".filter").hasClass("filter--open"))) {
-            $(".filter").removeClass("filter--open");
-            $("body").removeClass("filters-lock");
-        }
-
-        //  open filter on mobile directions
-        if ($target.is('.shop__toggler-filters')) {
-            $(".filter").addClass("filter--open");
-            $("body").addClass("filters-lock");
-        }
-
-        // tabs on product page
-        if ($target.is('.goods-item__tab')) {
-            $('.goods-item__tab').removeClass('active');
-            $target.addClass('active');
-            $('.goods-item__tabs-content').removeClass('active');
-            $('.goods-item__tabs-content').eq($target.parent().index()).addClass('active');
-        }
-
-        // fix anchor link to tab block
-        if ($target.is('.goods-item__description-link')) {
-
-            const targetId = $target.attr('href');
-            const $targetContent = $(targetId);
-
-            if ($targetContent.length) {
-                const tabIndex = $targetContent.closest('.goods-item__tabs-content').index();
-                $('.goods-item__tab').eq(tabIndex).trigger('click')
-
-            }
-        }
-
-        // close notify block
-        if ($target.is('.notify__close')) {
-            $target.closest('.notify').addClass('hidden')
-        }
-
-        // close nav in article page on mobile
-        if ($target.is('.article__sidebar-close') || (!$target.closest(".article__sidebar").length && $(".article__sidebar").hasClass("article__sidebar--open")) || $target.is('.sidebar__link')) {
-            $('.article__sidebar').removeClass("article__sidebar--open");
-            $('body').removeClass('article-lock')
-        }
-
-
-
-        // open nav in article page on mobile
-        if ($target.is('.article__nav-btn')) {
-            $('.article__sidebar').addClass("article__sidebar--open");
-            $('body').addClass('article-lock')
-        }
-    });
-
-
-
     // quantity block
     $('.quantity-block').each(function () {
         const $block = $(this);
@@ -195,12 +45,12 @@ $(function () {
         });
     });
 
-    /* =========== Event Handlers ============== */
 
     /**
-     * @class CatalogController
-     * @description Manages the header catalog visibility, multi-level mobile navigation, and UI states.
-     */
+    * @class CatalogController
+    * @description Manages the header catalog visibility, multi-level mobile navigation, and UI states.
+    */
+
     class CatalogController {
         constructor() {
             this.selectors = {
@@ -216,7 +66,8 @@ $(function () {
                 activeClass: 'active',
                 visibleClass: 'visible',
                 openSubmenuClass: 'open-submenu',
-                listSubmenuOpenClass: 'submenu-opened'
+                listSubmenuOpenClass: 'submenu-opened',
+                bodyClass: 'open-catalog-menu'
             };
 
             this.defaultTitle = 'Каталог';
@@ -260,6 +111,10 @@ $(function () {
 
             if (isOpening) {
                 window.SearchController?.closeSearch();
+                window.AuthController?.closeMenu();
+                $('body').addClass(this.selectors.bodyClass);
+            } else {
+                $('body').removeClass(this.selectors.bodyClass);
             }
 
             $toggler.toggleClass(this.selectors.activeClass);
@@ -302,6 +157,7 @@ $(function () {
         closeCatalog() {
             $(this.selectors.toggler).removeClass(this.selectors.activeClass);
             $(this.selectors.content).removeClass(this.selectors.visibleClass);
+            $('body').removeClass(this.selectors.bodyClass);
             this.resetToDefault();
         }
     }
@@ -309,9 +165,9 @@ $(function () {
     window.CatalogController = new CatalogController();
 
     /**
-     * @class SearchController
-     * @description Manages the search behavior, including mobile toggling, input results, and layout conflicts.
-     */
+    * @class SearchController
+    * @description Manages the search behavior, including mobile toggling, input results, and layout conflicts.
+    */
     class SearchController {
         constructor() {
             this.selectors = {
@@ -403,6 +259,111 @@ $(function () {
     window.SearchController = new SearchController();
 
 
+    /**
+    * @class AuthController
+    * @description Manages the user profile menu, including dropdowns, accordions with slide effects, and external interactions.
+    */
+
+    class AuthController {
+        constructor() {
+            this.selectors = {
+                auth: '.header__auth',
+                toggler: '.header__auth-btn, .person-menu-toggler',
+                menu: '.header__person-menu',
+                closeBtn: '.person-menu__close',
+                block: '.person-menu__block',
+                blockCaption: '.person-menu__block-caption',
+                blockList: '.person-menu__block-list',
+                activeClass: 'active',
+                visibleClass: 'visible',
+                bodyClass: 'open-person-menu'
+            };
+
+            this.init();
+        }
+
+        init() {
+            $(document).on('click', this.selectors.toggler, (e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                this.toggleMenu();
+            });
+
+            $(document).on('click', this.selectors.closeBtn, () => {
+                this.closeMenu();
+            });
+
+            $(document).on('click', this.selectors.blockCaption, (e) => {
+                const $caption = $(e.target).closest(this.selectors.blockCaption);
+                const $block = $caption.closest(this.selectors.block);
+                this.toggleAccordion($block, $caption);
+            });
+
+            $(document).on('click', (e) => {
+                if (!$(e.target).closest(this.selectors.auth).length &&
+                    !$(e.target).closest('.person-menu-toggler').length) {
+                    this.closeMenu();
+                }
+            });
+
+            $(document).on('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    this.closeMenu();
+                }
+            });
+        }
+
+        toggleMenu() {
+            const $authBtn = $('.header__auth-btn');
+            const $tabletBtn = $('.person-menu-toggler');
+            const $menu = $(this.selectors.menu);
+            const isOpening = !$menu.hasClass(this.selectors.visibleClass);
+
+            if (isOpening) {
+                window.CatalogController?.closeCatalog();
+                window.SearchController?.closeSearch();
+                $('body').addClass(this.selectors.bodyClass);
+            } else {
+                $('body').removeClass(this.selectors.bodyClass);
+            }
+
+            $authBtn.toggleClass(this.selectors.activeClass);
+            $tabletBtn.toggleClass(this.selectors.activeClass);
+            $menu.toggleClass(this.selectors.visibleClass);
+        }
+
+        closeMenu() {
+            $('.header__auth-btn').removeClass(this.selectors.activeClass);
+            $('.person-menu-toggler').removeClass(this.selectors.activeClass);
+            $(this.selectors.menu).removeClass(this.selectors.visibleClass);
+            $('body').removeClass(this.selectors.bodyClass);
+            this.resetAccordions();
+        }
+
+        toggleAccordion($block, $caption) {
+            const $list = $block.find(this.selectors.blockList);
+            const $otherBlocks = $(this.selectors.block).not($block);
+            const isActive = $caption.hasClass(this.selectors.activeClass);
+
+            $otherBlocks.find(this.selectors.blockCaption).removeClass(this.selectors.activeClass);
+            $otherBlocks.find(this.selectors.blockList).slideUp(300);
+
+            if (!isActive) {
+                $caption.addClass(this.selectors.activeClass);
+                $list.stop().slideDown(300);
+            } else {
+                $caption.removeClass(this.selectors.activeClass);
+                $list.stop().slideUp(300);
+            }
+        }
+
+        resetAccordions() {
+            $(this.selectors.blockCaption).removeClass(this.selectors.activeClass);
+            $(this.selectors.blockList).hide();
+        }
+    }
+
+    window.AuthController = new AuthController();
 
     // sliders
 

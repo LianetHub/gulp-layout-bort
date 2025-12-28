@@ -54,25 +54,92 @@
                 </a>
                 }
                 @@if(auth === true) {
-                <a href="lk.html" class="main-actions__item icon-user main-actions__item--tablet">
+                <button type="button" class="main-actions__item icon-user main-actions__item--tablet person-menu-toggler">
                     <span class="main-actions__item-text">
                         Кабинет
                     </span>
-                </a>
+                </button>
                 }
             </div>
             @@if(auth === false) {
-            <a href="login.html" class="header__auth-btn btn btn-secondary icon-user">
+            <a href="login.html" class="header__auth-login btn btn-secondary icon-user">
                 Войти
             </a>
+
             }
             @@if(auth === true) {
-            <a href="lk.html" class="header__auth-btn btn btn-secondary icon-chevron-down">
-                <span class="text-ellipsis">ООО “ЭКСТЕГО”</span>
-            </a>
-            <!-- Ограничение символов в имени пользователя: 15.
-    Если больше 15, то замена последних 3-х символов на многоточие
-    Пр. - ООО "Компания12" (16 символов), замена идёт на ООО "Компани... -->
+            <div class="header__auth">
+                <button type="button" class="header__auth-btn btn btn-secondary icon-chevron-down">
+                    <span class="text-ellipsis">ООО “ЭКСТЕГО”</span>
+                </button>
+                <div class="header__person-menu person-menu">
+                    <div class="person-menu__header">
+                        <div class="person-menu__current title-sm">ООО “ЭКстего”</div>
+                        <button type="button" aria-label="Закрыть меню пользователя" class="person-menu__close icon-cross"></button>
+                    </div>
+                    <div class="person-menu__orders">
+                        <div class="person-menu__caption title-xs">список договоров</div>
+                        <div class="person-menu__orders-list">
+                            <label class="person-menu__order">
+                                <input type="checkbox" name="order" checked value="№2231134556" class="person-menu__order-input hidden" hidden>
+                                <span class="person-menu__order-main">
+                                    <span class="person-menu__order-number">№2231134556</span>
+                                    <span class="person-menu__order-total">Корзина на сумму: 9 999 999₽</span>
+                                </span>
+                            </label>
+                            <label class="person-menu__order">
+                                <input type="checkbox" name="order" value="№323245543" class="person-menu__order-input hidden" hidden>
+                                <span class="person-menu__order-main">
+                                    <span class="person-menu__order-number">№323245543</span>
+                                    <span class="person-menu__order-total">Корзина на сумму: 9 999 999₽</span>
+                                </span>
+                            </label>
+                            <label class="person-menu__order">
+                                <input type="checkbox" name="order" value="№23435322344554" class="person-menu__order-input hidden" hidden>
+                                <span class="person-menu__order-main">
+                                    <span class="person-menu__order-number">№23435322344554</span>
+                                    <span class="person-menu__order-total">Корзина на сумму: 9 999 999₽</span>
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+                    <a href="" class="person-menu__link">Быстрый заказ</a>
+                    <a href="" class="person-menu__link">Мои заказы</a>
+                    <div class="person-menu__block">
+                        <div class="person-menu__block-caption icon-chevron-down">
+                            Переключить аккаунт
+                        </div>
+                        <ul class="person-menu__block-list">
+                            <li class="person-menu__block-item">
+                                <a href="" class="person-menu__block-link">ООО “ЭКСТЕГО”</a>
+                            </li>
+                            <li class="person-menu__block-item">
+                                <a href="" class="person-menu__block-link">ООО “Тестовая организация”</a>
+                            </li>
+                            <li class="person-menu__block-item">
+                                <a href="" class="person-menu__block-link">Иванов Иван</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="person-menu__block">
+                        <div class="person-menu__block-caption icon-chevron-down">
+                            Изменить язык
+                        </div>
+                        <ul class="person-menu__block-list">
+                            <li class="person-menu__block-item">
+                                <a href="" class="person-menu__block-link">Русский</a>
+                            </li>
+                            <li class="person-menu__block-item">
+                                <a href="" class="person-menu__block-link">English</a>
+                            </li>
+                            <li class="person-menu__block-item">
+                                <a href="" class="person-menu__block-link">Denmark</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <a href="" class="person-menu__link">Выход</a>
+                </div>
+            </div>
             }
         </div>
 

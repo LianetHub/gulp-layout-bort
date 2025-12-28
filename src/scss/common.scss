@@ -24,56 +24,16 @@ body {
 	margin-right: 0 !important;
 	background: #f9f9f9;
 
-	// &.catalog-lock {
-	// 	overflow: hidden;
-	// 	position: relative;
-	// 	.wrapper {
-	// 		&::before {
-	// 			content: "";
-	// 			position: absolute;
-	// 			top: 0;
-	// 			left: 0;
-	// 			width: 100%;
-	// 			height: 100%;
-	// 			background: rgba($color: #000, $alpha: 0.6);
-	// 			z-index: 7;
-	// 			cursor: pointer;
-	// 		}
-	// 	}
-	// }
-	// &.menu-lock {
-	// 	overflow: hidden;
-	// 	position: relative;
-	// 	.wrapper {
-	// 		&::before {
-	// 			content: "";
-	// 			position: absolute;
-	// 			top: 0;
-	// 			left: 0;
-	// 			width: 100%;
-	// 			height: 100%;
-	// 			background: rgba($color: #000, $alpha: 0.6);
-	// 			z-index: 6;
-	// 			cursor: pointer;
-	// 		}
-	// 	}
-	// 	.header {
-	// 		&::before {
-	// 			content: "";
-	// 			position: absolute;
-	// 			top: 0;
-	// 			left: 0;
-	// 			width: 100%;
-	// 			height: 100%;
-	// 			background: rgba($color: #000, $alpha: 0.6);
-	// 			z-index: 6;
-	// 			cursor: pointer;
-	// 		}
-	// 	}
-	// }
-	// &.lock {
-	// 	overflow: hidden;
-	// }
+	&.open-person-menu {
+		@media (max-width: $md4) {
+			overflow: hidden;
+		}
+	}
+	&.open-catalog-menu {
+		@media (max-width: $md4) {
+			overflow: hidden;
+		}
+	}
 	&:has(.arrow-top.visible) {
 		.notify-container {
 			right: 6.5rem;
