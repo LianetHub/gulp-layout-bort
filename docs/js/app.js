@@ -571,8 +571,6 @@ $(function () {
     }
 
 
-
-
     /**
      * @class FormController
      * @description Class for managing form validation, phone masking, and error display.
@@ -812,213 +810,153 @@ $(function () {
 
 
 
-    // custom select
-    class CustomSelect {
+    class BaseFilter {
+        constructor(element) {
+            this.$el = $(element);
+            this.$trigger = this.$el.find('.filter-dropdown__trigger');
+            this.$text = this.$el.find('.filter-dropdown__text');
+            this.$icon = this.$el.find('.filter-dropdown__icon');
+            this.$body = this.$el.find('.filter-dropdown__body');
+            this.$applyBtn = this.$el.find('.btn-apply');
 
-        static openDropdown = null;
+            this.defaultText = this.$text.data('default');
+            this.isApplied = false;
 
-        constructor(selectElement) {
-            this.$select = $(selectElement);
-            this.placeholder = this.$select.data('placeholder');
-            this.listCaption = this.$select.data('list-caption');
-            this.defaultText = this.getDefaultText();
-            this.selectName = this.$select.attr('name');
-            this.$options = this.$select.find('option');
-            this.$dropdown = null;
-            this.initialState = {};
             this.init();
         }
 
         init() {
-            if (!this.$select.length) return;
-            this.saveInitialState();
-            this.$select.addClass('hidden');
-            this.renderDropdown();
-            this.setupEvents();
+            this.$trigger.on('click', (e) => {
+                if ($(e.target).hasClass('icon-cross') || $(e.target).closest('.icon-cross').length) {
+                    e.stopPropagation();
+                    this.reset();
+                } else {
+                    this.toggle();
+                }
+            });
+
+            this.$applyBtn.on('click', () => {
+                this.apply();
+            });
+
+            $(document).on('click', (e) => {
+                if (!this.$el.is(e.target) && this.$el.has(e.target).length === 0) {
+                    this.close();
+                }
+            });
         }
 
-        saveInitialState() {
-            const selectedOption = this.$select.find('option:selected');
-            this.initialState = {
-                selectedText: selectedOption.text(),
-                selectedValue: selectedOption.val(),
-            };
+        toggle() {
+            $('.filter-dropdown').not(this.$el).removeClass('active').find('.filter-dropdown__body').slideUp(200);
+
+            this.$el.toggleClass('active');
+            this.$body.slideToggle(200);
         }
 
-        getDefaultText() {
-            const selectedOption = this.$select.find('option[selected]');
-            if (selectedOption.length) {
-                return selectedOption.text();
+        close() {
+            this.$el.removeClass('active');
+            this.$body.slideUp(200);
+        }
+
+        apply() {
+            if (this.hasValue()) {
+                this.isApplied = true;
+                this.updateView();
+                this.$icon.removeClass('icon-chevron-down').addClass('icon-cross');
+                this.$el.addClass('is-selected');
             } else {
-                return this.placeholder || this.$select.find('option:selected').text();
+                this.reset();
+            }
+            this.close();
+        }
+
+        reset() {
+            this.clearInputs();
+            this.isApplied = false;
+            this.$text.text(this.defaultText);
+            this.$icon.removeClass('icon-cross').addClass('icon-chevron-down');
+            this.$el.removeClass('is-selected');
+
+            if (this.$el.hasClass('active')) {
+                this.close();
             }
         }
 
-        renderDropdown() {
-            const isDisabled = this.$select.is(':disabled');
-
-            const buttonTemplate = `
-            <button type="button" class="dropdown__button icon-chevron-down" 
-                    aria-expanded="false" 
-                    aria-haspopup="true" 
-                    ${isDisabled ? 'disabled' : ''}>
-                <span class="dropdown__button-text">${this.defaultText}</span>
-            </button>
-        `;
-
-            this.$dropdown = $('<div>').addClass('dropdown');
-
-            const captionTemplate = this.listCaption ? `<div class="dropdown__caption">${this.listCaption}</div>` : '';
-
-            this.$dropdown.html(`
-            ${buttonTemplate}
-            <div class="dropdown__body" aria-hidden="true">
-               <div class="dropdown__content">
-                    ${captionTemplate}
-                    <ul class="dropdown__list" role="listbox"></ul>
-                </div>
-            </div>
-        `);
-
-            const list = this.$dropdown.find('.dropdown__list');
-            this.$options.each((index, option) => {
-                const $option = $(option);
-                const value = $option.val();
-                const text = $option.text();
-                const isSelected = $option.is(':selected');
-                const isDisabled = $option.is(':disabled');
-
-                const listItem = $('<li>')
-                    .attr('role', 'option')
-                    .data('value', value)
-                    .attr('aria-checked', isSelected)
-                    .addClass('dropdown__list-item')
-                    .text(text);
-
-                if (isSelected) listItem.addClass('selected');
-                if (isDisabled) {
-                    listItem.addClass('disabled');
-                    listItem.attr('aria-disabled', 'true');
-                }
-
-                list.append(listItem);
-            });
-
-            this.$select.after(this.$dropdown);
+        hasValue() {
+            return false;
         }
 
-        setupEvents() {
-            const button = this.$dropdown.find('.dropdown__button');
-            button.on('click', (event) => {
-                event.stopPropagation();
-                const isOpen = this.$dropdown.hasClass('visible');
-                this.toggleDropdown(!isOpen);
-            });
-
-            this.$dropdown.on('click', '.dropdown__list-item', (event) => {
-                event.stopPropagation();
-                const item = $(event.currentTarget);
-                if (!item.hasClass('disabled')) {
-                    this.selectOption(item);
-                }
-            });
-
-            $(document).on('click', () => this.closeDropdown());
-            $(document).on('keydown', (event) => {
-                if (event.key === 'Escape') this.closeDropdown();
-            });
-
-            this.$select.closest('form').on('reset', () => this.restoreInitialState());
+        updateView() {
+            // Override in subclass
         }
 
-        toggleDropdown(isOpen) {
-            if (isOpen && CustomSelect.openDropdown && CustomSelect.openDropdown !== this) {
-                CustomSelect.openDropdown.closeDropdown();
-            }
-
-            const body = this.$dropdown.find('.dropdown__body');
-            const list = this.$dropdown.find('.dropdown__list');
-            const hasScroll = list[0].scrollHeight > list[0].clientHeight;
-
-            this.$dropdown.toggleClass('visible', isOpen);
-            this.$dropdown.find('.dropdown__button').attr('aria-expanded', isOpen);
-            body.attr('aria-hidden', !isOpen);
-
-            if (isOpen) {
-                CustomSelect.openDropdown = this;
-                this.$dropdown.removeClass('dropdown-top');
-                const dropdownRect = body[0].getBoundingClientRect();
-                const viewportHeight = window.innerHeight;
-                if (dropdownRect.bottom > viewportHeight) {
-                    this.$dropdown.addClass('dropdown-top');
-                }
-                list.toggleClass('has-scroll', hasScroll);
-            } else {
-                if (CustomSelect.openDropdown === this) {
-                    CustomSelect.openDropdown = null;
-                }
-            }
-        }
-
-        closeDropdown() {
-            this.toggleDropdown(false);
-        }
-
-        selectOption(item) {
-            const value = item.data('value');
-            const text = item.text();
-
-            this.$dropdown.find('.dropdown__list-item').removeClass('selected').attr('aria-checked', 'false');
-            item.addClass('selected').attr('aria-checked', 'true');
-
-            this.$dropdown.find('.dropdown__button').addClass('selected');
-            this.$dropdown.find('.dropdown__button-text').text(text);
-            this.$select.val(value).trigger('change');
-            this.closeDropdown();
-        }
-
-        restoreInitialState() {
-            const hasPlaceholder = this.placeholder !== undefined;
-
-            if (hasPlaceholder) {
-                this.$select.prop('selectedIndex', -1).trigger('change');
-                this.$dropdown.find('.dropdown__button-text').text(this.placeholder);
-                this.$dropdown.find('.dropdown__button').removeClass('selected');
-                this.$dropdown.find('.dropdown__list-item').removeClass('selected').attr('aria-checked', 'false');
-            } else {
-                const state = this.initialState;
-                this.$select.val(state.selectedValue).trigger('change');
-
-                this.$dropdown.find('.dropdown__list-item').removeClass('selected').attr('aria-checked', 'false');
-
-                const selectedItem = this.$dropdown.find(`.dropdown__list-item[data-value="${state.selectedValue}"]`);
-                if (selectedItem.length) {
-                    selectedItem.addClass('selected').attr('aria-checked', 'true');
-                }
-
-                this.$dropdown.find('.dropdown__button-text').text(state.selectedText);
-                this.$dropdown.find('.dropdown__button').addClass('selected');
-            }
-        }
-
-        syncSelectedOption() {
-            const selectedOption = this.$select.find('option:selected');
-            const selectedValue = selectedOption.val();
-            const selectedText = selectedOption.text();
-
-            this.$dropdown.find('.dropdown__list-item').removeClass('selected').attr('aria-checked', 'false');
-
-            const selectedItem = this.$dropdown.find(`.dropdown__list-item[data-value="${selectedValue}"]`);
-            selectedItem.addClass('selected').attr('aria-checked', 'true');
-
-            this.$dropdown.find('.dropdown__button-text').text(selectedText);
+        clearInputs() {
+            // Override in subclass
         }
     }
 
-    $('.select').each((index, element) => {
-        new CustomSelect(element);
-    });
+    class RadioFilter extends BaseFilter {
+        hasValue() {
+            return this.$el.find('input[type="radio"]:checked').length > 0;
+        }
 
+        updateView() {
+            this.$text.text(`${this.defaultText} (1)`);
+        }
+
+        clearInputs() {
+            this.$el.find('input[type="radio"]').prop('checked', false);
+        }
+    }
+
+    class CheckboxFilter extends BaseFilter {
+        hasValue() {
+            return this.$el.find('input[type="checkbox"]:checked').length > 0;
+        }
+
+        updateView() {
+            const count = this.$el.find('input[type="checkbox"]:checked').length;
+            this.$text.text(`${this.defaultText} (${count})`);
+        }
+
+        clearInputs() {
+            this.$el.find('input[type="checkbox"]').prop('checked', false);
+        }
+    }
+
+    class RangeFilter extends BaseFilter {
+        hasValue() {
+            const min = this.$el.find('input[name="min_price"]').val();
+            const max = this.$el.find('input[name="max_price"]').val();
+            return min !== '' || max !== '';
+        }
+
+        updateView() {
+            this.$text.text(this.defaultText);
+        }
+
+        clearInputs() {
+            this.$el.find('input[type="number"]').val('');
+        }
+    }
+
+    $(document).ready(function () {
+        $('.filter-dropdown').each(function () {
+            const type = $(this).data('type');
+
+            switch (type) {
+                case 'radio':
+                    new RadioFilter(this);
+                    break;
+                case 'checkbox':
+                    new CheckboxFilter(this);
+                    break;
+                case 'range':
+                    new RangeFilter(this);
+                    break;
+            }
+        });
+    });
 
     // range slider
 

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Новости'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {
+            "auth": false
+            })
+            <main class="page">
+                <nav aria-label="Хлебные крошки" class="breadcrumbs">
+                    <div class="container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a href="/" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active">Новости</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="blog">
+                    <div class="container">
+                        <h1 class="blog__title title">Новости <span class="color-grey">компании</span></h1>
+                        <div class="blog__filters">
+                            <div class="blog__sort">
+
+                                <div class="filter-dropdown" data-type="radio">
+                                    <button type="button" class="filter-dropdown__trigger">
+                                        <span class="filter-dropdown__text" data-default="Год публикации">Год публикации</span>
+                                        <span class="filter-dropdown__icon icon-chevron-down"></span>
+                                    </button>
+                                    <div class="filter-dropdown__body">
+                                        <div class="filter-dropdown__list">
+                                            <label class="filter-option">
+                                                <input type="radio" name="year_radio" class="filter-option__input hidden" hidden value="2023">
+                                                <span>2023</span>
+                                            </label>
+                                            <label class="filter-option">
+                                                <input type="radio" name="year_radio" class="filter-option__input hidden" hidden value="2022">
+                                                <span>2022</span>
+                                            </label>
+                                            <label class="filter-option">
+                                                <input type="radio" name="year_radio" class="filter-option__input hidden" hidden value="2021">
+                                                <span>2021</span>
+                                            </label>
+                                        </div>
+                                        <div class="filter-dropdown__footer">
+                                            <button type="button" class="btn btn-primary btn-apply">Применить</button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="filter-dropdown" data-type="radio">
+                                    <button type="button" class="filter-dropdown__trigger">
+                                        <span class="filter-dropdown__text" data-default="Категория новости">Категория новости</span>
+                                        <span class="filter-dropdown__icon icon-chevron-down"></span>
+                                    </button>
+                                    <div class="filter-dropdown__body">
+                                        <div class="filter-dropdown__list">
+                                            <label class="filter-option">
+                                                <input type="radio" name="blog_category" class="filter-option__input hidden" hidden value="tools">
+                                                <span>Инструменты</span>
+                                            </label>
+                                            <label class="filter-option">
+                                                <input type="radio" name="blog_category" class="filter-option__input hidden" hidden value="reviews">
+                                                <span>Обзоры</span>
+                                            </label>
+                                            <label class="filter-option">
+                                                <input type="radio" name="blog_category" class="filter-option__input hidden" hidden value="news">
+                                                <span>Новости компании</span>
+                                            </label>
+                                            <label class="filter-option">
+                                                <input type="radio" name="blog_category" class="filter-option__input hidden" hidden value="guides">
+                                                <span>Инструкции</span>
+                                            </label>
+                                        </div>
+                                        <div class="filter-dropdown__footer">
+                                            <button type="button" class="btn btn-primary btn-apply">Применить</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="filter-dropdown" data-type="checkbox">
+                                    <button type="button" class="filter-dropdown__trigger">
+                                        <span class="filter-dropdown__text" data-default="Теги">Теги</span>
+                                        <span class="filter-dropdown__icon icon-chevron-down"></span>
+                                    </button>
+                                    <div class="filter-dropdown__body">
+                                        <div class="filter-dropdown__list">
+                                            <label class="filter-option">
+                                                <input type="checkbox" name="blog_tags" value="akkum" class="filter-option__input hidden" hidden>
+                                                <span>Аккумуляторы</span>
+                                            </label>
+                                            <label class="filter-option">
+                                                <input type="checkbox" name="blog_tags" value="garden" class="filter-option__input hidden" hidden>
+                                                <span>Садовая техника</span>
+                                            </label>
+                                            <label class="filter-option">
+                                                <input type="checkbox" name="blog_tags" value="diy" class="filter-option__input hidden" hidden>
+                                                <span>Своими руками</span>
+                                            </label>
+                                            <label class="filter-option">
+                                                <input type="checkbox" name="blog_tags" value="pro" class="filter-option__input hidden" hidden>
+                                                <span>Профессиональный инструмент</span>
+                                            </label>
+                                            <label class="filter-option">
+                                                <input type="checkbox" name="blog_tags" value="sale" class="filter-option__input hidden" hidden>
+                                                <span>Акции</span>
+                                            </label>
+                                        </div>
+                                        <div class="filter-dropdown__footer">
+                                            <button type="button" class="btn btn-primary btn-apply">Применить</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog__tags">
+                                <div class="blog__tags-title title-sm">
+                                    фильтр по тегам
+                                </div>
+                                <div class="blog__tags-list">
+                                    <a href="" class="blog__tag active">Измельчитель</a>
+                                    <a href="" class="blog__tag">Bort</a>
+                                    <a href="" class="blog__tag">Пищевые отходы</a>
+                                    <a href="" class="blog__tag">Измельчитель</a>
+                                    <a href="" class="blog__tag">Bort</a>
+                                    <a href="" class="blog__tag">Пищевые отходы</a>
+                                    <a href="" class="blog__tag">Titan</a>
+                                    <a href="" class="blog__tag">Измельчать</a>
+                                    <a href="" class="blog__tag">Titan</a>
+                                    <a href="" class="blog__tag">Измельчать</a>
+                                    <a href="" class="blog__tag">Измельчитель</a>
+                                    <a href="" class="blog__tag">Bort</a>
+                                    <a href="" class="blog__tag">Пищевые отходы</a>
+                                    <a href="" class="blog__tag">Измельчитель</a>
+                                    <a href="" class="blog__tag">Bort</a>
+                                </div>
+                            </div>
+                        </div>
+                        <ul class="blog__list">
+                            @@loop('./html/templates/_news-card.html', './html/json/blog.json')
+                        </ul>
+                        <button type="button" class="blog__more btn btn-secondary">Показать больше</button>
+                        <div class="pagination">
+                            <a href="" class="pagination__item active">1</a>
+                            <a href="" class="pagination__item">2</a>
+                            <a href="" class="pagination__item">3</a>
+                            <a href="" class="pagination__item">4</a>
+                            <span class="pagination__item">...</span>
+                            <a href="" class="pagination__item">99</a>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>
