@@ -1,10 +1,10 @@
 <div id="@@id" class="product@@className@@if(type==='small'){ product--small} product--archive">
+    @@if(typeof order !== 'undefined') {
+    <div class="product__labels">
+        <div class="product__order">@@order</div>
+    </div>
+    }
     <div class="product__header">
-        @@if(typeof order !== 'undefined') {
-        <div class="product__labels">
-            <div class="product__order">@@order</div>
-        </div>
-        }
         <a href="product.html" class="product__image" aria-label="Перейти к товару @@name">
             <img src="@@image" alt="Фото товара @@name">
         </a>

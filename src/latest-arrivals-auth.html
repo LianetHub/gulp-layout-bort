@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="ru">
     @@include('html/_head.html', {
-    'title': 'Архив'
+    'title': 'Последние поступления'
     })
     <body>
         <div class="wrapper">
             @@include('html/_header.html', {
-            "auth": false
+            "auth": true
             })
             <main class="page">
                 <nav aria-label="Хлебные крошки" class="breadcrumbs">
@@ -16,28 +16,19 @@
                                 <a href="/" class="breadcrumbs__link">Главная</a>
                             </li>
                             <li class="breadcrumbs__item">
-                                <span class="breadcrumbs__link active">Архив</a>
+                                <span class="breadcrumbs__link active">Последние поступления</a>
                             </li>
                         </ul>
                     </div>
                 </nav>
                 <section class="archive">
                     <div class="container">
-                        <h1 class="archive__title title">Архив</h1>
+                        <h1 class="archive__title title"><span class="color-grey">последние</span> поступления</h1>
                         @@include('./html/includes/_banner.html', {
                         "className": "archive__banner"
                         })
                         <div class="archive__products">
-                            @@loop('./html/templates/_product-card-archive.html', './html/json/products-archive.json')
-                        </div>
-                        <button type="button" class="archive__more btn btn-secondary">Показать больше</button>
-                        <div class="pagination">
-                            <a href="" class="pagination__item active">1</a>
-                            <a href="" class="pagination__item">2</a>
-                            <a href="" class="pagination__item">3</a>
-                            <a href="" class="pagination__item">4</a>
-                            <span class="pagination__item">...</span>
-                            <a href="" class="pagination__item">99</a>
+                            @@loop('./html/templates/_product-card-last-arrived-auth.html', './html/json/products-last-arrivals.json')
                         </div>
                     </div>
                 </section>

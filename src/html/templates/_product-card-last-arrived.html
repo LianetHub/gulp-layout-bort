@@ -2,14 +2,18 @@
     @@if(typeof label !== 'undefined') {
     <div class="product__labels">
         <div class="product__label">@@label</div>
+        <div class="product__order">@@order</div>
     </div>
     }
     <div class="product__header">
+        <div class="product__time icon-calendar">30.07.2025</div>
         <a href="product.html" class="product__image" aria-label="Перейти к товару @@name">
             <img src="@@image" alt="Фото товара @@name">
         </a>
     </div>
     <div class="product__info">
+        <div class="product__sku">арт. 1234567890</div>
+        <a href="" class="product__name title-sm">@@name</a>
         <div class="product__availability">
             @@if(quantity > 0) {
             В наличии <span class="product__availability-value">@@quantity шт.</span>
@@ -18,30 +22,26 @@
             Нет в наличии
             }
         </div>
-        <a href="" class="product__name title-sm">@@name</a>
     </div>
     <div class="product__price">
-        <div class="product__price-current">@@currentPrice</div>
-        @@if(typeof oldPrice !== 'undefined') {
-        <div class="product__price-old">@@oldPrice</div>
-        }
-        @@if(typeof sale !== 'undefined') {
-        <div class="product__price-sale">@@sale</div>
-        }
-    </div>
-    <div class="product__quantity">
-        <div class="product__quantity-caption">количество:</div>
-        <div class="quantity-block@@if(type==='small'){ quantity-block--small}">
-            <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
-            <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
-            <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+        <div class="product__price-block">
+            <div class="product__price-caption">Розничная цена:</div>
+            <div class="product__price-current">14 490₽</div>
         </div>
-        <div class="product__quantity-unit">шт</div>
+        <div class="product__price-block">
+            <div class="product__price-caption">Оптовая цена:</div>
+            <a href="" class="product__price-more more-link icon-right">Запросить цену</a>
+        </div>
     </div>
     <div class="product__actions">
+        @@if(quantity > 0) {
         <button type="button" class="product__btn btn btn-primary add-to-cart-btn icon-cart">
             В корзину
         </button>
+        }
+        @@if(quantity == 0) {
+        <a href="" class="product__btn btn btn-primary icon-arrows">Аналоги</a>
+        }
         <button type="button" aria-label="Добавить @@name в избранное" class="product__action favorite-btn icon-heart"></button>
         <button type="button" aria-label="Добавить @@name к сравнению" class="product__action compare-btn icon-compare"></button>
     </div>
