@@ -1,6 +1,7 @@
 [
     {
         "className": " swiper-slide",
+        "type": "default",
         "id": 1127811827,
         "label": "Осталось мало!",
         "image": "@img/goods/BSS-600-R.png",
@@ -12,6 +13,7 @@
     },
     {
         "className": " swiper-slide",
+        "type": "default",
         "id": 1127811828,
         "image": "@img/goods/BKS-216-Li.png",
         "quantity": 144,
@@ -22,6 +24,7 @@
     },
     {
         "className": " swiper-slide",
+        "type": "default",
         "id": 1127811829,
         "image": "@img/goods/btk-3m.png",
         "quantity": 0,
@@ -30,6 +33,7 @@
     },
     {
         "className": " swiper-slide",
+        "type": "default",
         "id": 1127811830,
         "label": "Осталось мало!",
         "image": "@img/goods/Seal-Splash-Guard-Protection.png",
@@ -41,6 +45,7 @@
     },
     {
         "className": " swiper-slide",
+        "type": "default",
         "id": 1127811831,
         "label": "Осталось мало!",
         "image": "@img/goods/BSS-600-R.png",
@@ -52,6 +57,7 @@
     },
     {
         "className": " swiper-slide",
+        "type": "default",
         "id": 1127811832,
         "image": "@img/goods/BKS-216-Li.png",
         "quantity": 144,
@@ -62,6 +68,7 @@
     },
     {
         "className": " swiper-slide",
+        "type": "default",
         "id": 1127811833,
         "image": "@img/goods/btk-3m.png",
         "quantity": 0,
@@ -70,6 +77,7 @@
     },
     {
         "className": " swiper-slide",
+        "type": "default",
         "id": 1127811835,
         "label": "Осталось мало!",
         "image": "@img/goods/Seal-Splash-Guard-Protection.png",

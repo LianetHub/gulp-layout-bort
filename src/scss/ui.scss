@@ -19,7 +19,13 @@
 	font-family: $font-russo;
 	line-height: 100%;
 	text-transform: uppercase;
-	font-size: 3.75rem;
+	font-size: 2rem;
+	@media (min-width: $md4) {
+		font-size: 3rem;
+	}
+	@media (min-width: $md2) {
+		font-size: 3.75rem;
+	}
 	@media (min-width: $md1) {
 		font-size: 4rem;
 	}
@@ -27,9 +33,15 @@
 
 .title {
 	font-family: $font-russo;
-	font-size: 2.25rem;
 	line-height: 125%;
 	text-transform: uppercase;
+	font-size: 1.75rem;
+	@media (min-width: $md5) {
+		font-size: 2rem;
+	}
+	@media (min-width: $md4) {
+		font-size: 2.25rem;
+	}
 }
 
 .title-md {
@@ -44,9 +56,12 @@
 
 .title-sm {
 	font-family: $font-russo;
-	font-size: 1.25rem;
 	line-height: 125%;
 	text-transform: uppercase;
+	font-size: 1rem;
+	@media (min-width: $md4) {
+		font-size: 1.25rem;
+	}
 }
 
 .title-xs {
@@ -124,7 +139,7 @@
 	&.swiper-pagination-bullets {
 		position: static;
 		margin: auto;
-		margin-top: 1.25rem;
+		margin-top: 1rem;
 		width: auto;
 		.swiper-pagination-bullet {
 			width: 0.625rem;
@@ -291,16 +306,25 @@
 }
 
 .favorite-btn {
-	width: 2.1875rem;
-	height: 2.1875rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 2rem;
 	color: #a7a8aa;
 	cursor: pointer;
 	user-select: none;
-
+	width: 1.5625rem;
+	height: 1.5625rem;
+	font-size: 1.5rem;
+	.product.product--small & {
+		width: 1.5625rem;
+		height: 1.5625rem;
+		font-size: 1.5rem;
+	}
+	@media (min-width: $md4) {
+		font-size: 2rem;
+		width: 2.1875rem;
+		height: 2.1875rem;
+	}
 	&.active {
 		&::before {
 			color: #b61d1d;
@@ -326,16 +350,26 @@
 }
 
 .compare-btn {
-	width: 2.1875rem;
-	height: 2.1875rem;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	font-size: 2rem;
 	color: #a7a8aa;
 	cursor: pointer;
 	user-select: none;
 	transition: color 0.3s ease;
+	width: 1.5625rem;
+	height: 1.5625rem;
+	font-size: 1.5rem;
+	.product.product--small & {
+		width: 1.5625rem;
+		height: 1.5625rem;
+		font-size: 1.5rem;
+	}
+	@media (min-width: $md4) {
+		font-size: 2rem;
+		width: 2.1875rem;
+		height: 2.1875rem;
+	}
 	&.active {
 		color: #00778b;
 	}
@@ -480,21 +514,36 @@
 
 	background: #fff;
 	border-radius: 0.625rem;
-	width: rem(140);
 	flex-shrink: 0;
 
 	overflow: hidden;
+	&.quantity-block--small {
+		width: rem(105);
+	}
+	width: rem(105);
+	@media (min-width: $md4) {
+		width: rem(140);
+	}
 	&__up,
 	&__down {
-		width: 2.5rem;
-		height: 2.5rem;
-		font-size: 1.5rem;
 		flex-shrink: 0;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		background: #efefef;
 		transition: background-color 0.3s ease, color 0.3s ease;
+		.quantity-block.quantity-block--small & {
+			width: rem(30);
+			height: rem(30);
+		}
+		width: rem(30);
+		height: rem(30);
+		font-size: 1.125rem;
+		@media (min-width: $md4) {
+			font-size: 1.5rem;
+			width: 2.5rem;
+			height: 2.5rem;
+		}
 		@media (any-hover: hover) {
 			&:hover {
 				background: $orange;
@@ -512,15 +561,22 @@
 	&__input {
 		border-top: rem(1) solid #efefef;
 		border-bottom: rem(1) solid #efefef;
-		height: 100%;
-		height: 2.5rem;
 		text-align: center;
 		width: 100%;
 		color: #202020;
-		font-size: 1rem;
 		font-weight: 500;
 		line-height: 125%;
 		flex: 1 1 auto;
+		.quantity-block.quantity-block--small & {
+			height: rem(30);
+			font-size: 0.875rem;
+		}
+		height: rem(30);
+		font-size: 0.875rem;
+		@media (min-width: $md4) {
+			font-size: 1rem;
+			height: 2.5rem;
+		}
 	}
 }
 
@@ -591,22 +647,34 @@
 
 .arrow-top {
 	display: flex;
-	width: 3.75rem;
-	height: 3.75rem;
-	font-size: 2.25rem;
+
 	padding: 0.75rem;
 	justify-content: center;
 	align-items: center;
 	position: fixed;
-	bottom: 2.5rem;
-	right: 2.5rem;
-	border-radius: 62.4375rem;
+	border-radius: 50%;
 	background: #ea7600;
 	color: #fff;
 	z-index: 5;
 	opacity: 0;
 	visibility: hidden;
 	transition: all 0.3s ease;
+	width: 3rem;
+	height: 3rem;
+	font-size: 1.75rem;
+	bottom: 5.5rem;
+	right: 1.5rem;
+	@media (min-width: $md4) {
+		width: 3.75rem;
+		height: 3.75rem;
+		font-size: 2.25rem;
+		bottom: 1.5rem;
+		right: 1.5rem;
+	}
+	@media (min-width: $md3) {
+		bottom: 2.5rem;
+		right: 2.5rem;
+	}
 	&.visible {
 		opacity: 1;
 		visibility: visible;

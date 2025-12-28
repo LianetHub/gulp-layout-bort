@@ -1,4 +1,4 @@
-<div id="@@id" class="product@@className">
+<div id="@@id" class="product@@className@@if(type==='small'){ product--small}">
     <div class="product__header">
         @@if(typeof label !== 'undefined') {
         <div class="product__label">@@label</div>
@@ -30,7 +30,7 @@
     </div>
     <div class="product__quantity">
         <div class="product__quantity-caption">количество:</div>
-        <div class="quantity-block">
+        <div class="quantity-block@@if(type==='small'){ quantity-block--small}">
             <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
             <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
             <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>

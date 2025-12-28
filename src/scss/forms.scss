@@ -29,9 +29,12 @@
 		background: #fff;
 		color: $black;
 		font-size: 1rem;
-		padding: 0.9375rem 1.25rem;
 
 		line-height: 125%;
+		padding: rem(12) 1.25rem;
+		@media (min-width: $md4) {
+			padding: 0.9375rem 1.25rem;
+		}
 		&::placeholder {
 			color: #a7a8aa;
 			opacity: 1;
@@ -206,10 +209,14 @@
 	text-align: center;
 	gap: 0.3125rem;
 	font-size: 1rem;
-	padding: 0.94rem 1.25rem;
 	font-weight: 500;
 	line-height: 125%;
 	border-radius: 0.625rem;
+
+	padding: rem(13) 1.25rem;
+	@media (min-width: $md4) {
+		padding: 0.9375rem 1.25rem;
+	}
 	&::before {
 		font-size: 1.25rem;
 		width: 1.25rem;

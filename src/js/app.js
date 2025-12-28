@@ -198,22 +198,28 @@ $(function () {
     /* =========== Event Handlers ============== */
 
     /**
- * @class CatalogController
- * @description Manages the header catalog visibility, submenus on touch devices, and outside clicks.
- */
+     * @class CatalogController
+     * @description Manages the header catalog visibility, multi-level mobile navigation, and UI states.
+     */
     class CatalogController {
         constructor() {
             this.selectors = {
                 catalog: '.header-catalog',
                 toggler: '.header-catalog__toggler',
-                list: '.header-catalog__list',
+                content: '.header-catalog__content',
                 itemParent: '.header-catalog__item--parent',
                 moreBtn: '.header-catalog__more',
+                backBtn: '.header-catalog__back',
+                closeBtn: '.header-catalog__close',
+                currentTitle: '.header-catalog__current',
+                list: '.header-catalog__list',
                 activeClass: 'active',
                 visibleClass: 'visible',
-                openSubmenuClass: 'open-submenu'
+                openSubmenuClass: 'open-submenu',
+                listSubmenuOpenClass: 'submenu-opened'
             };
 
+            this.defaultTitle = 'Каталог';
             this.init();
         }
 
@@ -221,6 +227,15 @@ $(function () {
             $(document).on('click', this.selectors.toggler, (e) => {
                 e.stopPropagation();
                 this.toggleCatalog();
+            });
+
+            $(document).on('click', this.selectors.closeBtn, () => {
+                this.closeCatalog();
+            });
+
+            $(document).on('click', this.selectors.backBtn, (e) => {
+                e.preventDefault();
+                this.goBack();
             });
 
             $(document).on('click', (e) => {
@@ -234,37 +249,60 @@ $(function () {
                 e.stopPropagation();
 
                 const $item = $(e.target).closest(this.selectors.itemParent);
-                this.toggleSubmenu($item);
+                this.openSubmenu($item);
             });
         }
 
         toggleCatalog() {
             const $toggler = $(this.selectors.toggler);
-            const $list = $(this.selectors.list);
+            const $content = $(this.selectors.content);
+            const isOpening = !$content.hasClass(this.selectors.visibleClass);
 
-            if (!$list.hasClass(this.selectors.visibleClass)) {
-                window.SearchController?.closeBar();
+            if (isOpening) {
+                window.SearchController?.closeSearch();
             }
 
             $toggler.toggleClass(this.selectors.activeClass);
-            $list.toggleClass(this.selectors.visibleClass);
+            $content.toggleClass(this.selectors.visibleClass);
+
+            if (!isOpening) {
+                this.resetToDefault();
+            }
+        }
+
+        openSubmenu($item) {
+            const submenuTitle = $item.find('> .header-catalog__link').text().trim();
+            const $mainList = $(this.selectors.list);
+
+            window.SearchController?.closeBar();
+
+            $(this.selectors.itemParent).removeClass(this.selectors.openSubmenuClass);
+            $item.addClass(this.selectors.openSubmenuClass);
+
+            $mainList.addClass(this.selectors.listSubmenuOpenClass);
+            $(this.selectors.currentTitle).text(submenuTitle);
+        }
+
+        goBack() {
+            const $mainList = $(this.selectors.list);
+
+            if ($mainList.hasClass(this.selectors.listSubmenuOpenClass)) {
+                this.resetToDefault();
+            } else {
+                this.closeCatalog();
+            }
+        }
+
+        resetToDefault() {
+            $(this.selectors.itemParent).removeClass(this.selectors.openSubmenuClass);
+            $(this.selectors.list).removeClass(this.selectors.listSubmenuOpenClass);
+            $(this.selectors.currentTitle).text(this.defaultTitle);
         }
 
         closeCatalog() {
             $(this.selectors.toggler).removeClass(this.selectors.activeClass);
-            $(this.selectors.list).removeClass(this.selectors.visibleClass);
-            $(this.selectors.itemParent).removeClass(this.selectors.openSubmenuClass);
-        }
-
-        toggleSubmenu($item) {
-            const isOpen = $item.hasClass(this.selectors.openSubmenuClass);
-
-            $(this.selectors.itemParent).removeClass(this.selectors.openSubmenuClass);
-
-            if (!isOpen) {
-                window.SearchController?.closeBar();
-                $item.addClass(this.selectors.openSubmenuClass);
-            }
+            $(this.selectors.content).removeClass(this.selectors.visibleClass);
+            this.resetToDefault();
         }
     }
 
@@ -439,7 +477,7 @@ $(function () {
             const prevBtn = $(element).find('.products__prev')[0];
 
             new Swiper($slider[0], {
-                slidesPerView: 2,
+                slidesPerView: "auto",
                 spaceBetween: 20,
                 watchOverflow: true,
                 navigation: {
@@ -447,6 +485,9 @@ $(function () {
                     prevEl: prevBtn
                 },
                 breakpoints: {
+                    767.98: {
+                        slidesPerView: 2,
+                    },
                     991.98: {
                         slidesPerView: 3,
                     },
@@ -461,7 +502,8 @@ $(function () {
 
     if ($('.news__slider')) {
         new Swiper('.news__slider .swiper', {
-            slidesPerView: 2,
+
+            slidesPerView: 1,
             spaceBetween: 20,
             watchOverflow: true,
             navigation: {
@@ -473,6 +515,12 @@ $(function () {
                 clickable: true
             },
             breakpoints: {
+                575.98: {
+                    slidesPerView: 1.5
+                },
+                767.98: {
+                    slidesPerView: 2,
+                },
                 991.98: {
                     slidesPerView: 3,
                 },

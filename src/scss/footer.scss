@@ -1,12 +1,17 @@
 .footer {
 	background: #202020;
 	color: #fff;
-	padding: 2.5rem 0;
+	padding: 2.5rem 0 7.5rem;
+	@media (min-width: $md4) {
+		padding: 2.5rem 0;
+	}
 	// .footer__header
 	&__header {
 		gap: 1.25rem;
 		display: grid;
-		grid-template-columns: repeat(2, 1fr);
+		@media (min-width: $md4) {
+			grid-template-columns: repeat(2, 1fr);
+		}
 		@media (min-width: $md3) {
 			display: flex;
 			justify-content: space-between;
@@ -15,6 +20,11 @@
 	}
 	// .footer__logo
 	&__logo {
+		width: 14.25rem;
+
+		@media (min-width: $md4) {
+			width: rem(260);
+		}
 	}
 	// .footer__menu
 	&__menu {
@@ -22,8 +32,17 @@
 	// .footer__menu-list
 	&__menu-list {
 		display: grid;
-		gap: 0.75rem;
 		grid-template-columns: repeat(2, 1fr);
+		padding-block: 1.25rem;
+		border-top: rem(1) solid #2c2c2c;
+		border-bottom: rem(1) solid #2c2c2c;
+		gap: rem(15);
+		@media (min-width: $md4) {
+			gap: 0.75rem;
+			padding-block: 0;
+			border-top: 0;
+			border-bottom: 0;
+		}
 		@media (min-width: $md3) {
 			grid-template-columns: 1fr;
 		}
@@ -61,6 +80,15 @@
 	// .footer__social
 	&__social {
 		transition: transform 0.3s ease;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 1.875rem;
+		height: 1.875rem;
+		@media (min-width: $md4) {
+			width: rem(35);
+			height: rem(35);
+		}
 		@media (any-hover: hover) {
 			&:hover {
 				transform: scale(1.15);
@@ -69,17 +97,22 @@
 	}
 	// .footer__callback
 	&__callback {
+		width: fit-content;
 	}
 	// .footer__bottom
 	&__bottom {
-		margin-top: 2.5rem;
-		padding-top: 2.5rem;
 		border-top: rem(1) solid #2c2c2c;
-		text-align: center;
 		color: #63666a;
-		text-align: center;
 		font-size: 1rem;
 		line-height: 125%;
+		margin-top: 1.5rem;
+		padding-top: 1.5rem;
+		text-align: left;
+		@media (min-width: $md4) {
+			text-align: center;
+			margin-top: 2.5rem;
+			padding-top: 2.5rem;
+		}
 	}
 	// .footer__copyright
 	&__copyright {

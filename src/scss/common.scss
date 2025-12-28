@@ -18,7 +18,7 @@
 body {
 	font-family: $fontfamily, sans-serif;
 	font-size: 1rem;
-	min-width: rem($minWidth);
+	min-width: 320px;
 	min-height: 100%;
 	line-height: normal;
 	margin-right: 0 !important;
@@ -76,7 +76,10 @@ body {
 	// }
 	&:has(.arrow-top.visible) {
 		.notify-container {
-			right: 7.5rem;
+			right: 6.5rem;
+			@media (min-width: $md3) {
+				right: 7.5rem;
+			}
 		}
 	}
 }
@@ -90,16 +93,16 @@ body {
 	display: flex;
 	flex-direction: column;
 	margin: 0 auto;
-	@media (max-width: $md3) {
-		overflow-x: hidden;
-	}
 }
 
 .page {
 	flex: 1 1 auto;
-	overflow-x: clip;
-	background: url("@img/decor/bg-wave.svg") 0 100% / 100% auto no-repeat;
-	padding-bottom: rem(50);
+	overflow-x: hidden;
+	padding-bottom: rem(25);
+	@media (min-width: $md4) {
+		background: url("@img/decor/bg-wave.svg") 0 100% / 100% auto no-repeat;
+		padding-bottom: rem(50);
+	}
 }
 
 // ================== ОБОЛОЧКА ===============================
@@ -139,7 +142,10 @@ body {
 // =============== MODULES ====================
 
 .benefits {
-	padding: rem(50) 0;
+	padding: rem(25) 0;
+	@media (min-width: $md4) {
+		padding: rem(50) 0;
+	}
 	// .benefits__container
 	&__container {
 	}
@@ -148,12 +154,13 @@ body {
 	}
 	// .benefits__list
 	&__list {
-		margin-top: 2.5rem;
+		margin-top: 1.25rem;
 		position: relative;
 		.swiper {
 			overflow: visible;
 		}
 		@media (min-width: $md4) {
+			margin-top: 2.5rem;
 			display: grid;
 			gap: 1.25rem;
 			grid-template-columns: repeat(2, 1fr);
@@ -189,46 +196,57 @@ body {
 	flex-direction: column;
 	// .benefit-card__body
 	&__body {
-		margin-top: rem(32);
 		border-radius: 1.25rem;
 		background: #fff;
 		box-shadow: 0 0 rem(20) 0 rgba(64, 64, 64, 0.05);
-		padding: rem(50) rem(20);
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		text-align: center;
-		gap: rem(20);
 		flex: 1 1 auto;
+		margin-top: rem(25);
+		padding: rem(55) rem(20) rem(20);
+		gap: rem(14);
+		@media (min-width: $md4) {
+			gap: rem(20);
+			padding: rem(50) rem(20);
+			margin-top: rem(32);
+		}
 	}
 	// .benefit-card__icon
 	&__icon {
-		margin-top: rem(-80);
-		width: 3.75rem;
-		height: 3.75rem;
 		background: $orange;
 		border-radius: 50%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		padding: 0.625rem;
+		width: rem(50);
+		height: rem(50);
+		margin-top: rem(-75);
+		@media (min-width: $md4) {
+			margin-top: rem(-80);
+			width: 3.75rem;
+			height: 3.75rem;
+		}
 		& img {
 			width: 100%;
 		}
 	}
-
 	// .benefit-card__title
 	&__title {
 		max-width: 22rem;
 	}
-
 	// .benefit-card__description
 	&__description {
 	}
 }
 
 .news {
-	padding: rem(50) 0;
+	padding: rem(25) 0;
+	@media (min-width: $md4) {
+		padding: rem(50) 0;
+	}
 	// .news__container
 	&__container {
 	}
@@ -237,8 +255,14 @@ body {
 	}
 	// .news__slider
 	&__slider {
-		margin-top: 2.5rem;
 		position: relative;
+		.swiper {
+			overflow: visible;
+		}
+		margin-top: 1.25rem;
+		@media (min-width: $md4) {
+			margin-top: 2.5rem;
+		}
 	}
 	// .news__controls
 	&__controls {
@@ -254,30 +278,36 @@ body {
 	}
 	// .news__btn
 	&__btn {
-		margin-top: rem(40);
-		min-width: rem(180);
 		display: flex;
 		margin-inline: auto;
 		width: fit-content;
+		margin-top: 1rem;
+		min-width: rem(160);
+		@media (min-width: $md4) {
+			min-width: rem(180);
+			margin-top: rem(40);
+		}
 	}
 }
 
 .news-card {
 	border-radius: 1.25rem;
 	background: #fff;
-	padding: 1.25rem;
 	display: flex;
 	flex-direction: column;
+	padding: 1.25rem;
 
 	&.swiper-slide {
 		height: auto;
-		width: rem(330);
 	}
 	// .news-card__poster
 	&__poster {
 		border-radius: 1.25rem;
 		overflow: hidden;
-		height: 15rem;
+		height: 10.3125rem;
+		@media (min-width: $md4) {
+			height: 15rem;
+		}
 		& img {
 			transition: transform 0.3s ease-out;
 		}
@@ -291,23 +321,35 @@ body {
 	}
 	// .news-card__time
 	&__time {
-		margin-top: 1.25rem;
 		color: #a7a8aa;
-		font-size: 0.875rem;
 		line-height: 125%;
 		display: flex;
 		align-items: center;
 		gap: 0.3125rem;
+		margin-top: 0.625rem;
+		font-size: 0.75rem;
+		@media (min-width: $md4) {
+			font-size: 0.875rem;
+			margin-top: 1.25rem;
+		}
 		&::before {
-			font-size: 1.125rem;
-			width: 1.125rem;
-			height: 1.125rem;
+			width: 0.9375rem;
+			height: 0.9375rem;
+			font-size: 0.9375rem;
+			@media (min-width: $md4) {
+				font-size: 1.125rem;
+				width: 1.125rem;
+				height: 1.125rem;
+			}
 		}
 	}
 	// .news-card__title
 	&__title {
-		margin-top: 1.25rem;
 		transition: color 0.3s ease;
+		margin-top: 0.625rem;
+		@media (min-width: $md4) {
+			margin-top: 1.25rem;
+		}
 		@media (any-hover: hover) {
 			&:hover {
 				color: $orange;
@@ -324,12 +366,18 @@ body {
 		text-overflow: ellipsis;
 		overflow: hidden;
 		-webkit-line-clamp: 3;
-		font-size: 1rem;
 		line-height: 125%;
 		margin-bottom: auto;
+		font-size: 0.875rem;
+		@media (min-width: $md4) {
+			font-size: 1rem;
+		}
 	}
 	// .news-card__more
 	&__more {
-		margin-top: 1.25rem;
+		margin-top: 0.625rem;
+		@media (min-width: $md4) {
+			margin-top: 1.25rem;
+		}
 	}
 }
