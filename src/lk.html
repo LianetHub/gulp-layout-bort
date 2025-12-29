@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Личный кабинет'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {
+            "auth": true
+            })
+            <main class="page">
+                <nav aria-label="Хлебные крошки" class="breadcrumbs">
+                    <div class="container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a href="/" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active">О компании</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="products">
+                    <div class="container">
+                        <h2 class="products__title title">
+                            популярные товары <span class="color-grey">за последние дни</span>
+                        </h2>
+                        @@include('./html/includes/sliders/_small-slider.html')
+                    </div>
+                </section>
+                <section class="person">
+                    <div class="container">
+                        <h2 class="person__title title">
+                            <span class="color-grey">личный кабинет</span> ООО “Экстего”
+                        </h2>
+                        <div class="person__body">
+                            <div class="person__content">
+                                <h3 class="person__content-caption title-md">
+                                    <span class="color-grey">быстрый</span> заказ
+                                </h3>
+                                <div class="person__content-field typography-block">
+                                    <p>
+                                        В своём стремлении улучшить пользовательский опыт мы упускаем, что независимые государства освещают чрезвычайно интересные особенности картины в целом, однако конкретные выводы, разумеется, своевременно верифицированы.
+                                        Лишь сделанные на базе интернет-аналитики выводы, превозмогая сложившуюся непростую экономическую ситуацию, ассоциативно распределены по отраслям.
+                                    </p>
+                                    <p>
+                                        Вот вам яркий пример современных тенденций — высокое качество позиционных исследований создаёт предпосылки для переосмысления внешнеэкономических политик.
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <img src="@img/blank.png" alt="заглушка">
+                                            <p>
+                                                Вот вам яркий пример современных тенденций — высокое качество позиционных исследований создаёт
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="@img/blank.png" alt="заглушка">
+                                            <p>
+                                                Вот вам яркий пример современных тенденций — высокое качество позиционных исследований создаёт
+                                            </p>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <img src="@img/blank.png" alt="заглушка">
+                                            <p>
+                                                Вот вам яркий пример современных тенденций — высокое качество позиционных исследований создаёт
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="person__content-field typography-block">
+                                    <h4>
+                                        <span class="color-grey">Перечень</span> артикулов и количества
+                                    </h4>
+                                    <p>
+                                        Вставьте в текстовое поле (ниже) нужные артикулы и количество. В каждой строке указывайте только один артикул и через пробел (или табуляцию) количество. Если количество не указано, то товар не будет добавлен в корзину.
+                                    </p>
+                                    <form action="#" class="person__content-form">
+                                        <div class="form__field">
+                                            <textarea name="articul" data-required class="form__control" placeholder="<артикул> <количество>"></textarea>
+                                            <div class="form__error-message"></div>
+                                        </div>
+                                        <button type="submit" class="form__submit btn btn-secondary">Добавить в корзину</button>
+                                    </form>
+                                </div>
+                                <div class="person__content-field typography-block">
+                                    <div class="row">
+                                        <div class="col-xl-6">
+                                            <h4>Импорт из бланка <span class="color-accent">заказа</span></h4>
+                                            <p>У вас есть возможность быстрого добавления товаров в вашу корзину из бланка заказа (excel-файл) или путем перечисления нужных артикулов и количества.</p>
+                                            <form action="#" class="person__content-form">
+                                                <label class="form__file">
+                                                    <input type="file" name="file" class="form__file-input hidden" hidden>
+                                                    <span class="form__file-btn icon-upload">Перетащите или нажмите для загрузки файла</span>
+                                                </label>
+                                                <button type="submit" class="form__submit btn btn-secondary">Импортировать</button>
+                                            </form>
+                                        </div>
+                                        <div class="col-xl-6">
+                                            <h4>
+                                                <span class="color-grey">таблица</span> товаров
+                                            </h4>
+                                            <p>Вы можете открыть таблицу с переченем товаров и быстро добавить в корзину нужные позиции в желаемом количестве.</p>
+                                            <p>При нажатии на галочку товары автоматически добавляются в корзину с указанным количеством в соответствующем поле</p>
+                                            <a href="#product-table" data-fancybox class="btn btn-secondary">Открыть таблицу</a>
+                                            <div id="product-table" class="popup popup--large">
+                                                <h3 class="popup__title title text-left"><span class="color-grey">таблица</span> товаров</h3>
+                                                <form action="#" class="popup__search">
+                                                    <input type="text" name="s" class="popup__search-input form__control" placeholder="Поиск">
+                                                    <button type="submit" aria-label="Искать" class="popup__search-btn icon-search"></button>
+                                                </form>
+                                                <ul class="popup__products">
+                                                    @@loop('./html/templates/_popup-product-row.html', './html/json/gallery.json')
+                                                </ul>
+                                            </div>
+                                            <script>
+                                                document.addEventListener("DOMContentLoaded", function () {
+                                                    Fancybox.show([{
+                                                        src: "#product-table"
+                                                    }])
+                                                })
+                                            </script>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                            @@include('./html/includes/_lk-menu.html')
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

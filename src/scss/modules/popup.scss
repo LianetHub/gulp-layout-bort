@@ -61,6 +61,11 @@
 	}
 	&.popup--large {
 		max-width: rem(1380);
+		.popup__title {
+			margin-bottom: 1.25rem;
+			padding-bottom: 1.25rem;
+			border-bottom: rem(1) solid #efefef;
+		}
 	}
 	&__title {
 		text-align: center;
@@ -82,6 +87,26 @@
 
 	&__form {
 		margin-top: 1.25rem;
+		display: flex;
+		flex-direction: column;
+		gap: 1.25rem;
+	}
+	// .popup__search
+	&__search {
+		position: relative;
+	}
+	// .popup__search-input
+	&__search-input {
+	}
+	// .popup__search-btn
+	&__search-btn {
+		@extend .search__form-btn;
+	}
+	&__products {
+		margin-top: rem(20);
+		max-height: 33rem;
+		padding-right: rem(40);
+		overflow-y: auto;
 		display: flex;
 		flex-direction: column;
 		gap: 1.25rem;
