@@ -757,6 +757,9 @@
   line-height: 125%;
   margin-bottom: 0.31rem;
 }
+.form__label span {
+  color: #ed3939;
+}
 .form__control {
   text-overflow: ellipsis;
   transition: border-color 0.3s ease, color 0.3s ease;
@@ -839,6 +842,16 @@
   background: #ea7600;
   border-color: #ea7600;
   color: #fff;
+}
+.checkbox__btn {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  line-height: 125%;
+  user-select: none;
 }
 .checkbox__btn::before {
   content: "";
@@ -5628,24 +5641,15 @@ body:has(.arrow-top.visible) .notify-container {
 }
 .typography-block blockquote {
   margin: 1.5rem 0;
-  padding-left: 1.5rem;
-  border-left: 0.25rem solid #70c700;
-  font-style: italic;
-  color: #555;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background: #f9f9f9;
+  color: #202020;
 }
 .typography-block blockquote p {
   margin: 0;
-  font-size: 0.875rem;
-}
-@media (min-width: 767.98px) {
-  .typography-block blockquote p {
-    font-size: 1rem;
-  }
-}
-@media (min-width: 1199.98px) {
-  .typography-block blockquote p {
-    font-size: 1.125rem;
-  }
+  font-size: 1rem;
+  line-height: 125%;
 }
 .typography-block h1, .typography-block h2, .typography-block h3, .typography-block h4, .typography-block h5, .typography-block h6 {
   text-transform: uppercase;
@@ -7214,6 +7218,15 @@ body:has(.arrow-top.visible) .notify-container {
   background: #fff;
   padding: 1.25rem;
   margin-inline: -1.25rem;
+  flex: 1 1 auto;
+}
+.person__content .marketing__card {
+  background: #f9f9f9;
+}
+@media (min-width: 991.98px) {
+  .person__content .marketing__list {
+    grid-template-columns: repeat(3, 1fr);
+  }
 }
 @media (min-width: 575.98px) {
   .person__content {
@@ -7230,8 +7243,15 @@ body:has(.arrow-top.visible) .notify-container {
   padding-bottom: 1.25rem;
   border-bottom: 0.0625rem solid #efefef;
 }
+.person__content-caption:not(:first-child) {
+  margin-top: 3.13rem;
+}
 .person__content-field {
   margin-top: 1.25rem;
+}
+.person__content-field.border-none {
+  padding-bottom: 0 !important;
+  border-bottom: 0 !important;
 }
 .person__content-field:not(:last-child) {
   padding-bottom: 1.25rem;
@@ -7304,6 +7324,19 @@ body:has(.arrow-top.visible) .notify-container {
   align-items: center;
   color: #a7a8aa;
 }
+.person__content-more {
+  display: flex;
+  width: fit-content;
+  margin-inline: auto;
+  min-width: 10rem;
+  margin-top: 1.25rem;
+}
+@media (min-width: 767.98px) {
+  .person__content-more {
+    margin-top: 2.5rem;
+    min-width: 11.25rem;
+  }
+}
 
 .product-row {
   display: flex;
@@ -7341,4 +7374,79 @@ body:has(.arrow-top.visible) .notify-container {
   top: 50%;
   transform: translateY(-50%);
   right: 0;
+}
+
+.order-history {
+  width: 100%;
+  font-size: 0.875rem;
+  line-height: 1.4;
+  text-align: center;
+  margin-top: 1.25rem;
+}
+@media (min-width: 767.98px) {
+  .order-history {
+    margin-top: 0;
+  }
+}
+.order-history__header {
+  display: flex;
+  padding: 1rem 0 1.25rem;
+  border-bottom: 1px solid #efefef;
+  color: #828282;
+}
+@media (max-width: 991.98px) {
+  .order-history__header {
+    display: none;
+  }
+}
+.order-history__col {
+  flex: 1;
+  padding: 0 0.3125rem;
+}
+
+.order-card {
+  display: flex;
+  padding: 0.625rem 0;
+  border-bottom: 1px solid #efefef;
+}
+@media (max-width: 991.98px) {
+  .order-card {
+    flex-direction: column;
+    background: #f9f9f9;
+    border-radius: 0.75rem;
+    padding: 1.25rem;
+    margin-bottom: 0.9375rem;
+    border-bottom: none;
+  }
+}
+.order-card__item {
+  flex: 1;
+  padding: 0 0.3125rem;
+  text-align: center;
+}
+@media (max-width: 991.98px) {
+  .order-card__item {
+    padding: 0;
+    margin-bottom: 0.5rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    text-align: left;
+  }
+  .order-card__item::before {
+    content: attr(data-label);
+    color: #63666a;
+  }
+}
+.order-card__value {
+  word-break: break-word;
+}
+.order-card__link {
+  display: none;
+}
+@media (max-width: 991.98px) {
+  .order-card__link {
+    display: flex;
+  }
 }

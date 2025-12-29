@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Личный кабинет | анонсы для партнёров'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {
+            "auth": true
+            })
+            <main class="page">
+                <nav aria-label="Хлебные крошки" class="breadcrumbs">
+                    <div class="container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a href="/" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active">О компании</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="products">
+                    <div class="container">
+                        <h2 class="products__title title">
+                            популярные товары <span class="color-grey">за последние дни</span>
+                        </h2>
+                        @@include('./html/includes/sliders/_small-slider.html')
+                    </div>
+                </section>
+                <section class="person">
+                    <div class="container">
+                        <h2 class="person__title title">
+                            <span class="color-grey">личный кабинет</span> ООО “Экстего”
+                        </h2>
+                        <div class="person__body">
+                            <div class="person__content">
+                                <h3 class="person__content-caption title-md">
+                                    анонсы <span class="color-grey">для партнёров</span>
+                                </h3>
+                                <ul class="marketing__list">
+                                    @@loop('./html/templates/_marketing-card.html', './html/json/marketing-product-2.json')
+                                    @@loop('./html/templates/_marketing-card.html', './html/json/marketing-product-2.json')
+                                </ul>
+                                <button type="button" class="person__content-more btn btn-secondary">Показать больше</button>
+                                <div class="pagination">
+                                    <a href="" class="pagination__item active">1</a>
+                                    <a href="" class="pagination__item">2</a>
+                                    <a href="" class="pagination__item">3</a>
+                                    <a href="" class="pagination__item">4</a>
+                                    <span class="pagination__item">...</span>
+                                    <a href="" class="pagination__item">99</a>
+                                </div>
+                            </div>
+                            @@include('./html/includes/_lk-menu.html')
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

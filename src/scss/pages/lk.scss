@@ -22,6 +22,15 @@
 		background: #fff;
 		padding: 1.25rem;
 		margin-inline: -1.25rem;
+		flex: 1 1 auto;
+		.marketing__card {
+			background: #f9f9f9;
+		}
+		.marketing__list {
+			@media (min-width: $md3) {
+				grid-template-columns: repeat(3, 1fr);
+			}
+		}
 		@media (min-width: $md5) {
 			margin-inline: 0;
 		}
@@ -32,12 +41,19 @@
 	}
 	// .person__content-caption
 	&__content-caption {
+		&:not(:first-child) {
+			margin-top: 3.13rem;
+		}
 		padding-bottom: rem(20);
 		border-bottom: rem(1) solid #efefef;
 	}
 	// .person__content-field
 	&__content-field {
 		margin-top: 1.25rem;
+		&.border-none {
+			padding-bottom: 0 !important;
+			border-bottom: 0 !important;
+		}
 		&:not(:last-child) {
 			padding-bottom: 1.25rem;
 			border-bottom: rem(1) solid #efefef;
@@ -111,6 +127,17 @@
 			color: #a7a8aa;
 		}
 	}
+	&__content-more {
+		display: flex;
+		width: fit-content;
+		margin-inline: auto;
+		min-width: 10rem;
+		margin-top: 1.25rem;
+		@media (min-width: $md4) {
+			margin-top: 2.5rem;
+			min-width: 11.25rem;
+		}
+	}
 }
 
 .product-row {
@@ -162,5 +189,77 @@
 		top: 50%;
 		transform: translateY(-50%);
 		right: 0;
+	}
+}
+
+.order-history {
+	width: 100%;
+	font-size: 0.875rem;
+	line-height: 1.4;
+	text-align: center;
+	margin-top: rem(20);
+	@media (min-width: $md4) {
+		margin-top: 0;
+	}
+	&__header {
+		display: flex;
+		padding: 1rem 0 1.25rem;
+		border-bottom: 1px solid #efefef;
+		color: #828282;
+		@media (max-width: $md3) {
+			display: none;
+		}
+	}
+
+	&__col {
+		flex: 1;
+		padding: 0 rem(5);
+	}
+}
+
+.order-card {
+	display: flex;
+	padding: rem(10) 0;
+	border-bottom: 1px solid #efefef;
+
+	@media (max-width: $md3) {
+		flex-direction: column;
+		background: #f9f9f9;
+		border-radius: rem(12);
+		padding: rem(20);
+		margin-bottom: rem(15);
+		border-bottom: none;
+	}
+
+	&__item {
+		flex: 1;
+		padding: 0 rem(5);
+
+		text-align: center;
+		@media (max-width: $md3) {
+			padding: 0;
+			margin-bottom: 0.5rem;
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 0.25rem;
+			text-align: left;
+			&::before {
+				content: attr(data-label);
+				color: #63666a;
+			}
+		}
+	}
+
+	&__value {
+		word-break: break-word;
+	}
+
+	&__link {
+		display: none;
+
+		@media (max-width: $md3) {
+			display: flex;
+		}
 	}
 }

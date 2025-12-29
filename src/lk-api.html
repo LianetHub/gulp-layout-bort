@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Личный кабинет'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {
+            "auth": true
+            })
+            <main class="page">
+                <nav aria-label="Хлебные крошки" class="breadcrumbs">
+                    <div class="container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a href="/" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active">О компании</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="products">
+                    <div class="container">
+                        <h2 class="products__title title">
+                            популярные товары <span class="color-grey">за последние дни</span>
+                        </h2>
+                        @@include('./html/includes/sliders/_small-slider.html')
+                    </div>
+                </section>
+                <section class="person">
+                    <div class="container">
+                        <h2 class="person__title title">
+                            bort-global <span class="color-grey">api</span>
+                        </h2>
+                        <div class="person__body">
+                            <div class="person__content">
+                                <h3 class="person__content-caption title-md">
+                                    bort-global <span class="color-grey">api</span>
+                                </h3>
+                                <div class="person__content-field typography-block border-none">
+                                    <p>
+                                        Bort-Global.API обеспечивает возможность автоматизированного получения данных от компании Bort Global. Данный функционал постоянно дорабатывается и количество ресурсов будет увеличиваться. Если у вас есть замечания или пожелания, то просим <a href="">передать их нам.</a>
+                                    </p>
+                                    <p>
+                                        Все данные передаются в кодировке UFT-8.
+                                    </p>
+                                    <blockquote>
+                                        Компания Bort Global оставляет за собой право ограничить вам доступ к Bort-Global.API в случае если будут замечены попытки нелегального доступа к ресурсам (в том числе передача URL'ов третьим лицам или попытки изменить формат URL'ов).
+                                    </blockquote>
+                                </div>
+                                <h3 class="person__content-caption title-md">
+                                    ресурсы <span class="color-grey">api</span>
+                                </h3>
+                                <div class="person__content-field typography-block">
+                                    <h4>товарная база</h4>
+                                    <p>
+                                        Данный запрос позволяет получить товарную базу (наименование, код товара, ссылки на фотографии, характеристики, ...)
+                                        в различных форматах (вы можете выбрать самостоятельно). Эти данные помогут вам добавлять (обновлять) все товары на ваш сайт или Интернет-магазин.
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form__field">
+                                                <div class="form__label">Формат:</div>
+                                                <input type="text" name="format" class="form__control" value="VendorYML">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <div class="form__field">
+                                                <div class="form__label">URL:</div>
+                                                <input type="text" name="url" class="form__control" placeholder="URL" value="https://b2b.bort-global.com/api/098f6bcd4621d373cade4e832627b4f6/products/Vendor...">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>
+                                        Описание форматов: <a href="">VendorYML</a>, <a href="">YML</a>
+                                    </p>
+                                </div>
+                                <div class="person__content-field typography-block">
+                                    <h4>РРЦ, цена отгрузки и наличие товаров</h4>
+                                    <p>
+                                        Запрос позволяет получать рекомендованные розничные цены (РРЦ) и доступность товара на складе. Формат также можно выбрать самостоятельно. Ресурс будет полезен всем владельцам Интернет-магазинов для автоматического обновления наличия товаров и розничных цен.
+                                    </p>
+                                    <div class="row">
+                                        <div class="col-sm-3">
+                                            <div class="form__field">
+                                                <div class="form__label">Формат:</div>
+                                                <input type="text" name="format" class="form__control" value="CSV">
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-9">
+                                            <div class="form__field">
+                                                <div class="form__label">URL:</div>
+                                                <input type="text" name="url" class="form__control" placeholder="URL" value="https://b2b.bort-global.com/api/098f6bcd4621d373cade4e832627b4f6/warehouse/CSV/">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <p>В формате CSV передаются поля (по-порядку): код товара, наименование, РРЦ, наличие на складе, цена отгрузки.
+                                        Все значения заключены в кавычки и разделены точкой с запятой.</p>
+                                </div>
+                            </div>
+                            @@include('./html/includes/_lk-menu.html')
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

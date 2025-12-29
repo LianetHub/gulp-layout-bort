@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Личный кабинет'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {
+            "auth": true
+            })
+            <main class="page">
+                <nav aria-label="Хлебные крошки" class="breadcrumbs">
+                    <div class="container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a href="/" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active">О компании</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="products">
+                    <div class="container">
+                        <h2 class="products__title title">
+                            популярные товары <span class="color-grey">за последние дни</span>
+                        </h2>
+                        @@include('./html/includes/sliders/_small-slider.html')
+                    </div>
+                </section>
+                <section class="person">
+                    <div class="container">
+                        <h2 class="person__title title">
+                            <span class="color-grey">личный кабинет</span> ООО “Экстего”
+                        </h2>
+                        <div class="person__body">
+                            <div class="person__content">
+                                <h3 class="person__content-caption title-md">
+                                    личные <span class="color-grey">данные</span>
+                                </h3>
+                                <div class="person__content-field typography-block border-none">
+                                    <blockquote>
+                                        Поля отмеченные <span class="color-accent">"звездочкой" (*)</span> обязательны к заполнению.
+                                    </blockquote>
+                                    <form action="#" class="form">
+                                        <div class="person__content-field">
+                                            <h4>ОСНОВНЫЕ СВЕДЕНИЯ</h4>
+                                            <div class="row">
+                                                <div class="col-md-6">
+                                                    <div class="form__field">
+                                                        <div class="form__label"><span>*</span> Название организации:</div>
+                                                        <input type="text" name="company-name" class="form__control" placeholder="" value="ООО &quot;Тестовая организация&quot;">
+                                                        <div class="form__error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form__field">
+                                                        <div class="form__label"><span>*</span> Контактное лицо:</div>
+                                                        <input type="text" name="contact-person" class="form__control" placeholder="" value="Николай Жемеря">
+                                                        <div class="form__error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form__field">
+                                                        <div class="form__label"><span>*</span> Город:</div>
+                                                        <input type="text" name="city" class="form__control" placeholder="" value="Москва">
+                                                        <div class="form__error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form__field">
+                                                        <div class="form__label"><span>*</span> Адрес:</div>
+                                                        <input type="text" name="address" class="form__control" placeholder="" value="г. Москва, ул. Ивана Франко, д. 34...">
+                                                        <div class="form__error-message"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="person__content-field">
+                                            <h4>КОНТАКТНЫЕ ДАННЫЕ</h4>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <div class="form__field">
+                                                        <div class="form__label"><span>*</span> Адрес для корреспонденции:</div>
+                                                        <input type="text" name="mailing-address" class="form__control" placeholder="" value="111111, Московская область, г. Город, ул. Уличная, д. 7, офис 222">
+                                                        <div class="form__error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form__field">
+                                                        <div class="form__label">Факс:</div>
+                                                        <input type="text" name="fax" class="form__control" placeholder="Факс" value="">
+                                                        <div class="form__error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form__field">
+                                                        <div class="form__label"><span>*</span> Телефон:</div>
+                                                        <input type="tel" name="phone" class="form__control" placeholder="" value="+7-903-726-60-02">
+                                                        <div class="form__error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form__field">
+                                                        <div class="form__label"><span>*</span> Электронная почта:</div>
+                                                        <input type="email" name="email" class="form__control" placeholder="" value="a.polovov@bort-global.com">
+                                                        <div class="form__error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-6">
+                                                    <div class="form__field">
+                                                        <div class="form__label">WhatsApp:</div>
+                                                        <input type="text" name="whatsapp" class="form__control" placeholder="Номер WhatsApp" value="">
+                                                        <div class="form__error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form__field">
+                                                        <div class="form__label"><span>*</span> ФИО руководителя:</div>
+                                                        <input type="text" name="director-name" class="form__control" placeholder="Должность и контакты руководителя компании" value="">
+                                                        <div class="form__error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form__field">
+                                                        <div class="form__label"><span>*</span> ФИО главного бухгалтера:</div>
+                                                        <input type="text" name="accountant-name" class="form__control" placeholder="Должность и контакты главного бухгалтера" value="">
+                                                        <div class="form__error-message"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="person__content-field">
+                                            <h4>настройки оповещений</h4>
+                                            <div class="row">
+                                                <div class="col-12">
+                                                    <label class="checkbox">
+                                                        <input type="checkbox" name="subscribe_price" checked class="checkbox__input hidden" hidden>
+                                                        <span class="checkbox__btn">Оповещать об изменении цен</span>
+                                                    </label>
+                                                </div>
+                                                <div class="col-12">
+                                                    <div class="form__field">
+                                                        <div class="form__label"><span>*</span> * Список электронных почт для оповещения:</div>
+                                                        <input type="text" name="mailing-list" class="form__control" placeholder="Введите email через запятую" value="a.orlov@extego.ru, b2b-service@bort-global.com, m.koschienko@bort-global.com">
+                                                        <div class="form__error-message"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-12">
+                                                    <button type="submit" class="form__submit btn btn-secondary">Изменить данные</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                            @@include('./html/includes/_lk-menu.html')
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

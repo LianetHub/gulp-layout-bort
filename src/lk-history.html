@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Личный кабинет | История заказов'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {
+            "auth": true
+            })
+            <main class="page">
+                <nav aria-label="Хлебные крошки" class="breadcrumbs">
+                    <div class="container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a href="/" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active">О компании</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="products">
+                    <div class="container">
+                        <h2 class="products__title title">
+                            популярные товары <span class="color-grey">за последние дни</span>
+                        </h2>
+                        @@include('./html/includes/sliders/_small-slider.html')
+                    </div>
+                </section>
+                <section class="person">
+                    <div class="container">
+                        <h2 class="person__title title">
+                            <span class="color-grey">личный кабинет</span> ООО “Экстего”
+                        </h2>
+                        <div class="person__body">
+                            <div class="person__content">
+                                <h3 class="person__content-caption title-md">
+                                    история <span class="color-grey">заказов</span>
+                                </h3>
+                                <div class="person__table">
+                                    <div class="person__table">
+                                        <div class="order-history">
+                                            <div class="order-history__header">
+                                                <div class="order-history__col">Дата и время</div>
+                                                <div class="order-history__col">Счёт</div>
+                                                <div class="order-history__col">Менеджер</div>
+                                                <div class="order-history__col">Юр. лицо</div>
+                                                <div class="order-history__col">Последнее изменение</div>
+                                                <div class="order-history__col">Сумма заказа</div>
+                                            </div>
+
+                                            <div class="order-history__body">
+                                                <div class="order-history__row order-card">
+                                                    <div class="order-card__item" data-label="Дата и время:">
+                                                        <span class="order-card__value">30.12.2025, 11:12</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Счёт:">
+                                                        <span class="order-card__value">RUS12345678</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Менеджер:">
+                                                        <span class="order-card__value">Контейнер с ФИО</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Юр. лицо:">
+                                                        <span class="order-card__value">ООО "ПРЕДПРИЯТИЕ"</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Последнее изменение:">
+                                                        <span class="order-card__value">30.12.2025, 11:12</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Сумма заказа:">
+                                                        <span class="order-card__value">9 999 999₽</span>
+                                                    </div>
+                                                    <a href="#" class="order-card__link more-link icon-right">Подробнее</a>
+                                                </div>
+                                                <div class="order-history__row order-card">
+                                                    <div class="order-card__item" data-label="Дата и время:">
+                                                        <span class="order-card__value">30.12.2025, 11:12</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Счёт:">
+                                                        <span class="order-card__value">RUS12345678</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Менеджер:">
+                                                        <span class="order-card__value">Контейнер с ФИО</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Юр. лицо:">
+                                                        <span class="order-card__value">ООО "ПРЕДПРИЯТИЕ"</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Последнее изменение:">
+                                                        <span class="order-card__value">30.12.2025, 11:12</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Сумма заказа:">
+                                                        <span class="order-card__value">9 999 999₽</span>
+                                                    </div>
+                                                    <a href="#" class="order-card__link more-link icon-right">Подробнее</a>
+                                                </div>
+                                                <div class="order-history__row order-card">
+                                                    <div class="order-card__item" data-label="Дата и время:">
+                                                        <span class="order-card__value">30.12.2025, 11:12</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Счёт:">
+                                                        <span class="order-card__value">RUS12345678</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Менеджер:">
+                                                        <span class="order-card__value">Контейнер с ФИО</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Юр. лицо:">
+                                                        <span class="order-card__value">ООО "ПРЕДПРИЯТИЕ"</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Последнее изменение:">
+                                                        <span class="order-card__value">30.12.2025, 11:12</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Сумма заказа:">
+                                                        <span class="order-card__value">9 999 999₽</span>
+                                                    </div>
+                                                    <a href="#" class="order-card__link more-link icon-right">Подробнее</a>
+                                                </div>
+                                                <div class="order-history__row order-card">
+                                                    <div class="order-card__item" data-label="Дата и время:">
+                                                        <span class="order-card__value">30.12.2025, 11:12</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Счёт:">
+                                                        <span class="order-card__value">RUS12345678</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Менеджер:">
+                                                        <span class="order-card__value">Контейнер с ФИО</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Юр. лицо:">
+                                                        <span class="order-card__value">ООО "ПРЕДПРИЯТИЕ"</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Последнее изменение:">
+                                                        <span class="order-card__value">30.12.2025, 11:12</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Сумма заказа:">
+                                                        <span class="order-card__value">9 999 999₽</span>
+                                                    </div>
+                                                    <a href="#" class="order-card__link more-link icon-right">Подробнее</a>
+                                                </div>
+                                                <div class="order-history__row order-card">
+                                                    <div class="order-card__item" data-label="Дата и время:">
+                                                        <span class="order-card__value">30.12.2025, 11:12</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Счёт:">
+                                                        <span class="order-card__value">RUS12345678</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Менеджер:">
+                                                        <span class="order-card__value">Контейнер с ФИО</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Юр. лицо:">
+                                                        <span class="order-card__value">ООО "ПРЕДПРИЯТИЕ"</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Последнее изменение:">
+                                                        <span class="order-card__value">30.12.2025, 11:12</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Сумма заказа:">
+                                                        <span class="order-card__value">9 999 999₽</span>
+                                                    </div>
+                                                    <a href="#" class="order-card__link more-link icon-right">Подробнее</a>
+                                                </div>
+                                                <div class="order-history__row order-card">
+                                                    <div class="order-card__item" data-label="Дата и время:">
+                                                        <span class="order-card__value">30.12.2025, 11:12</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Счёт:">
+                                                        <span class="order-card__value">RUS12345678</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Менеджер:">
+                                                        <span class="order-card__value">Контейнер с ФИО</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Юр. лицо:">
+                                                        <span class="order-card__value">ООО "ПРЕДПРИЯТИЕ"</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Последнее изменение:">
+                                                        <span class="order-card__value">30.12.2025, 11:12</span>
+                                                    </div>
+                                                    <div class="order-card__item" data-label="Сумма заказа:">
+                                                        <span class="order-card__value">9 999 999₽</span>
+                                                    </div>
+                                                    <a href="#" class="order-card__link more-link icon-right">Подробнее</a>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button" class="person__content-more btn btn-secondary">Показать больше</button>
+                                <div class="pagination">
+                                    <a href="" class="pagination__item active">1</a>
+                                    <a href="" class="pagination__item">2</a>
+                                    <a href="" class="pagination__item">3</a>
+                                    <a href="" class="pagination__item">4</a>
+                                    <span class="pagination__item">...</span>
+                                    <a href="" class="pagination__item">99</a>
+                                </div>
+                            </div>
+                            @@include('./html/includes/_lk-menu.html')
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>
