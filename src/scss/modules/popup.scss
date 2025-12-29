@@ -67,6 +67,9 @@
 			border-bottom: rem(1) solid #efefef;
 		}
 	}
+	&.popup--medium {
+		max-width: rem(780);
+	}
 	&__title {
 		text-align: center;
 		&.text-left {

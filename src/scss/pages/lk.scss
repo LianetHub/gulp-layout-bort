@@ -151,11 +151,14 @@
 
 	// .product-row__thumb
 	&__thumb {
-		width: 3.125rem;
-		height: 3.125rem;
-		display: flex;
-		justify-content: center;
-		align-items: center;
+		display: none;
+		@media (min-width: $md4) {
+			width: 3.125rem;
+			height: 3.125rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+		}
 	}
 	// .product-row__main
 	&__main {
@@ -174,6 +177,18 @@
 	}
 	// .product-row__price
 	&__price {
+		@media (max-width: $md4) {
+			display: none;
+		}
+		.product__price-current {
+			font-size: 1rem;
+		}
+		.product__price-old {
+			font-size: 1rem;
+		}
+		.product__price-sale {
+			font-size: 0.75rem;
+		}
 	}
 	// .product-row__quantity
 	&__quantity {
@@ -189,6 +204,25 @@
 		top: 50%;
 		transform: translateY(-50%);
 		right: 0;
+	}
+	&__cart {
+		border-radius: rem(10);
+		width: rem(30);
+		height: rem(30);
+		@media (max-width: $md3) {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 0;
+			padding: 0;
+			&::before {
+				font-size: 1rem !important;
+			}
+		}
+		@media (min-width: $md4) {
+			width: rem(40);
+			height: rem(40);
+		}
 	}
 }
 

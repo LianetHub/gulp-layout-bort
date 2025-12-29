@@ -332,6 +332,19 @@
 			height: rem(50);
 		}
 	}
+	&.quantity-block--large-desktop {
+		@media (min-width: $md4) {
+			width: rem(175);
+			.quantity-block__up,
+			.quantity-block__down {
+				width: rem(50);
+				height: rem(50);
+			}
+			.quantity-block__input {
+				height: rem(50);
+			}
+		}
+	}
 	width: rem(105);
 	@media (min-width: $md4) {
 		width: rem(140);

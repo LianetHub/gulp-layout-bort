@@ -19,6 +19,23 @@
 		}
 	}
 
+	&__select {
+		position: relative;
+		&::before {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			right: 1.25rem;
+			width: 1.25rem;
+			height: 1.25rem;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			font-size: 1rem;
+			color: #a7a8aa;
+		}
+	}
+
 	// .form__control
 	&__control {
 		text-overflow: ellipsis;
@@ -56,6 +73,11 @@
 		&:is(textarea) {
 			height: 7.5rem;
 			resize: none;
+		}
+		&:is(select) {
+			appearance: none;
+			color: $black;
+			min-height: rem(55);
 		}
 	}
 	// .form__error-message

@@ -1,0 +1,150 @@
+.cart {
+	padding: rem(25) 0;
+	@media (min-width: $md4) {
+		padding: rem(50) 0;
+	}
+	// .cart__title
+	&__title {
+	}
+	// .cart__actions
+	&__actions {
+		display: flex;
+		align-items: center;
+		gap: 1.25rem;
+		flex-wrap: wrap;
+		margin-top: rem(20);
+		@media (min-width: $md4) {
+			margin-top: 2.5rem;
+		}
+	}
+	// .cart__btn
+	&__btn {
+		min-width: 11.25rem;
+	}
+	// .cart__sale
+	&__sale {
+		color: #00778b;
+		font-weight: 400;
+		line-height: 125%;
+		display: flex;
+		align-items: center;
+		gap: 0.25rem;
+	}
+
+	&__content {
+		margin-top: 1.25rem;
+		@media (min-width: $md4) {
+			margin-top: 2.5rem;
+		}
+	}
+
+	&__block {
+		background: #fff;
+		padding: 0.625rem;
+		&:not(:last-child) {
+			margin-bottom: 1.25rem;
+		}
+		@media (min-width: $md4) {
+			padding: 1.25rem;
+		}
+	}
+
+	// .cart__total
+	&__total {
+		background: #fff;
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 0.625rem;
+		padding: 1.25rem;
+		margin-inline: -1.25rem;
+		margin-top: 1.25rem;
+		@media (min-width: $md5) {
+			margin-top: 2.5rem;
+			padding: 2.5rem;
+			margin-inline: 0;
+			gap: 2.38rem;
+		}
+	}
+	// .cart__total-info
+	&__total-info {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		gap: rem(10);
+		color: #63666a;
+		line-height: 125%;
+		@media (min-width: $md5) {
+			font-size: 1.25rem;
+			flex-direction: row;
+			align-items: center;
+			gap: 2.38rem;
+			flex-wrap: wrap;
+		}
+
+		& span {
+			display: flex;
+			align-items: center;
+			gap: 0.625rem;
+		}
+		& strong {
+			color: $black;
+		}
+	}
+	&__total-btns {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: rem(10);
+		@media (min-width: $md4) {
+			display: contents;
+		}
+	}
+	// .cart__total-order
+	&__total-order {
+	}
+	// .cart__reset
+	&__reset {
+		@media (min-width: $md4) {
+			margin-left: auto;
+		}
+	}
+	// .cart__recommendations
+	&__recommendations {
+		margin-top: 1.25rem;
+		padding-top: 1.25rem;
+		border-top: rem(1) solid #efefef;
+	}
+	// .cart__recommendations-title
+	&__recommendations-title {
+		font-family: $font-russo;
+		font-size: 1rem;
+		line-height: 125%;
+		text-transform: uppercase;
+	}
+
+	// .cart__recommendations-list
+	&__recommendations-list {
+		margin-top: rem(20);
+		overflow-y: auto;
+		max-height: rem(330);
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+		padding-right: rem(10);
+		@media (min-width: $md4) {
+			padding-right: rem(40);
+		}
+	}
+
+	&__recommendations-item {
+		.product-row {
+			padding-right: 3rem;
+			@media (min-width: $md5) {
+				padding-right: 4rem;
+			}
+			@media (min-width: $md3) {
+				padding-right: 0;
+			}
+		}
+	}
+}
