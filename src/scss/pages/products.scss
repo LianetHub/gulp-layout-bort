@@ -426,15 +426,24 @@
 	@media (min-width: $md4) {
 		padding: rem(50) 0;
 	}
-
+	&__title {
+		margin-bottom: 1.25rem;
+		@media (min-width: $md4) {
+			margin-bottom: rem(40);
+		}
+	}
 	&__body {
 		display: grid;
 		gap: rem(20);
 		align-items: start;
-		margin-top: rem(40);
 		@media (min-width: $md3) {
 			grid-template-columns: 1fr rem(388);
 		}
+	}
+	&__column {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
 	}
 
 	&__list {
@@ -456,6 +465,8 @@
 	&__sidebar {
 		order: -1;
 		@media (min-width: $md3) {
+			position: sticky;
+			top: 8rem;
 			order: 0;
 		}
 	}

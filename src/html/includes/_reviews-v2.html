@@ -1,8 +1,56 @@
 <section id="reviews" class="reviews">
     <div class="container">
         <h2 class="reviews__title title">отзывы</h2>
-        <div class="reviews__body">
-
+        <div class="reviews__column">
+            <div class="rating-summary">
+                <h3 class="rating-summary__title title-sm">СРЕДНЯЯ <span class="color-grey">ОЦЕНКА</span></h3>
+                <div class="rating-summary__main">
+                    <div class="rating-summary__score">4.8</div>
+                    <div class="rating-summary__info">
+                        <div class="rating-summary__stars">
+                            <div class="icon-star"></div>
+                            <div class="icon-star"></div>
+                            <div class="icon-star"></div>
+                            <div class="icon-star icon-star--half"></div>
+                            <div class="icon-star icon-star--grey"></div>
+                        </div>
+                        <div class="rating-summary__count">199 отзывов</div>
+                    </div>
+                </div>
+                <div class="rating-summary__bars">
+                    <div class="rating-summary__bar-row">
+                        <span class="rating-summary__bar-label">5</span>
+                        <div class="rating-summary__line-wrapper">
+                            <div class="rating-summary__line" style="width: 80%;"></div>
+                        </div>
+                    </div>
+                    <div class="rating-summary__bar-row">
+                        <span class="rating-summary__bar-label">4</span>
+                        <div class="rating-summary__line-wrapper">
+                            <div class="rating-summary__line" style="width: 90%;"></div>
+                        </div>
+                    </div>
+                    <div class="rating-summary__bar-row">
+                        <span class="rating-summary__bar-label">3</span>
+                        <div class="rating-summary__line-wrapper">
+                            <div class="rating-summary__line" style="width: 15%;"></div>
+                        </div>
+                    </div>
+                    <div class="rating-summary__bar-row">
+                        <span class="rating-summary__bar-label">2</span>
+                        <div class="rating-summary__line-wrapper">
+                            <div class="rating-summary__line" style="width: 5%;"></div>
+                        </div>
+                    </div>
+                    <div class="rating-summary__bar-row">
+                        <span class="rating-summary__bar-label">1</span>
+                        <div class="rating-summary__line-wrapper">
+                            <div class="rating-summary__line" style="width: 2%;"></div>
+                        </div>
+                    </div>
+                </div>
+                <button class="rating-summary__btn btn btn-primary">Написать отзыв</button>
+            </div>
             <div class="reviews__main">
                 <div class="reviews__list">
                     @@include('../templates/_review-card.html')
@@ -13,59 +61,6 @@
                 </div>
                 <button type="button" class="reviews__more btn btn-secondary">Показать больше</button>
             </div>
-
-            <aside class="reviews__sidebar">
-                <div class="rating-summary">
-                    <h3 class="rating-summary__title title-sm">СРЕДНЯЯ <span class="color-grey">ОЦЕНКА</span></h3>
-                    <div class="rating-summary__main">
-                        <div class="rating-summary__score">4.8</div>
-                        <div class="rating-summary__info">
-                            <div class="rating-summary__stars">
-                                <div class="icon-star"></div>
-                                <div class="icon-star"></div>
-                                <div class="icon-star"></div>
-                                <div class="icon-star icon-star--half"></div>
-                                <div class="icon-star icon-star--grey"></div>
-                            </div>
-                            <div class="rating-summary__count">199 отзывов</div>
-                        </div>
-                    </div>
-                    <div class="rating-summary__bars">
-                        <div class="rating-summary__bar-row">
-                            <span class="rating-summary__bar-label">5</span>
-                            <div class="rating-summary__line-wrapper">
-                                <div class="rating-summary__line" style="width: 80%;"></div>
-                            </div>
-                        </div>
-                        <div class="rating-summary__bar-row">
-                            <span class="rating-summary__bar-label">4</span>
-                            <div class="rating-summary__line-wrapper">
-                                <div class="rating-summary__line" style="width: 90%;"></div>
-                            </div>
-                        </div>
-                        <div class="rating-summary__bar-row">
-                            <span class="rating-summary__bar-label">3</span>
-                            <div class="rating-summary__line-wrapper">
-                                <div class="rating-summary__line" style="width: 15%;"></div>
-                            </div>
-                        </div>
-                        <div class="rating-summary__bar-row">
-                            <span class="rating-summary__bar-label">2</span>
-                            <div class="rating-summary__line-wrapper">
-                                <div class="rating-summary__line" style="width: 5%;"></div>
-                            </div>
-                        </div>
-                        <div class="rating-summary__bar-row">
-                            <span class="rating-summary__bar-label">1</span>
-                            <div class="rating-summary__line-wrapper">
-                                <div class="rating-summary__line" style="width: 2%;"></div>
-                            </div>
-                        </div>
-                    </div>
-                    <button class="rating-summary__btn btn btn-primary">Написать отзыв</button>
-                </div>
-            </aside>
-
         </div>
     </div>
 </section>

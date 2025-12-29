@@ -478,20 +478,28 @@ $(function () {
             const nextBtn = $container.find('.products__next')[0];
             const prevBtn = $container.find('.products__prev')[0];
 
-            const isSmall = $container.hasClass('products__slider--small');
+            let breakpoints;
 
-            const breakpoints = isSmall
-                ? {
+            if ($container.hasClass('products__slider--small')) {
+                breakpoints = {
                     767.98: { slidesPerView: 3 },
                     991.98: { slidesPerView: 4 },
                     1199.98: { slidesPerView: 5 },
                     1419.98: { slidesPerView: 6 }
-                }
-                : {
+                };
+            } else if ($container.hasClass('products__slider--large')) {
+                breakpoints = {
+                    767.98: { slidesPerView: 1 },
+                    991.98: { slidesPerView: 2 },
+                    1419.98: { slidesPerView: 3 }
+                };
+            } else {
+                breakpoints = {
                     767.98: { slidesPerView: 2 },
                     991.98: { slidesPerView: 3 },
                     1419.98: { slidesPerView: 4 }
                 };
+            }
 
             new Swiper($slider[0], {
                 slidesPerView: "auto",

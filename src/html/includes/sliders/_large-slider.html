@@ -1,0 +1,9 @@
+<div class="products__slider products__slider--large">
+    <div class="swiper">
+        <div class="swiper-wrapper">
+            @@loop('../../templates/_product-card.html', './html/json/products.json')
+        </div>
+    </div>
+    <button type="button" class="products__prev swiper-button-prev"></button>
+    <button type="button" class="products__next swiper-button-next"></button>
+</div>

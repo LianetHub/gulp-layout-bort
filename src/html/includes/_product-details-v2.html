@@ -1,0 +1,319 @@
+<nav aria-label="Хлебные крошки" class="breadcrumbs">
+    <div class="container">
+        <ul class="breadcrumbs__list">
+            <li class="breadcrumbs__item">
+                <a href="/" class="breadcrumbs__link">Главная</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <a href="category.html" class="breadcrumbs__link">Каталог</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <span class="breadcrumbs__link active">Товар</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+<section class="product-details">
+    <div class="container">
+        <div class="product-details__header">
+            <div class="product-details__images">
+                <div class="product-details__thumbs">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            @@loop('../templates/_gallery-thumb.html', './html/json/gallery.json')
+                        </div>
+                    </div>
+                </div>
+                <div class="product-details__gallery">
+                    <div class="swiper">
+                        <div class="swiper-wrapper">
+                            @@loop('../templates/_gallery-image.html', './html/json/gallery.json')
+                        </div>
+                    </div>
+                    <div class="product-details__labels">
+                        <div class="product-details__label">Осталось мало!</div>
+                        <div class="product-details__label orange">новинка!</div>
+                        <div class="product-details__label orange">Акция!</div>
+                    </div>
+                </div>
+            </div>
+            <div class="product-details__main">
+                <h1 class="product-details__title title-md">Измельчитель пищевых отходов Bort TITAN MAX Power</h1>
+                <div class="product-details__info">
+                    <div class="product-details__sku">Артикул товара: 11223344</div>
+                    <span class="product-details__separator"></span>
+                    <button type="button" class="product-details__share icon-share">Поделиться</button>
+                </div>
+                <div class="product-details__price">
+                    <div class="product-details__price-block">
+                        <div class="product-details__price-caption">Цена за один товар:</div>
+                        <div class="product-details__price-row">
+                            <div class="product-details__price-current">30 000₽</div>
+                            <div class="product-details__price-old">35 490₽</div>
+                            <div class="product-details__price-sale">-20%</div>
+                        </div>
+                    </div>
+                    <div class="product-details__price-block">
+                        <div class="product-details__price-caption">Рекомендованная розничная цена:</div>
+                        <div class="product-details__price-value">60 000₽</div>
+                    </div>
+                </div>
+                <div class="product-details__quantity">
+                    <div class="quantity-block quantity-block--large">
+                        <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
+                        <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
+                        <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+                    </div>
+                    <div class="product-details__availability">
+                        В наличии: <span class="color-accent">1442 шт.</span>
+                    </div>
+                </div>
+                <div class="product-details__actions">
+                    <button type="button" class="product__btn btn btn-primary add-to-cart-btn icon-cart">
+                        В корзину
+                    </button>
+                    <button type="button" aria-label="Добавить @@name в избранное" class="product__action favorite-btn icon-heart"></button>
+                    <button type="button" aria-label="Добавить @@name к сравнению" class="product__action compare-btn icon-compare"></button>
+                </div>
+            </div>
+        </div>
+        <div class="product-details__grid">
+            <div class="product-details__blocks">
+                <div id="stats" class="product-details__block">
+                    <div class="product-details__block-title title-sm">характеристики <span class="color-grey">товара</span></div>
+                    <div class="product-stats">
+                        <div class="row">
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Бренд</div>
+                                    <div class="product-stats__value">BORT</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Система шумоизоляции</div>
+                                    <div class="product-stats__value">Полная</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Серия</div>
+                                    <div class="product-stats__value">TITAN</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Мощность, Вт</div>
+                                    <div class="product-stats__value">780</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Назначение</div>
+                                    <div class="product-stats__value">Бытовой</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Объём камеры, мл</div>
+                                    <div class="product-stats__value">1400</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Число ступеней измельчения</div>
+                                    <div class="product-stats__value">3</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Материал корпуса камеры</div>
+                                    <div class="product-stats__value">Прочный композитный материал</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Функция авто-реверса</div>
+                                    <div class="product-stats__value">Нет</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Материал измельчающего элемента</div>
+                                    <div class="product-stats__value">Нержавеющая сталь</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Усилитель мощности (бустер)</div>
+                                    <div class="product-stats__value">Нет</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Тихий запуск</div>
+                                    <div class="product-stats__value">Нет</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Система защиты от перегрузки и заклинивания</div>
+                                    <div class="product-stats__value">Да</div>
+                                </div>
+                            </div>
+                            <div class="col-xxl-6">
+                                <div class="product-stats__row">
+                                    <div class="product-stats__property">Тип мотора</div>
+                                    <div class="product-stats__value">Постоянный магнит</div>
+                                </div>
+                            </div>
+                        </div>
+                        <button type="button" class="product-stats__more btn btn-secondary">Показать больше</button>
+                    </div>
+                </div>
+                <div id="description" class="product-details__block">
+                    <div class="product-details__block-title title-sm">описание <span class="color-grey">товара</span></div>
+                    <div class="product-details__block-desc typography-block">
+                        <p>Однозначно, ключевые особенности структуры проекта призывают нас к новым свершениям, которые, в свою очередь, должны быть преданы социально-демократической анафеме. Картельные сговоры не допускают ситуации, при которой независимые государства объединены в целые кластеры себе подобных. Принимая во внимание показатели успешности, семантический разбор внешних противодействий не оставляет шанса для поставленных обществом задач.</p>
+                        <p>Противоположная точка зрения подразумевает, что тщательные исследования конкурентов неоднозначны и будут разоблачены. Предварительные выводы неутешительны: сплочённость команды профессионалов является качественно новой ступенью своевременного выполнения сверхзадачи.</p>
+                        <ul>
+                            <li>Новый закон накладывает вето на песнь светлого будущего</li>
+                            <li>Сейчас всё чаще звучит шёпот бессменных лидеров</li>
+                            <li>Все чаще появляется информация о том, что курс ценных бумаг так же органично вписывается в наши планы</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="complect" class="product-details__block">
+                    <div class="product-details__block-title title-sm">Комплектация</div>
+                    <div class="product-details__block-desc typography-block">
+                        <ul class="row">
+                            <li class="col-xxl-3 col-lg-4 col-md-6">Монтажный узел (1 шт)</li>
+                            <li class="col-xxl-3 col-lg-4 col-md-6">Сливная труба (1 шт)</li>
+                            <li class="col-xxl-3 col-lg-4 col-md-6">Гидрозатвор (1 шт)</li>
+                            <li class="col-xxl-3 col-lg-4 col-md-6">Пневмовыключатель (1 шт)</li>
+                            <li class="col-xxl-3 col-lg-4 col-md-6">Проталкиватель (1 шт)</li>
+                            <li class="col-xxl-3 col-lg-4 col-md-6">Сито-пробка + проталкиватель (1 шт)</li>
+                            <li class="col-xxl-3 col-lg-4 col-md-6">Защитный экран (1 шт)</li>
+                            <li class="col-xxl-3 col-lg-4 col-md-6">Инструкция (1 шт)</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="docs" class="product-details__block">
+                    <div class="product-details__block-title title-sm"><span class="color-grey">Дополнительные</span> материалы</div>
+                    <ul class="product-details__documents">
+                        <li class="product-details__document icon-file">
+                            <div class="product-details__document-content">
+                                <div class="product-details__document-name">заполнение гарантийных талонов</div>
+                                <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                            </div>
+                        </li>
+                        <li class="product-details__document icon-file">
+                            <div class="product-details__document-content">
+                                <div class="product-details__document-name">Гарантийное обслуживание</div>
+                                <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                            </div>
+                        </li>
+                        <li class="product-details__document icon-file">
+                            <div class="product-details__document-content">
+                                <div class="product-details__document-name">Правила обмена брака</div>
+                                <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                            </div>
+                        </li>
+                        <li class="product-details__document icon-file">
+                            <div class="product-details__document-content">
+                                <div class="product-details__document-name">Список сервисных центров</div>
+                                <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                            </div>
+                        </li>
+                        <li class="product-details__document icon-file">
+                            <div class="product-details__document-content">
+                                <div class="product-details__document-name">скачать инструкцию</div>
+                                <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                            </div>
+                        </li>
+                        <li class="product-details__document icon-file">
+                            <div class="product-details__document-content">
+                                <div class="product-details__document-name">Сертификат №1</div>
+                                <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                            </div>
+                        </li>
+                        <li class="product-details__document icon-file">
+                            <div class="product-details__document-content">
+                                <div class="product-details__document-name">Сертификат №2</div>
+                                <a href="" class="product-details__document-download more-link icon-right">Скачать</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="product-details__btns">
+                        <button type="button" class="product-details__btn btn btn-secondary">Показать больше</button>
+                        <a href="" class="product-details__btn btn btn-primary">Скачать всё</a>
+                    </div>
+                </div>
+                <div id="marketing-activity" class="product-details__block">
+                    <div class="product-details__block-title title-sm">маркетинговая <span class="color-grey">активность</span></div>
+                    <ul class="marketing__list">
+                        @@loop('../templates/_marketing-card.html', './html/json/marketing-product-2.json')
+                    </ul>
+                    <button type="button" class="marketing__more btn btn-secondary">Показать больше</button>
+
+                </div>
+                @@include('./_reviews-v2.html')
+                <section id="related-products" class="products">
+                    <div class="container">
+                        <h2 class="products__title title">
+                            Сопутствующие <span class="color-grey">товары</span>
+                        </h2>
+                        @@include('./sliders/_large-slider.html')
+                        <button type="button" class="products__more btn btn-secondary">Показать больше</button>
+                    </div>
+                </section>
+                <section id="simular-products" class="products">
+                    <div class="container">
+                        <h2 class="products__title title">
+                            <span class="color-grey">С этим товаром</span> покупают
+                        </h2>
+                        @@include('./sliders/_large-slider.html')
+                        <button type="button" class="products__more btn btn-secondary">Показать больше</button>
+                    </div>
+                </section>
+                @@include('./_tags.html')
+            </div>
+            <nav aria-label="Навигация по товару" class="product-details__navigation">
+                <ul class="product-details__navigation-menu">
+                    <li class="product-details__navigation-item">
+                        <a href="#stats" class="product-details__navigation-link icon-right">Характеристики</a>
+                    </li>
+                    <li class="product-details__navigation-item">
+                        <a href="#description" class="product-details__navigation-link icon-right">Описание</a>
+                    </li>
+                    <li class="product-details__navigation-item">
+                        <a href="#complect" class="product-details__navigation-link icon-right">Комплектация</a>
+                    </li>
+                    <li class="product-details__navigation-item">
+                        <a href="#docs" class="product-details__navigation-link icon-right">Дополнительные материалы</a>
+                    </li>
+                    <li class="product-details__navigation-item">
+                        <a href="#marketing-activity" class="product-details__navigation-link icon-right">Маркетинговая активность</a>
+                    </li>
+                    <li class="product-details__navigation-item">
+                        <a href="#reviews" class="product-details__navigation-link icon-right">Отзывы</a>
+                    </li>
+                    <li class="product-details__navigation-item">
+                        <a href="#related-products" class="product-details__navigation-link icon-right">Сопутствующие товары</a>
+                    </li>
+                    <li class="product-details__navigation-item">
+                        <a href="#simular-products" class="product-details__navigation-link icon-right">С этим товаром покупают</a>
+                    </li>
+                    @@if(auth === true) {
+                    <li class="product-details__navigation-item">
+                        <a href="#compare" class="product-details__navigation-link icon-right">Мойки высокого давления BHR</a>
+                    </li>
+                    }
+                    <li class="product-details__navigation-item">
+                        <a href="#tags" class="product-details__navigation-link icon-right">Теги</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</section>

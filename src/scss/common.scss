@@ -60,6 +60,7 @@ body {
 	overflow-x: hidden;
 	padding-bottom: rem(25);
 	@media (min-width: $md4) {
+		overflow-x: clip;
 		padding-bottom: rem(50);
 		&:has(.news) {
 			background: url("@img/decor/bg-wave.svg") 0 100% / 100% auto no-repeat;
