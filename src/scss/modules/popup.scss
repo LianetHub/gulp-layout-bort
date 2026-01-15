@@ -92,7 +92,16 @@
 		margin-top: 1.25rem;
 		display: flex;
 		flex-direction: column;
-		gap: 1.25rem;
+		gap: rem(10);
+		.form__submit {
+			margin-top: rem(5);
+			@media (min-width: $md5) {
+				margin-top: 0;
+			}
+		}
+		@media (min-width: $md5) {
+			gap: 1.25rem;
+		}
 	}
 	// .popup__search
 	&__search {

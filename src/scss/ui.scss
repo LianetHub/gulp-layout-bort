@@ -77,6 +77,12 @@
 	}
 }
 
+.mobile-only {
+	@media (min-width: $md5) {
+		display: none !important;
+	}
+}
+
 .text-left {
 	text-align: left;
 }

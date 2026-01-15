@@ -309,7 +309,7 @@
                                 </span>
                             </a>
                             
-                            <a href="login.html" class="main-actions__item icon-user main-actions__item--tablet">
+                            <a href="#sign-in" data-fancybox class="main-actions__item icon-user main-actions__item--tablet">
                                 <span class="main-actions__item-text">
                                     Войти
                                 </span>
@@ -318,10 +318,9 @@
                             
                         </div>
                         
-                        <a href="login.html" class="header__auth-login btn btn-secondary icon-user">
+                        <a href="#sign-in" data-fancybox class="header__auth-login btn btn-secondary icon-user">
                             Войти
                         </a>
-
                         
                         
                     </div>
@@ -1604,6 +1603,53 @@
                         <div class="form__error-message"></div>
                     </div>
                     <button type="submit" class="form__submit btn btn-primary">Подробнее</button>
+                </form>
+            </div>
+            <div id="sign-in" class="popup">
+                <div class="popup__title title-md">
+                    Вход <br class="mobile-only"> <span class="color-grey">для клиентов</span>
+                </div>
+                <form action="#" class="popup__form form">
+                    <div class="form__field">
+                        <div class="form__label">Логин:</div>
+                        <input type="text" name="login" data-required class="form__control" placeholder="Логин">
+                        <div class="form__error-message"></div>
+                    </div>
+                    <div class="form__field">
+                        <div class="form__label">Пароль:</div>
+                        <input type="password" name="password" data-required class="form__control" placeholder="Введите пароль">
+                        <div class="form__error-message"></div>
+                    </div>
+                    <div class="form__field">
+                        <label class="checkbox">
+                            <input type="checkbox" name="remember_user" checked class="checkbox__input hidden" hidden>
+                            <span class="checkbox__btn">Запомнить меня</span>
+                        </label>
+                    </div>
+                    <button type="submit" class="form__submit btn btn-primary">Войти</button>
+                    <div class="form__footer">
+                        <a href="login.html" class="form__link">Зарегистрироваться</a>
+                        <a href="#recovery-password" data-fancybox class="form__link">Забыли пароль?</a>
+                    </div>
+                </form>
+            </div>
+            <div id="recovery-password" class="popup">
+                <div class="popup__title title-md">
+                    восстановление
+                    <br class="mobile-only"> <span class="color-grey">логина или пароля</span>
+                </div>
+                <form action="#" class="popup__form form">
+                    <div class="form__field">
+                        <div class="form__label">Телефон::</div>
+                        <input type="tel" name="phone" data-required class="form__control" placeholder="+7 (999) 999-99-99">
+                        <div class="form__error-message"></div>
+                    </div>
+                    <div class="form__field">
+                        <div class="form__label">Город:</div>
+                        <input type="text" name="city" data-required class="form__control" placeholder="Город">
+                        <div class="form__error-message"></div>
+                    </div>
+                    <button type="submit" class="form__submit btn btn-primary">Отправить</button>
                 </form>
             </div>
             <!-- plugins -->

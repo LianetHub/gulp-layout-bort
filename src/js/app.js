@@ -4,7 +4,9 @@ $(function () {
 
 
     if (typeof Fancybox !== "undefined" && Fancybox !== null) {
-        Fancybox.bind("[data-fancybox]", {});
+        Fancybox.bind("[data-fancybox]", {
+            closeExisting: true
+        });
     }
 
 

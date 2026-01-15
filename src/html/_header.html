@@ -52,7 +52,7 @@
                     </span>
                 </a>
                 @@if(auth === false) {
-                <a href="login.html" class="main-actions__item icon-user main-actions__item--tablet">
+                <a href="#sign-in" data-fancybox class="main-actions__item icon-user main-actions__item--tablet">
                     <span class="main-actions__item-text">
                         Войти
                     </span>
@@ -67,10 +67,9 @@
                 }
             </div>
             @@if(auth === false) {
-            <a href="login.html" class="header__auth-login btn btn-secondary icon-user">
+            <a href="#sign-in" data-fancybox class="header__auth-login btn btn-secondary icon-user">
                 Войти
             </a>
-
             }
             @@if(auth === true) {
             <div class="header__auth">
