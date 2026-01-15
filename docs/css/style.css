@@ -6719,6 +6719,79 @@ body:has(.arrow-top.visible) .notify-container {
   padding-right: 3rem;
 }
 
+.login {
+  padding: 1.5625rem 0;
+}
+
+.login__content {
+  margin-top: 1.25rem;
+  margin-inline: -1.25rem;
+}
+
+.login__form {
+  background: #fff;
+  border-radius: 1.25rem;
+  height: 100%;
+  padding: 1.25rem;
+}
+
+.login__form-warning {
+  border-radius: 1.25rem;
+  background: #f9f9f9;
+  color: #202020;
+  font-size: 1rem;
+  line-height: 125%;
+  padding: 1.25rem;
+}
+
+.login__form-body:not(:first-child) {
+  margin-top: 1.25rem;
+}
+
+.login__form-bottom {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 0.0625rem solid #efefef;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  gap: 2.5rem;
+  row-gap: 1.25rem;
+}
+
+.login__form-side {
+  font-size: 1rem;
+  line-height: 125%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.625rem;
+}
+
+.login__form-sign {
+  color: #ea7600;
+  font-weight: 500;
+  -webkit-transition: color 0.3s ease;
+  transition: color 0.3s ease;
+}
+
+.login__image {
+  border-radius: 1.25rem;
+  overflow: hidden;
+  height: 100%;
+}
+
 @media (min-width: 575.98px) {
   .title,
   .typography-block h2 {
@@ -7217,6 +7290,15 @@ body:has(.arrow-top.visible) .notify-container {
 
   .cart__recommendations-item .product-row {
     padding-right: 4rem;
+  }
+
+  .login__content {
+    margin-top: 2.5rem;
+    margin-inline: 0;
+  }
+
+  .login__form {
+    padding: 2.5rem;
   }
 }
 
@@ -8420,6 +8502,10 @@ body:has(.arrow-top.visible) .notify-container {
 
   .cart__recommendations-list {
     padding-right: 2.5rem;
+  }
+
+  .login {
+    padding: 3.125rem 0;
   }
 }
 
@@ -10169,6 +10255,10 @@ body:has(.arrow-top.visible) .notify-container {
 
   .person__menu-link:hover::before {
     color: #ea7600;
+  }
+
+  .login__form-sign:hover {
+    text-decoration: underline;
   }
 }
 

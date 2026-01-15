@@ -1,0 +1,84 @@
+.login {
+	padding: rem(25) 0;
+	@media (min-width: $md4) {
+		padding: rem(50) 0;
+	}
+	// .login__title
+	&__title {
+	}
+	// .login__content
+	&__content {
+		margin-top: 1.25rem;
+		margin-inline: -1.25rem;
+		@media (min-width: $md5) {
+			margin-top: 2.5rem;
+			margin-inline: 0;
+		}
+	}
+	// .login__form
+	&__form {
+		background: #fff;
+		border-radius: 1.25rem;
+		height: 100%;
+		padding: 1.25rem;
+		@media (min-width: $md5) {
+			padding: 2.5rem;
+		}
+	}
+	// .login__form-warning
+	&__form-warning {
+		border-radius: 1.25rem;
+		background: #f9f9f9;
+		color: #202020;
+		font-size: 1rem;
+		line-height: 125%;
+		padding: 1.25rem;
+	}
+	// .login__form-body
+	&__form-body {
+		&:not(:first-child) {
+			margin-top: 1.25rem;
+		}
+	}
+	// .login__form-bottom
+	&__form-bottom {
+		margin-top: 1.25rem;
+		padding-top: 1.25rem;
+		border-top: rem(1) solid #efefef;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: 2.5rem;
+		row-gap: 1.25rem;
+	}
+	// .login__form-btn
+	&__form-btn {
+	}
+	// .login__form-side
+	&__form-side {
+		font-size: 1rem;
+		line-height: 125%;
+		display: flex;
+		align-items: center;
+		gap: rem(10);
+	}
+	// .login__form-sign
+	&__form-sign {
+		color: $orange;
+		font-weight: 500;
+		transition: color 0.3s ease;
+
+		@media (any-hover: hover) {
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	// .login__image
+	&__image {
+		border-radius: 1.25rem;
+		overflow: hidden;
+		height: 100%;
+	}
+}
