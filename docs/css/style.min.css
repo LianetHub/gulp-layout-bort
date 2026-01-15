@@ -410,6 +410,7 @@
   width: 1.5625rem;
   height: 1.5625rem;
   font-size: 1.5rem;
+  transition: color 0.15s ease-in;
 }
 .product.product--small .favorite-btn {
   width: 1.5625rem;
@@ -424,7 +425,7 @@
   }
 }
 .favorite-btn.active::before {
-  color: #b61d1d;
+  color: #00778b;
   animation: pulse 0.3s ease-in-out;
 }
 @keyframes pulse {
