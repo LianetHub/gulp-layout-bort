@@ -7,20 +7,20 @@
 }
 
 @font-face {
+  font-family: "RussoOne";
+  font-display: swap;
+  src: url("../fonts/RussoOne-Regular.woff2") format("woff2"), url("../fonts/RussoOne-Regular.woff") format("woff");
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
   font-family: "Roboto";
   src: url("../fonts/Roboto-VariableFont_wdth,wght.woff2") format("woff2 supports variations"), url("../fonts/Roboto-VariableFont_wdth,wght.woff2") format("woff2-variations"), url("../fonts/Roboto-VariableFont_wdth,wght.woff") format("woff");
   font-weight: 100 900;
   font-stretch: 75% 125%;
   font-style: normal;
   font-display: swap;
-}
-
-@font-face {
-  font-family: "RussoOne";
-  font-display: swap;
-  src: url("../fonts/RussoOne-Regular.woff2") format("woff2"), url("../fonts/RussoOne-Regular.woff") format("woff");
-  font-weight: 400;
-  font-style: normal;
 }
 
 .product-details__slide,
@@ -6724,8 +6724,11 @@ body:has(.arrow-top.visible) .notify-container {
 }
 
 .login__content {
-  margin-top: 1.25rem;
   margin-inline: -1.25rem;
+}
+
+.login__content:not(:first-child) {
+  margin-top: 1.25rem;
 }
 
 .login__form {
@@ -6742,6 +6745,10 @@ body:has(.arrow-top.visible) .notify-container {
   font-size: 1rem;
   line-height: 125%;
   padding: 1.25rem;
+}
+
+.login__form-warning:not(:first-child) {
+  margin-top: 1.25rem;
 }
 
 .login__form-body:not(:first-child) {
@@ -7293,8 +7300,11 @@ body:has(.arrow-top.visible) .notify-container {
   }
 
   .login__content {
-    margin-top: 2.5rem;
     margin-inline: 0;
+  }
+
+  .login__content:not(:first-child) {
+    margin-top: 2.5rem;
   }
 
   .login__form {

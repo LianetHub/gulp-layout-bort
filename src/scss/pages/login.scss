@@ -8,11 +8,15 @@
 	}
 	// .login__content
 	&__content {
-		margin-top: 1.25rem;
 		margin-inline: -1.25rem;
+		&:not(:first-child) {
+			margin-top: 1.25rem;
+		}
 		@media (min-width: $md5) {
-			margin-top: 2.5rem;
 			margin-inline: 0;
+			&:not(:first-child) {
+				margin-top: 2.5rem;
+			}
 		}
 	}
 	// .login__form
@@ -33,6 +37,9 @@
 		font-size: 1rem;
 		line-height: 125%;
 		padding: 1.25rem;
+		&:not(:first-child) {
+			margin-top: 1.25rem;
+		}
 	}
 	// .login__form-body
 	&__form-body {
