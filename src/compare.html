@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Сравнение'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {
+            "auth": false
+            })
+            <main class="page">
+                <nav aria-label="Хлебные крошки" class="breadcrumbs">
+                    <div class="container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a href="/" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active">Сравнение</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="comparing">
+                    <div class="container">
+                        <h2 class="comparing__title title">Сравнение <span class="color-grey">товаров</span></h2>
+                        <div class="comparing__meta">
+                            <button type="button" class="comparing__clear btn btn-primary">Удалить всё</button>
+                            <div class="comparing__quantity">Количество: 7 шт.</div>
+                        </div>
+                        <div class="comparing__body">
+                            <div class="comparing__slider">
+                                <div class="container">
+                                    <div class="swiper">
+                                        <div class="swiper-wrapper">
+                                            @@loop('./html/templates/_product-card-compare.html', './html/json/products.json')
+                                        </div>
+                                    </div>
+                                    <button type="button" class="comparing__prev swiper-button-prev"></button>
+                                    <button type="button" class="comparing__next swiper-button-next"></button>
+                                </div>
+                            </div>
+                            <div class="comparing__desc">
+                                <div class="comparing__header">
+                                    <label class="comparing__checkbox checkbox checkbox--large">
+                                        <input type="checkbox" name="differences" class="checkbox__input hidden" hidden>
+                                        <span class="checkbox__btn">Показывать только различия</span>
+                                    </label>
+                                </div>
+                                <div class="comparing__content">
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Максимальная производительность</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">168 м³/час</div>
+                                                <div class="comparing__slide swiper-slide">168 м³/час</div>
+                                                <div class="comparing__slide swiper-slide">168 м³/час</div>
+                                                <div class="comparing__slide swiper-slide">168 м³/час</div>
+                                                <div class="comparing__slide swiper-slide">168 м³/час</div>
+                                                <div class="comparing__slide swiper-slide">168 м³/час</div>
+                                                <div class="comparing__slide swiper-slide">168 м³/час</div>
+                                                <div class="comparing__slide swiper-slide">168 м³/час</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Воздушный поток</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">0-120 м/с</div>
+                                                <div class="comparing__slide swiper-slide">0-120 м/с</div>
+                                                <div class="comparing__slide swiper-slide">0-120 м/с</div>
+                                                <div class="comparing__slide swiper-slide">0-120 м/с</div>
+                                                <div class="comparing__slide swiper-slide">0-120 м/с</div>
+                                                <div class="comparing__slide swiper-slide">0-120 м/с</div>
+                                                <div class="comparing__slide swiper-slide">0-120 м/с</div>
+                                                <div class="comparing__slide swiper-slide">0-120 м/с</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Двигатель</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">Щеточный двигатель</div>
+                                                <div class="comparing__slide swiper-slide">Щеточный двигатель</div>
+                                                <div class="comparing__slide swiper-slide">Щеточный двигатель</div>
+                                                <div class="comparing__slide swiper-slide">Щеточный двигатель</div>
+                                                <div class="comparing__slide swiper-slide">Щеточный двигатель</div>
+                                                <div class="comparing__slide swiper-slide">Щеточный двигатель</div>
+                                                <div class="comparing__slide swiper-slide">Щеточный двигатель</div>
+                                                <div class="comparing__slide swiper-slide">Щеточный двигатель</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Регулировка скорости</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">Да</div>
+                                                <div class="comparing__slide swiper-slide">Да</div>
+                                                <div class="comparing__slide swiper-slide">Да</div>
+                                                <div class="comparing__slide swiper-slide">Да</div>
+                                                <div class="comparing__slide swiper-slide">Да</div>
+                                                <div class="comparing__slide swiper-slide">Да</div>
+                                                <div class="comparing__slide swiper-slide">Да</div>
+                                                <div class="comparing__slide swiper-slide">Да</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Количество режимов</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">1 шт.</div>
+                                                <div class="comparing__slide swiper-slide">2 шт.</div>
+                                                <div class="comparing__slide swiper-slide">1 шт.</div>
+                                                <div class="comparing__slide swiper-slide">1 шт.</div>
+                                                <div class="comparing__slide swiper-slide">1 шт.</div>
+                                                <div class="comparing__slide swiper-slide">2 шт.</div>
+                                                <div class="comparing__slide swiper-slide">1 шт.</div>
+                                                <div class="comparing__slide swiper-slide">1 шт.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Потребляемая мощность</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">550 Вт</div>
+                                                <div class="comparing__slide swiper-slide">600 Вт</div>
+                                                <div class="comparing__slide swiper-slide">750 Вт</div>
+                                                <div class="comparing__slide swiper-slide">400 Вт</div>
+                                                <div class="comparing__slide swiper-slide">550 Вт</div>
+                                                <div class="comparing__slide swiper-slide">600 Вт</div>
+                                                <div class="comparing__slide swiper-slide">750 Вт</div>
+                                                <div class="comparing__slide swiper-slide">400 Вт</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Напряжение</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">220 В</div>
+                                                <div class="comparing__slide swiper-slide">220 В</div>
+                                                <div class="comparing__slide swiper-slide">220 В</div>
+                                                <div class="comparing__slide swiper-slide">220 В</div>
+                                                <div class="comparing__slide swiper-slide">220 В</div>
+                                                <div class="comparing__slide swiper-slide">220 В</div>
+                                                <div class="comparing__slide swiper-slide">220 В</div>
+                                                <div class="comparing__slide swiper-slide">220 В</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Частота тока</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">50 Гц</div>
+                                                <div class="comparing__slide swiper-slide">50 Гц</div>
+                                                <div class="comparing__slide swiper-slide">50 Гц</div>
+                                                <div class="comparing__slide swiper-slide">50 Гц</div>
+                                                <div class="comparing__slide swiper-slide">50 Гц</div>
+                                                <div class="comparing__slide swiper-slide">50 Гц</div>
+                                                <div class="comparing__slide swiper-slide">50 Гц</div>
+                                                <div class="comparing__slide swiper-slide">50 Гц</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Длина кабеля</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">2 м.</div>
+                                                <div class="comparing__slide swiper-slide">2 м.</div>
+                                                <div class="comparing__slide swiper-slide">2 м.</div>
+                                                <div class="comparing__slide swiper-slide">2 м.</div>
+                                                <div class="comparing__slide swiper-slide">2 м.</div>
+                                                <div class="comparing__slide swiper-slide">2 м.</div>
+                                                <div class="comparing__slide swiper-slide">2 м.</div>
+                                                <div class="comparing__slide swiper-slide">2 м.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Скорость холостого хода</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">0-13000 об/мин</div>
+                                                <div class="comparing__slide swiper-slide">0-20000 об/мин</div>
+                                                <div class="comparing__slide swiper-slide">0-15000 об/мин</div>
+                                                <div class="comparing__slide swiper-slide">0-20000 об/мин</div>
+                                                <div class="comparing__slide swiper-slide">0-13000 об/мин</div>
+                                                <div class="comparing__slide swiper-slide">0-20000 об/мин</div>
+                                                <div class="comparing__slide swiper-slide">0-15000 об/мин</div>
+                                                <div class="comparing__slide swiper-slide">0-20000 об/мин</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Уровень шума</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">75 Дб</div>
+                                                <div class="comparing__slide swiper-slide">65 Дб</div>
+                                                <div class="comparing__slide swiper-slide">80 Дб</div>
+                                                <div class="comparing__slide swiper-slide">75 Дб</div>
+                                                <div class="comparing__slide swiper-slide">75 Дб</div>
+                                                <div class="comparing__slide swiper-slide">65 Дб</div>
+                                                <div class="comparing__slide swiper-slide">80 Дб</div>
+                                                <div class="comparing__slide swiper-slide">75 Дб</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Вес брутто</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">1.6 кг.</div>
+                                                <div class="comparing__slide swiper-slide">2 кг.</div>
+                                                <div class="comparing__slide swiper-slide">1.6 кг.</div>
+                                                <div class="comparing__slide swiper-slide">2 кг.</div>
+                                                <div class="comparing__slide swiper-slide">1.6 кг.</div>
+                                                <div class="comparing__slide swiper-slide">2 кг.</div>
+                                                <div class="comparing__slide swiper-slide">1.6 кг.</div>
+                                                <div class="comparing__slide swiper-slide">2 кг.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Габариты упаковки</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">19 x 25 x 19 см.</div>
+                                                <div class="comparing__slide swiper-slide">19 x 25 x 19 см.</div>
+                                                <div class="comparing__slide swiper-slide">19 x 25 x 19 см.</div>
+                                                <div class="comparing__slide swiper-slide">19 x 25 x 19 см.</div>
+                                                <div class="comparing__slide swiper-slide">19 x 25 x 19 см.</div>
+                                                <div class="comparing__slide swiper-slide">19 x 25 x 19 см.</div>
+                                                <div class="comparing__slide swiper-slide">19 x 25 x 19 см.</div>
+                                                <div class="comparing__slide swiper-slide">19 x 25 x 19 см.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Гарантия</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">2 года</div>
+                                                <div class="comparing__slide swiper-slide">5 лет</div>
+                                                <div class="comparing__slide swiper-slide">3 года</div>
+                                                <div class="comparing__slide swiper-slide">1 год</div>
+                                                <div class="comparing__slide swiper-slide">2 года</div>
+                                                <div class="comparing__slide swiper-slide">5 лет</div>
+                                                <div class="comparing__slide swiper-slide">3 года</div>
+                                                <div class="comparing__slide swiper-slide">1 год</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Расширенная гарантия</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">5 лет</div>
+                                                <div class="comparing__slide swiper-slide">10 лет</div>
+                                                <div class="comparing__slide swiper-slide">4 года</div>
+                                                <div class="comparing__slide swiper-slide">3 года</div>
+                                                <div class="comparing__slide swiper-slide">5 лет</div>
+                                                <div class="comparing__slide swiper-slide">10 лет</div>
+                                                <div class="comparing__slide swiper-slide">4 года</div>
+                                                <div class="comparing__slide swiper-slide">3 года</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="comparing__block">
+                                        <div class="comparing__block-caption">Мастер-бокс</div>
+                                        <div class="comparing__table swiper">
+                                            <div class="swiper-wrapper">
+                                                <div class="comparing__slide swiper-slide">8 шт.</div>
+                                                <div class="comparing__slide swiper-slide">20 шт.</div>
+                                                <div class="comparing__slide swiper-slide">5 шт.</div>
+                                                <div class="comparing__slide swiper-slide">5 шт.</div>
+                                                <div class="comparing__slide swiper-slide">8 шт.</div>
+                                                <div class="comparing__slide swiper-slide">20 шт.</div>
+                                                <div class="comparing__slide swiper-slide">5 шт.</div>
+                                                <div class="comparing__slide swiper-slide">5 шт.</div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

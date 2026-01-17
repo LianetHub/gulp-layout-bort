@@ -7,7 +7,6 @@
 *,
 ::before,
 ::after {
-  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
 }
@@ -26,6 +25,7 @@ body {
 * {
   scroll-margin-top: 5rem;
 }
+
 @media (min-width: 767.98px) {
   * {
     scroll-margin-top: 10rem;
@@ -75,14 +75,16 @@ address {
 }
 
 a {
-  background-color: transparent;
+  background: transparent;
   text-decoration: none;
   outline: none;
   border: none;
   color: inherit;
   -webkit-tap-highlight-color: transparent;
 }
-a:focus, a:active {
+
+a:focus,
+a:active {
   outline: none;
 }
 
@@ -110,6 +112,26 @@ textarea {
   font-size: inherit;
 }
 
+input::-webkit-input-placeholder,
+textarea::-webkit-input-placeholder {
+  opacity: 1;
+}
+
+input::-moz-placeholder,
+textarea::-moz-placeholder {
+  opacity: 1;
+}
+
+input:-ms-input-placeholder,
+textarea:-ms-input-placeholder {
+  opacity: 1;
+}
+
+input::-ms-input-placeholder,
+textarea::-ms-input-placeholder {
+  opacity: 1;
+}
+
 input::placeholder,
 textarea::placeholder {
   opacity: 1;
@@ -121,8 +143,8 @@ input::-ms-clear {
 
 button,
 [role=button] {
+  background: inherit;
   cursor: pointer;
-  background-color: inherit;
   font-size: inherit;
   -webkit-tap-highlight-color: transparent;
   color: inherit;
@@ -176,13 +198,15 @@ input[type=number]::-webkit-inner-spin-button {
 }
 
 input[type=number] {
-  -moz-appearance: textfield; /* Firefox */
+  -moz-appearance: textfield;
+  /* Firefox */
 }
 
 [type=search] {
   -webkit-appearance: textfield;
   outline-offset: -2px;
 }
+
 [type=search]::-webkit-search-decoration {
   -webkit-appearance: none;
 }

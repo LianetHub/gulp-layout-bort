@@ -516,6 +516,104 @@ $(function () {
         });
     }
 
+    if ($('.comparing__slider').length) {
+        const $container = $('.comparing__slider');
+        const $slider = $container.find('.swiper');
+
+        if ($slider.length) {
+            const $placeholder = $('<div class="comparing__placeholder"></div>').insertBefore($container);
+
+            const updatePositions = () => {
+                return {
+                    height: $container.outerHeight(),
+                    bottom: $container.offset().top + $container.outerHeight()
+                };
+            };
+
+            let pos = updatePositions();
+            $(window).on('resize', () => { pos = updatePositions(); });
+
+            $(window).on('scroll', function () {
+                const headerHeight = $('.header__body').outerHeight() || 0;
+                const scrollTop = $(window).scrollTop();
+
+                if (scrollTop + headerHeight >= pos.bottom) {
+                    if (!$container.hasClass('is-stuck')) {
+                        $placeholder.css('height', pos.height + 'px');
+                        $container.addClass('is-stuck');
+                    }
+                } else {
+                    if ($container.hasClass('is-stuck')) {
+                        $container.removeClass('is-stuck');
+                        $placeholder.css('height', '0');
+                    }
+                }
+            });
+
+            let compareItemsSlider = new Swiper($slider[0], {
+                slidesPerView: 2,
+                spaceBetween: 20,
+                watchOverflow: true,
+                navigation: {
+                    nextEl: '.comparing__next',
+                    prevEl: '.comparing__prev'
+                },
+                pagination: {
+                    el: '.comparing__pagination',
+                    type: "fraction",
+                    renderFraction: function (currentClass, totalClass) {
+                        return `Страница <span class="${currentClass}"></span> из <span class="${totalClass}"></span>`;
+                    }
+                },
+                breakpoints: {
+                    767.98: { slidesPerView: 2 },
+                    991.98: { slidesPerView: 3 },
+                    1419.98: { slidesPerView: 4 }
+                }
+            });
+
+            let tableCellsArr = [];
+            $('.comparing__table').each(function () {
+                let compareTableSlider = new Swiper(this, {
+                    slidesPerView: 2,
+                    grabCursor: true,
+                    spaceBetween: 20,
+                    breakpoints: {
+                        767.98: { slidesPerView: 2 },
+                        991.98: { slidesPerView: 3 },
+                        1419.98: { slidesPerView: 4 }
+                    }
+                });
+                tableCellsArr.push(compareTableSlider);
+            });
+
+            bindSwipers(compareItemsSlider, ...tableCellsArr);
+
+            function bindSwipers(...swiperList) {
+                for (const swiper of swiperList) {
+                    swiper.setTranslate = function (translate, byController, doNotPropagate) {
+                        if (doNotPropagate) {
+                            Swiper.prototype.setTranslate.apply(this, arguments);
+                        } else {
+                            for (const swiper of swiperList) {
+                                swiper.setTranslate(translate, byController, true);
+                            }
+                        }
+                    };
+                    swiper.setTransition = function (duration, byController, doNotPropagate) {
+                        if (doNotPropagate) {
+                            Swiper.prototype.setTransition.apply(this, arguments);
+                        } else {
+                            for (const swiper of swiperList) {
+                                swiper.setTransition(duration, byController, true);
+                            }
+                        }
+                    };
+                }
+            }
+        }
+    }
+
     if ($('.news__slider')) {
         new Swiper('.news__slider .swiper', {
 
