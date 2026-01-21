@@ -92,7 +92,6 @@ $(function () {
     * @class CatalogController
     * @description Manages the header catalog visibility, multi-level mobile navigation, and UI states.
     */
-
     class CatalogController {
         constructor() {
             this.selectors = {
@@ -105,6 +104,7 @@ $(function () {
                 closeBtn: '.header-catalog__close',
                 currentTitle: '.header-catalog__current',
                 list: '.header-catalog__list',
+                submenu: '.header-catalog__submenu',
                 activeClass: 'active',
                 visibleClass: 'visible',
                 openSubmenuClass: 'open-submenu',
@@ -170,11 +170,27 @@ $(function () {
         openSubmenu($item) {
             const submenuTitle = $item.find('> .header-catalog__link').text().trim();
             const $mainList = $(this.selectors.list);
+            const $submenu = $item.find(this.selectors.submenu);
 
             window.SearchController?.closeBar();
 
             $(this.selectors.itemParent).removeClass(this.selectors.openSubmenuClass);
+            $(this.selectors.itemParent).find(this.selectors.submenu).css({
+                'top': '',
+                'max-height': ''
+            });
+
             $item.addClass(this.selectors.openSubmenuClass);
+
+            if ($submenu.css('position') === 'fixed') {
+                const itemRect = $item[0].getBoundingClientRect();
+                const availableHeight = window.innerHeight - itemRect.top;
+
+                $submenu.css({
+                    'top': itemRect.top + 'px',
+                    'max-height': availableHeight + 'px'
+                });
+            }
 
             $mainList.addClass(this.selectors.listSubmenuOpenClass);
             $(this.selectors.currentTitle).text(submenuTitle);
@@ -192,6 +208,10 @@ $(function () {
 
         resetToDefault() {
             $(this.selectors.itemParent).removeClass(this.selectors.openSubmenuClass);
+            $(this.selectors.itemParent).find(this.selectors.submenu).css({
+                'top': '',
+                'max-height': ''
+            });
             $(this.selectors.list).removeClass(this.selectors.listSubmenuOpenClass);
             $(this.selectors.currentTitle).text(this.defaultTitle);
         }

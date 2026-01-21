@@ -2764,6 +2764,7 @@ body:has(.arrow-top.visible) .notify-container {
 }
 
 .main-actions__item {
+  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2785,6 +2786,20 @@ body:has(.arrow-top.visible) .notify-container {
   width: 1.5625rem;
   height: 1.5625rem;
   font-size: 1.5625rem;
+}
+
+.main-actions__quanitity {
+  position: absolute;
+  top: -0.5rem;
+  border-radius: 13.3333333333em;
+  background: #ea7600;
+  color: #fff;
+  padding: 0.3333333333em;
+  right: 33.33%;
+  -webkit-transform: translateX(50%);
+      -ms-transform: translateX(50%);
+          transform: translateX(50%);
+  font-size: 0.5rem;
 }
 
 .main-actions__item-text {
@@ -8098,6 +8113,7 @@ body:has(.arrow-top.visible) .notify-container {
     -webkit-transform: translateY(-1.25rem);
         -ms-transform: translateY(-1.25rem);
             transform: translateY(-1.25rem);
+    max-height: calc(100svh - 9.25rem);
   }
 
   .person-menu__header {
@@ -8146,6 +8162,14 @@ body:has(.arrow-top.visible) .notify-container {
     display: none;
   }
 
+  .main-actions__quanitity {
+    -webkit-transform: none;
+        -ms-transform: none;
+            transform: none;
+    font-size: 0.75rem;
+    right: -0.5rem;
+  }
+
   .header-catalog__header {
     display: none;
   }
@@ -8179,15 +8203,20 @@ body:has(.arrow-top.visible) .notify-container {
   }
 
   .header-catalog__list {
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: calc(100svh - 9.25rem);
     margin-top: 0;
   }
 
   .header-catalog__submenu {
     display: block;
-    position: absolute;
-    left: 100%;
-    top: 0;
+    position: fixed;
+    -webkit-transform: translateX(100%);
+        -ms-transform: translateX(100%);
+            transform: translateX(100%);
     background: #fff;
+    overflow-y: auto;
     opacity: 0;
     visibility: hidden;
     padding: 0.625rem 0;
@@ -10297,6 +10326,13 @@ body:has(.arrow-top.visible) .notify-container {
 
   .header-catalog__list.submenu-opened .header-catalog__item.open-submenu .header-catalog__submenu {
     display: block;
+  }
+
+  .header-catalog__submenu {
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
   }
 
   .products__slider .swiper {
