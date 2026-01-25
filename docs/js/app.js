@@ -140,10 +140,30 @@ $(function () {
             $(document).on('click', this.selectors.moreBtn, (e) => {
                 e.preventDefault();
                 e.stopPropagation();
-
                 const $item = $(e.target).closest(this.selectors.itemParent);
                 this.openSubmenu($item);
             });
+
+            $(this.selectors.list).on('scroll', () => {
+                this.updateActiveSubmenuPosition();
+            });
+
+            $(window).on('scroll.catalog', () => {
+                this.updateActiveSubmenuPosition();
+            });
+
+            if (window.innerWidth >= 768) {
+                $(document).on('mouseenter', this.selectors.itemParent, (e) => {
+                    this.openSubmenu($(e.currentTarget));
+                });
+            }
+        }
+
+        updateActiveSubmenuPosition() {
+            const $activeItem = $(this.selectors.itemParent + '.' + this.selectors.openSubmenuClass);
+            if ($activeItem.length && window.innerWidth >= 768) {
+                this.positionSubmenu($activeItem);
+            }
         }
 
         toggleCatalog() {
@@ -170,35 +190,62 @@ $(function () {
         openSubmenu($item) {
             const submenuTitle = $item.find('> .header-catalog__link').text().trim();
             const $mainList = $(this.selectors.list);
-            const $submenu = $item.find(this.selectors.submenu);
 
             window.SearchController?.closeBar();
 
-            $(this.selectors.itemParent).removeClass(this.selectors.openSubmenuClass);
-            $(this.selectors.itemParent).find(this.selectors.submenu).css({
+            $(this.selectors.itemParent).not($item).removeClass(this.selectors.openSubmenuClass);
+            $(this.selectors.itemParent).not($item).find(this.selectors.submenu).css({
                 'top': '',
-                'max-height': ''
+                'bottom': '',
             });
 
             $item.addClass(this.selectors.openSubmenuClass);
-
-            if ($submenu.css('position') === 'fixed') {
-                const itemRect = $item[0].getBoundingClientRect();
-                const availableHeight = window.innerHeight - itemRect.top;
-
-                $submenu.css({
-                    'top': itemRect.top + 'px',
-                    'max-height': availableHeight + 'px'
-                });
-            }
+            this.positionSubmenu($item);
 
             $mainList.addClass(this.selectors.listSubmenuOpenClass);
             $(this.selectors.currentTitle).text(submenuTitle);
         }
 
+        positionSubmenu($item) {
+            const $submenu = $item.find(this.selectors.submenu);
+            if (!$submenu.length || window.innerWidth < 768) return;
+
+            const itemRect = $item[0].getBoundingClientRect();
+            const submenuHeight = $submenu.outerHeight();
+            const windowHeight = window.innerHeight;
+
+            let topPos = itemRect.top;
+
+            if (topPos + submenuHeight > windowHeight) {
+                const bottomPos = windowHeight - itemRect.bottom;
+
+                if (submenuHeight < itemRect.bottom) {
+                    $submenu.css({
+                        'position': 'fixed',
+                        'top': 'auto',
+                        'bottom': bottomPos + 'px',
+                    });
+                } else {
+                    let adjustedTop = windowHeight - submenuHeight - 10;
+                    if (adjustedTop < 10) adjustedTop = 10;
+
+                    $submenu.css({
+                        'position': 'fixed',
+                        'top': adjustedTop + 'px',
+                        'bottom': 'auto',
+                    });
+                }
+            } else {
+                $submenu.css({
+                    'position': 'fixed',
+                    'top': topPos + 'px',
+                    'bottom': 'auto',
+                });
+            }
+        }
+
         goBack() {
             const $mainList = $(this.selectors.list);
-
             if ($mainList.hasClass(this.selectors.listSubmenuOpenClass)) {
                 this.resetToDefault();
             } else {
@@ -210,7 +257,9 @@ $(function () {
             $(this.selectors.itemParent).removeClass(this.selectors.openSubmenuClass);
             $(this.selectors.itemParent).find(this.selectors.submenu).css({
                 'top': '',
-                'max-height': ''
+                'bottom': '',
+                'position': '',
+                'left': ''
             });
             $(this.selectors.list).removeClass(this.selectors.listSubmenuOpenClass);
             $(this.selectors.currentTitle).text(this.defaultTitle);

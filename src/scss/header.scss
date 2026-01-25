@@ -814,6 +814,10 @@
 			overflow-x: hidden;
 			max-height: calc(100svh - rem(148));
 			margin-top: 0;
+			scrollbar-width: none;
+			&::-webkit-scrollbar {
+				display: none;
+			}
 		}
 	}
 	// .header-catalog__item
