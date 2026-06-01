@@ -27,10 +27,13 @@ import {
 import { zip } from "./gulp/tasks/zip.js";
 import { json } from "./gulp/tasks/json.js";
 import { php } from "./gulp/tasks/php.js";
+import { richHtml, richCopy } from "./gulp/tasks/rich.js";
 
 function watcher() {
     gulp.watch(path.watch.files, copy);
     gulp.watch(path.watch.html, html);
+    gulp.watch(path.watch.richHtml, richHtml);
+    gulp.watch(path.watch.richImg, richCopy);
     gulp.watch(path.watch.scss, scss);
     gulp.watch(path.watch.normalize, normalize);
     gulp.watch(path.watch.js, js);
@@ -44,7 +47,7 @@ const fonts = gulp.series(otf2ttf, ttfToWoff, copyWoff, fontsStyle);
 
 const mainTasks = gulp.series(
     fonts,
-    gulp.parallel(copy, copyCssLibs, copyJsLibs, html, normalize, scss, favicon, js, json, images)
+    gulp.parallel(copy, copyCssLibs, copyJsLibs, html, normalize, scss, favicon, js, json, images, richHtml, richCopy)
 );
 
 const dev = gulp.series(reset, mainTasks, gulp.parallel(watcher, server));
@@ -56,3 +59,4 @@ export { build };
 export { deployZIP };
 
 gulp.task("default", dev);
+gulp.task("rich", gulp.parallel(richHtml, richCopy));

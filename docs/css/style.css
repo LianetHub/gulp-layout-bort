@@ -9164,6 +9164,10 @@ body:has(.arrow-top.visible) .notify-container {
     width: 21.5rem;
   }
 
+  .header-catalog__submenu {
+    width: 21.5rem;
+  }
+
   .footer__header {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -9590,10 +9594,6 @@ body:has(.arrow-top.visible) .notify-container {
             box-shadow: 0 0 1.25rem 0 rgba(64, 64, 64, 0.1);
     border-radius: 1.25rem;
     top: calc(100% + 0.625rem);
-  }
-
-  .header-catalog__submenu {
-    width: 21.5rem;
   }
 
   .footer__menu-list {

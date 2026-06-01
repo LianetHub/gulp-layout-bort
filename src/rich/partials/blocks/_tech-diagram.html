@@ -1,0 +1,41 @@
+<!--
+  COMPONENT: Tech Diagram
+  SECTION: мотор + 5 mini-cards + повтор banner «до 20%»
+  MODIFIERS: brt-rich__split--60-40
+-->
+<section class="brt-rich__section">
+	<div class="brt-rich__container">
+		<div class="brt-rich__split brt-rich__split--60-40">
+			<div class="brt-rich__split-col brt-rich__split-col--media brt-rich__tech-diagram">
+				<div class="brt-rich__media">
+					<img src="img/motor-diagram.svg" alt="Схема мотора PMDC с крыльчаткой" width="560" height="400" loading="lazy">
+				</div>
+			</div>
+			<div class="brt-rich__split-col brt-rich__split-col--content">
+				<div class="brt-rich__callout-cards">
+					<div class="brt-rich__mini-card">
+						@@include('partials/_icon.html', { "name": "motor", "class": "brt-rich__mini-card-icon" })
+						<span class="brt-rich__mini-card-text">Мотор PMDC 600 Вт</span>
+					</div>
+					<div class="brt-rich__mini-card">
+						@@include('partials/_icon.html', { "name": "speed", "class": "brt-rich__mini-card-icon" })
+						<span class="brt-rich__mini-card-text">1480 об/мин</span>
+					</div>
+					<div class="brt-rich__mini-card">
+						@@include('partials/_icon.html', { "name": "check", "class": "brt-rich__mini-card-icon" })
+						<span class="brt-rich__mini-card-text">Балансировка ротора</span>
+					</div>
+					<div class="brt-rich__mini-card">
+						@@include('partials/_icon.html', { "name": "noise", "class": "brt-rich__mini-card-icon" })
+						<span class="brt-rich__mini-card-text">Звукоизоляция камеры</span>
+					</div>
+					<div class="brt-rich__mini-card">
+						@@include('partials/_icon.html', { "name": "power", "class": "brt-rich__mini-card-icon" })
+						<span class="brt-rich__mini-card-text">Экономия до 20% энергии</span>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+@@include('partials/blocks/_banner-accent.html')

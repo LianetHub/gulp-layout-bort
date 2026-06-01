@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="480" height="360" viewBox="0 0 480 360">
+  <rect width="480" height="360" fill="#f5f5f5"/>
+  <rect x="40" y="40" width="400" height="280" rx="12" fill="#e8e8e8"/>
+  <text x="240" y="175" text-anchor="middle" fill="#999" font-family="system-ui,sans-serif" font-size="16">Hero  TITAN 9000 Control</text>
+  <circle cx="360" cy="120" r="60" fill="#ff8c00" opacity="0.3"/>
+</svg>

@@ -1,0 +1,169 @@
+<style id="rich-base">
+/*
+ * STRUCTURAL STYLES — не изменяйте без необходимости.
+ * Grid, flex, breakpoints, изоляция от стилей хост-сайта.
+ */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Russo+One&display=swap");
+.brt-rich,
+.brt-rich *,
+.brt-rich *::before,
+.brt-rich *::after {
+	box-sizing: border-box;
+}
+
+.brt-rich {
+	display: block;
+	width: 100%;
+	min-width: 0;
+	font-family: var(--rich-font-family);
+	font-size: var(--rich-font-size-body);
+	line-height: var(--rich-line-height);
+	color: var(--rich-color-text);
+	background: var(--rich-color-bg);
+	-webkit-font-smoothing: antialiased;
+}
+
+.brt-rich img {
+	max-width: 100%;
+	height: auto;
+	display: block;
+}
+
+.brt-rich__container {
+	width: 100%;
+	max-width: var(--rich-max-width);
+	margin-inline: auto;
+	padding-inline: var(--rich-padding-x);
+	min-width: 0;
+}
+
+.brt-rich__section {
+	padding-block: var(--rich-section-gap);
+}
+
+.brt-rich__section + .brt-rich__section {
+	padding-top: 0;
+}
+
+/* Split layout — пропорции через CSS-переменную --rich-split-left */
+.brt-rich__split {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: var(--rich-split-gap);
+}
+
+.brt-rich__split-col {
+	min-width: 0;
+}
+
+.brt-rich__split-col--media {
+	flex: 0 0 var(--rich-split-left);
+	max-width: var(--rich-split-left);
+}
+
+.brt-rich__split-col--content {
+	flex: 1 1 calc(100% - var(--rich-split-left) - var(--rich-split-gap));
+	min-width: 200px;
+}
+
+.brt-rich__split--50-50 { --rich-split-left: 50%; }
+.brt-rich__split--hero { --rich-split-left: var(--rich-hero-media-width); --rich-split-gap: 0; }
+.brt-rich__split--60-40 { --rich-split-left: 60%; }
+.brt-rich__split--30-70 { --rich-split-left: 30%; }
+.brt-rich__split--40-60 { --rich-split-left: 40%; }
+
+.brt-rich__split--reverse {
+	flex-direction: row-reverse;
+}
+
+/* Grids */
+.brt-rich__grid {
+	display: grid;
+	gap: var(--rich-block-gap);
+}
+
+.brt-rich__grid--specs {
+	grid-template-columns: repeat(3, 1fr);
+	gap: var(--rich-spec-grid-gap);
+}
+
+.brt-rich__grid--features {
+	grid-template-columns: repeat(2, 1fr);
+	gap: var(--rich-features-grid-gap);
+}
+
+.brt-rich__grid--footer-specs {
+	grid-template-columns: repeat(3, 1fr);
+}
+
+/* Centered section title */
+.brt-rich__section-head {
+	text-align: center;
+	margin-bottom: var(--rich-space-xl);
+}
+
+.brt-rich__section-head--left {
+	text-align: left;
+}
+
+/* Placeholder for images without assets */
+.brt-rich__placeholder {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: var(--rich-color-bg-muted);
+	color: var(--rich-color-text-muted);
+	font-size: var(--rich-font-size-small);
+	border-radius: var(--rich-radius-md);
+	min-height: 200px;
+	text-align: center;
+	padding: var(--rich-space-md);
+}
+
+/* --- Responsive (без popup, только стек) --- */
+@media (max-width: 767px) {
+	.brt-rich {
+		--rich-section-gap: 32px;
+		--rich-split-gap: 20px;
+		--rich-font-size-h1: 24px;
+		--rich-font-size-h2: 20px;
+		--rich-font-size-h3: 16px;
+		--rich-font-size-display: 40px;
+	}
+
+	.brt-rich__split,
+	.brt-rich__split--reverse {
+		flex-direction: column;
+	}
+
+	.brt-rich__split-col--media,
+	.brt-rich__split-col--content {
+		flex: 1 1 100%;
+		max-width: 100%;
+		width: 100%;
+	}
+
+	.brt-rich__grid--specs {
+		grid-template-columns: repeat(2, 1fr);
+	}
+
+	.brt-rich__grid--features {
+		grid-template-columns: 1fr;
+	}
+
+	.brt-rich__grid--footer-specs {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media (max-width: 479px) {
+	.brt-rich__grid--specs {
+		grid-template-columns: 1fr;
+	}
+
+	.brt-rich__grid--footer-specs {
+		grid-template-columns: 1fr;
+	}
+}
+</style>
