@@ -92,7 +92,7 @@
   --rich-kit-label-padding: 12px 10px 16px;
   --rich-card-padding-y: 28px;
   --rich-card-padding-x: 36px;
-  --rich-filters-min-height: 451px;
+  --rich-filters-min-height: 320px;
   --rich-filters-col-gap: 14px;
   --rich-filters-mode-gap: 6px;
   --rich-filters-title-gap: 10px;
@@ -352,6 +352,10 @@
 		.brt-rich .brt-rich-row--gap-advantages {
 		  --rich-gutter-x: var(--rich-advantages-gap-x);
 		  --rich-gutter-y: var(--rich-advantages-gap-y);
+		}
+		.brt-rich .brt-rich-row--gap-kit {
+		  --rich-gutter-x: var(--rich-kit-gap);
+		  --rich-gutter-y: var(--rich-kit-gap);
 		}
 		.brt-rich .brt-rich-col {
 		  flex: 1 1 0;
@@ -691,6 +695,8 @@
 		}
 		.brt-rich__stat--start {
 		  text-align: left;
+		  position: relative;
+		  z-index: 2;
 		}
 		.brt-rich__stat-value {
 		  display: block;
@@ -744,6 +750,11 @@
 		  border-radius: var(--rich-radius-lg);
 		  background: var(--rich-color-bg-muted);
 		  padding: var(--rich-card-padding-y) var(--rich-card-padding-x);
+		}
+		@media (min-width: 991.98px) {
+		  .brt-rich__card.brt-rich__filters--decor-lines {
+		    background: url("img/filter-decor-lines.svg") var(--rich-card-padding-x) 7.4rem/calc(100% - 2 * var(--rich-card-padding-x)) auto no-repeat, var(--rich-color-bg-muted);
+		  }
 		}
 		@media (max-width: 767.98px) {
 		  .brt-rich__card {
@@ -1118,8 +1129,10 @@
 		.brt-rich__filters-col {
 		  display: flex;
 		  flex-direction: column;
+		  justify-content: space-between;
 		  gap: var(--rich-filters-col-gap);
 		  min-height: var(--rich-filters-min-height);
+		  height: 100%;
 		}
 		@media (max-width: 767.98px) {
 		  .brt-rich__filters-col {
@@ -1141,7 +1154,7 @@
 		  color: var(--rich-color-text);
 		}
 		.brt-rich__filters-desc {
-		  margin-top: var(--rich-filters-title-gap);
+		  margin-top: var(--rich-space-xl);
 		  font-size: var(--rich-font-size-hero-desc);
 		  color: var(--rich-color-text);
 		  line-height: 1.08;
@@ -1203,6 +1216,8 @@
 		  align-items: center;
 		  justify-content: center;
 		  line-height: 0;
+		  margin-block: calc(-1 * var(--rich-card-padding-y));
+		  transform: translateX(12px);
 		}
 		.brt-rich__filters-photo {
 		  display: block;
@@ -1763,48 +1778,39 @@
 		.brt-rich__kit-section {
 		  padding-block: 0 var(--rich-section-gap);
 		}
-		.brt-rich__kit-title {
-		  margin-bottom: var(--rich-kit-title-gap);
-		  font-size: var(--rich-kit-title-size);
-		  font-weight: var(--rich-font-weight-semibold);
-		  line-height: 1.14;
-		  text-align: center;
-		  color: var(--rich-color-text);
-		}
-		.brt-rich__kit-frame {
+		.brt-rich__kit {
 		  padding: var(--rich-kit-frame-padding);
-		  border-radius: var(--rich-radius-lg);
-		  background: var(--rich-color-bg-muted);
 		}
-		.brt-rich__kit-grid {
-		  display: grid;
-		  grid-template-columns: minmax(0, 1.65fr) repeat(3, minmax(0, 1fr));
-		  grid-template-rows: repeat(2, minmax(0, 1fr)) auto;
-		  gap: var(--rich-kit-gap);
+		.brt-rich__kit .brt-rich-row--gap-kit > [class*=brt-rich-col] {
+		  display: flex;
+		  flex-direction: column;
 		}
-		@media (max-width: 767.98px) {
-		  .brt-rich__kit-grid {
-		    grid-template-columns: repeat(2, minmax(0, 1fr));
-		    grid-template-rows: auto;
+		.brt-rich__kit-title {
+		  text-align: center;
+		}
+		.brt-rich__kit-top {
+		  margin-top: var(--rich-space-lg);
+		  align-items: stretch;
+		}
+		.brt-rich__kit-bottom {
+		  margin-top: var(--rich-gutter-y);
+		}
+		@media (min-width: 767.98px) {
+		  .brt-rich__kit-main-col {
+		    display: flex;
+		    flex-direction: column;
 		  }
 		}
 		.brt-rich__kit-item {
 		  display: flex;
+		  flex: 1 1 auto;
 		  flex-direction: column;
+		  height: 100%;
 		  min-height: 0;
+		  padding: 0;
 		  border-radius: var(--rich-radius-md);
 		  background: var(--rich-color-bg-card);
 		  overflow: hidden;
-		}
-		.brt-rich__kit-item--main {
-		  grid-row: 1/3;
-		  grid-column: 1;
-		}
-		@media (max-width: 767.98px) {
-		  .brt-rich__kit-item--main {
-		    grid-row: auto;
-		    grid-column: 1/-1;
-		  }
 		}
 		.brt-rich__kit-item-media {
 		  display: flex;
@@ -1813,6 +1819,8 @@
 		  justify-content: center;
 		  min-height: var(--rich-kit-item-media-min-height);
 		  padding: var(--rich-kit-item-media-padding);
+		  border-radius: 0;
+		  overflow: visible;
 		}
 		.brt-rich__kit-item-media img {
 		  display: block;
@@ -1825,13 +1833,7 @@
 		.brt-rich__kit-item-media--main {
 		  min-height: var(--rich-kit-item-main-media-min-height);
 		}
-		.brt-rich__kit-item-media--crevice img {
-		  transform: rotate(30deg);
-		}
-		.brt-rich__kit-item-media--tubes img {
-		  transform: rotate(-90deg);
-		}
-		.brt-rich__kit-item:nth-child(n+8) .brt-rich__kit-item-media {
+		.brt-rich__kit-item-media--bottom {
 		  min-height: var(--rich-kit-item-bottom-media-min-height);
 		}
 		.brt-rich__kit-item-label {
@@ -2254,8 +2256,8 @@
 			-->
 			<section class="brt-rich__section brt-rich__filters-section">
 				<div class="brt-rich__container">
-					<div class="brt-rich__card brt-rich__filters">
-						<div class="brt-rich-row brt-rich-row--gap-card brt-rich-row--align-center">
+					<div class="brt-rich__card brt-rich__filters brt-rich__filters--decor-lines">
+						<div class="brt-rich-row brt-rich-row--gap-card">
 							<div class="brt-rich-col-12 brt-rich-col-md-4">
 								<div class="brt-rich__filters-col brt-rich__filters-col--dry">
 									<div class="brt-rich__filters-col-body">
@@ -2280,7 +2282,7 @@
 							<div class="brt-rich-col-12 brt-rich-col-md-4">
 								<div class="brt-rich__filters-col brt-rich__filters-col--wet">
 									<div class="brt-rich__filters-col-body">
-										<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__filters-mode">Для влажной уборки</h3>
+										<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__filters-mode">Для&nbsp;влажной&nbsp;уборки</h3>
 										<h4 class="brt-rich__heading brt-rich__heading--h2 brt-rich__filters-title">Губчатый фильтр</h4>
 										<p class="brt-rich__text brt-rich__filters-desc">Защита мотора от жидкости при влажной уборке. Снижает риск поломки и&nbsp;увеличивает срок службы пылесоса.</p>
 									</div>
@@ -2294,7 +2296,6 @@
 					</div>
 				</div>
 			</section>
-
 			<!--
 			  COMPONENT: Benefits
 			  SECTION: преимущества — 3 карточки с фото на оранжевом фоне
@@ -2522,16 +2523,16 @@
 					<div class="brt-rich__product-params">
 						<div class="brt-rich-row brt-rich-row--gap-product-params">
 							<div class="brt-rich-col-12 brt-rich-col-md-6">
-								<article class="brt-rich__card brt-rich__product-params-info-card">
+								<div class="brt-rich__card brt-rich__product-params-info-card">
 									<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__product-params-info-title">Шланг 3 м</h3>
 									<p class="brt-rich__text brt-rich__product-params-info-text">Эта длина шланга значительно <strong>расширяет радиус действия устройства</strong>, позволяя работать не перенося постоянно пылесос, в том числе и на работах с потолком</p>
-								</article>
+								</div>
 							</div>
 							<div class="brt-rich-col-12 brt-rich-col-md-6">
-								<article class="brt-rich__card brt-rich__product-params-info-card">
+								<div class="brt-rich__card brt-rich__product-params-info-card">
 									<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__product-params-info-title">Кабель 6 м</h3>
 									<p class="brt-rich__text brt-rich__product-params-info-text">Длина кабеля в 6 метров обеспечивает большую <strong>свободу передвижения</strong> во время работы, что особенно важно при уборке больших площадей</p>
-								</article>
+								</div>
 							</div>
 						</div>
 						<div class="brt-rich-row brt-rich-row--gap-product-params">
@@ -2567,87 +2568,117 @@
 					</div>
 				</div>
 			</section>
-
 			<!--
 			  COMPONENT: Kit Contents
 			  SECTION: комплектация — сетка карточек с фото аксессуаров
 			-->
 			<section class="brt-rich__section brt-rich__kit-section">
 				<div class="brt-rich__container">
-					<h2 class="brt-rich__heading brt-rich__heading--h2 brt-rich__kit-title">Комплектация:</h2>
-					<div class="brt-rich__kit-frame">
-						<div class="brt-rich__kit-grid">
-							<article class="brt-rich__kit-item brt-rich__kit-item--main">
-								<div class="brt-rich__kit-item-media brt-rich__kit-item-media--main">
-									<img src="img/equipment-main.png" alt="Пылесос Bort BSS-1630-Pro" width="405" height="335" loading="lazy">
+					<div class="brt-rich__card brt-rich__kit">
+						<h2 class="brt-rich__heading brt-rich__heading--h2 brt-rich__kit-title">Комплектация:</h2>
+						<div class="brt-rich__kit-top">
+							<div class="brt-rich-row brt-rich-row--gap-kit ">
+								<div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__kit-main-col">
+									<div class="brt-rich__card brt-rich__kit-item brt-rich__kit-item--main">
+										<div class="brt-rich__media brt-rich__kit-item-media brt-rich__kit-item-media--main">
+											<img src="img/equipment-main.png" alt="Пылесос Bort BSS-1630-Pro" width="405" height="335" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">Пылесос для влажной и&nbsp;сухой уборки BSS-1630-PRO ×1</p>
+									</div>
 								</div>
-								<p class="brt-rich__kit-item-label">Пылесос для влажной и&nbsp;сухой уборки BSS-1630-PRO ×1</p>
-							</article>
-							<article class="brt-rich__kit-item">
-								<div class="brt-rich__kit-item-media">
-									<img src="img/equipment-big-floor-nozzle.png" alt="Щетка для полов" width="172" height="147" loading="lazy">
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<div class="brt-rich-row brt-rich-row--gap-kit">
+										<div class="brt-rich-col-md-6">
+											<div class="brt-rich__card brt-rich__kit-item">
+												<div class="brt-rich__media brt-rich__kit-item-media">
+													<img src="img/equipment-big-floor-nozzle.png" alt="Щетка для полов" width="172" height="147" loading="lazy">
+												</div>
+												<p class="brt-rich__kit-item-label">Щетка для полов ×1</p>
+											</div>
+										</div>
+										<div class="brt-rich-col-md-6">
+											<div class="brt-rich__card brt-rich__kit-item">
+												<div class="brt-rich__media brt-rich__kit-item-media brt-rich__kit-item-media--crevice">
+													<img src="img/equipment-crevice-nozzle.png" alt="Насадка щелевая" width="146" height="194" loading="lazy">
+												</div>
+												<p class="brt-rich__kit-item-label">Насадка щелевая ×1</p>
+											</div>
+										</div>
+										<div class="brt-rich-col-md-6">
+											<div class="brt-rich__card brt-rich__kit-item">
+												<div class="brt-rich__media brt-rich__kit-item-media">
+													<img src="img/equipment-adaptor.png" alt="Адаптер" width="135" height="134" loading="lazy">
+												</div>
+												<p class="brt-rich__kit-item-label">Адаптер ×1</p>
+											</div>
+										</div>
+										<div class="brt-rich-col-md-6">
+											<div class="brt-rich__card brt-rich__kit-item">
+												<div class="brt-rich__media brt-rich__kit-item-media">
+													<img src="img/equipment-accessories-shaft.png" alt="Держатель" width="176" height="176" loading="lazy">
+												</div>
+												<p class="brt-rich__kit-item-label">Держатель ×1</p>
+											</div>
+										</div>
+									</div>
 								</div>
-								<p class="brt-rich__kit-item-label">Щетка для полов ×1</p>
-							</article>
-							<article class="brt-rich__kit-item">
-								<div class="brt-rich__kit-item-media brt-rich__kit-item-media--crevice">
-									<img src="img/equipment-crevice-nozzle.png" alt="Насадка щелевая" width="146" height="194" loading="lazy">
+							</div>
+						</div>
+						<div class="brt-rich__kit-bottom">
+							<div class="brt-rich-row brt-rich-row--gap-kit">
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__card brt-rich__kit-item">
+										<div class="brt-rich__media brt-rich__kit-item-media brt-rich__kit-item-media--bottom">
+											<img src="img/equipment-metal-hose.png" alt="Армированный шланг" width="217" height="174" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">Армированный шланг ×1</p>
+									</div>
 								</div>
-								<p class="brt-rich__kit-item-label">Насадка щелевая ×1</p>
-							</article>
-							<article class="brt-rich__kit-item">
-								<div class="brt-rich__kit-item-media">
-									<img src="img/equipment-adaptor.png" alt="Адаптер" width="135" height="134" loading="lazy">
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__card brt-rich__kit-item">
+										<div class="brt-rich__media brt-rich__kit-item-media brt-rich__kit-item-media--bottom brt-rich__kit-item-media--tubes">
+											<img src="img/equipment-plastic-tubes.png" alt="Трубка удлинительная пластмассовая" width="247" height="98" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">Трубка удлинительная пластмассовая ×2</p>
+									</div>
 								</div>
-								<p class="brt-rich__kit-item-label">Адаптер ×1</p>
-							</article>
-							<article class="brt-rich__kit-item">
-								<div class="brt-rich__kit-item-media">
-									<img src="img/equipment-accessories-shaft.png" alt="Держатель" width="176" height="176" loading="lazy">
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__card brt-rich__kit-item">
+										<div class="brt-rich__media brt-rich__kit-item-media brt-rich__kit-item-media--bottom">
+											<img src="img/equipment-air-controller.png" alt="Рукоятка" width="117" height="179" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">Рукоятка ×1</p>
+									</div>
 								</div>
-								<p class="brt-rich__kit-item-label">Держатель ×1</p>
-							</article>
-							<article class="brt-rich__kit-item">
-								<div class="brt-rich__kit-item-media">
-									<img src="img/equipment-metal-hose.png" alt="Армированный шланг" width="217" height="174" loading="lazy">
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__card brt-rich__kit-item">
+										<div class="brt-rich__media brt-rich__kit-item-media brt-rich__kit-item-media--bottom">
+											<img src="img/equipment-hepa-filter.png" alt="HEPA фильтр" width="139" height="154" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">HEPA фильтр ×1</p>
+									</div>
 								</div>
-								<p class="brt-rich__kit-item-label">Армированный шланг ×1</p>
-							</article>
-							<article class="brt-rich__kit-item">
-								<div class="brt-rich__kit-item-media">
-									<img src="img/equipment-air-controller.png" alt="Рукоятка" width="117" height="179" loading="lazy">
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__card brt-rich__kit-item">
+										<div class="brt-rich__media brt-rich__kit-item-media brt-rich__kit-item-media--bottom">
+											<img src="img/equipment-sponge-filter.png" alt="Фильтр для воды" width="178" height="150" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">Фильтр для воды ×1</p>
+									</div>
 								</div>
-								<p class="brt-rich__kit-item-label">Рукоятка ×1</p>
-							</article>
-							<article class="brt-rich__kit-item">
-								<div class="brt-rich__kit-item-media brt-rich__kit-item-media--tubes">
-									<img src="img/equipment-plastic-tubes.png" alt="Трубка удлинительная пластмассовая" width="247" height="98" loading="lazy">
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__card brt-rich__kit-item">
+										<div class="brt-rich__media brt-rich__kit-item-media brt-rich__kit-item-media--bottom">
+											<img src="img/equipment-cloth-bag.png" alt="Пылесборный мешок" width="165" height="166" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">Пылесборный мешок ×1</p>
+									</div>
 								</div>
-								<p class="brt-rich__kit-item-label">Трубка удлинительная пластмассовая ×2</p>
-							</article>
-							<article class="brt-rich__kit-item">
-								<div class="brt-rich__kit-item-media">
-									<img src="img/equipment-hepa-filter.png" alt="HEPA фильтр" width="139" height="154" loading="lazy">
-								</div>
-								<p class="brt-rich__kit-item-label">HEPA фильтр ×1</p>
-							</article>
-							<article class="brt-rich__kit-item">
-								<div class="brt-rich__kit-item-media">
-									<img src="img/equipment-sponge-filter.png" alt="Фильтр для воды" width="178" height="150" loading="lazy">
-								</div>
-								<p class="brt-rich__kit-item-label">Фильтр для воды ×1</p>
-							</article>
-							<article class="brt-rich__kit-item">
-								<div class="brt-rich__kit-item-media">
-									<img src="img/equipment-cloth-bag.png" alt="Пылесборный мешок" width="165" height="166" loading="lazy">
-								</div>
-								<p class="brt-rich__kit-item-label">Пылесборный мешок ×1</p>
-							</article>
+							</div>
 						</div>
 					</div>
 				</div>
 			</section>
-
 			<!--
 			  COMPONENT: Product Summary
 			  SECTION: итоговое описание модели — текстовый блок внизу страницы
