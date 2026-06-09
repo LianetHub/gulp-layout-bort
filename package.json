@@ -6,6 +6,7 @@
   "type": "module",
   "scripts": {
     "dev": "gulp",
+    "rich": "gulp rich",
     "build": "gulp build --build",
     "zip": "gulp deployZIP --build",
     "deploy": "npm run build && git add . && git commit -m \"commit\" && git push",

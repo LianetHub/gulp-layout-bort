@@ -3,143 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Rich Content — Каталог компонентов Bort</title>
-	<!-- AUTO-GENERATED from src/rich/scss/showcase.scss — редактируйте SCSS, не этот файл -->
-	<style id="showcase-page">
-	/*
-	 * Стили только для страницы-каталога showcase.html.
-	 * НЕ включайте в embeddable-фрагмент для сайтов.
-	 */
-	.showcase-page {
-	  margin: 0;
-	  font-family: system-ui, -apple-system, sans-serif;
-	  background: #fafafa;
-	  color: #333;
-	}
-
-	.showcase-header {
-	  padding: 40px 20px;
-	  background: #1a1a1a;
-	  color: #fff;
-	}
-	.showcase-header__inner {
-	  max-width: 1024px;
-	  margin: 0 auto;
-	}
-	.showcase-header h1 {
-	  margin: 0 0 12px;
-	  font-size: 28px;
-	}
-	.showcase-header p {
-	  margin: 0;
-	  opacity: 0.85;
-	  line-height: 1.6;
-	  max-width: 720px;
-	}
-
-	.showcase-nav {
-	  position: sticky;
-	  top: 0;
-	  z-index: 10;
-	  background: #fff;
-	  border-bottom: 1px solid #e8e8e8;
-	  padding: 12px 20px;
-	  overflow-x: auto;
-	}
-	.showcase-nav__inner {
-	  max-width: 1024px;
-	  margin: 0 auto;
-	  display: flex;
-	  flex-wrap: wrap;
-	  gap: 8px;
-	}
-	.showcase-nav a {
-	  font-size: 13px;
-	  color: #ff8c00;
-	  text-decoration: none;
-	  padding: 4px 10px;
-	  border: 1px solid #ff8c00;
-	  border-radius: 6px;
-	  white-space: nowrap;
-	}
-	@media (any-hover: hover) {
-	  .showcase-nav a:hover {
-	    background: #ff8c00;
-	    color: #fff;
-	  }
-	}
-
-	.showcase-styles-block {
-	  max-width: 1024px;
-	  margin: 32px auto;
-	  padding: 0 20px;
-	}
-	.showcase-styles-block h2 {
-	  font-size: 20px;
-	  margin: 0 0 8px;
-	}
-	.showcase-styles-block p {
-	  font-size: 14px;
-	  color: #666;
-	  margin: 0 0 16px;
-	}
-	.showcase-styles-block pre {
-	  background: #1e1e1e;
-	  color: #d4d4d4;
-	  padding: 16px;
-	  border-radius: 8px;
-	  overflow-x: auto;
-	  font-size: 12px;
-	  line-height: 1.5;
-	}
-
-	.showcase-section {
-	  max-width: 1024px;
-	  margin: 0 auto 48px;
-	  padding: 0 20px;
-	}
-	.showcase-section__title {
-	  font-size: 22px;
-	  margin: 0 0 4px;
-	  padding-top: 24px;
-	  border-top: 2px solid #ff8c00;
-	}
-	.showcase-section__id {
-	  font-size: 13px;
-	  color: #888;
-	  font-family: monospace;
-	  margin: 0 0 8px;
-	}
-	.showcase-section__desc {
-	  font-size: 14px;
-	  color: #666;
-	  margin: 0 0 20px;
-	  line-height: 1.5;
-	}
-
-	.showcase-demo {
-	  border: 1px dashed #ccc;
-	  border-radius: 12px;
-	  overflow: hidden;
-	}
-	.showcase-demo + .showcase-demo {
-	  margin-top: 16px;
-	}
-	.showcase-demo__label {
-	  padding: 8px 12px;
-	  background: #f0f0f0;
-	  font-size: 12px;
-	  font-family: monospace;
-	  color: #666;
-	}
-	.showcase-demo__pad {
-	  padding-block: 24px;
-	}
-	.showcase-demo__feature-card {
-	  max-width: 450px;
-	}
-	</style>
-
+	<title>Rich Content — Bort TITAN 9000 Control</title>
 	<!-- AUTO-GENERATED from src/rich/scss/vars.scss — редактируйте SCSS, не этот файл -->
 <style id="rich-vars">
 /*
@@ -1660,545 +1524,450 @@
 
 
 </head>
-<body class="showcase-page">
+<body>
+	<!--
+		ВСТРАВКА НА САЙТ:
+		Скопируйте содержимое блока .brt-rich (вместе со всеми <style> выше)
+		в таб «Описание» карточки товара. Для смены темы редактируйте #rich-vars.
+	-->
+	<div class="brt-rich">
+		<!--
+		  COMPONENT: Hero (шапка + бейджи + карточка)
+		-->
+		<section class="brt-rich__section brt-rich__hero">
+			<div class="brt-rich__container">
+				<header class="brt-rich__page-header">
+					<a class="brt-rich__logo" href="#" aria-label="Bort">
+						<img src="img/logo.svg" alt="Bort" width="158" height="46" loading="lazy">
+					</a>
+					<p class="brt-rich__page-title">ИЗМЕЛЬЧИТЕЛЬ ПИЩЕВЫХ ОТХОДОВ Titan 6000 control</p>
+				</header>
 
-	<header class="showcase-header">
-		<div class="showcase-header__inner">
-			<h1>Rich Content — каталог компонентов</h1>
-			<p>Универсальная вёрстка для встраивания на сайты Bort. Префикс классов <code>brt-rich</code>. Стили изолированы в блоках <code>&lt;style id="..."&gt;</code>. Для кастомизации под сайт редактируйте <strong>#rich-vars</strong> и <strong>#rich-theme</strong>.</p>
-		</div>
-	</header>
+				<ul class="brt-rich__hero-badges">
+					<li class="brt-rich__hero-badge">
+						<img class="brt-rich__hero-badge-icon" src="img/badge-fast.png" alt="" width="38" height="38" loading="lazy">
+						<span class="brt-rich__hero-badge-text">Быстро<br>и безопасно</span>
+					</li>
+					<li class="brt-rich__hero-badge">
+						<img class="brt-rich__hero-badge-icon" src="img/badge-power.png" alt="" width="24" height="39" loading="lazy">
+						<span class="brt-rich__hero-badge-text">Высокая<br>мощность</span>
+					</li>
+					<li class="brt-rich__hero-badge">
+						<img class="brt-rich__hero-badge-icon" src="img/badge-design.png" alt="" width="39" height="40" loading="lazy">
+						<span class="brt-rich__hero-badge-text">Лаконичный<br>дизайн</span>
+					</li>
+					<li class="brt-rich__hero-badge brt-rich__hero-badge--filled">
+						<img class="brt-rich__hero-badge-icon" src="img/badge-guarantee.png" alt="" width="43" height="43" loading="lazy">
+						<span class="brt-rich__hero-badge-text">5 лет<br>гарантии</span>
+					</li>
+				</ul>
 
-	<nav class="showcase-nav" aria-label="Навигация по компонентам">
-		<div class="showcase-nav__inner">
-			<a href="#rich-vars">#rich-vars</a>
-			<a href="#rich-component-heading">Heading</a>
-			<a href="#rich-component-subheading">Subheading</a>
-			<a href="#rich-component-text">Text</a>
-			<a href="#rich-component-stat">Stat</a>
-			<a href="#rich-component-badge">Badge</a>
-			<a href="#rich-component-spec-card">Spec card</a>
-			<a href="#rich-component-feature-card">Feature card</a>
-			<a href="#rich-component-mini-card">Mini card</a>
-			<a href="#rich-component-step">Step</a>
-			<a href="#rich-component-split">Split ratios</a>
-			<a href="#rich-component-split-cards">Split + cards</a>
-			<a href="#rich-component-hero">Hero</a>
-			<a href="#rich-component-banner">Banner</a>
-			<a href="#rich-component-gallery">Gallery</a>
-			<a href="#rich-component-statement">Statement</a>
-			<a href="#rich-component-kit">Kit contents</a>
-		</div>
-	</nav>
-
-	<!-- Документация по блокам стилей -->
-	<div class="showcase-styles-block" id="rich-vars">
-		<h2>Блок стилей #rich-vars</h2>
-		<p>CSS-переменные — единственное место для кастомизации темы под конкретный сайт. Меняйте цвета, шрифты, скругления, пропорции колонок.</p>
-		<pre>&lt;style id="rich-vars"&gt; … --rich-color-accent, --rich-radius-md, --rich-split-left … &lt;/style&gt;</pre>
-	</div>
-
-	<div class="showcase-styles-block" id="rich-base-doc">
-		<h2>Блок стилей #rich-base</h2>
-		<p>Структурные стили: grid, flex, breakpoints, контейнер. Не изменяйте без необходимости.</p>
-	</div>
-
-	<div class="showcase-styles-block" id="rich-theme-doc">
-		<h2>Блок стилей #rich-theme</h2>
-		<p>Применение переменных к компонентам: типографика, карточки, баннеры.</p>
-	</div>
-
-	<!-- ATOMS -->
-	<section class="showcase-section" id="rich-component-heading">
-		<h2 class="showcase-section__title">Heading (заголовок)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__heading</p>
-		<p class="showcase-section__desc">Атом. Модификаторы: <code>--h1</code>, <code>--h2</code>, <code>--h3</code>, <code>--center</code>. Используется в hero, split, banner, feature-card.</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__heading--h1 / --h2 / --h3</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px;">
-					<h1 class="brt-rich__heading brt-rich__heading--h1">Заголовок H1</h1>
-					<h2 class="brt-rich__heading brt-rich__heading--h2" style="margin-top: 16px;">Заголовок H2</h2>
-					<h3 class="brt-rich__heading brt-rich__heading--h3" style="margin-top: 16px;">Заголовок H3</h3>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-subheading">
-		<h2 class="showcase-section__title">Subheading (подзаголовок)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__subheading</p>
-		<p class="showcase-section__desc">Атом. Лейбл категории/модели. Модификатор <code>--accent</code> для акцентного цвета.</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__subheading / .brt-rich__subheading--accent</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px;">
-					<p class="brt-rich__subheading">Измельчитель пищевых отходов</p>
-					<p class="brt-rich__subheading brt-rich__subheading--accent">TITAN 9000 Control</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-text">
-		<h2 class="showcase-section__title">Text (текст)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__text</p>
-		<p class="showcase-section__desc">Атом. Модификаторы: <code>--small</code>, <code>--inverse</code> (для тёмных/акцентных фонов).</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__text / --small / --inverse</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px;">
-					<p class="brt-rich__text">Основной текст описания компонента или секции.</p>
-					<p class="brt-rich__text brt-rich__text--small">Мелкий текст для подписей.</p>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-stat">
-		<h2 class="showcase-section__title">Stat (характеристика)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__stat</p>
-		<p class="showcase-section__desc">Атом: значение + подпись. Используется внутри spec-card.</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__stat-value + .brt-rich__stat-label</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__stat">
-						<span class="brt-rich__stat-value">560 Вт</span>
-						<span class="brt-rich__stat-label">Мощность</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-badge">
-		<h2 class="showcase-section__title">Badge (плашка)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__badge</p>
-		<p class="showcase-section__desc">Атом. Chip с акцентной обводкой. Используется в hero-badges.</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__badge</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px;">
-					<span class="brt-rich__badge">Мощный мотор</span>
-					<span class="brt-rich__badge" style="margin-left: 8px;">3 ступени</span>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- MOLECULES -->
-	<section class="showcase-section" id="rich-component-spec-card">
-		<h2 class="showcase-section__title">Spec card (карточка характеристики)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__spec-card</p>
-		<p class="showcase-section__desc">Молекула: иконка + stat. Собирается в grid --specs (3 колонки на desktop).</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__spec-card</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__grid brt-rich__grid--specs" style="max-width: 320px;">
-						<div class="brt-rich__spec-card">
-							<!-- COMPONENT: Icon (inline SVG)
-							     USAGE: include partials/_icon.html with { name, class }
-							     NAMES: power, speed, volume, wireless, noise, weight, water, bone, food, shell, warranty, install, motor, check -->
-							<svg class="brt-rich__spec-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-							
-							<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							</svg>
-
-							<div class="brt-rich__stat">
-								<span class="brt-rich__stat-value">560 Вт</span>
-								<span class="brt-rich__stat-label">Мощность</span>
+				<div class="brt-rich__hero-card">
+					<div class="brt-rich__split brt-rich__split--hero">
+						<div class="brt-rich__split-col brt-rich__split-col--content">
+							<h1 class="brt-rich__heading brt-rich__heading--h1">Ваш надежный помощник на кухне</h1>
+							<ul class="brt-rich__hero-list">
+								<li>Утилизирует остатки пищи</li>
+								<li>Простой способ установки<br>на любой тип мойки</li>
+								<li>Можно подключить<br>к посудомоечной машине</li>
+								<li>Расширенная гарантия 5 лет</li>
+							</ul>
+						</div>
+						<div class="brt-rich__split-col brt-rich__split-col--media brt-rich__hero-media">
+							<div class="brt-rich__media">
+								<img src="img/hero.png" alt="Измельчитель Bort Titan 6000 control на кухне" width="506" height="270" loading="lazy">
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="showcase-section" id="rich-component-feature-card">
-		<h2 class="showcase-section__title">Feature card (карточка преимущества)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__feature-card</p>
-		<p class="showcase-section__desc">Молекула: иконка + inline bold title + текст. Сетка --features (2 колонки, gap 10px).</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__feature-card</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container showcase-demo__pad">
-					<div class="brt-rich__feature-card showcase-demo__feature-card">
+		<!--
+		  COMPONENT: Specs Grid
+		  FIGMA REF: nodes 2:91–2:108 | desktop: 3×3, card h102 r20 #f2f2f2, gap 10px, icon left + label/value | mobile: stack 2→1 col
+		  REUSES: spec-card
+		-->
+		<section class="brt-rich__section brt-rich__specs">
+			<div class="brt-rich__container">
+				<div class="brt-rich__grid brt-rich__grid--specs">
+					<div class="brt-rich__spec-card">
+						<img class="brt-rich__spec-card-icon" src="img/spec-grind.png" alt="" width="57" height="43" loading="lazy">
+						<div class="brt-rich__spec-card-body">
+							<span class="brt-rich__spec-card-label">Измельчает</span>
+							<span class="brt-rich__spec-card-value"><span class="brt-rich__spec-card-value-num">5,2</span><span class="brt-rich__spec-card-value-unit"> кг/мин</span></span>
+						</div>
+					</div>
+					<div class="brt-rich__spec-card">
+						<img class="brt-rich__spec-card-icon" src="img/spec-volume.png" alt="" width="46" height="44" loading="lazy">
+						<div class="brt-rich__spec-card-body">
+							<span class="brt-rich__spec-card-label">Объем камеры</span>
+							<span class="brt-rich__spec-card-value"><span class="brt-rich__spec-card-value-num">1400</span><span class="brt-rich__spec-card-value-unit"> мл</span></span>
+						</div>
+					</div>
+					<div class="brt-rich__spec-card">
+						<img class="brt-rich__spec-card-icon" src="img/spec-speed.png" alt="" width="42" height="43" loading="lazy">
+						<div class="brt-rich__spec-card-body">
+							<span class="brt-rich__spec-card-label">Скорость вращения</span>
+							<span class="brt-rich__spec-card-value"><span class="brt-rich__spec-card-value-num">4000</span><span class="brt-rich__spec-card-value-unit"> об/мин</span></span>
+						</div>
+					</div>
+					<div class="brt-rich__spec-card">
+						<img class="brt-rich__spec-card-icon" src="img/spec-wireless.png" alt="" width="42" height="49" loading="lazy">
+						<div class="brt-rich__spec-card-body">
+							<span class="brt-rich__spec-card-text">Беспроводное управление</span>
+						</div>
+					</div>
+					<div class="brt-rich__spec-card">
+						<img class="brt-rich__spec-card-icon" src="img/spec-noise.png" alt="" width="49" height="37" loading="lazy">
+						<div class="brt-rich__spec-card-body">
+							<span class="brt-rich__spec-card-label">Тихая работа</span>
+							<span class="brt-rich__spec-card-value"><span class="brt-rich__spec-card-value-num">65</span><span class="brt-rich__spec-card-value-unit"> дБ</span></span>
+						</div>
+					</div>
+					<div class="brt-rich__spec-card">
+						<img class="brt-rich__spec-card-icon" src="img/spec-voltage.png" alt="" width="42" height="42" loading="lazy">
+						<div class="brt-rich__spec-card-body">
+							<span class="brt-rich__spec-card-value"><span class="brt-rich__spec-card-value-num">220</span><span class="brt-rich__spec-card-value-unit"> В</span></span>
+						</div>
+					</div>
+					<div class="brt-rich__spec-card">
+						<img class="brt-rich__spec-card-icon" src="img/spec-weight.png" alt="" width="35" height="45" loading="lazy">
+						<div class="brt-rich__spec-card-body">
+							<span class="brt-rich__spec-card-label">Вес измельчителя</span>
+							<span class="brt-rich__spec-card-value"><span class="brt-rich__spec-card-value-num">6</span><span class="brt-rich__spec-card-value-unit"> кг</span></span>
+						</div>
+					</div>
+					<div class="brt-rich__spec-card">
+						<img class="brt-rich__spec-card-icon" src="img/spec-cable.png" alt="" width="56" height="56" loading="lazy">
+						<div class="brt-rich__spec-card-body">
+							<span class="brt-rich__spec-card-label">Длина кабеля</span>
+							<span class="brt-rich__spec-card-value"><span class="brt-rich__spec-card-value-num">1,2</span><span class="brt-rich__spec-card-value-unit"> м</span></span>
+						</div>
+					</div>
+					<div class="brt-rich__spec-card">
+						<img class="brt-rich__spec-card-icon" src="img/spec-protection.png" alt="" width="47" height="43" loading="lazy">
+						<div class="brt-rich__spec-card-body">
+							<span class="brt-rich__spec-card-text">Система защиты<br>от перегрузки<br>и заклинивания</span>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--
+		  COMPONENT: Steps Bar
+		  FIGMA REF: node 27:6 | desktop: h2 29px semibold left, orange bar h120 r20 #ff9b35 pad10, 3 white cards h100 r10 gap10, icon+label row 18px | mobile: stack 1 col
+		  REUSES: step-card (icon + label)
+		-->
+		<section class="brt-rich__section brt-rich__steps">
+			<div class="brt-rich__container">
+				<div class="brt-rich__section-head brt-rich__section-head--left">
+					<h2 class="brt-rich__heading brt-rich__heading--h2">Легкое управление</h2>
+				</div>
+				<div class="brt-rich__steps-bar">
+					<div class="brt-rich__step-card">
+						<img class="brt-rich__step-card-icon" src="img/step-water.svg" alt="" width="52" height="72" loading="lazy">
+						<span class="brt-rich__step-label">Включить воду</span>
+					</div>
+					<div class="brt-rich__step-card">
+						<img class="brt-rich__step-card-icon" src="img/step-button.svg" alt="" width="61" height="72" loading="lazy">
+						<span class="brt-rich__step-label">Включить измельчитель</span>
+					</div>
+					<div class="brt-rich__step-card">
+						<img class="brt-rich__step-card-icon" src="img/step-waste.png" alt="" width="59" height="72" loading="lazy">
+						<span class="brt-rich__step-label">Поместить отходы</span>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!--
+		  COMPONENT: Features Grid
+		  SECTION: 2×2 карточки «Избавит от частых проблем на кухне»
+		  FIGMA REF: node 32:13 | desktop: h2 29px/600 left, grid 2×2 gap 10px, card #f2f2f2 r20 pad 26/46, icon ~82px center, text 18px inline bold+regular | mobile: stack 1 col
+		  REUSES: feature-card
+		-->
+		<section class="brt-rich__section brt-rich__section--features">
+			<div class="brt-rich__container">
+				<div class="brt-rich__section-head brt-rich__section-head--left">
+					<h2 class="brt-rich__heading brt-rich__heading--h2">Избавит от частых проблем на кухне:</h2>
+				</div>
+				<div class="brt-rich__grid brt-rich__grid--features">
+					<div class="brt-rich__feature-card">
 						<img class="brt-rich__feature-card-icon" src="img/feature-clog.svg" alt="" width="91" height="82" loading="lazy">
 						<p class="brt-rich__feature-card-text">
 							<strong class="brt-rich__feature-card-title">Засоры в трубах.</strong>
 							Измельченные отходы перемалываются и легко смываются в канализацию потоком воды, не создавая засоры.
 						</p>
 					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-mini-card">
-		<h2 class="showcase-section__title">Mini card (компактная плашка)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__mini-card</p>
-		<p class="showcase-section__desc">Молекула. Используется в tech-diagram справа от схемы мотора.</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__mini-card</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px; max-width: 360px;">
-					<div class="brt-rich__mini-card">
-						<!-- COMPONENT: Icon (inline SVG)
-						     USAGE: include partials/_icon.html with { name, class }
-						     NAMES: power, speed, volume, wireless, noise, weight, water, bone, food, shell, warranty, install, motor, check -->
-						<svg class="brt-rich__mini-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-						
-						
-						
-						
-						
-						
-						
-						
-						<path d="M15 9a4 4 0 0 0-2-3.5 4 4 0 0 0-5.5 5.5 4 4 0 0 0 3.5 2 4 4 0 0 0 5.5-5.5 4 4 0 0 0-1.5-1.5z"/>
-						
-						
-						
-						
-						
-						
-						
-						</svg>
-
-						<span class="brt-rich__mini-card-text">Куриные и рыбные кости</span>
+					<div class="brt-rich__feature-card">
+						<img class="brt-rich__feature-card-icon" src="img/feature-odor.svg" alt="" width="105" height="82" loading="lazy">
+						<p class="brt-rich__feature-card-text">
+							<strong class="brt-rich__feature-card-title">Неприятные запахи.</strong>
+							Забудьте о неприятных запахах из раковины и мусорного ведра. Теперь все пищевые отходы будут перемолоты и смыты в канализацию.
+						</p>
+					</div>
+					<div class="brt-rich__feature-card">
+						<img class="brt-rich__feature-card-icon" src="img/feature-pests.svg" alt="" width="92" height="82" loading="lazy">
+						<p class="brt-rich__feature-card-text">
+							<strong class="brt-rich__feature-card-title">Появление грызунов и насекомых.</strong>
+							Органические отходы в мусорном ведре и раковине не будут привлекать нежелательных &ldquo;гостей&rdquo;.
+						</p>
+					</div>
+					<div class="brt-rich__feature-card">
+						<img class="brt-rich__feature-card-icon" src="img/feature-ecology.png" alt="" width="91" height="91" loading="lazy">
+						<p class="brt-rich__feature-card-text">
+							<strong class="brt-rich__feature-card-title">Забота об экологии.</strong>
+							При использовании измельчителя в вашем мусорном ведре остаются только перерабатываемые неорганические отходы, что упрощает их дальнейшую переработку.
+						</p>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="showcase-section" id="rich-component-step">
-		<h2 class="showcase-section__title">Step (шаг процесса)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__step</p>
-		<p class="showcase-section__desc">Молекула. Карточка шага в оранжевой полосе (.brt-rich__step-card).</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__step-card</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px; max-width: 320px;">
-					<div class="brt-rich__step-card">
-						<img class="brt-rich__step-card-icon" src="img/step-water.svg" alt="" width="52" height="72" loading="lazy">
-						<span class="brt-rich__step-label">Включить воду</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- SPLIT RATIOS -->
-	<section class="showcase-section" id="rich-component-split">
-		<h2 class="showcase-section__title">Split (картинка + текст)</h2>
-		<p class="showcase-section__id">STYLE: #rich-base → .brt-rich__split, модификаторы --50-50 / --30-70 / --60-40 / --reverse</p>
-		<p class="showcase-section__desc">Организм. Пропорции через класс-модификатор или CSS-переменную <code>--rich-split-left</code>.</p>
-
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__split--50-50</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__split brt-rich__split--50-50">
-						<div class="brt-rich__split-col brt-rich__split-col--media">
-							<div class="brt-rich__placeholder">Изображение 50%</div>
-						</div>
-						<div class="brt-rich__split-col brt-rich__split-col--content">
-							<h2 class="brt-rich__heading brt-rich__heading--h2">Текст 50%</h2>
-							<p class="brt-rich__text">Равное разделение колонок.</p>
+		<!--
+		  COMPONENT: Grinding stages + grindable items
+		  FIGMA REF: node 34:15 | desktop: panels 551+349 gap10 h610 r20 #f2f2f2, h2 29px semibold, cards 327×96 r10 gap10, footnote 24px | mobile: stack
+		-->
+		<section class="brt-rich__section brt-rich__section--grinding">
+			<div class="brt-rich__container">
+				<div class="brt-rich__grinding-panels">
+					<div class="brt-rich__grinding-panel brt-rich__grinding-panel--diagram">
+						<h2 class="brt-rich__heading brt-rich__heading--h2">5 ступеней измельчения:</h2>
+						<div class="brt-rich__grinding-diagram">
+							<img class="brt-rich__grinding-diagram-chamber brt-rich__grinding-diagram-chamber--ring" src="img/grinding-chamber-3.png" alt="" width="243" height="227" loading="lazy">
+							<img class="brt-rich__grinding-diagram-chamber brt-rich__grinding-diagram-chamber--disk" src="img/grinding-chamber-2.png" alt="" width="195" height="183" loading="lazy">
+							<img class="brt-rich__grinding-callout brt-rich__grinding-callout--1" src="img/grinding-callout-1.svg" alt="" width="98" height="3" loading="lazy">
+							<img class="brt-rich__grinding-callout brt-rich__grinding-callout--2" src="img/grinding-callout-5.svg" alt="" width="131" height="123" loading="lazy">
+							<img class="brt-rich__grinding-callout brt-rich__grinding-callout--3" src="img/grinding-callout-4.svg" alt="" width="90" height="85" loading="lazy">
+							<img class="brt-rich__grinding-callout brt-rich__grinding-callout--4" src="img/grinding-callout-2.svg" alt="" width="98" height="51" loading="lazy">
+							<img class="brt-rich__grinding-callout brt-rich__grinding-callout--5" src="img/grinding-callout-3.svg" alt="" width="100" height="3" loading="lazy">
+							<p class="brt-rich__grinding-label brt-rich__grinding-label--1">Вертикальная терка</p>
+							<p class="brt-rich__grinding-label brt-rich__grinding-label--2">Ударные кулачки</p>
+							<p class="brt-rich__grinding-label brt-rich__grinding-label--3">Дополнительное<br>измельчение</p>
+							<p class="brt-rich__grinding-label brt-rich__grinding-label--4">Центральная рубка</p>
+							<p class="brt-rich__grinding-label brt-rich__grinding-label--5">Диск</p>
 						</div>
 					</div>
-				</div>
-			</div>
-		</div>
-
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__split--30-70</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__split brt-rich__split--30-70">
-						<div class="brt-rich__split-col brt-rich__split-col--media">
-							<div class="brt-rich__placeholder">Изображение 30%</div>
-						</div>
-						<div class="brt-rich__split-col brt-rich__split-col--content">
-							<h2 class="brt-rich__heading brt-rich__heading--h2">Контент 70%</h2>
-							<p class="brt-rich__text">Узкая картинка — для акцентных иллюстраций.</p>
+					<div class="brt-rich__grinding-panel brt-rich__grinding-panel--items">
+						<h2 class="brt-rich__heading brt-rich__heading--h2">Можно измельчать:</h2>
+						<div class="brt-rich__grind-cards">
+							<div class="brt-rich__grind-card">
+								<img class="brt-rich__grind-card-icon" src="img/grind-icon-vegetables.png" alt="" width="63" height="63" loading="lazy">
+								<p class="brt-rich__grind-card-text">Очистки овощей, фруктов, зелени</p>
+							</div>
+							<div class="brt-rich__grind-card">
+								<img class="brt-rich__grind-card-icon" src="img/grind-icon-nuts.png" alt="" width="75" height="59" loading="lazy">
+								<p class="brt-rich__grind-card-text">Скорлупа орехов,<br>шелуха от семечек</p>
+							</div>
+							<div class="brt-rich__grind-card">
+								<img class="brt-rich__grind-card-icon" src="img/grind-icon-bones.png" alt="" width="56" height="66" loading="lazy">
+								<p class="brt-rich__grind-card-text">Куриные и рыбные кости</p>
+							</div>
+							<div class="brt-rich__grind-card">
+								<img class="brt-rich__grind-card-icon" src="img/grind-icon-food.png" alt="" width="79" height="60" loading="lazy">
+								<p class="brt-rich__grind-card-text">Остатки пищи</p>
+							</div>
+							<div class="brt-rich__grind-card">
+								<img class="brt-rich__grind-card-icon" src="img/grind-icon-shell.png" alt="" width="69" height="66" loading="lazy">
+								<p class="brt-rich__grind-card-text">Яичная скорлупа, кофейный жмых</p>
+							</div>
 						</div>
 					</div>
 				</div>
+				<p class="brt-rich__grinding-footnote">Внутренние детали измельчителя выполнены из <strong>нержавеющей стали.</strong></p>
 			</div>
-		</div>
+		</section>
 
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__split--60-40 + --reverse</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__split brt-rich__split--60-40 brt-rich__split--reverse">
-						<div class="brt-rich__split-col brt-rich__split-col--media">
-							<div class="brt-rich__placeholder">Изображение 60%</div>
+		<!--
+		  COMPONENT: Banner Accent
+		  SECTION: оранжевый блок «до 20%» / PMDC 600 Вт
+		  FIGMA REF: node 40:2 (2:389–2:415) | desktop: 910×359, fill #ff9b35, r20, pad ~29/43/35, left text #000 24/18px max 380px, divider Vector 847, right Russo One white «до»35 «20%»96 «экономии»35 | mobile: stack, divider hidden
+		  VARIABLES: --rich-color-accent-fill, --rich-banner-accent-*
+		-->
+		<section class="brt-rich__section">
+			<div class="brt-rich__container">
+				<div class="brt-rich__banner brt-rich__banner--accent">
+					<div class="brt-rich__banner-col brt-rich__banner-col--text">
+						<h2 class="brt-rich__heading brt-rich__heading--banner-accent">Мощный мотор PMDC 600&nbsp;Вт</h2>
+						<div class="brt-rich__banner-body">
+							<p>PMDC мотор (Permanent Magnet DC Motor) - двигатель постоянного тока с магнитами.</p>
+							<p>Оптимальный баланс мощности<br>и экономичности, обеспечивает стабильное вращение измельчающих элементов для эффективного измельчения.</p>
+							<p>По сравнению с универсальным щёточным двигателем равной мощности, PMDC-двигатель потребляет меньше электроэнергии.</p>
 						</div>
-						<div class="brt-rich__split-col brt-rich__split-col--content">
-							<h2 class="brt-rich__heading brt-rich__heading--h2">Плашки справа (reverse)</h2>
-							<p class="brt-rich__text">Широкая диаграмма слева, контент справа.</p>
+					</div>
+					<div class="brt-rich__banner-divider" aria-hidden="true">
+						<img src="img/banner-accent-divider.svg" alt="" width="1" height="298" loading="lazy">
+					</div>
+					<div class="brt-rich__banner-col brt-rich__banner-col--display">
+						<div class="brt-rich__banner-display">
+							<p class="brt-rich__banner-display-line">
+								<span class="brt-rich__banner-display-do">до</span>
+								<span class="brt-rich__banner-display-pct">20%</span>
+							</p>
+							<p class="brt-rich__banner-display-sub">экономии<br>электроэнергии</p>
 						</div>
 					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<!-- FULL BLOCKS -->
-	<section class="showcase-section" id="rich-component-hero">
-		<h2 class="showcase-section__title">Hero</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__hero</p>
-		<p class="showcase-section__desc">Организм. Логотип + лейбл + H1 + badges + фото. partials/blocks/_hero.html</p>
-		<div class="showcase-demo">
-			<div class="brt-rich">
-				<!--
-				  COMPONENT: Hero (шапка + бейджи + карточка)
-				-->
-				<section class="brt-rich__section brt-rich__hero">
-					<div class="brt-rich__container">
-						<header class="brt-rich__page-header">
-							<a class="brt-rich__logo" href="#" aria-label="Bort">
-								<img src="img/logo.svg" alt="Bort" width="158" height="46" loading="lazy">
-							</a>
-							<p class="brt-rich__page-title">ИЗМЕЛЬЧИТЕЛЬ ПИЩЕВЫХ ОТХОДОВ Titan 6000 control</p>
-						</header>
+		<!--
+		  COMPONENT: Gallery 2×2
+		  SECTION: «Надёжное и простое крепление на любой тип моек»
+		  FIGMA REF: node 42:3 (2:247–2:263) | desktop: panel 910×563 #f2f2f2 r20, pad 36/43/5/60, h2 29px/600 #000 left, grid 2×2 col-gap 99 row-gap 30, label 20px #2b2b2b capitalize, image 354×139 r10, footnote 17px #2b2b2b | mobile: stack 1 col
+		-->
+		<section class="brt-rich__section">
+			<div class="brt-rich__container">
+				<div class="brt-rich__gallery">
+					<h2 class="brt-rich__heading brt-rich__heading--h2 brt-rich__heading--gallery">Надежное и простое крепление на любой тип моек:</h2>
+					<div class="brt-rich__gallery-grid">
+						<div class="brt-rich__gallery-cell">
+							<p class="brt-rich__gallery-label">керамика</p>
+							<div class="brt-rich__gallery-item">
+								<img src="img/gallery-1.png" alt="Керамическая мойка" width="354" height="139" loading="lazy">
+							</div>
+						</div>
+						<div class="brt-rich__gallery-cell">
+							<p class="brt-rich__gallery-label">металл</p>
+							<div class="brt-rich__gallery-item">
+								<img src="img/gallery-2.png" alt="Металлическая мойка" width="354" height="139" loading="lazy">
+							</div>
+						</div>
+						<div class="brt-rich__gallery-cell">
+							<p class="brt-rich__gallery-label">камень</p>
+							<div class="brt-rich__gallery-item">
+								<img src="img/gallery-3.png" alt="Каменная мойка" width="354" height="139" loading="lazy">
+							</div>
+						</div>
+						<div class="brt-rich__gallery-cell">
+							<p class="brt-rich__gallery-label">акрил</p>
+							<div class="brt-rich__gallery-item">
+								<img src="img/gallery-4.png" alt="Акриловая мойка" width="354" height="139" loading="lazy">
+							</div>
+						</div>
+					</div>
+					<p class="brt-rich__gallery-footnote">Диаметр сливного отверстия <strong>3<span class="brt-rich__gallery-fraction" aria-hidden="true"><span class="brt-rich__gallery-fraction-num">1″</span><span class="brt-rich__gallery-fraction-bar"></span><span class="brt-rich__gallery-fraction-den">2</span></span> (90&nbsp;мм)</strong> и толщина дна раковины <strong>от 1&nbsp;мм до 18&nbsp;мм</strong></p>
+				</div>
+			</div>
+		</section>
 
-						<ul class="brt-rich__hero-badges">
-							<li class="brt-rich__hero-badge">
-								<img class="brt-rich__hero-badge-icon" src="img/badge-fast.png" alt="" width="38" height="38" loading="lazy">
-								<span class="brt-rich__hero-badge-text">Быстро<br>и безопасно</span>
-							</li>
-							<li class="brt-rich__hero-badge">
-								<img class="brt-rich__hero-badge-icon" src="img/badge-power.png" alt="" width="24" height="39" loading="lazy">
-								<span class="brt-rich__hero-badge-text">Высокая<br>мощность</span>
-							</li>
-							<li class="brt-rich__hero-badge">
-								<img class="brt-rich__hero-badge-icon" src="img/badge-design.png" alt="" width="39" height="40" loading="lazy">
-								<span class="brt-rich__hero-badge-text">Лаконичный<br>дизайн</span>
-							</li>
-							<li class="brt-rich__hero-badge brt-rich__hero-badge--filled">
-								<img class="brt-rich__hero-badge-icon" src="img/badge-guarantee.png" alt="" width="43" height="43" loading="lazy">
-								<span class="brt-rich__hero-badge-text">5 лет<br>гарантии</span>
-							</li>
+		<!--
+		  COMPONENT: Dual panels (комплект + фланец)
+		  FIGMA REF: node 46:4 (2:249–2:250, 2:335, 2:429, 2:268, 2:430) | desktop: row 910×479, cards 451+449 gap 10, bg #f2f2f2 r20, media 430/428×307 r10 inset 10px, text 20px/400 #000 line-height 1, pad-x ~46 bottom ~42, text↔image gap 20 | mobile: stack 1 col
+		-->
+		<section class="brt-rich__section">
+			<div class="brt-rich__container">
+				<div class="brt-rich__dual-panels">
+					<article class="brt-rich__dual-panel">
+						<div class="brt-rich__dual-panel-media brt-rich__dual-panel-media--kit">
+							<img src="img/mount-kit-contents.png" alt="Комплект для монтажа BORT TITAN 6000 CONTROL" width="430" height="307" loading="lazy">
+						</div>
+						<div class="brt-rich__dual-panel-text">
+							<p class="brt-rich__dual-panel-text-line">В комплекте к измельчителю</p>
+							<p class="brt-rich__dual-panel-text-line"><strong>BORT TITAN 6000 CONTROL</strong> есть все необходимое для монтажа, подключения и эксплуатации прибора.</p>
+						</div>
+					</article>
+					<article class="brt-rich__dual-panel">
+						<div class="brt-rich__dual-panel-media">
+							<img src="img/mount-flange-sink.png" alt="Фланец измельчителя в раковине" width="428" height="307" loading="lazy">
+						</div>
+						<p class="brt-rich__dual-panel-text">Фланец измельчителя надежно и герметично крепится к раковине, исключая возможность протечек. Это гарантирует прочность, безопасность и гигиеничность в эксплуатации.</p>
+					</article>
+				</div>
+			</div>
+		</section>
+
+		<!--
+		  COMPONENT: Mount banner — «Легкий монтаж»
+		  FIGMA REF: node 48:5 (2:248, 2:393, 2:417, 2:418) | desktop: 910×125, bg #f2f2f2 r20, pad ~43px, icon 56×56 #FB7E00, title Roboto Bold 24px w126, body Roboto 20px lh1 gap icon→title 25px title→text 19px | mobile: stack, no forced br
+		-->
+		<section class="brt-rich__section">
+			<div class="brt-rich__container">
+				<div class="brt-rich__mount-banner">
+					<div class="brt-rich__mount-banner-lead">
+						<img class="brt-rich__mount-banner-icon" src="img/mount-easy-icon.svg" alt="" width="56" height="56" loading="lazy">
+						<h2 class="brt-rich__mount-banner-title">Легкий монтаж</h2>
+					</div>
+					<p class="brt-rich__mount-banner-text">Установка измельчителя не требует специальных навыков <br>и профессиональной помощи — вы легко справитесь <br>с монтажом самостоятельно, следуя простой инструкции.</p>
+				</div>
+			</div>
+		</section>
+
+		<!--
+		  COMPONENT: Why choose banner — «Почему надо выбрать именно эту модель?»
+		  FIGMA REF: node 48:6 (2:390, 2:392, 2:395, 2:416) | desktop: 910×326 bg #ff9b35 r20, pad 29/43/35, title Roboto Bold 24px #000, list Roboto 18px disc max 454px li-gap 10px indent 27px, media 231×361 overflow top -19px right 9px | mobile: stack, no br in last item
+		-->
+		<section class="brt-rich__section">
+			<div class="brt-rich__container">
+				<div class="brt-rich__why-choose">
+					<div class="brt-rich__why-choose-content">
+						<h2 class="brt-rich__why-choose-title">Почему надо выбрать именно эту модель?</h2>
+						<ul class="brt-rich__why-choose-list">
+							<li>Удобное управление с помощью беспроводной кнопки (можно использовать на удаленном расстоянии без сверления отверстия)</li>
+							<li>Отсутствие батареек и других источников питания для кнопки</li>
+							<li>Нет ограничения по времени работы диспоузера (плюс при больших объемах отходов)</li>
+							<li>Доступная цена при высоком качестве сборки <br>и функционала</li>
 						</ul>
-
-						<div class="brt-rich__hero-card">
-							<div class="brt-rich__split brt-rich__split--hero">
-								<div class="brt-rich__split-col brt-rich__split-col--content">
-									<h1 class="brt-rich__heading brt-rich__heading--h1">Ваш надежный помощник на кухне</h1>
-									<ul class="brt-rich__hero-list">
-										<li>Утилизирует остатки пищи</li>
-										<li>Простой способ установки<br>на любой тип мойки</li>
-										<li>Можно подключить<br>к посудомоечной машине</li>
-										<li>Расширенная гарантия 5 лет</li>
-									</ul>
-								</div>
-								<div class="brt-rich__split-col brt-rich__split-col--media brt-rich__hero-media">
-									<div class="brt-rich__media">
-										<img src="img/hero.png" alt="Измельчитель Bort Titan 6000 control на кухне" width="506" height="270" loading="lazy">
-									</div>
-								</div>
-							</div>
-						</div>
 					</div>
-				</section>
-
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-banner">
-		<h2 class="showcase-section__title">Banner accent</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__banner</p>
-		<p class="showcase-section__desc">Организм. Акцентный блок с display-числом. Переменные: --rich-color-accent, --rich-font-size-display</p>
-		<div class="showcase-demo">
-			<div class="brt-rich">
-				<!--
-				  COMPONENT: Banner Accent
-				  SECTION: оранжевый блок «до 20%» / PMDC 600 Вт
-				  FIGMA REF: node 40:2 (2:389–2:415) | desktop: 910×359, fill #ff9b35, r20, pad ~29/43/35, left text #000 24/18px max 380px, divider Vector 847, right Russo One white «до»35 «20%»96 «экономии»35 | mobile: stack, divider hidden
-				  VARIABLES: --rich-color-accent-fill, --rich-banner-accent-*
-				-->
-				<section class="brt-rich__section">
-					<div class="brt-rich__container">
-						<div class="brt-rich__banner brt-rich__banner--accent">
-							<div class="brt-rich__banner-col brt-rich__banner-col--text">
-								<h2 class="brt-rich__heading brt-rich__heading--banner-accent">Мощный мотор PMDC 600&nbsp;Вт</h2>
-								<div class="brt-rich__banner-body">
-									<p>PMDC мотор (Permanent Magnet DC Motor) - двигатель постоянного тока с магнитами.</p>
-									<p>Оптимальный баланс мощности<br>и экономичности, обеспечивает стабильное вращение измельчающих элементов для эффективного измельчения.</p>
-									<p>По сравнению с универсальным щёточным двигателем равной мощности, PMDC-двигатель потребляет меньше электроэнергии.</p>
-								</div>
-							</div>
-							<div class="brt-rich__banner-divider" aria-hidden="true">
-								<img src="img/banner-accent-divider.svg" alt="" width="1" height="298" loading="lazy">
-							</div>
-							<div class="brt-rich__banner-col brt-rich__banner-col--display">
-								<div class="brt-rich__banner-display">
-									<p class="brt-rich__banner-display-line">
-										<span class="brt-rich__banner-display-do">до</span>
-										<span class="brt-rich__banner-display-pct">20%</span>
-									</p>
-									<p class="brt-rich__banner-display-sub">экономии<br>электроэнергии</p>
-								</div>
-							</div>
-						</div>
+					<div class="brt-rich__why-choose-media">
+						<img src="img/why-choose-product.png" alt="BORT TITAN 9000 Control" width="231" height="361" loading="lazy">
 					</div>
-				</section>
-
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
-	<section class="showcase-section" id="rich-component-gallery">
-		<h2 class="showcase-section__title">Gallery</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__gallery</p>
-		<p class="showcase-section__desc">Организм. Сетка 2×2 с минимальным gap.</p>
-		<div class="showcase-demo">
-			<div class="brt-rich">
-				<!--
-				  COMPONENT: Gallery 2×2
-				  SECTION: «Надёжное и простое крепление на любой тип моек»
-				  FIGMA REF: node 42:3 (2:247–2:263) | desktop: panel 910×563 #f2f2f2 r20, pad 36/43/5/60, h2 29px/600 #000 left, grid 2×2 col-gap 99 row-gap 30, label 20px #2b2b2b capitalize, image 354×139 r10, footnote 17px #2b2b2b | mobile: stack 1 col
-				-->
-				<section class="brt-rich__section">
-					<div class="brt-rich__container">
-						<div class="brt-rich__gallery">
-							<h2 class="brt-rich__heading brt-rich__heading--h2 brt-rich__heading--gallery">Надежное и простое крепление на любой тип моек:</h2>
-							<div class="brt-rich__gallery-grid">
-								<div class="brt-rich__gallery-cell">
-									<p class="brt-rich__gallery-label">керамика</p>
-									<div class="brt-rich__gallery-item">
-										<img src="img/gallery-1.png" alt="Керамическая мойка" width="354" height="139" loading="lazy">
-									</div>
-								</div>
-								<div class="brt-rich__gallery-cell">
-									<p class="brt-rich__gallery-label">металл</p>
-									<div class="brt-rich__gallery-item">
-										<img src="img/gallery-2.png" alt="Металлическая мойка" width="354" height="139" loading="lazy">
-									</div>
-								</div>
-								<div class="brt-rich__gallery-cell">
-									<p class="brt-rich__gallery-label">камень</p>
-									<div class="brt-rich__gallery-item">
-										<img src="img/gallery-3.png" alt="Каменная мойка" width="354" height="139" loading="lazy">
-									</div>
-								</div>
-								<div class="brt-rich__gallery-cell">
-									<p class="brt-rich__gallery-label">акрил</p>
-									<div class="brt-rich__gallery-item">
-										<img src="img/gallery-4.png" alt="Акриловая мойка" width="354" height="139" loading="lazy">
-									</div>
-								</div>
+		<!--
+		  COMPONENT: Kit contents — «Комплектация:»
+		  FIGMA REF: node 48:7 (2:81, 2:66–2:71, 2:83–2:87, 2:427) | desktop: title Roboto SemiBold 29px #000 gap 20px, grid 451+449 gap 10, cards 104px #f2f2f2 r20, label Roboto SemiBold 20px, media left col ~207px right ~181px pad 42px | mobile: 1 col stack, card row layout preserved
+		-->
+		<section class="brt-rich__section">
+			<div class="brt-rich__container">
+				<div class="brt-rich__kit">
+					<h2 class="brt-rich__kit-title">Комплектация:</h2>
+					<div class="brt-rich__kit-grid">
+						<article class="brt-rich__kit-item">
+							<div class="brt-rich__kit-item-media brt-rich__kit-item-media--mount">
+								<img src="img/kit-mount-node.png" alt="" width="188" height="81" loading="lazy">
 							</div>
-							<p class="brt-rich__gallery-footnote">Диаметр сливного отверстия <strong>3<span class="brt-rich__gallery-fraction" aria-hidden="true"><span class="brt-rich__gallery-fraction-num">1″</span><span class="brt-rich__gallery-fraction-bar"></span><span class="brt-rich__gallery-fraction-den">2</span></span> (90&nbsp;мм)</strong> и толщина дна раковины <strong>от 1&nbsp;мм до 18&nbsp;мм</strong></p>
-						</div>
-					</div>
-				</section>
-
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-statement">
-		<h2 class="showcase-section__title">Statement</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__statement</p>
-		<p class="showcase-section__desc">Организм. Центрированная текстовая строка на всю ширину контейнера.</p>
-		<div class="showcase-demo">
-			<div class="brt-rich">
-				<!--
-				  COMPONENT: Statement
-				  SECTION: полноширинная текстовая строка
-				-->
-				<section class="brt-rich__section brt-rich__statement">
-					<div class="brt-rich__container">
-						<h2 class="brt-rich__heading brt-rich__heading--h3">Все детали измельчителя выполнены из нержавеющей стали.</h2>
-					</div>
-				</section>
-
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-kit">
-		<h2 class="showcase-section__title">Kit contents (комплектация)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__kit</p>
-		<p class="showcase-section__desc">Организм. Заголовок + сетка 2×3 карточек с фото и подписью. partials/blocks/_kit-contents.html</p>
-		<div class="showcase-demo">
-			<div class="brt-rich">
-				<!--
-				  COMPONENT: Kit contents — «Комплектация:»
-				  FIGMA REF: node 48:7 (2:81, 2:66–2:71, 2:83–2:87, 2:427) | desktop: title Roboto SemiBold 29px #000 gap 20px, grid 451+449 gap 10, cards 104px #f2f2f2 r20, label Roboto SemiBold 20px, media left col ~207px right ~181px pad 42px | mobile: 1 col stack, card row layout preserved
-				-->
-				<section class="brt-rich__section">
-					<div class="brt-rich__container">
-						<div class="brt-rich__kit">
-							<h2 class="brt-rich__kit-title">Комплектация:</h2>
-							<div class="brt-rich__kit-grid">
-								<article class="brt-rich__kit-item">
-									<div class="brt-rich__kit-item-media brt-rich__kit-item-media--mount">
-										<img src="img/kit-mount-node.png" alt="" width="188" height="81" loading="lazy">
-									</div>
-									<p class="brt-rich__kit-item-label">Монтажный узел</p>
-								</article>
-								<article class="brt-rich__kit-item">
-									<div class="brt-rich__kit-item-media brt-rich__kit-item-media--wireless">
-										<img src="img/kit-wireless-button.png" alt="" width="85" height="88" loading="lazy">
-									</div>
-									<p class="brt-rich__kit-item-label">Беспроводная кнопка</p>
-								</article>
-								<article class="brt-rich__kit-item">
-									<div class="brt-rich__kit-item-media brt-rich__kit-item-media--splash">
-										<img src="img/kit-splash-guard.png" alt="" width="85" height="81" loading="lazy">
-									</div>
-									<p class="brt-rich__kit-item-label">Экран защиты от брызг</p>
-								</article>
-								<article class="brt-rich__kit-item">
-									<div class="brt-rich__kit-item-media brt-rich__kit-item-media--pusher">
-										<img src="img/kit-pusher.png" alt="" width="100" height="95" loading="lazy">
-									</div>
-									<p class="brt-rich__kit-item-label">Проталкиватель <br>(вкручивается <br>в сито-пробку)</p>
-								</article>
-								<article class="brt-rich__kit-item">
-									<div class="brt-rich__kit-item-media brt-rich__kit-item-media--pipes">
-										<img src="img/kit-pipes.png" alt="" width="205" height="65" loading="lazy">
-									</div>
-									<p class="brt-rich__kit-item-label">Трубы <br>для подключения</p>
-								</article>
-								<article class="brt-rich__kit-item">
-									<div class="brt-rich__kit-item-media brt-rich__kit-item-media--sieve">
-										<img src="img/kit-sieve-plug.png" alt="" width="108" height="108" loading="lazy">
-									</div>
-									<p class="brt-rich__kit-item-label">Сито-пробка <br>с резиновым уплотнителем</p>
-								</article>
+							<p class="brt-rich__kit-item-label">Монтажный узел</p>
+						</article>
+						<article class="brt-rich__kit-item">
+							<div class="brt-rich__kit-item-media brt-rich__kit-item-media--wireless">
+								<img src="img/kit-wireless-button.png" alt="" width="85" height="88" loading="lazy">
 							</div>
-						</div>
+							<p class="brt-rich__kit-item-label">Беспроводная кнопка</p>
+						</article>
+						<article class="brt-rich__kit-item">
+							<div class="brt-rich__kit-item-media brt-rich__kit-item-media--splash">
+								<img src="img/kit-splash-guard.png" alt="" width="85" height="81" loading="lazy">
+							</div>
+							<p class="brt-rich__kit-item-label">Экран защиты от брызг</p>
+						</article>
+						<article class="brt-rich__kit-item">
+							<div class="brt-rich__kit-item-media brt-rich__kit-item-media--pusher">
+								<img src="img/kit-pusher.png" alt="" width="100" height="95" loading="lazy">
+							</div>
+							<p class="brt-rich__kit-item-label">Проталкиватель <br>(вкручивается <br>в сито-пробку)</p>
+						</article>
+						<article class="brt-rich__kit-item">
+							<div class="brt-rich__kit-item-media brt-rich__kit-item-media--pipes">
+								<img src="img/kit-pipes.png" alt="" width="205" height="65" loading="lazy">
+							</div>
+							<p class="brt-rich__kit-item-label">Трубы <br>для подключения</p>
+						</article>
+						<article class="brt-rich__kit-item">
+							<div class="brt-rich__kit-item-media brt-rich__kit-item-media--sieve">
+								<img src="img/kit-sieve-plug.png" alt="" width="108" height="108" loading="lazy">
+							</div>
+							<p class="brt-rich__kit-item-label">Сито-пробка <br>с резиновым уплотнителем</p>
+						</article>
 					</div>
-				</section>
-
+				</div>
 			</div>
-		</div>
-	</section>
+		</section>
 
+	</div>
 </body>
 </html>
