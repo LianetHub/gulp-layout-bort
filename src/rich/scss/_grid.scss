@@ -99,6 +99,26 @@ $rich-grid-columns: 12;
 		&--gap-card {
 			--rich-gutter-x: var(--rich-card-gap);
 		}
+
+		&--gap-application-areas {
+			--rich-gutter-x: var(--rich-application-areas-gap);
+			--rich-gutter-y: var(--rich-application-areas-gap);
+		}
+
+		&--gap-benefits {
+			--rich-gutter-x: var(--rich-benefits-gap);
+			--rich-gutter-y: var(--rich-benefits-gap);
+		}
+
+		&--gap-specs {
+			--rich-gutter-x: var(--rich-specs-gap);
+			--rich-gutter-y: var(--rich-specs-gap);
+		}
+
+		&--gap-model-features {
+			--rich-gutter-x: var(--rich-model-features-gap);
+			--rich-gutter-y: var(--rich-model-features-gap);
+		}
 	}
 
 	.brt-rich-col {

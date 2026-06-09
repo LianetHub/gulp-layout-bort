@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Rich Content — Bort TITAN 9000 Control</title>
-	@@include('partials/_styles-all.html')
-</head>
-<body>
-	<!--
-		ВСТРАВКА НА САЙТ:
-		Скопируйте содержимое блока .brt-rich (вместе со всеми <style> выше)
-		в таб «Описание» карточки товара. Для смены темы редактируйте #rich-vars.
-	-->
-	<div class="brt-rich">
-		@@include('partials/blocks/_hero.html')
-		@@include('partials/blocks/_hero-badges.html')
-		@@include('partials/blocks/_hero-card.html')
-		@@include('partials/blocks/_bypass-motor.html')
-	</div>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Rich Content</title>
+		@@include('partials/_styles-all.html')
+	</head>
+	<body>
+		<div class="brt-rich">
+			@@include('partials/blocks/_hero.html')
+			@@include('partials/blocks/_hero-badges.html')
+			@@include('partials/blocks/_hero-card.html')
+			@@include('partials/blocks/_bypass-motor.html')
+			@@include('partials/blocks/_bypass-comparing.html')
+			@@include('partials/blocks/_application-areas.html')
+			@@include('partials/blocks/_collaboration-mode.html')
+			@@include('partials/blocks/_hose.html')
+			@@include('partials/blocks/_specs-panel.html')
+			@@include('partials/blocks/_filters.html')
+			@@include('partials/blocks/_dust-class.html')
+			@@include('partials/blocks/_benefits.html')
+			@@include('partials/blocks/_model-features.html')
+		</div>
+	</body>
 </html>

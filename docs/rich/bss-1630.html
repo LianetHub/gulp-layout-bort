@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="ru">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Rich Content — Bort TITAN 9000 Control</title>
-	<!-- AUTO-GENERATED from src/rich/scss/vars.scss — редактируйте SCSS, не этот файл -->
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Rich Content</title>
+		<!-- AUTO-GENERATED from src/rich/scss/vars.scss — редактируйте SCSS, не этот файл -->
 <style id="rich-vars">
 /*
  * THEME VARIABLES — редактируйте этот блок для кастомизации под конкретный сайт.
@@ -34,8 +34,49 @@
   --rich-hero-perk-icon-gap: 8px;
   --rich-hero-badge-gap: 10px;
   --rich-card-gap: 14px;
+  --rich-specs-gap: 5px;
+  --rich-application-areas-gap: 10px;
+  --rich-application-areas-frame-padding: 10px;
+  --rich-application-areas-media-height: 178px;
+  --rich-application-areas-title-gap: 15px;
+  --rich-dust-class-padding-y: 33px;
+  --rich-dust-class-padding-x: 38px;
+  --rich-dust-class-icon-size: 144px;
+  --rich-benefits-gap: 10px;
+  --rich-benefits-title-gap: 20px;
+  --rich-benefits-media-height: 199px;
+  --rich-benefits-card-min-height: 470px;
+  --rich-benefits-card-padding-x: 25px;
+  --rich-benefits-card-padding-y: 22px;
+  --rich-benefits-body-gap: 22px;
+  --rich-benefits-text-gap: 17px;
+  --rich-hose-media-width: 267px;
+  --rich-hose-media-height: 329px;
+  --rich-hose-title-gap: 17px;
+  --rich-collaboration-mode-badge-size: 108px;
+  --rich-collaboration-mode-badge-height: 104px;
+  --rich-collaboration-mode-badges-gap: 65px;
+  --rich-collaboration-mode-modes-gap: 5px;
+  --rich-collaboration-mode-desc-gap: 16px;
+  --rich-model-features-gap: 10px;
+  --rich-model-features-title-gap: 15px;
+  --rich-model-features-card-padding-x: 35px;
+  --rich-model-features-card-padding-y: 28px;
+  --rich-model-features-fixation-min-height: 231px;
+  --rich-model-features-tank-min-height: 174px;
+  --rich-model-features-text-min-height: 293px;
+  --rich-model-features-tank-icon-size: 82px;
+  --rich-model-features-blow-media-height: 117px;
+  --rich-model-features-body-gap: 14px;
   --rich-card-padding-y: 28px;
   --rich-card-padding-x: 36px;
+  --rich-filters-min-height: 451px;
+  --rich-filters-col-gap: 14px;
+  --rich-filters-mode-gap: 6px;
+  --rich-filters-title-gap: 10px;
+  --rich-filters-desc-gap: 18px;
+  --rich-filters-feature-height: 166px;
+  --rich-filters-feature-padding: 27px;
   /* --- Colors (Цвета) */
   --rich-color-accent: #fb7e00;
   --rich-color-accent-fill: #ff9b35;
@@ -53,7 +94,6 @@
   --rich-font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   --rich-font-family-display: "Russo One", "Roboto", sans-serif;
   --rich-font-size-page-title: 22px;
-  --rich-font-size-page-title-mobile: 16px;
   --rich-font-size-h1: 25px;
   --rich-font-size-h2: 29px;
   --rich-font-size-h3: 18px;
@@ -65,6 +105,7 @@
   --rich-font-size-small: 14px;
   --rich-font-size-badge: 15px;
   --rich-font-size-stat: 22px;
+  --rich-font-size-spec-value: 32px;
   --rich-font-size-display: 56px;
   --rich-line-height: 1.5;
   --rich-font-weight-bold: 700;
@@ -89,1022 +130,2033 @@
 }
 </style>
 
-	<!-- AUTO-GENERATED from src/rich/scss/base.scss — редактируйте SCSS, не этот файл -->
-	<style id="rich-base">
-	/*
-	 * STRUCTURAL STYLES — не изменяйте без необходимости.
-	 * Grid, flex, breakpoints, изоляция от стилей хост-сайта.
-	 */
-	@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Russo+One&display=swap");
-	.brt-rich *,
-	.brt-rich *::before,
-	.brt-rich *::after {
-	  padding: 0;
-	  margin: 0;
-	  border: 0;
-	}
-	.brt-rich article,
-	.brt-rich aside,
-	.brt-rich details,
-	.brt-rich figcaption,
-	.brt-rich figure,
-	.brt-rich footer,
-	.brt-rich header,
-	.brt-rich hgroup,
-	.brt-rich menu,
-	.brt-rich section {
-	  display: block;
-	}
-	.brt-rich ol,
-	.brt-rich ul {
-	  list-style: none;
-	}
-	.brt-rich img {
-	  vertical-align: top;
-	}
-	.brt-rich sup {
-	  vertical-align: text-top;
-	}
-	.brt-rich sub {
-	  vertical-align: text-bottom;
-	}
-	.brt-rich table {
-	  border-collapse: collapse;
-	  border-spacing: 0;
-	}
-	.brt-rich address {
-	  font-style: normal;
-	}
-	.brt-rich a {
-	  background-color: transparent;
-	  text-decoration: none;
-	  outline: none;
-	  color: inherit;
-	  -webkit-tap-highlight-color: transparent;
-	}
-	.brt-rich a:focus, .brt-rich a:active {
-	  outline: none;
-	}
-	.brt-rich :focus,
-	.brt-rich :active {
-	  outline: none;
-	}
-	.brt-rich input,
-	.brt-rich button,
-	.brt-rich textarea {
-	  font-family: inherit;
-	  font-size: inherit;
-	}
-	.brt-rich input::placeholder,
-	.brt-rich textarea::placeholder {
-	  opacity: 1;
-	}
-	.brt-rich input::-ms-clear {
-	  display: none;
-	}
-	.brt-rich button,
-	.brt-rich [role=button] {
-	  cursor: pointer;
-	  background-color: inherit;
-	  -webkit-tap-highlight-color: transparent;
-	  color: inherit;
-	}
-	.brt-rich button::-moz-focus-inner,
-	.brt-rich [type=button]::-moz-focus-inner,
-	.brt-rich [type=reset]::-moz-focus-inner,
-	.brt-rich [type=submit]::-moz-focus-inner {
-	  border-style: none;
-	  padding: 0;
-	}
-	.brt-rich button,
-	.brt-rich [type=button],
-	.brt-rich [type=reset],
-	.brt-rich [type=submit] {
-	  -webkit-appearance: button;
-	}
-	.brt-rich input[type=number]::-webkit-outer-spin-button,
-	.brt-rich input[type=number]::-webkit-inner-spin-button {
-	  -webkit-appearance: none;
-	  margin: 0;
-	}
-	.brt-rich input[type=number] {
-	  -moz-appearance: textfield;
-	}
-	.brt-rich [type=search] {
-	  -webkit-appearance: textfield;
-	  outline-offset: -2px;
-	}
-	.brt-rich [type=search]::-webkit-search-decoration {
-	  -webkit-appearance: none;
-	}
-	.brt-rich ::-webkit-file-upload-button {
-	  -webkit-appearance: button;
-	}
+		<!-- AUTO-GENERATED from src/rich/scss/base.scss — редактируйте SCSS, не этот файл -->
+		<style id="rich-base">
+		/*
+		 * STRUCTURAL STYLES — не изменяйте без необходимости.
+		 * Grid, flex, breakpoints, изоляция от стилей хост-сайта.
+		 */
+		@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Russo+One&display=swap");
+		.brt-rich *,
+		.brt-rich *::before,
+		.brt-rich *::after {
+		  padding: 0;
+		  margin: 0;
+		  border: 0;
+		}
+		.brt-rich article,
+		.brt-rich aside,
+		.brt-rich details,
+		.brt-rich figcaption,
+		.brt-rich figure,
+		.brt-rich footer,
+		.brt-rich header,
+		.brt-rich hgroup,
+		.brt-rich menu,
+		.brt-rich section {
+		  display: block;
+		}
+		.brt-rich ol,
+		.brt-rich ul {
+		  list-style: none;
+		}
+		.brt-rich img {
+		  vertical-align: top;
+		}
+		.brt-rich sup {
+		  vertical-align: text-top;
+		}
+		.brt-rich sub {
+		  vertical-align: text-bottom;
+		}
+		.brt-rich table {
+		  border-collapse: collapse;
+		  border-spacing: 0;
+		}
+		.brt-rich address {
+		  font-style: normal;
+		}
+		.brt-rich a {
+		  background-color: transparent;
+		  text-decoration: none;
+		  outline: none;
+		  color: inherit;
+		  -webkit-tap-highlight-color: transparent;
+		}
+		.brt-rich a:focus, .brt-rich a:active {
+		  outline: none;
+		}
+		.brt-rich :focus,
+		.brt-rich :active {
+		  outline: none;
+		}
+		.brt-rich input,
+		.brt-rich button,
+		.brt-rich textarea {
+		  font-family: inherit;
+		  font-size: inherit;
+		}
+		.brt-rich input::placeholder,
+		.brt-rich textarea::placeholder {
+		  opacity: 1;
+		}
+		.brt-rich input::-ms-clear {
+		  display: none;
+		}
+		.brt-rich button,
+		.brt-rich [role=button] {
+		  cursor: pointer;
+		  background-color: inherit;
+		  -webkit-tap-highlight-color: transparent;
+		  color: inherit;
+		}
+		.brt-rich button::-moz-focus-inner,
+		.brt-rich [type=button]::-moz-focus-inner,
+		.brt-rich [type=reset]::-moz-focus-inner,
+		.brt-rich [type=submit]::-moz-focus-inner {
+		  border-style: none;
+		  padding: 0;
+		}
+		.brt-rich button,
+		.brt-rich [type=button],
+		.brt-rich [type=reset],
+		.brt-rich [type=submit] {
+		  -webkit-appearance: button;
+		}
+		.brt-rich input[type=number]::-webkit-outer-spin-button,
+		.brt-rich input[type=number]::-webkit-inner-spin-button {
+		  -webkit-appearance: none;
+		  margin: 0;
+		}
+		.brt-rich input[type=number] {
+		  -moz-appearance: textfield;
+		}
+		.brt-rich [type=search] {
+		  -webkit-appearance: textfield;
+		  outline-offset: -2px;
+		}
+		.brt-rich [type=search]::-webkit-search-decoration {
+		  -webkit-appearance: none;
+		}
+		.brt-rich ::-webkit-file-upload-button {
+		  -webkit-appearance: button;
+		}
 
-	.brt-rich .brt-rich-row {
-	  --rich-gutter-x: var(--rich-row-gap);
-	  display: flex;
-	  flex-wrap: wrap;
-	  margin-top: calc(-1 * var(--rich-gutter-y));
-	  margin-right: calc(-0.5 * var(--rich-gutter-x));
-	  margin-left: calc(-0.5 * var(--rich-gutter-x));
-	  min-width: 0;
-	}
-	.brt-rich .brt-rich-row > * {
-	  flex-shrink: 0;
-	  width: 100%;
-	  max-width: 100%;
-	  min-width: 0;
-	  padding-right: calc(var(--rich-gutter-x) * 0.5);
-	  padding-left: calc(var(--rich-gutter-x) * 0.5);
-	  margin-top: var(--rich-gutter-y);
-	}
-	.brt-rich .brt-rich-row--align-center {
-	  align-items: center;
-	}
-	@media (min-width: 767.98px) {
-	  .brt-rich .brt-rich-row--reverse {
-	    flex-direction: row-reverse;
-	  }
-	}
-	.brt-rich .brt-rich-row--gutter-0 {
-	  --rich-gutter-x: 0;
-	  --rich-gutter-y: 0;
-	}
-	.brt-rich .brt-rich-row--hero > .brt-rich-col-grow {
-	  flex: 1 1 0;
-	  width: auto;
-	  max-width: 100%;
-	}
-	@media (min-width: 767.98px) {
-	  .brt-rich .brt-rich-row--hero > .brt-rich-col-grow {
-	    flex: 1 1 0;
-	    max-width: calc(100% - var(--rich-hero-media-width));
-	  }
-	}
-	.brt-rich .brt-rich-row--hero > .brt-rich-col-hero-media {
-	  flex: 0 0 auto;
-	  width: 100%;
-	  max-width: 100%;
-	}
-	@media (min-width: 767.98px) {
-	  .brt-rich .brt-rich-row--hero > .brt-rich-col-hero-media {
-	    flex: 0 0 var(--rich-hero-media-width);
-	    width: var(--rich-hero-media-width);
-	    max-width: var(--rich-hero-media-width);
-	  }
-	}
-	.brt-rich .brt-rich-row--gap-hero-card {
-	  --rich-gutter-x: var(--rich-hero-card-gap);
-	}
-	.brt-rich .brt-rich-row--gap-hero-perks {
-	  --rich-gutter-x: var(--rich-hero-perks-gap);
-	}
-	.brt-rich .brt-rich-row--gap-hero-badges {
-	  --rich-gutter-x: var(--rich-hero-badges-gap);
-	}
-	.brt-rich .brt-rich-row--gap-card {
-	  --rich-gutter-x: var(--rich-card-gap);
-	}
-	.brt-rich .brt-rich-col {
-	  flex: 1 1 0;
-	  width: auto;
-	  max-width: 100%;
-	}
-	.brt-rich .brt-rich-col-auto {
-	  flex: 0 0 auto;
-	  width: auto;
-	  max-width: 100%;
-	}
-	.brt-rich .brt-rich-col-grow {
-	  flex: 1 1 0;
-	  width: auto;
-	  max-width: 100%;
-	}
-	.brt-rich .brt-rich-col-1 {
-	  flex: 0 0 auto;
-	  width: 8.3333333333%;
-	}
-	.brt-rich .brt-rich-col-2 {
-	  flex: 0 0 auto;
-	  width: 16.6666666667%;
-	}
-	.brt-rich .brt-rich-col-3 {
-	  flex: 0 0 auto;
-	  width: 25%;
-	}
-	.brt-rich .brt-rich-col-4 {
-	  flex: 0 0 auto;
-	  width: 33.3333333333%;
-	}
-	.brt-rich .brt-rich-col-5 {
-	  flex: 0 0 auto;
-	  width: 41.6666666667%;
-	}
-	.brt-rich .brt-rich-col-6 {
-	  flex: 0 0 auto;
-	  width: 50%;
-	}
-	.brt-rich .brt-rich-col-7 {
-	  flex: 0 0 auto;
-	  width: 58.3333333333%;
-	}
-	.brt-rich .brt-rich-col-8 {
-	  flex: 0 0 auto;
-	  width: 66.6666666667%;
-	}
-	.brt-rich .brt-rich-col-9 {
-	  flex: 0 0 auto;
-	  width: 75%;
-	}
-	.brt-rich .brt-rich-col-10 {
-	  flex: 0 0 auto;
-	  width: 83.3333333333%;
-	}
-	.brt-rich .brt-rich-col-11 {
-	  flex: 0 0 auto;
-	  width: 91.6666666667%;
-	}
-	.brt-rich .brt-rich-col-12 {
-	  flex: 0 0 auto;
-	  width: 100%;
-	}
-	@media (min-width: 575.98px) {
-	  .brt-rich .brt-rich-col-sm-1 {
-	    flex: 0 0 auto;
-	    width: 8.3333333333%;
-	  }
-	  .brt-rich .brt-rich-col-sm-2 {
-	    flex: 0 0 auto;
-	    width: 16.6666666667%;
-	  }
-	  .brt-rich .brt-rich-col-sm-3 {
-	    flex: 0 0 auto;
-	    width: 25%;
-	  }
-	  .brt-rich .brt-rich-col-sm-4 {
-	    flex: 0 0 auto;
-	    width: 33.3333333333%;
-	  }
-	  .brt-rich .brt-rich-col-sm-5 {
-	    flex: 0 0 auto;
-	    width: 41.6666666667%;
-	  }
-	  .brt-rich .brt-rich-col-sm-6 {
-	    flex: 0 0 auto;
-	    width: 50%;
-	  }
-	  .brt-rich .brt-rich-col-sm-7 {
-	    flex: 0 0 auto;
-	    width: 58.3333333333%;
-	  }
-	  .brt-rich .brt-rich-col-sm-8 {
-	    flex: 0 0 auto;
-	    width: 66.6666666667%;
-	  }
-	  .brt-rich .brt-rich-col-sm-9 {
-	    flex: 0 0 auto;
-	    width: 75%;
-	  }
-	  .brt-rich .brt-rich-col-sm-10 {
-	    flex: 0 0 auto;
-	    width: 83.3333333333%;
-	  }
-	  .brt-rich .brt-rich-col-sm-11 {
-	    flex: 0 0 auto;
-	    width: 91.6666666667%;
-	  }
-	  .brt-rich .brt-rich-col-sm-12 {
-	    flex: 0 0 auto;
-	    width: 100%;
-	  }
-	}
-	@media (min-width: 767.98px) {
-	  .brt-rich .brt-rich-col-md-1 {
-	    flex: 0 0 auto;
-	    width: 8.3333333333%;
-	  }
-	  .brt-rich .brt-rich-col-md-2 {
-	    flex: 0 0 auto;
-	    width: 16.6666666667%;
-	  }
-	  .brt-rich .brt-rich-col-md-3 {
-	    flex: 0 0 auto;
-	    width: 25%;
-	  }
-	  .brt-rich .brt-rich-col-md-4 {
-	    flex: 0 0 auto;
-	    width: 33.3333333333%;
-	  }
-	  .brt-rich .brt-rich-col-md-5 {
-	    flex: 0 0 auto;
-	    width: 41.6666666667%;
-	  }
-	  .brt-rich .brt-rich-col-md-6 {
-	    flex: 0 0 auto;
-	    width: 50%;
-	  }
-	  .brt-rich .brt-rich-col-md-7 {
-	    flex: 0 0 auto;
-	    width: 58.3333333333%;
-	  }
-	  .brt-rich .brt-rich-col-md-8 {
-	    flex: 0 0 auto;
-	    width: 66.6666666667%;
-	  }
-	  .brt-rich .brt-rich-col-md-9 {
-	    flex: 0 0 auto;
-	    width: 75%;
-	  }
-	  .brt-rich .brt-rich-col-md-10 {
-	    flex: 0 0 auto;
-	    width: 83.3333333333%;
-	  }
-	  .brt-rich .brt-rich-col-md-11 {
-	    flex: 0 0 auto;
-	    width: 91.6666666667%;
-	  }
-	  .brt-rich .brt-rich-col-md-12 {
-	    flex: 0 0 auto;
-	    width: 100%;
-	  }
-	}
-	@media (min-width: 991.98px) {
-	  .brt-rich .brt-rich-col-lg-1 {
-	    flex: 0 0 auto;
-	    width: 8.3333333333%;
-	  }
-	  .brt-rich .brt-rich-col-lg-2 {
-	    flex: 0 0 auto;
-	    width: 16.6666666667%;
-	  }
-	  .brt-rich .brt-rich-col-lg-3 {
-	    flex: 0 0 auto;
-	    width: 25%;
-	  }
-	  .brt-rich .brt-rich-col-lg-4 {
-	    flex: 0 0 auto;
-	    width: 33.3333333333%;
-	  }
-	  .brt-rich .brt-rich-col-lg-5 {
-	    flex: 0 0 auto;
-	    width: 41.6666666667%;
-	  }
-	  .brt-rich .brt-rich-col-lg-6 {
-	    flex: 0 0 auto;
-	    width: 50%;
-	  }
-	  .brt-rich .brt-rich-col-lg-7 {
-	    flex: 0 0 auto;
-	    width: 58.3333333333%;
-	  }
-	  .brt-rich .brt-rich-col-lg-8 {
-	    flex: 0 0 auto;
-	    width: 66.6666666667%;
-	  }
-	  .brt-rich .brt-rich-col-lg-9 {
-	    flex: 0 0 auto;
-	    width: 75%;
-	  }
-	  .brt-rich .brt-rich-col-lg-10 {
-	    flex: 0 0 auto;
-	    width: 83.3333333333%;
-	  }
-	  .brt-rich .brt-rich-col-lg-11 {
-	    flex: 0 0 auto;
-	    width: 91.6666666667%;
-	  }
-	  .brt-rich .brt-rich-col-lg-12 {
-	    flex: 0 0 auto;
-	    width: 100%;
-	  }
-	}
+		.brt-rich .brt-rich-row {
+		  --rich-gutter-x: var(--rich-row-gap);
+		  display: flex;
+		  flex-wrap: wrap;
+		  margin-top: calc(-1 * var(--rich-gutter-y));
+		  margin-right: calc(-0.5 * var(--rich-gutter-x));
+		  margin-left: calc(-0.5 * var(--rich-gutter-x));
+		  min-width: 0;
+		}
+		.brt-rich .brt-rich-row > * {
+		  flex-shrink: 0;
+		  width: 100%;
+		  max-width: 100%;
+		  min-width: 0;
+		  padding-right: calc(var(--rich-gutter-x) * 0.5);
+		  padding-left: calc(var(--rich-gutter-x) * 0.5);
+		  margin-top: var(--rich-gutter-y);
+		}
+		.brt-rich .brt-rich-row--align-center {
+		  align-items: center;
+		}
+		@media (min-width: 767.98px) {
+		  .brt-rich .brt-rich-row--reverse {
+		    flex-direction: row-reverse;
+		  }
+		}
+		.brt-rich .brt-rich-row--gutter-0 {
+		  --rich-gutter-x: 0;
+		  --rich-gutter-y: 0;
+		}
+		.brt-rich .brt-rich-row--hero > .brt-rich-col-grow {
+		  flex: 1 1 0;
+		  width: auto;
+		  max-width: 100%;
+		}
+		@media (min-width: 767.98px) {
+		  .brt-rich .brt-rich-row--hero > .brt-rich-col-grow {
+		    flex: 1 1 0;
+		    max-width: calc(100% - var(--rich-hero-media-width));
+		  }
+		}
+		.brt-rich .brt-rich-row--hero > .brt-rich-col-hero-media {
+		  flex: 0 0 auto;
+		  width: 100%;
+		  max-width: 100%;
+		}
+		@media (min-width: 767.98px) {
+		  .brt-rich .brt-rich-row--hero > .brt-rich-col-hero-media {
+		    flex: 0 0 var(--rich-hero-media-width);
+		    width: var(--rich-hero-media-width);
+		    max-width: var(--rich-hero-media-width);
+		  }
+		}
+		.brt-rich .brt-rich-row--gap-hero-card {
+		  --rich-gutter-x: var(--rich-hero-card-gap);
+		}
+		.brt-rich .brt-rich-row--gap-hero-perks {
+		  --rich-gutter-x: var(--rich-hero-perks-gap);
+		}
+		.brt-rich .brt-rich-row--gap-hero-badges {
+		  --rich-gutter-x: var(--rich-hero-badges-gap);
+		}
+		.brt-rich .brt-rich-row--gap-card {
+		  --rich-gutter-x: var(--rich-card-gap);
+		}
+		.brt-rich .brt-rich-row--gap-application-areas {
+		  --rich-gutter-x: var(--rich-application-areas-gap);
+		  --rich-gutter-y: var(--rich-application-areas-gap);
+		}
+		.brt-rich .brt-rich-row--gap-benefits {
+		  --rich-gutter-x: var(--rich-benefits-gap);
+		  --rich-gutter-y: var(--rich-benefits-gap);
+		}
+		.brt-rich .brt-rich-row--gap-specs {
+		  --rich-gutter-x: var(--rich-specs-gap);
+		  --rich-gutter-y: var(--rich-specs-gap);
+		}
+		.brt-rich .brt-rich-row--gap-model-features {
+		  --rich-gutter-x: var(--rich-model-features-gap);
+		  --rich-gutter-y: var(--rich-model-features-gap);
+		}
+		.brt-rich .brt-rich-col {
+		  flex: 1 1 0;
+		  width: auto;
+		  max-width: 100%;
+		}
+		.brt-rich .brt-rich-col-auto {
+		  flex: 0 0 auto;
+		  width: auto;
+		  max-width: 100%;
+		}
+		.brt-rich .brt-rich-col-grow {
+		  flex: 1 1 0;
+		  width: auto;
+		  max-width: 100%;
+		}
+		.brt-rich .brt-rich-col-1 {
+		  flex: 0 0 auto;
+		  width: 8.3333333333%;
+		}
+		.brt-rich .brt-rich-col-2 {
+		  flex: 0 0 auto;
+		  width: 16.6666666667%;
+		}
+		.brt-rich .brt-rich-col-3 {
+		  flex: 0 0 auto;
+		  width: 25%;
+		}
+		.brt-rich .brt-rich-col-4 {
+		  flex: 0 0 auto;
+		  width: 33.3333333333%;
+		}
+		.brt-rich .brt-rich-col-5 {
+		  flex: 0 0 auto;
+		  width: 41.6666666667%;
+		}
+		.brt-rich .brt-rich-col-6 {
+		  flex: 0 0 auto;
+		  width: 50%;
+		}
+		.brt-rich .brt-rich-col-7 {
+		  flex: 0 0 auto;
+		  width: 58.3333333333%;
+		}
+		.brt-rich .brt-rich-col-8 {
+		  flex: 0 0 auto;
+		  width: 66.6666666667%;
+		}
+		.brt-rich .brt-rich-col-9 {
+		  flex: 0 0 auto;
+		  width: 75%;
+		}
+		.brt-rich .brt-rich-col-10 {
+		  flex: 0 0 auto;
+		  width: 83.3333333333%;
+		}
+		.brt-rich .brt-rich-col-11 {
+		  flex: 0 0 auto;
+		  width: 91.6666666667%;
+		}
+		.brt-rich .brt-rich-col-12 {
+		  flex: 0 0 auto;
+		  width: 100%;
+		}
+		@media (min-width: 575.98px) {
+		  .brt-rich .brt-rich-col-sm-1 {
+		    flex: 0 0 auto;
+		    width: 8.3333333333%;
+		  }
+		  .brt-rich .brt-rich-col-sm-2 {
+		    flex: 0 0 auto;
+		    width: 16.6666666667%;
+		  }
+		  .brt-rich .brt-rich-col-sm-3 {
+		    flex: 0 0 auto;
+		    width: 25%;
+		  }
+		  .brt-rich .brt-rich-col-sm-4 {
+		    flex: 0 0 auto;
+		    width: 33.3333333333%;
+		  }
+		  .brt-rich .brt-rich-col-sm-5 {
+		    flex: 0 0 auto;
+		    width: 41.6666666667%;
+		  }
+		  .brt-rich .brt-rich-col-sm-6 {
+		    flex: 0 0 auto;
+		    width: 50%;
+		  }
+		  .brt-rich .brt-rich-col-sm-7 {
+		    flex: 0 0 auto;
+		    width: 58.3333333333%;
+		  }
+		  .brt-rich .brt-rich-col-sm-8 {
+		    flex: 0 0 auto;
+		    width: 66.6666666667%;
+		  }
+		  .brt-rich .brt-rich-col-sm-9 {
+		    flex: 0 0 auto;
+		    width: 75%;
+		  }
+		  .brt-rich .brt-rich-col-sm-10 {
+		    flex: 0 0 auto;
+		    width: 83.3333333333%;
+		  }
+		  .brt-rich .brt-rich-col-sm-11 {
+		    flex: 0 0 auto;
+		    width: 91.6666666667%;
+		  }
+		  .brt-rich .brt-rich-col-sm-12 {
+		    flex: 0 0 auto;
+		    width: 100%;
+		  }
+		}
+		@media (min-width: 767.98px) {
+		  .brt-rich .brt-rich-col-md-1 {
+		    flex: 0 0 auto;
+		    width: 8.3333333333%;
+		  }
+		  .brt-rich .brt-rich-col-md-2 {
+		    flex: 0 0 auto;
+		    width: 16.6666666667%;
+		  }
+		  .brt-rich .brt-rich-col-md-3 {
+		    flex: 0 0 auto;
+		    width: 25%;
+		  }
+		  .brt-rich .brt-rich-col-md-4 {
+		    flex: 0 0 auto;
+		    width: 33.3333333333%;
+		  }
+		  .brt-rich .brt-rich-col-md-5 {
+		    flex: 0 0 auto;
+		    width: 41.6666666667%;
+		  }
+		  .brt-rich .brt-rich-col-md-6 {
+		    flex: 0 0 auto;
+		    width: 50%;
+		  }
+		  .brt-rich .brt-rich-col-md-7 {
+		    flex: 0 0 auto;
+		    width: 58.3333333333%;
+		  }
+		  .brt-rich .brt-rich-col-md-8 {
+		    flex: 0 0 auto;
+		    width: 66.6666666667%;
+		  }
+		  .brt-rich .brt-rich-col-md-9 {
+		    flex: 0 0 auto;
+		    width: 75%;
+		  }
+		  .brt-rich .brt-rich-col-md-10 {
+		    flex: 0 0 auto;
+		    width: 83.3333333333%;
+		  }
+		  .brt-rich .brt-rich-col-md-11 {
+		    flex: 0 0 auto;
+		    width: 91.6666666667%;
+		  }
+		  .brt-rich .brt-rich-col-md-12 {
+		    flex: 0 0 auto;
+		    width: 100%;
+		  }
+		}
+		@media (min-width: 991.98px) {
+		  .brt-rich .brt-rich-col-lg-1 {
+		    flex: 0 0 auto;
+		    width: 8.3333333333%;
+		  }
+		  .brt-rich .brt-rich-col-lg-2 {
+		    flex: 0 0 auto;
+		    width: 16.6666666667%;
+		  }
+		  .brt-rich .brt-rich-col-lg-3 {
+		    flex: 0 0 auto;
+		    width: 25%;
+		  }
+		  .brt-rich .brt-rich-col-lg-4 {
+		    flex: 0 0 auto;
+		    width: 33.3333333333%;
+		  }
+		  .brt-rich .brt-rich-col-lg-5 {
+		    flex: 0 0 auto;
+		    width: 41.6666666667%;
+		  }
+		  .brt-rich .brt-rich-col-lg-6 {
+		    flex: 0 0 auto;
+		    width: 50%;
+		  }
+		  .brt-rich .brt-rich-col-lg-7 {
+		    flex: 0 0 auto;
+		    width: 58.3333333333%;
+		  }
+		  .brt-rich .brt-rich-col-lg-8 {
+		    flex: 0 0 auto;
+		    width: 66.6666666667%;
+		  }
+		  .brt-rich .brt-rich-col-lg-9 {
+		    flex: 0 0 auto;
+		    width: 75%;
+		  }
+		  .brt-rich .brt-rich-col-lg-10 {
+		    flex: 0 0 auto;
+		    width: 83.3333333333%;
+		  }
+		  .brt-rich .brt-rich-col-lg-11 {
+		    flex: 0 0 auto;
+		    width: 91.6666666667%;
+		  }
+		  .brt-rich .brt-rich-col-lg-12 {
+		    flex: 0 0 auto;
+		    width: 100%;
+		  }
+		}
 
-	.brt-rich,
-	.brt-rich *,
-	.brt-rich *::before,
-	.brt-rich *::after {
-	  box-sizing: border-box;
-	}
+		.brt-rich,
+		.brt-rich *,
+		.brt-rich *::before,
+		.brt-rich *::after {
+		  box-sizing: border-box;
+		}
 
-	.brt-rich {
-	  display: block;
-	  width: 100%;
-	  min-width: 0;
-	  font-family: var(--rich-font-family);
-	  font-size: var(--rich-font-size-body);
-	  line-height: var(--rich-line-height);
-	  color: var(--rich-color-text);
-	  background: var(--rich-color-bg);
-	  -webkit-font-smoothing: antialiased;
-	}
-	.brt-rich img {
-	  max-width: 100%;
-	  height: auto;
-	  display: block;
-	}
-	.brt-rich__container {
-	  width: 100%;
-	  max-width: var(--rich-max-width);
-	  margin-inline: auto;
-	  padding-inline: var(--rich-padding-x);
-	  min-width: 0;
-	}
-	@media (max-width: 767.98px) {
-	  .brt-rich__container {
-	    padding-inline: var(--rich-padding-x-mobile);
-	  }
-	}
-	.brt-rich__section {
-	  padding-block: var(--rich-section-gap);
-	}
-	.brt-rich__section + .brt-rich__section {
-	  padding-top: 0;
-	}
-	.brt-rich__section-head {
-	  text-align: center;
-	  margin-bottom: var(--rich-space-xl);
-	}
-	.brt-rich__section-head--left {
-	  text-align: left;
-	}
-	.brt-rich__placeholder {
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  background: var(--rich-color-bg-muted);
-	  color: var(--rich-color-text-muted);
-	  font-size: var(--rich-font-size-small);
-	  border-radius: var(--rich-radius-md);
-	  min-height: 200px;
-	  text-align: center;
-	  padding: var(--rich-space-md);
-	}
-	</style>
+		.brt-rich {
+		  display: block;
+		  width: 100%;
+		  min-width: 0;
+		  font-family: var(--rich-font-family);
+		  font-size: var(--rich-font-size-body);
+		  line-height: var(--rich-line-height);
+		  color: var(--rich-color-text);
+		  background: var(--rich-color-bg);
+		  -webkit-font-smoothing: antialiased;
+		}
+		.brt-rich img {
+		  max-width: 100%;
+		  height: auto;
+		  display: block;
+		}
+		.brt-rich__container {
+		  width: 100%;
+		  max-width: var(--rich-max-width);
+		  margin-inline: auto;
+		  padding-inline: var(--rich-padding-x);
+		  min-width: 0;
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__container {
+		    padding-inline: var(--rich-padding-x-mobile);
+		  }
+		}
+		.brt-rich__section {
+		  padding-block: var(--rich-section-gap);
+		}
+		.brt-rich__section + .brt-rich__section {
+		  padding-top: 0;
+		}
+		.brt-rich__section-head {
+		  text-align: center;
+		  margin-bottom: var(--rich-space-xl);
+		}
+		.brt-rich__section-head--left {
+		  text-align: left;
+		}
+		.brt-rich__placeholder {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  background: var(--rich-color-bg-muted);
+		  color: var(--rich-color-text-muted);
+		  font-size: var(--rich-font-size-small);
+		  border-radius: var(--rich-radius-md);
+		  min-height: 200px;
+		  text-align: center;
+		  padding: var(--rich-space-md);
+		}
+		</style>
 
-	<!-- AUTO-GENERATED from src/rich/scss/theme.scss — редактируйте SCSS, не этот файл -->
-	<style id="rich-theme">
-	/*
-	 * THEME STYLES — типографика, цвета компонентов через var().
-	 * Для смены темы достаточно изменить #rich-vars; здесь — применение переменных.
-	 */
-	.brt-rich {
-	  /* --- Atoms: Typography --- */
-	  /* --- Molecules --- */
-	}
-	.brt-rich__subheading {
-	  margin: 0 0 var(--rich-space-sm);
-	  font-size: var(--rich-font-size-small);
-	  font-weight: var(--rich-font-weight-bold);
-	  text-transform: uppercase;
-	  letter-spacing: 0.04em;
-	  color: var(--rich-color-text-muted);
-	}
-	.brt-rich__subheading--accent {
-	  color: var(--rich-color-accent);
-	}
-	.brt-rich__heading {
-	  margin: 0;
-	  font-weight: var(--rich-font-weight-bold);
-	  color: var(--rich-color-text);
-	  line-height: 1.2;
-	}
-	.brt-rich__heading--h1 {
-	  font-size: var(--rich-font-size-h1);
-	}
-	.brt-rich__heading--h2 {
-	  font-size: var(--rich-font-size-h2);
-	}
-	.brt-rich__heading--h3 {
-	  font-size: var(--rich-font-size-h3);
-	  font-weight: var(--rich-font-weight-semibold);
-	}
-	.brt-rich__heading--center {
-	  text-align: center;
-	}
-	.brt-rich__text {
-	  margin: 0;
-	  font-size: var(--rich-font-size-body);
-	  color: var(--rich-color-text-muted);
-	  line-height: var(--rich-line-height);
-	}
-	.brt-rich__text + .brt-rich__text {
-	  margin-top: var(--rich-space-sm);
-	}
-	.brt-rich__text--small {
-	  font-size: var(--rich-font-size-small);
-	}
-	.brt-rich__text--inverse {
-	  color: var(--rich-color-text-inverse);
-	  opacity: 0.9;
-	}
-	.brt-rich__stat {
-	  text-align: center;
-	}
-	.brt-rich__stat-value {
-	  display: block;
-	  font-size: var(--rich-font-size-stat);
-	  font-weight: var(--rich-font-weight-bold);
-	  color: var(--rich-color-text);
-	  line-height: 1.2;
-	}
-	.brt-rich__stat-label {
-	  display: block;
-	  margin-top: var(--rich-space-xs);
-	  font-size: var(--rich-font-size-small);
-	  color: var(--rich-color-text-muted);
-	}
-	.brt-rich__badge {
-	  display: inline-flex;
-	  align-items: center;
-	  gap: var(--rich-space-xs);
-	  padding: var(--rich-space-xs) var(--rich-space-sm);
-	  font-size: var(--rich-font-size-small);
-	  font-weight: var(--rich-font-weight-semibold);
-	  color: var(--rich-color-accent);
-	  background: transparent;
-	  border: 1px solid var(--rich-color-accent);
-	  border-radius: var(--rich-radius-sm);
-	}
-	.brt-rich__media {
-	  border-radius: var(--rich-radius-md);
-	  overflow: hidden;
-	}
-	.brt-rich__media img {
-	  width: 100%;
-	  object-fit: cover;
-	}
-	.brt-rich__logo {
-	  display: block;
-	  flex-shrink: 0;
-	  line-height: 0;
-	}
-	.brt-rich__logo img {
-	  display: block;
-	  width: 158px;
-	  height: auto;
-	}
-	.brt-rich__card {
-	  border-radius: var(--rich-radius-lg);
-	  background: var(--rich-color-bg-muted);
-	  padding: var(--rich-card-padding-y) var(--rich-card-padding-x);
-	}
-	.brt-rich__card--horizontal > .brt-rich-row {
-	  align-items: center;
-	}
-	.brt-rich__card-logo {
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	}
-	.brt-rich__card-logo-img {
-	  width: 212px;
-	  height: auto;
-	}
-	.brt-rich__card-text {
-	  margin: 0;
-	  font-size: var(--rich-font-size-hero-desc);
-	  font-weight: var(--rich-font-weight-normal);
-	  line-height: normal;
-	  color: var(--rich-color-text-heading);
-	}
-	.brt-rich__bypass-motor-section {
-	  padding-block: 0 var(--rich-section-gap);
-	}
-	.brt-rich__mini-card {
-	  display: flex;
-	  align-items: center;
-	  gap: var(--rich-space-md);
-	  padding: var(--rich-space-md);
-	  background: var(--rich-color-bg-card);
-	  border-radius: var(--rich-radius-md);
-	  box-shadow: var(--rich-card-shadow);
-	}
-	.brt-rich__mini-card + .brt-rich__mini-card {
-	  margin-top: var(--rich-space-sm);
-	}
-	.brt-rich__mini-card-icon {
-	  flex-shrink: 0;
-	  width: 32px;
-	  height: 32px;
-	  color: var(--rich-color-accent);
-	}
-	.brt-rich__mini-card-text {
-	  font-size: var(--rich-font-size-small);
-	  font-weight: var(--rich-font-weight-semibold);
-	  color: var(--rich-color-text);
-	}
-	.brt-rich__list {
-	  margin: var(--rich-space-md) 0 0;
-	  padding-left: 1.2em;
-	  color: var(--rich-color-text-muted);
-	}
-	.brt-rich__list li + li {
-	  margin-top: var(--rich-space-xs);
-	}
-	.brt-rich__hero {
-	  padding-top: 29px;
-	  padding-bottom: 0;
-	}
-	.brt-rich__hero-badges-section, .brt-rich__hero-card-section {
-	  padding-block: 0;
-	}
-	.brt-rich__hero-card-section {
-	  padding-bottom: var(--rich-section-gap);
-	}
-	.brt-rich__page-header {
-	  align-items: center;
-	  margin-bottom: var(--rich-hero-header-gap);
-	}
-	.brt-rich__page-title {
-	  margin: 0;
-	  max-width: 493px;
-	  margin-left: auto;
-	  font-family: var(--rich-font-family-display);
-	  font-size: var(--rich-font-size-page-title);
-	  font-weight: 400;
-	  line-height: normal;
-	  text-align: right;
-	  text-transform: uppercase;
-	  color: var(--rich-color-text-heading);
-	}
-	.brt-rich__hero-badges {
-	  margin: 0 0 var(--rich-hero-card-gap);
-	  padding: 0;
-	  list-style: none;
-	}
-	.brt-rich__hero-badge {
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  gap: var(--rich-hero-badge-gap);
-	  width: 100%;
-	  min-width: 0;
-	  min-height: 54px;
-	  padding: 6px 16px;
-	  border: 2px solid var(--rich-color-accent);
-	  border-radius: var(--rich-radius-pill);
-	  background: var(--rich-color-bg);
-	}
-	.brt-rich__hero-badge--filled {
-	  border-color: var(--rich-color-accent-fill);
-	  background: var(--rich-color-accent-fill);
-	}
-	.brt-rich__hero-badge-icon {
-	  flex-shrink: 0;
-	  display: block;
-	  width: auto;
-	  height: auto;
-	  max-height: 43px;
-	}
-	.brt-rich__hero-badge-text {
-	  font-size: var(--rich-font-size-badge);
-	  font-weight: 500;
-	  line-height: normal;
-	  text-align: center;
-	  color: var(--rich-color-text);
-	}
-	.brt-rich__hero-card {
-	  border-radius: var(--rich-radius-lg);
-	  background: var(--rich-color-bg-muted);
-	  overflow: hidden;
-	  padding: var(--rich-card-padding-lg);
-	}
-	.brt-rich__hero-card > .brt-rich-row {
-	  align-items: stretch;
-	  min-height: var(--rich-hero-card-height);
-	}
-	.brt-rich__hero-card > .brt-rich-row > .brt-rich-col-md-6:first-child {
-	  display: flex;
-	  flex-direction: column;
-	  justify-content: flex-start;
-	}
-	.brt-rich__hero-card-title {
-	  font-family: var(--rich-font-family-display);
-	  font-size: var(--rich-font-size-hero-title);
-	  font-weight: 400;
-	  line-height: normal;
-	  text-transform: uppercase;
-	  color: var(--rich-color-text-heading);
-	}
-	.brt-rich__hero-card-model {
-	  margin: var(--rich-hero-title-model-gap) 0 0;
-	  font-size: var(--rich-font-size-hero-model);
-	  font-weight: var(--rich-font-weight-semibold);
-	  line-height: normal;
-	  color: var(--rich-color-accent);
-	}
-	.brt-rich__hero-card-desc {
-	  margin: var(--rich-hero-model-desc-gap) 0 0;
-	  max-width: 389px;
-	  font-size: var(--rich-font-size-hero-desc);
-	  font-weight: var(--rich-font-weight-normal);
-	  line-height: normal;
-	  color: var(--rich-color-text);
-	}
-	.brt-rich__hero-card-desc:not(:last-child) {
-	  margin-bottom: var(--rich-space-lg);
-	}
-	.brt-rich__hero-perks {
-	  margin: var(--rich-hero-desc-perks-gap) 0 0;
-	  padding: 0;
-	  max-width: 367px;
-	  list-style: none;
-	}
-	.brt-rich__hero-perk {
-	  display: flex;
-	  align-items: center;
-	  gap: var(--rich-hero-perk-icon-gap);
-	  width: 100%;
-	  height: 100%;
-	  min-height: var(--rich-hero-perk-min-height);
-	  padding: 0 var(--rich-hero-perk-padding-x);
-	  border-radius: var(--rich-radius-md);
-	  background: var(--rich-color-bg-card);
-	}
-	.brt-rich__hero-perk-icon {
-	  flex-shrink: 0;
-	  display: block;
-	  width: auto;
-	  height: auto;
-	  max-width: 53px;
-	  max-height: 54px;
-	}
-	.brt-rich__hero-perk-text {
-	  font-size: var(--rich-font-size-hero-perk);
-	  font-weight: var(--rich-font-weight-normal);
-	  line-height: normal;
-	  color: var(--rich-color-text);
-	}
-	.brt-rich__hero-media {
-	  display: flex;
-	  justify-content: center;
-	  align-items: center;
-	}
-	.brt-rich__hero-media-photo {
-	  display: block;
-	}
-	.brt-rich__statement {
-	  padding: var(--rich-space-xl) 0;
-	  text-align: center;
-	}
-	.brt-rich__statement .brt-rich__heading--h3 {
-	  font-size: var(--rich-font-size-h2);
-	}
-	.brt-rich__banner {
-	  border-radius: var(--rich-radius-lg);
-	}
-	.brt-rich__footer-spec {
-	  display: flex;
-	  flex-direction: column;
-	  align-items: center;
-	  width: 100%;
-	  text-align: center;
-	  gap: var(--rich-space-sm);
-	  padding: var(--rich-space-md);
-	}
-	.brt-rich__footer-spec-icon {
-	  width: 40px;
-	  height: 40px;
-	  color: var(--rich-color-accent);
-	}
-	.brt-rich__footer-spec-label {
-	  font-size: var(--rich-font-size-small);
-	  color: var(--rich-color-text-muted);
-	}
-	@media (max-width: 767.98px) {
-	  .brt-rich__banner--cta {
-	    text-align: center;
-	  }
-	  .brt-rich__hero {
-	    padding-top: 20px;
-	  }
-	  .brt-rich__logo img {
-	    width: 120px;
-	  }
-	  .brt-rich__page-header {
-	    flex-direction: column;
-	    align-items: flex-start;
-	    --rich-gutter-y: var(--rich-space-sm);
-	    margin-bottom: var(--rich-space-md);
-	  }
-	  .brt-rich__page-header > .brt-rich-col-auto,
-	  .brt-rich__page-header > .brt-rich-col-grow {
-	    flex: 0 0 100%;
-	    width: 100%;
-	    max-width: 100%;
-	  }
-	  .brt-rich__page-title {
-	    margin-left: 0;
-	    max-width: none;
-	    font-size: var(--rich-font-size-page-title-mobile);
-	    line-height: 1.25;
-	    text-align: left;
-	  }
-	  .brt-rich__hero-card {
-	    padding: var(--rich-space-lg);
-	  }
-	  .brt-rich__card {
-	    padding: var(--rich-space-lg) var(--rich-card-padding);
-	  }
-	  .brt-rich__card-logo {
-	    margin-bottom: var(--rich-space-md);
-	  }
-	  .brt-rich__hero-perks {
-	    max-width: none;
-	  }
-	  .brt-rich__hero-media-photo {
-	    min-height: 280px;
-	  }
-	}
-	</style>
+		<!-- AUTO-GENERATED from src/rich/scss/theme.scss — редактируйте SCSS, не этот файл -->
+		<style id="rich-theme">
+		/*
+		 * THEME STYLES — типографика, цвета компонентов через var().
+		 * Для смены темы достаточно изменить #rich-vars; здесь — применение переменных.
+		 */
+		.brt-rich {
+		  /* --- Atoms: Typography --- */
+		  /* --- Molecules --- */
+		}
+		.brt-rich__subheading {
+		  margin: 0 0 var(--rich-space-sm);
+		  font-size: var(--rich-font-size-small);
+		  font-weight: var(--rich-font-weight-bold);
+		  text-transform: uppercase;
+		  letter-spacing: 0.04em;
+		  color: var(--rich-color-text-muted);
+		}
+		.brt-rich__subheading--accent {
+		  color: var(--rich-color-accent);
+		}
+		.brt-rich__heading {
+		  margin: 0;
+		  font-weight: var(--rich-font-weight-bold);
+		  color: var(--rich-color-text);
+		  line-height: 1.2;
+		}
+		.brt-rich__heading--h1 {
+		  font-size: var(--rich-font-size-h1);
+		}
+		.brt-rich__heading--h2 {
+		  font-size: var(--rich-font-size-h2);
+		}
+		.brt-rich__heading--h3 {
+		  font-size: var(--rich-font-size-h3);
+		  font-weight: var(--rich-font-weight-semibold);
+		}
+		.brt-rich__heading--center {
+		  text-align: center;
+		}
+		.brt-rich__text {
+		  margin: 0;
+		  font-size: var(--rich-font-size-body);
+		  color: var(--rich-color-text-muted);
+		  line-height: var(--rich-line-height);
+		}
+		.brt-rich__text + .brt-rich__text {
+		  margin-top: var(--rich-space-sm);
+		}
+		.brt-rich__text--small {
+		  font-size: var(--rich-font-size-small);
+		}
+		.brt-rich__text--inverse {
+		  color: var(--rich-color-text-inverse);
+		  opacity: 0.9;
+		}
+		.brt-rich__stat {
+		  text-align: center;
+		}
+		.brt-rich__stat--start {
+		  text-align: left;
+		}
+		.brt-rich__stat-value {
+		  display: block;
+		  font-size: var(--rich-font-size-stat);
+		  font-weight: var(--rich-font-weight-bold);
+		  color: var(--rich-color-text);
+		  line-height: 1.2;
+		}
+		.brt-rich__stat-label {
+		  display: block;
+		  margin-top: var(--rich-space-xs);
+		  font-size: var(--rich-font-size-small);
+		  color: var(--rich-color-text-muted);
+		}
+		.brt-rich__badge {
+		  display: inline-flex;
+		  align-items: center;
+		  gap: var(--rich-space-xs);
+		  padding: var(--rich-space-xs) var(--rich-space-sm);
+		  font-size: var(--rich-font-size-small);
+		  font-weight: var(--rich-font-weight-semibold);
+		  color: var(--rich-color-accent);
+		  background: transparent;
+		  border: 1px solid var(--rich-color-accent);
+		  border-radius: var(--rich-radius-sm);
+		}
+		.brt-rich__media {
+		  border-radius: var(--rich-radius-md);
+		  overflow: hidden;
+		}
+		.brt-rich__media img {
+		  width: 100%;
+		  object-fit: cover;
+		}
+		.brt-rich__logo {
+		  display: block;
+		  flex-shrink: 0;
+		  line-height: 0;
+		}
+		.brt-rich__logo img {
+		  display: block;
+		  width: 158px;
+		  height: auto;
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__logo img {
+		    width: 120px;
+		  }
+		}
+		.brt-rich__card {
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-bg-muted);
+		  padding: var(--rich-card-padding-y) var(--rich-card-padding-x);
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__card {
+		    padding: var(--rich-space-lg) var(--rich-card-padding);
+		  }
+		}
+		.brt-rich__card--horizontal > .brt-rich-row {
+		  align-items: center;
+		}
+		.brt-rich__card-logo {
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__card-logo {
+		    margin-bottom: var(--rich-space-md);
+		  }
+		}
+		.brt-rich__card-logo-img {
+		  width: 212px;
+		  height: auto;
+		}
+		.brt-rich__card-text {
+		  margin: 0;
+		  font-size: var(--rich-font-size-hero-desc);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: normal;
+		  color: var(--rich-color-text-heading);
+		}
+		.brt-rich__bypass-motor-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		.brt-rich__bypass-comparing-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		.brt-rich__bypass-comparing-media {
+		  border: 1px solid var(--rich-color-text-heading);
+		  border-radius: var(--rich-radius-lg);
+		  overflow: hidden;
+		  line-height: 0;
+		}
+		.brt-rich__bypass-comparing-photo {
+		  display: block;
+		  width: 100%;
+		  height: auto;
+		}
+		.brt-rich__bypass-comparing-title {
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: 1.05;
+		  color: var(--rich-color-text-heading);
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__bypass-comparing-title {
+		    margin-top: var(--rich-space-lg);
+		  }
+		}
+		.brt-rich__bypass-comparing-desc {
+		  margin-top: var(--rich-space-lg);
+		}
+		.brt-rich__bypass-comparing-desc .brt-rich__text {
+		  font-size: var(--rich-font-size-hero-desc);
+		  color: var(--rich-color-text);
+		  line-height: 1.14;
+		}
+		.brt-rich__bypass-comparing-desc .brt-rich__text + .brt-rich__text {
+		  margin-top: 0;
+		}
+		.brt-rich__specs-panel-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		.brt-rich__specs-panel-media {
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-bg-muted);
+		  overflow: hidden;
+		  line-height: 0;
+		}
+		.brt-rich__specs-panel-photo {
+		  display: block;
+		  width: 100%;
+		  height: auto;
+		  min-height: 285px;
+		  object-fit: cover;
+		  object-position: center;
+		  border-radius: 0 var(--rich-radius-lg) var(--rich-radius-lg) 0;
+		}
+		.brt-rich__specs-panel-title {
+		  margin-bottom: var(--rich-space-sm);
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: 1.05;
+		  color: var(--rich-color-text-heading);
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__specs-panel-title {
+		    margin-top: var(--rich-space-lg);
+		  }
+		}
+		.brt-rich__specs-panel-stat {
+		  display: flex;
+		  align-items: center;
+		  min-height: 118px;
+		  height: 100%;
+		  padding: var(--rich-space-md) var(--rich-space-lg);
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-bg-muted);
+		}
+		.brt-rich__specs-panel-stat .brt-rich__stat-value {
+		  font-family: var(--rich-font-family-display);
+		  font-size: var(--rich-font-size-spec-value);
+		  font-weight: 400;
+		  line-height: normal;
+		  color: var(--rich-color-text-heading);
+		}
+		.brt-rich__specs-panel-stat .brt-rich__stat-label {
+		  margin-top: 6px;
+		  font-size: var(--rich-font-size-body);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: normal;
+		  color: var(--rich-color-text-heading);
+		}
+		.brt-rich__benefits-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		.brt-rich__benefits-title {
+		  margin-bottom: var(--rich-benefits-title-gap);
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: 1.05;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__benefit-card {
+		  display: flex;
+		  flex-direction: column;
+		  height: 100%;
+		  min-height: var(--rich-benefits-card-min-height);
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-accent);
+		  overflow: hidden;
+		}
+		.brt-rich__benefit-card-media {
+		  flex-shrink: 0;
+		  border-radius: 0;
+		}
+		.brt-rich__benefit-card-media img {
+		  display: block;
+		  width: 100%;
+		  height: var(--rich-benefits-media-height);
+		  object-fit: cover;
+		  object-position: center;
+		}
+		.brt-rich__benefit-card-body {
+		  flex: 1 1 auto;
+		  display: flex;
+		  flex-direction: column;
+		  gap: var(--rich-benefits-body-gap);
+		  padding: var(--rich-benefits-card-padding-y) var(--rich-benefits-card-padding-x) var(--rich-space-lg);
+		}
+		.brt-rich__benefit-card-title {
+		  font-family: var(--rich-font-family-display);
+		  font-weight: 400;
+		  line-height: normal;
+		  color: var(--rich-color-text-heading);
+		}
+		.brt-rich__benefit-card-desc .brt-rich__text {
+		  font-size: var(--rich-font-size-body);
+		  color: var(--rich-color-text);
+		  line-height: 1.08;
+		}
+		.brt-rich__benefit-card-desc .brt-rich__text + .brt-rich__text {
+		  margin-top: var(--rich-benefits-text-gap);
+		}
+		.brt-rich__model-features-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		.brt-rich__model-features-title {
+		  margin-bottom: var(--rich-model-features-title-gap);
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: normal;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__model-feature-card {
+		  display: flex;
+		  flex-direction: column;
+		  height: 100%;
+		  padding: var(--rich-model-features-card-padding-y) var(--rich-model-features-card-padding-x);
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__model-feature-card {
+		    padding: var(--rich-space-lg) var(--rich-card-padding);
+		  }
+		}
+		.brt-rich__model-feature-card--fixation {
+		  justify-content: center;
+		  min-height: var(--rich-model-features-fixation-min-height);
+		  padding-block: var(--rich-space-md);
+		  overflow: hidden;
+		}
+		.brt-rich__model-feature-card--tank {
+		  min-height: var(--rich-model-features-tank-min-height);
+		}
+		.brt-rich__model-feature-card--protection, .brt-rich__model-feature-card--blow {
+		  min-height: var(--rich-model-features-text-min-height);
+		}
+		.brt-rich__model-feature-title {
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: 1.05;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__model-feature-callout-col {
+		  flex: 0 0 auto;
+		  max-width: 42%;
+		}
+		.brt-rich__model-feature-callout {
+		  display: flex;
+		  flex-direction: column;
+		  gap: var(--rich-space-sm);
+		}
+		.brt-rich__model-feature-callout-text {
+		  max-width: 9em;
+		  font-size: var(--rich-font-size-h3);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: normal;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__model-feature-callout-arrow {
+		  display: block;
+		  width: 100%;
+		  max-width: 232px;
+		  height: auto;
+		}
+		.brt-rich__model-feature-fixation-media-col {
+		  display: flex;
+		  justify-content: flex-end;
+		  align-items: center;
+		  min-width: 0;
+		}
+		.brt-rich__model-feature-fixation-photo {
+		  display: block;
+		  width: 100%;
+		  max-width: 288px;
+		  height: auto;
+		  object-fit: contain;
+		  object-position: right center;
+		}
+		.brt-rich__model-feature-tank-body {
+		  flex: 1 1 auto;
+		  margin-top: var(--rich-space-sm);
+		}
+		.brt-rich__model-feature-tank-icon {
+		  display: block;
+		  width: var(--rich-model-features-tank-icon-size);
+		  height: var(--rich-model-features-tank-icon-size);
+		  flex-shrink: 0;
+		}
+		.brt-rich__model-feature-card--tank .brt-rich__stat-value {
+		  font-family: var(--rich-font-family-display);
+		  font-size: 40px;
+		  font-weight: 400;
+		  line-height: normal;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__model-feature-card--tank .brt-rich__stat-label {
+		  margin-top: 6px;
+		  font-size: var(--rich-font-size-h3);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: normal;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__model-feature-tank-material {
+		  margin-top: auto;
+		  padding-top: var(--rich-space-sm);
+		  font-size: var(--rich-font-size-hero-desc);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: normal;
+		  color: var(--rich-color-text);
+		  text-align: right;
+		}
+		.brt-rich__model-feature-tank-material strong {
+		  font-weight: var(--rich-font-weight-semibold);
+		}
+		.brt-rich__model-feature-body {
+		  margin-top: var(--rich-space-md);
+		}
+		.brt-rich__model-feature-body .brt-rich__text {
+		  font-size: var(--rich-font-size-hero-desc);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: 1.14;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__model-feature-body .brt-rich__text + .brt-rich__text {
+		  margin-top: var(--rich-model-features-body-gap);
+		}
+		.brt-rich__model-feature-card--protection .brt-rich__model-feature-title + .brt-rich__model-feature-body {
+		  margin-top: var(--rich-space-lg);
+		}
+		.brt-rich__model-feature-blow-content {
+		  flex: 1 1 auto;
+		}
+		.brt-rich__model-feature-blow-content .brt-rich__text {
+		  margin-top: var(--rich-space-md);
+		  font-size: var(--rich-font-size-hero-desc);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: 1.14;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__model-feature-blow-media {
+		  margin: var(--rich-space-lg) calc(-1 * var(--rich-model-features-card-padding-x)) calc(-1 * var(--rich-model-features-card-padding-y));
+		  border-radius: 0 0 var(--rich-radius-lg) var(--rich-radius-lg);
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__model-feature-blow-media {
+		    margin-inline: calc(-1 * var(--rich-card-padding));
+		    margin-bottom: calc(-1 * var(--rich-space-lg));
+		  }
+		}
+		.brt-rich__model-feature-blow-media img {
+		  display: block;
+		  width: 100%;
+		  height: var(--rich-model-features-blow-media-height);
+		  object-fit: cover;
+		  object-position: center;
+		}
+		.brt-rich__hose-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		@media (min-width: 767.98px) {
+		  .brt-rich__hose-media-col {
+		    flex: 0 0 var(--rich-hose-media-width);
+		    width: var(--rich-hose-media-width);
+		    max-width: var(--rich-hose-media-width);
+		  }
+		}
+		.brt-rich__hose-media {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  min-height: var(--rich-hose-media-height);
+		  padding: var(--rich-space-sm);
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-bg-muted);
+		}
+		.brt-rich__hose-photo {
+		  display: block;
+		  width: 100%;
+		  max-width: 262px;
+		  height: auto;
+		  object-fit: contain;
+		}
+		.brt-rich__hose-title {
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: 1.05;
+		  color: var(--rich-color-text);
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__hose-title {
+		    margin-top: var(--rich-space-lg);
+		  }
+		}
+		.brt-rich__hose-desc {
+		  margin-top: var(--rich-hose-title-gap);
+		}
+		.brt-rich__hose-desc .brt-rich__text {
+		  font-size: var(--rich-font-size-hero-desc);
+		  color: var(--rich-color-text);
+		  line-height: 1.08;
+		}
+		.brt-rich__hose-desc .brt-rich__text + .brt-rich__text {
+		  margin-top: 0;
+		}
+		.brt-rich__filters-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		.brt-rich__filters-col {
+		  display: flex;
+		  flex-direction: column;
+		  gap: var(--rich-filters-col-gap);
+		  min-height: var(--rich-filters-min-height);
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__filters-col {
+		    min-height: 0;
+		  }
+		}
+		.brt-rich__filters-col-body {
+		  flex: 1 1 auto;
+		}
+		.brt-rich__filters-mode {
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: 1.05;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__filters-title {
+		  margin-top: var(--rich-filters-mode-gap);
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: 1.05;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__filters-desc {
+		  margin-top: var(--rich-filters-title-gap);
+		  font-size: var(--rich-font-size-hero-desc);
+		  color: var(--rich-color-text);
+		  line-height: 1.08;
+		}
+		.brt-rich__filters-feature {
+		  position: relative;
+		  display: flex;
+		  align-items: center;
+		  min-height: var(--rich-filters-feature-height);
+		  padding: var(--rich-filters-feature-padding);
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-bg-card);
+		  overflow: hidden;
+		}
+		.brt-rich__filters-feature .brt-rich__stat-value {
+		  font-family: var(--rich-font-family-display);
+		  font-size: 35px;
+		  font-weight: 400;
+		  line-height: 1;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__filters-feature .brt-rich__stat-label {
+		  margin-top: 6px;
+		  font-size: var(--rich-font-size-h3);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: 1.1;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__filters-feature-tag {
+		  position: relative;
+		  z-index: 1;
+		  margin: 0;
+		  max-width: 147px;
+		  font-family: var(--rich-font-family-display);
+		  font-size: 30px;
+		  font-weight: 400;
+		  line-height: 1.1;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__filters-feature-bg {
+		  position: absolute;
+		  right: 0;
+		  bottom: 0;
+		  display: block;
+		  width: auto;
+		  height: 100%;
+		  max-width: 45%;
+		  object-fit: cover;
+		  object-position: right bottom;
+		  pointer-events: none;
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__filters-media-col {
+		    order: -1;
+		  }
+		}
+		.brt-rich__filters-media {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  line-height: 0;
+		}
+		.brt-rich__filters-photo {
+		  display: block;
+		  width: 100%;
+		  max-width: 242px;
+		  height: auto;
+		  object-fit: contain;
+		}
+		.brt-rich__dust-class-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		.brt-rich__dust-class {
+		  padding: var(--rich-dust-class-padding-y) var(--rich-dust-class-padding-x);
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-accent);
+		}
+		.brt-rich__dust-class-text .brt-rich__text {
+		  font-size: var(--rich-font-size-hero-desc);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: 1.14;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__dust-class-text .brt-rich__text strong {
+		  font-weight: var(--rich-font-weight-bold);
+		}
+		.brt-rich__dust-class-text .brt-rich__text + .brt-rich__text {
+		  margin-top: 0;
+		}
+		.brt-rich__dust-class-media {
+		  display: flex;
+		  justify-content: center;
+		}
+		@media (min-width: 767.98px) {
+		  .brt-rich__dust-class-media {
+		    justify-content: flex-end;
+		  }
+		}
+		.brt-rich__dust-class-icon {
+		  display: block;
+		  width: var(--rich-dust-class-icon-size);
+		  height: var(--rich-dust-class-icon-size);
+		  flex-shrink: 0;
+		}
+		.brt-rich__collaboration-mode-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		.brt-rich__collaboration-mode {
+		  padding: var(--rich-card-padding-y) var(--rich-card-padding-x);
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__collaboration-mode {
+		    padding: var(--rich-space-lg);
+		  }
+		}
+		.brt-rich__collaboration-mode-title {
+		  margin-bottom: var(--rich-space-md);
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: 1.05;
+		  color: var(--rich-color-text-heading);
+		}
+		.brt-rich__collaboration-mode-media {
+		  position: relative;
+		  line-height: 0;
+		}
+		.brt-rich__collaboration-mode-photo {
+		  display: block;
+		  width: 100%;
+		  height: auto;
+		  min-height: 200px;
+		  object-fit: cover;
+		  object-position: center;
+		  border-radius: var(--rich-radius-lg);
+		}
+		.brt-rich__collaboration-mode-badges {
+		  position: absolute;
+		  top: 5px;
+		  left: 5px;
+		  display: flex;
+		  flex-direction: column;
+		  gap: var(--rich-collaboration-mode-badges-gap);
+		  margin: 0;
+		  padding: 0;
+		  list-style: none;
+		}
+		.brt-rich__collaboration-mode-badge {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  width: var(--rich-collaboration-mode-badge-size);
+		  height: var(--rich-collaboration-mode-badge-height);
+		  border-radius: 15px;
+		  background: var(--rich-color-bg-card);
+		  overflow: hidden;
+		}
+		.brt-rich__collaboration-mode-badge img {
+		  display: block;
+		  max-width: 85%;
+		  max-height: 85%;
+		  object-fit: contain;
+		}
+		.brt-rich__collaboration-mode-badge--photo img {
+		  width: 100%;
+		  height: 100%;
+		  max-width: none;
+		  max-height: none;
+		  object-fit: cover;
+		}
+		.brt-rich__collaboration-mode-desc {
+		  font-size: var(--rich-font-size-hero-desc);
+		  color: var(--rich-color-text);
+		  line-height: 1.08;
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__collaboration-mode-desc {
+		    margin-top: var(--rich-space-lg);
+		  }
+		}
+		.brt-rich__collaboration-mode-modes {
+		  margin: var(--rich-collaboration-mode-desc-gap) 0 0;
+		  padding: 0;
+		  list-style: none;
+		}
+		.brt-rich__mode-card {
+		  display: flex;
+		  align-items: center;
+		  gap: var(--rich-space-md);
+		  padding: var(--rich-space-md) var(--rich-space-lg);
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-bg-card);
+		}
+		.brt-rich__mode-card + .brt-rich__mode-card {
+		  margin-top: var(--rich-collaboration-mode-modes-gap);
+		}
+		.brt-rich__mode-card-label {
+		  flex-shrink: 0;
+		  font-family: var(--rich-font-family-display);
+		  font-size: var(--rich-font-size-hero-desc);
+		  font-weight: 400;
+		  line-height: normal;
+		  color: var(--rich-color-accent);
+		}
+		.brt-rich__mode-card-text {
+		  font-size: var(--rich-font-size-badge);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: 1.08;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__application-areas-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		.brt-rich__application-areas-title {
+		  margin-bottom: var(--rich-application-areas-title-gap);
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: normal;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__application-areas {
+		  padding: var(--rich-application-areas-frame-padding);
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-accent);
+		}
+		.brt-rich__application-area {
+		  display: flex;
+		  flex-direction: column;
+		  height: 100%;
+		  min-height: 0;
+		  border-radius: var(--rich-radius-md);
+		  background: var(--rich-color-bg-card);
+		  overflow: hidden;
+		}
+		.brt-rich__application-area-media {
+		  flex-shrink: 0;
+		  border-radius: 0;
+		}
+		.brt-rich__application-area-media img {
+		  width: 100%;
+		  height: var(--rich-application-areas-media-height);
+		  object-fit: cover;
+		}
+		.brt-rich__application-area-text {
+		  flex: 1 1 auto;
+		  margin: 0;
+		  padding: var(--rich-application-areas-gap) var(--rich-space-sm) var(--rich-space-md);
+		  font-size: var(--rich-font-size-badge);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: normal;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__mini-card {
+		  display: flex;
+		  align-items: center;
+		  gap: var(--rich-space-md);
+		  padding: var(--rich-space-md);
+		  background: var(--rich-color-bg-card);
+		  border-radius: var(--rich-radius-md);
+		  box-shadow: var(--rich-card-shadow);
+		}
+		.brt-rich__mini-card + .brt-rich__mini-card {
+		  margin-top: var(--rich-space-sm);
+		}
+		.brt-rich__mini-card-icon {
+		  flex-shrink: 0;
+		  width: 32px;
+		  height: 32px;
+		  color: var(--rich-color-accent);
+		}
+		.brt-rich__mini-card-text {
+		  font-size: var(--rich-font-size-small);
+		  font-weight: var(--rich-font-weight-semibold);
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__list {
+		  margin: var(--rich-space-md) 0 0;
+		  padding-left: 1.2em;
+		  color: var(--rich-color-text-muted);
+		}
+		.brt-rich__list li + li {
+		  margin-top: var(--rich-space-xs);
+		}
+		.brt-rich__hero {
+		  padding-top: 29px;
+		  padding-bottom: 0;
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__hero {
+		    padding-top: 20px;
+		  }
+		}
+		.brt-rich__hero-badges-section, .brt-rich__hero-card-section {
+		  padding-block: 0;
+		}
+		.brt-rich__hero-card-section {
+		  padding-bottom: var(--rich-section-gap);
+		}
+		.brt-rich__page-header {
+		  align-items: center;
+		  margin-bottom: var(--rich-hero-header-gap);
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__page-header {
+		    flex-direction: column;
+		    align-items: flex-start;
+		    --rich-gutter-y: var(--rich-space-sm);
+		    margin-bottom: var(--rich-space-md);
+		  }
+		  .brt-rich__page-header > .brt-rich-col-auto,
+		  .brt-rich__page-header > .brt-rich-col-grow {
+		    flex: 0 0 100%;
+		    width: 100%;
+		    max-width: 100%;
+		  }
+		}
+		.brt-rich__page-title {
+		  margin: 0;
+		  max-width: 493px;
+		  margin-left: auto;
+		  font-family: var(--rich-font-family-display);
+		  font-size: var(--rich-font-size-page-title);
+		  font-weight: 400;
+		  line-height: normal;
+		  text-align: right;
+		  text-transform: uppercase;
+		  color: var(--rich-color-text-heading);
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__page-title {
+		    margin-left: 0;
+		    max-width: none;
+		    line-height: 1.25;
+		    text-align: left;
+		  }
+		}
+		.brt-rich__hero-badges {
+		  margin: 0 0 var(--rich-hero-card-gap);
+		  padding: 0;
+		  list-style: none;
+		}
+		.brt-rich__hero-badge {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  gap: var(--rich-hero-badge-gap);
+		  width: 100%;
+		  min-width: 0;
+		  min-height: 54px;
+		  height: 100%;
+		  padding: 6px 16px;
+		  border: 2px solid var(--rich-color-accent);
+		  border-radius: var(--rich-radius-pill);
+		  background: var(--rich-color-bg);
+		}
+		.brt-rich__hero-badge--filled {
+		  border-color: var(--rich-color-accent-fill);
+		  background: var(--rich-color-accent-fill);
+		}
+		.brt-rich__hero-badge-icon {
+		  flex-shrink: 0;
+		  display: block;
+		  width: auto;
+		  height: auto;
+		  max-height: 43px;
+		}
+		.brt-rich__hero-badge-text {
+		  font-size: var(--rich-font-size-badge);
+		  font-weight: 500;
+		  line-height: normal;
+		  text-align: center;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__hero-card {
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-bg-muted);
+		  overflow: hidden;
+		  padding: var(--rich-card-padding-lg);
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__hero-card {
+		    padding: var(--rich-space-lg);
+		  }
+		}
+		.brt-rich__hero-card > .brt-rich-row {
+		  align-items: stretch;
+		  min-height: var(--rich-hero-card-height);
+		}
+		.brt-rich__hero-card > .brt-rich-row > .brt-rich-col-md-6:first-child {
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: flex-start;
+		}
+		.brt-rich__hero-card-title {
+		  font-family: var(--rich-font-family-display);
+		  font-size: var(--rich-font-size-hero-title);
+		  font-weight: 400;
+		  line-height: normal;
+		  text-transform: uppercase;
+		  color: var(--rich-color-text-heading);
+		}
+		.brt-rich__hero-card-model {
+		  margin: var(--rich-hero-title-model-gap) 0 0;
+		  font-size: var(--rich-font-size-hero-model);
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: normal;
+		  color: var(--rich-color-accent);
+		}
+		.brt-rich__hero-card-desc {
+		  margin: var(--rich-hero-model-desc-gap) 0 0;
+		  font-size: var(--rich-font-size-hero-desc);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: normal;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__hero-card-desc:not(:last-child) {
+		  margin-bottom: var(--rich-space-lg);
+		}
+		.brt-rich__hero-perks {
+		  margin: var(--rich-hero-desc-perks-gap) 0 0;
+		  padding: 0;
+		  max-width: 367px;
+		  list-style: none;
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__hero-perks {
+		    max-width: none;
+		  }
+		}
+		.brt-rich__hero-perk {
+		  display: flex;
+		  align-items: center;
+		  gap: var(--rich-hero-perk-icon-gap);
+		  width: 100%;
+		  height: 100%;
+		  min-height: var(--rich-hero-perk-min-height);
+		  padding: 0 var(--rich-hero-perk-padding-x);
+		  border-radius: var(--rich-radius-md);
+		  background: var(--rich-color-bg-card);
+		}
+		.brt-rich__hero-perk-icon {
+		  flex-shrink: 0;
+		  display: block;
+		  width: auto;
+		  height: auto;
+		  max-width: 53px;
+		  max-height: 54px;
+		}
+		.brt-rich__hero-perk-text {
+		  font-size: var(--rich-font-size-hero-perk);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: normal;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__hero-media {
+		  display: flex;
+		  justify-content: center;
+		  align-items: center;
+		}
+		.brt-rich__hero-media-photo {
+		  display: block;
+		  max-width: 100%;
+		}
+		.brt-rich__statement {
+		  padding: var(--rich-space-xl) 0;
+		  text-align: center;
+		}
+		.brt-rich__statement .brt-rich__heading--h3 {
+		  font-size: var(--rich-font-size-h2);
+		}
+		.brt-rich__banner {
+		  border-radius: var(--rich-radius-lg);
+		}
+		@media (max-width: 767.98px) {
+		  .brt-rich__banner--cta {
+		    text-align: center;
+		  }
+		}
+		.brt-rich__footer-spec {
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  width: 100%;
+		  text-align: center;
+		  gap: var(--rich-space-sm);
+		  padding: var(--rich-space-md);
+		}
+		.brt-rich__footer-spec-icon {
+		  width: 40px;
+		  height: 40px;
+		  color: var(--rich-color-accent);
+		}
+		.brt-rich__footer-spec-label {
+		  font-size: var(--rich-font-size-small);
+		  color: var(--rich-color-text-muted);
+		}
+		</style>
 
-	<!-- AUTO-GENERATED from src/rich/scss/components.scss — редактируйте SCSS, не этот файл -->
-	<style id="rich-components">
-	/*
-	 * COMPONENT-SPECIFIC STYLES — дополнительные правила для сложных блоков.
-	 * Используют переменные из #rich-vars; при необходимости переопределяйте локально.
-	 */
-	.brt-rich__hero-media img, .brt-rich__hero-media .brt-rich__placeholder {
-	  border-radius: 0;
-	}
-	.brt-rich__banner--cta {
-	  padding: var(--rich-space-xl);
-	  background: var(--rich-color-accent);
-	  color: var(--rich-color-text-inverse);
-	  text-align: center;
-	}
-	.brt-rich__banner--cta .brt-rich-row {
-	  width: 100%;
-	}
-	.brt-rich__banner--cta .brt-rich__media {
-	  max-width: 200px;
-	  margin-inline: auto;
-	}
-	.brt-rich__numbered-item {
-	  display: flex;
-	  gap: var(--rich-space-md);
-	  align-items: flex-start;
-	}
-	.brt-rich__numbered-item-num {
-	  flex-shrink: 0;
-	  display: flex;
-	  align-items: center;
-	  justify-content: center;
-	  width: 32px;
-	  height: 32px;
-	  font-size: var(--rich-font-size-small);
-	  font-weight: var(--rich-font-weight-bold);
-	  color: var(--rich-color-text-inverse);
-	  background: var(--rich-color-accent);
-	  border-radius: var(--rich-radius-round);
-	}
-	.brt-rich__construction-list {
-	  list-style: none;
-	  margin: var(--rich-space-lg) 0 0;
-	  padding: 0;
-	}
-	.brt-rich__construction-list li {
-	  position: relative;
-	  padding-left: 1.5em;
-	  margin-bottom: var(--rich-space-md);
-	  color: var(--rich-color-text-muted);
-	}
-	.brt-rich__construction-list li::before {
-	  content: "—";
-	  position: absolute;
-	  left: 0;
-	  color: var(--rich-color-accent);
-	  font-weight: var(--rich-font-weight-bold);
-	}
-	</style>
+		<!-- AUTO-GENERATED from src/rich/scss/components.scss — редактируйте SCSS, не этот файл -->
+		<style id="rich-components">
+		/*
+		 * COMPONENT-SPECIFIC STYLES — дополнительные правила для сложных блоков.
+		 * Используют переменные из #rich-vars; при необходимости переопределяйте локально.
+		 */
+		.brt-rich__hero-media img, .brt-rich__hero-media .brt-rich__placeholder {
+		  border-radius: 0;
+		}
+		.brt-rich__banner--cta {
+		  padding: var(--rich-space-xl);
+		  background: var(--rich-color-accent);
+		  color: var(--rich-color-text-inverse);
+		  text-align: center;
+		}
+		.brt-rich__banner--cta .brt-rich-row {
+		  width: 100%;
+		}
+		.brt-rich__banner--cta .brt-rich__media {
+		  max-width: 200px;
+		  margin-inline: auto;
+		}
+		.brt-rich__numbered-item {
+		  display: flex;
+		  gap: var(--rich-space-md);
+		  align-items: flex-start;
+		}
+		.brt-rich__numbered-item-num {
+		  flex-shrink: 0;
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  width: 32px;
+		  height: 32px;
+		  font-size: var(--rich-font-size-small);
+		  font-weight: var(--rich-font-weight-bold);
+		  color: var(--rich-color-text-inverse);
+		  background: var(--rich-color-accent);
+		  border-radius: var(--rich-radius-round);
+		}
+		.brt-rich__construction-list {
+		  list-style: none;
+		  margin: var(--rich-space-lg) 0 0;
+		  padding: 0;
+		}
+		.brt-rich__construction-list li {
+		  position: relative;
+		  padding-left: 1.5em;
+		  margin-bottom: var(--rich-space-md);
+		  color: var(--rich-color-text-muted);
+		}
+		.brt-rich__construction-list li::before {
+		  content: "—";
+		  position: absolute;
+		  left: 0;
+		  color: var(--rich-color-accent);
+		  font-weight: var(--rich-font-weight-bold);
+		}
+		</style>
 
 
-</head>
-<body>
-	<!--
-		ВСТРАВКА НА САЙТ:
-		Скопируйте содержимое блока .brt-rich (вместе со всеми <style> выше)
-		в таб «Описание» карточки товара. Для смены темы редактируйте #rich-vars.
-	-->
-	<div class="brt-rich">
-		<!--
-		  COMPONENT: Hero Header
-		  SECTION: шапка (логотип + название товара)
-		-->
-		<header class="brt-rich__section brt-rich__hero">
-			<div class="brt-rich__container">
-				<div class="brt-rich-row brt-rich__page-header">
-					<div class="brt-rich-col-auto">
-						<a class="brt-rich__logo" href="#" aria-label="Bort">
-							<img src="img/logo.svg" alt="Bort" width="158" height="46" loading="lazy">
-						</a>
-					</div>
-					<div class="brt-rich-col-grow">
-						<p class="brt-rich__page-title">Пылесос для сухой и влажной уборки BORT BSS-1630-Pro</p>
+	</head>
+	<body>
+		<div class="brt-rich">
+			<!--
+			  COMPONENT: Hero Header
+			  SECTION: шапка (логотип + название товара)
+			-->
+			<header class="brt-rich__section brt-rich__hero">
+				<div class="brt-rich__container">
+					<div class="brt-rich-row brt-rich__page-header">
+						<div class="brt-rich-col-auto">
+							<a class="brt-rich__logo" href="#" aria-label="Bort">
+								<img src="img/logo.svg" alt="Bort" width="158" height="46" loading="lazy">
+							</a>
+						</div>
+						<div class="brt-rich-col-grow">
+							<p class="brt-rich__page-title">Пылесос для сухой и влажной уборки BORT BSS-1630-Pro</p>
+						</div>
 					</div>
 				</div>
-			</div>
-		</header>
+			</header>
 
-		<!--
-		  COMPONENT: Hero Badges
-		  SECTION: бейджи под шапкой
-		-->
-		<section class="brt-rich__section brt-rich__hero-badges-section">
-			<div class="brt-rich__container">
-				<ul class="brt-rich-row brt-rich-row--gap-hero-badges brt-rich__hero-badges">
-					<li class="brt-rich-col-12 brt-rich-col-sm-3">
-						<div class="brt-rich__hero-badge">
-							<span class="brt-rich__hero-badge-text">Пылесос для влажной <br> и сухой уборки </span>
-						</div>
-					</li>
-					<li class="brt-rich-col-12 brt-rich-col-sm-3">
-						<div class="brt-rich__hero-badge">
-							<span class="brt-rich__hero-badge-text">Полуавтоматическая <br> очистка фильтра </span>
-						</div>
-					</li>
-					<li class="brt-rich-col-12 brt-rich-col-sm-3">
-						<div class="brt-rich__hero-badge">
-							<span class="brt-rich__hero-badge-text">ByPASS motor</span>
-						</div>
-					</li>
-					<li class="brt-rich-col-12 brt-rich-col-sm-3">
-						<div class="brt-rich__hero-badge brt-rich__hero-badge--filled">
-							<img class="brt-rich__hero-badge-icon" src="img/badge-guarantee.png" alt="" width="43" height="43" loading="lazy">
-							<span class="brt-rich__hero-badge-text">5 лет<br>гарантии</span>
-						</div>
-					</li>
-				</ul>
-			</div>
-		</section>
-
-		<!--
-		  COMPONENT: Hero Card
-		  SECTION: карточка с заголовком, описанием, перками и фото
-		-->
-		<section class="brt-rich__section brt-rich__hero-card-section">
-			<div class="brt-rich__container">
-				<div class="brt-rich__hero-card">
-					<div class="brt-rich-row brt-rich-row--gap-hero-card brt-rich-row--align-center">
-						<div class="brt-rich-col-12 brt-rich-col-md-6">
-							<h1 class="brt-rich__heading brt-rich__heading--h1 brt-rich__hero-card-title">Пылесос для влажной <br>и сухой уборки</h1>
-							<p class="brt-rich__hero-card-model">BSS-1630-PRO</p>
-							<p class="brt-rich__hero-card-desc">Пылесос справится с водой, стружкой, опилками, кусками кирпича, бетонной крошкой, гипсом, мелом, известью <br>и слюдой</p>
-							<ul class="brt-rich-row brt-rich-row--gap-hero-perks brt-rich__hero-perks">
-								<li class="brt-rich-col-6">
-									<div class="brt-rich__hero-perk">
-										<img class="brt-rich__hero-perk-icon" src="img/hero-perk-filter.svg" alt="" width="53" height="40" loading="lazy">
-										<span class="brt-rich__hero-perk-text">Полуавтомати-<br>ческая очистка фильтра</span>
-									</div>
-								</li>
-								<li class="brt-rich-col-6">
-									<div class="brt-rich__hero-perk">
-										<img class="brt-rich__hero-perk-icon" src="img/hero-perk-motor.svg" alt="" width="49" height="42" loading="lazy">
-										<span class="brt-rich__hero-perk-text">Мощный<br>двигатель</span>
-									</div>
-								</li>
-								<li class="brt-rich-col-6">
-									<div class="brt-rich__hero-perk">
-										<img class="brt-rich__hero-perk-icon" src="img/hero-perk-sync.svg" alt="" width="47" height="54" loading="lazy">
-										<span class="brt-rich__hero-perk-text">Синхронизация <br>с инструментом <br>и задержка <br>отключения 10 с</span>
-									</div>
-								</li>
-								<li class="brt-rich-col-6">
-									<div class="brt-rich__hero-perk">
-										<img class="brt-rich__hero-perk-icon" src="img/hero-perk-kit.svg" alt="" width="48" height="42" loading="lazy">
-										<span class="brt-rich__hero-perk-text">Широкая комплектация</span>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__hero-media">
-							<img class="brt-rich__hero-media-photo" src="img/hero-main.png" alt="Пылесос Bort BSS-1630-Pro"  >
+			<!--
+			  COMPONENT: Hero Badges
+			  SECTION: бейджи под шапкой
+			-->
+			<section class="brt-rich__section brt-rich__hero-badges-section">
+				<div class="brt-rich__container">
+					<ul class="brt-rich-row brt-rich-row--gap-hero-badges brt-rich__hero-badges">
+						<li class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+							<div class="brt-rich__hero-badge">
+								<span class="brt-rich__hero-badge-text">Пылесос для влажной <br> и сухой уборки </span>
+							</div>
+						</li>
+						<li class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+							<div class="brt-rich__hero-badge">
+								<span class="brt-rich__hero-badge-text">Полуавтоматическая <br> очистка фильтра </span>
+							</div>
+						</li>
+						<li class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+							<div class="brt-rich__hero-badge">
+								<span class="brt-rich__hero-badge-text">ByPASS motor</span>
+							</div>
+						</li>
+						<li class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+							<div class="brt-rich__hero-badge brt-rich__hero-badge--filled">
+								<img class="brt-rich__hero-badge-icon" src="img/badge-guarantee.png" alt="" width="43" height="43" loading="lazy">
+								<span class="brt-rich__hero-badge-text">5 лет<br>гарантии</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+			<!--
+			  COMPONENT: Hero Card
+			  SECTION: карточка с заголовком, описанием, перками и фото
+			-->
+			<section class="brt-rich__section brt-rich__hero-card-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__hero-card">
+						<div class="brt-rich-row brt-rich-row--gap-hero-card brt-rich-row--align-center">
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<h1 class="brt-rich__heading brt-rich__heading--h1 brt-rich__hero-card-title">Пылесос для влажной <br>и сухой уборки</h1>
+								<p class="brt-rich__hero-card-model">BSS-1630-PRO</p>
+								<p class="brt-rich__hero-card-desc">Пылесос справится с водой, стружкой, опилками, кусками кирпича, бетонной крошкой, гипсом, мелом, известью <br>и слюдой</p>
+								<ul class="brt-rich-row brt-rich-row--gap-hero-perks brt-rich__hero-perks">
+									<li class="brt-rich-col-sm-12 brt-rich-col-sm-6 brt-rich-col-md-12 brt-rich-col-lg-6">
+										<div class="brt-rich__hero-perk">
+											<img class="brt-rich__hero-perk-icon" src="img/hero-perk-filter.svg" alt="" width="53" height="40" loading="lazy">
+											<span class="brt-rich__hero-perk-text">Полуавтомати-<br>ческая очистка фильтра</span>
+										</div>
+									</li>
+									<li class="brt-rich-col-sm-12 brt-rich-col-sm-6 brt-rich-col-md-12 brt-rich-col-lg-6">
+										<div class="brt-rich__hero-perk">
+											<img class="brt-rich__hero-perk-icon" src="img/hero-perk-motor.svg" alt="" width="49" height="42" loading="lazy">
+											<span class="brt-rich__hero-perk-text">Мощный<br>двигатель</span>
+										</div>
+									</li>
+									<li class="brt-rich-col-sm-12 brt-rich-col-sm-6 brt-rich-col-md-12 brt-rich-col-lg-6">
+										<div class="brt-rich__hero-perk">
+											<img class="brt-rich__hero-perk-icon" src="img/hero-perk-sync.svg" alt="" width="47" height="54" loading="lazy">
+											<span class="brt-rich__hero-perk-text">Синхронизация <br>с инструментом <br>и задержка <br>отключения 10 с</span>
+										</div>
+									</li>
+									<li class="brt-rich-col-sm-12 brt-rich-col-sm-6 brt-rich-col-md-12 brt-rich-col-lg-6">
+										<div class="brt-rich__hero-perk">
+											<img class="brt-rich__hero-perk-icon" src="img/hero-perk-kit.svg" alt="" width="48" height="42" loading="lazy">
+											<span class="brt-rich__hero-perk-text">Широкая комплектация</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__hero-media">
+								<img class="brt-rich__hero-media-photo" src="img/hero-main.png" alt="Пылесос Bort BSS-1630-Pro">
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+			<!--
+			  COMPONENT: Bypass Motor Card
+			  SECTION: карточка с логотипом байпасного мотора и описанием
+			-->
+			<section class="brt-rich__section brt-rich__bypass-motor-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__card brt-rich__card--horizontal">
+						<div class="brt-rich-row brt-rich-row--gap-card brt-rich-row--align-center">
+							<div class="brt-rich-col-12 brt-rich-col-md-4 brt-rich__card-logo">
+								<img class="brt-rich__card-logo-img" src="img/bypass-motor-logo.svg" alt="ByPASS motor" width="198" height="81" loading="lazy">
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-8">
+								<p class="brt-rich__card-text">Байпасный мотор охлаждается отдельным потоком воздуха, который не контактирует с пылью. <br>Для этого предусмотрена дополнительная крыльчатка, которая забирает воздух исключительно для охлаждения.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-		<!--
-		  COMPONENT: Bypass Motor Card
-		  SECTION: карточка с логотипом байпасного мотора и описанием
-		-->
-		<section class="brt-rich__section brt-rich__bypass-motor-section">
-			<div class="brt-rich__container">
-				<div class="brt-rich__card brt-rich__card--horizontal">
-					<div class="brt-rich-row brt-rich-row--gap-card brt-rich-row--align-center">
-						<div class="brt-rich-col-12 brt-rich-col-md-4 brt-rich__card-logo">
-							<img class="brt-rich__card-logo-img" src="img/bypass-motor-logo.svg" alt="ByPASS motor" width="198" height="81" loading="lazy">
+			<!--
+			  COMPONENT: Bypass Comparing
+			  SECTION: сравнение обычного и ByPass-мотора — изображение + текст
+			-->
+			<section class="brt-rich__section brt-rich__bypass-comparing-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich-row brt-rich-row--align-center">
+						<div class="brt-rich-col-12 brt-rich-col-md-5">
+							<div class="brt-rich__bypass-comparing-media">
+								<img class="brt-rich__bypass-comparing-photo" src="img/comparing.png" alt="Сравнение обычного пылесоса и пылесоса BORT с ByPass" width="377" height="265" loading="lazy">
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-7">
+							<h2 class="brt-rich__heading brt-rich__heading--h2 brt-rich__bypass-comparing-title">Независимая система охлаждения мотора ByPass</h2>
+							<div class="brt-rich__bypass-comparing-desc">
+								<p class="brt-rich__text">Воздух, засасываемый пылесосом, не участвует в охлаждении двигателя.</p>
+								<p class="brt-rich__text">Это позволяет обеспечить более эффективное охлаждение мотора не нагретым потоком.</p>
+								<p class="brt-rich__text">Пылесос не перегревается, двигатель служит дольше.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--
+			  COMPONENT: Application Areas
+			  SECTION: области применения — 4 карточки в оранжевой рамке
+			-->
+			<section class="brt-rich__section brt-rich__application-areas-section">
+				<div class="brt-rich__container">
+					<h2 class="brt-rich__heading brt-rich__heading--h2 brt-rich__application-areas-title">Области применения:</h2>
+					<div class="brt-rich__application-areas">
+						<div class="brt-rich-row brt-rich-row--gap-application-areas">
+							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+								<article class="brt-rich__application-area">
+									<div class="brt-rich__media brt-rich__application-area-media">
+										<img src="img/application-areas-1.jpg" alt="Подключение инструмента для работы без пыли" width="215" height="178" loading="lazy">
+									</div>
+									<p class="brt-rich__text brt-rich__application-area-text">Подключение инструмента<br>(работа без пыли)</p>
+								</article>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+								<article class="brt-rich__application-area">
+									<div class="brt-rich__media brt-rich__application-area-media">
+										<img src="img/application-areas-2.jpg" alt="Уборка на стройплощадке" width="215" height="178" loading="lazy">
+									</div>
+									<p class="brt-rich__text brt-rich__application-area-text">Уборка на стройплощадке</p>
+								</article>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+								<article class="brt-rich__application-area">
+									<div class="brt-rich__media brt-rich__application-area-media">
+										<img src="img/application-areas-3.jpg" alt="Уборка после ремонта" width="215" height="178" loading="lazy">
+									</div>
+									<p class="brt-rich__text brt-rich__application-area-text">Уборка после ремонта</p>
+								</article>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+								<article class="brt-rich__application-area">
+									<div class="brt-rich__media brt-rich__application-area-media">
+										<img src="img/application-areas-4.jpg" alt="Сбор жидкости" width="215" height="178" loading="lazy">
+									</div>
+									<p class="brt-rich__text brt-rich__application-area-text">Сбор жидкости</p>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--
+			  COMPONENT: Collaboration Mode
+			  SECTION: режим совместной работы с инструментом — фото с плашками + описание режимов
+			-->
+			<section class="brt-rich__section brt-rich__collaboration-mode-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__card brt-rich__collaboration-mode">
+						<h2 class="brt-rich__heading brt-rich__heading--h2 brt-rich__collaboration-mode-title">Режим совместной работы с инструментом</h2>
+						<div class="brt-rich-row brt-rich-row--gap-card brt-rich-row--align-center">
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__collaboration-mode-media">
+									<img class="brt-rich__collaboration-mode-photo" src="img/collaboration-mode-with-the-tool.jpg" alt="Подключение инструмента к пылесосу Bort" width="451" height="283" loading="lazy">
+									<ul class="brt-rich__collaboration-mode-badges" aria-hidden="true">
+										<li class="brt-rich__collaboration-mode-badge">
+											<img src="img/hero-perk-sync.svg" alt="" width="74" height="64" loading="lazy">
+										</li>
+										<li class="brt-rich__collaboration-mode-badge brt-rich__collaboration-mode-badge--photo">
+											<img src="img/socket.jpg" alt="" width="98" height="94" loading="lazy">
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<p class="brt-rich__text brt-rich__collaboration-mode-desc">Пылесос автоматически включается при старте работы подключенного инструмента и выключается через 10 секунд, позволяя собрать оставшуюся пыль.</p>
+								<ul class="brt-rich__collaboration-mode-modes">
+									<li class="brt-rich__mode-card">
+										<span class="brt-rich__mode-card-label">1 режим</span>
+										<span class="brt-rich__mode-card-text">Режим синхронизации<br>и совместной работы<br>с инструментом</span>
+									</li>
+									<li class="brt-rich__mode-card">
+										<span class="brt-rich__mode-card-label">2 режим</span>
+										<span class="brt-rich__mode-card-text">Режим классической работы пылесоса</span>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--
+			  COMPONENT: Hose
+			  SECTION: армированный шланг — фото в серой плашке + заголовок и описание
+			-->
+			<section class="brt-rich__section brt-rich__hose-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich-row brt-rich-row--align-center brt-rich-row--gap-card">
+						<div class="brt-rich-col-12 brt-rich-col-md-4 brt-rich__hose-media-col">
+							<div class="brt-rich__media brt-rich__hose-media">
+								<img class="brt-rich__hose-photo" src="img/hose.png" alt="Армированный шланг пылесоса Bort BSS-1630-Pro" width="262" height="298" loading="lazy">
+							</div>
 						</div>
 						<div class="brt-rich-col-12 brt-rich-col-md-8">
-							<p class="brt-rich__card-text">Байпасный мотор охлаждается отдельным потоком воздуха, который не контактирует с пылью. <br>Для этого предусмотрена дополнительная крыльчатка, которая забирает воздух исключительно для охлаждения.</p>
+							<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__hose-title">Армированный шланг разработан<br>для строительных объектов</h3>
+							<div class="brt-rich__hose-desc">
+								<p class="brt-rich__text">Пылесос BSS-1630-Pro комплектуется армированным шлангом диаметром 35&nbsp;мм. Металлическая спираль внутри стенки предотвращает сжатие шланга под вакуумом.</p>
+								<p class="brt-rich__text">Шланг устойчив к абразивным частицам (осколки, песок, стружка) и не повреждается при всасывании острых предметов. Диаметр 35&nbsp;мм — технический стандарт для уборки смешанных фракций: шланг пропускает крупный мусор без застревания, но при этом не снижает скорость воздушного потока для улавливания мелкодисперсной пыли.</p>
+							</div>
 						</div>
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+			<!--
+			  COMPONENT: Specs Panel
+			  SECTION: фото пылесоса + сетка характеристик
+			-->
+			<section class="brt-rich__section brt-rich__specs-panel-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich-row brt-rich-row--align-center">
+						<div class="brt-rich-col-12 brt-rich-col-md-5">
+							<div class="brt-rich__specs-panel-media">
+								<img class="brt-rich__specs-panel-photo" src="img/lock.png" alt="Пылесос Bort BSS-1630-Pro" width="366" height="285" loading="lazy">
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-7">
+							<h2 class="brt-rich__heading brt-rich__heading--h2 brt-rich__specs-panel-title">Характеристики:</h2>
+							<div class="brt-rich-row brt-rich-row--gap-specs">
+								<div class="brt-rich-col-12 brt-rich-col-sm-6">
+									<div class="brt-rich__specs-panel-stat">
+										<div class="brt-rich__stat brt-rich__stat--start">
+											<span class="brt-rich__stat-value">75 л/с</span>
+											<span class="brt-rich__stat-label">Расход воздуха<br>на крыльчатке</span>
+										</div>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-sm-6">
+									<div class="brt-rich__specs-panel-stat">
+										<div class="brt-rich__stat brt-rich__stat--start">
+											<span class="brt-rich__stat-value">40 л/с</span>
+											<span class="brt-rich__stat-label">Расход воздуха</span>
+										</div>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-sm-6">
+									<div class="brt-rich__specs-panel-stat">
+										<div class="brt-rich__stat brt-rich__stat--start">
+											<span class="brt-rich__stat-value">22 кПа</span>
+											<span class="brt-rich__stat-label">Мощность<br>всасывания</span>
+										</div>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-sm-6">
+									<div class="brt-rich__specs-panel-stat">
+										<div class="brt-rich__stat brt-rich__stat--start">
+											<span class="brt-rich__stat-value">1600 Вт</span>
+											<span class="brt-rich__stat-label">Потребляемая<br>мощность</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
 
-	</div>
-</body>
+			<!--
+			  COMPONENT: Filters
+			  SECTION: система фильтрации — сухая и влажная уборка, exploded-view фото по центру
+			-->
+			<section class="brt-rich__section brt-rich__filters-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__card brt-rich__filters">
+						<div class="brt-rich-row brt-rich-row--gap-card brt-rich-row--align-center">
+							<div class="brt-rich-col-12 brt-rich-col-md-4">
+								<div class="brt-rich__filters-col brt-rich__filters-col--dry">
+									<div class="brt-rich__filters-col-body">
+										<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__filters-mode">Для сухой уборки</h3>
+										<h4 class="brt-rich__heading brt-rich__heading--h2 brt-rich__filters-title">HEPA-фильтр H11</h4>
+										<p class="brt-rich__text brt-rich__filters-desc">Эффективно справляется с&nbsp;мелкодисперсной пылью, опилками, мелкими частицами и&nbsp;жидкостями.</p>
+									</div>
+									<div class="brt-rich__filters-feature">
+										<div class="brt-rich__stat brt-rich__stat--start">
+											<span class="brt-rich__stat-value">96%</span>
+											<span class="brt-rich__stat-label">удаление пыли<br>и аллергенов</span>
+										</div>
+										<img class="brt-rich__filters-feature-bg" src="img/dust-bg.jpg" alt="" width="124" height="166" loading="lazy" aria-hidden="true">
+									</div>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-4 brt-rich__filters-media-col">
+								<div class="brt-rich__filters-media">
+									<img class="brt-rich__filters-photo" src="img/filters.png" alt="Система фильтрации пылесоса Bort: HEPA-фильтр и губчатый фильтр" width="242" height="451" loading="lazy">
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-4">
+								<div class="brt-rich__filters-col brt-rich__filters-col--wet">
+									<div class="brt-rich__filters-col-body">
+										<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__filters-mode">Для влажной уборки</h3>
+										<h4 class="brt-rich__heading brt-rich__heading--h2 brt-rich__filters-title">Губчатый фильтр</h4>
+										<p class="brt-rich__text brt-rich__filters-desc">Защита мотора от жидкости при влажной уборке. Снижает риск поломки и&nbsp;увеличивает срок службы пылесоса.</p>
+									</div>
+									<div class="brt-rich__filters-feature">
+										<p class="brt-rich__filters-feature-tag">защита от влаги</p>
+										<img class="brt-rich__filters-feature-bg" src="img/moisture-bg.jpg" alt="" width="131" height="166" loading="lazy" aria-hidden="true">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--
+			  COMPONENT: Dust Class
+			  SECTION: информация о классе пыли L — текст + иконка в оранжевой плашке
+			-->
+			<section class="brt-rich__section brt-rich__dust-class-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__dust-class">
+						<div class="brt-rich-row brt-rich-row--gap-card brt-rich-row--align-center">
+							<div class="brt-rich-col-8 brt-rich-col-md-grow">
+								<div class="brt-rich__dust-class-text">
+									<p class="brt-rich__text">Пылесосы с <strong>классом пыли L</strong> предназначены для очистки от крупных и мелких частиц пыли, включая строительную пыль и прочие загрязнения, которые могут возникнуть в условиях, связанных с ремонтом или строительством (пыль от краски, лака, извести, гипса, мела и т.д.).</p>
+									<p class="brt-rich__text">Они обеспечивают эффективную фильтрацию, что делает их подходящими для уборки как в домашних условиях, так и в профессиональной деятельности.</p>
+									<p class="brt-rich__text">Пылесосы Bort класса L могут эффективно удалять частицы размером около 0,1 микрон и более.</p>
+								</div>
+							</div>
+							<div class="brt-rich-col-4 brt-rich-col-md-auto brt-rich__dust-class-media">
+								<img class="brt-rich__dust-class-icon" src="img/class-L.svg" alt="Класс пыли L" width="144" height="144" loading="lazy">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+			<!--
+			  COMPONENT: Benefits
+			  SECTION: преимущества — 3 карточки с фото на оранжевом фоне
+			-->
+			<section class="brt-rich__section brt-rich__benefits-section">
+				<div class="brt-rich__container">
+					<h2 class="brt-rich__heading brt-rich__heading--h2 brt-rich__benefits-title">Преимущества пылесоса для влажной и сухой уборки BSS-1630-PRO</h2>
+					<div class="brt-rich-row brt-rich-row--gap-benefits">
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<article class="brt-rich__benefit-card">
+								<div class="brt-rich__media brt-rich__benefit-card-media">
+									<img src="img/benefit-1.png" alt="Кнопка полуавтоматической очистки фильтра" width="297" height="199" loading="lazy">
+								</div>
+								<div class="brt-rich__benefit-card-body">
+									<h3 class="brt-rich__heading brt-rich__heading--h3 brt-rich__benefit-card-title">Полуавтоматическая очистка фильтра</h3>
+									<div class="brt-rich__benefit-card-desc">
+										<p class="brt-rich__text">При нажатии на кнопку запускается обратная продувка фильтра – скопившаяся пыль выдувается в бак, восстанавливая эффективность всасывания. Для эффективной очистки фильтра нажмите кнопку 2–3 раза подряд.</p>
+										<p class="brt-rich__text">Не требуется затыкать патрубок пылесоса</p>
+									</div>
+								</div>
+							</article>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<article class="brt-rich__benefit-card">
+								<div class="brt-rich__media brt-rich__benefit-card-media">
+									<img src="img/benefit-2.png" alt="Встроенная розетка 2000 Вт" width="296" height="199" loading="lazy">
+								</div>
+								<div class="brt-rich__benefit-card-body">
+									<h3 class="brt-rich__heading brt-rich__heading--h3 brt-rich__benefit-card-title">Встроенная розетка</h3>
+									<div class="brt-rich__benefit-card-desc">
+										<p class="brt-rich__text">Пылесос оборудован синхронизированной розеткой, в которую можно подключать электроинструменты мощностью до 2000&nbsp;Вт. При работе инструмента автоматически включается пылесос.</p>
+									</div>
+								</div>
+							</article>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<article class="brt-rich__benefit-card">
+								<div class="brt-rich__media brt-rich__benefit-card-media">
+									<img src="img/benefit-3.png" alt="Фиксатор колёс пылесоса" width="297" height="206" loading="lazy">
+								</div>
+								<div class="brt-rich__benefit-card-body">
+									<h3 class="brt-rich__heading brt-rich__heading--h3 brt-rich__benefit-card-title">Фиксатор колес</h3>
+									<div class="brt-rich__benefit-card-desc">
+										<p class="brt-rich__text">Фиксатор надёжно блокирует колёса, предотвращая самопроизвольное движение пылесоса по наклонной или неровной поверхности. Это обеспечивает устойчивость при натяжении шланга во время работы с электроинструментом.</p>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--
+			  COMPONENT: Model Features
+			  SECTION: особенности модели — сетка 2×2 (фиксация, объём бака, защита мотора, выдув)
+			-->
+			<section class="brt-rich__section brt-rich__model-features-section">
+				<div class="brt-rich__container">
+					<h2 class="brt-rich__heading brt-rich__heading--h2 brt-rich__model-features-title">Особенности данной модели:</h2>
+					<div class="brt-rich-row brt-rich-row--gap-model-features">
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<article class="brt-rich__card brt-rich__model-feature-card brt-rich__model-feature-card--fixation">
+								<div class="brt-rich-row brt-rich-row--align-center brt-rich-row--gutter-0">
+									<div class="brt-rich-col-auto brt-rich__model-feature-callout-col">
+										<div class="brt-rich__model-feature-callout">
+											<p class="brt-rich__text brt-rich__model-feature-callout-text">Надежная фиксация</p>
+											<svg class="brt-rich__model-feature-callout-arrow" width="232" height="15" viewBox="0 0 232 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+												<path d="M1 7.5H220M220 7.5L214 2M220 7.5L214 13" stroke="#FB7E00" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round"/>
+											</svg>
+										</div>
+									</div>
+									<div class="brt-rich-col-grow brt-rich__model-feature-fixation-media-col">
+										<img class="brt-rich__model-feature-fixation-photo" src="img/open.png" alt="Надежная фиксация крышки бака пылесоса" width="288" height="231" loading="lazy">
+									</div>
+								</div>
+							</article>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<article class="brt-rich__card brt-rich__model-feature-card brt-rich__model-feature-card--tank">
+								<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__model-feature-title">Объем бака</h3>
+								<div class="brt-rich-row brt-rich-row--align-center brt-rich-row--gutter-0 brt-rich__model-feature-tank-body">
+									<div class="brt-rich-col-auto">
+										<img class="brt-rich__model-feature-tank-icon" src="img/back.svg" alt="" width="82" height="82" loading="lazy" aria-hidden="true">
+									</div>
+									<div class="brt-rich-col-grow">
+										<div class="brt-rich__stat brt-rich__stat--start">
+											<span class="brt-rich__stat-value">30 л</span>
+											<span class="brt-rich__stat-label">Емкость для сухого/влажного мусора</span>
+										</div>
+									</div>
+								</div>
+								<p class="brt-rich__text brt-rich__model-feature-tank-material"><strong>Материал бака</strong> - пластик</p>
+							</article>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<article class="brt-rich__card brt-rich__model-feature-card brt-rich__model-feature-card--protection">
+								<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__model-feature-title">Функция защиты мотора<br>от заполнения бака водой</h3>
+								<div class="brt-rich__model-feature-body">
+									<p class="brt-rich__text">При достижении предельного уровня воды в баке поплавок перекрывает всасывающее отверстие.</p>
+									<p class="brt-rich__text">Изменение звука работы пылесоса сигнализирует о прекращении всасывания.</p>
+								</div>
+							</article>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<article class="brt-rich__card brt-rich__model-feature-card brt-rich__model-feature-card--blow">
+								<div class="brt-rich__model-feature-blow-content">
+									<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__model-feature-title">Функция выдува</h3>
+									<p class="brt-rich__text">Позволяет использовать пылесос для выдува пыли и мусора из труднодоступных мест</p>
+								</div>
+								<div class="brt-rich__media brt-rich__model-feature-blow-media">
+									<img src="img/Blow-function.jpg" alt="Выдув пыли и мусора из труднодоступных мест" width="448" height="117" loading="lazy">
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</section>
+
+		</div>
+	</body>
 </html>
