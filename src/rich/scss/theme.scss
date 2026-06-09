@@ -314,6 +314,16 @@
 	/* --- Organisms: Hero --- */
 	&__hero {
 		padding-top: 29px;
+		padding-bottom: 0;
+	}
+
+	&__hero-badges-section,
+	&__hero-card-section {
+		padding-block: 0;
+	}
+
+	&__hero-card-section {
+		padding-bottom: var(--rich-section-gap);
 	}
 	
 	&__page-header {
@@ -365,6 +375,7 @@
 	&__hero-badge--filled {
 		border-color: var(--rich-color-accent-fill);
 		background: var(--rich-color-accent-fill);
+		max-width: 188px;
 	}
 	
 	&__hero-badge-icon {
@@ -384,8 +395,8 @@
 	}
 	
 	&__hero-card {
-		border: var(--rich-hero-card-border) solid var(--rich-color-accent-fill);
 		border-radius: var(--rich-radius-lg);
+		background: var(--rich-color-bg-muted);
 		overflow: hidden;
 	}
 	
@@ -397,40 +408,133 @@
 	&__hero-card &__split-col--content {
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
-		padding: var(--rich-hero-content-padding-y) var(--rich-hero-content-padding-x);
+		justify-content: flex-start;
+		padding:
+			var(--rich-hero-content-padding-top)
+			var(--rich-hero-content-padding-x)
+			var(--rich-hero-content-padding-bottom);
 	}
 	
-	&__hero-card &__heading--h1 {
-		font-weight: 600;
-		margin-bottom: var(--rich-hero-heading-list-gap);
-	}
-	
-	&__hero-list {
-		margin: 0;
-		padding-left: var(--rich-hero-list-indent);
-		font-size: var(--rich-font-size-hero-list);
+	&__hero-card-title {
+		font-family: var(--rich-font-family-display);
+		font-size: var(--rich-font-size-hero-title);
 		font-weight: 400;
 		line-height: normal;
+		text-transform: uppercase;
+		color: var(--rich-color-text-heading);
+	}
+	
+	&__hero-card-model {
+		margin: var(--rich-hero-title-model-gap) 0 0;
+		font-size: var(--rich-font-size-hero-model);
+		font-weight: var(--rich-font-weight-semibold);
+		line-height: normal;
+		color: var(--rich-color-accent);
+	}
+	
+	&__hero-card-desc {
+		margin: var(--rich-hero-model-desc-gap) 0 0;
+		max-width: 389px;
+		font-size: var(--rich-font-size-hero-desc);
+		font-weight: var(--rich-font-weight-normal);
+		line-height: normal;
 		color: var(--rich-color-text);
-		list-style: disc;
 	}
 	
-	&__hero-list li + li {
-		margin-top: 0;
+	&__hero-perks {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--rich-hero-perks-gap);
+		margin: var(--rich-hero-desc-perks-gap) 0 0;
+		padding: 0;
+		max-width: 367px;
+		list-style: none;
 	}
 	
-	&__hero-media &__media {
+	&__hero-perk {
+		display: flex;
+		align-items: center;
+		gap: var(--rich-hero-perk-icon-gap);
+		min-height: var(--rich-hero-perk-min-height);
+		padding: 0 var(--rich-hero-perk-padding-x);
+		border-radius: var(--rich-radius-md);
+		background: var(--rich-color-bg-card);
+	}
+	
+	&__hero-perk-icon {
+		flex-shrink: 0;
+		display: block;
+		width: auto;
+		height: auto;
+		max-width: 53px;
+		max-height: 42px;
+	}
+	
+	&__hero-perk-icon-wrap {
+		display: flex;
+		flex-shrink: 0;
+		flex-direction: column;
+		align-items: center;
+		gap: 4px;
+		width: 53px;
+	}
+	
+	&__hero-perk-auto {
+		display: block;
+		width: auto;
+		height: auto;
+		max-width: 35px;
+	}
+	
+	&__hero-perk-icon--sync {
+		max-width: 46px;
+		max-height: 40px;
+	}
+	
+	&__hero-perk-text {
+		font-size: var(--rich-font-size-hero-perk);
+		font-weight: var(--rich-font-weight-normal);
+		line-height: normal;
+		color: var(--rich-color-text);
+	}
+	
+	&__hero-media-wrap {
+		position: relative;
 		height: 100%;
-		border-radius: 0;
+		min-height: var(--rich-hero-card-height);
 	}
 	
-	&__hero-media img {
+	&__hero-media-photo {
+		display: block;
 		width: 100%;
 		height: 100%;
 		min-height: var(--rich-hero-card-height);
 		object-fit: cover;
-		object-position: center;
+		object-position: left center;
+	}
+	
+	&__hero-media-badges {
+		position: absolute;
+		inset: 0;
+		pointer-events: none;
+	}
+	
+	&__hero-media-specs {
+		position: absolute;
+		top: var(--rich-hero-media-badge-top);
+		left: var(--rich-hero-media-badge-left);
+		display: block;
+		width: 103px;
+		height: auto;
+	}
+	
+	&__hero-media-dust {
+		position: absolute;
+		top: var(--rich-hero-media-dust-top);
+		left: var(--rich-hero-media-dust-left);
+		display: block;
+		width: 53px;
+		height: auto;
 	}
 	
 	&__statement {
@@ -1118,8 +1222,17 @@
 			padding: var(--rich-space-lg);
 		}
 	
-		&__hero-media img {
-			min-height: 220px;
+		&__hero-perks {
+			max-width: none;
+		}
+	
+		&__hero-media-photo {
+			min-height: 280px;
+		}
+	
+		&__hero-media-specs,
+		&__hero-media-dust {
+			display: none;
 		}
 	
 		&__spec-card {

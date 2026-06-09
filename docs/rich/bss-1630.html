@@ -12,8 +12,8 @@
  */
 .brt-rich {
   /* --- Layout (Структура) --- */
-  --rich-max-width: 1024px;
-  --rich-padding-x: 20px;
+  --rich-max-width: 1030px;
+  --rich-padding-x: 60px;
   --rich-section-gap: 48px;
   --rich-block-gap: 24px;
   --rich-split-left: 50%;
@@ -21,13 +21,22 @@
   --rich-hero-header-gap: 21px;
   --rich-hero-badges-gap: 15px;
   --rich-hero-card-gap: 25px;
-  --rich-hero-media-width: 55.604%;
-  --rich-hero-card-height: 270px;
-  --rich-hero-card-border: 0.15px;
-  --rich-hero-content-padding-y: 36px;
-  --rich-hero-content-padding-x: 42px;
-  --rich-hero-heading-list-gap: 25px;
-  --rich-hero-list-indent: 30px;
+  --rich-hero-media-width: 56.484%;
+  --rich-hero-card-height: 462px;
+  --rich-hero-content-padding-top: 43px;
+  --rich-hero-content-padding-bottom: 36px;
+  --rich-hero-content-padding-x: 40px;
+  --rich-hero-title-model-gap: 6px;
+  --rich-hero-model-desc-gap: 14px;
+  --rich-hero-desc-perks-gap: 26px;
+  --rich-hero-perks-gap: 5px;
+  --rich-hero-perk-min-height: 77px;
+  --rich-hero-perk-padding-x: 12px;
+  --rich-hero-perk-icon-gap: 12px;
+  --rich-hero-media-badge-top: 25px;
+  --rich-hero-media-badge-left: 47px;
+  --rich-hero-media-dust-top: 143px;
+  --rich-hero-media-dust-left: 72px;
   --rich-hero-badge-gap: 10px;
   --rich-spec-grid-gap: 10px;
   --rich-spec-card-height: 102px;
@@ -157,7 +166,10 @@
   --rich-font-size-h2: 29px;
   --rich-font-size-h3: 18px;
   --rich-font-size-body: 16px;
-  --rich-font-size-hero-list: 20px;
+  --rich-font-size-hero-title: 24px;
+  --rich-font-size-hero-model: 24px;
+  --rich-font-size-hero-desc: 20px;
+  --rich-font-size-hero-perk: 12px;
   --rich-font-size-small: 14px;
   --rich-font-size-badge: 15px;
   --rich-font-size-spec-label: 15px;
@@ -648,6 +660,13 @@
 	}
 	.brt-rich__hero {
 	  padding-top: 29px;
+	  padding-bottom: 0;
+	}
+	.brt-rich__hero-badges-section, .brt-rich__hero-card-section {
+	  padding-block: 0;
+	}
+	.brt-rich__hero-card-section {
+	  padding-bottom: var(--rich-section-gap);
 	}
 	.brt-rich__page-header {
 	  display: flex;
@@ -694,6 +713,7 @@
 	.brt-rich__hero-badge--filled {
 	  border-color: var(--rich-color-accent-fill);
 	  background: var(--rich-color-accent-fill);
+	  max-width: 188px;
 	}
 	.brt-rich__hero-badge-icon {
 	  flex-shrink: 0;
@@ -710,8 +730,8 @@
 	  color: var(--rich-color-text);
 	}
 	.brt-rich__hero-card {
-	  border: var(--rich-hero-card-border) solid var(--rich-color-accent-fill);
 	  border-radius: var(--rich-radius-lg);
+	  background: var(--rich-color-bg-muted);
 	  overflow: hidden;
 	}
 	.brt-rich__hero-card .brt-rich__split {
@@ -721,35 +741,115 @@
 	.brt-rich__hero-card .brt-rich__split-col--content {
 	  display: flex;
 	  flex-direction: column;
-	  justify-content: center;
-	  padding: var(--rich-hero-content-padding-y) var(--rich-hero-content-padding-x);
+	  justify-content: flex-start;
+	  padding: var(--rich-hero-content-padding-top) var(--rich-hero-content-padding-x) var(--rich-hero-content-padding-bottom);
 	}
-	.brt-rich__hero-card .brt-rich__heading--h1 {
-	  font-weight: 600;
-	  margin-bottom: var(--rich-hero-heading-list-gap);
-	}
-	.brt-rich__hero-list {
-	  margin: 0;
-	  padding-left: var(--rich-hero-list-indent);
-	  font-size: var(--rich-font-size-hero-list);
+	.brt-rich__hero-card-title {
+	  font-family: var(--rich-font-family-display);
+	  font-size: var(--rich-font-size-hero-title);
 	  font-weight: 400;
 	  line-height: normal;
+	  text-transform: uppercase;
+	  color: var(--rich-color-text-heading);
+	}
+	.brt-rich__hero-card-model {
+	  margin: var(--rich-hero-title-model-gap) 0 0;
+	  font-size: var(--rich-font-size-hero-model);
+	  font-weight: var(--rich-font-weight-semibold);
+	  line-height: normal;
+	  color: var(--rich-color-accent);
+	}
+	.brt-rich__hero-card-desc {
+	  margin: var(--rich-hero-model-desc-gap) 0 0;
+	  max-width: 389px;
+	  font-size: var(--rich-font-size-hero-desc);
+	  font-weight: var(--rich-font-weight-normal);
+	  line-height: normal;
 	  color: var(--rich-color-text);
-	  list-style: disc;
 	}
-	.brt-rich__hero-list li + li {
-	  margin-top: 0;
+	.brt-rich__hero-perks {
+	  display: grid;
+	  grid-template-columns: repeat(2, minmax(0, 1fr));
+	  gap: var(--rich-hero-perks-gap);
+	  margin: var(--rich-hero-desc-perks-gap) 0 0;
+	  padding: 0;
+	  max-width: 367px;
+	  list-style: none;
 	}
-	.brt-rich__hero-media .brt-rich__media {
+	.brt-rich__hero-perk {
+	  display: flex;
+	  align-items: center;
+	  gap: var(--rich-hero-perk-icon-gap);
+	  min-height: var(--rich-hero-perk-min-height);
+	  padding: 0 var(--rich-hero-perk-padding-x);
+	  border-radius: var(--rich-radius-md);
+	  background: var(--rich-color-bg-card);
+	}
+	.brt-rich__hero-perk-icon {
+	  flex-shrink: 0;
+	  display: block;
+	  width: auto;
+	  height: auto;
+	  max-width: 53px;
+	  max-height: 42px;
+	}
+	.brt-rich__hero-perk-icon-wrap {
+	  display: flex;
+	  flex-shrink: 0;
+	  flex-direction: column;
+	  align-items: center;
+	  gap: 4px;
+	  width: 53px;
+	}
+	.brt-rich__hero-perk-auto {
+	  display: block;
+	  width: auto;
+	  height: auto;
+	  max-width: 35px;
+	}
+	.brt-rich__hero-perk-icon--sync {
+	  max-width: 46px;
+	  max-height: 40px;
+	}
+	.brt-rich__hero-perk-text {
+	  font-size: var(--rich-font-size-hero-perk);
+	  font-weight: var(--rich-font-weight-normal);
+	  line-height: normal;
+	  color: var(--rich-color-text);
+	}
+	.brt-rich__hero-media-wrap {
+	  position: relative;
 	  height: 100%;
-	  border-radius: 0;
+	  min-height: var(--rich-hero-card-height);
 	}
-	.brt-rich__hero-media img {
+	.brt-rich__hero-media-photo {
+	  display: block;
 	  width: 100%;
 	  height: 100%;
 	  min-height: var(--rich-hero-card-height);
 	  object-fit: cover;
-	  object-position: center;
+	  object-position: left center;
+	}
+	.brt-rich__hero-media-badges {
+	  position: absolute;
+	  inset: 0;
+	  pointer-events: none;
+	}
+	.brt-rich__hero-media-specs {
+	  position: absolute;
+	  top: var(--rich-hero-media-badge-top);
+	  left: var(--rich-hero-media-badge-left);
+	  display: block;
+	  width: 103px;
+	  height: auto;
+	}
+	.brt-rich__hero-media-dust {
+	  position: absolute;
+	  top: var(--rich-hero-media-dust-top);
+	  left: var(--rich-hero-media-dust-left);
+	  display: block;
+	  width: 53px;
+	  height: auto;
 	}
 	.brt-rich__statement {
 	  padding: var(--rich-space-xl) 0;
@@ -1348,8 +1448,14 @@
 	  .brt-rich__hero-card .brt-rich__split-col--content {
 	    padding: var(--rich-space-lg);
 	  }
-	  .brt-rich__hero-media img {
-	    min-height: 220px;
+	  .brt-rich__hero-perks {
+	    max-width: none;
+	  }
+	  .brt-rich__hero-media-photo {
+	    min-height: 280px;
+	  }
+	  .brt-rich__hero-media-specs, .brt-rich__hero-media-dust {
+	    display: none;
 	  }
 	  .brt-rich__spec-card {
 	    padding: 12px 16px;
@@ -1532,50 +1638,85 @@
 	-->
 	<div class="brt-rich">
 		<!--
-		  COMPONENT: Hero (шапка + бейджи + карточка)
+		  COMPONENT: Hero Header
+		  SECTION: шапка (логотип + название товара)
 		-->
-		<section class="brt-rich__section brt-rich__hero">
+		<header class="brt-rich__section brt-rich__hero">
 			<div class="brt-rich__container">
-				<header class="brt-rich__page-header">
+				<div class="brt-rich__page-header">
 					<a class="brt-rich__logo" href="#" aria-label="Bort">
 						<img src="img/logo.svg" alt="Bort" width="158" height="46" loading="lazy">
 					</a>
-					<p class="brt-rich__page-title">ИЗМЕЛЬЧИТЕЛЬ ПИЩЕВЫХ ОТХОДОВ Titan 6000 control</p>
-				</header>
+					<p class="brt-rich__page-title">Пылесос для сухой и влажной уборки BORT BSS-1630-Pro</p>
+				</div>
+			</div>
+		</header>
 
+		<!--
+		  COMPONENT: Hero Badges
+		  SECTION: бейджи под шапкой
+		-->
+		<section class="brt-rich__section brt-rich__hero-badges-section">
+			<div class="brt-rich__container">
 				<ul class="brt-rich__hero-badges">
 					<li class="brt-rich__hero-badge">
-						<img class="brt-rich__hero-badge-icon" src="img/badge-fast.png" alt="" width="38" height="38" loading="lazy">
-						<span class="brt-rich__hero-badge-text">Быстро<br>и безопасно</span>
+						<span class="brt-rich__hero-badge-text">Пылесос для влажной <br> и сухой уборки </span>
 					</li>
 					<li class="brt-rich__hero-badge">
-						<img class="brt-rich__hero-badge-icon" src="img/badge-power.png" alt="" width="24" height="39" loading="lazy">
-						<span class="brt-rich__hero-badge-text">Высокая<br>мощность</span>
+						<span class="brt-rich__hero-badge-text">Полуавтоматическая <br> очистка фильтра </span>
 					</li>
 					<li class="brt-rich__hero-badge">
-						<img class="brt-rich__hero-badge-icon" src="img/badge-design.png" alt="" width="39" height="40" loading="lazy">
-						<span class="brt-rich__hero-badge-text">Лаконичный<br>дизайн</span>
+						<span class="brt-rich__hero-badge-text">ByPASS motor</span>
 					</li>
 					<li class="brt-rich__hero-badge brt-rich__hero-badge--filled">
 						<img class="brt-rich__hero-badge-icon" src="img/badge-guarantee.png" alt="" width="43" height="43" loading="lazy">
 						<span class="brt-rich__hero-badge-text">5 лет<br>гарантии</span>
 					</li>
 				</ul>
+			</div>
+		</section>
 
+		<!--
+		  COMPONENT: Hero Card
+		  SECTION: карточка с заголовком, описанием, перками и фото
+		-->
+		<section class="brt-rich__section brt-rich__hero-card-section">
+			<div class="brt-rich__container">
 				<div class="brt-rich__hero-card">
 					<div class="brt-rich__split brt-rich__split--hero">
 						<div class="brt-rich__split-col brt-rich__split-col--content">
-							<h1 class="brt-rich__heading brt-rich__heading--h1">Ваш надежный помощник на кухне</h1>
-							<ul class="brt-rich__hero-list">
-								<li>Утилизирует остатки пищи</li>
-								<li>Простой способ установки<br>на любой тип мойки</li>
-								<li>Можно подключить<br>к посудомоечной машине</li>
-								<li>Расширенная гарантия 5 лет</li>
+							<h1 class="brt-rich__heading brt-rich__heading--h1 brt-rich__hero-card-title">Пылесос для влажной <br>и сухой уборки</h1>
+							<p class="brt-rich__hero-card-model">BSS-1630-PRO</p>
+							<p class="brt-rich__hero-card-desc">Пылесос справится с водой, стружкой, опилками, кусками кирпича, бетонной крошкой, гипсом, мелом, известью <br>и слюдой</p>
+							<ul class="brt-rich__hero-perks">
+								<li class="brt-rich__hero-perk">
+									<img class="brt-rich__hero-perk-icon" src="img/hero-perk-filter.svg" alt="" width="53" height="40" loading="lazy">
+									<span class="brt-rich__hero-perk-text">Полуавтомати-<br>ческая очистка фильтра</span>
+								</li>
+								<li class="brt-rich__hero-perk">
+									<img class="brt-rich__hero-perk-icon" src="img/hero-perk-motor.svg" alt="" width="49" height="42" loading="lazy">
+									<span class="brt-rich__hero-perk-text">Мощный<br>двигатель</span>
+								</li>
+								<li class="brt-rich__hero-perk">
+									<span class="brt-rich__hero-perk-icon-wrap">
+										<img class="brt-rich__hero-perk-auto" src="img/hero-perk-auto.svg" alt="" width="35" height="10" loading="lazy">
+										<img class="brt-rich__hero-perk-icon brt-rich__hero-perk-icon--sync" src="img/hero-perk-sync.svg" alt="" width="46" height="40" loading="lazy">
+									</span>
+									<span class="brt-rich__hero-perk-text">Синхронизация <br>с инструментом <br>и задержка <br>отключения 10 с</span>
+								</li>
+								<li class="brt-rich__hero-perk">
+									<img class="brt-rich__hero-perk-icon" src="img/hero-perk-kit.svg" alt="" width="48" height="42" loading="lazy">
+									<span class="brt-rich__hero-perk-text">Широкая комплектация</span>
+								</li>
 							</ul>
 						</div>
 						<div class="brt-rich__split-col brt-rich__split-col--media brt-rich__hero-media">
-							<div class="brt-rich__media">
-								<img src="img/hero.png" alt="Измельчитель Bort Titan 6000 control на кухне" width="506" height="270" loading="lazy">
+							<div class="brt-rich__hero-media-wrap">
+								<img class="brt-rich__hero-media-photo" src="img/hero-main.png" alt="Пылесос Bort BSS-1630-Pro" width="547" height="452" loading="lazy">
+								<div class="brt-rich__hero-media-badges" aria-hidden="true">
+									<img class="brt-rich__hero-media-specs" src="img/hero-specs.svg" alt="" width="103" height="103" loading="lazy">
+									<img class="brt-rich__hero-media-dust" src="img/hero-dust-class.svg" alt="" width="53" height="24" loading="lazy">
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1585,7 +1726,7 @@
 
 		<!--
 		  COMPONENT: Specs Grid
-		  FIGMA REF: nodes 2:91–2:108 | desktop: 3×3, card h102 r20 #f2f2f2, gap 10px, icon left + label/value | mobile: stack 2→1 col
+		  desktop: 3×3, card h102 r20 #f2f2f2, gap 10px, icon left + label/value | mobile: stack 2→1 col
 		  REUSES: spec-card
 		-->
 		<section class="brt-rich__section brt-rich__specs">
