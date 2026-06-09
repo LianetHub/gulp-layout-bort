@@ -24,16 +24,9 @@
 			<a href="#rich-component-text">Text</a>
 			<a href="#rich-component-stat">Stat</a>
 			<a href="#rich-component-badge">Badge</a>
-			<a href="#rich-component-spec-card">Spec card</a>
-			<a href="#rich-component-feature-card">Feature card</a>
-			<a href="#rich-component-mini-card">Mini card</a>
-			<a href="#rich-component-step">Step</a>
 			<a href="#rich-component-grid">Grid (row/col)</a>
 			<a href="#rich-component-hero">Hero</a>
-			<a href="#rich-component-banner">Banner</a>
-			<a href="#rich-component-gallery">Gallery</a>
 			<a href="#rich-component-statement">Statement</a>
-			<a href="#rich-component-kit">Kit contents</a>
 		</div>
 	</nav>
 
@@ -58,7 +51,7 @@
 	<section class="showcase-section" id="rich-component-heading">
 		<h2 class="showcase-section__title">Heading (заголовок)</h2>
 		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__heading</p>
-		<p class="showcase-section__desc">Атом. Модификаторы: <code>--h1</code>, <code>--h2</code>, <code>--h3</code>, <code>--center</code>. Используется в hero, split, banner, feature-card.</p>
+		<p class="showcase-section__desc">Атом. Модификаторы: <code>--h1</code>, <code>--h2</code>, <code>--h3</code>, <code>--center</code>. Используется в hero и statement.</p>
 		<div class="showcase-demo">
 			<div class="showcase-demo__label">.brt-rich__heading--h1 / --h2 / --h3</div>
 			<div class="brt-rich">
@@ -104,7 +97,7 @@
 	<section class="showcase-section" id="rich-component-stat">
 		<h2 class="showcase-section__title">Stat (характеристика)</h2>
 		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__stat</p>
-		<p class="showcase-section__desc">Атом: значение + подпись. Используется внутри spec-card.</p>
+		<p class="showcase-section__desc">Атом: значение + подпись.</p>
 		<div class="showcase-demo">
 			<div class="showcase-demo__label">.brt-rich__stat-value + .brt-rich__stat-label</div>
 			<div class="brt-rich">
@@ -128,85 +121,6 @@
 				<div class="brt-rich__container" style="padding-block: 24px;">
 					<span class="brt-rich__badge">Мощный мотор</span>
 					<span class="brt-rich__badge" style="margin-left: 8px;">3 ступени</span>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<!-- MOLECULES -->
-	<section class="showcase-section" id="rich-component-spec-card">
-		<h2 class="showcase-section__title">Spec card (карточка характеристики)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__spec-card</p>
-		<p class="showcase-section__desc">Молекула: иконка + stat. Собирается в <code>brt-rich-row</code> + <code>brt-rich-col-md-4</code> (3 колонки на desktop).</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__spec-card</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich-row brt-rich-row--gap-specs" style="max-width: 320px;">
-						<div class="brt-rich-col-12 brt-rich-col-md-4">
-							<div class="brt-rich__spec-card">
-								@@include('partials/_icon.html', { "name": "power", "class": "brt-rich__spec-card-icon" })
-								<div class="brt-rich__stat">
-									<span class="brt-rich__stat-value">560 Вт</span>
-									<span class="brt-rich__stat-label">Мощность</span>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-feature-card">
-		<h2 class="showcase-section__title">Feature card (карточка преимущества)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__feature-card</p>
-		<p class="showcase-section__desc">Молекула: иконка + inline bold title + текст. Сетка <code>brt-rich-row--gap-features</code> + <code>brt-rich-col-md-6</code> (2 колонки).</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__feature-card</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container showcase-demo__pad">
-					<div class="brt-rich__feature-card showcase-demo__feature-card">
-						<img class="brt-rich__feature-card-icon" src="img/feature-clog.svg" alt="" width="91" height="82" loading="lazy">
-						<p class="brt-rich__feature-card-text">
-							<strong class="brt-rich__feature-card-title">Засоры в трубах.</strong>
-							Измельченные отходы перемалываются и легко смываются в канализацию потоком воды, не создавая засоры.
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-mini-card">
-		<h2 class="showcase-section__title">Mini card (компактная плашка)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__mini-card</p>
-		<p class="showcase-section__desc">Молекула. Используется в tech-diagram справа от схемы мотора.</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__mini-card</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px; max-width: 360px;">
-					<div class="brt-rich__mini-card">
-						@@include('partials/_icon.html', { "name": "bone", "class": "brt-rich__mini-card-icon" })
-						<span class="brt-rich__mini-card-text">Куриные и рыбные кости</span>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-step">
-		<h2 class="showcase-section__title">Step (шаг процесса)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__step</p>
-		<p class="showcase-section__desc">Молекула. Карточка шага в оранжевой полосе (.brt-rich__step-card).</p>
-		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__step-card</div>
-			<div class="brt-rich">
-				<div class="brt-rich__container" style="padding-block: 24px; max-width: 320px;">
-					<div class="brt-rich__step-card">
-						<img class="brt-rich__step-card-icon" src="img/step-water.svg" alt="" width="52" height="72" loading="lazy">
-						<span class="brt-rich__step-label">Включить воду</span>
-					</div>
 				</div>
 			</div>
 		</div>
@@ -297,28 +211,6 @@
 		</div>
 	</section>
 
-	<section class="showcase-section" id="rich-component-banner">
-		<h2 class="showcase-section__title">Banner accent</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__banner</p>
-		<p class="showcase-section__desc">Организм. Акцентный блок с display-числом. Переменные: --rich-color-accent, --rich-font-size-display</p>
-		<div class="showcase-demo">
-			<div class="brt-rich">
-				@@include('partials/blocks/_banner-accent.html')
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-gallery">
-		<h2 class="showcase-section__title">Gallery</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__gallery</p>
-		<p class="showcase-section__desc">Организм. Сетка 2×2 с минимальным gap.</p>
-		<div class="showcase-demo">
-			<div class="brt-rich">
-				@@include('partials/blocks/_gallery.html')
-			</div>
-		</div>
-	</section>
-
 	<section class="showcase-section" id="rich-component-statement">
 		<h2 class="showcase-section__title">Statement</h2>
 		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__statement</p>
@@ -326,17 +218,6 @@
 		<div class="showcase-demo">
 			<div class="brt-rich">
 				@@include('partials/blocks/_statement.html')
-			</div>
-		</div>
-	</section>
-
-	<section class="showcase-section" id="rich-component-kit">
-		<h2 class="showcase-section__title">Kit contents (комплектация)</h2>
-		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__kit</p>
-		<p class="showcase-section__desc">Организм. Заголовок + сетка 2×3 карточек с фото и подписью. partials/blocks/_kit-contents.html</p>
-		<div class="showcase-demo">
-			<div class="brt-rich">
-				@@include('partials/blocks/_kit-contents.html')
 			</div>
 		</div>
 	</section>

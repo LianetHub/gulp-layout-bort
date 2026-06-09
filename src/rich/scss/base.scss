@@ -39,6 +39,10 @@
 		margin-inline: auto;
 		padding-inline: var(--rich-padding-x);
 		min-width: 0;
+
+		@media (max-width: $md4) {
+			padding-inline: var(--rich-padding-x-mobile);
+		}
 	}
 
 	// .brt-rich__section

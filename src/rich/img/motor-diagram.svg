@@ -1,7 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="560" height="400" viewBox="0 0 560 400">
-  <rect width="560" height="400" fill="#f5f5f5"/>
-  <circle cx="280" cy="200" r="80" fill="none" stroke="#333" stroke-width="3"/>
-  <line x1="280" y1="120" x2="280" y2="80" stroke="#ff8c00" stroke-width="2"/>
-  <line x1="360" y1="200" x2="400" y2="200" stroke="#ff8c00" stroke-width="2"/>
-  <text x="280" y="360" text-anchor="middle" fill="#999" font-family="system-ui,sans-serif" font-size="14">!E5<0 <>B>@0 PMDC</text>
-</svg>

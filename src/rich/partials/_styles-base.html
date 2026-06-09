@@ -85,15 +85,6 @@
   border-style: none;
   padding: 0;
 }
-.brt-rich h1,
-.brt-rich h2,
-.brt-rich h3,
-.brt-rich h4,
-.brt-rich h5,
-.brt-rich h6 {
-  font-size: inherit;
-  font-weight: inherit;
-}
 .brt-rich button,
 .brt-rich [type=button],
 .brt-rich [type=reset],
@@ -172,51 +163,6 @@
     max-width: var(--rich-hero-media-width);
   }
 }
-.brt-rich .brt-rich-row--grinding {
-  --rich-gutter-x: var(--rich-grinding-panels-gap);
-}
-.brt-rich .brt-rich-row--grinding > .brt-rich-col-grinding-diagram {
-  flex: 0 0 auto;
-  width: 100%;
-  max-width: 100%;
-}
-@media (min-width: 767.98px) {
-  .brt-rich .brt-rich-row--grinding > .brt-rich-col-grinding-diagram {
-    flex: 0 0 var(--rich-grinding-panel-left);
-    width: var(--rich-grinding-panel-left);
-    max-width: var(--rich-grinding-panel-left);
-  }
-}
-.brt-rich .brt-rich-row--grinding > .brt-rich-col-grinding-items {
-  flex: 1 1 0;
-  width: auto;
-  max-width: 100%;
-}
-@media (min-width: 767.98px) {
-  .brt-rich .brt-rich-row--grinding > .brt-rich-col-grinding-items {
-    flex: 1 1 0;
-    max-width: calc(100% - var(--rich-grinding-panel-left));
-  }
-}
-.brt-rich .brt-rich-row--gap-specs {
-  --rich-gutter-x: var(--rich-spec-grid-gap);
-}
-.brt-rich .brt-rich-row--gap-features {
-  --rich-gutter-x: var(--rich-features-grid-gap);
-}
-.brt-rich .brt-rich-row--gap-kit {
-  --rich-gutter-x: var(--rich-kit-grid-gap);
-}
-.brt-rich .brt-rich-row--gap-gallery {
-  --rich-gutter-x: var(--rich-gallery-col-gap);
-  --rich-gutter-y: var(--rich-gallery-row-gap);
-}
-.brt-rich .brt-rich-row--gap-dual {
-  --rich-gutter-x: var(--rich-dual-panels-gap);
-}
-.brt-rich .brt-rich-row--gap-steps {
-  --rich-gutter-x: var(--rich-steps-bar-gap);
-}
 .brt-rich .brt-rich-row--gap-hero-card {
   --rich-gutter-x: var(--rich-hero-card-gap);
 }
@@ -225,6 +171,9 @@
 }
 .brt-rich .brt-rich-row--gap-hero-badges {
   --rich-gutter-x: var(--rich-hero-badges-gap);
+}
+.brt-rich .brt-rich-row--gap-card {
+  --rich-gutter-x: var(--rich-card-gap);
 }
 .brt-rich .brt-rich-col {
   flex: 1 1 0;
@@ -469,6 +418,11 @@
   margin-inline: auto;
   padding-inline: var(--rich-padding-x);
   min-width: 0;
+}
+@media (max-width: 767.98px) {
+  .brt-rich__container {
+    padding-inline: var(--rich-padding-x-mobile);
+  }
 }
 .brt-rich__section {
   padding-block: var(--rich-section-gap);

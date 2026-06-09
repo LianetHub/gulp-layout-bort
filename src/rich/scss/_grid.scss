@@ -84,58 +84,6 @@ $rich-grid-columns: 12;
 			}
 		}
 
-		&--grinding {
-			--rich-gutter-x: var(--rich-grinding-panels-gap);
-
-			> .brt-rich-col-grinding-diagram {
-				flex: 0 0 auto;
-				width: 100%;
-				max-width: 100%;
-
-				@media (min-width: $md4) {
-					flex: 0 0 var(--rich-grinding-panel-left);
-					width: var(--rich-grinding-panel-left);
-					max-width: var(--rich-grinding-panel-left);
-				}
-			}
-
-			> .brt-rich-col-grinding-items {
-				flex: 1 1 0;
-				width: auto;
-				max-width: 100%;
-
-				@media (min-width: $md4) {
-					flex: 1 1 0;
-					max-width: calc(100% - var(--rich-grinding-panel-left));
-				}
-			}
-		}
-
-		&--gap-specs {
-			--rich-gutter-x: var(--rich-spec-grid-gap);
-		}
-
-		&--gap-features {
-			--rich-gutter-x: var(--rich-features-grid-gap);
-		}
-
-		&--gap-kit {
-			--rich-gutter-x: var(--rich-kit-grid-gap);
-		}
-
-		&--gap-gallery {
-			--rich-gutter-x: var(--rich-gallery-col-gap);
-			--rich-gutter-y: var(--rich-gallery-row-gap);
-		}
-
-		&--gap-dual {
-			--rich-gutter-x: var(--rich-dual-panels-gap);
-		}
-
-		&--gap-steps {
-			--rich-gutter-x: var(--rich-steps-bar-gap);
-		}
-
 		&--gap-hero-card {
 			--rich-gutter-x: var(--rich-hero-card-gap);
 		}
@@ -146,6 +94,10 @@ $rich-grid-columns: 12;
 
 		&--gap-hero-badges {
 			--rich-gutter-x: var(--rich-hero-badges-gap);
+		}
+
+		&--gap-card {
+			--rich-gutter-x: var(--rich-card-gap);
 		}
 	}
 
