@@ -29,7 +29,6 @@
 
 	&__heading--h2 {
 		font-size: var(--rich-font-size-h2);
-		margin-bottom: var(--rich-application-areas-title-gap);
 	}
 
 	&__heading--h3 {
@@ -65,7 +64,7 @@
 		text-align: center;
 	}
 
-	&__stat--start {
+	&__stat--left {
 		text-align: left;
 		position: relative;
 		z-index: 2;
@@ -117,7 +116,7 @@
 
 	&__logo img {
 		display: block;
-		width: 158px;
+		width: 160px;
 		height: auto;
 
 		@media (max-width: $md4) {
@@ -143,7 +142,7 @@
 		}
 	}
 
-	&__card--horizontal>.brt-rich-row {
+	&__bypass-motor>.brt-rich-row {
 		align-items: center;
 	}
 
@@ -192,6 +191,7 @@
 	}
 
 	&__bypass-comparing-title {
+		font-size: var(--rich-font-size-h2);
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: 1.05;
 		color: var(--rich-color-text-heading);
@@ -230,7 +230,7 @@
 		display: block;
 		width: 100%;
 		height: auto;
-		min-height: 285px;
+		min-height: 284px;
 		object-fit: cover;
 		object-position: center;
 		border-radius: 0 var(--rich-radius-lg) var(--rich-radius-lg) 0;
@@ -238,6 +238,7 @@
 
 	&__specs-panel-title {
 		margin-bottom: var(--rich-space-sm);
+		font-size: var(--rich-font-size-h2);
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: 1.05;
 		color: var(--rich-color-text-heading);
@@ -250,7 +251,7 @@
 	&__specs-panel-stat {
 		display: flex;
 		align-items: center;
-		min-height: 118px;
+		min-height: 120px;
 		height: 100%;
 		padding: var(--rich-space-md) var(--rich-space-lg);
 		border-radius: var(--rich-radius-lg);
@@ -265,7 +266,7 @@
 		}
 
 		.brt-rich__stat-label {
-			margin-top: 6px;
+			margin-top: var(--rich-space-xs);
 			font-size: var(--rich-font-size-body);
 			font-weight: var(--rich-font-weight-normal);
 			line-height: normal;
@@ -279,6 +280,7 @@
 
 	&__benefits-title {
 		margin-bottom: var(--rich-benefits-title-gap);
+		font-size: var(--rich-font-size-h2);
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: 1.05;
 		color: var(--rich-color-text);
@@ -318,6 +320,7 @@
 
 	&__benefit-card-title {
 		font-family: var(--rich-font-family-display);
+		font-size: var(--rich-font-size-h3);
 		font-weight: 400;
 		line-height: normal;
 		color: var(--rich-color-text-heading);
@@ -341,6 +344,7 @@
 
 	&__model-features-title {
 		margin-bottom: var(--rich-model-features-title-gap);
+		font-size: var(--rich-font-size-h2);
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: normal;
 		color: var(--rich-color-text);
@@ -374,6 +378,7 @@
 	}
 
 	&__model-feature-title {
+		font-size: var(--rich-font-size-h2);
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: 1.05;
 		color: var(--rich-color-text);
@@ -443,7 +448,7 @@
 		}
 
 		.brt-rich__stat-label {
-			margin-top: 6px;
+			margin-top: var(--rich-space-xs);
 			font-size: var(--rich-font-size-h3);
 			font-weight: var(--rich-font-weight-normal);
 			line-height: normal;
@@ -476,7 +481,7 @@
 		}
 
 		.brt-rich__text+.brt-rich__text {
-			margin-top: var(--rich-model-features-body-gap);
+			margin-top: var(--rich-space-sm);
 		}
 	}
 
@@ -540,12 +545,21 @@
 	&__hose-photo {
 		display: block;
 		width: 100%;
-		max-width: 262px;
+		max-width: 264px;
 		height: auto;
 		object-fit: contain;
 	}
 
+	&__hose-section-title {
+		margin-bottom: var(--rich-space-sm);
+		font-size: var(--rich-font-size-h2);
+		font-weight: var(--rich-font-weight-semibold);
+		line-height: 1.05;
+		color: var(--rich-color-text-heading);
+	}
+
 	&__hose-title {
+		font-size: var(--rich-font-size-h2);
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: 1.05;
 		color: var(--rich-color-text);
@@ -577,7 +591,7 @@
 		display: flex;
 		flex-direction: column;
 		justify-content: space-between;
-		gap: var(--rich-filters-col-gap);
+		gap: var(--rich-space-sm);
 		min-height: var(--rich-filters-min-height);
 		height: 100%;
 
@@ -591,6 +605,7 @@
 	}
 
 	&__filters-mode {
+		font-size: var(--rich-font-size-h2);
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: 1.05;
 		color: var(--rich-color-text);
@@ -598,6 +613,7 @@
 
 	&__filters-title {
 		margin-top: var(--rich-filters-mode-gap);
+		font-size: var(--rich-font-size-h2);
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: 1.05;
 		color: var(--rich-color-text);
@@ -622,14 +638,14 @@
 
 		.brt-rich__stat-value {
 			font-family: var(--rich-font-family-display);
-			font-size: 35px;
+			font-size: 36px;
 			font-weight: 400;
 			line-height: 1;
 			color: var(--rich-color-text);
 		}
 
 		.brt-rich__stat-label {
-			margin-top: 6px;
+			margin-top: var(--rich-space-xs);
 			font-size: var(--rich-font-size-h3);
 			font-weight: var(--rich-font-weight-normal);
 			line-height: 1.1;
@@ -643,9 +659,9 @@
 		position: relative;
 		z-index: 1;
 		margin: 0;
-		max-width: 147px;
+		max-width: 148px;
 		font-family: var(--rich-font-family-display);
-		font-size: 30px;
+		font-size: 32px;
 		font-weight: 400;
 		line-height: 1.1;
 		color: var(--rich-color-text);
@@ -742,7 +758,7 @@
 	&__collaboration-mode {
 		padding: var(--rich-card-padding-y) var(--rich-card-padding-x);
 
-		.brt-rich-row--gap-card {
+		.brt-rich-row--gap-sm {
 			@media (min-width:$md4) {
 				margin: 0 calc(-1 * var(--rich-card-padding-x)) calc(-1 * var(--rich-card-padding-y));
 			}
@@ -755,6 +771,7 @@
 
 	&__collaboration-mode-title {
 		margin-bottom: var(--rich-space-md);
+		font-size: var(--rich-font-size-h2);
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: 1.05;
 		color: var(--rich-color-text-heading);
@@ -769,7 +786,7 @@
 		display: block;
 		width: 100%;
 		height: auto;
-		min-height: 283px;
+		min-height: 284px;
 		object-fit: cover;
 		object-position: center;
 		border-radius: var(--rich-radius-lg);
@@ -777,8 +794,8 @@
 
 	&__collaboration-mode-badges {
 		position: absolute;
-		top: 5px;
-		left: 5px;
+		top: var(--rich-space-2xs);
+		left: var(--rich-space-2xs);
 		display: flex;
 		flex-direction: column;
 		gap: var(--rich-collaboration-mode-badges-gap);
@@ -793,7 +810,7 @@
 		justify-content: center;
 		width: var(--rich-collaboration-mode-badge-size);
 		height: var(--rich-collaboration-mode-badge-height);
-		border-radius: 15px;
+		border-radius: var(--rich-space-md);
 		background: var(--rich-color-bg-card);
 		overflow: hidden;
 
@@ -831,7 +848,7 @@
 	}
 
 	&__collaboration-mode-modes {
-		margin: var(--rich-collaboration-mode-desc-gap) 0 0;
+		margin: var(--rich-space-md) 0 0;
 		padding: 0;
 		list-style: none;
 	}
@@ -845,7 +862,7 @@
 		background: var(--rich-color-bg-card);
 
 		&+& {
-			margin-top: var(--rich-collaboration-mode-modes-gap);
+			margin-top: var(--rich-space-2xs);
 		}
 	}
 
@@ -871,8 +888,16 @@
 
 
 
+	&__application-areas-title {
+		margin-bottom: var(--rich-space-sm);
+		font-size: var(--rich-font-size-h2);
+		font-weight: var(--rich-font-weight-semibold);
+		line-height: 1.05;
+		color: var(--rich-color-text-heading);
+	}
+
 	&__application-areas {
-		padding: var(--rich-application-areas-frame-padding);
+		padding: var(--rich-space-sm);
 		border-radius: var(--rich-radius-lg);
 		background: var(--rich-color-accent);
 	}
@@ -901,7 +926,7 @@
 	&__application-area-text {
 		flex: 1 1 auto;
 		margin: 0;
-		padding: var(--rich-application-areas-gap) var(--rich-space-xs) var(--rich-space-md);
+		padding: var(--rich-space-sm) var(--rich-space-xs) var(--rich-space-md);
 		font-size: var(--rich-font-size-badge);
 		font-weight: var(--rich-font-weight-normal);
 		line-height: normal;
@@ -947,7 +972,7 @@
 
 
 	&__hero {
-		padding-top: 29px;
+		padding-top: 28px;
 		padding-bottom: 0;
 
 		@media (max-width: $md4) {
@@ -985,7 +1010,7 @@
 
 	&__page-title {
 		margin: 0;
-		max-width: 493px;
+		max-width: 492px;
 		margin-left: auto;
 		font-family: var(--rich-font-family-display);
 		font-size: var(--rich-font-size-page-title);
@@ -1013,12 +1038,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		gap: var(--rich-hero-badge-gap);
+		gap: var(--rich-space-sm);
 		width: 100%;
 		min-width: 0;
-		min-height: 54px;
+		min-height: 56px;
 		height: 100%;
-		padding: 6px 16px;
+		padding: var(--rich-space-xs) var(--rich-space-md);
 		border: 2px solid var(--rich-color-accent);
 		border-radius: var(--rich-radius-pill);
 		background: var(--rich-color-bg);
@@ -1034,7 +1059,7 @@
 		display: block;
 		width: auto;
 		height: auto;
-		max-height: 43px;
+		max-height: 44px;
 	}
 
 	&__hero-badge-text {
@@ -1099,7 +1124,7 @@
 	&__hero-perks {
 		margin: var(--rich-hero-desc-perks-gap) 0 0;
 		padding: 0;
-		max-width: 367px;
+		max-width: 368px;
 		list-style: none;
 
 		@media (max-width: $md4) {
@@ -1110,11 +1135,11 @@
 	&__hero-perk {
 		display: flex;
 		align-items: center;
-		gap: var(--rich-hero-perk-icon-gap);
+		gap: var(--rich-space-xs);
 		width: 100%;
 		height: 100%;
 		min-height: var(--rich-hero-perk-min-height);
-		padding: 0 var(--rich-hero-perk-padding-x);
+		padding: 0 var(--rich-space-sm);
 		border-radius: var(--rich-radius-md);
 		background: var(--rich-color-bg-card);
 	}
@@ -1124,8 +1149,8 @@
 		display: block;
 		width: auto;
 		height: auto;
-		max-width: 53px;
-		max-height: 54px;
+		max-width: 52px;
+		max-height: 52px;
 	}
 
 	&__hero-perk-text {
@@ -1193,7 +1218,7 @@
 	&__product-params {
 		display: flex;
 		flex-direction: column;
-		gap: var(--rich-product-params-gap);
+		gap: var(--rich-space-sm);
 	}
 
 	&__product-params-info-card {
@@ -1211,6 +1236,7 @@
 
 	&__product-params-info-title {
 		margin: 0;
+		font-size: var(--rich-font-size-h2);
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: normal;
 		color: var(--rich-color-text);
@@ -1218,7 +1244,7 @@
 
 	&__product-params-info-text {
 		margin: var(--rich-product-params-info-title-gap) 0 0;
-		max-width: 390px;
+		max-width: 392px;
 		font-size: var(--rich-font-size-hero-desc);
 		line-height: normal;
 		color: var(--rich-color-text);
@@ -1276,6 +1302,11 @@
 
 	&__advantages-section {
 		padding-block: 0 var(--rich-section-gap);
+
+		.brt-rich-row {
+			--rich-gutter-x: var(--rich-space-2xs);
+			--rich-gutter-y: var(--rich-space-sm);
+		}
 	}
 
 	&__advantage-card {
@@ -1304,13 +1335,14 @@
 	&__advantage-card-body {
 		display: flex;
 		flex-direction: column;
-		gap: var(--rich-advantages-body-gap);
+		gap: var(--rich-space-sm);
 		padding: 0 var(--rich-advantages-body-padding-x) var(--rich-advantages-body-padding-bottom);
 	}
 
 	&__advantage-card-title {
 		margin: var(--rich-space-md) 0 0;
 		font-family: var(--rich-font-family-display);
+		font-size: var(--rich-font-size-h3);
 		font-weight: 400;
 		line-height: normal;
 		color: var(--rich-color-text-heading);
@@ -1328,15 +1360,16 @@
 	}
 
 	&__kit {
-		padding: var(--rich-kit-frame-padding);
+		padding: var(--rich-space-sm);
 
-		.brt-rich-row--gap-kit>[class*="brt-rich-col"] {
+		.brt-rich-row--gap-sm>[class*="brt-rich-col"] {
 			display: flex;
 			flex-direction: column;
 		}
 	}
 
 	&__kit-title {
+		font-size: var(--rich-font-size-h2);
 		text-align: center;
 	}
 
@@ -1374,7 +1407,7 @@
 		align-items: center;
 		justify-content: center;
 		min-height: var(--rich-kit-item-media-min-height);
-		padding: var(--rich-kit-item-media-padding);
+		padding: var(--rich-space-sm);
 		border-radius: 0;
 		overflow: visible;
 

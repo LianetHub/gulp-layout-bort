@@ -1,104 +1,114 @@
 // CSS-переменные Rich Content.
 
 .brt-rich {
+	/* --- Spacing (4px-шкала) --- */
+	--rich-space-2xs: 4px;
+	--rich-space-xs: 8px;
+	--rich-space-sm: 12px;
+	--rich-space-md: 16px;
+	--rich-space-lg: 24px;
+	--rich-space-xl: 32px;
+	--rich-space-2xl: 40px;
+	--rich-space-3xl: 48px;
+
 	/* --- Layout (Структура) --- */
-	// --rich-max-width: 1024px;
-	// --rich-padding-x: 20px;
-	--rich-max-width: 1030px;
+	--rich-max-width: 1032px;
 	--rich-padding-x: 60px;
 	--rich-padding-x-mobile: 16px;
-	--rich-section-gap: 24px;
-	--rich-block-gap: 12px;
+	--rich-section-gap: var(--rich-space-lg);
+	--rich-split-left: 50%;
+	--rich-split-gap: var(--rich-space-xl);
 	--rich-row-gap: var(--rich-split-gap);
 	--rich-gutter-x: var(--rich-row-gap);
-	--rich-gutter-y: 8px;
-	--rich-split-left: 50%;
-	--rich-split-gap: 32px;
-	--rich-hero-header-gap: 21px;
-	--rich-hero-badges-gap: 12px;
-	--rich-hero-card-gap: 14px;
-	--rich-hero-title-model-gap: 6px;
-	--rich-hero-model-desc-gap: 14px;
-	--rich-hero-desc-perks-gap: 26px;
-	--rich-hero-perks-gap: 5px;
-	--rich-hero-perk-min-height: 77px;
-	--rich-hero-perk-padding-x: 12px;
-	--rich-hero-perk-icon-gap: 8px;
-	--rich-hero-badge-gap: 10px;
-	--rich-card-gap: 14px;
-	--rich-specs-gap: 5px;
-	--rich-application-areas-gap: 12px;
-	--rich-application-areas-frame-padding: 10px;
-	--rich-application-areas-media-height: 178px;
-	--rich-application-areas-title-gap: 10px;
-	--rich-dust-class-padding-y: 33px;
-	--rich-dust-class-padding-x: 38px;
+	--rich-gutter-y: var(--rich-space-xs);
+
+	/* --- Hero --- */
+	--rich-hero-header-gap: 20px;
+	--rich-hero-card-gap: var(--rich-space-sm);
+	--rich-hero-card-height: 284px;
+	--rich-hero-media-width: 392px;
+	--rich-hero-title-model-gap: var(--rich-space-xs);
+	--rich-hero-model-desc-gap: var(--rich-space-sm);
+	--rich-hero-desc-perks-gap: 28px;
+	--rich-hero-perk-min-height: 76px;
+
+	/* --- Application Areas --- */
+	--rich-application-areas-media-height: 180px;
+
+	/* --- Dust Class --- */
+	--rich-dust-class-padding-y: var(--rich-space-xl);
+	--rich-dust-class-padding-x: var(--rich-space-2xl);
 	--rich-dust-class-icon-size: 144px;
-	--rich-benefits-gap: 10px;
+
+	/* --- Benefits --- */
 	--rich-benefits-title-gap: 20px;
-	--rich-benefits-media-height: 199px;
-	--rich-benefits-card-min-height: 470px;
-	--rich-benefits-card-padding-x: 25px;
-	--rich-benefits-card-padding-y: 22px;
-	--rich-benefits-body-gap: 22px;
-	--rich-benefits-text-gap: 17px;
-	--rich-hose-media-width: 267px;
-	--rich-hose-media-height: 329px;
-	--rich-hose-title-gap: 17px;
+	--rich-benefits-media-height: 200px;
+	--rich-benefits-card-min-height: 472px;
+	--rich-benefits-card-padding-x: var(--rich-space-lg);
+	--rich-benefits-card-padding-y: var(--rich-space-lg);
+	--rich-benefits-body-gap: var(--rich-space-lg);
+	--rich-benefits-text-gap: var(--rich-space-md);
+
+	/* --- Hose --- */
+	--rich-hose-media-width: 268px;
+	--rich-hose-media-height: 328px;
+	--rich-hose-title-gap: var(--rich-space-md);
+
+	/* --- Collaboration Mode --- */
 	--rich-collaboration-mode-badge-size: 108px;
 	--rich-collaboration-mode-badge-height: 104px;
-	--rich-collaboration-mode-badges-gap: 65px;
-	--rich-collaboration-mode-modes-gap: 5px;
-	--rich-collaboration-mode-desc-gap: 16px;
-	--rich-model-features-gap: 10px;
-	--rich-model-features-title-gap: 15px;
-	--rich-model-features-card-padding-x: 35px;
+	--rich-collaboration-mode-badges-gap: 64px;
+
+	/* --- Model Features --- */
+	--rich-model-features-title-gap: var(--rich-space-md);
+	--rich-model-features-card-padding-x: 36px;
 	--rich-model-features-card-padding-y: 28px;
-	--rich-model-features-fixation-min-height: 231px;
-	--rich-model-features-tank-min-height: 174px;
-	--rich-model-features-text-min-height: 293px;
-	--rich-model-features-tank-icon-size: 82px;
-	--rich-model-features-blow-media-height: 117px;
-	--rich-model-features-body-gap: 14px;
-	--rich-product-params-gap: 10px;
-	--rich-product-params-info-min-height: 233px;
-	--rich-product-params-info-padding: 27px 44px;
-	--rich-product-params-info-title-gap: 27px;
-	--rich-product-params-stat-min-height: 139px;
+	--rich-model-features-fixation-min-height: 232px;
+	--rich-model-features-tank-min-height: 176px;
+	--rich-model-features-text-min-height: 296px;
+	--rich-model-features-tank-icon-size: 80px;
+	--rich-model-features-blow-media-height: 120px;
+
+	/* --- Product Params --- */
+	--rich-product-params-info-min-height: 232px;
+	--rich-product-params-info-padding: 28px 44px;
+	--rich-product-params-info-title-gap: 28px;
+	--rich-product-params-stat-min-height: 140px;
 	--rich-product-params-stat-number-size: 64px;
-	--rich-product-params-stat-unit-size: 30px;
-	--rich-product-params-stat-unit-small-size: 19px;
-	--rich-advantages-gap-x: 4px;
-	--rich-advantages-gap-y: 10px;
-	--rich-advantages-body-padding-x: 30px;
-	--rich-advantages-body-padding-bottom: 26px;
-	--rich-advantages-body-gap: 10px;
-	--rich-kit-gap: 10px;
-	--rich-kit-frame-padding: 10px;
-	--rich-kit-title-gap: 15px;
+	--rich-product-params-stat-unit-size: 32px;
+	--rich-product-params-stat-unit-small-size: 20px;
+
+	/* --- Advantages --- */
+	--rich-advantages-body-padding-x: var(--rich-space-xl);
+	--rich-advantages-body-padding-bottom: 28px;
+
+	/* --- Kit --- */
 	--rich-kit-title-size: 40px;
-	--rich-kit-item-media-padding: 12px;
-	--rich-kit-item-main-media-min-height: 335px;
+	--rich-kit-item-main-media-min-height: 336px;
 	--rich-kit-item-media-min-height: 140px;
 	--rich-kit-item-bottom-media-min-height: 120px;
-	--rich-kit-label-padding: 12px 10px 16px;
+	--rich-kit-label-padding: var(--rich-space-sm) var(--rich-space-sm) var(--rich-space-md);
+
+	/* --- Card --- */
 	--rich-card-padding-y: 28px;
 	--rich-card-padding-x: 36px;
-	--rich-filters-min-height: 320px;
-	--rich-filters-col-gap: 14px;
-	--rich-filters-mode-gap: 6px;
-	--rich-filters-title-gap: 10px;
-	--rich-filters-desc-gap: 18px;
-	--rich-filters-feature-height: 166px;
-	--rich-filters-feature-padding: 27px;
+	--rich-card-padding: 20px;
+	--rich-card-padding-lg: 40px;
+	--rich-card-shadow: 0 2px 12px var(--rich-color-shadow);
 
-	/* --- Colors (Цвета) */
+	/* --- Filters --- */
+	--rich-filters-min-height: 320px;
+	--rich-filters-feature-height: 168px;
+	--rich-filters-feature-padding: 28px;
+	--rich-filters-mode-gap: var(--rich-space-xs);
+
+	/* --- Colors (Цвета) --- */
 	--rich-color-accent: #fb7e00;
 	--rich-color-accent-fill: #ff9b35;
 	--rich-color-accent-light: #ffa940;
 	--rich-color-bg: #ffffff;
 	--rich-color-bg-muted: #f2f2f2;
-	--rich-color-bg-card: #ffffff;
+	--rich-color-bg-card: var(--rich-color-bg);
 	--rich-color-text: #000000;
 	--rich-color-text-heading: #2b2b2b;
 	--rich-color-text-muted: #666666;
@@ -106,21 +116,21 @@
 	--rich-color-border: #e8e8e8;
 	--rich-color-shadow: rgba(0, 0, 0, 0.08);
 
-	/* --- Typography (Типографика)  */
+	/* --- Typography (Типографика) --- */
 	--rich-font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
 	--rich-font-family-display: "Russo One", "Roboto", sans-serif;
-	--rich-font-size-page-title: 22px;
-	--rich-font-size-h1: 25px;
-	--rich-font-size-h2: 29px;
-	--rich-font-size-h3: 18px;
+	--rich-font-size-page-title: 24px;
+	--rich-font-size-h1: 24px;
+	--rich-font-size-h2: 28px;
+	--rich-font-size-h3: 16px;
 	--rich-font-size-body: 16px;
 	--rich-font-size-hero-title: 24px;
-	--rich-font-size-hero-model: 24px;
+	--rich-font-size-hero-model: var(--rich-font-size-hero-title);
 	--rich-font-size-hero-desc: 20px;
 	--rich-font-size-hero-perk: 12px;
-	--rich-font-size-small: 14px;
-	--rich-font-size-badge: 15px;
-	--rich-font-size-stat: 22px;
+	--rich-font-size-small: 12px;
+	--rich-font-size-badge: 16px;
+	--rich-font-size-stat: var(--rich-font-size-page-title);
 	--rich-font-size-spec-value: 32px;
 	--rich-font-size-display: 56px;
 	--rich-line-height: 1.5;
@@ -128,22 +138,10 @@
 	--rich-font-weight-semibold: 600;
 	--rich-font-weight-normal: 400;
 
-	/* --- Border radius (Скругления) */
+	/* --- Border radius (Скругления) --- */
 	--rich-radius-sm: 8px;
-	--rich-radius-md: 10px;
+	--rich-radius-md: 12px;
 	--rich-radius-lg: 20px;
-	--rich-radius-pill: 50px;
+	--rich-radius-pill: 48px;
 	--rich-radius-round: 50%;
-
-	/* --- Spacing (Отступы)  */
-	--rich-space-xs: 8px;
-	--rich-space-sm: 12px;
-	--rich-space-md: 16px;
-	--rich-space-lg: 24px;
-	--rich-space-xl: 32px;
-
-	/* --- Card (Карточки)  */
-	--rich-card-padding: 20px;
-	--rich-card-padding-lg: 40px;
-	--rich-card-shadow: 0 2px 12px var(--rich-color-shadow);
 }

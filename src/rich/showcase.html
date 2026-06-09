@@ -31,6 +31,16 @@
 			<a href="#rich-component-dust-class">Dust Class</a>
 			<a href="#rich-component-application-areas">Application Areas</a>
 			<a href="#rich-component-collaboration-mode">Collaboration Mode</a>
+			<a href="#rich-component-product-params">Product Params</a>
+			<a href="#rich-component-bypass-motor">Bypass Motor</a>
+			<a href="#rich-component-specs-panel">Specs Panel</a>
+			<a href="#rich-component-hose">Hose</a>
+			<a href="#rich-component-filters">Filters</a>
+			<a href="#rich-component-benefits">Benefits</a>
+			<a href="#rich-component-model-features">Model Features</a>
+			<a href="#rich-component-advantages">Advantages</a>
+			<a href="#rich-component-kit-contents">Kit Contents</a>
+			<a href="#rich-component-product-summary">Product Summary</a>
 		</div>
 	</nav>
 
@@ -43,7 +53,7 @@
 
 	<div class="showcase-styles-block" id="rich-base-doc">
 		<h2>Блок стилей #rich-base</h2>
-		<p>Структурные стили: 12-колоночная сетка <code>brt-rich-row</code> / <code>brt-rich-col-*</code> (модель gutter как в Bootstrap 5: padding на колонках + negative margin на row). Брейкпоинты: <code>sm</code> ≥576px, <code>md</code> ≥768px, <code>lg</code> ≥992px. Утилиты: <code>brt-rich-col-auto</code>, <code>brt-rich-col-grow</code>. Модификаторы row: <code>--align-center</code>, <code>--reverse</code>, <code>--gutter-0</code>, <code>--hero</code>, <code>--gap-specs</code> и др.</p>
+		<p>Структурные стили: 12-колоночная сетка <code>brt-rich-row</code> / <code>brt-rich-col-*</code> (модель gutter как в Bootstrap 5: padding на колонках + negative margin на row). Брейкпоинты: <code>sm</code> ≥576px, <code>md</code> ≥768px, <code>lg</code> ≥992px. Утилиты: <code>brt-rich-col-auto</code>, <code>brt-rich-col-grow</code>. Модификаторы row: <code>--align-center</code>, <code>--reverse</code>, <code>--gutter-0</code>, <code>--hero</code>, <code>--gap-2xs</code>, <code>--gap-xs</code>, <code>--gap-sm</code>, <code>--gap-md</code>.</p>
 	</div>
 
 	<div class="showcase-styles-block" id="rich-theme-doc">
@@ -101,14 +111,18 @@
 	<section class="showcase-section" id="rich-component-stat">
 		<h2 class="showcase-section__title">Stat (характеристика)</h2>
 		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__stat</p>
-		<p class="showcase-section__desc">Атом: значение + подпись.</p>
+		<p class="showcase-section__desc">Атом: значение + подпись. По умолчанию центрирование; модификатор <code>--left</code> для выравнивания влево (specs, filters).</p>
 		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__stat-value + .brt-rich__stat-label</div>
+			<div class="showcase-demo__label">.brt-rich__stat / .brt-rich__stat--left</div>
 			<div class="brt-rich">
 				<div class="brt-rich__container" style="padding-block: 24px;">
 					<div class="brt-rich__stat">
 						<span class="brt-rich__stat-value">560 Вт</span>
-						<span class="brt-rich__stat-label">Мощность</span>
+						<span class="brt-rich__stat-label">Мощность (center)</span>
+					</div>
+					<div class="brt-rich__stat brt-rich__stat--left" style="margin-top: 16px;">
+						<span class="brt-rich__stat-value">96%</span>
+						<span class="brt-rich__stat-label">удаление пыли (left)</span>
 					</div>
 				</div>
 			</div>
@@ -137,13 +151,17 @@
 		<p class="showcase-section__desc">12-колоночная flex-сетка. Mobile-first: базовые классы без префикса, responsive — <code>sm</code> (≥576px), <code>md</code> (≥768px), <code>lg</code> (≥992px).</p>
 
 		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich-row + .brt-rich-col-md-4 × 3</div>
+			<div class="showcase-demo__label">.brt-rich-row--gap-sm / --gap-2xs</div>
 			<div class="brt-rich">
 				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich-row">
-						<div class="brt-rich-col-12 brt-rich-col-md-4"><div class="brt-rich__placeholder">col-md-4</div></div>
-						<div class="brt-rich-col-12 brt-rich-col-md-4"><div class="brt-rich__placeholder">col-md-4</div></div>
-						<div class="brt-rich-col-12 brt-rich-col-md-4"><div class="brt-rich__placeholder">col-md-4</div></div>
+					<div class="brt-rich-row brt-rich-row--gap-sm">
+						<div class="brt-rich-col-12 brt-rich-col-md-4"><div class="brt-rich__placeholder">gap-sm (12px)</div></div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4"><div class="brt-rich__placeholder">gap-sm</div></div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4"><div class="brt-rich__placeholder">gap-sm</div></div>
+					</div>
+					<div class="brt-rich-row brt-rich-row--gap-2xs" style="margin-top: 16px;">
+						<div class="brt-rich-col-12 brt-rich-col-md-6"><div class="brt-rich__placeholder">gap-2xs (4px)</div></div>
+						<div class="brt-rich-col-12 brt-rich-col-md-6"><div class="brt-rich__placeholder">gap-2xs</div></div>
 					</div>
 				</div>
 			</div>
@@ -226,6 +244,17 @@
 		</div>
 	</section>
 
+	<section class="showcase-section" id="rich-component-bypass-motor">
+		<h2 class="showcase-section__title">Bypass Motor</h2>
+		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__bypass-motor</p>
+		<p class="showcase-section__desc">Организм. Карточка с логотипом байпасного мотора. partials/blocks/_bypass-motor.html</p>
+		<div class="showcase-demo">
+			<div class="brt-rich">
+				@@include('partials/blocks/_bypass-motor.html')
+			</div>
+		</div>
+	</section>
+
 	<section class="showcase-section" id="rich-component-bypass-comparing">
 		<h2 class="showcase-section__title">Bypass Comparing</h2>
 		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__bypass-comparing-*</p>
@@ -288,6 +317,83 @@
 		<div class="showcase-demo">
 			<div class="brt-rich">
 				@@include('partials/blocks/_collaboration-mode.html')
+			</div>
+		</div>
+	</section>
+
+	<section class="showcase-section" id="rich-component-hose">
+		<h2 class="showcase-section__title">Hose</h2>
+		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__hose-*</p>
+		<p class="showcase-section__desc">Организм. Фото шланга + описание. partials/blocks/_hose.html</p>
+		<div class="showcase-demo">
+			<div class="brt-rich">
+				@@include('partials/blocks/_hose.html')
+			</div>
+		</div>
+	</section>
+
+	<section class="showcase-section" id="rich-component-filters">
+		<h2 class="showcase-section__title">Filters</h2>
+		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__filters-*</p>
+		<p class="showcase-section__desc">Организм. Система фильтрации — сухая и влажная уборка. partials/blocks/_filters.html</p>
+		<div class="showcase-demo">
+			<div class="brt-rich">
+				@@include('partials/blocks/_filters.html')
+			</div>
+		</div>
+	</section>
+
+	<section class="showcase-section" id="rich-component-benefits">
+		<h2 class="showcase-section__title">Benefits</h2>
+		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__benefit-*</p>
+		<p class="showcase-section__desc">Организм. Три карточки преимуществ на оранжевом фоне. partials/blocks/_benefits.html</p>
+		<div class="showcase-demo">
+			<div class="brt-rich">
+				@@include('partials/blocks/_benefits.html')
+			</div>
+		</div>
+	</section>
+
+	<section class="showcase-section" id="rich-component-model-features">
+		<h2 class="showcase-section__title">Model Features</h2>
+		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__model-feature-*</p>
+		<p class="showcase-section__desc">Организм. Сетка 2×2 особенностей модели. partials/blocks/_model-features.html</p>
+		<div class="showcase-demo">
+			<div class="brt-rich">
+				@@include('partials/blocks/_model-features.html')
+			</div>
+		</div>
+	</section>
+
+	<section class="showcase-section" id="rich-component-advantages">
+		<h2 class="showcase-section__title">Advantages</h2>
+		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__advantage-*</p>
+		<p class="showcase-section__desc">Организм. Сетка 3×3 конструктивных особенностей. partials/blocks/_advantages.html</p>
+		<div class="showcase-demo">
+			<div class="brt-rich">
+				@@include('partials/blocks/_advantages.html')
+			</div>
+		</div>
+	</section>
+
+	<section class="showcase-section" id="rich-component-kit-contents">
+		<h2 class="showcase-section__title">Kit Contents</h2>
+		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__kit-*</p>
+		<p class="showcase-section__desc">Организм. Комплектация — сетка карточек с фото аксессуаров. partials/blocks/_kit-contents.html</p>
+		<div class="showcase-demo">
+			<div class="brt-rich">
+				@@include('partials/blocks/_kit-contents.html')
+			</div>
+		</div>
+	</section>
+
+	<section class="showcase-section" id="rich-component-product-summary">
+		<h2 class="showcase-section__title">Product Summary</h2>
+		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__product-summary</p>
+		<p class="showcase-section__desc">Организм. Итоговое текстовое описание модели. partials/blocks/_product-summary.html</p>
+		<div class="showcase-demo">
+			<div class="brt-rich">
+				@@include('partials/blocks/_product-summary.html')
 			</div>
 		</div>
 	</section>

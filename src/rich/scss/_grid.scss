@@ -84,55 +84,24 @@ $rich-grid-columns: 12;
 			}
 		}
 
-		&--gap-hero-card {
-			--rich-gutter-x: var(--rich-hero-card-gap);
+		&--gap-2xs {
+			--rich-gutter-x: var(--rich-space-2xs);
+			--rich-gutter-y: var(--rich-space-2xs);
 		}
 
-		&--gap-hero-perks {
-			--rich-gutter-x: var(--rich-hero-perks-gap);
+		&--gap-xs {
+			--rich-gutter-x: var(--rich-space-xs);
+			--rich-gutter-y: var(--rich-space-xs);
 		}
 
-		&--gap-hero-badges {
-			--rich-gutter-x: var(--rich-hero-badges-gap);
+		&--gap-sm {
+			--rich-gutter-x: var(--rich-space-sm);
+			--rich-gutter-y: var(--rich-space-sm);
 		}
 
-		&--gap-card {
-			--rich-gutter-x: var(--rich-card-gap);
-		}
-
-		&--gap-application-areas {
-			--rich-gutter-x: var(--rich-application-areas-gap);
-			--rich-gutter-y: var(--rich-application-areas-gap);
-		}
-
-		&--gap-benefits {
-			--rich-gutter-x: var(--rich-benefits-gap);
-			--rich-gutter-y: var(--rich-benefits-gap);
-		}
-
-		&--gap-specs {
-			--rich-gutter-x: var(--rich-specs-gap);
-			--rich-gutter-y: var(--rich-specs-gap);
-		}
-
-		&--gap-model-features {
-			--rich-gutter-x: var(--rich-model-features-gap);
-			--rich-gutter-y: var(--rich-model-features-gap);
-		}
-
-		&--gap-product-params {
-			--rich-gutter-x: var(--rich-product-params-gap);
-			--rich-gutter-y: var(--rich-product-params-gap);
-		}
-
-		&--gap-advantages {
-			--rich-gutter-x: var(--rich-advantages-gap-x);
-			--rich-gutter-y: var(--rich-advantages-gap-y);
-		}
-
-		&--gap-kit {
-			--rich-gutter-x: var(--rich-kit-gap);
-			--rich-gutter-y: var(--rich-kit-gap);
+		&--gap-md {
+			--rich-gutter-x: var(--rich-space-md);
+			--rich-gutter-y: var(--rich-space-md);
 		}
 	}
 

@@ -2,7 +2,7 @@
 <style id="rich-base">
 /*
  * STRUCTURAL STYLES — не изменяйте без необходимости.
- * Scale-система (fluid rem), grid, flex, breakpoints, изоляция от стилей хост-сайта.
+ * Grid, flex, breakpoints, изоляция от стилей хост-сайта.
  */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Russo+One&display=swap");
 .brt-rich *,
@@ -163,45 +163,21 @@
     max-width: var(--rich-hero-media-width);
   }
 }
-.brt-rich .brt-rich-row--gap-hero-card {
-  --rich-gutter-x: var(--rich-hero-card-gap);
+.brt-rich .brt-rich-row--gap-2xs {
+  --rich-gutter-x: var(--rich-space-2xs);
+  --rich-gutter-y: var(--rich-space-2xs);
 }
-.brt-rich .brt-rich-row--gap-hero-perks {
-  --rich-gutter-x: var(--rich-hero-perks-gap);
+.brt-rich .brt-rich-row--gap-xs {
+  --rich-gutter-x: var(--rich-space-xs);
+  --rich-gutter-y: var(--rich-space-xs);
 }
-.brt-rich .brt-rich-row--gap-hero-badges {
-  --rich-gutter-x: var(--rich-hero-badges-gap);
+.brt-rich .brt-rich-row--gap-sm {
+  --rich-gutter-x: var(--rich-space-sm);
+  --rich-gutter-y: var(--rich-space-sm);
 }
-.brt-rich .brt-rich-row--gap-card {
-  --rich-gutter-x: var(--rich-card-gap);
-}
-.brt-rich .brt-rich-row--gap-application-areas {
-  --rich-gutter-x: var(--rich-application-areas-gap);
-  --rich-gutter-y: var(--rich-application-areas-gap);
-}
-.brt-rich .brt-rich-row--gap-benefits {
-  --rich-gutter-x: var(--rich-benefits-gap);
-  --rich-gutter-y: var(--rich-benefits-gap);
-}
-.brt-rich .brt-rich-row--gap-specs {
-  --rich-gutter-x: var(--rich-specs-gap);
-  --rich-gutter-y: var(--rich-specs-gap);
-}
-.brt-rich .brt-rich-row--gap-model-features {
-  --rich-gutter-x: var(--rich-model-features-gap);
-  --rich-gutter-y: var(--rich-model-features-gap);
-}
-.brt-rich .brt-rich-row--gap-product-params {
-  --rich-gutter-x: var(--rich-product-params-gap);
-  --rich-gutter-y: var(--rich-product-params-gap);
-}
-.brt-rich .brt-rich-row--gap-advantages {
-  --rich-gutter-x: var(--rich-advantages-gap-x);
-  --rich-gutter-y: var(--rich-advantages-gap-y);
-}
-.brt-rich .brt-rich-row--gap-kit {
-  --rich-gutter-x: var(--rich-kit-gap);
-  --rich-gutter-y: var(--rich-kit-gap);
+.brt-rich .brt-rich-row--gap-md {
+  --rich-gutter-x: var(--rich-space-md);
+  --rich-gutter-y: var(--rich-space-md);
 }
 .brt-rich .brt-rich-col {
   flex: 1 1 0;
@@ -461,9 +437,6 @@
 .brt-rich__section-head {
   text-align: center;
   margin-bottom: var(--rich-space-xl);
-}
-.brt-rich__section-head--left {
-  text-align: left;
 }
 .brt-rich__placeholder {
   display: flex;
