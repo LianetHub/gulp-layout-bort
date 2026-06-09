@@ -122,6 +122,7 @@
 		display: flex;
 		align-items: center;
 		gap: 18px;
+		width: 100%;
 		min-height: var(--rich-spec-card-height);
 		padding: 12px 16px 12px 37px;
 		background: var(--rich-color-bg-muted);
@@ -192,6 +193,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		width: 100%;
 		padding: var(--rich-feature-card-padding-y) var(--rich-feature-card-padding-x);
 		background: var(--rich-color-bg-muted);
 		border: none;
@@ -255,16 +257,9 @@
 	}
 	
 	&__steps-bar {
-		display: grid;
-		grid-template-columns: repeat(3, 1fr);
-		gap: var(--rich-steps-bar-gap);
 		padding: var(--rich-steps-bar-padding);
 		background: var(--rich-color-accent-fill);
 		border-radius: var(--rich-radius-lg);
-
-		@media (max-width: $md4) {
-			grid-template-columns: 1fr;
-		}
 	}
 
 	&__step-card {
@@ -327,17 +322,11 @@
 	}
 	
 	&__page-header {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		justify-content: space-between;
-		gap: var(--rich-space-md);
 		margin-bottom: var(--rich-hero-header-gap);
 	}
 	
 	&__page-title {
 		margin: 0;
-		flex: 1 1 240px;
 		max-width: 493px;
 		margin-left: auto;
 		font-family: var(--rich-font-family-display);
@@ -350,9 +339,6 @@
 	}
 	
 	&__hero-badges {
-		display: flex;
-		flex-wrap: wrap;
-		gap: var(--rich-hero-badges-gap);
 		margin: 0 0 var(--rich-hero-card-gap);
 		padding: 0;
 		list-style: none;
@@ -360,10 +346,10 @@
 	
 	&__hero-badge {
 		display: flex;
-		flex: 1 1 0;
 		align-items: center;
 		justify-content: center;
 		gap: var(--rich-hero-badge-gap);
+		width: 100%;
 		min-width: 0;
 		min-height: 54px;
 		padding: 6px 16px;
@@ -400,12 +386,12 @@
 		overflow: hidden;
 	}
 	
-	&__hero-card &__split {
+	&__hero-card .brt-rich-row--hero {
 		align-items: stretch;
 		min-height: var(--rich-hero-card-height);
 	}
 	
-	&__hero-card &__split-col--content {
+	&__hero-card .brt-rich-col-grow {
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
@@ -442,9 +428,6 @@
 	}
 	
 	&__hero-perks {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		gap: var(--rich-hero-perks-gap);
 		margin: var(--rich-hero-desc-perks-gap) 0 0;
 		padding: 0;
 		max-width: 367px;
@@ -455,6 +438,8 @@
 		display: flex;
 		align-items: center;
 		gap: var(--rich-hero-perk-icon-gap);
+		width: 100%;
+		height: 100%;
 		min-height: var(--rich-hero-perk-min-height);
 		padding: 0 var(--rich-hero-perk-padding-x);
 		border-radius: var(--rich-radius-md);
@@ -547,25 +532,21 @@
 	}
 	
 	&__banner {
-		display: flex;
-		flex-wrap: wrap;
-		align-items: center;
-		gap: var(--rich-split-gap);
 		border-radius: var(--rich-radius-lg);
 	}
 	
 	&__banner--accent {
-		display: grid;
-		grid-template-columns: minmax(0, var(--rich-banner-accent-text-max)) auto minmax(0, 1fr);
-		column-gap: var(--rich-banner-accent-col-gap);
-		align-items: center;
 		min-height: var(--rich-banner-accent-min-height);
 		padding: var(--rich-banner-accent-padding-top) var(--rich-banner-accent-padding-x) var(--rich-banner-accent-padding-bottom);
 		background: var(--rich-color-accent-fill);
+
+		.brt-rich-row {
+			width: 100%;
+			--rich-gutter-x: var(--rich-banner-accent-col-gap);
+		}
 	}
 	
 	&__banner-col {
-		flex: 1 1 280px;
 		min-width: 0;
 	}
 	
@@ -665,13 +646,6 @@
 		color: var(--rich-color-text);
 	}
 	
-	&__gallery-grid {
-		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
-		column-gap: var(--rich-gallery-col-gap);
-		row-gap: var(--rich-gallery-row-gap);
-	}
-	
 	&__gallery-cell {
 		display: flex;
 		flex-direction: column;
@@ -732,12 +706,6 @@
 		display: block;
 	}
 	
-	&__dual-panels {
-		display: grid;
-		grid-template-columns: minmax(0, 451fr) minmax(0, 449fr);
-		gap: var(--rich-dual-panels-gap);
-	}
-	
 	&__dual-panel {
 		display: flex;
 		flex-direction: column;
@@ -795,14 +763,15 @@
 	}
 	
 	&__mount-banner {
-		display: flex;
-		align-items: center;
-		gap: var(--rich-mount-banner-title-text-gap);
 		box-sizing: border-box;
 		min-height: var(--rich-mount-banner-min-height);
 		padding: var(--rich-mount-banner-padding-y) var(--rich-mount-banner-padding-x);
 		background: var(--rich-color-bg-muted);
 		border-radius: var(--rich-radius-lg);
+
+		.brt-rich-row {
+			--rich-gutter-x: var(--rich-mount-banner-title-text-gap);
+		}
 	}
 	
 	&__mount-banner-lead {
@@ -831,8 +800,6 @@
 	}
 	
 	&__mount-banner-text {
-		flex: 1;
-		min-width: 0;
 		margin: 0;
 		font-family: var(--rich-font-family);
 		font-size: var(--rich-font-size-mount-body);
@@ -842,21 +809,20 @@
 	}
 	
 	&__why-choose {
-		display: flex;
-		align-items: center;
-		justify-content: space-between;
 		box-sizing: border-box;
-		gap: var(--rich-space-md);
 		min-height: var(--rich-why-choose-min-height);
 		padding: var(--rich-why-choose-padding-top) var(--rich-why-choose-padding-x) var(--rich-why-choose-padding-bottom);
 		background: var(--rich-color-accent-fill);
 		border-radius: var(--rich-radius-lg);
 		overflow: visible;
+
+		.brt-rich-row {
+			width: 100%;
+			--rich-gutter-x: var(--rich-space-md);
+		}
 	}
 	
 	&__why-choose-content {
-		flex: 1 1 auto;
-		min-width: 0;
 		max-width: var(--rich-why-choose-list-max);
 	}
 	
@@ -910,12 +876,6 @@
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: normal;
 		color: var(--rich-color-text);
-	}
-	
-	&__kit-grid {
-		display: grid;
-		grid-template-columns: minmax(0, 451fr) minmax(0, 449fr);
-		gap: var(--rich-kit-grid-gap);
 	}
 	
 	&__kit-item {
@@ -999,6 +959,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		width: 100%;
 		text-align: center;
 		gap: var(--rich-space-sm);
 		padding: var(--rich-space-md);
@@ -1016,13 +977,6 @@
 	}
 	
 	/* --- Organisms: Grinding stages (Figma 34:15) --- */
-	&__grinding-panels {
-		display: grid;
-		grid-template-columns: var(--rich-grinding-panel-left) minmax(0, 1fr);
-		gap: var(--rich-grinding-panels-gap);
-		align-items: stretch;
-	}
-	
 	&__grinding-panel {
 		display: flex;
 		flex-direction: column;
@@ -1174,10 +1128,12 @@
 	
 	@media (max-width: $md4) {
 		&__banner--accent {
-			display: flex;
-			flex-direction: column;
 			min-height: 0;
 			padding: var(--rich-space-lg) var(--rich-banner-accent-padding-x);
+
+			.brt-rich-row {
+				flex-direction: column;
+			}
 		}
 	
 		&__banner--accent &__banner-col--text,
@@ -1199,12 +1155,10 @@
 		}
 	
 		&__banner--cta {
-			flex-direction: column;
 			text-align: center;
 		}
 	
 		&__page-header {
-			flex-direction: column;
 			align-items: flex-start;
 		}
 	
@@ -1214,11 +1168,7 @@
 			text-align: left;
 		}
 	
-		&__hero-badge {
-			flex: 1 1 100%;
-		}
-	
-		&__hero-card &__split-col--content {
+		&__hero-card .brt-rich-col-grow {
 			padding: var(--rich-space-lg);
 		}
 	
@@ -1239,10 +1189,6 @@
 			padding: 12px 16px;
 		}
 	
-		&__grinding-panels {
-			grid-template-columns: 1fr;
-		}
-	
 		&__grinding-panel {
 			min-height: auto;
 			padding-inline: var(--rich-space-md);
@@ -1261,18 +1207,9 @@
 			padding: var(--rich-space-lg) var(--rich-banner-accent-padding-x);
 		}
 	
-		&__gallery-grid {
-			grid-template-columns: 1fr;
-			row-gap: var(--rich-gallery-row-gap);
-		}
-	
 		&__gallery-item {
 			height: auto;
 			aspect-ratio: 354 / 139;
-		}
-	
-		&__dual-panels {
-			grid-template-columns: 1fr;
 		}
 	
 		&__dual-panel {
@@ -1296,11 +1233,15 @@
 		}
 	
 		&__mount-banner {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: var(--rich-mount-banner-stack-gap);
 			min-height: 0;
 			padding: var(--rich-space-lg) var(--rich-space-md);
+
+			.brt-rich-row {
+				flex-direction: column;
+				align-items: flex-start;
+				--rich-gutter-x: 0;
+				--rich-gutter-y: var(--rich-mount-banner-stack-gap);
+			}
 		}
 	
 		&__mount-banner-title {
@@ -1312,16 +1253,19 @@
 		}
 	
 		&__why-choose {
-			flex-direction: column;
-			align-items: flex-start;
-			gap: var(--rich-why-choose-stack-gap);
 			min-height: 0;
 			padding: var(--rich-space-lg) var(--rich-space-md);
+
+			.brt-rich-row {
+				flex-direction: column;
+				align-items: flex-start;
+				--rich-gutter-x: 0;
+				--rich-gutter-y: var(--rich-why-choose-stack-gap);
+			}
 		}
 	
 		&__why-choose-content {
 			max-width: none;
-			width: 100%;
 		}
 	
 		&__why-choose-media {
@@ -1339,10 +1283,6 @@
 	
 		&__why-choose-list li:last-child br {
 			display: none;
-		}
-	
-		&__kit-grid {
-			grid-template-columns: 1fr;
 		}
 	
 		&__kit-item {

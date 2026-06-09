@@ -152,6 +152,9 @@
   --rich-padding-x: 60px;
   --rich-section-gap: 48px;
   --rich-block-gap: 24px;
+  --rich-row-gap: var(--rich-split-gap);
+  --rich-gutter-x: var(--rich-row-gap);
+  --rich-gutter-y: 0;
   --rich-split-left: 50%;
   --rich-split-gap: 32px;
   --rich-hero-header-gap: 21px;
@@ -343,6 +346,325 @@
 	 * Grid, flex, breakpoints, изоляция от стилей хост-сайта.
 	 */
 	@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Russo+One&display=swap");
+	.brt-rich .brt-rich-row {
+	  --rich-gutter-x: var(--rich-row-gap);
+	  --rich-gutter-y: 0;
+	  display: flex;
+	  flex-wrap: wrap;
+	  margin-top: calc(-1 * var(--rich-gutter-y));
+	  margin-right: calc(-0.5 * var(--rich-gutter-x));
+	  margin-left: calc(-0.5 * var(--rich-gutter-x));
+	  min-width: 0;
+	}
+	.brt-rich .brt-rich-row > * {
+	  flex-shrink: 0;
+	  width: 100%;
+	  max-width: 100%;
+	  min-width: 0;
+	  padding-right: calc(var(--rich-gutter-x) * 0.5);
+	  padding-left: calc(var(--rich-gutter-x) * 0.5);
+	  margin-top: var(--rich-gutter-y);
+	}
+	.brt-rich .brt-rich-row--align-center {
+	  align-items: center;
+	}
+	@media (min-width: 767.98px) {
+	  .brt-rich .brt-rich-row--reverse {
+	    flex-direction: row-reverse;
+	  }
+	}
+	.brt-rich .brt-rich-row--gutter-0 {
+	  --rich-gutter-x: 0;
+	  --rich-gutter-y: 0;
+	}
+	.brt-rich .brt-rich-row--hero > .brt-rich-col-grow {
+	  flex: 1 1 0;
+	  width: auto;
+	  max-width: 100%;
+	}
+	@media (min-width: 767.98px) {
+	  .brt-rich .brt-rich-row--hero > .brt-rich-col-grow {
+	    flex: 1 1 0;
+	    max-width: calc(100% - var(--rich-hero-media-width));
+	  }
+	}
+	.brt-rich .brt-rich-row--hero > .brt-rich-col-hero-media {
+	  flex: 0 0 auto;
+	  width: 100%;
+	  max-width: 100%;
+	}
+	@media (min-width: 767.98px) {
+	  .brt-rich .brt-rich-row--hero > .brt-rich-col-hero-media {
+	    flex: 0 0 var(--rich-hero-media-width);
+	    width: var(--rich-hero-media-width);
+	    max-width: var(--rich-hero-media-width);
+	  }
+	}
+	.brt-rich .brt-rich-row--grinding {
+	  --rich-gutter-x: var(--rich-grinding-panels-gap);
+	}
+	.brt-rich .brt-rich-row--grinding > .brt-rich-col-grinding-diagram {
+	  flex: 0 0 auto;
+	  width: 100%;
+	  max-width: 100%;
+	}
+	@media (min-width: 767.98px) {
+	  .brt-rich .brt-rich-row--grinding > .brt-rich-col-grinding-diagram {
+	    flex: 0 0 var(--rich-grinding-panel-left);
+	    width: var(--rich-grinding-panel-left);
+	    max-width: var(--rich-grinding-panel-left);
+	  }
+	}
+	.brt-rich .brt-rich-row--grinding > .brt-rich-col-grinding-items {
+	  flex: 1 1 0;
+	  width: auto;
+	  max-width: 100%;
+	}
+	@media (min-width: 767.98px) {
+	  .brt-rich .brt-rich-row--grinding > .brt-rich-col-grinding-items {
+	    flex: 1 1 0;
+	    max-width: calc(100% - var(--rich-grinding-panel-left));
+	  }
+	}
+	.brt-rich .brt-rich-row--gap-specs {
+	  --rich-gutter-x: var(--rich-spec-grid-gap);
+	}
+	.brt-rich .brt-rich-row--gap-features {
+	  --rich-gutter-x: var(--rich-features-grid-gap);
+	}
+	.brt-rich .brt-rich-row--gap-kit {
+	  --rich-gutter-x: var(--rich-kit-grid-gap);
+	}
+	.brt-rich .brt-rich-row--gap-gallery {
+	  --rich-gutter-x: var(--rich-gallery-col-gap);
+	  --rich-gutter-y: var(--rich-gallery-row-gap);
+	}
+	.brt-rich .brt-rich-row--gap-dual {
+	  --rich-gutter-x: var(--rich-dual-panels-gap);
+	}
+	.brt-rich .brt-rich-row--gap-steps {
+	  --rich-gutter-x: var(--rich-steps-bar-gap);
+	}
+	.brt-rich .brt-rich-row--gap-hero-perks {
+	  --rich-gutter-x: var(--rich-hero-perks-gap);
+	}
+	.brt-rich .brt-rich-row--gap-hero-badges {
+	  --rich-gutter-x: var(--rich-hero-badges-gap);
+	}
+	.brt-rich .brt-rich-col {
+	  flex: 1 1 0;
+	  width: auto;
+	  max-width: 100%;
+	}
+	.brt-rich .brt-rich-col-auto {
+	  flex: 0 0 auto;
+	  width: auto;
+	  max-width: 100%;
+	}
+	.brt-rich .brt-rich-col-grow {
+	  flex: 1 1 0;
+	  width: auto;
+	  max-width: 100%;
+	}
+	.brt-rich .brt-rich-col-1 {
+	  flex: 0 0 auto;
+	  width: 8.3333333333%;
+	}
+	.brt-rich .brt-rich-col-2 {
+	  flex: 0 0 auto;
+	  width: 16.6666666667%;
+	}
+	.brt-rich .brt-rich-col-3 {
+	  flex: 0 0 auto;
+	  width: 25%;
+	}
+	.brt-rich .brt-rich-col-4 {
+	  flex: 0 0 auto;
+	  width: 33.3333333333%;
+	}
+	.brt-rich .brt-rich-col-5 {
+	  flex: 0 0 auto;
+	  width: 41.6666666667%;
+	}
+	.brt-rich .brt-rich-col-6 {
+	  flex: 0 0 auto;
+	  width: 50%;
+	}
+	.brt-rich .brt-rich-col-7 {
+	  flex: 0 0 auto;
+	  width: 58.3333333333%;
+	}
+	.brt-rich .brt-rich-col-8 {
+	  flex: 0 0 auto;
+	  width: 66.6666666667%;
+	}
+	.brt-rich .brt-rich-col-9 {
+	  flex: 0 0 auto;
+	  width: 75%;
+	}
+	.brt-rich .brt-rich-col-10 {
+	  flex: 0 0 auto;
+	  width: 83.3333333333%;
+	}
+	.brt-rich .brt-rich-col-11 {
+	  flex: 0 0 auto;
+	  width: 91.6666666667%;
+	}
+	.brt-rich .brt-rich-col-12 {
+	  flex: 0 0 auto;
+	  width: 100%;
+	}
+	@media (min-width: 575.98px) {
+	  .brt-rich .brt-rich-col-sm-1 {
+	    flex: 0 0 auto;
+	    width: 8.3333333333%;
+	  }
+	  .brt-rich .brt-rich-col-sm-2 {
+	    flex: 0 0 auto;
+	    width: 16.6666666667%;
+	  }
+	  .brt-rich .brt-rich-col-sm-3 {
+	    flex: 0 0 auto;
+	    width: 25%;
+	  }
+	  .brt-rich .brt-rich-col-sm-4 {
+	    flex: 0 0 auto;
+	    width: 33.3333333333%;
+	  }
+	  .brt-rich .brt-rich-col-sm-5 {
+	    flex: 0 0 auto;
+	    width: 41.6666666667%;
+	  }
+	  .brt-rich .brt-rich-col-sm-6 {
+	    flex: 0 0 auto;
+	    width: 50%;
+	  }
+	  .brt-rich .brt-rich-col-sm-7 {
+	    flex: 0 0 auto;
+	    width: 58.3333333333%;
+	  }
+	  .brt-rich .brt-rich-col-sm-8 {
+	    flex: 0 0 auto;
+	    width: 66.6666666667%;
+	  }
+	  .brt-rich .brt-rich-col-sm-9 {
+	    flex: 0 0 auto;
+	    width: 75%;
+	  }
+	  .brt-rich .brt-rich-col-sm-10 {
+	    flex: 0 0 auto;
+	    width: 83.3333333333%;
+	  }
+	  .brt-rich .brt-rich-col-sm-11 {
+	    flex: 0 0 auto;
+	    width: 91.6666666667%;
+	  }
+	  .brt-rich .brt-rich-col-sm-12 {
+	    flex: 0 0 auto;
+	    width: 100%;
+	  }
+	}
+	@media (min-width: 767.98px) {
+	  .brt-rich .brt-rich-col-md-1 {
+	    flex: 0 0 auto;
+	    width: 8.3333333333%;
+	  }
+	  .brt-rich .brt-rich-col-md-2 {
+	    flex: 0 0 auto;
+	    width: 16.6666666667%;
+	  }
+	  .brt-rich .brt-rich-col-md-3 {
+	    flex: 0 0 auto;
+	    width: 25%;
+	  }
+	  .brt-rich .brt-rich-col-md-4 {
+	    flex: 0 0 auto;
+	    width: 33.3333333333%;
+	  }
+	  .brt-rich .brt-rich-col-md-5 {
+	    flex: 0 0 auto;
+	    width: 41.6666666667%;
+	  }
+	  .brt-rich .brt-rich-col-md-6 {
+	    flex: 0 0 auto;
+	    width: 50%;
+	  }
+	  .brt-rich .brt-rich-col-md-7 {
+	    flex: 0 0 auto;
+	    width: 58.3333333333%;
+	  }
+	  .brt-rich .brt-rich-col-md-8 {
+	    flex: 0 0 auto;
+	    width: 66.6666666667%;
+	  }
+	  .brt-rich .brt-rich-col-md-9 {
+	    flex: 0 0 auto;
+	    width: 75%;
+	  }
+	  .brt-rich .brt-rich-col-md-10 {
+	    flex: 0 0 auto;
+	    width: 83.3333333333%;
+	  }
+	  .brt-rich .brt-rich-col-md-11 {
+	    flex: 0 0 auto;
+	    width: 91.6666666667%;
+	  }
+	  .brt-rich .brt-rich-col-md-12 {
+	    flex: 0 0 auto;
+	    width: 100%;
+	  }
+	}
+	@media (min-width: 991.98px) {
+	  .brt-rich .brt-rich-col-lg-1 {
+	    flex: 0 0 auto;
+	    width: 8.3333333333%;
+	  }
+	  .brt-rich .brt-rich-col-lg-2 {
+	    flex: 0 0 auto;
+	    width: 16.6666666667%;
+	  }
+	  .brt-rich .brt-rich-col-lg-3 {
+	    flex: 0 0 auto;
+	    width: 25%;
+	  }
+	  .brt-rich .brt-rich-col-lg-4 {
+	    flex: 0 0 auto;
+	    width: 33.3333333333%;
+	  }
+	  .brt-rich .brt-rich-col-lg-5 {
+	    flex: 0 0 auto;
+	    width: 41.6666666667%;
+	  }
+	  .brt-rich .brt-rich-col-lg-6 {
+	    flex: 0 0 auto;
+	    width: 50%;
+	  }
+	  .brt-rich .brt-rich-col-lg-7 {
+	    flex: 0 0 auto;
+	    width: 58.3333333333%;
+	  }
+	  .brt-rich .brt-rich-col-lg-8 {
+	    flex: 0 0 auto;
+	    width: 66.6666666667%;
+	  }
+	  .brt-rich .brt-rich-col-lg-9 {
+	    flex: 0 0 auto;
+	    width: 75%;
+	  }
+	  .brt-rich .brt-rich-col-lg-10 {
+	    flex: 0 0 auto;
+	    width: 83.3333333333%;
+	  }
+	  .brt-rich .brt-rich-col-lg-11 {
+	    flex: 0 0 auto;
+	    width: 91.6666666667%;
+	  }
+	  .brt-rich .brt-rich-col-lg-12 {
+	    flex: 0 0 auto;
+	    width: 100%;
+	  }
+	}
+
 	.brt-rich,
 	.brt-rich *,
 	.brt-rich *::before,
@@ -394,107 +716,6 @@
 	}
 	.brt-rich__section + .brt-rich__section {
 	  padding-top: 0;
-	}
-	.brt-rich__split {
-	  display: flex;
-	  flex-wrap: wrap;
-	  align-items: center;
-	  flex-direction: column;
-	  gap: var(--rich-split-gap);
-	}
-	@media (min-width: 767.98px) {
-	  .brt-rich__split {
-	    flex-direction: row;
-	  }
-	}
-	.brt-rich__split--50-50 {
-	  --rich-split-left: 50%;
-	}
-	.brt-rich__split--hero {
-	  --rich-split-left: var(--rich-hero-media-width);
-	  --rich-split-gap: 0;
-	}
-	.brt-rich__split--60-40 {
-	  --rich-split-left: 60%;
-	}
-	.brt-rich__split--30-70 {
-	  --rich-split-left: 30%;
-	}
-	.brt-rich__split--40-60 {
-	  --rich-split-left: 40%;
-	}
-	@media (min-width: 767.98px) {
-	  .brt-rich__split--reverse {
-	    flex-direction: row-reverse;
-	  }
-	}
-	.brt-rich__split-col {
-	  min-width: 0;
-	}
-	.brt-rich__split-col--media {
-	  flex: 1 1 100%;
-	  max-width: 100%;
-	  width: 100%;
-	}
-	@media (min-width: 767.98px) {
-	  .brt-rich__split-col--media {
-	    flex: 0 0 var(--rich-split-left);
-	    max-width: var(--rich-split-left);
-	    width: auto;
-	  }
-	}
-	.brt-rich__split-col--content {
-	  flex: 1 1 100%;
-	  max-width: 100%;
-	  width: 100%;
-	  min-width: 200px;
-	}
-	@media (min-width: 767.98px) {
-	  .brt-rich__split-col--content {
-	    flex: 1 1 calc(100% - var(--rich-split-left) - var(--rich-split-gap));
-	    max-width: none;
-	    width: auto;
-	  }
-	}
-	.brt-rich__grid {
-	  display: grid;
-	  gap: var(--rich-block-gap);
-	}
-	.brt-rich__grid--specs {
-	  grid-template-columns: 1fr;
-	  gap: var(--rich-spec-grid-gap);
-	}
-	@media (min-width: 575.98px) {
-	  .brt-rich__grid--specs {
-	    grid-template-columns: repeat(2, 1fr);
-	  }
-	}
-	@media (min-width: 767.98px) {
-	  .brt-rich__grid--specs {
-	    grid-template-columns: repeat(3, 1fr);
-	  }
-	}
-	.brt-rich__grid--features {
-	  grid-template-columns: 1fr;
-	  gap: var(--rich-features-grid-gap);
-	}
-	@media (min-width: 767.98px) {
-	  .brt-rich__grid--features {
-	    grid-template-columns: repeat(2, 1fr);
-	  }
-	}
-	.brt-rich__grid--footer-specs {
-	  grid-template-columns: 1fr;
-	}
-	@media (min-width: 575.98px) {
-	  .brt-rich__grid--footer-specs {
-	    grid-template-columns: repeat(2, 1fr);
-	  }
-	}
-	@media (min-width: 767.98px) {
-	  .brt-rich__grid--footer-specs {
-	    grid-template-columns: repeat(3, 1fr);
-	  }
 	}
 	.brt-rich__section-head {
 	  text-align: center;
@@ -628,6 +849,7 @@
 	  display: flex;
 	  align-items: center;
 	  gap: 18px;
+	  width: 100%;
 	  min-height: var(--rich-spec-card-height);
 	  padding: 12px 16px 12px 37px;
 	  background: var(--rich-color-bg-muted);
@@ -688,6 +910,7 @@
 	  display: flex;
 	  flex-direction: column;
 	  align-items: center;
+	  width: 100%;
 	  padding: var(--rich-feature-card-padding-y) var(--rich-feature-card-padding-x);
 	  background: var(--rich-color-bg-muted);
 	  border: none;
@@ -741,17 +964,9 @@
 	  font-weight: var(--rich-font-weight-semibold);
 	}
 	.brt-rich__steps-bar {
-	  display: grid;
-	  grid-template-columns: repeat(3, 1fr);
-	  gap: var(--rich-steps-bar-gap);
 	  padding: var(--rich-steps-bar-padding);
 	  background: var(--rich-color-accent-fill);
 	  border-radius: var(--rich-radius-lg);
-	}
-	@media (max-width: 767.98px) {
-	  .brt-rich__steps-bar {
-	    grid-template-columns: 1fr;
-	  }
 	}
 	.brt-rich__step-card {
 	  display: flex;
@@ -805,16 +1020,10 @@
 	  padding-bottom: var(--rich-section-gap);
 	}
 	.brt-rich__page-header {
-	  display: flex;
-	  flex-wrap: wrap;
-	  align-items: center;
-	  justify-content: space-between;
-	  gap: var(--rich-space-md);
 	  margin-bottom: var(--rich-hero-header-gap);
 	}
 	.brt-rich__page-title {
 	  margin: 0;
-	  flex: 1 1 240px;
 	  max-width: 493px;
 	  margin-left: auto;
 	  font-family: var(--rich-font-family-display);
@@ -826,19 +1035,16 @@
 	  color: var(--rich-color-text-heading);
 	}
 	.brt-rich__hero-badges {
-	  display: flex;
-	  flex-wrap: wrap;
-	  gap: var(--rich-hero-badges-gap);
 	  margin: 0 0 var(--rich-hero-card-gap);
 	  padding: 0;
 	  list-style: none;
 	}
 	.brt-rich__hero-badge {
 	  display: flex;
-	  flex: 1 1 0;
 	  align-items: center;
 	  justify-content: center;
 	  gap: var(--rich-hero-badge-gap);
+	  width: 100%;
 	  min-width: 0;
 	  min-height: 54px;
 	  padding: 6px 16px;
@@ -870,11 +1076,11 @@
 	  background: var(--rich-color-bg-muted);
 	  overflow: hidden;
 	}
-	.brt-rich__hero-card .brt-rich__split {
+	.brt-rich__hero-card .brt-rich-row--hero {
 	  align-items: stretch;
 	  min-height: var(--rich-hero-card-height);
 	}
-	.brt-rich__hero-card .brt-rich__split-col--content {
+	.brt-rich__hero-card .brt-rich-col-grow {
 	  display: flex;
 	  flex-direction: column;
 	  justify-content: flex-start;
@@ -904,9 +1110,6 @@
 	  color: var(--rich-color-text);
 	}
 	.brt-rich__hero-perks {
-	  display: grid;
-	  grid-template-columns: repeat(2, minmax(0, 1fr));
-	  gap: var(--rich-hero-perks-gap);
 	  margin: var(--rich-hero-desc-perks-gap) 0 0;
 	  padding: 0;
 	  max-width: 367px;
@@ -916,6 +1119,8 @@
 	  display: flex;
 	  align-items: center;
 	  gap: var(--rich-hero-perk-icon-gap);
+	  width: 100%;
+	  height: 100%;
 	  min-height: var(--rich-hero-perk-min-height);
 	  padding: 0 var(--rich-hero-perk-padding-x);
 	  border-radius: var(--rich-radius-md);
@@ -995,23 +1200,18 @@
 	  font-size: var(--rich-font-size-h2);
 	}
 	.brt-rich__banner {
-	  display: flex;
-	  flex-wrap: wrap;
-	  align-items: center;
-	  gap: var(--rich-split-gap);
 	  border-radius: var(--rich-radius-lg);
 	}
 	.brt-rich__banner--accent {
-	  display: grid;
-	  grid-template-columns: minmax(0, var(--rich-banner-accent-text-max)) auto minmax(0, 1fr);
-	  column-gap: var(--rich-banner-accent-col-gap);
-	  align-items: center;
 	  min-height: var(--rich-banner-accent-min-height);
 	  padding: var(--rich-banner-accent-padding-top) var(--rich-banner-accent-padding-x) var(--rich-banner-accent-padding-bottom);
 	  background: var(--rich-color-accent-fill);
 	}
+	.brt-rich__banner--accent .brt-rich-row {
+	  width: 100%;
+	  --rich-gutter-x: var(--rich-banner-accent-col-gap);
+	}
 	.brt-rich__banner-col {
-	  flex: 1 1 280px;
 	  min-width: 0;
 	}
 	.brt-rich__banner--accent .brt-rich__banner-col--text {
@@ -1095,12 +1295,6 @@
 	  line-height: normal;
 	  color: var(--rich-color-text);
 	}
-	.brt-rich__gallery-grid {
-	  display: grid;
-	  grid-template-columns: repeat(2, minmax(0, 1fr));
-	  column-gap: var(--rich-gallery-col-gap);
-	  row-gap: var(--rich-gallery-row-gap);
-	}
 	.brt-rich__gallery-cell {
 	  display: flex;
 	  flex-direction: column;
@@ -1151,11 +1345,6 @@
 	.brt-rich__gallery-fraction-num, .brt-rich__gallery-fraction-den {
 	  display: block;
 	}
-	.brt-rich__dual-panels {
-	  display: grid;
-	  grid-template-columns: minmax(0, 451fr) minmax(0, 449fr);
-	  gap: var(--rich-dual-panels-gap);
-	}
 	.brt-rich__dual-panel {
 	  display: flex;
 	  flex-direction: column;
@@ -1204,14 +1393,14 @@
 	  font-weight: var(--rich-font-weight-semibold);
 	}
 	.brt-rich__mount-banner {
-	  display: flex;
-	  align-items: center;
-	  gap: var(--rich-mount-banner-title-text-gap);
 	  box-sizing: border-box;
 	  min-height: var(--rich-mount-banner-min-height);
 	  padding: var(--rich-mount-banner-padding-y) var(--rich-mount-banner-padding-x);
 	  background: var(--rich-color-bg-muted);
 	  border-radius: var(--rich-radius-lg);
+	}
+	.brt-rich__mount-banner .brt-rich-row {
+	  --rich-gutter-x: var(--rich-mount-banner-title-text-gap);
 	}
 	.brt-rich__mount-banner-lead {
 	  display: flex;
@@ -1236,8 +1425,6 @@
 	  color: var(--rich-color-text);
 	}
 	.brt-rich__mount-banner-text {
-	  flex: 1;
-	  min-width: 0;
 	  margin: 0;
 	  font-family: var(--rich-font-family);
 	  font-size: var(--rich-font-size-mount-body);
@@ -1246,20 +1433,18 @@
 	  color: var(--rich-color-text);
 	}
 	.brt-rich__why-choose {
-	  display: flex;
-	  align-items: center;
-	  justify-content: space-between;
 	  box-sizing: border-box;
-	  gap: var(--rich-space-md);
 	  min-height: var(--rich-why-choose-min-height);
 	  padding: var(--rich-why-choose-padding-top) var(--rich-why-choose-padding-x) var(--rich-why-choose-padding-bottom);
 	  background: var(--rich-color-accent-fill);
 	  border-radius: var(--rich-radius-lg);
 	  overflow: visible;
 	}
+	.brt-rich__why-choose .brt-rich-row {
+	  width: 100%;
+	  --rich-gutter-x: var(--rich-space-md);
+	}
 	.brt-rich__why-choose-content {
-	  flex: 1 1 auto;
-	  min-width: 0;
 	  max-width: var(--rich-why-choose-list-max);
 	}
 	.brt-rich__why-choose-title {
@@ -1307,11 +1492,6 @@
 	  font-weight: var(--rich-font-weight-semibold);
 	  line-height: normal;
 	  color: var(--rich-color-text);
-	}
-	.brt-rich__kit-grid {
-	  display: grid;
-	  grid-template-columns: minmax(0, 451fr) minmax(0, 449fr);
-	  gap: var(--rich-kit-grid-gap);
 	}
 	.brt-rich__kit-item {
 	  display: flex;
@@ -1383,6 +1563,7 @@
 	  display: flex;
 	  flex-direction: column;
 	  align-items: center;
+	  width: 100%;
 	  text-align: center;
 	  gap: var(--rich-space-sm);
 	  padding: var(--rich-space-md);
@@ -1395,12 +1576,6 @@
 	.brt-rich__footer-spec-label {
 	  font-size: var(--rich-font-size-small);
 	  color: var(--rich-color-text-muted);
-	}
-	.brt-rich__grinding-panels {
-	  display: grid;
-	  grid-template-columns: var(--rich-grinding-panel-left) minmax(0, 1fr);
-	  gap: var(--rich-grinding-panels-gap);
-	  align-items: stretch;
 	}
 	.brt-rich__grinding-panel {
 	  display: flex;
@@ -1547,10 +1722,11 @@
 	}
 	@media (max-width: 767.98px) {
 	  .brt-rich__banner--accent {
-	    display: flex;
-	    flex-direction: column;
 	    min-height: 0;
 	    padding: var(--rich-space-lg) var(--rich-banner-accent-padding-x);
+	  }
+	  .brt-rich__banner--accent .brt-rich-row {
+	    flex-direction: column;
 	  }
 	  .brt-rich__banner--accent .brt-rich__banner-col--text, .brt-rich__banner--accent .brt-rich__banner-col--display {
 	    max-width: none;
@@ -1566,11 +1742,9 @@
 	    display: none;
 	  }
 	  .brt-rich__banner--cta {
-	    flex-direction: column;
 	    text-align: center;
 	  }
 	  .brt-rich__page-header {
-	    flex-direction: column;
 	    align-items: flex-start;
 	  }
 	  .brt-rich__page-title {
@@ -1578,10 +1752,7 @@
 	    max-width: none;
 	    text-align: left;
 	  }
-	  .brt-rich__hero-badge {
-	    flex: 1 1 100%;
-	  }
-	  .brt-rich__hero-card .brt-rich__split-col--content {
+	  .brt-rich__hero-card .brt-rich-col-grow {
 	    padding: var(--rich-space-lg);
 	  }
 	  .brt-rich__hero-perks {
@@ -1595,9 +1766,6 @@
 	  }
 	  .brt-rich__spec-card {
 	    padding: 12px 16px;
-	  }
-	  .brt-rich__grinding-panels {
-	    grid-template-columns: 1fr;
 	  }
 	  .brt-rich__grinding-panel {
 	    min-height: auto;
@@ -1613,16 +1781,9 @@
 	  .brt-rich__gallery {
 	    padding: var(--rich-space-lg) var(--rich-banner-accent-padding-x);
 	  }
-	  .brt-rich__gallery-grid {
-	    grid-template-columns: 1fr;
-	    row-gap: var(--rich-gallery-row-gap);
-	  }
 	  .brt-rich__gallery-item {
 	    height: auto;
 	    aspect-ratio: 354/139;
-	  }
-	  .brt-rich__dual-panels {
-	    grid-template-columns: 1fr;
 	  }
 	  .brt-rich__dual-panel {
 	    min-height: 0;
@@ -1641,11 +1802,14 @@
 	    padding-bottom: var(--rich-space-lg);
 	  }
 	  .brt-rich__mount-banner {
-	    flex-direction: column;
-	    align-items: flex-start;
-	    gap: var(--rich-mount-banner-stack-gap);
 	    min-height: 0;
 	    padding: var(--rich-space-lg) var(--rich-space-md);
+	  }
+	  .brt-rich__mount-banner .brt-rich-row {
+	    flex-direction: column;
+	    align-items: flex-start;
+	    --rich-gutter-x: 0;
+	    --rich-gutter-y: var(--rich-mount-banner-stack-gap);
 	  }
 	  .brt-rich__mount-banner-title {
 	    width: auto;
@@ -1654,15 +1818,17 @@
 	    display: none;
 	  }
 	  .brt-rich__why-choose {
-	    flex-direction: column;
-	    align-items: flex-start;
-	    gap: var(--rich-why-choose-stack-gap);
 	    min-height: 0;
 	    padding: var(--rich-space-lg) var(--rich-space-md);
 	  }
+	  .brt-rich__why-choose .brt-rich-row {
+	    flex-direction: column;
+	    align-items: flex-start;
+	    --rich-gutter-x: 0;
+	    --rich-gutter-y: var(--rich-why-choose-stack-gap);
+	  }
 	  .brt-rich__why-choose-content {
 	    max-width: none;
-	    width: 100%;
 	  }
 	  .brt-rich__why-choose-media {
 	    align-self: center;
@@ -1677,9 +1843,6 @@
 	  }
 	  .brt-rich__why-choose-list li:last-child br {
 	    display: none;
-	  }
-	  .brt-rich__kit-grid {
-	    grid-template-columns: 1fr;
 	  }
 	  .brt-rich__kit-item {
 	    min-height: var(--rich-kit-card-height);
@@ -1718,9 +1881,8 @@
 	  color: var(--rich-color-text-inverse);
 	  text-align: center;
 	}
-	.brt-rich__banner--cta .brt-rich__split {
+	.brt-rich__banner--cta .brt-rich-row {
 	  width: 100%;
-	  align-items: center;
 	}
 	.brt-rich__banner--cta .brt-rich__media {
 	  max-width: 200px;
@@ -1787,8 +1949,7 @@
 			<a href="#rich-component-feature-card">Feature card</a>
 			<a href="#rich-component-mini-card">Mini card</a>
 			<a href="#rich-component-step">Step</a>
-			<a href="#rich-component-split">Split ratios</a>
-			<a href="#rich-component-split-cards">Split + cards</a>
+			<a href="#rich-component-grid">Grid (row/col)</a>
 			<a href="#rich-component-hero">Hero</a>
 			<a href="#rich-component-banner">Banner</a>
 			<a href="#rich-component-gallery">Gallery</a>
@@ -1806,7 +1967,7 @@
 
 	<div class="showcase-styles-block" id="rich-base-doc">
 		<h2>Блок стилей #rich-base</h2>
-		<p>Структурные стили: grid, flex, breakpoints, контейнер. Не изменяйте без необходимости.</p>
+		<p>Структурные стили: 12-колоночная сетка <code>brt-rich-row</code> / <code>brt-rich-col-*</code> (модель gutter как в Bootstrap 5: padding на колонках + negative margin на row). Брейкпоинты: <code>sm</code> ≥576px, <code>md</code> ≥768px, <code>lg</code> ≥992px. Утилиты: <code>brt-rich-col-auto</code>, <code>brt-rich-col-grow</code>. Модификаторы row: <code>--align-center</code>, <code>--reverse</code>, <code>--gutter-0</code>, <code>--hero</code>, <code>--gap-specs</code> и др.</p>
 	</div>
 
 	<div class="showcase-styles-block" id="rich-theme-doc">
@@ -1897,38 +2058,40 @@
 	<section class="showcase-section" id="rich-component-spec-card">
 		<h2 class="showcase-section__title">Spec card (карточка характеристики)</h2>
 		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__spec-card</p>
-		<p class="showcase-section__desc">Молекула: иконка + stat. Собирается в grid --specs (3 колонки на desktop).</p>
+		<p class="showcase-section__desc">Молекула: иконка + stat. Собирается в <code>brt-rich-row</code> + <code>brt-rich-col-md-4</code> (3 колонки на desktop).</p>
 		<div class="showcase-demo">
 			<div class="showcase-demo__label">.brt-rich__spec-card</div>
 			<div class="brt-rich">
 				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__grid brt-rich__grid--specs" style="max-width: 320px;">
-						<div class="brt-rich__spec-card">
-							<!-- COMPONENT: Icon (inline SVG)
-							     USAGE: include partials/_icon.html with { name, class }
-							     NAMES: power, speed, volume, wireless, noise, weight, water, bone, food, shell, warranty, install, motor, check -->
-							<svg class="brt-rich__spec-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-							
-							<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							
-							</svg>
+					<div class="brt-rich-row brt-rich-row--gap-specs" style="max-width: 320px;">
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__spec-card">
+								<!-- COMPONENT: Icon (inline SVG)
+								     USAGE: include partials/_icon.html with { name, class }
+								     NAMES: power, speed, volume, wireless, noise, weight, water, bone, food, shell, warranty, install, motor, check -->
+								<svg class="brt-rich__spec-card-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+								
+								<polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								
+								</svg>
 
-							<div class="brt-rich__stat">
-								<span class="brt-rich__stat-value">560 Вт</span>
-								<span class="brt-rich__stat-label">Мощность</span>
+								<div class="brt-rich__stat">
+									<span class="brt-rich__stat-value">560 Вт</span>
+									<span class="brt-rich__stat-label">Мощность</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -1940,7 +2103,7 @@
 	<section class="showcase-section" id="rich-component-feature-card">
 		<h2 class="showcase-section__title">Feature card (карточка преимущества)</h2>
 		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__feature-card</p>
-		<p class="showcase-section__desc">Молекула: иконка + inline bold title + текст. Сетка --features (2 колонки, gap 10px).</p>
+		<p class="showcase-section__desc">Молекула: иконка + inline bold title + текст. Сетка <code>brt-rich-row--gap-features</code> + <code>brt-rich-col-md-6</code> (2 колонки).</p>
 		<div class="showcase-demo">
 			<div class="showcase-demo__label">.brt-rich__feature-card</div>
 			<div class="brt-rich">
@@ -2012,21 +2175,34 @@
 		</div>
 	</section>
 
-	<!-- SPLIT RATIOS -->
-	<section class="showcase-section" id="rich-component-split">
-		<h2 class="showcase-section__title">Split (картинка + текст)</h2>
-		<p class="showcase-section__id">STYLE: #rich-base → .brt-rich__split, модификаторы --50-50 / --30-70 / --60-40 / --reverse</p>
-		<p class="showcase-section__desc">Организм. Пропорции через класс-модификатор или CSS-переменную <code>--rich-split-left</code>.</p>
+	<!-- GRID SYSTEM -->
+	<section class="showcase-section" id="rich-component-grid">
+		<h2 class="showcase-section__title">Grid (сетка row/col)</h2>
+		<p class="showcase-section__id">STYLE: #rich-base → .brt-rich-row, .brt-rich-col-{1-12}, .brt-rich-col-sm/md/lg-{1-12}</p>
+		<p class="showcase-section__desc">12-колоночная flex-сетка. Mobile-first: базовые классы без префикса, responsive — <code>sm</code> (≥576px), <code>md</code> (≥768px), <code>lg</code> (≥992px).</p>
 
 		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__split--50-50</div>
+			<div class="showcase-demo__label">.brt-rich-row + .brt-rich-col-md-4 × 3</div>
 			<div class="brt-rich">
 				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__split brt-rich__split--50-50">
-						<div class="brt-rich__split-col brt-rich__split-col--media">
+					<div class="brt-rich-row">
+						<div class="brt-rich-col-12 brt-rich-col-md-4"><div class="brt-rich__placeholder">col-md-4</div></div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4"><div class="brt-rich__placeholder">col-md-4</div></div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4"><div class="brt-rich__placeholder">col-md-4</div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showcase-demo">
+			<div class="showcase-demo__label">.brt-rich-row + .brt-rich-col-md-6 × 2 (50/50)</div>
+			<div class="brt-rich">
+				<div class="brt-rich__container" style="padding-block: 24px;">
+					<div class="brt-rich-row brt-rich-row--align-center">
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
 							<div class="brt-rich__placeholder">Изображение 50%</div>
 						</div>
-						<div class="brt-rich__split-col brt-rich__split-col--content">
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
 							<h2 class="brt-rich__heading brt-rich__heading--h2">Текст 50%</h2>
 							<p class="brt-rich__text">Равное разделение колонок.</p>
 						</div>
@@ -2036,15 +2212,15 @@
 		</div>
 
 		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__split--30-70</div>
+			<div class="showcase-demo__label">.brt-rich-col-md-4 + .brt-rich-col-md-8 (30/70)</div>
 			<div class="brt-rich">
 				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__split brt-rich__split--30-70">
-						<div class="brt-rich__split-col brt-rich__split-col--media">
-							<div class="brt-rich__placeholder">Изображение 30%</div>
+					<div class="brt-rich-row brt-rich-row--align-center">
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__placeholder">Изображение 33%</div>
 						</div>
-						<div class="brt-rich__split-col brt-rich__split-col--content">
-							<h2 class="brt-rich__heading brt-rich__heading--h2">Контент 70%</h2>
+						<div class="brt-rich-col-12 brt-rich-col-md-8">
+							<h2 class="brt-rich__heading brt-rich__heading--h2">Контент 67%</h2>
 							<p class="brt-rich__text">Узкая картинка — для акцентных иллюстраций.</p>
 						</div>
 					</div>
@@ -2053,14 +2229,14 @@
 		</div>
 
 		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__split--60-40 + --reverse</div>
+			<div class="showcase-demo__label">.brt-rich-col-md-7 + .brt-rich-col-md-5 + .brt-rich-row--reverse</div>
 			<div class="brt-rich">
 				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__split brt-rich__split--60-40 brt-rich__split--reverse">
-						<div class="brt-rich__split-col brt-rich__split-col--media">
-							<div class="brt-rich__placeholder">Изображение 60%</div>
+					<div class="brt-rich-row brt-rich-row--align-center brt-rich-row--reverse">
+						<div class="brt-rich-col-12 brt-rich-col-md-7">
+							<div class="brt-rich__placeholder">Изображение ~58%</div>
 						</div>
-						<div class="brt-rich__split-col brt-rich__split-col--content">
+						<div class="brt-rich-col-12 brt-rich-col-md-5">
 							<h2 class="brt-rich__heading brt-rich__heading--h2">Плашки справа (reverse)</h2>
 							<p class="brt-rich__text">Широкая диаграмма слева, контент справа.</p>
 						</div>
@@ -2083,11 +2259,15 @@
 				-->
 				<header class="brt-rich__section brt-rich__hero">
 					<div class="brt-rich__container">
-						<div class="brt-rich__page-header">
-							<a class="brt-rich__logo" href="#" aria-label="Bort">
-								<img src="img/logo.svg" alt="Bort" width="158" height="46" loading="lazy">
-							</a>
-							<p class="brt-rich__page-title">Пылесос для сухой и влажной уборки BORT BSS-1630-Pro</p>
+						<div class="brt-rich-row brt-rich-row--align-center brt-rich__page-header">
+							<div class="brt-rich-col-auto">
+								<a class="brt-rich__logo" href="#" aria-label="Bort">
+									<img src="img/logo.svg" alt="Bort" width="158" height="46" loading="lazy">
+								</a>
+							</div>
+							<div class="brt-rich-col-grow">
+								<p class="brt-rich__page-title">Пылесос для сухой и влажной уборки BORT BSS-1630-Pro</p>
+							</div>
 						</div>
 					</div>
 				</header>
@@ -2098,71 +2278,89 @@
 				-->
 				<section class="brt-rich__section brt-rich__hero-badges-section">
 					<div class="brt-rich__container">
-						<ul class="brt-rich__hero-badges">
-							<li class="brt-rich__hero-badge">
-								<span class="brt-rich__hero-badge-text">Пылесос для влажной <br> и сухой уборки </span>
+						<ul class="brt-rich-row brt-rich-row--gap-hero-badges brt-rich__hero-badges">
+							<li class="brt-rich-col-12 brt-rich-col-sm-3">
+								<div class="brt-rich__hero-badge">
+									<span class="brt-rich__hero-badge-text">Пылесос для влажной <br> и сухой уборки </span>
+								</div>
 							</li>
-							<li class="brt-rich__hero-badge">
-								<span class="brt-rich__hero-badge-text">Полуавтоматическая <br> очистка фильтра </span>
+							<li class="brt-rich-col-12 brt-rich-col-sm-3">
+								<div class="brt-rich__hero-badge">
+									<span class="brt-rich__hero-badge-text">Полуавтоматическая <br> очистка фильтра </span>
+								</div>
 							</li>
-							<li class="brt-rich__hero-badge">
-								<span class="brt-rich__hero-badge-text">ByPASS motor</span>
+							<li class="brt-rich-col-12 brt-rich-col-sm-3">
+								<div class="brt-rich__hero-badge">
+									<span class="brt-rich__hero-badge-text">ByPASS motor</span>
+								</div>
 							</li>
-							<li class="brt-rich__hero-badge brt-rich__hero-badge--filled">
-								<img class="brt-rich__hero-badge-icon" src="img/badge-guarantee.png" alt="" width="43" height="43" loading="lazy">
-								<span class="brt-rich__hero-badge-text">5 лет<br>гарантии</span>
+							<li class="brt-rich-col-12 brt-rich-col-sm-3">
+								<div class="brt-rich__hero-badge brt-rich__hero-badge--filled">
+									<img class="brt-rich__hero-badge-icon" src="img/badge-guarantee.png" alt="" width="43" height="43" loading="lazy">
+									<span class="brt-rich__hero-badge-text">5 лет<br>гарантии</span>
+								</div>
 							</li>
 						</ul>
 					</div>
 				</section>
 
-				<!--
-				  COMPONENT: Hero Card
-				  SECTION: карточка с заголовком, описанием, перками и фото
-				-->
-				<section class="brt-rich__section brt-rich__hero-card-section">
-					<div class="brt-rich__container">
-						<div class="brt-rich__hero-card">
-							<div class="brt-rich__split brt-rich__split--hero">
-								<div class="brt-rich__split-col brt-rich__split-col--content">
-									<h1 class="brt-rich__heading brt-rich__heading--h1 brt-rich__hero-card-title">Пылесос для влажной <br>и сухой уборки</h1>
-									<p class="brt-rich__hero-card-model">BSS-1630-PRO</p>
-									<p class="brt-rich__hero-card-desc">Пылесос справится с водой, стружкой, опилками, кусками кирпича, бетонной крошкой, гипсом, мелом, известью <br>и слюдой</p>
-									<ul class="brt-rich__hero-perks">
-										<li class="brt-rich__hero-perk">
-											<img class="brt-rich__hero-perk-icon" src="img/hero-perk-filter.svg" alt="" width="53" height="40" loading="lazy">
-											<span class="brt-rich__hero-perk-text">Полуавтомати-<br>ческая очистка фильтра</span>
-										</li>
-										<li class="brt-rich__hero-perk">
-											<img class="brt-rich__hero-perk-icon" src="img/hero-perk-motor.svg" alt="" width="49" height="42" loading="lazy">
-											<span class="brt-rich__hero-perk-text">Мощный<br>двигатель</span>
-										</li>
-										<li class="brt-rich__hero-perk">
-											<span class="brt-rich__hero-perk-icon-wrap">
-												<img class="brt-rich__hero-perk-auto" src="img/hero-perk-auto.svg" alt="" width="35" height="10" loading="lazy">
-												<img class="brt-rich__hero-perk-icon brt-rich__hero-perk-icon--sync" src="img/hero-perk-sync.svg" alt="" width="46" height="40" loading="lazy">
-											</span>
-											<span class="brt-rich__hero-perk-text">Синхронизация <br>с инструментом <br>и задержка <br>отключения 10 с</span>
-										</li>
-										<li class="brt-rich__hero-perk">
-											<img class="brt-rich__hero-perk-icon" src="img/hero-perk-kit.svg" alt="" width="48" height="42" loading="lazy">
-											<span class="brt-rich__hero-perk-text">Широкая комплектация</span>
-										</li>
-									</ul>
-								</div>
-								<div class="brt-rich__split-col brt-rich__split-col--media brt-rich__hero-media">
-									<div class="brt-rich__hero-media-wrap">
-										<img class="brt-rich__hero-media-photo" src="img/hero-main.png" alt="Пылесос Bort BSS-1630-Pro" width="547" height="452" loading="lazy">
-										<div class="brt-rich__hero-media-badges" aria-hidden="true">
-											<img class="brt-rich__hero-media-specs" src="img/hero-specs.svg" alt="" width="103" height="103" loading="lazy">
-											<img class="brt-rich__hero-media-dust" src="img/hero-dust-class.svg" alt="" width="53" height="24" loading="lazy">
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</section>
+				<!--
+				  COMPONENT: Hero Card
+				  SECTION: карточка с заголовком, описанием, перками и фото
+				-->
+				<section class="brt-rich__section brt-rich__hero-card-section">
+					<div class="brt-rich__container">
+						<div class="brt-rich__hero-card">
+							<div class="brt-rich-row brt-rich-row--hero brt-rich-row--gutter-0 brt-rich-row--align-center">
+								<div class="brt-rich-col-grow">
+									<h1 class="brt-rich__heading brt-rich__heading--h1 brt-rich__hero-card-title">Пылесос для влажной <br>и сухой уборки</h1>
+									<p class="brt-rich__hero-card-model">BSS-1630-PRO</p>
+									<p class="brt-rich__hero-card-desc">Пылесос справится с водой, стружкой, опилками, кусками кирпича, бетонной крошкой, гипсом, мелом, известью <br>и слюдой</p>
+									<ul class="brt-rich-row brt-rich-row--gap-hero-perks brt-rich__hero-perks">
+										<li class="brt-rich-col-6">
+											<div class="brt-rich__hero-perk">
+												<img class="brt-rich__hero-perk-icon" src="img/hero-perk-filter.svg" alt="" width="53" height="40" loading="lazy">
+												<span class="brt-rich__hero-perk-text">Полуавтомати-<br>ческая очистка фильтра</span>
+											</div>
+										</li>
+										<li class="brt-rich-col-6">
+											<div class="brt-rich__hero-perk">
+												<img class="brt-rich__hero-perk-icon" src="img/hero-perk-motor.svg" alt="" width="49" height="42" loading="lazy">
+												<span class="brt-rich__hero-perk-text">Мощный<br>двигатель</span>
+											</div>
+										</li>
+										<li class="brt-rich-col-6">
+											<div class="brt-rich__hero-perk">
+												<span class="brt-rich__hero-perk-icon-wrap">
+													<img class="brt-rich__hero-perk-auto" src="img/hero-perk-auto.svg" alt="" width="35" height="10" loading="lazy">
+													<img class="brt-rich__hero-perk-icon brt-rich__hero-perk-icon--sync" src="img/hero-perk-sync.svg" alt="" width="46" height="40" loading="lazy">
+												</span>
+												<span class="brt-rich__hero-perk-text">Синхронизация <br>с инструментом <br>и задержка <br>отключения 10 с</span>
+											</div>
+										</li>
+										<li class="brt-rich-col-6">
+											<div class="brt-rich__hero-perk">
+												<img class="brt-rich__hero-perk-icon" src="img/hero-perk-kit.svg" alt="" width="48" height="42" loading="lazy">
+												<span class="brt-rich__hero-perk-text">Широкая комплектация</span>
+											</div>
+										</li>
+									</ul>
+								</div>
+								<div class="brt-rich-col-hero-media">
+									<div class="brt-rich__hero-media">
+										<div class="brt-rich__hero-media-wrap">
+											<img class="brt-rich__hero-media-photo" src="img/hero-main.png" alt="Пылесос Bort BSS-1630-Pro" width="547" height="452" loading="lazy">
+											<div class="brt-rich__hero-media-badges" aria-hidden="true">
+												<img class="brt-rich__hero-media-specs" src="img/hero-specs.svg" alt="" width="103" height="103" loading="lazy">
+												<img class="brt-rich__hero-media-dust" src="img/hero-dust-class.svg" alt="" width="53" height="24" loading="lazy">
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
 
 			</div>
 		</div>
@@ -2183,24 +2381,32 @@
 				<section class="brt-rich__section">
 					<div class="brt-rich__container">
 						<div class="brt-rich__banner brt-rich__banner--accent">
-							<div class="brt-rich__banner-col brt-rich__banner-col--text">
-								<h2 class="brt-rich__heading brt-rich__heading--banner-accent">Мощный мотор PMDC 600&nbsp;Вт</h2>
-								<div class="brt-rich__banner-body">
-									<p>PMDC мотор (Permanent Magnet DC Motor) - двигатель постоянного тока с магнитами.</p>
-									<p>Оптимальный баланс мощности<br>и экономичности, обеспечивает стабильное вращение измельчающих элементов для эффективного измельчения.</p>
-									<p>По сравнению с универсальным щёточным двигателем равной мощности, PMDC-двигатель потребляет меньше электроэнергии.</p>
+							<div class="brt-rich-row brt-rich-row--align-center">
+								<div class="brt-rich-col-auto">
+									<div class="brt-rich__banner-col brt-rich__banner-col--text">
+										<h2 class="brt-rich__heading brt-rich__heading--banner-accent">Мощный мотор PMDC 600&nbsp;Вт</h2>
+										<div class="brt-rich__banner-body">
+											<p>PMDC мотор (Permanent Magnet DC Motor) - двигатель постоянного тока с магнитами.</p>
+											<p>Оптимальный баланс мощности<br>и экономичности, обеспечивает стабильное вращение измельчающих элементов для эффективного измельчения.</p>
+											<p>По сравнению с универсальным щёточным двигателем равной мощности, PMDC-двигатель потребляет меньше электроэнергии.</p>
+										</div>
+									</div>
 								</div>
-							</div>
-							<div class="brt-rich__banner-divider" aria-hidden="true">
-								<img src="img/banner-accent-divider.svg" alt="" width="1" height="298" loading="lazy">
-							</div>
-							<div class="brt-rich__banner-col brt-rich__banner-col--display">
-								<div class="brt-rich__banner-display">
-									<p class="brt-rich__banner-display-line">
-										<span class="brt-rich__banner-display-do">до</span>
-										<span class="brt-rich__banner-display-pct">20%</span>
-									</p>
-									<p class="brt-rich__banner-display-sub">экономии<br>электроэнергии</p>
+								<div class="brt-rich-col-auto">
+									<div class="brt-rich__banner-divider" aria-hidden="true">
+										<img src="img/banner-accent-divider.svg" alt="" width="1" height="298" loading="lazy">
+									</div>
+								</div>
+								<div class="brt-rich-col-grow">
+									<div class="brt-rich__banner-col brt-rich__banner-col--display">
+										<div class="brt-rich__banner-display">
+											<p class="brt-rich__banner-display-line">
+												<span class="brt-rich__banner-display-do">до</span>
+												<span class="brt-rich__banner-display-pct">20%</span>
+											</p>
+											<p class="brt-rich__banner-display-sub">экономии<br>электроэнергии</p>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -2226,29 +2432,37 @@
 					<div class="brt-rich__container">
 						<div class="brt-rich__gallery">
 							<h2 class="brt-rich__heading brt-rich__heading--h2 brt-rich__heading--gallery">Надежное и простое крепление на любой тип моек:</h2>
-							<div class="brt-rich__gallery-grid">
-								<div class="brt-rich__gallery-cell">
-									<p class="brt-rich__gallery-label">керамика</p>
-									<div class="brt-rich__gallery-item">
-										<img src="img/gallery-1.png" alt="Керамическая мойка" width="354" height="139" loading="lazy">
+							<div class="brt-rich-row brt-rich-row--gap-gallery">
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<div class="brt-rich__gallery-cell">
+										<p class="brt-rich__gallery-label">керамика</p>
+										<div class="brt-rich__gallery-item">
+											<img src="img/gallery-1.png" alt="Керамическая мойка" width="354" height="139" loading="lazy">
+										</div>
 									</div>
 								</div>
-								<div class="brt-rich__gallery-cell">
-									<p class="brt-rich__gallery-label">металл</p>
-									<div class="brt-rich__gallery-item">
-										<img src="img/gallery-2.png" alt="Металлическая мойка" width="354" height="139" loading="lazy">
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<div class="brt-rich__gallery-cell">
+										<p class="brt-rich__gallery-label">металл</p>
+										<div class="brt-rich__gallery-item">
+											<img src="img/gallery-2.png" alt="Металлическая мойка" width="354" height="139" loading="lazy">
+										</div>
 									</div>
 								</div>
-								<div class="brt-rich__gallery-cell">
-									<p class="brt-rich__gallery-label">камень</p>
-									<div class="brt-rich__gallery-item">
-										<img src="img/gallery-3.png" alt="Каменная мойка" width="354" height="139" loading="lazy">
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<div class="brt-rich__gallery-cell">
+										<p class="brt-rich__gallery-label">камень</p>
+										<div class="brt-rich__gallery-item">
+											<img src="img/gallery-3.png" alt="Каменная мойка" width="354" height="139" loading="lazy">
+										</div>
 									</div>
 								</div>
-								<div class="brt-rich__gallery-cell">
-									<p class="brt-rich__gallery-label">акрил</p>
-									<div class="brt-rich__gallery-item">
-										<img src="img/gallery-4.png" alt="Акриловая мойка" width="354" height="139" loading="lazy">
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<div class="brt-rich__gallery-cell">
+										<p class="brt-rich__gallery-label">акрил</p>
+										<div class="brt-rich__gallery-item">
+											<img src="img/gallery-4.png" alt="Акриловая мойка" width="354" height="139" loading="lazy">
+										</div>
 									</div>
 								</div>
 							</div>
@@ -2295,43 +2509,55 @@
 					<div class="brt-rich__container">
 						<div class="brt-rich__kit">
 							<h2 class="brt-rich__kit-title">Комплектация:</h2>
-							<div class="brt-rich__kit-grid">
-								<article class="brt-rich__kit-item">
-									<div class="brt-rich__kit-item-media brt-rich__kit-item-media--mount">
-										<img src="img/kit-mount-node.png" alt="" width="188" height="81" loading="lazy">
-									</div>
-									<p class="brt-rich__kit-item-label">Монтажный узел</p>
-								</article>
-								<article class="brt-rich__kit-item">
-									<div class="brt-rich__kit-item-media brt-rich__kit-item-media--wireless">
-										<img src="img/kit-wireless-button.png" alt="" width="85" height="88" loading="lazy">
-									</div>
-									<p class="brt-rich__kit-item-label">Беспроводная кнопка</p>
-								</article>
-								<article class="brt-rich__kit-item">
-									<div class="brt-rich__kit-item-media brt-rich__kit-item-media--splash">
-										<img src="img/kit-splash-guard.png" alt="" width="85" height="81" loading="lazy">
-									</div>
-									<p class="brt-rich__kit-item-label">Экран защиты от брызг</p>
-								</article>
-								<article class="brt-rich__kit-item">
-									<div class="brt-rich__kit-item-media brt-rich__kit-item-media--pusher">
-										<img src="img/kit-pusher.png" alt="" width="100" height="95" loading="lazy">
-									</div>
-									<p class="brt-rich__kit-item-label">Проталкиватель <br>(вкручивается <br>в сито-пробку)</p>
-								</article>
-								<article class="brt-rich__kit-item">
-									<div class="brt-rich__kit-item-media brt-rich__kit-item-media--pipes">
-										<img src="img/kit-pipes.png" alt="" width="205" height="65" loading="lazy">
-									</div>
-									<p class="brt-rich__kit-item-label">Трубы <br>для подключения</p>
-								</article>
-								<article class="brt-rich__kit-item">
-									<div class="brt-rich__kit-item-media brt-rich__kit-item-media--sieve">
-										<img src="img/kit-sieve-plug.png" alt="" width="108" height="108" loading="lazy">
-									</div>
-									<p class="brt-rich__kit-item-label">Сито-пробка <br>с резиновым уплотнителем</p>
-								</article>
+							<div class="brt-rich-row brt-rich-row--gap-kit">
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<article class="brt-rich__kit-item">
+										<div class="brt-rich__kit-item-media brt-rich__kit-item-media--mount">
+											<img src="img/kit-mount-node.png" alt="" width="188" height="81" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">Монтажный узел</p>
+									</article>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<article class="brt-rich__kit-item">
+										<div class="brt-rich__kit-item-media brt-rich__kit-item-media--wireless">
+											<img src="img/kit-wireless-button.png" alt="" width="85" height="88" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">Беспроводная кнопка</p>
+									</article>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<article class="brt-rich__kit-item">
+										<div class="brt-rich__kit-item-media brt-rich__kit-item-media--splash">
+											<img src="img/kit-splash-guard.png" alt="" width="85" height="81" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">Экран защиты от брызг</p>
+									</article>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<article class="brt-rich__kit-item">
+										<div class="brt-rich__kit-item-media brt-rich__kit-item-media--pusher">
+											<img src="img/kit-pusher.png" alt="" width="100" height="95" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">Проталкиватель <br>(вкручивается <br>в сито-пробку)</p>
+									</article>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<article class="brt-rich__kit-item">
+										<div class="brt-rich__kit-item-media brt-rich__kit-item-media--pipes">
+											<img src="img/kit-pipes.png" alt="" width="205" height="65" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">Трубы <br>для подключения</p>
+									</article>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<article class="brt-rich__kit-item">
+										<div class="brt-rich__kit-item-media brt-rich__kit-item-media--sieve">
+											<img src="img/kit-sieve-plug.png" alt="" width="108" height="108" loading="lazy">
+										</div>
+										<p class="brt-rich__kit-item-label">Сито-пробка <br>с резиновым уплотнителем</p>
+									</article>
+								</div>
 							</div>
 						</div>
 					</div>

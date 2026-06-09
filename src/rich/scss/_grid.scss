@@ -1,0 +1,180 @@
+// 12-column flex grid — Bootstrap 5 gutter model (padding, not gap)
+@use "sass:math";
+@import "settings";
+
+$rich-grid-columns: 12;
+
+// Row — как Bootstrap make-row()
+@mixin rich-make-row() {
+	--rich-gutter-x: var(--rich-row-gap);
+	--rich-gutter-y: 0;
+	display: flex;
+	flex-wrap: wrap;
+	margin-top: calc(-1 * var(--rich-gutter-y));
+	margin-right: calc(-0.5 * var(--rich-gutter-x));
+	margin-left: calc(-0.5 * var(--rich-gutter-x));
+	min-width: 0;
+}
+
+// Col base — как Bootstrap make-col-ready() на row > *
+@mixin rich-make-col-ready() {
+	flex-shrink: 0;
+	width: 100%;
+	max-width: 100%;
+	min-width: 0;
+	padding-right: calc(var(--rich-gutter-x) * 0.5);
+	padding-left: calc(var(--rich-gutter-x) * 0.5);
+	margin-top: var(--rich-gutter-y);
+}
+
+// Sized col — как Bootstrap make-col()
+@mixin rich-make-col($size, $columns: $rich-grid-columns) {
+	@for $i from 1 through $columns {
+		.brt-rich-col#{$size}-#{$i} {
+			flex: 0 0 auto;
+			width: percentage(math.div($i, $columns));
+		}
+	}
+}
+
+.brt-rich {
+	.brt-rich-row {
+		@include rich-make-row();
+
+		> * {
+			@include rich-make-col-ready();
+		}
+
+		&--align-center {
+			align-items: center;
+		}
+
+		&--reverse {
+			@media (min-width: $md4) {
+				flex-direction: row-reverse;
+			}
+		}
+
+		&--gutter-0 {
+			--rich-gutter-x: 0;
+			--rich-gutter-y: 0;
+		}
+
+		&--hero {
+			> .brt-rich-col-grow {
+				flex: 1 1 0;
+				width: auto;
+				max-width: 100%;
+
+				@media (min-width: $md4) {
+					flex: 1 1 0;
+					max-width: calc(100% - var(--rich-hero-media-width));
+				}
+			}
+
+			> .brt-rich-col-hero-media {
+				flex: 0 0 auto;
+				width: 100%;
+				max-width: 100%;
+
+				@media (min-width: $md4) {
+					flex: 0 0 var(--rich-hero-media-width);
+					width: var(--rich-hero-media-width);
+					max-width: var(--rich-hero-media-width);
+				}
+			}
+		}
+
+		&--grinding {
+			--rich-gutter-x: var(--rich-grinding-panels-gap);
+
+			> .brt-rich-col-grinding-diagram {
+				flex: 0 0 auto;
+				width: 100%;
+				max-width: 100%;
+
+				@media (min-width: $md4) {
+					flex: 0 0 var(--rich-grinding-panel-left);
+					width: var(--rich-grinding-panel-left);
+					max-width: var(--rich-grinding-panel-left);
+				}
+			}
+
+			> .brt-rich-col-grinding-items {
+				flex: 1 1 0;
+				width: auto;
+				max-width: 100%;
+
+				@media (min-width: $md4) {
+					flex: 1 1 0;
+					max-width: calc(100% - var(--rich-grinding-panel-left));
+				}
+			}
+		}
+
+		&--gap-specs {
+			--rich-gutter-x: var(--rich-spec-grid-gap);
+		}
+
+		&--gap-features {
+			--rich-gutter-x: var(--rich-features-grid-gap);
+		}
+
+		&--gap-kit {
+			--rich-gutter-x: var(--rich-kit-grid-gap);
+		}
+
+		&--gap-gallery {
+			--rich-gutter-x: var(--rich-gallery-col-gap);
+			--rich-gutter-y: var(--rich-gallery-row-gap);
+		}
+
+		&--gap-dual {
+			--rich-gutter-x: var(--rich-dual-panels-gap);
+		}
+
+		&--gap-steps {
+			--rich-gutter-x: var(--rich-steps-bar-gap);
+		}
+
+		&--gap-hero-perks {
+			--rich-gutter-x: var(--rich-hero-perks-gap);
+		}
+
+		&--gap-hero-badges {
+			--rich-gutter-x: var(--rich-hero-badges-gap);
+		}
+	}
+
+	.brt-rich-col {
+		flex: 1 1 0;
+		width: auto;
+		max-width: 100%;
+	}
+
+	.brt-rich-col-auto {
+		flex: 0 0 auto;
+		width: auto;
+		max-width: 100%;
+	}
+
+	.brt-rich-col-grow {
+		flex: 1 1 0;
+		width: auto;
+		max-width: 100%;
+	}
+
+	@include rich-make-col("");
+
+	@media (min-width: $md5) {
+		@include rich-make-col("-sm");
+	}
+
+	@media (min-width: $md4) {
+		@include rich-make-col("-md");
+	}
+
+	@media (min-width: $md3) {
+		@include rich-make-col("-lg");
+	}
+}

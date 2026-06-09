@@ -28,8 +28,7 @@
 			<a href="#rich-component-feature-card">Feature card</a>
 			<a href="#rich-component-mini-card">Mini card</a>
 			<a href="#rich-component-step">Step</a>
-			<a href="#rich-component-split">Split ratios</a>
-			<a href="#rich-component-split-cards">Split + cards</a>
+			<a href="#rich-component-grid">Grid (row/col)</a>
 			<a href="#rich-component-hero">Hero</a>
 			<a href="#rich-component-banner">Banner</a>
 			<a href="#rich-component-gallery">Gallery</a>
@@ -47,7 +46,7 @@
 
 	<div class="showcase-styles-block" id="rich-base-doc">
 		<h2>Блок стилей #rich-base</h2>
-		<p>Структурные стили: grid, flex, breakpoints, контейнер. Не изменяйте без необходимости.</p>
+		<p>Структурные стили: 12-колоночная сетка <code>brt-rich-row</code> / <code>brt-rich-col-*</code> (модель gutter как в Bootstrap 5: padding на колонках + negative margin на row). Брейкпоинты: <code>sm</code> ≥576px, <code>md</code> ≥768px, <code>lg</code> ≥992px. Утилиты: <code>brt-rich-col-auto</code>, <code>brt-rich-col-grow</code>. Модификаторы row: <code>--align-center</code>, <code>--reverse</code>, <code>--gutter-0</code>, <code>--hero</code>, <code>--gap-specs</code> и др.</p>
 	</div>
 
 	<div class="showcase-styles-block" id="rich-theme-doc">
@@ -138,17 +137,19 @@
 	<section class="showcase-section" id="rich-component-spec-card">
 		<h2 class="showcase-section__title">Spec card (карточка характеристики)</h2>
 		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__spec-card</p>
-		<p class="showcase-section__desc">Молекула: иконка + stat. Собирается в grid --specs (3 колонки на desktop).</p>
+		<p class="showcase-section__desc">Молекула: иконка + stat. Собирается в <code>brt-rich-row</code> + <code>brt-rich-col-md-4</code> (3 колонки на desktop).</p>
 		<div class="showcase-demo">
 			<div class="showcase-demo__label">.brt-rich__spec-card</div>
 			<div class="brt-rich">
 				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__grid brt-rich__grid--specs" style="max-width: 320px;">
-						<div class="brt-rich__spec-card">
-							@@include('partials/_icon.html', { "name": "power", "class": "brt-rich__spec-card-icon" })
-							<div class="brt-rich__stat">
-								<span class="brt-rich__stat-value">560 Вт</span>
-								<span class="brt-rich__stat-label">Мощность</span>
+					<div class="brt-rich-row brt-rich-row--gap-specs" style="max-width: 320px;">
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__spec-card">
+								@@include('partials/_icon.html', { "name": "power", "class": "brt-rich__spec-card-icon" })
+								<div class="brt-rich__stat">
+									<span class="brt-rich__stat-value">560 Вт</span>
+									<span class="brt-rich__stat-label">Мощность</span>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -160,7 +161,7 @@
 	<section class="showcase-section" id="rich-component-feature-card">
 		<h2 class="showcase-section__title">Feature card (карточка преимущества)</h2>
 		<p class="showcase-section__id">STYLE: #rich-theme → .brt-rich__feature-card</p>
-		<p class="showcase-section__desc">Молекула: иконка + inline bold title + текст. Сетка --features (2 колонки, gap 10px).</p>
+		<p class="showcase-section__desc">Молекула: иконка + inline bold title + текст. Сетка <code>brt-rich-row--gap-features</code> + <code>brt-rich-col-md-6</code> (2 колонки).</p>
 		<div class="showcase-demo">
 			<div class="showcase-demo__label">.brt-rich__feature-card</div>
 			<div class="brt-rich">
@@ -211,21 +212,34 @@
 		</div>
 	</section>
 
-	<!-- SPLIT RATIOS -->
-	<section class="showcase-section" id="rich-component-split">
-		<h2 class="showcase-section__title">Split (картинка + текст)</h2>
-		<p class="showcase-section__id">STYLE: #rich-base → .brt-rich__split, модификаторы --50-50 / --30-70 / --60-40 / --reverse</p>
-		<p class="showcase-section__desc">Организм. Пропорции через класс-модификатор или CSS-переменную <code>--rich-split-left</code>.</p>
+	<!-- GRID SYSTEM -->
+	<section class="showcase-section" id="rich-component-grid">
+		<h2 class="showcase-section__title">Grid (сетка row/col)</h2>
+		<p class="showcase-section__id">STYLE: #rich-base → .brt-rich-row, .brt-rich-col-{1-12}, .brt-rich-col-sm/md/lg-{1-12}</p>
+		<p class="showcase-section__desc">12-колоночная flex-сетка. Mobile-first: базовые классы без префикса, responsive — <code>sm</code> (≥576px), <code>md</code> (≥768px), <code>lg</code> (≥992px).</p>
 
 		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__split--50-50</div>
+			<div class="showcase-demo__label">.brt-rich-row + .brt-rich-col-md-4 × 3</div>
 			<div class="brt-rich">
 				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__split brt-rich__split--50-50">
-						<div class="brt-rich__split-col brt-rich__split-col--media">
+					<div class="brt-rich-row">
+						<div class="brt-rich-col-12 brt-rich-col-md-4"><div class="brt-rich__placeholder">col-md-4</div></div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4"><div class="brt-rich__placeholder">col-md-4</div></div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4"><div class="brt-rich__placeholder">col-md-4</div></div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="showcase-demo">
+			<div class="showcase-demo__label">.brt-rich-row + .brt-rich-col-md-6 × 2 (50/50)</div>
+			<div class="brt-rich">
+				<div class="brt-rich__container" style="padding-block: 24px;">
+					<div class="brt-rich-row brt-rich-row--align-center">
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
 							<div class="brt-rich__placeholder">Изображение 50%</div>
 						</div>
-						<div class="brt-rich__split-col brt-rich__split-col--content">
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
 							<h2 class="brt-rich__heading brt-rich__heading--h2">Текст 50%</h2>
 							<p class="brt-rich__text">Равное разделение колонок.</p>
 						</div>
@@ -235,15 +249,15 @@
 		</div>
 
 		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__split--30-70</div>
+			<div class="showcase-demo__label">.brt-rich-col-md-4 + .brt-rich-col-md-8 (30/70)</div>
 			<div class="brt-rich">
 				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__split brt-rich__split--30-70">
-						<div class="brt-rich__split-col brt-rich__split-col--media">
-							<div class="brt-rich__placeholder">Изображение 30%</div>
+					<div class="brt-rich-row brt-rich-row--align-center">
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__placeholder">Изображение 33%</div>
 						</div>
-						<div class="brt-rich__split-col brt-rich__split-col--content">
-							<h2 class="brt-rich__heading brt-rich__heading--h2">Контент 70%</h2>
+						<div class="brt-rich-col-12 brt-rich-col-md-8">
+							<h2 class="brt-rich__heading brt-rich__heading--h2">Контент 67%</h2>
 							<p class="brt-rich__text">Узкая картинка — для акцентных иллюстраций.</p>
 						</div>
 					</div>
@@ -252,14 +266,14 @@
 		</div>
 
 		<div class="showcase-demo">
-			<div class="showcase-demo__label">.brt-rich__split--60-40 + --reverse</div>
+			<div class="showcase-demo__label">.brt-rich-col-md-7 + .brt-rich-col-md-5 + .brt-rich-row--reverse</div>
 			<div class="brt-rich">
 				<div class="brt-rich__container" style="padding-block: 24px;">
-					<div class="brt-rich__split brt-rich__split--60-40 brt-rich__split--reverse">
-						<div class="brt-rich__split-col brt-rich__split-col--media">
-							<div class="brt-rich__placeholder">Изображение 60%</div>
+					<div class="brt-rich-row brt-rich-row--align-center brt-rich-row--reverse">
+						<div class="brt-rich-col-12 brt-rich-col-md-7">
+							<div class="brt-rich__placeholder">Изображение ~58%</div>
 						</div>
-						<div class="brt-rich__split-col brt-rich__split-col--content">
+						<div class="brt-rich-col-12 brt-rich-col-md-5">
 							<h2 class="brt-rich__heading brt-rich__heading--h2">Плашки справа (reverse)</h2>
 							<p class="brt-rich__text">Широкая диаграмма слева, контент справа.</p>
 						</div>
