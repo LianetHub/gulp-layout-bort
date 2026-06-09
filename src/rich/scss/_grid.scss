@@ -119,6 +119,11 @@ $rich-grid-columns: 12;
 			--rich-gutter-x: var(--rich-model-features-gap);
 			--rich-gutter-y: var(--rich-model-features-gap);
 		}
+
+		&--gap-advantages {
+			--rich-gutter-x: var(--rich-advantages-gap-x);
+			--rich-gutter-y: var(--rich-advantages-gap-y);
+		}
 	}
 
 	.brt-rich-col {
