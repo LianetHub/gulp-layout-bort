@@ -40,7 +40,7 @@ $rich-grid-columns: 12;
 	.brt-rich-row {
 		@include rich-make-row();
 
-		> * {
+		>* {
 			@include rich-make-col-ready();
 		}
 
@@ -60,7 +60,7 @@ $rich-grid-columns: 12;
 		}
 
 		&--hero {
-			> .brt-rich-col-grow {
+			>.brt-rich-col-grow {
 				flex: 1 1 0;
 				width: auto;
 				max-width: 100%;
@@ -71,7 +71,7 @@ $rich-grid-columns: 12;
 				}
 			}
 
-			> .brt-rich-col-hero-media {
+			>.brt-rich-col-hero-media {
 				flex: 0 0 auto;
 				width: 100%;
 				max-width: 100%;
@@ -118,6 +118,11 @@ $rich-grid-columns: 12;
 		&--gap-model-features {
 			--rich-gutter-x: var(--rich-model-features-gap);
 			--rich-gutter-y: var(--rich-model-features-gap);
+		}
+
+		&--gap-product-params {
+			--rich-gutter-x: var(--rich-product-params-gap);
+			--rich-gutter-y: var(--rich-product-params-gap);
 		}
 
 		&--gap-advantages {

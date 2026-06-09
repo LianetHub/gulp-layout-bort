@@ -7,7 +7,7 @@
 	--rich-max-width: 1030px;
 	--rich-padding-x: 60px;
 	--rich-padding-x-mobile: 16px;
-	--rich-section-gap: 12px;
+	--rich-section-gap: 24px;
 	--rich-block-gap: 12px;
 	--rich-row-gap: var(--rich-split-gap);
 	--rich-gutter-x: var(--rich-row-gap);
@@ -27,10 +27,10 @@
 	--rich-hero-badge-gap: 10px;
 	--rich-card-gap: 14px;
 	--rich-specs-gap: 5px;
-	--rich-application-areas-gap: 10px;
+	--rich-application-areas-gap: 12px;
 	--rich-application-areas-frame-padding: 10px;
 	--rich-application-areas-media-height: 178px;
-	--rich-application-areas-title-gap: 15px;
+	--rich-application-areas-title-gap: 10px;
 	--rich-dust-class-padding-y: 33px;
 	--rich-dust-class-padding-x: 38px;
 	--rich-dust-class-icon-size: 144px;
@@ -60,6 +60,14 @@
 	--rich-model-features-tank-icon-size: 82px;
 	--rich-model-features-blow-media-height: 117px;
 	--rich-model-features-body-gap: 14px;
+	--rich-product-params-gap: 10px;
+	--rich-product-params-info-min-height: 233px;
+	--rich-product-params-info-padding: 27px 44px;
+	--rich-product-params-info-title-gap: 27px;
+	--rich-product-params-stat-min-height: 139px;
+	--rich-product-params-stat-number-size: 64px;
+	--rich-product-params-stat-unit-size: 30px;
+	--rich-product-params-stat-unit-small-size: 19px;
 	--rich-advantages-gap-x: 4px;
 	--rich-advantages-gap-y: 10px;
 	--rich-advantages-body-padding-x: 30px;

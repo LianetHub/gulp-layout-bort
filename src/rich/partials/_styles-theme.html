@@ -30,6 +30,7 @@
 }
 .brt-rich__heading--h2 {
   font-size: var(--rich-font-size-h2);
+  margin-bottom: var(--rich-application-areas-title-gap);
 }
 .brt-rich__heading--h3 {
   font-size: var(--rich-font-size-h3);
@@ -252,7 +253,8 @@
 }
 .brt-rich__benefit-card-media {
   flex-shrink: 0;
-  border-radius: 0;
+  border-radius: var(--rich-radius-lg);
+  overflow: hidden;
 }
 .brt-rich__benefit-card-media img {
   display: block;
@@ -448,7 +450,6 @@
   align-items: center;
   justify-content: center;
   min-height: var(--rich-hose-media-height);
-  padding: var(--rich-space-sm);
   border-radius: var(--rich-radius-lg);
   background: var(--rich-color-bg-muted);
 }
@@ -583,9 +584,14 @@
   padding-block: 0 var(--rich-section-gap);
 }
 .brt-rich__dust-class {
-  padding: var(--rich-dust-class-padding-y) var(--rich-dust-class-padding-x);
   border-radius: var(--rich-radius-lg);
   background: var(--rich-color-accent);
+  padding: var(--rich-space-lg) var(--rich-space-md);
+}
+@media (min-width: 767.98px) {
+  .brt-rich__dust-class {
+    padding: var(--rich-dust-class-padding-y) var(--rich-dust-class-padding-x);
+  }
 }
 .brt-rich__dust-class-text .brt-rich__text {
   font-size: var(--rich-font-size-hero-desc);
@@ -601,7 +607,7 @@
 }
 .brt-rich__dust-class-media {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
 }
 @media (min-width: 767.98px) {
   .brt-rich__dust-class-media {
@@ -619,6 +625,11 @@
 }
 .brt-rich__collaboration-mode {
   padding: var(--rich-card-padding-y) var(--rich-card-padding-x);
+}
+@media (min-width: 767.98px) {
+  .brt-rich__collaboration-mode .brt-rich-row--gap-card {
+    margin: 0 calc(-1 * var(--rich-card-padding-x)) calc(-1 * var(--rich-card-padding-y));
+  }
 }
 @media (max-width: 767.98px) {
   .brt-rich__collaboration-mode {
@@ -639,7 +650,7 @@
   display: block;
   width: 100%;
   height: auto;
-  min-height: 200px;
+  min-height: 283px;
   object-fit: cover;
   object-position: center;
   border-radius: var(--rich-radius-lg);
@@ -677,6 +688,11 @@
   max-width: none;
   max-height: none;
   object-fit: cover;
+}
+@media (min-width: 767.98px) {
+  .brt-rich__collaboration-mode-content {
+    padding-left: var(--rich-space-md);
+  }
 }
 .brt-rich__collaboration-mode-desc {
   font-size: var(--rich-font-size-hero-desc);
@@ -721,12 +737,6 @@
 .brt-rich__application-areas-section {
   padding-block: 0 var(--rich-section-gap);
 }
-.brt-rich__application-areas-title {
-  margin-bottom: var(--rich-application-areas-title-gap);
-  font-weight: var(--rich-font-weight-semibold);
-  line-height: normal;
-  color: var(--rich-color-text);
-}
 .brt-rich__application-areas {
   padding: var(--rich-application-areas-frame-padding);
   border-radius: var(--rich-radius-lg);
@@ -753,7 +763,7 @@
 .brt-rich__application-area-text {
   flex: 1 1 auto;
   margin: 0;
-  padding: var(--rich-application-areas-gap) var(--rich-space-sm) var(--rich-space-md);
+  padding: var(--rich-application-areas-gap) var(--rich-space-xs) var(--rich-space-md);
   font-size: var(--rich-font-size-badge);
   font-weight: var(--rich-font-weight-normal);
   line-height: normal;
@@ -1003,6 +1013,81 @@
   font-size: var(--rich-font-size-small);
   color: var(--rich-color-text-muted);
 }
+.brt-rich__product-params-section {
+  padding-block: 0 var(--rich-section-gap);
+}
+.brt-rich__product-params {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rich-product-params-gap);
+}
+.brt-rich__product-params-info-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--rich-product-params-info-min-height);
+  height: 100%;
+  padding: var(--rich-product-params-info-padding);
+  border-radius: var(--rich-radius-lg);
+  background: var(--rich-color-bg-muted);
+  text-align: center;
+}
+.brt-rich__product-params-info-title {
+  margin: 0;
+  font-weight: var(--rich-font-weight-semibold);
+  line-height: normal;
+  color: var(--rich-color-text);
+}
+.brt-rich__product-params-info-text {
+  margin: var(--rich-product-params-info-title-gap) 0 0;
+  max-width: 390px;
+  font-size: var(--rich-font-size-hero-desc);
+  line-height: normal;
+  color: var(--rich-color-text);
+  text-align: left;
+}
+.brt-rich__product-params-info-text strong {
+  font-weight: var(--rich-font-weight-semibold);
+}
+.brt-rich__product-params-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--rich-product-params-stat-min-height);
+  height: 100%;
+  padding: var(--rich-space-md) var(--rich-space-sm);
+  border-radius: var(--rich-radius-lg);
+  background: var(--rich-color-accent);
+  text-align: center;
+}
+.brt-rich__product-params-stat-label {
+  margin: 0;
+  font-size: var(--rich-font-size-hero-desc);
+  font-weight: var(--rich-font-weight-normal);
+  line-height: normal;
+  color: var(--rich-color-text-heading);
+}
+.brt-rich__product-params-stat-value {
+  margin: var(--rich-space-xs) 0 0;
+  font-family: var(--rich-font-family-display);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--rich-color-text-heading);
+  white-space: nowrap;
+}
+.brt-rich__product-params-stat-prefix, .brt-rich__product-params-stat-unit {
+  font-size: var(--rich-product-params-stat-unit-size);
+}
+.brt-rich__product-params-stat-number {
+  font-size: var(--rich-product-params-stat-number-size);
+}
+.brt-rich__product-params-stat-unit sup {
+  font-size: var(--rich-product-params-stat-unit-small-size);
+  line-height: 0;
+  vertical-align: super;
+}
 .brt-rich__advantages-section {
   padding-block: 0 var(--rich-section-gap);
 }
@@ -1015,15 +1100,15 @@
 }
 .brt-rich__advantage-card-media {
   flex-shrink: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  line-height: 0;
+  aspect-ratio: 300/276;
+  overflow: hidden;
+  border-radius: var(--rich-radius-lg);
 }
 .brt-rich__advantage-card-media img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
+  object-fit: cover;
 }
 .brt-rich__advantage-card-body {
   display: flex;
@@ -1032,7 +1117,7 @@
   padding: 0 var(--rich-advantages-body-padding-x) var(--rich-advantages-body-padding-bottom);
 }
 .brt-rich__advantage-card-title {
-  margin: 0;
+  margin: var(--rich-space-md) 0 0;
   font-family: var(--rich-font-family-display);
   font-weight: 400;
   line-height: normal;
@@ -1138,5 +1223,8 @@
 }
 .brt-rich__product-summary .brt-rich__text + .brt-rich__text {
   margin-top: 0;
+}
+.brt-rich .text-nowrap {
+  white-space: nowrap;
 }
 </style>
