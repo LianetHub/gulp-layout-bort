@@ -315,7 +315,6 @@
 .brt-rich__hero-badge--filled {
   border-color: var(--rich-color-accent-fill);
   background: var(--rich-color-accent-fill);
-  max-width: 188px;
 }
 .brt-rich__hero-badge-icon {
   flex-shrink: 0;
@@ -336,11 +335,11 @@
   background: var(--rich-color-bg-muted);
   overflow: hidden;
 }
-.brt-rich__hero-card .brt-rich-row--hero {
+.brt-rich__hero-card > .brt-rich-row {
   align-items: stretch;
   min-height: var(--rich-hero-card-height);
 }
-.brt-rich__hero-card .brt-rich-col-grow {
+.brt-rich__hero-card > .brt-rich-row > .brt-rich-col-md-6:first-child {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
@@ -1012,7 +1011,7 @@
     max-width: none;
     text-align: left;
   }
-  .brt-rich__hero-card .brt-rich-col-grow {
+  .brt-rich__hero-card > .brt-rich-row > .brt-rich-col-md-6:first-child {
     padding: var(--rich-space-lg);
   }
   .brt-rich__hero-perks {

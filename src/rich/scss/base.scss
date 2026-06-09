@@ -1,6 +1,7 @@
 // Источник #rich-base — структурные стили (grid, split, breakpoints).
 // Сборка: npm run rich | npm run dev
 @import "settings";
+@import "reset";
 @import "grid";
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Russo+One&display=swap");
@@ -23,21 +24,7 @@
 	background: var(--rich-color-bg);
 	-webkit-font-smoothing: antialiased;
 
-	--rich-section-gap: 32px;
-	--rich-split-gap: 20px;
-	--rich-font-size-h1: 24px;
-	--rich-font-size-h2: 20px;
-	--rich-font-size-h3: 16px;
-	--rich-font-size-display: 40px;
 
-	@media (min-width: $md4) {
-		--rich-section-gap: 48px;
-		--rich-split-gap: 32px;
-		--rich-font-size-h1: 25px;
-		--rich-font-size-h2: 29px;
-		--rich-font-size-h3: 18px;
-		--rich-font-size-display: 56px;
-	}
 
 	img {
 		max-width: 100%;

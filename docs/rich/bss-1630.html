@@ -14,16 +14,16 @@
   /* --- Layout (Структура) --- */
   --rich-max-width: 1030px;
   --rich-padding-x: 60px;
-  --rich-section-gap: 48px;
-  --rich-block-gap: 24px;
+  --rich-section-gap: 12px;
+  --rich-block-gap: 12px;
   --rich-row-gap: var(--rich-split-gap);
   --rich-gutter-x: var(--rich-row-gap);
-  --rich-gutter-y: 0;
+  --rich-gutter-y: 8px;
   --rich-split-left: 50%;
   --rich-split-gap: 32px;
   --rich-hero-header-gap: 21px;
-  --rich-hero-badges-gap: 15px;
-  --rich-hero-card-gap: 25px;
+  --rich-hero-badges-gap: 12px;
+  --rich-hero-card-gap: 14px;
   --rich-hero-media-width: 56.484%;
   --rich-hero-card-height: 462px;
   --rich-hero-content-padding-top: 43px;
@@ -210,9 +210,122 @@
 	 * Grid, flex, breakpoints, изоляция от стилей хост-сайта.
 	 */
 	@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Russo+One&display=swap");
+	.brt-rich *,
+	.brt-rich *::before,
+	.brt-rich *::after {
+	  padding: 0;
+	  margin: 0;
+	  border: 0;
+	}
+	.brt-rich article,
+	.brt-rich aside,
+	.brt-rich details,
+	.brt-rich figcaption,
+	.brt-rich figure,
+	.brt-rich footer,
+	.brt-rich header,
+	.brt-rich hgroup,
+	.brt-rich menu,
+	.brt-rich section {
+	  display: block;
+	}
+	.brt-rich ol,
+	.brt-rich ul {
+	  list-style: none;
+	}
+	.brt-rich img {
+	  vertical-align: top;
+	}
+	.brt-rich sup {
+	  vertical-align: text-top;
+	}
+	.brt-rich sub {
+	  vertical-align: text-bottom;
+	}
+	.brt-rich table {
+	  border-collapse: collapse;
+	  border-spacing: 0;
+	}
+	.brt-rich address {
+	  font-style: normal;
+	}
+	.brt-rich a {
+	  background-color: transparent;
+	  text-decoration: none;
+	  outline: none;
+	  color: inherit;
+	  -webkit-tap-highlight-color: transparent;
+	}
+	.brt-rich a:focus, .brt-rich a:active {
+	  outline: none;
+	}
+	.brt-rich :focus,
+	.brt-rich :active {
+	  outline: none;
+	}
+	.brt-rich input,
+	.brt-rich button,
+	.brt-rich textarea {
+	  font-family: inherit;
+	  font-size: inherit;
+	}
+	.brt-rich input::placeholder,
+	.brt-rich textarea::placeholder {
+	  opacity: 1;
+	}
+	.brt-rich input::-ms-clear {
+	  display: none;
+	}
+	.brt-rich button,
+	.brt-rich [role=button] {
+	  cursor: pointer;
+	  background-color: inherit;
+	  -webkit-tap-highlight-color: transparent;
+	  color: inherit;
+	}
+	.brt-rich button::-moz-focus-inner,
+	.brt-rich [type=button]::-moz-focus-inner,
+	.brt-rich [type=reset]::-moz-focus-inner,
+	.brt-rich [type=submit]::-moz-focus-inner {
+	  border-style: none;
+	  padding: 0;
+	}
+	.brt-rich h1,
+	.brt-rich h2,
+	.brt-rich h3,
+	.brt-rich h4,
+	.brt-rich h5,
+	.brt-rich h6 {
+	  font-size: inherit;
+	  font-weight: inherit;
+	}
+	.brt-rich button,
+	.brt-rich [type=button],
+	.brt-rich [type=reset],
+	.brt-rich [type=submit] {
+	  -webkit-appearance: button;
+	}
+	.brt-rich input[type=number]::-webkit-outer-spin-button,
+	.brt-rich input[type=number]::-webkit-inner-spin-button {
+	  -webkit-appearance: none;
+	  margin: 0;
+	}
+	.brt-rich input[type=number] {
+	  -moz-appearance: textfield;
+	}
+	.brt-rich [type=search] {
+	  -webkit-appearance: textfield;
+	  outline-offset: -2px;
+	}
+	.brt-rich [type=search]::-webkit-search-decoration {
+	  -webkit-appearance: none;
+	}
+	.brt-rich ::-webkit-file-upload-button {
+	  -webkit-appearance: button;
+	}
+
 	.brt-rich .brt-rich-row {
 	  --rich-gutter-x: var(--rich-row-gap);
-	  --rich-gutter-y: 0;
 	  display: flex;
 	  flex-wrap: wrap;
 	  margin-top: calc(-1 * var(--rich-gutter-y));
@@ -308,6 +421,9 @@
 	}
 	.brt-rich .brt-rich-row--gap-steps {
 	  --rich-gutter-x: var(--rich-steps-bar-gap);
+	}
+	.brt-rich .brt-rich-row--gap-hero-card {
+	  --rich-gutter-x: var(--rich-hero-card-gap);
 	}
 	.brt-rich .brt-rich-row--gap-hero-perks {
 	  --rich-gutter-x: var(--rich-hero-perks-gap);
@@ -546,22 +662,6 @@
 	  color: var(--rich-color-text);
 	  background: var(--rich-color-bg);
 	  -webkit-font-smoothing: antialiased;
-	  --rich-section-gap: 32px;
-	  --rich-split-gap: 20px;
-	  --rich-font-size-h1: 24px;
-	  --rich-font-size-h2: 20px;
-	  --rich-font-size-h3: 16px;
-	  --rich-font-size-display: 40px;
-	}
-	@media (min-width: 767.98px) {
-	  .brt-rich {
-	    --rich-section-gap: 48px;
-	    --rich-split-gap: 32px;
-	    --rich-font-size-h1: 25px;
-	    --rich-font-size-h2: 29px;
-	    --rich-font-size-h3: 18px;
-	    --rich-font-size-display: 56px;
-	  }
 	}
 	.brt-rich img {
 	  max-width: 100%;
@@ -919,7 +1019,6 @@
 	.brt-rich__hero-badge--filled {
 	  border-color: var(--rich-color-accent-fill);
 	  background: var(--rich-color-accent-fill);
-	  max-width: 188px;
 	}
 	.brt-rich__hero-badge-icon {
 	  flex-shrink: 0;
@@ -940,11 +1039,11 @@
 	  background: var(--rich-color-bg-muted);
 	  overflow: hidden;
 	}
-	.brt-rich__hero-card .brt-rich-row--hero {
+	.brt-rich__hero-card > .brt-rich-row {
 	  align-items: stretch;
 	  min-height: var(--rich-hero-card-height);
 	}
-	.brt-rich__hero-card .brt-rich-col-grow {
+	.brt-rich__hero-card > .brt-rich-row > .brt-rich-col-md-6:first-child {
 	  display: flex;
 	  flex-direction: column;
 	  justify-content: flex-start;
@@ -1616,7 +1715,7 @@
 	    max-width: none;
 	    text-align: left;
 	  }
-	  .brt-rich__hero-card .brt-rich-col-grow {
+	  .brt-rich__hero-card > .brt-rich-row > .brt-rich-col-md-6:first-child {
 	    padding: var(--rich-space-lg);
 	  }
 	  .brt-rich__hero-perks {
@@ -1850,67 +1949,66 @@
 			</div>
 		</section>
 
-		<!--
-		  COMPONENT: Hero Card
-		  SECTION: карточка с заголовком, описанием, перками и фото
-		-->
-		<section class="brt-rich__section brt-rich__hero-card-section">
-			<div class="brt-rich__container">
-				<div class="brt-rich__hero-card">
-					<div class="brt-rich-row brt-rich-row--hero brt-rich-row--gutter-0 brt-rich-row--align-center">
-						<div class="brt-rich-col-grow">
-							<h1 class="brt-rich__heading brt-rich__heading--h1 brt-rich__hero-card-title">Пылесос для влажной <br>и сухой уборки</h1>
-							<p class="brt-rich__hero-card-model">BSS-1630-PRO</p>
-							<p class="brt-rich__hero-card-desc">Пылесос справится с водой, стружкой, опилками, кусками кирпича, бетонной крошкой, гипсом, мелом, известью <br>и слюдой</p>
-							<ul class="brt-rich-row brt-rich-row--gap-hero-perks brt-rich__hero-perks">
-								<li class="brt-rich-col-6">
-									<div class="brt-rich__hero-perk">
-										<img class="brt-rich__hero-perk-icon" src="img/hero-perk-filter.svg" alt="" width="53" height="40" loading="lazy">
-										<span class="brt-rich__hero-perk-text">Полуавтомати-<br>ческая очистка фильтра</span>
-									</div>
-								</li>
-								<li class="brt-rich-col-6">
-									<div class="brt-rich__hero-perk">
-										<img class="brt-rich__hero-perk-icon" src="img/hero-perk-motor.svg" alt="" width="49" height="42" loading="lazy">
-										<span class="brt-rich__hero-perk-text">Мощный<br>двигатель</span>
-									</div>
-								</li>
-								<li class="brt-rich-col-6">
-									<div class="brt-rich__hero-perk">
-										<span class="brt-rich__hero-perk-icon-wrap">
-											<img class="brt-rich__hero-perk-auto" src="img/hero-perk-auto.svg" alt="" width="35" height="10" loading="lazy">
-											<img class="brt-rich__hero-perk-icon brt-rich__hero-perk-icon--sync" src="img/hero-perk-sync.svg" alt="" width="46" height="40" loading="lazy">
-										</span>
-										<span class="brt-rich__hero-perk-text">Синхронизация <br>с инструментом <br>и задержка <br>отключения 10 с</span>
-									</div>
-								</li>
-								<li class="brt-rich-col-6">
-									<div class="brt-rich__hero-perk">
-										<img class="brt-rich__hero-perk-icon" src="img/hero-perk-kit.svg" alt="" width="48" height="42" loading="lazy">
-										<span class="brt-rich__hero-perk-text">Широкая комплектация</span>
-									</div>
-								</li>
-							</ul>
-						</div>
-						<div class="brt-rich-col-hero-media">
-							<div class="brt-rich__hero-media">
-								<div class="brt-rich__hero-media-wrap">
-									<img class="brt-rich__hero-media-photo" src="img/hero-main.png" alt="Пылесос Bort BSS-1630-Pro" width="547" height="452" loading="lazy">
-									<div class="brt-rich__hero-media-badges" aria-hidden="true">
-										<img class="brt-rich__hero-media-specs" src="img/hero-specs.svg" alt="" width="103" height="103" loading="lazy">
-										<img class="brt-rich__hero-media-dust" src="img/hero-dust-class.svg" alt="" width="53" height="24" loading="lazy">
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+		<!--
+		  COMPONENT: Hero Card
+		  SECTION: карточка с заголовком, описанием, перками и фото
+		-->
+		<section class="brt-rich__section brt-rich__hero-card-section">
+			<div class="brt-rich__container">
+				<div class="brt-rich__hero-card">
+					<div class="brt-rich-row brt-rich-row--gap-hero-card brt-rich-row--align-center">
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<h1 class="brt-rich__heading brt-rich__heading--h1 brt-rich__hero-card-title">Пылесос для влажной <br>и сухой уборки</h1>
+							<p class="brt-rich__hero-card-model">BSS-1630-PRO</p>
+							<p class="brt-rich__hero-card-desc">Пылесос справится с водой, стружкой, опилками, кусками кирпича, бетонной крошкой, гипсом, мелом, известью <br>и слюдой</p>
+							<ul class="brt-rich-row brt-rich-row--gap-hero-perks brt-rich__hero-perks">
+								<li class="brt-rich-col-6">
+									<div class="brt-rich__hero-perk">
+										<img class="brt-rich__hero-perk-icon" src="img/hero-perk-filter.svg" alt="" width="53" height="40" loading="lazy">
+										<span class="brt-rich__hero-perk-text">Полуавтомати-<br>ческая очистка фильтра</span>
+									</div>
+								</li>
+								<li class="brt-rich-col-6">
+									<div class="brt-rich__hero-perk">
+										<img class="brt-rich__hero-perk-icon" src="img/hero-perk-motor.svg" alt="" width="49" height="42" loading="lazy">
+										<span class="brt-rich__hero-perk-text">Мощный<br>двигатель</span>
+									</div>
+								</li>
+								<li class="brt-rich-col-6">
+									<div class="brt-rich__hero-perk">
+										<span class="brt-rich__hero-perk-icon-wrap">
+											<img class="brt-rich__hero-perk-auto" src="img/hero-perk-auto.svg" alt="" width="35" height="10" loading="lazy">
+											<img class="brt-rich__hero-perk-icon brt-rich__hero-perk-icon--sync" src="img/hero-perk-sync.svg" alt="" width="46" height="40" loading="lazy">
+										</span>
+										<span class="brt-rich__hero-perk-text">Синхронизация <br>с инструментом <br>и задержка <br>отключения 10 с</span>
+									</div>
+								</li>
+								<li class="brt-rich-col-6">
+									<div class="brt-rich__hero-perk">
+										<img class="brt-rich__hero-perk-icon" src="img/hero-perk-kit.svg" alt="" width="48" height="42" loading="lazy">
+										<span class="brt-rich__hero-perk-text">Широкая комплектация</span>
+									</div>
+								</li>
+							</ul>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<div class="brt-rich__hero-media">
+								<div class="brt-rich__hero-media-wrap">
+									<img class="brt-rich__hero-media-photo" src="img/hero-main.png" alt="Пылесос Bort BSS-1630-Pro" width="547" height="452" loading="lazy">
+									<div class="brt-rich__hero-media-badges" aria-hidden="true">
+										<img class="brt-rich__hero-media-specs" src="img/hero-specs.svg" alt="" width="103" height="103" loading="lazy">
+										<img class="brt-rich__hero-media-dust" src="img/hero-dust-class.svg" alt="" width="53" height="24" loading="lazy">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
 
 		<!--
 		  COMPONENT: Specs Grid
-		  desktop: 3×3, card h102 r20 #f2f2f2, gap 10px, icon left + label/value | mobile: stack 2→1 col
 		  REUSES: spec-card
 		-->
 		<section class="brt-rich__section brt-rich__specs">
@@ -2264,7 +2362,6 @@
 
 		<!--
 		  COMPONENT: Mount banner — «Легкий монтаж»
-		  FIGMA REF: node 48:5 (2:248, 2:393, 2:417, 2:418) | desktop: 910×125, bg #f2f2f2 r20, pad ~43px, icon 56×56 #FB7E00, title Roboto Bold 24px w126, body Roboto 20px lh1 gap icon→title 25px title→text 19px | mobile: stack, no forced br
 		-->
 		<section class="brt-rich__section">
 			<div class="brt-rich__container">

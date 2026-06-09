@@ -5,9 +5,122 @@
  * Grid, flex, breakpoints, изоляция от стилей хост-сайта.
  */
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Russo+One&display=swap");
+.brt-rich *,
+.brt-rich *::before,
+.brt-rich *::after {
+  padding: 0;
+  margin: 0;
+  border: 0;
+}
+.brt-rich article,
+.brt-rich aside,
+.brt-rich details,
+.brt-rich figcaption,
+.brt-rich figure,
+.brt-rich footer,
+.brt-rich header,
+.brt-rich hgroup,
+.brt-rich menu,
+.brt-rich section {
+  display: block;
+}
+.brt-rich ol,
+.brt-rich ul {
+  list-style: none;
+}
+.brt-rich img {
+  vertical-align: top;
+}
+.brt-rich sup {
+  vertical-align: text-top;
+}
+.brt-rich sub {
+  vertical-align: text-bottom;
+}
+.brt-rich table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+.brt-rich address {
+  font-style: normal;
+}
+.brt-rich a {
+  background-color: transparent;
+  text-decoration: none;
+  outline: none;
+  color: inherit;
+  -webkit-tap-highlight-color: transparent;
+}
+.brt-rich a:focus, .brt-rich a:active {
+  outline: none;
+}
+.brt-rich :focus,
+.brt-rich :active {
+  outline: none;
+}
+.brt-rich input,
+.brt-rich button,
+.brt-rich textarea {
+  font-family: inherit;
+  font-size: inherit;
+}
+.brt-rich input::placeholder,
+.brt-rich textarea::placeholder {
+  opacity: 1;
+}
+.brt-rich input::-ms-clear {
+  display: none;
+}
+.brt-rich button,
+.brt-rich [role=button] {
+  cursor: pointer;
+  background-color: inherit;
+  -webkit-tap-highlight-color: transparent;
+  color: inherit;
+}
+.brt-rich button::-moz-focus-inner,
+.brt-rich [type=button]::-moz-focus-inner,
+.brt-rich [type=reset]::-moz-focus-inner,
+.brt-rich [type=submit]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+.brt-rich h1,
+.brt-rich h2,
+.brt-rich h3,
+.brt-rich h4,
+.brt-rich h5,
+.brt-rich h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+.brt-rich button,
+.brt-rich [type=button],
+.brt-rich [type=reset],
+.brt-rich [type=submit] {
+  -webkit-appearance: button;
+}
+.brt-rich input[type=number]::-webkit-outer-spin-button,
+.brt-rich input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.brt-rich input[type=number] {
+  -moz-appearance: textfield;
+}
+.brt-rich [type=search] {
+  -webkit-appearance: textfield;
+  outline-offset: -2px;
+}
+.brt-rich [type=search]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+.brt-rich ::-webkit-file-upload-button {
+  -webkit-appearance: button;
+}
+
 .brt-rich .brt-rich-row {
   --rich-gutter-x: var(--rich-row-gap);
-  --rich-gutter-y: 0;
   display: flex;
   flex-wrap: wrap;
   margin-top: calc(-1 * var(--rich-gutter-y));
@@ -103,6 +216,9 @@
 }
 .brt-rich .brt-rich-row--gap-steps {
   --rich-gutter-x: var(--rich-steps-bar-gap);
+}
+.brt-rich .brt-rich-row--gap-hero-card {
+  --rich-gutter-x: var(--rich-hero-card-gap);
 }
 .brt-rich .brt-rich-row--gap-hero-perks {
   --rich-gutter-x: var(--rich-hero-perks-gap);
@@ -341,22 +457,6 @@
   color: var(--rich-color-text);
   background: var(--rich-color-bg);
   -webkit-font-smoothing: antialiased;
-  --rich-section-gap: 32px;
-  --rich-split-gap: 20px;
-  --rich-font-size-h1: 24px;
-  --rich-font-size-h2: 20px;
-  --rich-font-size-h3: 16px;
-  --rich-font-size-display: 40px;
-}
-@media (min-width: 767.98px) {
-  .brt-rich {
-    --rich-section-gap: 48px;
-    --rich-split-gap: 32px;
-    --rich-font-size-h1: 25px;
-    --rich-font-size-h2: 29px;
-    --rich-font-size-h3: 18px;
-    --rich-font-size-display: 56px;
-  }
 }
 .brt-rich img {
   max-width: 100%;

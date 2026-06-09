@@ -1,6 +1,7 @@
 @import "settings";
 
 .brt-rich {
+	
 	/* --- Atoms: Typography --- */
 	&__subheading {
 		margin: 0 0 var(--rich-space-sm);
@@ -361,7 +362,6 @@
 	&__hero-badge--filled {
 		border-color: var(--rich-color-accent-fill);
 		background: var(--rich-color-accent-fill);
-		max-width: 188px;
 	}
 	
 	&__hero-badge-icon {
@@ -386,12 +386,12 @@
 		overflow: hidden;
 	}
 	
-	&__hero-card .brt-rich-row--hero {
+	&__hero-card > .brt-rich-row {
 		align-items: stretch;
 		min-height: var(--rich-hero-card-height);
 	}
 	
-	&__hero-card .brt-rich-col-grow {
+	&__hero-card > .brt-rich-row > .brt-rich-col-md-6:first-child {
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-start;
@@ -1168,7 +1168,7 @@
 			text-align: left;
 		}
 	
-		&__hero-card .brt-rich-col-grow {
+		&__hero-card > .brt-rich-row > .brt-rich-col-md-6:first-child {
 			padding: var(--rich-space-lg);
 		}
 	

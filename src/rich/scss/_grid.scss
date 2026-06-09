@@ -7,7 +7,6 @@ $rich-grid-columns: 12;
 // Row — как Bootstrap make-row()
 @mixin rich-make-row() {
 	--rich-gutter-x: var(--rich-row-gap);
-	--rich-gutter-y: 0;
 	display: flex;
 	flex-wrap: wrap;
 	margin-top: calc(-1 * var(--rich-gutter-y));
@@ -135,6 +134,10 @@ $rich-grid-columns: 12;
 
 		&--gap-steps {
 			--rich-gutter-x: var(--rich-steps-bar-gap);
+		}
+
+		&--gap-hero-card {
+			--rich-gutter-x: var(--rich-hero-card-gap);
 		}
 
 		&--gap-hero-perks {
