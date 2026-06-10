@@ -36,7 +36,7 @@ $rich-grid-columns: 12;
 	}
 }
 
-.brt-rich {
+#brt-rich.brt-rich, .brt-rich {
 	.brt-rich-row {
 		@include rich-make-row();
 

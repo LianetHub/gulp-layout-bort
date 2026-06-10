@@ -1,0 +1,16 @@
+// Явная типографика с !important — защита от стилей хост-сайта (.fulldesctab и др.)
+
+@mixin rich-shield-type(
+	$family,
+	$size,
+	$weight,
+	$line-height,
+	$color
+) {
+	font-family: $family !important;
+	font-size: $size !important;
+	font-weight: $weight !important;
+	line-height: $line-height !important;
+	color: $color !important;
+	font-style: normal !important;
+}

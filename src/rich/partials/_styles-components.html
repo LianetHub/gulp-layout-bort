@@ -3,28 +3,30 @@
  * COMPONENT-SPECIFIC STYLES — дополнительные правила для сложных блоков.
  * Используют переменные из #rich-vars; при необходимости переопределяйте локально.
  */
-.brt-rich__hero-media img, .brt-rich__hero-media .brt-rich__placeholder {
+#brt-rich.brt-rich .brt-rich__hero-media img,
+#brt-rich.brt-rich .brt-rich__hero-media .brt-rich__placeholder, .brt-rich .brt-rich__hero-media img,
+.brt-rich .brt-rich__hero-media .brt-rich__placeholder {
   border-radius: 0;
 }
-.brt-rich__banner--cta {
+#brt-rich.brt-rich .brt-rich__banner--cta, .brt-rich .brt-rich__banner--cta {
   padding: var(--rich-space-xl);
   background: var(--rich-color-accent);
   color: var(--rich-color-text-inverse);
   text-align: center;
 }
-.brt-rich__banner--cta .brt-rich-row {
+#brt-rich.brt-rich .brt-rich__banner--cta .brt-rich-row, .brt-rich .brt-rich__banner--cta .brt-rich-row {
   width: 100%;
 }
-.brt-rich__banner--cta .brt-rich__media {
+#brt-rich.brt-rich .brt-rich__banner--cta .brt-rich__media, .brt-rich .brt-rich__banner--cta .brt-rich__media {
   max-width: 200px;
   margin-inline: auto;
 }
-.brt-rich__numbered-item {
+#brt-rich.brt-rich .brt-rich__numbered-item, .brt-rich .brt-rich__numbered-item {
   display: flex;
   gap: var(--rich-space-md);
   align-items: flex-start;
 }
-.brt-rich__numbered-item-num {
+#brt-rich.brt-rich .brt-rich__numbered-item-num, .brt-rich .brt-rich__numbered-item-num {
   flex-shrink: 0;
   display: flex;
   align-items: center;
@@ -37,18 +39,18 @@
   background: var(--rich-color-accent);
   border-radius: var(--rich-radius-round);
 }
-.brt-rich__construction-list {
+#brt-rich.brt-rich .brt-rich__construction-list, .brt-rich .brt-rich__construction-list {
   list-style: none;
   margin: var(--rich-space-lg) 0 0;
   padding: 0;
 }
-.brt-rich__construction-list li {
+#brt-rich.brt-rich .brt-rich__construction-list li, .brt-rich .brt-rich__construction-list li {
   position: relative;
   padding-left: 1.5em;
   margin-bottom: var(--rich-space-md);
   color: var(--rich-color-text-muted);
 }
-.brt-rich__construction-list li::before {
+#brt-rich.brt-rich .brt-rich__construction-list li::before, .brt-rich .brt-rich__construction-list li::before {
   content: "—";
   position: absolute;
   left: 0;

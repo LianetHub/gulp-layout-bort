@@ -1,0 +1,299 @@
+@import "settings";
+@import "typography-mixins";
+
+// Дублирует типографику theme.scss с !important для всех текстовых селекторов.
+$ff: var(--rich-font-family);
+$ffd: var(--rich-font-family-display);
+$c-text: var(--rich-color-text);
+$c-heading: var(--rich-color-text-heading);
+$c-muted: var(--rich-color-text-muted);
+$c-accent: var(--rich-color-accent);
+$c-inverse: var(--rich-color-text-inverse);
+$w-normal: var(--rich-font-weight-normal);
+$w-semibold: var(--rich-font-weight-semibold);
+$w-bold: var(--rich-font-weight-bold);
+
+#brt-rich.brt-rich,
+.brt-rich {
+	& span {
+		font-weight: inherit !important;
+	}
+	/* --- Atoms --- */
+	.brt-rich__subheading {
+		@include rich-shield-type($ff, var(--rich-font-size-small), $w-bold, var(--rich-line-height), $c-muted);
+	}
+
+	.brt-rich__subheading--accent {
+		@include rich-shield-type($ff, var(--rich-font-size-small), $w-bold, var(--rich-line-height), $c-accent);
+	}
+
+	.brt-rich__heading {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-bold, 1.2, $c-text);
+	}
+
+	.brt-rich__heading--h1 {
+		@include rich-shield-type($ff, var(--rich-font-size-h1), $w-bold, 1.2, $c-text);
+	}
+
+	.brt-rich__heading--h2 {
+		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-bold, 1.2, $c-text);
+	}
+
+	.brt-rich__heading--h3 {
+		@include rich-shield-type($ff, var(--rich-font-size-h3), $w-semibold, 1.2, $c-text);
+	}
+
+	.brt-rich__text {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, var(--rich-line-height), $c-muted);
+	}
+
+	.brt-rich__text--small {
+		@include rich-shield-type($ff, var(--rich-font-size-small), $w-normal, var(--rich-line-height), $c-muted);
+	}
+
+	.brt-rich__text--inverse {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, var(--rich-line-height), $c-inverse);
+	}
+
+	.brt-rich__stat-value {
+		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-bold, 1.2, $c-text);
+	}
+
+	.brt-rich__stat-label {
+		@include rich-shield-type($ff, var(--rich-font-size-small), $w-normal, var(--rich-line-height), $c-muted);
+	}
+
+	.brt-rich__badge {
+		@include rich-shield-type($ff, var(--rich-font-size-small), $w-semibold, var(--rich-line-height), $c-accent);
+	}
+
+	.brt-rich__list {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, var(--rich-line-height), $c-muted);
+	}
+
+	/* --- Molecules / blocks --- */
+	.brt-rich__card-text {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-heading);
+	}
+
+	.brt-rich__heading.brt-rich__bypass-comparing-title {
+		@include rich-shield-type($ff, var(--rich-font-size-section-title), $w-semibold, 1.05, $c-text);
+	}
+
+	.brt-rich__bypass-comparing-desc .brt-rich__text {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.14, $c-text);
+	}
+
+	.brt-rich__heading.brt-rich__application-areas-title,
+	.brt-rich__heading.brt-rich__specs-panel-title,
+	.brt-rich__heading.brt-rich__collaboration-mode-title,
+	.brt-rich__heading.brt-rich__hose-section-title,
+	.brt-rich__heading.brt-rich__heading--h2.brt-rich__model-feature-title {
+		@include rich-shield-type($ff, var(--rich-font-size-section-title), $w-semibold, normal, $c-text);
+		text-transform: none !important;
+	}
+
+	.brt-rich__specs-panel-stat .brt-rich__stat-value {
+		@include rich-shield-type($ffd, var(--rich-font-size-spec-value), 400, normal, $c-heading);
+	}
+
+	.brt-rich__specs-panel-stat .brt-rich__stat-label {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, normal, $c-heading);
+	}
+
+	.brt-rich__benefits-title {
+		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-semibold, 1.05, $c-text);
+	}
+
+	.brt-rich__benefit-card-title {
+		@include rich-shield-type($ffd, var(--rich-font-size-h3), 400, normal, $c-heading);
+	}
+
+	.brt-rich__benefit-card-desc .brt-rich__text {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, 1.08, $c-text);
+	}
+
+	.brt-rich__model-features-title {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-semibold, normal, $c-text);
+	}
+
+	.brt-rich__model-feature-callout-text {
+		@include rich-shield-type($ff, var(--rich-font-size-h3), $w-normal, normal, $c-text);
+	}
+
+	.brt-rich__model-feature-card--tank .brt-rich__stat-value {
+		@include rich-shield-type($ffd, 40px, 400, normal, $c-text);
+	}
+
+	.brt-rich__model-feature-card--tank .brt-rich__stat-label {
+		@include rich-shield-type($ff, var(--rich-font-size-h3), $w-normal, normal, $c-text);
+	}
+
+	.brt-rich__model-feature-tank-material {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-text);
+	}
+
+	.brt-rich__model-feature-body .brt-rich__text,
+	.brt-rich__model-feature-blow-content .brt-rich__text {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.14, $c-text);
+	}
+
+	.brt-rich__hose-title {
+		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-semibold, 1.05, $c-text);
+	}
+
+	.brt-rich__hose-desc .brt-rich__text {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.08, $c-text);
+	}
+
+	.brt-rich__filters-mode,
+	.brt-rich__filters-title {
+		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-semibold, 1.05, $c-text);
+	}
+
+	.brt-rich__filters-desc {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.08, $c-text);
+	}
+
+	.brt-rich__filters-feature .brt-rich__stat-value {
+		@include rich-shield-type($ffd, 36px, 400, 1, $c-text);
+	}
+
+	.brt-rich__filters-feature .brt-rich__stat-label {
+		@include rich-shield-type($ff, var(--rich-font-size-h3), $w-normal, 1.1, $c-text);
+	}
+
+	.brt-rich__filters-feature-tag {
+		@include rich-shield-type($ffd, 32px, 400, 1.1, $c-text);
+	}
+
+	.brt-rich__dust-class-text .brt-rich__text {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.14, $c-text);
+	}
+
+	.brt-rich__collaboration-mode-desc {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.08, $c-text);
+	}
+
+	.brt-rich__mode-card-label {
+		@include rich-shield-type($ffd, var(--rich-font-size-hero-desc), 400, normal, $c-accent);
+	}
+
+	.brt-rich__mode-card-text {
+		@include rich-shield-type($ff, var(--rich-font-size-badge), $w-normal, 1.08, $c-text);
+	}
+
+	.brt-rich__application-area-text {
+		@include rich-shield-type($ff, var(--rich-font-size-badge), $w-normal, normal, $c-text);
+	}
+
+	.brt-rich__mini-card-text {
+		@include rich-shield-type($ff, var(--rich-font-size-small), $w-semibold, var(--rich-line-height), $c-text);
+	}
+
+	.brt-rich__page-title {
+		@include rich-shield-type($ffd, var(--rich-font-size-page-title), 400, normal, $c-heading);
+
+		@media (max-width: $md4) {
+			line-height: 1.25 !important;
+		}
+	}
+
+	.brt-rich__hero-badge-text {
+		@include rich-shield-type($ff, var(--rich-font-size-badge), 500, normal, $c-text);
+	}
+
+	.brt-rich__hero-card-title {
+		@include rich-shield-type($ffd, var(--rich-font-size-hero-title), 400, normal, $c-heading);
+	}
+
+	.brt-rich__hero-card-model {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-model), $w-semibold, normal, $c-accent);
+	}
+
+	.brt-rich__hero-card-desc {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-text);
+	}
+
+	.brt-rich__hero-perk-text {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-perk), $w-normal, normal, $c-text);
+	}
+
+	.brt-rich__statement .brt-rich__heading--h3 {
+		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-semibold, 1.2, $c-text);
+	}
+
+	.brt-rich__banner--cta,
+	.brt-rich__banner--cta .brt-rich__text {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, var(--rich-line-height), $c-inverse);
+	}
+
+	.brt-rich__footer-spec-label {
+		@include rich-shield-type($ff, var(--rich-font-size-small), $w-normal, var(--rich-line-height), $c-muted);
+	}
+
+	.brt-rich__product-params-info-title {
+		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-semibold, normal, $c-text);
+	}
+
+	.brt-rich__product-params-info-text {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-text);
+	}
+
+	.brt-rich__product-params-stat-label {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-heading);
+	}
+
+	.brt-rich__product-params-stat-value {
+		@include rich-shield-type($ffd, var(--rich-font-size-body), 400, 1, $c-heading);
+	}
+
+	.brt-rich__product-params-stat-prefix,
+	.brt-rich__product-params-stat-unit {
+		@include rich-shield-type($ffd, var(--rich-product-params-stat-unit-size), 400, 1, $c-heading);
+	}
+
+	.brt-rich__product-params-stat-number {
+		@include rich-shield-type($ffd, var(--rich-product-params-stat-number-size), 400, 1, $c-heading);
+	}
+
+	.brt-rich__advantage-card-title {
+		@include rich-shield-type($ffd, var(--rich-font-size-h3), 400, normal, $c-heading);
+	}
+
+	.brt-rich__advantage-card-desc {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, 1.08, $c-text);
+	}
+
+	.brt-rich__kit-title {
+		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-bold, 1.2, $c-text);
+	}
+
+	.brt-rich__kit-item-label {
+		@include rich-shield-type($ff, var(--rich-font-size-h1), $w-normal, normal, $c-text);
+	}
+
+	.brt-rich__product-summary .brt-rich__text {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-text);
+	}
+
+	.brt-rich__numbered-item-num {
+		@include rich-shield-type($ff, var(--rich-font-size-small), $w-bold, var(--rich-line-height), $c-inverse);
+	}
+
+	.brt-rich__construction-list li {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, var(--rich-line-height), $c-muted);
+	}
+
+	/* --- Элементы без BEM-класса внутри rich --- */
+	p:not([class*="brt-rich__"]) {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, var(--rich-line-height), $c-text);
+	}
+
+	h1:not([class*="brt-rich__"]),
+	h2:not([class*="brt-rich__"]),
+	h3:not([class*="brt-rich__"]),
+	h4:not([class*="brt-rich__"]) {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-bold, 1.2, $c-text);
+	}
+}

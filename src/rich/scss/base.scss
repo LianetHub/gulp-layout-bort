@@ -6,14 +6,14 @@
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Russo+One&display=swap");
 
-.brt-rich,
+#brt-rich.brt-rich, .brt-rich,
 .brt-rich *,
 .brt-rich *::before,
 .brt-rich *::after {
 	box-sizing: border-box;
 }
 
-.brt-rich {
+#brt-rich.brt-rich, .brt-rich {
 	display: block;
 	width: 100%;
 	min-width: 0;
@@ -33,7 +33,7 @@
 	}
 
 	// .brt-rich__container
-	&__container {
+	.brt-rich__container {
 		width: 100%;
 		max-width: var(--rich-max-width);
 		margin-inline: auto;
@@ -42,7 +42,7 @@
 	}
 
 	// .brt-rich__section
-	&__section {
+	.brt-rich__section {
 		padding-block: var(--rich-section-gap);
 
 		& + & {
@@ -51,13 +51,13 @@
 	}
 
 	// .brt-rich__section-head
-	&__section-head {
+	.brt-rich__section-head {
 		text-align: center;
 		margin-bottom: var(--rich-space-xl);
 	}
 
 	// .brt-rich__placeholder
-	&__placeholder {
+	.brt-rich__placeholder {
 		display: flex;
 		align-items: center;
 		justify-content: center;

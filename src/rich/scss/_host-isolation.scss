@@ -1,7 +1,9 @@
 // Изоляция от стилей вкладки описания хост-сайта (.fulldesctab и аналогов).
-// Хост исключает только #uni-rich; .brt-rich попадает под общие правила с ::before-буллетами.
 // Подключается в конце theme.scss.
 
+@import "settings";
+
+#brt-rich.brt-rich,
 .brt-rich {
 	ul,
 	ol {
@@ -31,14 +33,12 @@
 			top: auto !important;
 		}
 
-		// Сброс отступов хоста — только у «контентных» li, не у колонок сетки и BEM-блоков
 		&:not([class*="brt-rich-col"]):not([class*="brt-rich__"]) {
 			padding: 0 !important;
 			margin: 0 !important;
 		}
 	}
 
-	// Gutter-модель сетки (padding на row > *) — защита от .fulldesctab и сбросов выше
 	.brt-rich-row > li {
 		padding-right: calc(var(--rich-gutter-x) * 0.5) !important;
 		padding-left: calc(var(--rich-gutter-x) * 0.5) !important;
@@ -48,53 +48,19 @@
 		margin-left: 0 !important;
 	}
 
-	p {
-		margin-bottom: 0 !important;
-		font-family: var(--rich-font-family) !important;
-		font-style: normal !important;
-		font-weight: var(--rich-font-weight-normal) !important;
-		font-size: var(--rich-font-size-body) !important;
-		line-height: var(--rich-line-height) !important;
-	}
-
-	// Цвета p — перебивают .fulldesctab p:not(#uni-rich p) через !important
-	p.brt-rich__text {
-		color: var(--rich-color-text-muted) !important;
-	}
-
-	p.brt-rich__text--inverse {
-		color: var(--rich-color-text-inverse) !important;
-	}
-
-	p.brt-rich__subheading {
-		color: var(--rich-color-text-muted) !important;
-	}
-
-	p.brt-rich__subheading--accent {
-		color: var(--rich-color-accent) !important;
-	}
-
-	p.brt-rich__card-text,
-	p.brt-rich__page-title,
-	p.brt-rich__product-params-stat-label,
-	p.brt-rich__product-params-stat-value {
-		color: var(--rich-color-text-heading) !important;
-	}
-
-	p.brt-rich__hero-card-model {
-		color: var(--rich-color-accent) !important;
-	}
-
-	p.brt-rich__hero-card-desc,
-	p.brt-rich__collaboration-mode-desc,
-	p.brt-rich__application-area-text,
-	p.brt-rich__model-feature-callout-text,
-	p.brt-rich__model-feature-tank-material,
-	p.brt-rich__filters-desc,
-	p.brt-rich__product-params-info-text,
-	p.brt-rich__advantage-card-desc,
-	p.brt-rich__kit-item-label,
-	p.brt-rich__filters-feature-tag {
-		color: var(--rich-color-text) !important;
+	h1.brt-rich__heading,
+	h2.brt-rich__heading,
+	h3.brt-rich__heading,
+	h4.brt-rich__heading {
+		&::after {
+			content: none !important;
+			display: none !important;
+			width: 0 !important;
+			height: 0 !important;
+			margin: 0 !important;
+			background: none !important;
+		}
 	}
 }
+
+@import "typography-shield";
