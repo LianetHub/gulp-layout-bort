@@ -5,6 +5,11 @@
 	color: #333;
 }
 
+// Документация вне .brt-rich — rich reset/shield не должны затрагивать chrome страницы.
+.showcase-root {
+	max-width: none;
+}
+
 .showcase-header {
 	padding: 40px 20px;
 	background: #1a1a1a;
