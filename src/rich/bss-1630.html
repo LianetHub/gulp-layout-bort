@@ -5,28 +5,53 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Rich Content</title>
 
+		@@include('_test.html')
+		<style>
+			#uni-rich .uni-rich-chess-block__list li,
+			.fulldesctab ul li:not(#uni-rich ul li) {
+				font-family: Roboto;
+				font-style: normal;
+				font-weight: 300;
+				font-size: 16px;
+				line-height: 26px;
+				color: #888;
+				position: relative;
+				padding: 0;
+				padding-left: 20px;
+				margin: 0;
+				margin-bottom: 5px;
+				list-style-type: none;
+			}
+		</style>
 		@@include('partials/_styles-all.html')
 	</head>
 	<body>
-
-		<div id="brt-rich" class="brt-rich">
-			@@include('partials/blocks/_hero.html')
-			@@include('partials/blocks/_hero-badges.html')
-			@@include('partials/blocks/_hero-card.html')
-			@@include('partials/blocks/_bypass-motor.html')
-			@@include('partials/blocks/_bypass-comparing.html')
-			@@include('partials/blocks/_application-areas.html')
-			@@include('partials/blocks/_specs-panel.html')
-			@@include('partials/blocks/_dust-class.html')
-			@@include('partials/blocks/_collaboration-mode.html')
-			@@include('partials/blocks/_hose.html')
-			@@include('partials/blocks/_filters.html')
-			@@include('partials/blocks/_benefits.html')
-			@@include('partials/blocks/_model-features.html')
-			@@include('partials/blocks/_advantages.html')
-			@@include('partials/blocks/_product-params.html')
-			@@include('partials/blocks/_kit-contents.html')
-			@@include('partials/blocks/_product-summary.html')
+		<div id="uni-rich">
+			<div class="tbswrap">
+				<div id="content_description" class="ty-wysiwyg-content content-description">
+					<div class="fulldesctab">
+						<div id="brt-rich" class="brt-rich">
+							@@include('partials/blocks/_hero.html')
+							@@include('partials/blocks/_hero-badges.html')
+							@@include('partials/blocks/_hero-card.html')
+							@@include('partials/blocks/_logo-card.html')
+							@@include('partials/blocks/_split-media.html')
+							@@include('partials/blocks/_cards-accent.html')
+							@@include('partials/blocks/_split-stats.html')
+							@@include('partials/blocks/_accent-bar.html')
+							@@include('partials/blocks/_modes-card.html')
+							@@include('partials/blocks/_media-text.html')
+							@@include('partials/blocks/_columns-card.html')
+							@@include('partials/blocks/_accent-cards.html')
+							@@include('partials/blocks/_feature-grid.html')
+							@@include('partials/blocks/_info-cards.html')
+							@@include('partials/blocks/_params.html')
+							@@include('partials/blocks/_contents.html')
+							@@include('partials/blocks/_summary.html')
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

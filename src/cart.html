@@ -32,147 +32,198 @@
                             </a>
                         </div>
 
-                        <div class="cart__content">
-                            <div class="cart__block">
-                                <div class="cart__product product">
-                                    <div class="product__header">
-                                        <a href="product.html" class="product__image" aria-label="Перейти к товару Воздуходувка Bort BSS-600-R">
-                                            <img src="img/goods/BSS-600-R.png" alt="Фото товара Воздуходувка Bort BSS-600-R">
-                                        </a>
-                                    </div>
-                                    <div class="product__info">
-                                        <div class="product__sku">арт. 1234567890</div>
-                                        <a href="" class="product__name title-sm">Воздуходувка Bort BSS-600-R</a>
-                                        <div class="product__availability">
-                                            В наличии <span class="product__availability-value">10 шт.</span>
+                        <div class="cart__layout">
+                            <div class="cart__main">
+                                <div class="cart__content">
+                                    <div class="cart__block">
+                                        <div class="cart__product product">
+                                            <div class="product__header">
+                                                <a href="product.html" class="product__image" aria-label="Перейти к товару Воздуходувка Bort BSS-600-R">
+                                                    <img src="img/goods/BSS-600-R.png" alt="Фото товара Воздуходувка Bort BSS-600-R">
+                                                </a>
+                                            </div>
+                                            <div class="product__info">
+                                                <div class="product__sku">арт. 1234567890</div>
+                                                <a href="" class="product__name title-sm">Воздуходувка Bort BSS-600-R</a>
+                                                <div class="product__availability">
+                                                    В наличии <span class="product__availability-value">10 шт.</span>
+                                                </div>
+                                            </div>
+                                            <div class="product__price">
+                                                <div class="product__price-current">14 490₽</div>
+                                                <div class="product__price-old">14 490₽</div>
+                                                <div class="product__price-sale">-20%</div>
+                                            </div>
+                                            <div class="product__quantity">
+                                                <div class="quantity-block quantity-block--large-desktop">
+                                                    <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
+                                                    <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
+                                                    <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+                                                </div>
+                                                <div class="product__quantity-total">1 449 000₽</div>
+                                            </div>
+                                            <div class="product__actions">
+                                                <button type="button" class="product__btn btn btn-primary  icon-cross">
+                                                    <span>Удалить</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart__recommendations ">
+                                            <h4 class="cart__recommendations-title">
+                                                <span class="color-grey">С этим товаром</span> покупают
+                                            </h4>
+                                            <div class="cart__recommendations-scroll">
+                                                <ul class="cart__recommendations-list">
+                                                    @@loop('./html/templates/_cart-product-row.html', './html/json/gallery.json')
+                                                </ul>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="product__price">
-                                        <div class="product__price-current">14 490₽</div>
-                                        <div class="product__price-old">14 490₽</div>
-                                        <div class="product__price-sale">-20%</div>
-                                    </div>
-                                    <div class="product__quantity">
-                                        <div class="quantity-block quantity-block--large-desktop">
-                                            <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
-                                            <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
-                                            <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+                                    <div class="cart__block">
+                                        <div class="cart__product product">
+                                            <div class="product__header">
+                                                <a href="product.html" class="product__image" aria-label="Перейти к товару Воздуходувка Bort BSS-600-R">
+                                                    <img src="img/goods/BSS-600-R.png" alt="Фото товара Воздуходувка Bort BSS-600-R">
+                                                </a>
+                                            </div>
+                                            <div class="product__info">
+                                                <div class="product__sku">арт. 1234567890</div>
+                                                <a href="" class="product__name title-sm">Воздуходувка Bort BSS-600-R</a>
+                                                <div class="product__availability">
+                                                    В наличии <span class="product__availability-value">10 шт.</span>
+                                                </div>
+                                            </div>
+                                            <div class="product__price">
+                                                <div class="product__price-current">14 490₽</div>
+                                                <div class="product__price-old">14 490₽</div>
+                                                <div class="product__price-sale">-20%</div>
+                                            </div>
+                                            <div class="product__quantity">
+                                                <div class="quantity-block quantity-block--large-desktop">
+                                                    <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
+                                                    <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
+                                                    <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+                                                </div>
+                                                <div class="product__quantity-total">1 449 000₽</div>
+                                            </div>
+                                            <div class="product__actions">
+                                                <button type="button" class="product__btn btn btn-primary  icon-cross">
+                                                    <span>Удалить</span>
+                                                </button>
+                                            </div>
                                         </div>
-                                        <div class="product__quantity-total">1 449 000₽</div>
+
+                                        <div class="cart__recommendations ">
+                                            <h4 class="cart__recommendations-title">
+                                                <span class="color-grey">С этим товаром</span> покупают
+                                            </h4>
+                                            <div class="cart__recommendations-scroll">
+                                                <ul class="cart__recommendations-list">
+                                                    @@loop('./html/templates/_cart-product-row.html', './html/json/gallery.json')
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <div class="product__actions">
-                                        <button type="button" class="product__btn btn btn-primary  icon-cross">
-                                            <span>Удалить</span>
-                                        </button>
+                                    <div class="cart__block">
+                                        <div class="cart__product product">
+                                            <div class="product__header">
+                                                <a href="product.html" class="product__image" aria-label="Перейти к товару Воздуходувка Bort BSS-600-R">
+                                                    <img src="img/goods/BSS-600-R.png" alt="Фото товара Воздуходувка Bort BSS-600-R">
+                                                </a>
+                                            </div>
+                                            <div class="product__info">
+                                                <div class="product__sku">арт. 1234567890</div>
+                                                <a href="" class="product__name title-sm">Воздуходувка Bort BSS-600-R</a>
+                                                <div class="product__availability">
+                                                    В наличии <span class="product__availability-value">10 шт.</span>
+                                                </div>
+                                            </div>
+                                            <div class="product__price">
+                                                <div class="product__price-current">14 490₽</div>
+                                                <div class="product__price-old">14 490₽</div>
+                                                <div class="product__price-sale">-20%</div>
+                                            </div>
+                                            <div class="product__quantity">
+                                                <div class="quantity-block quantity-block--large-desktop">
+                                                    <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
+                                                    <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
+                                                    <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+                                                </div>
+                                                <div class="product__quantity-total">1 449 000₽</div>
+                                            </div>
+                                            <div class="product__actions">
+                                                <button type="button" class="product__btn btn btn-primary  icon-cross">
+                                                    <span>Удалить</span>
+                                                </button>
+                                            </div>
+                                        </div>
+
+                                        <div class="cart__recommendations ">
+                                            <h4 class="cart__recommendations-title">
+                                                <span class="color-grey">С этим товаром</span> покупают
+                                            </h4>
+                                            <div class="cart__recommendations-scroll">
+                                                <ul class="cart__recommendations-list">
+                                                    @@loop('./html/templates/_cart-product-row.html', './html/json/gallery.json')
+                                                </ul>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
 
-                                <div class="cart__recommendations ">
-                                    <h4 class="cart__recommendations-title">
-                                        <span class="color-grey">С этим товаром</span> покупают
-                                    </h4>
-                                    <ul class="cart__recommendations-list">
-                                        @@loop('./html/templates/_cart-product-row.html', './html/json/gallery.json')
+                                <div class="cart__checkout">
+                                    <div class="cart__checkout-block">
+                                        <h4 class="cart__checkout-title">Способ оплаты</h4>
+                                        <div class="form__field" id="cart-payment">
+                                            <div class="form__select icon-chevron-down">
+                                                <select name="cart_payment" class="form__control" disabled>
+                                                    <option value="cashless" selected>Безналичный расчёт</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart__checkout-block">
+                                        <h4 class="cart__checkout-title">Способ доставки</h4>
+                                        <div class="form__field" id="cart-delivery">
+                                            <div class="form__select icon-chevron-down">
+                                                <select name="cart_delivery" class="form__control">
+                                                    <option value="" disabled selected hidden>Выберите способ доставки</option>
+                                                    <option value="pickup">Самовывоз</option>
+                                                    <option value="delivery">Доставка</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="form__field cart__checkout-address" hidden>
+                                            <div class="form__label">Адрес доставки:</div>
+                                            <input type="text" name="cart_delivery_address" class="form__control" value="г. Москва, ул. Примерная, д. 1, кв. 1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <aside class="cart__sidebar">
+                                <div class="cart__total">
+                                    <ul class="cart__total-rows">
+                                        <li class="cart__total-row">
+                                            <span class="cart__total-label">Товары, 3 шт.</span>
+                                            <span class="cart__total-value">18 120 ₽</span>
+                                        </li>
+                                        <li class="cart__total-row cart__total-row--accent">
+                                            <span class="cart__total-label">Скидка</span>
+                                            <span class="cart__total-value">−3 630 ₽</span>
+                                        </li>
                                     </ul>
-                                </div>
-                            </div>
-                            <div class="cart__block">
-                                <div class="cart__product product">
-                                    <div class="product__header">
-                                        <a href="product.html" class="product__image" aria-label="Перейти к товару Воздуходувка Bort BSS-600-R">
-                                            <img src="img/goods/BSS-600-R.png" alt="Фото товара Воздуходувка Bort BSS-600-R">
-                                        </a>
+                                    <div class="cart__total-sum">
+                                        <span class="cart__total-sum-label">Итого</span>
+                                        <span class="cart__total-sum-value">14 490 ₽</span>
                                     </div>
-                                    <div class="product__info">
-                                        <div class="product__sku">арт. 1234567890</div>
-                                        <a href="" class="product__name title-sm">Воздуходувка Bort BSS-600-R</a>
-                                        <div class="product__availability">
-                                            В наличии <span class="product__availability-value">10 шт.</span>
-                                        </div>
-                                    </div>
-                                    <div class="product__price">
-                                        <div class="product__price-current">14 490₽</div>
-                                        <div class="product__price-old">14 490₽</div>
-                                        <div class="product__price-sale">-20%</div>
-                                    </div>
-                                    <div class="product__quantity">
-                                        <div class="quantity-block quantity-block--large-desktop">
-                                            <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
-                                            <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
-                                            <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
-                                        </div>
-                                        <div class="product__quantity-total">1 449 000₽</div>
-                                    </div>
-                                    <div class="product__actions">
-                                        <button type="button" class="product__btn btn btn-primary  icon-cross">
-                                            <span>Удалить</span>
-                                        </button>
+                                    <div class="cart__total-btns">
+                                        <button type="button" class="cart__total-order btn btn-primary">Оформить заказ</button>
+                                        <button type="button" class="cart__total-reset btn btn-secondary">Очистить корзину</button>
                                     </div>
                                 </div>
-
-                                <div class="cart__recommendations ">
-                                    <h4 class="cart__recommendations-title">
-                                        <span class="color-grey">С этим товаром</span> покупают
-                                    </h4>
-                                    <ul class="cart__recommendations-list">
-                                        @@loop('./html/templates/_cart-product-row.html', './html/json/gallery.json')
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="cart__block">
-                                <div class="cart__product product">
-                                    <div class="product__header">
-                                        <a href="product.html" class="product__image" aria-label="Перейти к товару Воздуходувка Bort BSS-600-R">
-                                            <img src="img/goods/BSS-600-R.png" alt="Фото товара Воздуходувка Bort BSS-600-R">
-                                        </a>
-                                    </div>
-                                    <div class="product__info">
-                                        <div class="product__sku">арт. 1234567890</div>
-                                        <a href="" class="product__name title-sm">Воздуходувка Bort BSS-600-R</a>
-                                        <div class="product__availability">
-                                            В наличии <span class="product__availability-value">10 шт.</span>
-                                        </div>
-                                    </div>
-                                    <div class="product__price">
-                                        <div class="product__price-current">14 490₽</div>
-                                        <div class="product__price-old">14 490₽</div>
-                                        <div class="product__price-sale">-20%</div>
-                                    </div>
-                                    <div class="product__quantity">
-                                        <div class="quantity-block quantity-block--large-desktop">
-                                            <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
-                                            <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
-                                            <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
-                                        </div>
-                                        <div class="product__quantity-total">1 449 000₽</div>
-                                    </div>
-                                    <div class="product__actions">
-                                        <button type="button" class="product__btn btn btn-primary  icon-cross">
-                                            <span>Удалить</span>
-                                        </button>
-                                    </div>
-                                </div>
-
-                                <div class="cart__recommendations ">
-                                    <h4 class="cart__recommendations-title">
-                                        <span class="color-grey">С этим товаром</span> покупают
-                                    </h4>
-                                    <ul class="cart__recommendations-list">
-                                        @@loop('./html/templates/_cart-product-row.html', './html/json/gallery.json')
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="cart__total">
-                            <div class="cart__total-info">
-                                <span>Товаров в корзине: <strong>3</strong></span>
-                                <span>Итого: <strong>14 490₽</strong></span>
-                            </div>
-                            <div class="cart__total-btns">
-                                <a href="#order" data-fancybox class="cart__total-order btn btn-primary">Оформить заказ</a>
-                                <button type="button" class="cart__reset btn btn-secondary">Очистить корзину</button>
-                            </div>
+                            </aside>
                         </div>
                     </div>
                 </section>

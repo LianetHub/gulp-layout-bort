@@ -12,6 +12,8 @@
 	}
 
 	li:not(.brt-rich__construction-list li) {
+		list-style: none !important;
+		list-style-type: none !important;
 		position: static !important;
 		font-family: inherit !important;
 		font-style: normal !important;

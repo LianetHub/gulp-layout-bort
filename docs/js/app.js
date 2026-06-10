@@ -1551,6 +1551,73 @@ $(function () {
         $(window).on('resize', updateCompareRowsVisibility);
     }
 
+
+    const $cart = $('.cart');
+    if ($cart.length) {
+        const $paymentSelect = $cart.find('[name="cart_payment"]');
+        const $deliverySelect = $cart.find('[name="cart_delivery"]');
+        const $deliveryAddress = $cart.find('[name="cart_delivery_address"]');
+        const $addressField = $cart.find('.cart__checkout-address');
+        const scrollOffset = 120;
+
+        function toggleDeliveryAddress() {
+            if ($deliverySelect.val() === 'delivery') {
+                $addressField.removeAttr('hidden');
+            } else {
+                $addressField.attr('hidden', true);
+                $deliveryAddress.closest('.form__field').removeClass('_error');
+            }
+        }
+
+        function scrollToField($field) {
+            $('html, body').animate({
+                scrollTop: $field.offset().top - scrollOffset
+            }, 400);
+        }
+
+        function validateCartCheckout() {
+            let $firstInvalid = null;
+
+            if (!$paymentSelect.val()) {
+                $paymentSelect.closest('.form__field').addClass('_error');
+                $firstInvalid = $firstInvalid || $paymentSelect.closest('.form__field');
+            } else {
+                $paymentSelect.closest('.form__field').removeClass('_error');
+            }
+
+            if (!$deliverySelect.val()) {
+                $deliverySelect.closest('.form__field').addClass('_error');
+                $firstInvalid = $firstInvalid || $deliverySelect.closest('.form__field');
+            } else {
+                $deliverySelect.closest('.form__field').removeClass('_error');
+            }
+
+            if ($deliverySelect.val() === 'delivery' && !$deliveryAddress.val().trim()) {
+                $deliveryAddress.closest('.form__field').addClass('_error');
+                $firstInvalid = $firstInvalid || $deliveryAddress.closest('.form__field');
+            }
+
+            if ($firstInvalid) {
+                scrollToField($firstInvalid);
+                return false;
+            }
+
+            return true;
+        }
+
+        $deliverySelect.on('change', toggleDeliveryAddress);
+
+        $cart.find('.cart__total-order').on('click', function () {
+            if (!validateCartCheckout()) {
+                return;
+            }
+
+            if (typeof Fancybox !== 'undefined' && Fancybox !== null) {
+                Fancybox.show([{ src: '#order', type: 'inline' }]);
+            }
+        });
+    }
+
 });
 
 

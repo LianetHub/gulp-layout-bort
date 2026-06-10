@@ -31,64 +31,64 @@
 	--rich-hero-desc-perks-gap: 28px;
 	--rich-hero-perk-min-height: 76px;
 
-	/* --- Application Areas --- */
-	--rich-application-areas-media-height: 180px;
+	/* --- Cards Accent --- */
+	--rich-cards-accent-media-height: 180px;
 
-	/* --- Dust Class --- */
-	--rich-dust-class-padding-y: var(--rich-space-xl);
-	--rich-dust-class-padding-x: var(--rich-space-2xl);
-	--rich-dust-class-icon-size: 144px;
+	/* --- Accent Bar --- */
+	--rich-accent-bar-padding-y: var(--rich-space-xl);
+	--rich-accent-bar-padding-x: var(--rich-space-2xl);
+	--rich-accent-bar-icon-size: 144px;
 
-	/* --- Benefits --- */
-	--rich-benefits-title-gap: 20px;
-	--rich-benefits-media-height: 200px;
-	--rich-benefits-card-min-height: 472px;
-	--rich-benefits-card-padding-x: var(--rich-space-lg);
-	--rich-benefits-card-padding-y: var(--rich-space-lg);
-	--rich-benefits-body-gap: var(--rich-space-lg);
-	--rich-benefits-text-gap: var(--rich-space-md);
+	/* --- Accent Cards --- */
+	--rich-section-heading-gap: 20px;
+	--rich-accent-card-media-height: 200px;
+	--rich-accent-card-min-height: 472px;
+	--rich-accent-card-padding-x: var(--rich-space-lg);
+	--rich-accent-card-padding-y: var(--rich-space-lg);
+	--rich-accent-card-body-gap: var(--rich-space-lg);
+	--rich-accent-card-text-gap: var(--rich-space-md);
 
-	/* --- Hose --- */
-	--rich-hose-media-width: 268px;
-	--rich-hose-media-height: 328px;
-	--rich-hose-title-gap: var(--rich-space-md);
+	/* --- Media Text --- */
+	--rich-media-text-aside-width: 268px;
+	--rich-media-text-aside-height: 328px;
+	--rich-media-text-title-gap: var(--rich-space-md);
 
-	/* --- Collaboration Mode --- */
-	--rich-collaboration-mode-badge-size: 108px;
-	--rich-collaboration-mode-badge-height: 104px;
-	--rich-collaboration-mode-badges-gap: 64px;
+	/* --- Overlay Badges --- */
+	--rich-overlay-badge-size: 108px;
+	--rich-overlay-badge-height: 104px;
+	--rich-overlay-badges-gap: 64px;
 
-	/* --- Model Features --- */
-	--rich-model-features-gap: 10px;
-	--rich-model-features-title-gap: 15px;
-	--rich-model-features-card-padding-x: 35px;
-	--rich-model-features-card-padding-y: 28px;
-	--rich-model-features-fixation-min-height: 231px;
-	--rich-model-features-tank-min-height: 174px;
-	--rich-model-features-text-min-height: 293px;
-	--rich-model-features-tank-icon-size: 82px;
-	--rich-model-features-blow-media-height: 117px;
-	--rich-model-features-body-gap: 14px;
+	/* --- Feature Grid --- */
+	--rich-feature-grid-gap: 10px;
+	--rich-feature-grid-title-gap: 15px;
+	--rich-feature-grid-card-padding-x: 35px;
+	--rich-feature-grid-card-padding-y: 28px;
+	--rich-feature-grid-fixation-min-height: 231px;
+	--rich-feature-grid-tank-min-height: 174px;
+	--rich-feature-grid-text-min-height: 293px;
+	--rich-feature-grid-tank-icon-size: 82px;
+	--rich-feature-grid-blow-media-height: 117px;
+	--rich-feature-grid-body-gap: 14px;
 
 	/* --- Product Params --- */
-	--rich-product-params-info-min-height: 232px;
-	--rich-product-params-info-padding: 28px 44px;
-	--rich-product-params-info-title-gap: 28px;
-	--rich-product-params-stat-min-height: 140px;
-	--rich-product-params-stat-number-size: 64px;
-	--rich-product-params-stat-unit-size: 32px;
-	--rich-product-params-stat-unit-small-size: 20px;
+	--rich-params-info-min-height: 232px;
+	--rich-params-info-padding: 28px 44px;
+	--rich-params-info-title-gap: 28px;
+	--rich-params-stat-min-height: 140px;
+	--rich-params-stat-number-size: 64px;
+	--rich-params-stat-unit-size: 32px;
+	--rich-params-stat-unit-small-size: 20px;
 
 	/* --- Advantages --- */
-	--rich-advantages-body-padding-x: var(--rich-space-xl);
-	--rich-advantages-body-padding-bottom: 28px;
+	--rich-info-card-body-padding-x: var(--rich-space-xl);
+	--rich-info-card-body-padding-bottom: 28px;
 
 	/* --- Kit --- */
-	--rich-kit-title-size: 40px;
-	--rich-kit-item-main-media-min-height: 336px;
-	--rich-kit-item-media-min-height: 140px;
-	--rich-kit-item-bottom-media-min-height: 120px;
-	--rich-kit-label-padding: var(--rich-space-sm) var(--rich-space-sm) var(--rich-space-md);
+	--rich-section-heading-size: 40px;
+	--rich-contents-item-main-media-min-height: 336px;
+	--rich-contents-item-media-min-height: 140px;
+	--rich-contents-item-bottom-media-min-height: 120px;
+	--rich-contents-label-padding: var(--rich-space-sm) var(--rich-space-sm) var(--rich-space-md);
 
 	/* --- Card --- */
 	--rich-card-padding-y: 28px;
@@ -98,10 +98,10 @@
 	--rich-card-shadow: 0 2px 12px var(--rich-color-shadow);
 
 	/* --- Filters --- */
-	--rich-filters-min-height: 320px;
-	--rich-filters-feature-height: 168px;
-	--rich-filters-feature-padding: 28px;
-	--rich-filters-mode-gap: var(--rich-space-xs);
+	--rich-columns-card-min-height: 320px;
+	--rich-columns-card-feature-height: 168px;
+	--rich-columns-card-feature-padding: 28px;
+	--rich-columns-card-lead-gap: var(--rich-space-xs);
 
 	/* --- Colors (Цвета) --- */
 	--rich-color-accent: #fb7e00;

@@ -76,102 +76,102 @@ $w-bold: var(--rich-font-weight-bold);
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-heading);
 	}
 
-	.brt-rich__heading.brt-rich__bypass-comparing-title {
+	.brt-rich__heading.brt-rich__split-title {
 		@include rich-shield-type($ff, var(--rich-font-size-section-title), $w-semibold, 1.05, $c-text);
 	}
 
-	.brt-rich__bypass-comparing-desc .brt-rich__text {
+	.brt-rich__split-body .brt-rich__text {
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.14, $c-text);
 	}
 
-	.brt-rich__heading.brt-rich__application-areas-title,
-	.brt-rich__heading.brt-rich__specs-panel-title,
-	.brt-rich__heading.brt-rich__collaboration-mode-title,
-	.brt-rich__heading.brt-rich__hose-section-title,
-	.brt-rich__heading.brt-rich__heading--h2.brt-rich__model-feature-title {
+	.brt-rich__heading.brt-rich__section-heading,
+	.brt-rich__heading.brt-rich__section-heading,
+	.brt-rich__heading.brt-rich__section-heading,
+	.brt-rich__heading.brt-rich__section-heading,
+	.brt-rich__heading.brt-rich__heading--h2.brt-rich__feature-card-title {
 		@include rich-shield-type($ff, var(--rich-font-size-section-title), $w-semibold, normal, $c-text);
 		text-transform: none !important;
 	}
 
-	.brt-rich__specs-panel-stat .brt-rich__stat-value {
+	.brt-rich__stat-tile .brt-rich__stat-value {
 		@include rich-shield-type($ffd, var(--rich-font-size-spec-value), 400, normal, $c-heading);
 	}
 
-	.brt-rich__specs-panel-stat .brt-rich__stat-label {
+	.brt-rich__stat-tile .brt-rich__stat-label {
 		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, normal, $c-heading);
 	}
 
-	.brt-rich__benefits-title {
+	.brt-rich__section-heading {
 		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-semibold, 1.05, $c-text);
 	}
 
-	.brt-rich__benefit-card-title {
+	.brt-rich__accent-card-title {
 		@include rich-shield-type($ffd, var(--rich-font-size-h3), 400, normal, $c-heading);
 	}
 
-	.brt-rich__benefit-card-desc .brt-rich__text {
+	.brt-rich__accent-card-desc .brt-rich__text {
 		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, 1.08, $c-text);
 	}
 
-	.brt-rich__model-features-title {
+	.brt-rich__feature-grid-title {
 		@include rich-shield-type($ff, var(--rich-font-size-body), $w-semibold, normal, $c-text);
 	}
 
-	.brt-rich__model-feature-callout-text {
+	.brt-rich__feature-card-callout-text {
 		@include rich-shield-type($ff, var(--rich-font-size-h3), $w-normal, normal, $c-text);
 	}
 
-	.brt-rich__model-feature-card--tank .brt-rich__stat-value {
+	.brt-rich__feature-card--stat .brt-rich__stat-value {
 		@include rich-shield-type($ffd, 40px, 400, normal, $c-text);
 	}
 
-	.brt-rich__model-feature-card--tank .brt-rich__stat-label {
+	.brt-rich__feature-card--stat .brt-rich__stat-label {
 		@include rich-shield-type($ff, var(--rich-font-size-h3), $w-normal, normal, $c-text);
 	}
 
-	.brt-rich__model-feature-tank-material {
+	.brt-rich__feature-card-footnote {
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-text);
 	}
 
-	.brt-rich__model-feature-body .brt-rich__text,
-	.brt-rich__model-feature-blow-content .brt-rich__text {
+	.brt-rich__feature-card-body .brt-rich__text,
+	.brt-rich__feature-card-content .brt-rich__text {
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.14, $c-text);
 	}
 
-	.brt-rich__hose-title {
+	.brt-rich__media-text-title {
 		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-semibold, 1.05, $c-text);
 	}
 
-	.brt-rich__hose-desc .brt-rich__text {
+	.brt-rich__media-text-body .brt-rich__text {
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.08, $c-text);
 	}
 
-	.brt-rich__filters-mode,
-	.brt-rich__filters-title {
+	.brt-rich__columns-card-lead,
+	.brt-rich__columns-card-title {
 		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-semibold, 1.05, $c-text);
 	}
 
-	.brt-rich__filters-desc {
+	.brt-rich__columns-card-desc {
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.08, $c-text);
 	}
 
-	.brt-rich__filters-feature .brt-rich__stat-value {
+	.brt-rich__columns-card-feature .brt-rich__stat-value {
 		@include rich-shield-type($ffd, 36px, 400, 1, $c-text);
 	}
 
-	.brt-rich__filters-feature .brt-rich__stat-label {
+	.brt-rich__columns-card-feature .brt-rich__stat-label {
 		@include rich-shield-type($ff, var(--rich-font-size-h3), $w-normal, 1.1, $c-text);
 	}
 
-	.brt-rich__filters-feature-tag {
+	.brt-rich__columns-card-feature-tag {
 		@include rich-shield-type($ffd, 32px, 400, 1.1, $c-text);
 	}
 
-	.brt-rich__dust-class-text .brt-rich__text {
+	.brt-rich__accent-bar-body .brt-rich__text {
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.14, $c-text);
 	}
 
-	.brt-rich__collaboration-mode-desc {
+	.brt-rich__modes-card-desc {
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.08, $c-text);
 	}
 
@@ -183,7 +183,7 @@ $w-bold: var(--rich-font-weight-bold);
 		@include rich-shield-type($ff, var(--rich-font-size-badge), $w-normal, 1.08, $c-text);
 	}
 
-	.brt-rich__application-area-text {
+	.brt-rich__cards-accent-item-text {
 		@include rich-shield-type($ff, var(--rich-font-size-badge), $w-normal, normal, $c-text);
 	}
 
@@ -232,48 +232,48 @@ $w-bold: var(--rich-font-weight-bold);
 		@include rich-shield-type($ff, var(--rich-font-size-small), $w-normal, var(--rich-line-height), $c-muted);
 	}
 
-	.brt-rich__product-params-info-title {
+	.brt-rich__params-info-title {
 		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-semibold, normal, $c-text);
 	}
 
-	.brt-rich__product-params-info-text {
+	.brt-rich__params-info-text {
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-text);
 	}
 
-	.brt-rich__product-params-stat-label {
+	.brt-rich__params-stat-label {
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-heading);
 	}
 
-	.brt-rich__product-params-stat-value {
+	.brt-rich__params-stat-value {
 		@include rich-shield-type($ffd, var(--rich-font-size-body), 400, 1, $c-heading);
 	}
 
-	.brt-rich__product-params-stat-prefix,
-	.brt-rich__product-params-stat-unit {
-		@include rich-shield-type($ffd, var(--rich-product-params-stat-unit-size), 400, 1, $c-heading);
+	.brt-rich__params-stat-prefix,
+	.brt-rich__params-stat-unit {
+		@include rich-shield-type($ffd, var(--rich-params-stat-unit-size), 400, 1, $c-heading);
 	}
 
-	.brt-rich__product-params-stat-number {
-		@include rich-shield-type($ffd, var(--rich-product-params-stat-number-size), 400, 1, $c-heading);
+	.brt-rich__params-stat-number {
+		@include rich-shield-type($ffd, var(--rich-params-stat-number-size), 400, 1, $c-heading);
 	}
 
-	.brt-rich__advantage-card-title {
+	.brt-rich__info-card-title {
 		@include rich-shield-type($ffd, var(--rich-font-size-h3), 400, normal, $c-heading);
 	}
 
-	.brt-rich__advantage-card-desc {
+	.brt-rich__info-card-desc {
 		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, 1.08, $c-text);
 	}
 
-	.brt-rich__kit-title {
+	.brt-rich__section-heading {
 		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-bold, 1.2, $c-text);
 	}
 
-	.brt-rich__kit-item-label {
+	.brt-rich__contents-item-label {
 		@include rich-shield-type($ff, var(--rich-font-size-h1), $w-normal, normal, $c-text);
 	}
 
-	.brt-rich__product-summary .brt-rich__text {
+	.brt-rich__summary .brt-rich__text {
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-text);
 	}
 
