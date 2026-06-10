@@ -72,7 +72,7 @@
 
 	&__stat-value {
 		display: block;
-		font-size: var(--rich-font-size-stat);
+		font-size: var(--rich-font-size-h2);
 		font-weight: var(--rich-font-weight-bold);
 		color: var(--rich-color-text);
 		line-height: 1.2;
@@ -344,7 +344,6 @@
 
 	&__model-features-title {
 		margin-bottom: var(--rich-model-features-title-gap);
-		font-size: var(--rich-font-size-h2);
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: normal;
 		color: var(--rich-color-text);
@@ -364,8 +363,19 @@
 	&__model-feature-card--fixation {
 		justify-content: center;
 		min-height: var(--rich-model-features-fixation-min-height);
-		padding-block: var(--rich-space-md);
+		padding-block: 0;
 		overflow: hidden;
+		background-image: url('img/open.png');
+		background-repeat: no-repeat;
+		background-position: right center;
+		background-size: auto 100%;
+
+		> .brt-rich-row {
+			flex: 1 1 auto;
+			align-items: center;
+			min-height: 0;
+			padding-block: var(--rich-space-md);
+		}
 	}
 
 	&__model-feature-card--tank {
@@ -385,6 +395,8 @@
 	}
 
 	&__model-feature-callout-col {
+		position: relative;
+		z-index: 1;
 		flex: 0 0 auto;
 		max-width: 42%;
 	}
@@ -410,25 +422,13 @@
 		height: auto;
 	}
 
-	&__model-feature-fixation-media-col {
-		display: flex;
-		justify-content: flex-end;
-		align-items: center;
-		min-width: 0;
-	}
-
-	&__model-feature-fixation-photo {
-		display: block;
-		width: 100%;
-		max-width: 288px;
-		height: auto;
-		object-fit: contain;
-		object-position: right center;
-	}
-
 	&__model-feature-tank-body {
 		flex: 1 1 auto;
 		margin-top: var(--rich-space-sm);
+
+		> .brt-rich-col-auto {
+			margin-right: var(--rich-space-md);
+		}
 	}
 
 	&__model-feature-tank-icon {
@@ -448,7 +448,7 @@
 		}
 
 		.brt-rich__stat-label {
-			margin-top: var(--rich-space-xs);
+			margin-top: 6px;
 			font-size: var(--rich-font-size-h3);
 			font-weight: var(--rich-font-weight-normal);
 			line-height: normal;
@@ -481,7 +481,7 @@
 		}
 
 		.brt-rich__text+.brt-rich__text {
-			margin-top: var(--rich-space-sm);
+			margin-top: var(--rich-model-features-body-gap);
 		}
 	}
 
@@ -692,7 +692,7 @@
 		justify-content: center;
 		line-height: 0;
 		margin-block: calc(-1 * var(--rich-card-padding-y));
-		transform: translateX(12px);
+
 	}
 
 	&__filters-photo {
@@ -1462,3 +1462,5 @@
 		white-space: nowrap;
 	}
 }
+
+@import "host-isolation";

@@ -1,4 +1,3 @@
-<!-- AUTO-GENERATED from src/rich/scss/theme.scss — редактируйте SCSS, не этот файл -->
 <style id="rich-theme">
 /*
  * THEME STYLES — типографика, цвета компонентов через var().
@@ -64,7 +63,7 @@
 }
 .brt-rich__stat-value {
   display: block;
-  font-size: var(--rich-font-size-stat);
+  font-size: var(--rich-font-size-h2);
   font-weight: var(--rich-font-weight-bold);
   color: var(--rich-color-text);
   line-height: 1.2;
@@ -299,7 +298,6 @@
 }
 .brt-rich__model-features-title {
   margin-bottom: var(--rich-model-features-title-gap);
-  font-size: var(--rich-font-size-h2);
   font-weight: var(--rich-font-weight-semibold);
   line-height: normal;
   color: var(--rich-color-text);
@@ -318,8 +316,18 @@
 .brt-rich__model-feature-card--fixation {
   justify-content: center;
   min-height: var(--rich-model-features-fixation-min-height);
-  padding-block: var(--rich-space-md);
+  padding-block: 0;
   overflow: hidden;
+  background-image: url("img/open.png");
+  background-repeat: no-repeat;
+  background-position: right center;
+  background-size: auto 100%;
+}
+.brt-rich__model-feature-card--fixation > .brt-rich-row {
+  flex: 1 1 auto;
+  align-items: center;
+  min-height: 0;
+  padding-block: var(--rich-space-md);
 }
 .brt-rich__model-feature-card--tank {
   min-height: var(--rich-model-features-tank-min-height);
@@ -334,6 +342,8 @@
   color: var(--rich-color-text);
 }
 .brt-rich__model-feature-callout-col {
+  position: relative;
+  z-index: 1;
   flex: 0 0 auto;
   max-width: 42%;
 }
@@ -355,23 +365,12 @@
   max-width: 232px;
   height: auto;
 }
-.brt-rich__model-feature-fixation-media-col {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  min-width: 0;
-}
-.brt-rich__model-feature-fixation-photo {
-  display: block;
-  width: 100%;
-  max-width: 288px;
-  height: auto;
-  object-fit: contain;
-  object-position: right center;
-}
 .brt-rich__model-feature-tank-body {
   flex: 1 1 auto;
   margin-top: var(--rich-space-sm);
+}
+.brt-rich__model-feature-tank-body > .brt-rich-col-auto {
+  margin-right: var(--rich-space-md);
 }
 .brt-rich__model-feature-tank-icon {
   display: block;
@@ -387,7 +386,7 @@
   color: var(--rich-color-text);
 }
 .brt-rich__model-feature-card--tank .brt-rich__stat-label {
-  margin-top: var(--rich-space-xs);
+  margin-top: 6px;
   font-size: var(--rich-font-size-h3);
   font-weight: var(--rich-font-weight-normal);
   line-height: normal;
@@ -415,7 +414,7 @@
   color: var(--rich-color-text);
 }
 .brt-rich__model-feature-body .brt-rich__text + .brt-rich__text {
-  margin-top: var(--rich-space-sm);
+  margin-top: var(--rich-model-features-body-gap);
 }
 .brt-rich__model-feature-card--protection .brt-rich__model-feature-title + .brt-rich__model-feature-body {
   margin-top: var(--rich-space-lg);
@@ -597,7 +596,6 @@
   justify-content: center;
   line-height: 0;
   margin-block: calc(-1 * var(--rich-card-padding-y));
-  transform: translateX(12px);
 }
 .brt-rich__filters-photo {
   display: block;
@@ -1254,5 +1252,84 @@
 }
 .brt-rich .text-nowrap {
   white-space: nowrap;
+}
+
+.brt-rich ul,
+.brt-rich ol {
+  list-style: none !important;
+  padding-left: 0 !important;
+}
+.brt-rich li:not(.brt-rich__construction-list li) {
+  position: static !important;
+  font-family: inherit !important;
+  font-style: normal !important;
+  font-weight: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+}
+.brt-rich li:not(.brt-rich__construction-list li)::before, .brt-rich li:not(.brt-rich__construction-list li)::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+}
+.brt-rich li:not(.brt-rich__construction-list li):not([class*=brt-rich-col]):not([class*=brt-rich__]) {
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.brt-rich .brt-rich-row > li {
+  padding-right: calc(var(--rich-gutter-x) * 0.5) !important;
+  padding-left: calc(var(--rich-gutter-x) * 0.5) !important;
+  margin-top: var(--rich-gutter-y) !important;
+  margin-right: 0 !important;
+  margin-bottom: 0 !important;
+  margin-left: 0 !important;
+}
+.brt-rich p {
+  margin-bottom: 0 !important;
+  font-family: var(--rich-font-family) !important;
+  font-style: normal !important;
+  font-weight: var(--rich-font-weight-normal) !important;
+  font-size: var(--rich-font-size-body) !important;
+  line-height: var(--rich-line-height) !important;
+}
+.brt-rich p.brt-rich__text {
+  color: var(--rich-color-text-muted) !important;
+}
+.brt-rich p.brt-rich__text--inverse {
+  color: var(--rich-color-text-inverse) !important;
+}
+.brt-rich p.brt-rich__subheading {
+  color: var(--rich-color-text-muted) !important;
+}
+.brt-rich p.brt-rich__subheading--accent {
+  color: var(--rich-color-accent) !important;
+}
+.brt-rich p.brt-rich__card-text,
+.brt-rich p.brt-rich__page-title,
+.brt-rich p.brt-rich__product-params-stat-label,
+.brt-rich p.brt-rich__product-params-stat-value {
+  color: var(--rich-color-text-heading) !important;
+}
+.brt-rich p.brt-rich__hero-card-model {
+  color: var(--rich-color-accent) !important;
+}
+.brt-rich p.brt-rich__hero-card-desc,
+.brt-rich p.brt-rich__collaboration-mode-desc,
+.brt-rich p.brt-rich__application-area-text,
+.brt-rich p.brt-rich__model-feature-callout-text,
+.brt-rich p.brt-rich__model-feature-tank-material,
+.brt-rich p.brt-rich__filters-desc,
+.brt-rich p.brt-rich__product-params-info-text,
+.brt-rich p.brt-rich__advantage-card-desc,
+.brt-rich p.brt-rich__kit-item-label,
+.brt-rich p.brt-rich__filters-feature-tag {
+  color: var(--rich-color-text) !important;
 }
 </style>

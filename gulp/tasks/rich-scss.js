@@ -14,7 +14,6 @@ function wrapRichStyle(css, block) {
 		.replace(/^@charset\s+["'][^"']+["'];\s*/i, "");
 
 	return (
-		`<!-- AUTO-GENERATED from src/rich/scss/${block.src} — редактируйте SCSS, не этот файл -->\n` +
 		`<style id="${block.id}">\n` +
 		`/*\n${comment}\n */\n` +
 		`${compiledCss}\n` +

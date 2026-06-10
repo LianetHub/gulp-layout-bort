@@ -99,6 +99,11 @@ $rich-grid-columns: 12;
 			--rich-gutter-y: var(--rich-space-sm);
 		}
 
+		&--gap-model-features {
+			--rich-gutter-x: var(--rich-model-features-gap);
+			--rich-gutter-y: var(--rich-model-features-gap);
+		}
+
 		&--gap-md {
 			--rich-gutter-x: var(--rich-space-md);
 			--rich-gutter-y: var(--rich-space-md);
