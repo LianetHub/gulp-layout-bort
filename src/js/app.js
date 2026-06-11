@@ -1,6 +1,10 @@
 "use strict";
 
+import { select } from './modules/select.js';
+
 $(function () {
+
+    select();
 
 
     if (typeof Fancybox !== "undefined" && Fancybox !== null) {

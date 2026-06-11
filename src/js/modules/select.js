@@ -1,4 +1,11 @@
 export const select = () => {
+    const setButtonText = (button, text) => {
+        const textEl = button.querySelector('.dropdown__button-text');
+        if (textEl) {
+            textEl.textContent = text;
+        }
+    };
+
     const toggleDropdown = (dropdown, isOpen) => {
         const btn = dropdown.querySelector('.dropdown__button');
         const list = dropdown.querySelector('.dropdown__list');
@@ -6,10 +13,8 @@ export const select = () => {
         list.setAttribute('aria-hidden', !isOpen);
         if (isOpen) {
             dropdown.classList.add('visible');
-            btn.classList.add('active');
         } else {
             dropdown.classList.remove('visible');
-            btn.classList.remove('active');
         }
     };
 
@@ -19,24 +24,33 @@ export const select = () => {
         const dropdownItems = dropdownList.querySelectorAll('.dropdown__list-item');
         const dropdownInput = dropdown.querySelector('.dropdown__input');
 
-        // Setting ARIA attributes
         dropdown.setAttribute('role', 'listbox');
         dropdownItems.forEach(item => item.setAttribute('role', 'option'));
 
+        if (dropdownInput.value) {
+            dropdown.classList.add('is-selected');
+            dropdownBtn.classList.add('selected');
+        }
+
         dropdownBtn.addEventListener('click', () => {
+            if (dropdownBtn.disabled) {
+                return;
+            }
             const isOpen = dropdownBtn.getAttribute('aria-expanded') === 'true';
             toggleDropdown(dropdown, !isOpen);
         });
 
         dropdownItems.forEach(item => {
-            item.addEventListener('click', e => {
+            item.addEventListener('click', () => {
                 dropdownItems.forEach(el => {
                     el.classList.remove('active');
                     el.removeAttribute('aria-checked');
                 });
                 item.classList.add('active');
                 item.setAttribute('aria-checked', 'true');
-                dropdownBtn.innerHTML = item.innerHTML;
+                setButtonText(dropdownBtn, item.textContent.trim());
+                dropdownBtn.classList.add('selected');
+                dropdown.classList.add('is-selected');
                 dropdownInput.value = item.dataset.value;
                 toggleDropdown(dropdown, false);
                 dropdownInput.dispatchEvent(new Event('change'));
@@ -60,7 +74,6 @@ export const select = () => {
         }
     };
 
-    // Initialization
     document.querySelectorAll('.dropdown').forEach(setupDropdown);
     document.addEventListener('click', closeAllDropdownsOnClickOutside);
     document.addEventListener('keydown', closeAllDropdownsOnEscape);

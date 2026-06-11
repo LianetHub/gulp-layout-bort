@@ -6,22 +6,26 @@
             </div>
             <div class="product-row__main-content">
                 <div class="product-row__name title-xs">@@if(context.index === '03'){Воздуходувка самая лучшая на свете и всеми любимая Bort BSS-600-R}@@if(context.index !== '03'){Воздуходувка Bort BSS-600-R}</div>
+                <div class="product-row__price product__price">
+                    <div class="product__price-row">
+                        <div class="product__price-current">14 490₽</div>
+                        <div class="product__price-old">14 490₽</div>
+                    </div>
+                    <div class="product__price-sale">-20%</div>
+                </div>
                 <div class="product-row__sku">арт. 1234567890</div>
             </div>
         </div>
-        <div class="product-row__price product__price">
-            <div class="product__price-current">14 490₽</div>
-            <div class="product__price-old">14 490₽</div>
-            <div class="product__price-sale">-20%</div>
-        </div>
-        <div class="product-row__quantity">
-            <div class=" quantity-block quantity-block--small">
-                <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
-                <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
-                <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+        <div class="product-row__controls">
+            <div class="product-row__quantity">
+                <div class="quantity-block quantity-block--large-desktop">
+                    <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
+                    <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
+                    <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
+                </div>
+                <div class="product-row__total">1 444 490₽</div>
             </div>
+            <button type="button" class="product-row__cart btn btn-primary icon-cart"></button>
         </div>
-        <div class="product-row__total">1 444 490₽</div>
-        <button type="button" class="product-row__cart btn btn-primary icon-cart"></button>
     </div>
 </li>
