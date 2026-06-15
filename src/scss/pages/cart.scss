@@ -114,6 +114,10 @@
 
 	&__checkout-address {
 		margin-top: 1.25rem;
+
+		&[hidden] {
+			display: none !important;
+		}
 	}
 
 	// .cart__total
@@ -246,9 +250,7 @@
 			pointer-events: none;
 			z-index: 1;
 
-			@media (min-width: $md4) {
-				right: rem(40);
-			}
+
 		}
 	}
 
@@ -520,7 +522,7 @@
 			}
 		}
 
-	
+
 	}
 
 	.cart__product .product__price .product__price-sale {

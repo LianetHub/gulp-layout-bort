@@ -1564,12 +1564,36 @@ $(function () {
         const $addressField = $cart.find('.cart__checkout-address');
         const scrollOffset = 120;
 
-        function toggleDeliveryAddress() {
+        function toggleDeliveryAddress(animate = false) {
+            const slideDuration = 300;
+
+            if (animate) {
+                $addressField.stop(true, true);
+            }
+
             if ($deliverySelect.val() === 'delivery') {
-                $addressField.removeAttr('hidden');
+                if ($addressField.is(':hidden')) {
+                    $addressField.removeAttr('hidden');
+
+                    if (animate) {
+                        $addressField.hide().slideDown(slideDuration);
+                    } else {
+                        $addressField.show();
+                    }
+                }
+            } else if ($addressField.is(':visible')) {
+                if (animate) {
+                    $addressField.slideUp(slideDuration, function () {
+                        $addressField.attr('hidden', true);
+                    });
+                } else {
+                    $addressField.attr('hidden', true).hide();
+                }
+
+                $addressField.removeClass('_error');
             } else {
-                $addressField.attr('hidden', true);
-                $deliveryAddress.closest('.form__field').removeClass('_error');
+                $addressField.attr('hidden', true).hide();
+                $addressField.removeClass('_error');
             }
         }
 
@@ -1609,7 +1633,7 @@ $(function () {
             return true;
         }
 
-        $deliverySelect.on('change', toggleDeliveryAddress);
+        $deliverySelect.on('change', () => toggleDeliveryAddress(true));
 
         $cart.find('.cart__total-order').on('click', function () {
             if (!validateCartCheckout()) {
