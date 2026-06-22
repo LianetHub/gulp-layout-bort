@@ -63,6 +63,28 @@
 			background: none !important;
 		}
 	}
+
+	.brt-rich__hero-card-list {
+		list-style: disc !important;
+		padding-left: 1.25em !important;
+
+		li {
+			list-style: disc !important;
+			list-style-type: disc !important;
+			display: list-item !important;
+		}
+	}
+
+	.brt-rich__contents-annotated-list {
+		list-style: decimal !important;
+		padding-left: 2em !important;
+
+		li {
+			list-style: decimal !important;
+			list-style-type: decimal !important;
+			display: list-item !important;
+		}
+	}
 }
 
 @import "typography-shield";
