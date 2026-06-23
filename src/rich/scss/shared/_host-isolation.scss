@@ -1,7 +1,7 @@
 // Изоляция от стилей вкладки описания хост-сайта (.fulldesctab и аналогов).
 // Подключается в конце theme.scss.
 
-@import "settings";
+@import "shared/settings";
 
 #brt-rich.brt-rich,
 .brt-rich {
@@ -87,4 +87,4 @@
 	}
 }
 
-@import "typography-shield";
+@import "shared/typography-shield";

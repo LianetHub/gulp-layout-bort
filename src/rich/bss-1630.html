@@ -5,28 +5,754 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		<title>Rich Content</title>
 
-		@@include('partials/_styles-all.html')
+		@@include('partials/bss-1630/_styles-all.html')
 	</head>
 	<body>
 
 		<div id="brt-rich" class="brt-rich">
-			@@include('partials/blocks/_hero.html')
-			@@include('partials/blocks/_hero-badges.html')
-			@@include('partials/blocks/_hero-card.html')
-			@@include('partials/blocks/_logo-card.html')
-			@@include('partials/blocks/_split-media.html')
-			@@include('partials/blocks/_cards-accent.html')
-			@@include('partials/blocks/_split-stats.html')
-			@@include('partials/blocks/_accent-bar.html')
-			@@include('partials/blocks/_modes-card.html')
-			@@include('partials/blocks/_media-text.html')
-			@@include('partials/blocks/_columns-card.html')
-			@@include('partials/blocks/_accent-cards.html')
-			@@include('partials/blocks/_feature-grid.html')
-			@@include('partials/blocks/_info-cards.html')
-			@@include('partials/blocks/_params.html')
-			@@include('partials/blocks/_contents.html')
-			@@include('partials/blocks/_summary.html')
+			<!-- COMPONENT: Hero Header 
+				 SECTION: шапка (логотип + название товара) -->
+			<header class="brt-rich__section brt-rich__hero">
+				<div class="brt-rich__container">
+					<div class="brt-rich-row brt-rich__page-header">
+						<div class="brt-rich-col-auto">
+							<a class="brt-rich__logo" href="#" aria-label="Bort">
+								<img src="img/logo.svg" alt="Bort" width="158" height="46" loading="lazy">
+							</a>
+						</div>
+						<div class="brt-rich-col-grow">
+							<p class="brt-rich__page-title">Пылесос для сухой и влажной уборки BORT BSS-1630-Pro</p>
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- COMPONENT: Hero Badges 
+				 SECTION: бейджи под шапкой -->
+			<section class="brt-rich__section brt-rich__hero-badges-section">
+				<div class="brt-rich__container">
+					<ul class="brt-rich-row brt-rich-row--gap-sm brt-rich__hero-badges">
+						<li class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+							<div class="brt-rich__hero-badge">
+								<span class="brt-rich__hero-badge-text">Пылесос для влажной <br> и сухой уборки </span>
+							</div>
+						</li>
+						<li class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+							<div class="brt-rich__hero-badge">
+								<span class="brt-rich__hero-badge-text">Полуавтоматическая <br> очистка фильтра </span>
+							</div>
+						</li>
+						<li class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+							<div class="brt-rich__hero-badge">
+								<span class="brt-rich__hero-badge-text">ByPASS motor</span>
+							</div>
+						</li>
+						<li class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+							<div class="brt-rich__hero-badge brt-rich__hero-badge--filled">
+								<img class="brt-rich__hero-badge-icon" src="img/badge-guarantee.png" alt="" width="43" height="43" loading="lazy">
+								<span class="brt-rich__hero-badge-text">5 лет<br>гарантии</span>
+							</div>
+						</li>
+					</ul>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Hero Card 
+				 SECTION: карточка с заголовком, описанием, перками и фото -->
+			<section class="brt-rich__section brt-rich__hero-card-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__hero-card">
+						<div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-center">
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<h1 class="brt-rich__heading brt-rich__hero-card-title">Пылесос для влажной <br>и сухой уборки</h1>
+								<p class="brt-rich__hero-card-model">BSS-1630-PRO</p>
+								<p class="brt-rich__hero-card-desc">Пылесос справится с водой, стружкой, опилками, кусками кирпича, бетонной крошкой, гипсом, мелом, известью <br>и слюдой</p>
+								<ul class="brt-rich-row brt-rich-row--gap-2xs brt-rich__hero-perks">
+									<li class="brt-rich-col-sm-12 brt-rich-col-sm-6 brt-rich-col-md-12 brt-rich-col-lg-6">
+										<div class="brt-rich__hero-perk">
+											<img class="brt-rich__hero-perk-icon" src="img/bss-1630/hero-perk-filter.svg" alt="" width="53" height="40" loading="lazy">
+											<span class="brt-rich__hero-perk-text">Полуавтомати-<br>ческая очистка фильтра</span>
+										</div>
+									</li>
+									<li class="brt-rich-col-sm-12 brt-rich-col-sm-6 brt-rich-col-md-12 brt-rich-col-lg-6">
+										<div class="brt-rich__hero-perk">
+											<img class="brt-rich__hero-perk-icon" src="img/bss-1630/hero-perk-motor.svg" alt="" width="49" height="42" loading="lazy">
+											<span class="brt-rich__hero-perk-text">Мощный<br>двигатель</span>
+										</div>
+									</li>
+									<li class="brt-rich-col-sm-12 brt-rich-col-sm-6 brt-rich-col-md-12 brt-rich-col-lg-6">
+										<div class="brt-rich__hero-perk">
+											<img class="brt-rich__hero-perk-icon" src="img/bss-1630/hero-perk-sync.svg" alt="" width="47" height="54" loading="lazy">
+											<span class="brt-rich__hero-perk-text">Синхронизация <br>с инструментом <br>и задержка <br>отключения 10 с</span>
+										</div>
+									</li>
+									<li class="brt-rich-col-sm-12 brt-rich-col-sm-6 brt-rich-col-md-12 brt-rich-col-lg-6">
+										<div class="brt-rich__hero-perk">
+											<img class="brt-rich__hero-perk-icon" src="img/bss-1630/hero-perk-kit.svg" alt="" width="48" height="42" loading="lazy">
+											<span class="brt-rich__hero-perk-text">Широкая комплектация</span>
+										</div>
+									</li>
+								</ul>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__hero-media">
+								<img class="brt-rich__hero-media-photo" src="img/bss-1630/hero-main.png" alt="Пылесос Bort BSS-1630-Pro">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Logo Card 
+				 SECTION: карточка с логотипом и описанием -->
+			<section class="brt-rich__section brt-rich__logo-card-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__card brt-rich__logo-card">
+						<div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-center">
+							<div class="brt-rich-col-12 brt-rich-col-md-4 brt-rich__card-logo">
+								<img class="brt-rich__card-logo-img" src="img/bss-1630/bypass-motor-logo.svg" alt="ByPASS motor" width="198" height="81" loading="lazy">
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-8">
+								<p class="brt-rich__card-text">Байпасный мотор охлаждается отдельным потоком воздуха, который не контактирует с пылью. <br>Для этого предусмотрена дополнительная крыльчатка, которая забирает воздух исключительно для охлаждения.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Split Media 
+				 SECTION: изображение + заголовок и описание -->
+			<section class="brt-rich__section brt-rich__split-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich-row brt-rich-row--align-center">
+						<div class="brt-rich-col-12 brt-rich-col-md-5">
+							<div class="brt-rich__split-media">
+								<img class="brt-rich__split-photo" src="img/bss-1630/comparing.png" alt="Сравнение обычного пылесоса и пылесоса BORT с ByPass" width="377" height="265" loading="lazy">
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-7">
+							<h2 class="brt-rich__heading brt-rich__split-title">Независимая система охлаждения мотора ByPass</h2>
+							<div class="brt-rich__split-body">
+								<p class="brt-rich__text">Воздух, засасываемый пылесосом, не участвует в охлаждении двигателя.</p>
+								<p class="brt-rich__text">Это позволяет обеспечить более эффективное охлаждение мотора не нагретым потоком.</p>
+								<p class="brt-rich__text">Пылесос не перегревается, двигатель служит дольше.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Application Areas 
+				 SECTION: области применения — 4 карточки в оранжевой рамке -->
+			<section class="brt-rich__section brt-rich__cards-accent-section">
+				<div class="brt-rich__container">
+					<h2 class="brt-rich__heading brt-rich__section-heading">Области применения:</h2>
+					<div class="brt-rich__cards-accent">
+						<div class="brt-rich-row brt-rich-row--gap-sm">
+							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+								<article class="brt-rich__cards-accent-item">
+									<div class="brt-rich__media brt-rich__cards-accent-item-media">
+										<img src="img/bss-1630/application-areas-1.jpg" alt="Подключение инструмента для работы без пыли" width="215" height="178" loading="lazy">
+									</div>
+									<p class="brt-rich__text brt-rich__cards-accent-item-text">Подключение инструмента<br>(работа без пыли)</p>
+								</article>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+								<article class="brt-rich__cards-accent-item">
+									<div class="brt-rich__media brt-rich__cards-accent-item-media">
+										<img src="img/bss-1630/application-areas-2.jpg" alt="Уборка на стройплощадке" width="215" height="178" loading="lazy">
+									</div>
+									<p class="brt-rich__text brt-rich__cards-accent-item-text">Уборка на стройплощадке</p>
+								</article>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+								<article class="brt-rich__cards-accent-item">
+									<div class="brt-rich__media brt-rich__cards-accent-item-media">
+										<img src="img/bss-1630/application-areas-3.jpg" alt="Уборка после ремонта" width="215" height="178" loading="lazy">
+									</div>
+									<p class="brt-rich__text brt-rich__cards-accent-item-text">Уборка после ремонта</p>
+								</article>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
+								<article class="brt-rich__cards-accent-item">
+									<div class="brt-rich__media brt-rich__cards-accent-item-media">
+										<img src="img/bss-1630/application-areas-4.jpg" alt="Сбор жидкости" width="215" height="178" loading="lazy">
+									</div>
+									<p class="brt-rich__text brt-rich__cards-accent-item-text">Сбор жидкости</p>
+								</article>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Specs Panel 
+				 SECTION: фото пылесоса + сетка характеристик -->
+			<section class="brt-rich__section brt-rich__split-stats-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich-row brt-rich-row--align-center">
+						<div class="brt-rich-col-12 brt-rich-col-md-5">
+							<div class="brt-rich__split-stats-media">
+								<img class="brt-rich__split-stats-photo" src="img/bss-1630/lock.png" alt="Пылесос Bort BSS-1630-Pro" width="366" height="285" loading="lazy">
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-7">
+							<h2 class="brt-rich__heading brt-rich__section-heading">Характеристики:</h2>
+							<div class="brt-rich-row brt-rich-row--gap-2xs">
+								<div class="brt-rich-col-12 brt-rich-col-sm-6">
+									<div class="brt-rich__stat-tile">
+										<div class="brt-rich__stat brt-rich__stat--left">
+											<span class="brt-rich__stat-value">75 л/с</span>
+											<span class="brt-rich__stat-label">Расход воздуха<br>на крыльчатке</span>
+										</div>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-sm-6">
+									<div class="brt-rich__stat-tile">
+										<div class="brt-rich__stat brt-rich__stat--left">
+											<span class="brt-rich__stat-value">40 л/с</span>
+											<span class="brt-rich__stat-label">Расход воздуха</span>
+										</div>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-sm-6">
+									<div class="brt-rich__stat-tile">
+										<div class="brt-rich__stat brt-rich__stat--left">
+											<span class="brt-rich__stat-value">22 кПа</span>
+											<span class="brt-rich__stat-label">Мощность<br>всасывания</span>
+										</div>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-sm-6">
+									<div class="brt-rich__stat-tile">
+										<div class="brt-rich__stat brt-rich__stat--left">
+											<span class="brt-rich__stat-value">1600 Вт</span>
+											<span class="brt-rich__stat-label">Потребляемая<br>мощность</span>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Dust Class 
+				 SECTION: информация о классе пыли L — текст + иконка в оранжевой плашке -->
+			<section class="brt-rich__section brt-rich__accent-bar-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__accent-bar">
+						<div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-center">
+							<div class="brt-rich-col-sm-9">
+								<div class="brt-rich__accent-bar-body">
+									<p class="brt-rich__text">Пылесосы с <strong>классом пыли L</strong> предназначены для очистки от крупных и мелких частиц пыли, включая строительную пыль и прочие загрязнения, которые могут возникнуть в условиях, связанных с ремонтом или строительством (пыль от краски, лака, извести, гипса, мела и т.д.).</p>
+									<p class="brt-rich__text">Они обеспечивают эффективную фильтрацию, что делает их подходящими для уборки как в домашних условиях, так и в профессиональной деятельности.</p>
+									<p class="brt-rich__text">Пылесосы Bort класса L могут эффективно удалять частицы размером около 0,1 микрон и более.</p>
+								</div>
+							</div>
+							<div class="brt-rich-col-sm-3 brt-rich__accent-bar-media">
+								<img class="brt-rich__accent-bar-icon" src="img/bss-1630/class-L.svg" alt="Класс пыли L" width="144" height="144" loading="lazy">
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Collaboration Mode 
+				 SECTION: режим совместной работы с инструментом — фото с плашками + описание режимов -->
+			<section class="brt-rich__section brt-rich__modes-card-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__card brt-rich__modes-card">
+						<h2 class="brt-rich__heading brt-rich__section-heading">Режим совместной работы с инструментом</h2>
+						<div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-center">
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__overlay-media">
+									<img class="brt-rich__overlay-photo" src="img/bss-1630/collaboration-mode-with-the-tool.jpg" alt="Подключение инструмента к пылесосу Bort" width="451" height="283" loading="lazy">
+									<ul class="brt-rich__overlay-badges" aria-hidden="true">
+										<li class="brt-rich__overlay-badge">
+											<img src="img/bss-1630/hero-perk-sync.svg" alt="" width="74" height="64" loading="lazy">
+										</li>
+										<li class="brt-rich__overlay-badge brt-rich__overlay-badge--fill">
+											<img src="img/bss-1630/socket.jpg" alt="" width="98" height="94" loading="lazy">
+										</li>
+									</ul>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__modes-card-body">
+
+									<p class="brt-rich__text brt-rich__modes-card-desc">Пылесос автоматически включается при старте работы подключенного инструмента и выключается через 10 секунд, позволяя собрать оставшуюся пыль.</p>
+									<ul class="brt-rich__mode-list">
+										<li class="brt-rich__mode-card">
+											<span class="brt-rich__mode-card-label">1 режим</span>
+											<span class="brt-rich__mode-card-text">Режим синхронизации<br>и совместной работы<br>с инструментом</span>
+										</li>
+										<li class="brt-rich__mode-card">
+											<span class="brt-rich__mode-card-label">2 режим</span>
+											<span class="brt-rich__mode-card-text">Режим классической работы пылесоса</span>
+										</li>
+									</ul>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Hose 
+				 SECTION:  фото в серой плашке + заголовок и описание -->
+			<section class="brt-rich__section brt-rich__media-text-section">
+				<div class="brt-rich__container">
+					<h2 class="brt-rich__heading brt-rich__section-heading">Преимущества пылесоса для влажной и сухой уборки <span class="text-nowrap">BSS-1630-PRO</span></h2>
+					<div class="brt-rich-row brt-rich-row--align-center brt-rich-row--gap-sm">
+						<div class="brt-rich-col-12 brt-rich-col-md-4 brt-rich__media-text-aside-col">
+							<div class="brt-rich__media brt-rich__media-text-aside">
+								<img class="brt-rich__media-text-photo" src="img/bss-1630/hose.png" alt="Армированный шланг пылесоса Bort BSS-1630-Pro" width="262" height="298" loading="lazy">
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-8">
+							<h3 class="brt-rich__heading brt-rich__media-text-title">Армированный шланг разработан<br>для строительных объектов</h3>
+							<div class="brt-rich__media-text-body">
+								<p class="brt-rich__text">Пылесос BSS-1630-Pro комплектуется армированным шлангом диаметром 35&nbsp;мм. Металлическая спираль внутри стенки предотвращает сжатие шланга под вакуумом.</p>
+								<p class="brt-rich__text">Шланг устойчив к абразивным частицам (осколки, песок, стружка) и не повреждается при всасывании острых предметов. Диаметр 35&nbsp;мм — технический стандарт для уборки смешанных фракций: шланг пропускает крупный мусор без застревания, но при этом не снижает скорость воздушного потока для улавливания мелкодисперсной пыли.</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Columns Card 
+				 SECTION: три колонки в карточке — текст, центральное фото, текст -->
+			<section class="brt-rich__section brt-rich__columns-card-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__card brt-rich__columns-card brt-rich__columns-card--decor">
+						<img class="brt-rich__columns-card-decor" src="img/bss-1630/filter-decor-lines.svg" alt="" width="952" height="24" loading="lazy" aria-hidden="true">
+						<div class="brt-rich-row brt-rich-row--gap-sm">
+							<div class="brt-rich-col-12 brt-rich-col-md-4">
+								<div class="brt-rich__columns-card-col">
+									<div class="brt-rich__columns-card-col-body">
+										<h3 class="brt-rich__heading brt-rich__columns-card-lead">Для сухой уборки</h3>
+										<h4 class="brt-rich__heading brt-rich__columns-card-title">HEPA-фильтр H11</h4>
+										<p class="brt-rich__text brt-rich__columns-card-desc">Эффективно справляется с&nbsp;мелкодисперсной пылью, опилками, мелкими частицами и&nbsp;жидкостями.</p>
+									</div>
+									<div class="brt-rich__columns-card-feature">
+										<div class="brt-rich__stat brt-rich__stat--left">
+											<span class="brt-rich__stat-value">96%</span>
+											<span class="brt-rich__stat-label">удаление пыли<br>и аллергенов</span>
+										</div>
+										<img class="brt-rich__columns-card-feature-bg" src="img/bss-1630/dust-bg.jpg" alt="" width="124" height="166" loading="lazy" aria-hidden="true">
+									</div>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-4 brt-rich__columns-card-media-col">
+								<div class="brt-rich__columns-card-media">
+									<img class="brt-rich__columns-card-photo" src="img/bss-1630/filters.png" alt="Система фильтрации пылесоса Bort: HEPA-фильтр и губчатый фильтр" width="242" height="451" loading="lazy">
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-4">
+								<div class="brt-rich__columns-card-col">
+									<div class="brt-rich__columns-card-col-body">
+										<h3 class="brt-rich__heading brt-rich__columns-card-lead">Для&nbsp;влажной&nbsp;уборки</h3>
+										<h4 class="brt-rich__heading brt-rich__columns-card-title">Губчатый фильтр</h4>
+										<p class="brt-rich__text brt-rich__columns-card-desc">Защита мотора от жидкости при влажной уборке. Снижает риск поломки и&nbsp;увеличивает срок службы пылесоса.</p>
+									</div>
+									<div class="brt-rich__columns-card-feature">
+										<p class="brt-rich__columns-card-feature-tag">защита от влаги</p>
+										<img class="brt-rich__columns-card-feature-bg" src="img/bss-1630/moisture-bg.jpg" alt="" width="131" height="166" loading="lazy" aria-hidden="true">
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Benefits 
+				 SECTION: преимущества — 3 карточки с фото на оранжевом фоне -->
+			<section class="brt-rich__section brt-rich__accent-cards-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich-row brt-rich-row--gap-sm">
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<article class="brt-rich__accent-card">
+								<div class="brt-rich__media brt-rich__accent-card-media">
+									<img src="img/bss-1630/benefit-1.png" alt="Кнопка полуавтоматической очистки фильтра" width="297" height="199" loading="lazy">
+								</div>
+								<div class="brt-rich__accent-card-body">
+									<h3 class="brt-rich__heading brt-rich__accent-card-title">Полуавтоматическая очистка фильтра</h3>
+									<div class="brt-rich__accent-card-desc">
+										<p class="brt-rich__text">При нажатии на кнопку запускается обратная продувка фильтра – скопившаяся пыль выдувается в бак, восстанавливая эффективность всасывания. Для эффективной очистки фильтра нажмите кнопку 2–3 раза подряд.</p>
+										<p class="brt-rich__text">Не требуется затыкать патрубок пылесоса</p>
+									</div>
+								</div>
+							</article>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<article class="brt-rich__accent-card">
+								<div class="brt-rich__media brt-rich__accent-card-media">
+									<img src="img/bss-1630/benefit-2.png" alt="Встроенная розетка 2000 Вт" width="296" height="199" loading="lazy">
+								</div>
+								<div class="brt-rich__accent-card-body">
+									<h3 class="brt-rich__heading brt-rich__accent-card-title">Встроенная розетка</h3>
+									<div class="brt-rich__accent-card-desc">
+										<p class="brt-rich__text">Пылесос оборудован синхронизированной розеткой, в которую можно подключать электроинструменты мощностью до 2000&nbsp;Вт. При работе инструмента автоматически включается пылесос.</p>
+									</div>
+								</div>
+							</article>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<article class="brt-rich__accent-card">
+								<div class="brt-rich__media brt-rich__accent-card-media">
+									<img src="img/bss-1630/benefit-3.png" alt="Фиксатор колёс пылесоса" width="297" height="206" loading="lazy">
+								</div>
+								<div class="brt-rich__accent-card-body">
+									<h3 class="brt-rich__heading brt-rich__accent-card-title">Фиксатор колес</h3>
+									<div class="brt-rich__accent-card-desc">
+										<p class="brt-rich__text">Фиксатор надёжно блокирует колёса, предотвращая самопроизвольное движение пылесоса по наклонной или неровной поверхности. Это обеспечивает устойчивость при натяжении шланга во время работы с электроинструментом.</p>
+									</div>
+								</div>
+							</article>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Feature Grid 
+				 SECTION: сетка карточек особенностей 2×2 -->
+			<section class="brt-rich__section brt-rich__feature-grid-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich-row brt-rich-row--gap-feature-grid">
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<div class="brt-rich__card brt-rich__feature-card brt-rich__feature-card--bg-right" style="background-image: url('img/bss-1630/open.png'); background-repeat: no-repeat; background-position: right center; background-size: auto 100%;" role="img" aria-label="Надежная фиксация крышки бака пылесоса">
+								<div class="brt-rich-row brt-rich-row--align-center brt-rich-row--gutter-0">
+									<div class="brt-rich-col-auto brt-rich__feature-card-callout-col">
+										<div class="brt-rich__feature-card-callout">
+											<p class="brt-rich__text brt-rich__feature-card-callout-text">Надежная фиксация</p>
+											<svg class="brt-rich__feature-card-callout-arrow" width="232" height="15" viewBox="0 0 232 15" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+												<path d="M1 7.5H220M220 7.5L214 2M220 7.5L214 13" stroke="#FB7E00" stroke-width="2" stroke-dasharray="6 6" stroke-linecap="round" />
+											</svg>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<div class="brt-rich__card brt-rich__feature-card brt-rich__feature-card--stat">
+								<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__feature-card-title">Объем бака</h3>
+								<div class="brt-rich-row brt-rich-row--align-center brt-rich-row--gutter-0 brt-rich__feature-card-stat-body">
+									<div class="brt-rich-col-auto">
+										<img class="brt-rich__feature-card-stat-icon" src="img/bss-1630/back.svg" alt="" width="82" height="82" loading="lazy" aria-hidden="true">
+									</div>
+									<div class="brt-rich-col-grow">
+										<div class="brt-rich__stat brt-rich__stat--left">
+											<span class="brt-rich__stat-value">30 л</span>
+											<span class="brt-rich__stat-label">Емкость для сухого/влажного мусора</span>
+										</div>
+									</div>
+								</div>
+								<p class="brt-rich__text brt-rich__feature-card-footnote"><strong>Материал бака</strong> - пластик</p>
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<div class="brt-rich__card brt-rich__feature-card brt-rich__feature-card--text">
+								<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__feature-card-title">Функция защиты мотора<br>от заполнения бака водой</h3>
+								<div class="brt-rich__feature-card-body">
+									<p class="brt-rich__text">При достижении предельного уровня воды в баке поплавок перекрывает всасывающее отверстие.</p>
+									<p class="brt-rich__text">Изменение звука работы пылесоса сигнализирует о прекращении всасывания.</p>
+								</div>
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<div class="brt-rich__card brt-rich__feature-card brt-rich__feature-card--bottom-media">
+								<div class="brt-rich__feature-card-content">
+									<h3 class="brt-rich__heading brt-rich__heading--h2 brt-rich__feature-card-title">Функция выдува</h3>
+									<p class="brt-rich__text">Позволяет использовать пылесос для выдува пыли и мусора из труднодоступных мест</p>
+								</div>
+								<div class="brt-rich__media brt-rich__feature-card-bottom-media">
+									<img src="img/bss-1630/Blow-function.jpg" alt="Выдув пыли и мусора из труднодоступных мест" width="448" height="117" loading="lazy">
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Advantages 
+				 SECTION: конструктивные особенности — сетка 3×3 серых карточек с фото -->
+			<section class="brt-rich__section brt-rich__info-cards-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich-row">
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__card brt-rich__info-card">
+								<div class="brt-rich__media brt-rich__info-card-media">
+									<img src="img/bss-1630/advantages-keep.png" alt="Удобное хранение аксессуаров на корпусе пылесоса" width="302" height="276" loading="lazy">
+								</div>
+								<div class="brt-rich__info-card-body">
+									<h3 class="brt-rich__heading brt-rich__info-card-title">Удобное хранение аксессуаров на корпусе</h3>
+								</div>
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__card brt-rich__info-card">
+								<div class="brt-rich__media brt-rich__info-card-media">
+									<img src="img/bss-1630/advantages-handle.png" alt="Складная ручка пылесоса" width="300" height="276" loading="lazy">
+								</div>
+								<div class="brt-rich__info-card-body">
+									<h3 class="brt-rich__heading brt-rich__info-card-title">Складная ручка</h3>
+									<p class="brt-rich__text brt-rich__info-card-desc">обеспечивает удобство при подъеме и погрузке, например, в багажник автомобиля.</p>
+								</div>
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__card brt-rich__info-card">
+								<div class="brt-rich__media brt-rich__info-card-media">
+									<img src="img/bss-1630/advantages-button.png" alt="Плоская верхняя поверхность пылесоса" width="300" height="257" loading="lazy">
+								</div>
+								<div class="brt-rich__info-card-body">
+									<h3 class="brt-rich__heading brt-rich__info-card-title">Выдерживает нагрузку до 80&nbsp;кг</h3>
+									<p class="brt-rich__text brt-rich__info-card-desc">Плоская верхняя поверхность пылесоса позволяет ставить на него ящик с инструментами.</p>
+								</div>
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__card brt-rich__info-card">
+								<div class="brt-rich__media brt-rich__info-card-media">
+									<img src="img/bss-1630/advantages-bottom.png" alt="Большие прорезиненные задние колёса" width="302" height="254" loading="lazy">
+								</div>
+								<div class="brt-rich__info-card-body">
+									<h3 class="brt-rich__heading brt-rich__info-card-title">Большие прорезиненные задние колеса</h3>
+								</div>
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__card brt-rich__info-card">
+								<div class="brt-rich__media brt-rich__info-card-media">
+									<img src="img/bss-1630/advantages-main-2.png" alt="Передние поворотные колёса с металлическими опорами" width="300" height="254" loading="lazy">
+								</div>
+								<div class="brt-rich__info-card-body">
+									<h3 class="brt-rich__heading brt-rich__info-card-title">Передние поворотные колеса с металлическими опорами и фиксатором</h3>
+								</div>
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__card brt-rich__info-card">
+								<div class="brt-rich__media brt-rich__info-card-media">
+									<img src="img/bss-1630/advantages-gasket.png" alt="Резиновые уплотнители бака пылесоса" width="300" height="254" loading="lazy">
+								</div>
+								<div class="brt-rich__info-card-body">
+									<h3 class="brt-rich__heading brt-rich__info-card-title">Резиновые уплотнители надёжно герметизируют бак</h3>
+								</div>
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__card brt-rich__info-card">
+								<div class="brt-rich__media brt-rich__info-card-media">
+									<img src="img/bss-1630/advantages-cloth-bag.png" alt="Многоразовый мешок-пылесборник" width="253" height="254" loading="lazy">
+								</div>
+								<div class="brt-rich__info-card-body">
+									<h3 class="brt-rich__heading brt-rich__info-card-title">Многоразовый мешок-пылесборник</h3>
+								</div>
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__card brt-rich__info-card">
+								<div class="brt-rich__media brt-rich__info-card-media">
+									<img src="img/bss-1630/advantages-back.png" alt="Резинка-фиксатор шланга на корпусе" width="302" height="287" loading="lazy">
+								</div>
+								<div class="brt-rich__info-card-body">
+									<h3 class="brt-rich__heading brt-rich__info-card-title">Резинка-фиксатор шланга на корпусе</h3>
+								</div>
+							</div>
+						</div>
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich__card brt-rich__info-card">
+								<div class="brt-rich__media brt-rich__info-card-media">
+									<img src="img/bss-1630/advantages-main.png" alt="Противоударный бампер пылесоса Bort" width="300" height="287" loading="lazy">
+								</div>
+								<div class="brt-rich__info-card-body">
+									<h3 class="brt-rich__heading brt-rich__info-card-title">Противоударный бампер</h3>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Product Params 
+				 SECTION: две серые карточки + три оранжевые плашки с характеристиками -->
+			<section class="brt-rich__section brt-rich__params-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__params">
+						<div class="brt-rich-row brt-rich-row--gap-sm">
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__card brt-rich__params-info-card">
+									<h3 class="brt-rich__heading brt-rich__params-info-title">Шланг 3 м</h3>
+									<p class="brt-rich__text brt-rich__params-info-text">Эта длина шланга значительно <strong>расширяет радиус действия устройства</strong>, позволяя работать не перенося постоянно пылесос, в том числе и на работах с потолком</p>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__card brt-rich__params-info-card">
+									<h3 class="brt-rich__heading brt-rich__params-info-title">Кабель 6 м</h3>
+									<p class="brt-rich__text brt-rich__params-info-text">Длина кабеля в 6 метров обеспечивает большую <strong>свободу передвижения</strong> во время работы, что особенно важно при уборке больших площадей</p>
+								</div>
+							</div>
+						</div>
+						<div class="brt-rich-row brt-rich-row--gap-sm">
+							<div class="brt-rich-col-12 brt-rich-col-md-4">
+								<div class="brt-rich__params-stat">
+									<p class="brt-rich__params-stat-label">Площадь уборки</p>
+									<p class="brt-rich__params-stat-value">
+										<span class="brt-rich__params-stat-prefix">до</span>
+										<span class="brt-rich__params-stat-number">254</span>
+										<span class="brt-rich__params-stat-unit">м<sup>2</sup></span>
+									</p>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-4">
+								<div class="brt-rich__params-stat">
+									<p class="brt-rich__params-stat-label">Вес изделия</p>
+									<p class="brt-rich__params-stat-value">
+										<span class="brt-rich__params-stat-number">10</span>
+										<span class="brt-rich__params-stat-unit">кг</span>
+									</p>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-4">
+								<div class="brt-rich__params-stat">
+									<p class="brt-rich__params-stat-label">Уровень шума</p>
+									<p class="brt-rich__params-stat-value">
+										<span class="brt-rich__params-stat-number">78</span>
+										<span class="brt-rich__params-stat-unit">дБ</span>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Kit Contents 
+				 SECTION: комплектация  -->
+			<section class="brt-rich__section brt-rich__contents-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__card brt-rich__contents">
+						<h2 class="brt-rich__heading brt-rich__section-heading">Комплектация:</h2>
+						<div class="brt-rich__contents-top">
+							<div class="brt-rich-row brt-rich-row--gap-sm">
+								<div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__contents-main-col">
+									<div class="brt-rich__card brt-rich__contents-item brt-rich__contents-item--main">
+										<div class="brt-rich__media brt-rich__contents-item-media brt-rich__contents-item-media--main">
+											<img src="img/bss-1630/equipment-main.png" alt="Пылесос Bort BSS-1630-Pro" width="405" height="335" loading="lazy">
+										</div>
+										<p class="brt-rich__contents-item-label">Пылесос для влажной и&nbsp;сухой уборки BSS-1630-PRO ×1</p>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<div class="brt-rich-row brt-rich-row--gap-sm">
+										<div class="brt-rich-col-md-6">
+											<div class="brt-rich__card brt-rich__contents-item">
+												<div class="brt-rich__media brt-rich__contents-item-media">
+													<img src="img/bss-1630/equipment-big-floor-nozzle.png" alt="Щетка для полов" width="172" height="147" loading="lazy">
+												</div>
+												<p class="brt-rich__contents-item-label">Щетка для полов ×1</p>
+											</div>
+										</div>
+										<div class="brt-rich-col-md-6">
+											<div class="brt-rich__card brt-rich__contents-item">
+												<div class="brt-rich__media brt-rich__contents-item-media">
+													<img src="img/bss-1630/equipment-crevice-nozzle.png" alt="Насадка щелевая" width="146" height="194" loading="lazy">
+												</div>
+												<p class="brt-rich__contents-item-label">Насадка щелевая ×1</p>
+											</div>
+										</div>
+										<div class="brt-rich-col-md-6">
+											<div class="brt-rich__card brt-rich__contents-item">
+												<div class="brt-rich__media brt-rich__contents-item-media">
+													<img src="img/bss-1630/equipment-adaptor.png" alt="Адаптер" width="135" height="134" loading="lazy">
+												</div>
+												<p class="brt-rich__contents-item-label">Адаптер ×1</p>
+											</div>
+										</div>
+										<div class="brt-rich-col-md-6">
+											<div class="brt-rich__card brt-rich__contents-item">
+												<div class="brt-rich__media brt-rich__contents-item-media">
+													<img src="img/bss-1630/equipment-accessories-shaft.png" alt="Держатель" width="176" height="176" loading="lazy">
+												</div>
+												<p class="brt-rich__contents-item-label">Держатель ×1</p>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="brt-rich__contents-bottom">
+							<div class="brt-rich-row brt-rich-row--gap-sm">
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__card brt-rich__contents-item">
+										<div class="brt-rich__media brt-rich__contents-item-media brt-rich__contents-item-media--bottom">
+											<img src="img/bss-1630/equipment-metal-hose.png" alt="Армированный шланг" width="217" height="174" loading="lazy">
+										</div>
+										<p class="brt-rich__contents-item-label">Армированный шланг ×1</p>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__card brt-rich__contents-item">
+										<div class="brt-rich__media brt-rich__contents-item-media brt-rich__contents-item-media--bottom">
+											<img src="img/bss-1630/equipment-plastic-tubes.png" alt="Трубка удлинительная пластмассовая" width="247" height="98" loading="lazy">
+										</div>
+										<p class="brt-rich__contents-item-label">Трубка удлинительная пластмассовая ×2</p>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__card brt-rich__contents-item">
+										<div class="brt-rich__media brt-rich__contents-item-media brt-rich__contents-item-media--bottom">
+											<img src="img/bss-1630/equipment-air-controller.png" alt="Рукоятка" width="117" height="179" loading="lazy">
+										</div>
+										<p class="brt-rich__contents-item-label">Рукоятка ×1</p>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__card brt-rich__contents-item">
+										<div class="brt-rich__media brt-rich__contents-item-media brt-rich__contents-item-media--bottom">
+											<img src="img/bss-1630/equipment-hepa-filter.png" alt="HEPA фильтр" width="139" height="154" loading="lazy">
+										</div>
+										<p class="brt-rich__contents-item-label">HEPA фильтр ×1</p>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__card brt-rich__contents-item">
+										<div class="brt-rich__media brt-rich__contents-item-media brt-rich__contents-item-media--bottom">
+											<img src="img/bss-1630/equipment-sponge-filter.png" alt="Фильтр для воды" width="178" height="150" loading="lazy">
+										</div>
+										<p class="brt-rich__contents-item-label">Фильтр для воды ×1</p>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__card brt-rich__contents-item">
+										<div class="brt-rich__media brt-rich__contents-item-media brt-rich__contents-item-media--bottom">
+											<img src="img/bss-1630/equipment-cloth-bag.png" alt="Пылесборный мешок" width="165" height="166" loading="lazy">
+										</div>
+										<p class="brt-rich__contents-item-label">Пылесборный мешок ×1</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!-- COMPONENT: Product Summary 
+				 SECTION: итоговое описание модели  -->
+			<section class="brt-rich__section brt-rich__summary-section">
+				<div class="brt-rich__container">
+					<div class="brt-rich__summary">
+						<p class="brt-rich__text">Пылесос для сухой и влажной уборки Bort BSS-1630-Pro — профессиональное решение для строительства, ремонта и хозяйства, относящееся к классу пыли L. Благодаря мощному 1600-ваттному двигателю с байпасным мотором и высокому разрежению 22&nbsp;кПа, эффективно справляется как с крупным мусором, так и с мелкодисперсной пылью.</p>
+						<p class="brt-rich__text">Объемный бак на 30&nbsp;литров выдерживает нагрузку до 80&nbsp;кг, позволяя использовать пылесос как дополнительную рабочую поверхность. Поддержка сухой и влажной уборки дополняется функцией выдува и розеткой для подключения электроинструмента (до 2000&nbsp;Вт) с автоматическим запуском и задержкой отключения 10&nbsp;секунд.</p>
+						<p class="brt-rich__text">HEPA-фильтр H11 (задерживает до 96% частиц до 0,3&nbsp;микрона) и полуавтоматическая очистка фильтра одним нажатием обеспечивают стабильную силу всасывания и чистоту воздуха.</p>
+						<p class="brt-rich__text">Армированный шланг 3&nbsp;м (диаметр 35&nbsp;мм) устойчив к повреждениям, кабель 6&nbsp;м дает свободу перемещения.</p>
+						<p class="brt-rich__text">Прочная конструкция дополнена противоударным бампером, фиксатором передних колес, большими прорезиненными задними колесами и складной ручкой для удобства транспортировки.</p>
+						<p class="brt-rich__text">Bort BSS-1630-Pro — оптимальный выбор для профессионалов и требовательных домашних мастеров, сочетающий мощность, функциональность и надежность.</p>
+					</div>
+				</div>
+			</section>
 		</div>
 
 	</body>

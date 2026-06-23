@@ -1,8 +1,8 @@
 // Источник #rich-base — структурные стили (grid, split, breakpoints).
 // Сборка: npm run rich | npm run dev
-@import "settings";
-@import "reset";
-@import "grid";
+@import "shared/settings";
+@import "shared/reset";
+@import "shared/grid";
 
 @import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Russo+One&display=swap");
 

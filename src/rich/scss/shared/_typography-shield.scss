@@ -1,5 +1,5 @@
-@import "settings";
-@import "typography-mixins";
+@import "shared/settings";
+@import "shared/typography-mixins";
 
 // Дублирует типографику theme.scss с !important для всех текстовых селекторов.
 $ff: var(--rich-font-family);

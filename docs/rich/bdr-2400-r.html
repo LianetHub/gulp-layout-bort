@@ -100,13 +100,13 @@
   --rich-columns-card-feature-padding: 28px;
   --rich-columns-card-lead-gap: var(--rich-space-xs);
   /* --- Colors (Цвета) --- */
-  --rich-color-accent: #fb7e00;
-  --rich-color-accent-fill: #ff9b35;
-  --rich-color-accent-light: #ffa940;
+  --rich-color-accent: #5cb9ff;
+  --rich-color-accent-fill: #e1f2ff;
+  --rich-color-accent-light: #4eb2fe;
   --rich-color-bg: #ffffff;
   --rich-color-bg-muted: #f2f2f2;
   --rich-color-bg-tinted: #e1f2ff;
-  --rich-color-brand: var(--rich-color-accent);
+  --rich-color-brand: #5cb9ff;
   --rich-color-bg-card: var(--rich-color-bg);
   --rich-color-text: #000000;
   --rich-color-text-heading: #2b2b2b;
@@ -2142,17 +2142,6 @@
 		#brt-rich.brt-rich .brt-rich__contents-annotated-list li + li, .brt-rich .brt-rich__contents-annotated-list li + li {
 		  margin-top: var(--rich-space-xs);
 		}
-		#brt-rich.brt-rich.brt-rich--bdr-2400-r, .brt-rich.brt-rich--bdr-2400-r {
-		  --rich-color-accent: #5cb9ff;
-		  --rich-color-accent-fill: #e1f2ff;
-		  --rich-color-accent-light: #4eb2fe;
-		  --rich-color-bg-tinted: #e1f2ff;
-		  --rich-color-brand: #5cb9ff;
-		}
-		#brt-rich.brt-rich.brt-rich--bdr-2400-r .brt-rich__hero-badge--filled, .brt-rich.brt-rich--bdr-2400-r .brt-rich__hero-badge--filled {
-		  border-color: var(--rich-color-accent-fill);
-		  background: var(--rich-color-accent-fill);
-		}
 
 		#brt-rich.brt-rich ul,
 		#brt-rich.brt-rich ol,
@@ -2923,17 +2912,19 @@
 		  color: var(--rich-color-accent);
 		  font-weight: var(--rich-font-weight-bold);
 		}
+		#brt-rich.brt-rich .brt-rich__hero-badge--filled, .brt-rich .brt-rich__hero-badge--filled {
+		  border-color: var(--rich-color-accent-fill);
+		  background: var(--rich-color-accent-fill);
+		}
 		</style>
 
 
 	</head>
 	<body>
 
-		<div id="brt-rich" class="brt-rich brt-rich--bdr-2400-r">
-			<!--
-			  COMPONENT: Hero Header
-			  PRODUCT: BDR-2400-R
-			-->
+		<div id="brt-rich" class="brt-rich">
+			<!-- COMPONENT: Hero Header 
+				 PRODUCT: BDR-2400-R -->
 			<header class="brt-rich__section brt-rich__hero">
 				<div class="brt-rich__container">
 					<div class="brt-rich-row brt-rich__page-header">
@@ -2949,10 +2940,8 @@
 				</div>
 			</header>
 
-			<!--
-			  COMPONENT: Hero Badges
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Hero Badges 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__hero-badges-section">
 				<div class="brt-rich__container">
 					<ul class="brt-rich-row brt-rich-row--gap-sm brt-rich__hero-badges">
@@ -2981,10 +2970,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Hero Card
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Hero Card 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__hero-card-section">
 				<div class="brt-rich__container">
 					<div class="brt-rich__hero-card brt-rich__hero-card--tinted">
@@ -3008,10 +2995,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Specs Grid
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Specs Grid 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__specs-grid-section">
 				<div class="brt-rich__container">
 					<div class="brt-rich__specs-grid">
@@ -3075,10 +3060,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Callouts Pair
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Callouts Pair 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__callouts-pair-section">
 				<div class="brt-rich__container">
 					<div class="brt-rich__callouts-pair">
@@ -3099,10 +3082,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Use Cases
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Use Cases 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__info-cards-section">
 				<div class="brt-rich__container">
 					<h2 class="brt-rich__heading brt-rich__section-heading">Уборка в удовольствие:</h2>
@@ -3177,10 +3158,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Split Media — Steam Adjustment
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Split Media — Steam Adjustment 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__split-section brt-rich__split-section--card">
 				<div class="brt-rich__container">
 					<h2 class="brt-rich__heading brt-rich__section-heading">Преимущества пароочистителя BDR-2400-R:</h2>
@@ -3201,10 +3180,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Runtime Modes
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Runtime Modes 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__modes-card-section">
 				<div class="brt-rich__container">
 					<div class="brt-rich__card brt-rich__modes-card">
@@ -3237,10 +3214,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Split Media — Heating
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Split Media — Heating 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__split-section brt-rich__split-section--card">
 				<div class="brt-rich__container">
 					<div class="brt-rich-row brt-rich-row--align-center">
@@ -3260,10 +3235,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Split Media — Lock
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Split Media — Lock 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__split-section brt-rich__split-section--card">
 				<div class="brt-rich__container">
 					<div class="brt-rich-row brt-rich-row--align-center brt-rich-row--reverse">
@@ -3282,10 +3255,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Split Media — Boiler
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Split Media — Boiler 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__split-section brt-rich__split-section--card">
 				<div class="brt-rich__container">
 					<div class="brt-rich-row brt-rich-row--align-center">
@@ -3304,10 +3275,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Split Media — Safety Valve
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Split Media — Safety Valve 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__split-section brt-rich__split-section--card">
 				<div class="brt-rich__container">
 					<div class="brt-rich-row brt-rich-row--align-center brt-rich-row--reverse">
@@ -3326,10 +3295,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Special Nozzles
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Special Nozzles 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__info-cards-section">
 				<div class="brt-rich__container">
 					<h2 class="brt-rich__heading brt-rich__section-heading">Насадки для специальных задач</h2>
@@ -3382,10 +3349,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Nozzles Kit Diagram
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Nozzles Kit Diagram 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__figure-wide-section">
 				<div class="brt-rich__container">
 					<h2 class="brt-rich__heading brt-rich__section-heading">Насадки в комплекте для идеального результата:</h2>
@@ -3393,10 +3358,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Kit Contents
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Kit Contents 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__contents-annotated-section">
 				<div class="brt-rich__container">
 					<div class="brt-rich__contents-annotated">
@@ -3421,10 +3384,8 @@
 				</div>
 			</section>
 
-			<!--
-			  COMPONENT: Product Summary
-			  PRODUCT: BDR-2400-R
-			-->
+			<!-- COMPONENT: Product Summary 
+				 PRODUCT: BDR-2400-R -->
 			<section class="brt-rich__section brt-rich__summary-section">
 				<div class="brt-rich__container">
 					<div class="brt-rich__summary">
@@ -3434,7 +3395,6 @@
 					</div>
 				</div>
 			</section>
-
 		</div>
 
 	</body>
