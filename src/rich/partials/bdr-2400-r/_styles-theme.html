@@ -1812,6 +1812,7 @@
   font-size: 25px;
   line-height: 1.35;
   color: var(--rich-color-text);
+  list-style: decimal !important;
 }
 @media (max-width: 767.98px) {
   #brt-rich.brt-rich .brt-rich__contents-annotated-list,
@@ -1832,8 +1833,8 @@
   list-style: none !important;
   padding-left: 0 !important;
 }
-#brt-rich.brt-rich li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li),
-.brt-rich li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li) {
+#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li),
+.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li) {
   list-style: none !important;
   list-style-type: none !important;
   position: static !important;
@@ -1844,9 +1845,9 @@
   line-height: inherit !important;
   color: inherit !important;
 }
-#brt-rich.brt-rich li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::before, #brt-rich.brt-rich li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::after,
-.brt-rich li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::before,
-.brt-rich li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::after {
+#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::before, #brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::after,
+.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::before,
+.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::after {
   content: none !important;
   display: none !important;
   background: none !important;
@@ -1857,8 +1858,8 @@
   left: auto !important;
   top: auto !important;
 }
-#brt-rich.brt-rich li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li):not([class*=brt-rich-col]):not([class*=brt-rich__]),
-.brt-rich li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li):not([class*=brt-rich-col]):not([class*=brt-rich__]) {
+#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li):not([class*=brt-rich-col]):not([class*=brt-rich__]),
+.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li):not([class*=brt-rich-col]):not([class*=brt-rich__]) {
   padding: 0 !important;
   margin: 0 !important;
 }
@@ -1897,13 +1898,13 @@
   list-style-type: disc !important;
   display: list-item !important;
 }
-#brt-rich.brt-rich .brt-rich__contents-annotated-list,
-.brt-rich .brt-rich__contents-annotated-list {
+#brt-rich.brt-rich ol.brt-rich__contents-annotated-list,
+.brt-rich ol.brt-rich__contents-annotated-list {
   list-style: decimal !important;
-  padding-left: 2em !important;
+  padding-left: 3em !important;
 }
-#brt-rich.brt-rich .brt-rich__contents-annotated-list li,
-.brt-rich .brt-rich__contents-annotated-list li {
+#brt-rich.brt-rich ol.brt-rich__contents-annotated-list li,
+.brt-rich ol.brt-rich__contents-annotated-list li {
   list-style: decimal !important;
   list-style-type: decimal !important;
   display: list-item !important;

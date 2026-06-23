@@ -185,6 +185,7 @@
 		border-radius: var(--rich-radius-lg);
 		overflow: hidden;
 		line-height: 0;
+
 	}
 
 	.brt-rich__split-photo {
@@ -1774,6 +1775,7 @@
 		font-size: 25px;
 		line-height: 1.35;
 		color: var(--rich-color-text);
+		list-style: decimal !important;
 
 		@media (max-width: $md4) {
 			padding: var(--rich-space-lg);

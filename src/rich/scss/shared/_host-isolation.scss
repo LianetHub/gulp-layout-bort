@@ -12,7 +12,7 @@
 		padding-left: 0 !important;
 	}
 
-	li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li) {
+	ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li) {
 		list-style: none !important;
 		list-style-type: none !important;
 		position: static !important;
@@ -76,9 +76,9 @@
 		}
 	}
 
-	.brt-rich__contents-annotated-list {
+	ol.brt-rich__contents-annotated-list {
 		list-style: decimal !important;
-		padding-left: 2em !important;
+		padding-left: 3em !important;
 
 		li {
 			list-style: decimal !important;
