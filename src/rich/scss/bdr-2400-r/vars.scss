@@ -1,6 +1,7 @@
 // CSS-переменные Rich Content.
 
-#brt-rich.brt-rich, .brt-rich {
+#brt-rich.brt-rich,
+.brt-rich {
 	/* --- Spacing (4px-шкала) --- */
 	--rich-space-2xs: 4px;
 	--rich-space-xs: 8px;
@@ -12,7 +13,8 @@
 	--rich-space-3xl: 48px;
 
 	/* --- Layout (Структура) --- */
-	--rich-max-width: 1024px;
+	// --rich-max-width: 1024px;
+	--rich-max-width: 942px;
 	--rich-padding-x: 16px;
 	--rich-section-gap: var(--rich-space-lg);
 	--rich-split-left: 50%;
@@ -26,8 +28,8 @@
 	--rich-hero-card-gap: var(--rich-space-sm);
 	--rich-hero-card-height: 284px;
 	--rich-hero-media-width: 392px;
-	--rich-hero-title-model-gap: var(--rich-space-xs);
-	--rich-hero-model-desc-gap: var(--rich-space-sm);
+	--rich-hero-title-model-gap: 0;
+	--rich-hero-model-desc-gap: var(--rich-space-2xl);
 	--rich-hero-desc-perks-gap: 28px;
 	--rich-hero-perk-min-height: 76px;
 
@@ -129,8 +131,8 @@
 	--rich-font-size-h3: 18px;
 	--rich-font-size-body: 16px;
 	--rich-font-size-hero-title: 24px;
-	--rich-font-size-hero-model: var(--rich-font-size-hero-title);
-	--rich-font-size-hero-desc: 20px;
+	--rich-font-size-hero-model: 30px;
+	--rich-font-size-hero-desc: 18px;
 	--rich-font-size-hero-perk: 12px;
 	--rich-font-size-small: 12px;
 	--rich-font-size-badge: 16px;

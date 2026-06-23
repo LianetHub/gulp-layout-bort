@@ -1,6 +1,7 @@
 @import "shared/settings";
 
-#brt-rich.brt-rich, .brt-rich {
+#brt-rich.brt-rich,
+.brt-rich {
 
 	/* --- Atoms: Typography --- */
 	.brt-rich__subheading {
@@ -376,7 +377,7 @@
 		padding-block: 0;
 		overflow: hidden;
 
-		> .brt-rich-row {
+		>.brt-rich-row {
 			flex: 1 1 auto;
 			align-items: center;
 			min-height: 0;
@@ -425,7 +426,7 @@
 		flex: 1 1 auto;
 		margin-top: var(--rich-space-sm);
 
-		> .brt-rich-col-auto {
+		>.brt-rich-col-auto {
 			margin-right: var(--rich-space-md);
 		}
 	}

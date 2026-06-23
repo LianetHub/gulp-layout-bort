@@ -5,13 +5,14 @@
 
 #brt-rich.brt-rich,
 .brt-rich {
+
 	ul,
 	ol {
 		list-style: none !important;
 		padding-left: 0 !important;
 	}
 
-	li:not(.brt-rich__construction-list li) {
+	li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li) {
 		list-style: none !important;
 		list-style-type: none !important;
 		position: static !important;
@@ -41,7 +42,7 @@
 		}
 	}
 
-	.brt-rich-row > li {
+	.brt-rich-row>li {
 		padding-right: calc(var(--rich-gutter-x) * 0.5) !important;
 		padding-left: calc(var(--rich-gutter-x) * 0.5) !important;
 		margin-top: var(--rich-gutter-y) !important;
@@ -66,7 +67,7 @@
 
 	.brt-rich__hero-card-list {
 		list-style: disc !important;
-		padding-left: 1.25em !important;
+		padding-left: 1em !important;
 
 		li {
 			list-style: disc !important;
