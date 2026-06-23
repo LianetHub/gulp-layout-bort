@@ -1992,6 +1992,7 @@
 		.brt-rich .brt-rich__info-cards-section .brt-rich__heading.brt-rich__info-card-title {
 		  font-family: var(--rich-font-family) !important;
 		  font-weight: 600 !important;
+		  color: #000;
 		}
 		#brt-rich.brt-rich .brt-rich__info-card,
 		.brt-rich .brt-rich__info-card {
@@ -2004,7 +2005,6 @@
 		#brt-rich.brt-rich .brt-rich__info-card-media,
 		.brt-rich .brt-rich__info-card-media {
 		  flex-shrink: 0;
-		  aspect-ratio: 447/160;
 		  overflow: hidden;
 		  border-radius: var(--rich-radius-lg);
 		}
@@ -2322,6 +2322,22 @@
 		.brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-5:first-child .brt-rich__split-photo,
 		.brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-6:first-child .brt-rich__split-photo {
 		  object-position: left center;
+		}
+		@media (min-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-5:first-child:has(.brt-rich__split-media) ~ .brt-rich-col-md-5,
+		  #brt-rich.brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-5:first-child:has(.brt-rich__split-media) ~ .brt-rich-col-md-6,
+		  #brt-rich.brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-5:first-child:has(.brt-rich__split-media) ~ .brt-rich-col-md-7,
+		  #brt-rich.brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-6:first-child:has(.brt-rich__split-media) ~ .brt-rich-col-md-5,
+		  #brt-rich.brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-6:first-child:has(.brt-rich__split-media) ~ .brt-rich-col-md-6,
+		  #brt-rich.brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-6:first-child:has(.brt-rich__split-media) ~ .brt-rich-col-md-7,
+		  .brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-5:first-child:has(.brt-rich__split-media) ~ .brt-rich-col-md-5,
+		  .brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-5:first-child:has(.brt-rich__split-media) ~ .brt-rich-col-md-6,
+		  .brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-5:first-child:has(.brt-rich__split-media) ~ .brt-rich-col-md-7,
+		  .brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-6:first-child:has(.brt-rich__split-media) ~ .brt-rich-col-md-5,
+		  .brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-6:first-child:has(.brt-rich__split-media) ~ .brt-rich-col-md-6,
+		  .brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-6:first-child:has(.brt-rich__split-media) ~ .brt-rich-col-md-7 {
+		    text-align: right;
+		  }
 		}
 		#brt-rich.brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-5:last-child:not(:first-child) .brt-rich__split-media,
 		#brt-rich.brt-rich .brt-rich__split-section--card .brt-rich__split-card > .brt-rich-row > .brt-rich-col-md-6:last-child:not(:first-child) .brt-rich__split-media,
