@@ -1838,10 +1838,10 @@
 
 	.brt-rich__modes-runtime-note {
 		margin: var(--rich-space-sm) 0 0;
-		padding: 0 var(--rich-space-lg);
+		padding: var(--rich-space-sm) var(--rich-space-lg);
 		font-size: 20px;
 		line-height: 1.2;
-		color: var(--rich-color-text);
+		color: #000;
 	}
 
 	.brt-rich__figure-wide-section {
