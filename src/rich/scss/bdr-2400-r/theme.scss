@@ -1762,34 +1762,60 @@
 		}
 	}
 
-	.brt-rich__modes-runtime-header {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		gap: var(--rich-space-xl);
-		margin-bottom: var(--rich-space-md);
+	.brt-rich__modes-runtime-section {
+		padding-block: 0 var(--rich-section-gap);
 
-		@media (max-width: $md4) {
-			flex-direction: column;
-			gap: var(--rich-space-sm);
+		.brt-rich-row {
+			--rich-gutter-x: var(--rich-space-sm);
+			--rich-gutter-y: var(--rich-space-sm);
 		}
 	}
 
-	.brt-rich__modes-runtime-time {
+	.brt-rich__modes-runtime-card {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		border-radius: var(--rich-radius-lg);
+		overflow: hidden;
+	}
+
+	.brt-rich__modes-runtime-card-top {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: var(--rich-space-md);
+		min-height: 93px;
+		padding: var(--rich-space-sm) var(--rich-space-lg);
+		background: var(--rich-color-bg-tinted);
+	}
+
+	.brt-rich__modes-runtime-card-icon {
+		display: block;
+		flex-shrink: 0;
+		width: 78px;
+		height: 78px;
+		object-fit: contain;
+	}
+
+	.brt-rich__modes-runtime-card-time {
+		margin: 0;
 		font-size: 35px;
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: 1;
 		color: var(--rich-color-text);
 	}
 
-	.brt-rich__modes-runtime-col {
+	.brt-rich__modes-runtime-card-body {
 		display: flex;
+		flex: 1 1 auto;
 		flex-direction: column;
-		height: 100%;
+		padding: 0 0 var(--rich-space-lg);
+		background: var(--rich-color-bg-muted);
 	}
 
 	.brt-rich__modes-runtime-mode-title {
-		margin: 0 0 var(--rich-space-sm);
+		margin: 0;
+		padding: var(--rich-space-sm) var(--rich-space-md) var(--rich-space-sm);
 		font-size: var(--rich-font-size-section-title);
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: 1.1;
@@ -1798,27 +1824,22 @@
 	}
 
 	.brt-rich__modes-runtime-media {
-		flex: 1 1 auto;
-		border-radius: var(--rich-radius-lg);
 		overflow: hidden;
 		line-height: 0;
-		background: var(--rich-color-bg-muted);
+		border-radius: var(--rich-radius-lg);
 
 		img {
 			display: block;
 			width: 100%;
-			height: 100%;
-			min-height: 284px;
+			height: 284px;
 			object-fit: cover;
 		}
 	}
 
 	.brt-rich__modes-runtime-note {
-		margin-top: var(--rich-space-sm);
-		padding: var(--rich-space-md) var(--rich-space-lg);
-		border-radius: var(--rich-radius-lg);
-		background: var(--rich-color-bg-tinted);
-		font-size: var(--rich-font-size-hero-desc);
+		margin: var(--rich-space-sm) 0 0;
+		padding: 0 var(--rich-space-lg);
+		font-size: 20px;
 		line-height: 1.2;
 		color: var(--rich-color-text);
 	}
