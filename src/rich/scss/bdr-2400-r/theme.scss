@@ -1323,8 +1323,13 @@
 		padding-block: 0 var(--rich-section-gap);
 
 		.brt-rich-row {
-			--rich-gutter-x: var(--rich-space-2xs);
+			--rich-gutter-x: var(--rich-space-sm);
 			--rich-gutter-y: var(--rich-space-sm);
+		}
+
+		.brt-rich__heading.brt-rich__info-card-title {
+			font-family: var(--rich-font-family) !important;
+			font-weight: 600 !important;
 		}
 	}
 
@@ -1338,7 +1343,7 @@
 
 	.brt-rich__info-card-media {
 		flex-shrink: 0;
-		aspect-ratio: 300 / 276;
+		aspect-ratio: 447 / 160;
 		overflow: hidden;
 		border-radius: var(--rich-radius-lg);
 
@@ -1600,8 +1605,13 @@
 
 		.brt-rich__text {
 			margin: 0;
-			font-size: var(--rich-font-size-hero-desc);
-			line-height: 1.2;
+			font-size: 19px !important;
+			color: #000 !important;
+			line-height: 1.2 !important;
+
+			& strong {
+				font-weight: 900;
+			}
 		}
 	}
 
