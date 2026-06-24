@@ -22,7 +22,7 @@
   --rich-space-2xl: 40px;
   --rich-space-3xl: 48px;
   /* --- Layout (Структура) --- */
-  --rich-max-width: 942px;
+  --rich-max-width: 1024px;
   --rich-padding-x: 16px;
   --rich-section-gap: var(--rich-space-lg);
   --rich-split-left: 50%;
@@ -2534,6 +2534,340 @@
 		  height: auto;
 		  border-radius: var(--rich-radius-lg);
 		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-section,
+		.brt-rich .brt-rich__nozzles-diagram-section {
+		  --rich-nozzles-diagram-accent: #ffcd91;
+		  --rich-nozzles-diagram-symbol: #fb7e00;
+		  --rich-nozzles-diagram-line: #fb7e00;
+		  --rich-nozzles-diagram-part-height: 151px;
+		  --rich-nozzles-diagram-part-accent-height: 192px;
+		  --rich-nozzles-diagram-detail-media-height: 136px;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-section .brt-rich__section-heading,
+		.brt-rich .brt-rich__nozzles-diagram-section .brt-rich__section-heading {
+		  text-align: center;
+		  margin-bottom: var(--rich-section-heading-gap);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram,
+		.brt-rich .brt-rich__nozzles-diagram {
+		  position: relative;
+		  z-index: 1;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-bg,
+		.brt-rich .brt-rich__nozzles-diagram-bg {
+		  position: absolute;
+		  z-index: -1;
+		  display: block;
+		  max-width: none;
+		  height: auto;
+		  pointer-events: none;
+		  user-select: none;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-bg--left,
+		.brt-rich .brt-rich__nozzles-diagram-bg--left {
+		  left: -260px;
+		  bottom: 360px;
+		  width: min(636px, 70%);
+		  opacity: 0.55;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-bg--right,
+		.brt-rich .brt-rich__nozzles-diagram-bg--right {
+		  right: -220px;
+		  top: 0;
+		  width: min(785px, 100%);
+		  opacity: 0.55;
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__nozzles-diagram-bg,
+		  .brt-rich .brt-rich__nozzles-diagram-bg {
+		    display: none;
+		  }
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-group .brt-rich-row,
+		.brt-rich .brt-rich__nozzles-diagram-group .brt-rich-row {
+		  justify-content: space-between;
+		  align-items: center;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-group .brt-rich__nozzles-diagram-details-row,
+		.brt-rich .brt-rich__nozzles-diagram-group .brt-rich__nozzles-diagram-details-row {
+		  align-items: flex-start;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-group + #brt-rich.brt-rich .brt-rich__nozzles-diagram-group,
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-group + .brt-rich .brt-rich__nozzles-diagram-group,
+		.brt-rich .brt-rich__nozzles-diagram-group + #brt-rich.brt-rich .brt-rich__nozzles-diagram-group,
+		.brt-rich .brt-rich__nozzles-diagram-group + .brt-rich .brt-rich__nozzles-diagram-group {
+		  margin-top: var(--rich-space-2xl);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-group--floor,
+		.brt-rich .brt-rich__nozzles-diagram-group--floor {
+		  margin-top: var(--rich-space-3xl);
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__nozzles-diagram-group--floor .brt-rich-col-auto,
+		  .brt-rich .brt-rich__nozzles-diagram-group--floor .brt-rich-col-auto {
+		    flex: 0 0 100%;
+		    width: 100%;
+		    max-width: 100%;
+		    text-align: center;
+		  }
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-group--gun,
+		.brt-rich .brt-rich__nozzles-diagram-group--gun {
+		  margin-top: var(--rich-space-3xl);
+		}
+		@media (min-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-3:first-of-type,
+		  #brt-rich.brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-4,
+		  .brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-3:first-of-type,
+		  .brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-4 {
+		    position: relative;
+		  }
+		  #brt-rich.brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-3:first-of-type::after,
+		  #brt-rich.brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-4::after,
+		  .brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-3:first-of-type::after,
+		  .brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-4::after {
+		    content: "";
+		    position: absolute;
+		    top: 50%;
+		    right: -13%;
+		    z-index: 1;
+		    width: 18%;
+		    height: 0;
+		    transform: translate(50%, -50%);
+		    border-top: 2px dashed var(--rich-nozzles-diagram-line);
+		    pointer-events: none;
+		  }
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-part,
+		.brt-rich .brt-rich__nozzles-diagram-part {
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  justify-content: flex-start;
+		  min-height: var(--rich-nozzles-diagram-part-height);
+		  padding: var(--rich-space-sm) var(--rich-space-md) var(--rich-space-md);
+		  border-radius: var(--rich-radius-lg);
+		  text-align: center;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-part--bordered,
+		.brt-rich .brt-rich__nozzles-diagram-part--bordered {
+		  background: var(--rich-color-bg);
+		  border: 2px solid var(--rich-color-accent-light);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-part--accent,
+		.brt-rich .brt-rich__nozzles-diagram-part--accent {
+		  min-height: var(--rich-nozzles-diagram-part-accent-height);
+		  background: var(--rich-nozzles-diagram-accent);
+		  padding-bottom: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-part--muted,
+		.brt-rich .brt-rich__nozzles-diagram-part--muted {
+		  min-height: var(--rich-nozzles-diagram-part-height);
+		  background: var(--rich-color-bg-muted);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-part--wide,
+		.brt-rich .brt-rich__nozzles-diagram-part--wide {
+		  flex-direction: row;
+		  align-items: center;
+		  justify-content: flex-start;
+		  gap: var(--rich-space-md);
+		  min-height: 124px;
+		  padding: var(--rich-space-xs) var(--rich-space-lg);
+		  text-align: left;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-part--gun,
+		.brt-rich .brt-rich__nozzles-diagram-part--gun {
+		  width: min(100%, 292px);
+		  min-height: 198px;
+		  margin-inline: auto;
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__nozzles-diagram-part--gun,
+		  .brt-rich .brt-rich__nozzles-diagram-part--gun {
+		    margin-bottom: var(--rich-space-lg);
+		  }
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-part-title,
+		.brt-rich .brt-rich__nozzles-diagram-part-title {
+		  margin: 0 0 var(--rich-space-xs);
+		  font-size: 18px;
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: 1.2;
+		  color: var(--rich-color-text);
+		}
+		.brt-rich__nozzles-diagram-part--wide #brt-rich.brt-rich .brt-rich__nozzles-diagram-part-title,
+		.brt-rich__nozzles-diagram-part--wide .brt-rich .brt-rich__nozzles-diagram-part-title {
+		  flex: 1 1 auto;
+		  margin: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-part-media,
+		.brt-rich .brt-rich__nozzles-diagram-part-media {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
+		  flex: 1 1 auto;
+		  width: 100%;
+		  min-height: 0;
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__nozzles-diagram-connect--adapter,
+		  .brt-rich .brt-rich__nozzles-diagram-connect--adapter {
+		    display: none;
+		  }
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-connect--gun,
+		.brt-rich .brt-rich__nozzles-diagram-connect--gun {
+		  display: grid;
+		  grid-template-columns: repeat(3, 1fr);
+		  align-items: start;
+		  width: 100%;
+		  min-height: 40px;
+		  margin: var(--rich-space-sm) 0 var(--rich-space-md);
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__nozzles-diagram-connect--gun,
+		  .brt-rich .brt-rich__nozzles-diagram-connect--gun {
+		    display: none;
+		  }
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-arrow,
+		.brt-rich .brt-rich__nozzles-diagram-arrow {
+		  display: block;
+		  width: auto;
+		  height: auto;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-arrow--branch-left,
+		.brt-rich .brt-rich__nozzles-diagram-arrow--branch-left {
+		  justify-self: end;
+		  width: 100%;
+		  max-width: 152px;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-arrow--branch-center,
+		.brt-rich .brt-rich__nozzles-diagram-arrow--branch-center {
+		  justify-self: center;
+		  width: 2px;
+		  height: 25px;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-arrow--branch-right,
+		.brt-rich .brt-rich__nozzles-diagram-arrow--branch-right {
+		  justify-self: start;
+		  width: 100%;
+		  max-width: 152px;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-connect-col,
+		.brt-rich .brt-rich__nozzles-diagram-connect-col {
+		  display: flex;
+		  justify-content: center;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-connect-col::after,
+		.brt-rich .brt-rich__nozzles-diagram-connect-col::after {
+		  content: "";
+		  display: block;
+		  width: 0;
+		  height: 45px;
+		  border-left: 2px dashed var(--rich-nozzles-diagram-line);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-result,
+		.brt-rich .brt-rich__nozzles-diagram-result {
+		  display: flex;
+		  flex-direction: column;
+		  gap: var(--rich-space-sm);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-result--right,
+		.brt-rich .brt-rich__nozzles-diagram-result--right {
+		  align-items: flex-end;
+		  text-align: right;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-result--floor,
+		.brt-rich .brt-rich__nozzles-diagram-result--floor {
+		  align-items: flex-end;
+		  text-align: right;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-result-media,
+		.brt-rich .brt-rich__nozzles-diagram-result-media {
+		  width: 100%;
+		  line-height: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-result-media img,
+		.brt-rich .brt-rich__nozzles-diagram-result-media img {
+		  display: block;
+		  width: 100%;
+		  height: auto;
+		  object-fit: contain;
+		}
+		.brt-rich__nozzles-diagram-result--right #brt-rich.brt-rich .brt-rich__nozzles-diagram-result-media img, .brt-rich__nozzles-diagram-result--floor #brt-rich.brt-rich .brt-rich__nozzles-diagram-result-media img,
+		.brt-rich__nozzles-diagram-result--right .brt-rich .brt-rich__nozzles-diagram-result-media img,
+		.brt-rich__nozzles-diagram-result--floor .brt-rich .brt-rich__nozzles-diagram-result-media img {
+		  margin-left: auto;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-result-title,
+		.brt-rich .brt-rich__nozzles-diagram-result-title {
+		  margin: 0;
+		  font-size: 20px;
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: 1.2;
+		  color: var(--rich-color-text);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-result-title--right,
+		.brt-rich .brt-rich__nozzles-diagram-result-title--right {
+		  text-align: right;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-floor-stack,
+		.brt-rich .brt-rich__nozzles-diagram-floor-stack {
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  gap: var(--rich-space-xs);
+		  max-width: 427px;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-symbol,
+		.brt-rich .brt-rich__nozzles-diagram-symbol {
+		  margin: 0;
+		  font-size: 40px;
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: 1;
+		  color: var(--rich-nozzles-diagram-symbol);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-detail,
+		.brt-rich .brt-rich__nozzles-diagram-detail {
+		  display: flex;
+		  flex-direction: column;
+		  align-items: stretch;
+		  gap: var(--rich-space-sm);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part--muted,
+		.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part--muted {
+		  width: 100%;
+		  min-height: calc(var(--rich-nozzles-diagram-detail-media-height) + var(--rich-space-md) * 2);
+		  padding-block: var(--rich-space-md);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part-media,
+		.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part-media {
+		  flex: 0 0 var(--rich-nozzles-diagram-detail-media-height);
+		  height: var(--rich-nozzles-diagram-detail-media-height);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part-media img,
+		.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part-media img {
+		  display: block;
+		  max-width: 100%;
+		  max-height: 100%;
+		  width: auto;
+		  height: auto;
+		  margin-inline: auto;
+		  object-fit: contain;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-detail-text,
+		.brt-rich .brt-rich__nozzles-diagram-detail-text {
+		  margin: 0;
+		  font-size: 18px;
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: 1.2;
+		  color: var(--rich-color-text);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzles-diagram-gun-row,
+		.brt-rich .brt-rich__nozzles-diagram-gun-row {
+		  justify-content: center;
+		}
 		#brt-rich.brt-rich .brt-rich__contents-annotated-section,
 		.brt-rich .brt-rich__contents-annotated-section {
 		  padding-block: 0 var(--rich-section-gap);
@@ -3438,7 +3772,7 @@
 				<div class="brt-rich__container">
 					<div class="brt-rich__specs-grid">
 						<div class="brt-rich-row">
-							<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich-col-6 brt-rich-col-md-4">
 								<div class="brt-rich__stat-tile brt-rich__stat-tile--with-icon">
 									<div class="brt-rich__stat-tile-icon">
 										<img src="img/bdr-2400-r/spec-icon-power.svg" alt="иконка" loading="lazy" aria-hidden="true">
@@ -3449,7 +3783,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich-col-6 brt-rich-col-md-4">
 								<div class="brt-rich__stat-tile brt-rich__stat-tile--with-icon">
 									<div class="brt-rich__stat-tile-icon">
 										<img src="img/bdr-2400-r/spec-icon-pressure.svg" alt="иконка" loading="lazy" aria-hidden="true">
@@ -3460,7 +3794,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich-col-6 brt-rich-col-md-4">
 								<div class="brt-rich__stat-tile brt-rich__stat-tile--with-icon">
 									<div class="brt-rich__stat-tile-icon">
 										<img src="img/bdr-2400-r/spec-icon-heating.svg" alt="иконка" loading="lazy" aria-hidden="true">
@@ -3471,7 +3805,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich-col-6 brt-rich-col-md-4">
 								<div class="brt-rich__stat-tile brt-rich__stat-tile--with-icon">
 									<div class="brt-rich__stat-tile-icon">
 										<img src="img/bdr-2400-r/spec-icon-steam.svg" alt="иконка" loading="lazy" aria-hidden="true">
@@ -3482,7 +3816,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich-col-6 brt-rich-col-md-4">
 								<div class="brt-rich__stat-tile brt-rich__stat-tile--with-icon">
 									<div class="brt-rich__stat-tile-icon">
 										<img src="img/bdr-2400-r/spec-icon-boiler.svg" alt="иконка" loading="lazy" aria-hidden="true">
@@ -3493,7 +3827,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="brt-rich-col-12 brt-rich-col-md-4">
+							<div class="brt-rich-col-6 brt-rich-col-md-4">
 								<div class="brt-rich__stat-tile brt-rich__stat-tile--with-icon">
 									<div class="brt-rich__stat-tile-icon">
 										<img src="img/bdr-2400-r/spec-icon-temp.svg" alt="" width="23" height="53" loading="lazy" aria-hidden="true">
@@ -3815,9 +4149,155 @@
 
 			<!-- COMPONENT: Nozzles Kit Diagram 
 				 PRODUCT: BDR-2400-R -->
-			<section class="brt-rich__section brt-rich__figure-wide-section">
+			<section class="brt-rich__section brt-rich__figure-wide-section brt-rich__nozzles-diagram-section">
 				<div class="brt-rich__container">
 					<h2 class="brt-rich__heading brt-rich__section-heading">Насадки в комплекте для идеального результата:</h2>
+
+					<div class="brt-rich__nozzles-diagram">
+						<img class="brt-rich__nozzles-diagram-bg brt-rich__nozzles-diagram-bg--left" src="img/bdr-2400-r/bg-blob-left.svg" alt="" width="636" height="661" loading="lazy" aria-hidden="true">
+						<img class="brt-rich__nozzles-diagram-bg brt-rich__nozzles-diagram-bg--right" src="img/bdr-2400-r/bg-blob-right.svg" alt="" width="785" height="801" loading="lazy" aria-hidden="true">
+
+						<div class="brt-rich__nozzles-diagram-group">
+							<div class="brt-rich-row brt-rich-row--gap-sm brt-rich__nozzles-diagram-kit-row">
+								<div class="brt-rich-col-12 brt-rich-col-md-3">
+									<div class="brt-rich__nozzles-diagram-part brt-rich__nozzles-diagram-part--bordered">
+										<p class="brt-rich__nozzles-diagram-part-title">Водосгон</p>
+										<div class="brt-rich__nozzles-diagram-part-media brt-rich__nozzles-diagram-part-media--squeegee">
+											<img src="img/bdr-2400-r/squeegee.png" alt="Водосгон" width="186" height="124" loading="lazy">
+										</div>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__nozzles-diagram-part brt-rich__nozzles-diagram-part--accent">
+										<p class="brt-rich__nozzles-diagram-part-title">Многофункциональная<br>насадка-адаптер</p>
+										<div class="brt-rich__nozzles-diagram-part-media">
+											<img src="img/bdr-2400-r/adapter.png" alt="Многофункциональная насадка-адаптер" width="157" height="131" loading="lazy">
+										</div>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-3">
+									<div class="brt-rich__nozzles-diagram-part brt-rich__nozzles-diagram-part--bordered">
+										<p class="brt-rich__nozzles-diagram-part-title">Махровая салфетка</p>
+										<div class="brt-rich__nozzles-diagram-part-media">
+											<img src="img/bdr-2400-r/cloth-white.png" alt="Махровая салфетка" width="162" height="112" loading="lazy">
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="brt-rich__nozzles-diagram-connect brt-rich__nozzles-diagram-connect--adapter" aria-hidden="true">
+								<div class="brt-rich-row">
+									<div class="brt-rich-col-4 brt-rich__nozzles-diagram-connect-col brt-rich__nozzles-diagram-connect-col--left"></div>
+									<div class="brt-rich-col-4"></div>
+									<div class="brt-rich-col-4 brt-rich__nozzles-diagram-connect-col brt-rich__nozzles-diagram-connect-col--right"></div>
+								</div>
+							</div>
+
+							<div class="brt-rich-row brt-rich-row--gap-sm">
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__nozzles-diagram-result">
+										<div class="brt-rich__nozzles-diagram-result-media">
+											<img src="img/bdr-2400-r/nozzle-window.png" alt="Насадка для окон, стекол и настенной плитки" width="388" height="243" loading="lazy">
+										</div>
+										<p class="brt-rich__nozzles-diagram-result-title">Насадка для окон, стекол<br>и настенной плитки</p>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__nozzles-diagram-result brt-rich__nozzles-diagram-result--right">
+										<div class="brt-rich__nozzles-diagram-result-media">
+											<img src="img/bdr-2400-r/nozzle-clothes.png" alt="Насадка для фасадов кухни, мебели и отпаривания одежды" width="312" height="238" loading="lazy">
+										</div>
+										<p class="brt-rich__nozzles-diagram-result-title">Насадка для фасадов кухни,<br>мебели и отпаривания одежды</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="brt-rich__nozzles-diagram-group brt-rich__nozzles-diagram-group--floor">
+							<div class="brt-rich-row brt-rich-row--align-center brt-rich-row--gap-sm">
+								<div class="brt-rich-col-12 brt-rich-col-md-5">
+									<div class="brt-rich__nozzles-diagram-floor-stack">
+										<div class="brt-rich__nozzles-diagram-part brt-rich__nozzles-diagram-part--bordered brt-rich__nozzles-diagram-part--wide">
+											<div class="brt-rich__nozzles-diagram-part-media brt-rich__nozzles-diagram-part-media--inline">
+												<img src="img/bdr-2400-r/nozzle-floor.png" alt="Насадка для пола" width="156" height="121" loading="lazy">
+											</div>
+											<p class="brt-rich__nozzles-diagram-part-title">Насадка для пола</p>
+										</div>
+										<p class="brt-rich__nozzles-diagram-symbol" aria-hidden="true">+</p>
+										<div class="brt-rich__nozzles-diagram-part brt-rich__nozzles-diagram-part--bordered brt-rich__nozzles-diagram-part--wide">
+											<div class="brt-rich__nozzles-diagram-part-media brt-rich__nozzles-diagram-part-media--inline">
+												<img src="img/bdr-2400-r/cloth-blue.png" alt="Махровая салфетка" width="164" height="122" loading="lazy">
+											</div>
+											<p class="brt-rich__nozzles-diagram-part-title">Махровая салфетка</p>
+										</div>
+									</div>
+								</div>
+								<div class="brt-rich-col-auto">
+									<p class="brt-rich__nozzles-diagram-symbol" aria-hidden="true">=</p>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-6">
+									<div class="brt-rich__nozzles-diagram-result brt-rich__nozzles-diagram-result--floor">
+										<div class="brt-rich__nozzles-diagram-result-media">
+											<img src="img/bdr-2400-r/nozzle-floor-result.png" alt="Насадка для ламината, кварцвинила и паркета" width="433" height="323" loading="lazy">
+										</div>
+										<p class="brt-rich__nozzles-diagram-result-title brt-rich__nozzles-diagram-result-title--right">Насадка для ламината,<br>кварцвинила и паркета</p>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="brt-rich__nozzles-diagram-group brt-rich__nozzles-diagram-group--gun">
+							<div class="brt-rich-row brt-rich-row--gap-sm brt-rich__nozzles-diagram-gun-row">
+								<div class="brt-rich-col-12">
+									<div class="brt-rich__nozzles-diagram-part brt-rich__nozzles-diagram-part--accent brt-rich__nozzles-diagram-part--gun">
+										<p class="brt-rich__nozzles-diagram-part-title">Паровой пистолет</p>
+										<div class="brt-rich__nozzles-diagram-part-media">
+											<img src="img/bdr-2400-r/steam-gun.png" alt="Паровой пистолет" width="258" height="193" loading="lazy">
+										</div>
+									</div>
+								</div>
+							</div>
+
+							<div class="brt-rich__nozzles-diagram-connect brt-rich__nozzles-diagram-connect--gun" aria-hidden="true">
+								<img class="brt-rich__nozzles-diagram-arrow brt-rich__nozzles-diagram-arrow--branch-left" src="img/bdr-2400-r/arrow-branch-left.svg" alt="" width="150" height="33" loading="lazy">
+								<img class="brt-rich__nozzles-diagram-arrow brt-rich__nozzles-diagram-arrow--branch-center" src="img/bdr-2400-r/arrow-branch-center.svg" alt="" width="2" height="25" loading="lazy">
+								<img class="brt-rich__nozzles-diagram-arrow brt-rich__nozzles-diagram-arrow--branch-right" src="img/bdr-2400-r/arrow-branch-right.svg" alt="" width="150" height="33" loading="lazy">
+							</div>
+
+							<div class="brt-rich-row brt-rich-row--gap-sm brt-rich__nozzles-diagram-details-row">
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__nozzles-diagram-detail">
+										<div class="brt-rich__nozzles-diagram-part brt-rich__nozzles-diagram-part--muted">
+											<div class="brt-rich__nozzles-diagram-part-media">
+												<img src="img/bdr-2400-r/nozzle-point.png" alt="Точечное сопло" width="279" height="136" loading="lazy">
+											</div>
+										</div>
+										<p class="brt-rich__nozzles-diagram-detail-text">Точечное сопло создает концентрированную струю пара под давлением. Предназначена для удаления сильных загрязнений</p>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__nozzles-diagram-detail">
+										<div class="brt-rich__nozzles-diagram-part brt-rich__nozzles-diagram-part--muted">
+											<div class="brt-rich__nozzles-diagram-part-media">
+												<img src="img/bdr-2400-r/nozzle-brush.png" alt="Круглая щётка-насадка" width="215" height="136" loading="lazy">
+											</div>
+										</div>
+										<p class="brt-rich__nozzles-diagram-detail-text">Круглая щетка-насадка с полимерной щетиной для очистки сантехники и швов между плитками</p>
+									</div>
+								</div>
+								<div class="brt-rich-col-12 brt-rich-col-md-4">
+									<div class="brt-rich__nozzles-diagram-detail">
+										<div class="brt-rich__nozzles-diagram-part brt-rich__nozzles-diagram-part--muted">
+											<div class="brt-rich__nozzles-diagram-part-media">
+												<img src="img/bdr-2400-r/nozzle-angle.png" alt="Угловая насадка" width="223" height="146" loading="lazy">
+											</div>
+										</div>
+										<p class="brt-rich__nozzles-diagram-detail-text">Угловая насадка для очистки углов и труднодоступных мест</p>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
 				</div>
 			</section>
 

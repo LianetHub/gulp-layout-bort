@@ -1910,6 +1910,340 @@
   height: auto;
   border-radius: var(--rich-radius-lg);
 }
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-section,
+.brt-rich .brt-rich__nozzles-diagram-section {
+  --rich-nozzles-diagram-accent: #ffcd91;
+  --rich-nozzles-diagram-symbol: #fb7e00;
+  --rich-nozzles-diagram-line: #fb7e00;
+  --rich-nozzles-diagram-part-height: 151px;
+  --rich-nozzles-diagram-part-accent-height: 192px;
+  --rich-nozzles-diagram-detail-media-height: 136px;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-section .brt-rich__section-heading,
+.brt-rich .brt-rich__nozzles-diagram-section .brt-rich__section-heading {
+  text-align: center;
+  margin-bottom: var(--rich-section-heading-gap);
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram,
+.brt-rich .brt-rich__nozzles-diagram {
+  position: relative;
+  z-index: 1;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-bg,
+.brt-rich .brt-rich__nozzles-diagram-bg {
+  position: absolute;
+  z-index: -1;
+  display: block;
+  max-width: none;
+  height: auto;
+  pointer-events: none;
+  user-select: none;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-bg--left,
+.brt-rich .brt-rich__nozzles-diagram-bg--left {
+  left: -260px;
+  bottom: 360px;
+  width: min(636px, 70%);
+  opacity: 0.55;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-bg--right,
+.brt-rich .brt-rich__nozzles-diagram-bg--right {
+  right: -220px;
+  top: 0;
+  width: min(785px, 100%);
+  opacity: 0.55;
+}
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-bg,
+  .brt-rich .brt-rich__nozzles-diagram-bg {
+    display: none;
+  }
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-group .brt-rich-row,
+.brt-rich .brt-rich__nozzles-diagram-group .brt-rich-row {
+  justify-content: space-between;
+  align-items: center;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-group .brt-rich__nozzles-diagram-details-row,
+.brt-rich .brt-rich__nozzles-diagram-group .brt-rich__nozzles-diagram-details-row {
+  align-items: flex-start;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-group + #brt-rich.brt-rich .brt-rich__nozzles-diagram-group,
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-group + .brt-rich .brt-rich__nozzles-diagram-group,
+.brt-rich .brt-rich__nozzles-diagram-group + #brt-rich.brt-rich .brt-rich__nozzles-diagram-group,
+.brt-rich .brt-rich__nozzles-diagram-group + .brt-rich .brt-rich__nozzles-diagram-group {
+  margin-top: var(--rich-space-2xl);
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-group--floor,
+.brt-rich .brt-rich__nozzles-diagram-group--floor {
+  margin-top: var(--rich-space-3xl);
+}
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-group--floor .brt-rich-col-auto,
+  .brt-rich .brt-rich__nozzles-diagram-group--floor .brt-rich-col-auto {
+    flex: 0 0 100%;
+    width: 100%;
+    max-width: 100%;
+    text-align: center;
+  }
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-group--gun,
+.brt-rich .brt-rich__nozzles-diagram-group--gun {
+  margin-top: var(--rich-space-3xl);
+}
+@media (min-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-3:first-of-type,
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-4,
+  .brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-3:first-of-type,
+  .brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-4 {
+    position: relative;
+  }
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-3:first-of-type::after,
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-4::after,
+  .brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-3:first-of-type::after,
+  .brt-rich .brt-rich__nozzles-diagram-kit-row > .brt-rich-col-md-4::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -13%;
+    z-index: 1;
+    width: 18%;
+    height: 0;
+    transform: translate(50%, -50%);
+    border-top: 2px dashed var(--rich-nozzles-diagram-line);
+    pointer-events: none;
+  }
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-part,
+.brt-rich .brt-rich__nozzles-diagram-part {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: var(--rich-nozzles-diagram-part-height);
+  padding: var(--rich-space-sm) var(--rich-space-md) var(--rich-space-md);
+  border-radius: var(--rich-radius-lg);
+  text-align: center;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-part--bordered,
+.brt-rich .brt-rich__nozzles-diagram-part--bordered {
+  background: var(--rich-color-bg);
+  border: 2px solid var(--rich-color-accent-light);
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-part--accent,
+.brt-rich .brt-rich__nozzles-diagram-part--accent {
+  min-height: var(--rich-nozzles-diagram-part-accent-height);
+  background: var(--rich-nozzles-diagram-accent);
+  padding-bottom: 0;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-part--muted,
+.brt-rich .brt-rich__nozzles-diagram-part--muted {
+  min-height: var(--rich-nozzles-diagram-part-height);
+  background: var(--rich-color-bg-muted);
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-part--wide,
+.brt-rich .brt-rich__nozzles-diagram-part--wide {
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: var(--rich-space-md);
+  min-height: 124px;
+  padding: var(--rich-space-xs) var(--rich-space-lg);
+  text-align: left;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-part--gun,
+.brt-rich .brt-rich__nozzles-diagram-part--gun {
+  width: min(100%, 292px);
+  min-height: 198px;
+  margin-inline: auto;
+}
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-part--gun,
+  .brt-rich .brt-rich__nozzles-diagram-part--gun {
+    margin-bottom: var(--rich-space-lg);
+  }
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-part-title,
+.brt-rich .brt-rich__nozzles-diagram-part-title {
+  margin: 0 0 var(--rich-space-xs);
+  font-size: 18px;
+  font-weight: var(--rich-font-weight-semibold);
+  line-height: 1.2;
+  color: var(--rich-color-text);
+}
+.brt-rich__nozzles-diagram-part--wide #brt-rich.brt-rich .brt-rich__nozzles-diagram-part-title,
+.brt-rich__nozzles-diagram-part--wide .brt-rich .brt-rich__nozzles-diagram-part-title {
+  flex: 1 1 auto;
+  margin: 0;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-part-media,
+.brt-rich .brt-rich__nozzles-diagram-part-media {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 0;
+}
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-connect--adapter,
+  .brt-rich .brt-rich__nozzles-diagram-connect--adapter {
+    display: none;
+  }
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-connect--gun,
+.brt-rich .brt-rich__nozzles-diagram-connect--gun {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: start;
+  width: 100%;
+  min-height: 40px;
+  margin: var(--rich-space-sm) 0 var(--rich-space-md);
+}
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-connect--gun,
+  .brt-rich .brt-rich__nozzles-diagram-connect--gun {
+    display: none;
+  }
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-arrow,
+.brt-rich .brt-rich__nozzles-diagram-arrow {
+  display: block;
+  width: auto;
+  height: auto;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-arrow--branch-left,
+.brt-rich .brt-rich__nozzles-diagram-arrow--branch-left {
+  justify-self: end;
+  width: 100%;
+  max-width: 152px;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-arrow--branch-center,
+.brt-rich .brt-rich__nozzles-diagram-arrow--branch-center {
+  justify-self: center;
+  width: 2px;
+  height: 25px;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-arrow--branch-right,
+.brt-rich .brt-rich__nozzles-diagram-arrow--branch-right {
+  justify-self: start;
+  width: 100%;
+  max-width: 152px;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-connect-col,
+.brt-rich .brt-rich__nozzles-diagram-connect-col {
+  display: flex;
+  justify-content: center;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-connect-col::after,
+.brt-rich .brt-rich__nozzles-diagram-connect-col::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 45px;
+  border-left: 2px dashed var(--rich-nozzles-diagram-line);
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-result,
+.brt-rich .brt-rich__nozzles-diagram-result {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rich-space-sm);
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-result--right,
+.brt-rich .brt-rich__nozzles-diagram-result--right {
+  align-items: flex-end;
+  text-align: right;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-result--floor,
+.brt-rich .brt-rich__nozzles-diagram-result--floor {
+  align-items: flex-end;
+  text-align: right;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-result-media,
+.brt-rich .brt-rich__nozzles-diagram-result-media {
+  width: 100%;
+  line-height: 0;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-result-media img,
+.brt-rich .brt-rich__nozzles-diagram-result-media img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+.brt-rich__nozzles-diagram-result--right #brt-rich.brt-rich .brt-rich__nozzles-diagram-result-media img, .brt-rich__nozzles-diagram-result--floor #brt-rich.brt-rich .brt-rich__nozzles-diagram-result-media img,
+.brt-rich__nozzles-diagram-result--right .brt-rich .brt-rich__nozzles-diagram-result-media img,
+.brt-rich__nozzles-diagram-result--floor .brt-rich .brt-rich__nozzles-diagram-result-media img {
+  margin-left: auto;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-result-title,
+.brt-rich .brt-rich__nozzles-diagram-result-title {
+  margin: 0;
+  font-size: 20px;
+  font-weight: var(--rich-font-weight-semibold);
+  line-height: 1.2;
+  color: var(--rich-color-text);
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-result-title--right,
+.brt-rich .brt-rich__nozzles-diagram-result-title--right {
+  text-align: right;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-floor-stack,
+.brt-rich .brt-rich__nozzles-diagram-floor-stack {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--rich-space-xs);
+  max-width: 427px;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-symbol,
+.brt-rich .brt-rich__nozzles-diagram-symbol {
+  margin: 0;
+  font-size: 40px;
+  font-weight: var(--rich-font-weight-semibold);
+  line-height: 1;
+  color: var(--rich-nozzles-diagram-symbol);
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-detail,
+.brt-rich .brt-rich__nozzles-diagram-detail {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--rich-space-sm);
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part--muted,
+.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part--muted {
+  width: 100%;
+  min-height: calc(var(--rich-nozzles-diagram-detail-media-height) + var(--rich-space-md) * 2);
+  padding-block: var(--rich-space-md);
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part-media,
+.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part-media {
+  flex: 0 0 var(--rich-nozzles-diagram-detail-media-height);
+  height: var(--rich-nozzles-diagram-detail-media-height);
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part-media img,
+.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part-media img {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  margin-inline: auto;
+  object-fit: contain;
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-detail-text,
+.brt-rich .brt-rich__nozzles-diagram-detail-text {
+  margin: 0;
+  font-size: 18px;
+  font-weight: var(--rich-font-weight-semibold);
+  line-height: 1.2;
+  color: var(--rich-color-text);
+}
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-gun-row,
+.brt-rich .brt-rich__nozzles-diagram-gun-row {
+  justify-content: center;
+}
 #brt-rich.brt-rich .brt-rich__contents-annotated-section,
 .brt-rich .brt-rich__contents-annotated-section {
   padding-block: 0 var(--rich-section-gap);
