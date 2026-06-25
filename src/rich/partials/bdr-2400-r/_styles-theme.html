@@ -5,6 +5,7 @@
  */
 #brt-rich.brt-rich,
 .brt-rich {
+  overflow-x: hidden;
   /* --- Atoms: Typography --- */
   /* --- Molecules --- */
 }
@@ -279,31 +280,6 @@
   .brt-rich .brt-rich__section-heading {
     margin-top: var(--rich-space-lg);
   }
-}
-#brt-rich.brt-rich .brt-rich__stat-tile,
-.brt-rich .brt-rich__stat-tile {
-  display: flex;
-  align-items: center;
-  min-height: 120px;
-  height: 100%;
-  padding: var(--rich-space-md) var(--rich-space-lg);
-  border-radius: var(--rich-radius-lg);
-  background: var(--rich-color-bg-muted);
-}
-#brt-rich.brt-rich .brt-rich__stat-tile .brt-rich__stat-value,
-.brt-rich .brt-rich__stat-tile .brt-rich__stat-value {
-  font-family: var(--rich-font-family-display);
-  font-size: var(--rich-font-size-spec-value);
-  font-weight: 400;
-  line-height: normal;
-  color: var(--rich-color-text-heading);
-}
-#brt-rich.brt-rich .brt-rich__stat-tile .brt-rich__stat-label,
-.brt-rich .brt-rich__stat-tile .brt-rich__stat-label {
-  margin-top: 0;
-  font-weight: var(--rich-font-weight-normal);
-  line-height: normal;
-  color: var(--rich-color-text-heading);
 }
 #brt-rich.brt-rich .brt-rich__accent-cards-section,
 .brt-rich .brt-rich__accent-cards-section {
@@ -1569,51 +1545,192 @@
 .brt-rich .brt-rich__hero-card-list-block li + li {
   margin-top: var(--rich-space-3xs);
 }
-#brt-rich.brt-rich .brt-rich__specs-grid-section,
-.brt-rich .brt-rich__specs-grid-section {
+#brt-rich.brt-rich .brt-rich__specs-icon-grid-section,
+.brt-rich .brt-rich__specs-icon-grid-section {
   padding-block: 0 var(--rich-section-gap);
 }
-#brt-rich.brt-rich .brt-rich__specs-grid .brt-rich-row,
-.brt-rich .brt-rich__specs-grid .brt-rich-row {
-  --rich-gutter-x: var(--rich-space-sm);
-  --rich-gutter-y: var(--rich-space-sm);
-}
-#brt-rich.brt-rich .brt-rich__stat-tile--with-icon,
-.brt-rich .brt-rich__stat-tile--with-icon {
-  position: relative;
-  padding-left: 110px;
-  min-height: 104px;
-}
-@media (max-width: 767.98px) {
-  #brt-rich.brt-rich .brt-rich__stat-tile--with-icon,
-  .brt-rich .brt-rich__stat-tile--with-icon {
-    padding-left: var(--rich-space-md);
-    padding-top: 80px;
-  }
-}
-#brt-rich.brt-rich .brt-rich__stat-tile-icon,
-.brt-rich .brt-rich__stat-tile-icon {
-  position: absolute;
-  left: var(--rich-space-md);
-  top: 50%;
-  transform: translateY(-50%);
+#brt-rich.brt-rich .brt-rich__specs-icon-grid,
+.brt-rich .brt-rich__specs-icon-grid {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: var(--rich-specs-icon-grid-gap);
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-grid-list,
+.brt-rich .brt-rich__specs-icon-grid-list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card,
+.brt-rich .brt-rich__specs-icon-card {
+  display: flex;
   align-items: center;
-  width: 82px;
+  gap: var(--rich-specs-icon-card-gap);
+  min-height: var(--rich-specs-icon-card-min-height);
+  height: 100%;
+  padding: var(--rich-specs-icon-card-padding-y) var(--rich-specs-icon-card-padding-x);
+  border-radius: var(--rich-radius-lg);
+  background: var(--rich-color-bg-muted);
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-icon,
+.brt-rich .brt-rich__specs-icon-card-icon {
+  flex-shrink: 0;
+  display: block;
+  width: auto;
   height: auto;
-  max-height: 56px;
-  object-fit: contain;
+  max-width: var(--rich-specs-icon-card-icon-max-width);
+  max-height: var(--rich-specs-icon-card-icon-max-height);
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-content,
+.brt-rich .brt-rich__specs-icon-card-content {
+  min-width: 0;
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-label,
+.brt-rich .brt-rich__specs-icon-card-label {
+  margin: 0;
+  font-size: var(--rich-specs-icon-card-label-size);
+  font-weight: var(--rich-font-weight-normal);
+  line-height: 1.2;
+  color: var(--rich-color-text);
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-value,
+.brt-rich .brt-rich__specs-icon-card-value {
+  margin: 2px 0 0;
+  font-family: var(--rich-font-family-display);
+  font-weight: 400;
+  line-height: 1.1;
+  color: var(--rich-color-text-heading);
+  white-space: nowrap;
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-number,
+.brt-rich .brt-rich__specs-icon-card-number {
+  font-size: var(--rich-specs-icon-card-value-size);
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-unit,
+.brt-rich .brt-rich__specs-icon-card-unit {
+  font-size: var(--rich-specs-icon-card-unit-size);
+}
+@media (max-width: 800px) {
+  #brt-rich.brt-rich .brt-rich__specs-icon-card-number,
+  .brt-rich .brt-rich__specs-icon-card-number {
+    font-size: var(--rich-specs-icon-card-value-size-sm);
+  }
+  #brt-rich.brt-rich .brt-rich__specs-icon-card-unit,
+  .brt-rich .brt-rich__specs-icon-card-unit {
+    font-size: var(--rich-specs-icon-card-unit-size-sm);
+  }
 }
 @media (max-width: 767.98px) {
-  #brt-rich.brt-rich .brt-rich__stat-tile-icon,
-  .brt-rich .brt-rich__stat-tile-icon {
-    top: var(--rich-space-md);
-    left: var(--rich-space-md);
-    transform: none;
-    width: 40px;
-    max-height: 44px;
+  #brt-rich.brt-rich .brt-rich__specs-icon-card,
+  .brt-rich .brt-rich__specs-icon-card {
+    justify-content: center;
   }
+  #brt-rich.brt-rich .brt-rich__specs-icon-card-content,
+  .brt-rich .brt-rich__specs-icon-card-content {
+    text-align: center;
+  }
+  #brt-rich.brt-rich .brt-rich__specs-icon-card-title,
+  .brt-rich .brt-rich__specs-icon-card-title {
+    max-width: var(--rich-specs-icon-card-title-max-width-sm);
+    margin-inline: auto;
+    text-align: center;
+  }
+}
+@media (max-width: 550px) {
+  #brt-rich.brt-rich .brt-rich__specs-icon-grid-list > [class*=brt-rich-col],
+  .brt-rich .brt-rich__specs-icon-grid-list > [class*=brt-rich-col] {
+    flex: 0 0 auto;
+    width: 100%;
+  }
+}
+@media (min-width: 768px) {
+  #brt-rich.brt-rich .brt-rich__specs-icon-card--feature,
+  .brt-rich .brt-rich__specs-icon-card--feature {
+    justify-content: flex-start;
+  }
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-title,
+.brt-rich .brt-rich__specs-icon-card-title {
+  margin: 0;
+  min-width: 0;
+  font-family: var(--rich-font-family-display);
+  font-size: var(--rich-specs-icon-card-title-size);
+  font-weight: 400;
+  line-height: 1.2;
+  color: var(--rich-color-text-heading);
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-line,
+.brt-rich .brt-rich__specs-icon-card-line {
+  display: inline;
+}
+@media (max-width: 575.98px) {
+  #brt-rich.brt-rich .brt-rich__specs-icon-card-line,
+  .brt-rich .brt-rich__specs-icon-card-line {
+    display: block;
+  }
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-grid-callout-section,
+.brt-rich .brt-rich__specs-icon-grid-callout-section {
+  padding-block: 0 var(--rich-section-gap);
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-grid-callout,
+.brt-rich .brt-rich__specs-icon-grid-callout {
+  display: flex;
+  align-items: center;
+  gap: var(--rich-specs-icon-grid-callout-gap);
+  min-height: var(--rich-specs-icon-grid-callout-min-height);
+  padding-top: var(--rich-space-md);
+  padding-bottom: var(--rich-space-md);
+  padding-left: var(--rich-specs-icon-grid-callout-padding-left);
+  padding-right: var(--rich-specs-icon-grid-callout-padding-right);
+  border-radius: var(--rich-radius-lg);
+  background: var(--rich-color-accent);
+}
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__specs-icon-grid-callout,
+  .brt-rich .brt-rich__specs-icon-grid-callout {
+    padding-left: var(--rich-specs-icon-grid-callout-padding-inline-sm);
+    padding-right: var(--rich-specs-icon-grid-callout-padding-inline-sm);
+  }
+}
+@media (min-width: 501px) {
+  #brt-rich.brt-rich .brt-rich__specs-icon-grid-callout,
+  .brt-rich .brt-rich__specs-icon-grid-callout {
+    flex-direction: row;
+    align-items: center;
+    min-height: var(--rich-specs-icon-grid-callout-min-height);
+  }
+}
+@media (max-width: 500px) {
+  #brt-rich.brt-rich .brt-rich__specs-icon-grid-callout,
+  .brt-rich .brt-rich__specs-icon-grid-callout {
+    flex-direction: column;
+    align-items: center;
+    min-height: 0;
+    padding-left: var(--rich-specs-icon-grid-callout-padding-inline-sm);
+    padding-right: var(--rich-specs-icon-grid-callout-padding-inline-sm);
+  }
+  #brt-rich.brt-rich .brt-rich__specs-icon-grid-callout .brt-rich__specs-icon-grid-callout-text,
+  .brt-rich .brt-rich__specs-icon-grid-callout .brt-rich__specs-icon-grid-callout-text {
+    text-align: center;
+  }
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-grid-callout-icon,
+.brt-rich .brt-rich__specs-icon-grid-callout-icon {
+  flex-shrink: 0;
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: var(--rich-specs-icon-grid-callout-icon-max-width);
+  max-height: var(--rich-specs-icon-grid-callout-icon-max-height);
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-grid-callout-text,
+.brt-rich .brt-rich__specs-icon-grid-callout-text {
+  margin: 0;
+  font-size: var(--rich-font-size-hero-desc);
+  font-weight: var(--rich-font-weight-normal);
+  line-height: 1.15;
+  color: var(--rich-color-text);
 }
 #brt-rich.brt-rich .brt-rich__callouts-pair-section,
 .brt-rich .brt-rich__callouts-pair-section {
@@ -1968,6 +2085,16 @@
 .brt-rich .brt-rich__nozzles-diagram-group .brt-rich__nozzles-diagram-details-row {
   align-items: flex-start;
 }
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-group .brt-rich-row,
+  .brt-rich .brt-rich__nozzles-diagram-group .brt-rich-row {
+    justify-content: center;
+  }
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-group .brt-rich__nozzles-diagram-details-row,
+  .brt-rich .brt-rich__nozzles-diagram-group .brt-rich__nozzles-diagram-details-row {
+    align-items: center;
+  }
+}
 #brt-rich.brt-rich .brt-rich__nozzles-diagram-group + #brt-rich.brt-rich .brt-rich__nozzles-diagram-group,
 #brt-rich.brt-rich .brt-rich__nozzles-diagram-group + .brt-rich .brt-rich__nozzles-diagram-group,
 .brt-rich .brt-rich__nozzles-diagram-group + #brt-rich.brt-rich .brt-rich__nozzles-diagram-group,
@@ -1985,6 +2112,10 @@
     width: 100%;
     max-width: 100%;
     text-align: center;
+  }
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-group--floor .brt-rich__nozzles-diagram-floor-stack,
+  .brt-rich .brt-rich__nozzles-diagram-group--floor .brt-rich__nozzles-diagram-floor-stack {
+    margin-inline: auto;
   }
 }
 #brt-rich.brt-rich .brt-rich__nozzles-diagram-group--gun,
@@ -2159,6 +2290,19 @@
   align-items: flex-end;
   text-align: right;
 }
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-result,
+  .brt-rich .brt-rich__nozzles-diagram-result {
+    align-items: center;
+    text-align: center;
+  }
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-result--right, #brt-rich.brt-rich .brt-rich__nozzles-diagram-result--floor,
+  .brt-rich .brt-rich__nozzles-diagram-result--right,
+  .brt-rich .brt-rich__nozzles-diagram-result--floor {
+    align-items: center;
+    text-align: center;
+  }
+}
 #brt-rich.brt-rich .brt-rich__nozzles-diagram-result-media,
 .brt-rich .brt-rich__nozzles-diagram-result-media {
   width: 100%;
@@ -2176,6 +2320,13 @@
 .brt-rich__nozzles-diagram-result--floor .brt-rich .brt-rich__nozzles-diagram-result-media img {
   margin-left: auto;
 }
+@media (max-width: 767.98px) {
+  .brt-rich__nozzles-diagram-result--right #brt-rich.brt-rich .brt-rich__nozzles-diagram-result-media img, .brt-rich__nozzles-diagram-result--floor #brt-rich.brt-rich .brt-rich__nozzles-diagram-result-media img,
+  .brt-rich__nozzles-diagram-result--right .brt-rich .brt-rich__nozzles-diagram-result-media img,
+  .brt-rich__nozzles-diagram-result--floor .brt-rich .brt-rich__nozzles-diagram-result-media img {
+    margin-inline: auto;
+  }
+}
 #brt-rich.brt-rich .brt-rich__nozzles-diagram-result-title,
 .brt-rich .brt-rich__nozzles-diagram-result-title {
   margin: 0;
@@ -2187,6 +2338,16 @@
 #brt-rich.brt-rich .brt-rich__nozzles-diagram-result-title--right,
 .brt-rich .brt-rich__nozzles-diagram-result-title--right {
   text-align: right;
+}
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-result-title,
+  .brt-rich .brt-rich__nozzles-diagram-result-title {
+    text-align: center;
+  }
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-result-title--right,
+  .brt-rich .brt-rich__nozzles-diagram-result-title--right {
+    text-align: center;
+  }
 }
 #brt-rich.brt-rich .brt-rich__nozzles-diagram-floor-stack,
 .brt-rich .brt-rich__nozzles-diagram-floor-stack {
@@ -2210,6 +2371,12 @@
   flex-direction: column;
   align-items: stretch;
   gap: var(--rich-space-sm);
+}
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-detail,
+  .brt-rich .brt-rich__nozzles-diagram-detail {
+    align-items: center;
+  }
 }
 #brt-rich.brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part--muted,
 .brt-rich .brt-rich__nozzles-diagram-details-row .brt-rich__nozzles-diagram-part--muted {
@@ -2239,6 +2406,12 @@
   font-weight: var(--rich-font-weight-semibold);
   line-height: 1.2;
   color: var(--rich-color-text);
+}
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzles-diagram-detail-text,
+  .brt-rich .brt-rich__nozzles-diagram-detail-text {
+    text-align: center;
+  }
 }
 #brt-rich.brt-rich .brt-rich__nozzles-diagram-gun-row,
 .brt-rich .brt-rich__nozzles-diagram-gun-row {
@@ -2560,6 +2733,64 @@
   font-weight: var(--rich-font-weight-normal) !important;
   line-height: normal !important;
   color: var(--rich-color-text-heading) !important;
+  font-style: normal !important;
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-label,
+.brt-rich .brt-rich__specs-icon-card-label {
+  font-family: var(--rich-font-family) !important;
+  font-size: var(--rich-specs-icon-card-label-size) !important;
+  font-weight: var(--rich-font-weight-normal) !important;
+  line-height: 1.2 !important;
+  color: var(--rich-color-text) !important;
+  font-style: normal !important;
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-value,
+#brt-rich.brt-rich .brt-rich__specs-icon-card-number,
+#brt-rich.brt-rich .brt-rich__specs-icon-card-unit,
+.brt-rich .brt-rich__specs-icon-card-value,
+.brt-rich .brt-rich__specs-icon-card-number,
+.brt-rich .brt-rich__specs-icon-card-unit {
+  font-family: var(--rich-font-family-display) !important;
+  font-size: var(--rich-specs-icon-card-value-size) !important;
+  font-weight: 400 !important;
+  line-height: 1.1 !important;
+  color: var(--rich-color-text-heading) !important;
+  font-style: normal !important;
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-number,
+.brt-rich .brt-rich__specs-icon-card-number {
+  font-size: var(--rich-specs-icon-card-value-size) !important;
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-unit,
+.brt-rich .brt-rich__specs-icon-card-unit {
+  font-size: var(--rich-specs-icon-card-unit-size) !important;
+}
+@media (max-width: 800px) {
+  #brt-rich.brt-rich .brt-rich__specs-icon-card-number,
+  .brt-rich .brt-rich__specs-icon-card-number {
+    font-size: var(--rich-specs-icon-card-value-size-sm) !important;
+  }
+  #brt-rich.brt-rich .brt-rich__specs-icon-card-unit,
+  .brt-rich .brt-rich__specs-icon-card-unit {
+    font-size: var(--rich-specs-icon-card-unit-size-sm) !important;
+  }
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-card-title,
+.brt-rich .brt-rich__specs-icon-card-title {
+  font-family: var(--rich-font-family-display) !important;
+  font-size: var(--rich-specs-icon-card-title-size) !important;
+  font-weight: 400 !important;
+  line-height: 1.2 !important;
+  color: var(--rich-color-text-heading) !important;
+  font-style: normal !important;
+}
+#brt-rich.brt-rich .brt-rich__specs-icon-grid-callout-text,
+.brt-rich .brt-rich__specs-icon-grid-callout-text {
+  font-family: var(--rich-font-family) !important;
+  font-size: var(--rich-font-size-hero-desc) !important;
+  font-weight: var(--rich-font-weight-normal) !important;
+  line-height: 1.15 !important;
+  color: var(--rich-color-text) !important;
   font-style: normal !important;
 }
 #brt-rich.brt-rich .brt-rich__section-heading,

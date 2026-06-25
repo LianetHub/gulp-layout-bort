@@ -2,6 +2,7 @@
 
 #brt-rich.brt-rich,
 .brt-rich {
+	overflow-x: hidden;
 
 	/* --- Atoms: Typography --- */
 	.brt-rich__subheading {
@@ -261,31 +262,6 @@
 
 		@media (max-width: $md4) {
 			margin-top: var(--rich-space-lg);
-		}
-	}
-
-	.brt-rich__stat-tile {
-		display: flex;
-		align-items: center;
-		min-height: 120px;
-		height: 100%;
-		padding: var(--rich-space-md) var(--rich-space-lg);
-		border-radius: var(--rich-radius-lg);
-		background: var(--rich-color-bg-muted);
-
-		.brt-rich__stat-value {
-			font-family: var(--rich-font-family-display);
-			font-size: var(--rich-font-size-spec-value);
-			font-weight: 400;
-			line-height: normal;
-			color: var(--rich-color-text-heading);
-		}
-
-		.brt-rich__stat-label {
-			margin-top: 0;
-			font-weight: var(--rich-font-weight-normal);
-			line-height: normal;
-			color: var(--rich-color-text-heading);
 		}
 	}
 
@@ -1539,48 +1515,183 @@
 		}
 	}
 
-	.brt-rich__specs-grid-section {
+	.brt-rich__specs-icon-grid-section {
 		padding-block: 0 var(--rich-section-gap);
 	}
 
-	.brt-rich__specs-grid {
-		.brt-rich-row {
-			--rich-gutter-x: var(--rich-space-sm);
-			--rich-gutter-y: var(--rich-space-sm);
-		}
-	}
-
-	.brt-rich__stat-tile--with-icon {
-		position: relative;
-		padding-left: 110px;
-		min-height: 104px;
-
-		@media (max-width: $md4) {
-			padding-left: var(--rich-space-md);
-			padding-top: 80px;
-		}
-	}
-
-	.brt-rich__stat-tile-icon {
-		position: absolute;
-		left: var(--rich-space-md);
-		top: 50%;
-		transform: translateY(-50%);
+	.brt-rich__specs-icon-grid {
 		display: flex;
-		justify-content: center;
+		flex-direction: column;
+		gap: var(--rich-specs-icon-grid-gap);
+	}
+
+	.brt-rich__specs-icon-grid-list {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	.brt-rich__specs-icon-card {
+		display: flex;
 		align-items: center;
-		width: 82px;
+		gap: var(--rich-specs-icon-card-gap);
+		min-height: var(--rich-specs-icon-card-min-height);
+		height: 100%;
+		padding: var(--rich-specs-icon-card-padding-y) var(--rich-specs-icon-card-padding-x);
+		border-radius: var(--rich-radius-lg);
+		background: var(--rich-color-bg-muted);
+	}
+
+	.brt-rich__specs-icon-card-icon {
+		flex-shrink: 0;
+		display: block;
+		width: auto;
 		height: auto;
-		max-height: 56px;
-		object-fit: contain;
+		max-width: var(--rich-specs-icon-card-icon-max-width);
+		max-height: var(--rich-specs-icon-card-icon-max-height);
+	}
+
+	.brt-rich__specs-icon-card-content {
+		min-width: 0;
+	}
+
+	.brt-rich__specs-icon-card-label {
+		margin: 0;
+		font-size: var(--rich-specs-icon-card-label-size);
+		font-weight: var(--rich-font-weight-normal);
+		line-height: 1.2;
+		color: var(--rich-color-text);
+	}
+
+	.brt-rich__specs-icon-card-value {
+		margin: 2px 0 0;
+		font-family: var(--rich-font-family-display);
+		font-weight: 400;
+		line-height: 1.1;
+		color: var(--rich-color-text-heading);
+		white-space: nowrap;
+	}
+
+	.brt-rich__specs-icon-card-number {
+		font-size: var(--rich-specs-icon-card-value-size);
+	}
+
+	.brt-rich__specs-icon-card-unit {
+		font-size: var(--rich-specs-icon-card-unit-size);
+	}
+
+	@media (max-width: 800px) {
+		.brt-rich__specs-icon-card-number {
+			font-size: var(--rich-specs-icon-card-value-size-sm);
+		}
+
+		.brt-rich__specs-icon-card-unit {
+			font-size: var(--rich-specs-icon-card-unit-size-sm);
+		}
+	}
+
+	@media (max-width: $md4) {
+		.brt-rich__specs-icon-card {
+			justify-content: center;
+		}
+
+		.brt-rich__specs-icon-card-content {
+			text-align: center;
+		}
+
+		.brt-rich__specs-icon-card-title {
+			max-width: var(--rich-specs-icon-card-title-max-width-sm);
+			margin-inline: auto;
+			text-align: center;
+		}
+	}
+
+	@media (max-width: 550px) {
+		.brt-rich__specs-icon-grid-list>[class*="brt-rich-col"] {
+			flex: 0 0 auto;
+			width: 100%;
+		}
+	}
+
+	@media (min-width: 768px) {
+		.brt-rich__specs-icon-card--feature {
+			justify-content: flex-start;
+		}
+	}
+
+	.brt-rich__specs-icon-card-title {
+		margin: 0;
+		min-width: 0;
+		font-family: var(--rich-font-family-display);
+		font-size: var(--rich-specs-icon-card-title-size);
+		font-weight: 400;
+		line-height: 1.2;
+		color: var(--rich-color-text-heading);
+	}
+
+	.brt-rich__specs-icon-card-line {
+		display: inline;
+
+		@media (max-width: 575.98px) {
+			display: block;
+		}
+	}
+
+	.brt-rich__specs-icon-grid-callout-section {
+		padding-block: 0 var(--rich-section-gap);
+	}
+
+	.brt-rich__specs-icon-grid-callout {
+		display: flex;
+		align-items: center;
+		gap: var(--rich-specs-icon-grid-callout-gap);
+		min-height: var(--rich-specs-icon-grid-callout-min-height);
+		padding-top: var(--rich-space-md);
+		padding-bottom: var(--rich-space-md);
+		padding-left: var(--rich-specs-icon-grid-callout-padding-left);
+		padding-right: var(--rich-specs-icon-grid-callout-padding-right);
+		border-radius: var(--rich-radius-lg);
+		background: var(--rich-color-accent);
 
 		@media (max-width: $md4) {
-			top: var(--rich-space-md);
-			left: var(--rich-space-md);
-			transform: none;
-			width: 40px;
-			max-height: 44px;
+			padding-left: var(--rich-specs-icon-grid-callout-padding-inline-sm);
+			padding-right: var(--rich-specs-icon-grid-callout-padding-inline-sm);
 		}
+
+		@media (min-width: 501px) {
+			flex-direction: row;
+			align-items: center;
+			min-height: var(--rich-specs-icon-grid-callout-min-height);
+		}
+
+		@media (max-width: 500px) {
+			flex-direction: column;
+			align-items: center;
+			min-height: 0;
+			padding-left: var(--rich-specs-icon-grid-callout-padding-inline-sm);
+			padding-right: var(--rich-specs-icon-grid-callout-padding-inline-sm);
+
+			.brt-rich__specs-icon-grid-callout-text {
+				text-align: center;
+			}
+		}
+	}
+
+	.brt-rich__specs-icon-grid-callout-icon {
+		flex-shrink: 0;
+		display: block;
+		width: auto;
+		height: auto;
+		max-width: var(--rich-specs-icon-grid-callout-icon-max-width);
+		max-height: var(--rich-specs-icon-grid-callout-icon-max-height);
+	}
+
+	.brt-rich__specs-icon-grid-callout-text {
+		margin: 0;
+		font-size: var(--rich-font-size-hero-desc);
+		font-weight: var(--rich-font-weight-normal);
+		line-height: 1.15;
+		color: var(--rich-color-text);
 	}
 
 	.brt-rich__callouts-pair-section {
@@ -1911,6 +2022,17 @@
 		.brt-rich__nozzles-diagram-details-row {
 			align-items: flex-start;
 		}
+
+		@media (max-width: $md4) {
+			.brt-rich-row {
+				justify-content: center;
+			}
+
+			.brt-rich__nozzles-diagram-details-row {
+				align-items: center;
+			}
+		}
+
 		&+& {
 			margin-top: var(--rich-space-2xl);
 		}
@@ -1925,6 +2047,10 @@
 					max-width: 100%;
 					text-align: center;
 				}
+
+				.brt-rich__nozzles-diagram-floor-stack {
+					margin-inline: auto;
+				}
 			}
 		}
 
@@ -1935,8 +2061,9 @@
 
 	.brt-rich__nozzles-diagram-kit-row {
 		@media (min-width: $md4) {
-			> .brt-rich-col-md-3:first-of-type,
-			> .brt-rich-col-md-4 {
+
+			>.brt-rich-col-md-3:first-of-type,
+			>.brt-rich-col-md-4 {
 				position: relative;
 
 				&::after {
@@ -2022,13 +2149,13 @@
 		flex: 1 1 auto;
 		width: 100%;
 		min-height: 0;
-	
+
 
 	}
 
 	.brt-rich__nozzles-diagram-connect {
 		&--adapter {
-		
+
 			@media (max-width: $md4) {
 				display: none;
 			}
@@ -2099,6 +2226,17 @@
 			align-items: flex-end;
 			text-align: right;
 		}
+
+		@media (max-width: $md4) {
+			align-items: center;
+			text-align: center;
+
+			&--right,
+			&--floor {
+				align-items: center;
+				text-align: center;
+			}
+		}
 	}
 
 	.brt-rich__nozzles-diagram-result-media {
@@ -2116,6 +2254,13 @@
 		.brt-rich__nozzles-diagram-result--floor & img {
 			margin-left: auto;
 		}
+
+		@media (max-width: $md4) {
+			.brt-rich__nozzles-diagram-result--right & img,
+			.brt-rich__nozzles-diagram-result--floor & img {
+				margin-inline: auto;
+			}
+		}
 	}
 
 	.brt-rich__nozzles-diagram-result-title {
@@ -2127,6 +2272,14 @@
 
 		&--right {
 			text-align: right;
+		}
+
+		@media (max-width: $md4) {
+			text-align: center;
+
+			&--right {
+				text-align: center;
+			}
 		}
 	}
 
@@ -2151,6 +2304,10 @@
 		flex-direction: column;
 		align-items: stretch;
 		gap: var(--rich-space-sm);
+
+		@media (max-width: $md4) {
+			align-items: center;
+		}
 	}
 
 	.brt-rich__nozzles-diagram-details-row {
@@ -2182,6 +2339,10 @@
 		font-weight: var(--rich-font-weight-semibold);
 		line-height: 1.2;
 		color: var(--rich-color-text);
+
+		@media (max-width: $md4) {
+			text-align: center;
+		}
 	}
 
 	.brt-rich__nozzles-diagram-gun-row {

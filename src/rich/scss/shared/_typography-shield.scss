@@ -101,6 +101,42 @@ $w-bold: var(--rich-font-weight-bold);
 		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, normal, $c-heading);
 	}
 
+	.brt-rich__specs-icon-card-label {
+		@include rich-shield-type($ff, var(--rich-specs-icon-card-label-size), $w-normal, 1.2, $c-text);
+	}
+
+	.brt-rich__specs-icon-card-value,
+	.brt-rich__specs-icon-card-number,
+	.brt-rich__specs-icon-card-unit {
+		@include rich-shield-type($ffd, var(--rich-specs-icon-card-value-size), 400, 1.1, $c-heading);
+	}
+
+	.brt-rich__specs-icon-card-number {
+		font-size: var(--rich-specs-icon-card-value-size) !important;
+	}
+
+	.brt-rich__specs-icon-card-unit {
+		font-size: var(--rich-specs-icon-card-unit-size) !important;
+	}
+
+	@media (max-width: 800px) {
+		.brt-rich__specs-icon-card-number {
+			font-size: var(--rich-specs-icon-card-value-size-sm) !important;
+		}
+
+		.brt-rich__specs-icon-card-unit {
+			font-size: var(--rich-specs-icon-card-unit-size-sm) !important;
+		}
+	}
+
+	.brt-rich__specs-icon-card-title {
+		@include rich-shield-type($ffd, var(--rich-specs-icon-card-title-size), 400, 1.2, $c-heading);
+	}
+
+	.brt-rich__specs-icon-grid-callout-text {
+		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.15, $c-text);
+	}
+
 	.brt-rich__section-heading {
 		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-semibold, 1.05, $c-text);
 	}

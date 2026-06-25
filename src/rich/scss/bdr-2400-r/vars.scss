@@ -80,6 +80,30 @@
 	--rich-params-stat-unit-size: 32px;
 	--rich-params-stat-unit-small-size: 20px;
 
+	/* --- Specs Icon Grid --- */
+	--rich-specs-icon-grid-gap: var(--rich-feature-grid-gap);
+	--rich-specs-icon-card-min-height: 90px;
+	--rich-specs-icon-card-padding-x: 20px;
+	--rich-specs-icon-card-padding-y: 16px;
+	--rich-specs-icon-card-gap: 14px;
+	--rich-specs-icon-card-icon-max-width: 57px;
+	--rich-specs-icon-card-icon-max-height: 49px;
+	--rich-specs-icon-card-label-size: 15px;
+	--rich-specs-icon-card-value-size: 28px;
+	--rich-specs-icon-card-value-size-sm: var(--rich-font-size-page-title);
+	--rich-specs-icon-card-unit-size: 22px;
+	--rich-specs-icon-card-unit-size-sm: var(--rich-font-size-h3);
+	--rich-specs-icon-card-title-size: 18px;
+	--rich-specs-icon-card-title-max-width-sm: 150px;
+	--rich-specs-icon-grid-callout-min-height: 138px;
+	--rich-specs-icon-grid-callout-padding-x: 24px;
+	--rich-specs-icon-grid-callout-padding-left: 135px;
+	--rich-specs-icon-grid-callout-padding-right: 100px;
+	--rich-specs-icon-grid-callout-padding-inline-sm: 20px;
+	--rich-specs-icon-grid-callout-gap: 50px;
+	--rich-specs-icon-grid-callout-icon-max-width: 73px;
+	--rich-specs-icon-grid-callout-icon-max-height: 85px;
+
 	/* --- Advantages --- */
 	--rich-info-card-body-padding-x: var(--rich-space-xl);
 	--rich-info-card-body-padding-bottom: 28px;
