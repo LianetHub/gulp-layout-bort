@@ -29,6 +29,11 @@ $w-bold: var(--rich-font-weight-bold);
 
 	.brt-rich__heading {
 		@include rich-shield-type($ff, var(--rich-font-size-body), $w-bold, 1.2, $c-text);
+		text-transform: none !important;
+	}
+
+	:is(h1, h2, h3, h4, h5, h6).brt-rich__heading {
+		text-transform: none !important;
 	}
 
 	.brt-rich__heading--h1 {
@@ -76,8 +81,10 @@ $w-bold: var(--rich-font-weight-bold);
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-heading);
 	}
 
-	.brt-rich__heading.brt-rich__split-title {
+	.brt-rich__heading.brt-rich__split-title,
+	:is(h2, h3, h4).brt-rich__heading.brt-rich__split-title {
 		@include rich-shield-type($ff, var(--rich-font-size-section-title), $w-semibold, 1.05, $c-text);
+		text-transform: none !important;
 	}
 
 	.brt-rich__split-body .brt-rich__text {
@@ -88,7 +95,8 @@ $w-bold: var(--rich-font-weight-bold);
 	.brt-rich__heading.brt-rich__section-heading,
 	.brt-rich__heading.brt-rich__section-heading,
 	.brt-rich__heading.brt-rich__section-heading,
-	.brt-rich__heading.brt-rich__heading--h2.brt-rich__feature-card-title {
+	.brt-rich__heading.brt-rich__heading--h2.brt-rich__feature-card-title,
+	:is(h2, h3, h4).brt-rich__heading.brt-rich__section-heading {
 		@include rich-shield-type($ff, var(--rich-font-size-section-title), $w-semibold, normal, $c-text);
 		text-transform: none !important;
 	}
@@ -137,8 +145,10 @@ $w-bold: var(--rich-font-weight-bold);
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.15, $c-text);
 	}
 
-	.brt-rich__section-heading {
+	.brt-rich__section-heading,
+	:is(h2, h3, h4).brt-rich__heading.brt-rich__section-heading {
 		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-semibold, 1.05, $c-text);
+		text-transform: none !important;
 	}
 
 	.brt-rich__accent-card-title {
@@ -211,6 +221,13 @@ $w-bold: var(--rich-font-weight-bold);
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, 1.08, $c-text);
 	}
 
+	.brt-rich__modes-runtime-note,
+	p.brt-rich__modes-runtime-note {
+		@include rich-shield-type($ff, 20px, $w-normal, 1.2, #000);
+		margin: var(--rich-space-sm) 0 0 !important;
+		padding: var(--rich-space-sm) var(--rich-space-lg) !important;
+	}
+
 	.brt-rich__mode-card-label {
 		@include rich-shield-type($ffd, var(--rich-font-size-hero-desc), 400, normal, $c-accent);
 	}
@@ -239,8 +256,10 @@ $w-bold: var(--rich-font-weight-bold);
 		@include rich-shield-type($ff, var(--rich-font-size-badge), 500, normal, $c-text);
 	}
 
-	.brt-rich__hero-card-title {
+	.brt-rich__hero-card-title,
+	:is(h1).brt-rich__heading.brt-rich__hero-card-title {
 		@include rich-shield-type($ffd, var(--rich-font-size-hero-title), 400, normal, $c-heading);
+		text-transform: uppercase !important;
 	}
 
 	.brt-rich__hero-card-model {
@@ -293,16 +312,20 @@ $w-bold: var(--rich-font-weight-bold);
 		@include rich-shield-type($ffd, var(--rich-params-stat-number-size), 400, 1, $c-heading);
 	}
 
-	.brt-rich__info-card-title {
+	.brt-rich__info-card-title,
+	:is(h2, h3, h4).brt-rich__heading.brt-rich__info-card-title {
 		@include rich-shield-type($ffd, var(--rich-font-size-h3), 400, normal, $c-heading);
+		text-transform: none !important;
 	}
 
 	.brt-rich__info-card-desc {
 		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, 1.08, $c-text);
 	}
 
-	.brt-rich__section-heading {
+	.brt-rich__section-heading,
+	:is(h2, h3, h4).brt-rich__heading.brt-rich__section-heading {
 		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-bold, 1.2, $c-text);
+		text-transform: none !important;
 	}
 
 	.brt-rich__contents-item-label {
@@ -331,5 +354,6 @@ $w-bold: var(--rich-font-weight-bold);
 	h3:not([class*="brt-rich__"]),
 	h4:not([class*="brt-rich__"]) {
 		@include rich-shield-type($ff, var(--rich-font-size-body), $w-bold, 1.2, $c-text);
+		text-transform: none !important;
 	}
 }

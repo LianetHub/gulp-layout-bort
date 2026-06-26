@@ -6,6 +6,17 @@
 #brt-rich.brt-rich,
 .brt-rich {
 
+	// .fulldesctab p:not(#uni-rich p) { font-size: 16px; color: #888; margin-bottom: 20px; ... }
+	p[class*="brt-rich__"] {
+		font-family: inherit !important;
+		font-style: normal !important;
+		font-weight: inherit !important;
+		font-size: inherit !important;
+		line-height: inherit !important;
+		color: inherit !important;
+		margin-bottom: 0 !important;
+	}
+
 	ul,
 	ol {
 		list-style: none !important;
@@ -65,25 +76,86 @@
 		}
 	}
 
-	.brt-rich__hero-card-list {
+	// .fulldesctab h2/h3/h4:not(#uni-rich h2/h3/h4) { text-transform: uppercase }
+	h2.brt-rich__heading,
+	h3.brt-rich__heading,
+	h4.brt-rich__heading,
+	h2[class*="brt-rich__"],
+	h3[class*="brt-rich__"],
+	h4[class*="brt-rich__"] {
+		text-transform: none !important;
+	}
+
+	.brt-rich__hero-card-list,
+	.brt-rich__hero-card-list-block {
 		list-style: disc !important;
+		list-style-type: disc !important;
 		padding-left: 1em !important;
 
 		li {
 			list-style: disc !important;
 			list-style-type: disc !important;
 			display: list-item !important;
+			position: static !important;
+			padding: 0 !important;
+			padding-left: 0 !important;
+			margin: 0 !important;
+			margin-bottom: 0 !important;
+			font-family: inherit !important;
+			font-style: normal !important;
+			font-weight: inherit !important;
+			font-size: inherit !important;
+			line-height: inherit !important;
+			color: inherit !important;
+
+			&::before,
+			&::after {
+				content: none !important;
+				display: none !important;
+				background: none !important;
+				border-radius: 0 !important;
+				width: auto !important;
+				height: auto !important;
+				position: static !important;
+				left: auto !important;
+				top: auto !important;
+			}
 		}
 	}
 
 	ol.brt-rich__contents-annotated-list {
 		list-style: decimal !important;
+		list-style-type: decimal !important;
 		padding-left: 3em !important;
 
 		li {
 			list-style: decimal !important;
 			list-style-type: decimal !important;
 			display: list-item !important;
+			position: static !important;
+			padding: 0 !important;
+			padding-left: 0 !important;
+			margin: 0 !important;
+			margin-bottom: 0 !important;
+			font-family: inherit !important;
+			font-style: normal !important;
+			font-weight: inherit !important;
+			font-size: inherit !important;
+			line-height: inherit !important;
+			color: inherit !important;
+
+			&::before,
+			&::after {
+				content: none !important;
+				display: none !important;
+				background: none !important;
+				border-radius: 0 !important;
+				width: auto !important;
+				height: auto !important;
+				position: static !important;
+				left: auto !important;
+				top: auto !important;
+			}
 		}
 	}
 }
