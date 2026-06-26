@@ -228,6 +228,39 @@ $w-bold: var(--rich-font-weight-bold);
 		padding: var(--rich-space-sm) var(--rich-space-lg) !important;
 	}
 
+	.brt-rich__modes-runtime-card-time,
+	p.brt-rich__modes-runtime-card-time {
+		@include rich-shield-type($ff, 35px, $w-semibold, 1, $c-text);
+		margin: 0 !important;
+	}
+
+	.brt-rich__nozzles-diagram-part-title,
+	p.brt-rich__nozzles-diagram-part-title {
+		@include rich-shield-type($ff, 18px, $w-semibold, 1.2, $c-text);
+	}
+
+	.brt-rich__nozzles-diagram-part:not(.brt-rich__nozzles-diagram-part--wide) .brt-rich__nozzles-diagram-part-title,
+	.brt-rich__nozzles-diagram-part:not(.brt-rich__nozzles-diagram-part--wide) p.brt-rich__nozzles-diagram-part-title {
+		margin: 0 0 var(--rich-space-xs) !important;
+	}
+
+	.brt-rich__nozzles-diagram-part--wide .brt-rich__nozzles-diagram-part-title,
+	.brt-rich__nozzles-diagram-part--wide p.brt-rich__nozzles-diagram-part-title {
+		margin: 0 !important;
+	}
+
+	.brt-rich__nozzles-diagram-symbol,
+	p.brt-rich__nozzles-diagram-symbol {
+		@include rich-shield-type($ff, 40px, $w-semibold, 1, var(--rich-nozzles-diagram-symbol, #fb7e00));
+		margin: 0 !important;
+	}
+
+	.brt-rich__nozzles-diagram-detail-text,
+	p.brt-rich__nozzles-diagram-detail-text {
+		@include rich-shield-type($ff, 18px, $w-semibold, 1.2, $c-text);
+		margin: 0 !important;
+	}
+
 	.brt-rich__mode-card-label {
 		@include rich-shield-type($ffd, var(--rich-font-size-hero-desc), 400, normal, $c-accent);
 	}
@@ -318,8 +351,11 @@ $w-bold: var(--rich-font-weight-bold);
 		text-transform: none !important;
 	}
 
-	.brt-rich__info-card-desc {
-		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, 1.08, $c-text);
+	.brt-rich__info-card-desc,
+	p.brt-rich__text.brt-rich__info-card-desc,
+	p.brt-rich__info-card-desc {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, 1.08, #000);
+		margin: 0 !important;
 	}
 
 	.brt-rich__section-heading,

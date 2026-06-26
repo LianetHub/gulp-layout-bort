@@ -1108,6 +1108,10 @@
 		&:not(:last-child) {
 			margin-bottom: var(--rich-space-sm);
 		}
+
+		&:has(+ .brt-rich__hero-card-list-block) {
+			margin-bottom: 0;
+		}
 	}
 
 	.brt-rich__hero-perks {
@@ -1353,7 +1357,7 @@
 		margin: 0;
 		font-size: var(--rich-font-size-body);
 		line-height: 1.08;
-		color: var(--rich-color-text);
+		color: #000;
 	}
 
 	.brt-rich__contents-section {
@@ -1497,7 +1501,7 @@
 	}
 
 	.brt-rich__hero-card-list-block {
-		margin: 0;
+		margin: 16px 0 0;
 		font-size: 20px;
 		padding-left: 1em !important;
 		list-style: disc !important;
