@@ -261,6 +261,12 @@ $w-bold: var(--rich-font-weight-bold);
 		margin: 0 !important;
 	}
 
+	.brt-rich__nozzles-diagram-result-title,
+	p.brt-rich__nozzles-diagram-result-title {
+		@include rich-shield-type($ff, 20px, $w-semibold, 1.2, $c-text);
+		margin: 0 !important;
+	}
+
 	.brt-rich__mode-card-label {
 		@include rich-shield-type($ffd, var(--rich-font-size-hero-desc), 400, normal, $c-accent);
 	}
@@ -295,12 +301,26 @@ $w-bold: var(--rich-font-weight-bold);
 		text-transform: uppercase !important;
 	}
 
-	.brt-rich__hero-card-model {
+	.brt-rich__hero-card-model,
+	p.brt-rich__hero-card-model {
 		@include rich-shield-type($ff, var(--rich-font-size-hero-model), $w-semibold, normal, $c-accent);
+		margin: var(--rich-hero-title-model-gap) 0 0 !important;
 	}
 
-	.brt-rich__hero-card-desc {
+	.brt-rich__hero-card-model--brand,
+	p.brt-rich__hero-card-model.brt-rich__hero-card-model--brand {
+		color: var(--rich-color-brand) !important;
+	}
+
+	.brt-rich__hero-card-desc,
+	p.brt-rich__hero-card-desc {
 		@include rich-shield-type($ff, var(--rich-font-size-hero-desc), $w-normal, normal, $c-text);
+		margin: var(--rich-hero-model-desc-gap) 0 0 !important;
+	}
+
+	.brt-rich__hero-card-desc:has(+ .brt-rich__hero-card-list-block),
+	p.brt-rich__hero-card-desc:has(+ .brt-rich__hero-card-list-block) {
+		margin-bottom: 0 !important;
 	}
 
 	.brt-rich__hero-perk-text {

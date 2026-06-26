@@ -2208,6 +2208,18 @@
   font-style: normal !important;
   margin: 0 !important;
 }
+#brt-rich.brt-rich .brt-rich__nozzles-diagram-result-title,
+#brt-rich.brt-rich p.brt-rich__nozzles-diagram-result-title,
+.brt-rich .brt-rich__nozzles-diagram-result-title,
+.brt-rich p.brt-rich__nozzles-diagram-result-title {
+  font-family: var(--rich-font-family) !important;
+  font-size: 20px !important;
+  font-weight: var(--rich-font-weight-semibold) !important;
+  line-height: 1.2 !important;
+  color: var(--rich-color-text) !important;
+  font-style: normal !important;
+  margin: 0 !important;
+}
 #brt-rich.brt-rich .brt-rich__mode-card-label,
 .brt-rich .brt-rich__mode-card-label {
   font-family: var(--rich-font-family-display) !important;
@@ -2281,22 +2293,40 @@
   text-transform: uppercase !important;
 }
 #brt-rich.brt-rich .brt-rich__hero-card-model,
-.brt-rich .brt-rich__hero-card-model {
+#brt-rich.brt-rich p.brt-rich__hero-card-model,
+.brt-rich .brt-rich__hero-card-model,
+.brt-rich p.brt-rich__hero-card-model {
   font-family: var(--rich-font-family) !important;
   font-size: var(--rich-font-size-hero-model) !important;
   font-weight: var(--rich-font-weight-semibold) !important;
   line-height: normal !important;
   color: var(--rich-color-accent) !important;
   font-style: normal !important;
+  margin: var(--rich-hero-title-model-gap) 0 0 !important;
+}
+#brt-rich.brt-rich .brt-rich__hero-card-model--brand,
+#brt-rich.brt-rich p.brt-rich__hero-card-model.brt-rich__hero-card-model--brand,
+.brt-rich .brt-rich__hero-card-model--brand,
+.brt-rich p.brt-rich__hero-card-model.brt-rich__hero-card-model--brand {
+  color: var(--rich-color-brand) !important;
 }
 #brt-rich.brt-rich .brt-rich__hero-card-desc,
-.brt-rich .brt-rich__hero-card-desc {
+#brt-rich.brt-rich p.brt-rich__hero-card-desc,
+.brt-rich .brt-rich__hero-card-desc,
+.brt-rich p.brt-rich__hero-card-desc {
   font-family: var(--rich-font-family) !important;
   font-size: var(--rich-font-size-hero-desc) !important;
   font-weight: var(--rich-font-weight-normal) !important;
   line-height: normal !important;
   color: var(--rich-color-text) !important;
   font-style: normal !important;
+  margin: var(--rich-hero-model-desc-gap) 0 0 !important;
+}
+#brt-rich.brt-rich .brt-rich__hero-card-desc:has(+ .brt-rich__hero-card-list-block),
+#brt-rich.brt-rich p.brt-rich__hero-card-desc:has(+ .brt-rich__hero-card-list-block),
+.brt-rich .brt-rich__hero-card-desc:has(+ .brt-rich__hero-card-list-block),
+.brt-rich p.brt-rich__hero-card-desc:has(+ .brt-rich__hero-card-list-block) {
+  margin-bottom: 0 !important;
 }
 #brt-rich.brt-rich .brt-rich__hero-perk-text,
 .brt-rich .brt-rich__hero-perk-text {
