@@ -49,6 +49,38 @@ export const richProducts = [
 		],
 	},
 	{
+		id: "bdr-1800",
+		blocks: [
+			{
+				src: "bdr-1800/vars.scss",
+				id: "rich-vars",
+				out: "bdr-1800/_styles-vars.html",
+				comment: blockComment([
+					"THEME VARIABLES — редактируйте этот блок для кастомизации под конкретный сайт.",
+					"Все компоненты используют эти переменные через var().",
+				]),
+			},
+			{
+				src: "bdr-1800/theme.scss",
+				id: "rich-theme",
+				out: "bdr-1800/_styles-theme.html",
+				comment: blockComment([
+					"THEME STYLES — типографика, цвета компонентов через var().",
+					"Для смены темы достаточно изменить #rich-vars; здесь — применение переменных.",
+				]),
+			},
+			{
+				src: "bdr-1800/components.scss",
+				id: "rich-components",
+				out: "bdr-1800/_styles-components.html",
+				comment: blockComment([
+					"COMPONENT-SPECIFIC STYLES — дополнительные правила для сложных блоков.",
+					"Используют переменные из #rich-vars; при необходимости переопределяйте локально.",
+				]),
+			},
+		],
+	},
+	{
 		id: "bdr-2400-r",
 		blocks: [
 			{

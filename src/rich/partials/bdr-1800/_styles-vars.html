@@ -1,0 +1,163 @@
+<style id="rich-vars">
+/*
+ * THEME VARIABLES — редактируйте этот блок для кастомизации под конкретный сайт.
+ * Все компоненты используют эти переменные через var().
+ */
+#brt-rich.brt-rich,
+.brt-rich {
+  /* --- Spacing (4px-шкала) --- */
+  --rich-space-2xs: 4px;
+  --rich-space-xs: 8px;
+  --rich-space-sm: 12px;
+  --rich-space-md: 16px;
+  --rich-space-lg: 24px;
+  --rich-space-xl: 32px;
+  --rich-space-2xl: 40px;
+  --rich-space-3xl: 48px;
+  /* --- Layout (Структура) --- */
+  --rich-max-width: 1024px;
+  --rich-padding-x: 16px;
+  --rich-section-gap: var(--rich-space-lg);
+  --rich-split-left: 50%;
+  --rich-split-gap: var(--rich-space-xl);
+  --rich-row-gap: var(--rich-split-gap);
+  --rich-gutter-x: var(--rich-row-gap);
+  --rich-gutter-y: var(--rich-space-xs);
+  /* --- Hero --- */
+  --rich-hero-header-gap: 20px;
+  --rich-hero-card-gap: var(--rich-space-sm);
+  --rich-hero-card-height: 284px;
+  --rich-hero-media-width: 392px;
+  --rich-hero-title-model-gap: 0;
+  --rich-hero-model-desc-gap: var(--rich-space-2xl);
+  --rich-hero-desc-perks-gap: 28px;
+  --rich-hero-perk-min-height: 76px;
+  /* --- Cards Accent --- */
+  --rich-cards-accent-media-height: 180px;
+  /* --- Accent Bar --- */
+  --rich-accent-bar-padding-y: var(--rich-space-xl);
+  --rich-accent-bar-padding-x: var(--rich-space-2xl);
+  --rich-accent-bar-icon-size: 144px;
+  /* --- Accent Cards --- */
+  --rich-section-heading-gap: 20px;
+  --rich-accent-card-media-height: 200px;
+  --rich-accent-card-min-height: 472px;
+  --rich-accent-card-padding-x: var(--rich-space-lg);
+  --rich-accent-card-padding-y: var(--rich-space-lg);
+  --rich-accent-card-body-gap: var(--rich-space-lg);
+  --rich-accent-card-text-gap: var(--rich-space-md);
+  /* --- Media Text --- */
+  --rich-media-text-aside-width: 268px;
+  --rich-media-text-aside-height: 328px;
+  --rich-media-text-title-gap: var(--rich-space-md);
+  /* --- Overlay Badges --- */
+  --rich-overlay-badge-size: 108px;
+  --rich-overlay-badge-height: 104px;
+  --rich-overlay-badges-gap: 64px;
+  /* --- Feature Grid --- */
+  --rich-feature-grid-gap: 10px;
+  --rich-feature-grid-title-gap: 15px;
+  --rich-feature-grid-card-padding-x: 35px;
+  --rich-feature-grid-card-padding-y: 28px;
+  --rich-feature-grid-fixation-min-height: 231px;
+  --rich-feature-grid-tank-min-height: 174px;
+  --rich-feature-grid-text-min-height: 293px;
+  --rich-feature-grid-tank-icon-size: 82px;
+  --rich-feature-grid-blow-media-height: 117px;
+  --rich-feature-grid-body-gap: 14px;
+  /* --- Product Params --- */
+  --rich-params-info-min-height: 232px;
+  --rich-params-info-padding: 28px 44px;
+  --rich-params-info-title-gap: 28px;
+  --rich-params-stat-min-height: 140px;
+  --rich-params-stat-number-size: 64px;
+  --rich-params-stat-unit-size: 32px;
+  --rich-params-stat-unit-small-size: 20px;
+  /* --- Specs Icon Grid --- */
+  --rich-specs-icon-grid-gap: var(--rich-feature-grid-gap);
+  --rich-specs-icon-card-min-height: 90px;
+  --rich-specs-icon-card-padding-x: 20px;
+  --rich-specs-icon-card-padding-y: 16px;
+  --rich-specs-icon-card-gap: 14px;
+  --rich-specs-icon-card-icon-max-width: 57px;
+  --rich-specs-icon-card-icon-max-height: 49px;
+  --rich-specs-icon-card-label-size: 15px;
+  --rich-specs-icon-card-value-size: 28px;
+  --rich-specs-icon-card-value-size-sm: var(--rich-font-size-page-title);
+  --rich-specs-icon-card-unit-size: 22px;
+  --rich-specs-icon-card-unit-size-sm: var(--rich-font-size-h3);
+  --rich-specs-icon-card-title-size: 18px;
+  --rich-specs-icon-card-title-max-width-sm: 150px;
+  --rich-specs-icon-grid-callout-min-height: 138px;
+  --rich-specs-icon-grid-callout-padding-x: 24px;
+  --rich-specs-icon-grid-callout-padding-left: 135px;
+  --rich-specs-icon-grid-callout-padding-right: 100px;
+  --rich-specs-icon-grid-callout-padding-inline-sm: 20px;
+  --rich-specs-icon-grid-callout-gap: 50px;
+  --rich-specs-icon-grid-callout-icon-max-width: 73px;
+  --rich-specs-icon-grid-callout-icon-max-height: 85px;
+  /* --- Advantages --- */
+  --rich-info-card-body-padding-x: var(--rich-space-xl);
+  --rich-info-card-body-padding-bottom: 28px;
+  /* --- Kit --- */
+  --rich-section-heading-size: 40px;
+  --rich-contents-item-main-media-min-height: 336px;
+  --rich-contents-item-media-min-height: 140px;
+  --rich-contents-item-bottom-media-min-height: 120px;
+  --rich-contents-label-padding: var(--rich-space-sm) var(--rich-space-sm) var(--rich-space-md);
+  /* --- Card --- */
+  --rich-card-padding-y: 28px;
+  --rich-card-padding-x: 36px;
+  --rich-card-padding: 20px;
+  --rich-card-padding-lg: 40px;
+  --rich-card-shadow: 0 2px 12px var(--rich-color-shadow);
+  /* --- Filters --- */
+  --rich-columns-card-min-height: 320px;
+  --rich-columns-card-feature-height: 168px;
+  --rich-columns-card-feature-padding: 28px;
+  --rich-columns-card-lead-gap: var(--rich-space-xs);
+  /* --- Colors (Цвета) --- */
+  --rich-color-accent: #5cb9ff;
+  --rich-color-accent-fill: #e1f2ff;
+  --rich-color-accent-light: #4eb2fe;
+  --rich-color-bg: #ffffff;
+  --rich-color-bg-muted: #f2f2f2;
+  --rich-color-bg-tinted: #e1f2ff;
+  --rich-color-brand: #5cb9ff;
+  --rich-color-bg-card: var(--rich-color-bg);
+  --rich-color-text: #000000;
+  --rich-color-text-heading: #2b2b2b;
+  --rich-color-text-muted: #666666;
+  --rich-color-text-inverse: #ffffff;
+  --rich-color-border: #e8e8e8;
+  --rich-color-shadow: rgba(0, 0, 0, 0.08);
+  /* --- Typography (Типографика) --- */
+  --rich-font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --rich-font-family-display: "Russo One", "Roboto", sans-serif;
+  --rich-font-size-page-title: 24px;
+  --rich-font-size-h1: 24px;
+  --rich-font-size-h2: 28px;
+  --rich-font-size-section-title: 1.8125rem;
+  --rich-font-size-h3: 18px;
+  --rich-font-size-body: 16px;
+  --rich-font-size-hero-title: 24px;
+  --rich-font-size-hero-model: 30px;
+  --rich-font-size-hero-desc: 18px;
+  --rich-font-size-hero-perk: 12px;
+  --rich-font-size-small: 12px;
+  --rich-font-size-badge: 16px;
+  --rich-font-size-stat: var(--rich-font-size-page-title);
+  --rich-font-size-spec-value: 32px;
+  --rich-font-size-display: 56px;
+  --rich-line-height: 1.5;
+  --rich-font-weight-bold: 700;
+  --rich-font-weight-semibold: 600;
+  --rich-font-weight-normal: 400;
+  /* --- Border radius (Скругления) --- */
+  --rich-radius-sm: 8px;
+  --rich-radius-md: 12px;
+  --rich-radius-lg: 20px;
+  --rich-radius-pill: 48px;
+  --rich-radius-round: 50%;
+}
+</style>
