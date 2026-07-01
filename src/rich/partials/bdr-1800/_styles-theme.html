@@ -1388,6 +1388,8 @@
 #brt-rich.brt-rich .brt-rich__info-card-header .brt-rich__heading.brt-rich__info-card-title,
 .brt-rich .brt-rich__info-card-header .brt-rich__heading.brt-rich__info-card-title {
   margin: 0;
+  font-size: 1.375rem !important;
+  color: #000 !important;
 }
 #brt-rich.brt-rich .brt-rich__info-card-icon,
 .brt-rich .brt-rich__info-card-icon {
@@ -1412,7 +1414,7 @@
 #brt-rich.brt-rich .brt-rich__info-card-desc,
 .brt-rich .brt-rich__info-card-desc {
   margin: 0;
-  font-size: var(--rich-font-size-body);
+  font-size: var(--rich-font-size-hero-desc) !important;
   line-height: 1.08;
   color: #000;
 }
@@ -2639,6 +2641,42 @@
 #brt-rich.brt-rich ol.brt-rich__contents-annotated-list li::before, #brt-rich.brt-rich ol.brt-rich__contents-annotated-list li::after,
 .brt-rich ol.brt-rich__contents-annotated-list li::before,
 .brt-rich ol.brt-rich__contents-annotated-list li::after {
+  content: none !important;
+  display: none !important;
+  background: none !important;
+  border-radius: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  position: static !important;
+  left: auto !important;
+  top: auto !important;
+}
+#brt-rich.brt-rich ol.brt-rich__touch-control-list,
+.brt-rich ol.brt-rich__touch-control-list {
+  list-style: decimal !important;
+  list-style-type: decimal !important;
+  padding-left: 1.25em !important;
+}
+#brt-rich.brt-rich ol.brt-rich__touch-control-list li,
+.brt-rich ol.brt-rich__touch-control-list li {
+  list-style: decimal !important;
+  list-style-type: decimal !important;
+  display: list-item !important;
+  position: static !important;
+  padding: 0 !important;
+  padding-left: 0 !important;
+  margin: 0 !important;
+  margin-bottom: 0 !important;
+  font-family: inherit !important;
+  font-style: normal !important;
+  font-weight: inherit !important;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+}
+#brt-rich.brt-rich ol.brt-rich__touch-control-list li::before, #brt-rich.brt-rich ol.brt-rich__touch-control-list li::after,
+.brt-rich ol.brt-rich__touch-control-list li::before,
+.brt-rich ol.brt-rich__touch-control-list li::after {
   content: none !important;
   display: none !important;
   background: none !important;

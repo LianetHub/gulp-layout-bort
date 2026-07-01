@@ -1352,6 +1352,8 @@
 
 		.brt-rich__heading.brt-rich__info-card-title {
 			margin: 0;
+			font-size: 1.375rem !important;
+			color: #000 !important;
 		}
 
 	}
@@ -1378,7 +1380,7 @@
 
 	.brt-rich__info-card-desc {
 		margin: 0;
-		font-size: var(--rich-font-size-body);
+		font-size: var(--rich-font-size-hero-desc) !important;
 		line-height: 1.08;
 		color: #000;
 	}
@@ -2039,12 +2041,14 @@
 
 		.brt-rich__nozzles-bottom {
 			margin-top: var(--rich-space-2xl);
+
 			.brt-rich-row {
 				align-items: stretch;
+
 				.brt-rich__nozzles-diagram-part {
 					height: 100%;
 				}
-			 }
+			}
 		}
 
 

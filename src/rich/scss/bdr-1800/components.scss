@@ -28,10 +28,11 @@
 
 		.brt-rich__figure-wide-title {
 			margin: 0 0 var(--rich-space-md);
-			font-size: var(--rich-font-size-h2);
-			font-weight: var(--rich-font-weight-semibold);
-			line-height: 1.2;
-			color: var(--rich-color-text);
+			font-family: var(--rich-font-family) !important;
+			font-size: var(--rich-font-size-h2) !important;
+			font-weight: var(--rich-font-weight-semibold) !important;
+			line-height: 1.2 !important;
+			color: var(--rich-color-text) !important;
 		}
 
 		.brt-rich__text {
@@ -107,6 +108,13 @@
 		color: var(--rich-color-text-heading);
 	}
 
+	.brt-rich__info-card-desc,
+	.brt-rich__text.brt-rich__info-card-desc {
+		font-size: var(--rich-font-size-hero-desc) !important;
+		line-height: 1.08 !important;
+		color: #000 !important;
+	}
+
 	.brt-rich__touch-control-section {
 		padding-block: 0 var(--rich-section-gap);
 	}
@@ -128,19 +136,35 @@
 		margin: 0;
 		padding: 0 0 0 1.25em !important;
 		list-style: decimal !important;
-		font-size: 20px;
-		line-height: 1.35;
-		color: var(--rich-color-text);
+		font-family: var(--rich-font-family) !important;
+		font-size: 20px !important;
+		font-weight: 400 !important;
+		line-height: 1.35 !important;
+		color: var(--rich-color-text) !important;
+
+		li {
+			font-family: inherit !important;
+			font-size: inherit !important;
+			font-weight: inherit !important;
+			line-height: inherit !important;
+			color: inherit !important;
+		}
 
 		li+li {
 			margin-top: var(--rich-space-md);
 		}
 
 		strong {
-			font-weight: var(--rich-font-weight-semibold);
+			font-weight: var(--rich-font-weight-semibold) !important;
 		}
 
 		.brt-rich__touch-control-item-text {
+			font-family: inherit !important;
+			font-size: inherit !important;
+			font-weight: 400 !important;
+			line-height: inherit !important;
+			color: inherit !important;
+
 			&:not(:last-child) {
 				margin-bottom: 0.5rem;
 			}

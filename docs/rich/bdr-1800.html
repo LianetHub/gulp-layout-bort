@@ -2035,6 +2035,8 @@
 		#brt-rich.brt-rich .brt-rich__info-card-header .brt-rich__heading.brt-rich__info-card-title,
 		.brt-rich .brt-rich__info-card-header .brt-rich__heading.brt-rich__info-card-title {
 		  margin: 0;
+		  font-size: 1.375rem !important;
+		  color: #000 !important;
 		}
 		#brt-rich.brt-rich .brt-rich__info-card-icon,
 		.brt-rich .brt-rich__info-card-icon {
@@ -2059,7 +2061,7 @@
 		#brt-rich.brt-rich .brt-rich__info-card-desc,
 		.brt-rich .brt-rich__info-card-desc {
 		  margin: 0;
-		  font-size: var(--rich-font-size-body);
+		  font-size: var(--rich-font-size-hero-desc) !important;
 		  line-height: 1.08;
 		  color: #000;
 		}
@@ -3296,6 +3298,42 @@
 		  left: auto !important;
 		  top: auto !important;
 		}
+		#brt-rich.brt-rich ol.brt-rich__touch-control-list,
+		.brt-rich ol.brt-rich__touch-control-list {
+		  list-style: decimal !important;
+		  list-style-type: decimal !important;
+		  padding-left: 1.25em !important;
+		}
+		#brt-rich.brt-rich ol.brt-rich__touch-control-list li,
+		.brt-rich ol.brt-rich__touch-control-list li {
+		  list-style: decimal !important;
+		  list-style-type: decimal !important;
+		  display: list-item !important;
+		  position: static !important;
+		  padding: 0 !important;
+		  padding-left: 0 !important;
+		  margin: 0 !important;
+		  margin-bottom: 0 !important;
+		  font-family: inherit !important;
+		  font-style: normal !important;
+		  font-weight: inherit !important;
+		  font-size: inherit !important;
+		  line-height: inherit !important;
+		  color: inherit !important;
+		}
+		#brt-rich.brt-rich ol.brt-rich__touch-control-list li::before, #brt-rich.brt-rich ol.brt-rich__touch-control-list li::after,
+		.brt-rich ol.brt-rich__touch-control-list li::before,
+		.brt-rich ol.brt-rich__touch-control-list li::after {
+		  content: none !important;
+		  display: none !important;
+		  background: none !important;
+		  border-radius: 0 !important;
+		  width: auto !important;
+		  height: auto !important;
+		  position: static !important;
+		  left: auto !important;
+		  top: auto !important;
+		}
 
 		#brt-rich.brt-rich,
 		.brt-rich {
@@ -4146,10 +4184,11 @@
 		#brt-rich.brt-rich .brt-rich__figure-wide--stacked .brt-rich__figure-wide-title,
 		.brt-rich .brt-rich__figure-wide--stacked .brt-rich__figure-wide-title {
 		  margin: 0 0 var(--rich-space-md);
-		  font-size: var(--rich-font-size-h2);
-		  font-weight: var(--rich-font-weight-semibold);
-		  line-height: 1.2;
-		  color: var(--rich-color-text);
+		  font-family: var(--rich-font-family) !important;
+		  font-size: var(--rich-font-size-h2) !important;
+		  font-weight: var(--rich-font-weight-semibold) !important;
+		  line-height: 1.2 !important;
+		  color: var(--rich-color-text) !important;
 		}
 		#brt-rich.brt-rich .brt-rich__figure-wide--stacked .brt-rich__text,
 		.brt-rich .brt-rich__figure-wide--stacked .brt-rich__text {
@@ -4221,6 +4260,14 @@
 		  line-height: 1.35;
 		  color: var(--rich-color-text-heading);
 		}
+		#brt-rich.brt-rich .brt-rich__info-card-desc,
+		#brt-rich.brt-rich .brt-rich__text.brt-rich__info-card-desc,
+		.brt-rich .brt-rich__info-card-desc,
+		.brt-rich .brt-rich__text.brt-rich__info-card-desc {
+		  font-size: var(--rich-font-size-hero-desc) !important;
+		  line-height: 1.08 !important;
+		  color: #000 !important;
+		}
 		#brt-rich.brt-rich .brt-rich__touch-control-section,
 		.brt-rich .brt-rich__touch-control-section {
 		  padding-block: 0 var(--rich-section-gap);
@@ -4241,9 +4288,19 @@
 		  margin: 0;
 		  padding: 0 0 0 1.25em !important;
 		  list-style: decimal !important;
-		  font-size: 20px;
-		  line-height: 1.35;
-		  color: var(--rich-color-text);
+		  font-family: var(--rich-font-family) !important;
+		  font-size: 20px !important;
+		  font-weight: 400 !important;
+		  line-height: 1.35 !important;
+		  color: var(--rich-color-text) !important;
+		}
+		#brt-rich.brt-rich .brt-rich__touch-control-list li,
+		.brt-rich .brt-rich__touch-control-list li {
+		  font-family: inherit !important;
+		  font-size: inherit !important;
+		  font-weight: inherit !important;
+		  line-height: inherit !important;
+		  color: inherit !important;
 		}
 		#brt-rich.brt-rich .brt-rich__touch-control-list li + li,
 		.brt-rich .brt-rich__touch-control-list li + li {
@@ -4251,7 +4308,15 @@
 		}
 		#brt-rich.brt-rich .brt-rich__touch-control-list strong,
 		.brt-rich .brt-rich__touch-control-list strong {
-		  font-weight: var(--rich-font-weight-semibold);
+		  font-weight: var(--rich-font-weight-semibold) !important;
+		}
+		#brt-rich.brt-rich .brt-rich__touch-control-list .brt-rich__touch-control-item-text,
+		.brt-rich .brt-rich__touch-control-list .brt-rich__touch-control-item-text {
+		  font-family: inherit !important;
+		  font-size: inherit !important;
+		  font-weight: 400 !important;
+		  line-height: inherit !important;
+		  color: inherit !important;
 		}
 		#brt-rich.brt-rich .brt-rich__touch-control-list .brt-rich__touch-control-item-text:not(:last-child),
 		.brt-rich .brt-rich__touch-control-list .brt-rich__touch-control-item-text:not(:last-child) {
@@ -4774,7 +4839,7 @@
 										</div>
 										<div class="brt-rich__heading brt-rich__info-card-title">Режим 25 г/мин <br> (Экономичный/Деликатный)</div>
 									</div>
-									<p class="brt-rich__text brt-rich__info-card-desc">Оптимален для очистки поверхностей, чувствительных к избыточному увлажнению или высокому температурному воздействию.</p>
+									<div class="brt-rich__text brt-rich__info-card-desc">Оптимален для очистки поверхностей, чувствительных к избыточному увлажнению или высокому температурному воздействию.</div>
 								</div>
 							</div>
 						</div>
@@ -4790,7 +4855,7 @@
 										</div>
 										<div class="brt-rich__heading brt-rich__info-card-title">Режим 36 г/мин<br>(Интенсивный)</div>
 									</div>
-									<p class="brt-rich__text brt-rich__info-card-desc">Предназначен для работы со сложными загрязнениями, такими как засохший жир на кухне, известковый налёт в ванной комнате или застарелые пятна в межплиточных швах.</p>
+									<div class="brt-rich__text brt-rich__info-card-desc">Предназначен для работы со сложными загрязнениями, такими как засохший жир на кухне, известковый налёт в ванной комнате или застарелые пятна в межплиточных швах.</div>
 								</div>
 							</div>
 						</div>
