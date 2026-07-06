@@ -1,0 +1,419 @@
+<style id="rich-components">
+/*
+ * KEX-3500 component-specific styles
+ */
+
+/* Hero note under card */
+#brt-rich.brt-rich .brt-rich__hero-note,
+.brt-rich .brt-rich__hero-note {
+  margin-top: var(--rich-space-md);
+  font-size: 15px;
+  line-height: 1.4;
+}
+
+/* Split stats — single column stack */
+#brt-rich.brt-rich .brt-rich__split-stats--stacked .brt-rich-col-sm-6,
+.brt-rich .brt-rich__split-stats--stacked .brt-rich-col-sm-6 {
+  flex: 0 0 100%;
+  max-width: 100%;
+}
+
+/* Material banner — centered text on accent */
+#brt-rich.brt-rich .brt-rich__accent-bar--centered,
+.brt-rich .brt-rich__accent-bar--centered {
+  text-align: center;
+}
+#brt-rich.brt-rich .brt-rich__accent-bar--centered .brt-rich__accent-bar-body,
+.brt-rich .brt-rich__accent-bar--centered .brt-rich__accent-bar-body {
+  max-width: 848px;
+  margin-inline: auto;
+}
+
+/* Features panel */
+#brt-rich.brt-rich .brt-rich__features-panel-section,
+.brt-rich .brt-rich__features-panel-section {
+  margin-block: 0;
+}
+#brt-rich.brt-rich .brt-rich__features-panel,
+.brt-rich .brt-rich__features-panel {
+  padding: var(--rich-space-lg);
+  background: var(--rich-color-bg-muted);
+  border-radius: var(--rich-radius-lg);
+}
+#brt-rich.brt-rich .brt-rich__features-panel-heading,
+.brt-rich .brt-rich__features-panel-heading {
+  margin: 0 0 var(--rich-space-lg);
+  font-size: 24px;
+  font-weight: var(--rich-font-weight-semibold);
+  text-align: center;
+}
+#brt-rich.brt-rich .brt-rich__features-panel-lead,
+.brt-rich .brt-rich__features-panel-lead {
+  margin-bottom: var(--rich-space-lg);
+  padding: var(--rich-space-lg) var(--rich-space-xl);
+  background: var(--rich-color-accent);
+  border-radius: var(--rich-radius-md);
+  font-size: var(--rich-font-size-body);
+  line-height: 1.4;
+  text-align: center;
+}
+#brt-rich.brt-rich .brt-rich__features-panel-grid,
+.brt-rich .brt-rich__features-panel-grid {
+  margin-bottom: var(--rich-space-sm);
+}
+#brt-rich.brt-rich .brt-rich__features-panel-card,
+.brt-rich .brt-rich__features-panel-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  min-height: 210px;
+  padding: var(--rich-space-lg) var(--rich-space-md);
+  background: var(--rich-color-bg);
+  border-radius: var(--rich-radius-sm);
+  text-align: center;
+}
+#brt-rich.brt-rich .brt-rich__features-panel-card-icon,
+.brt-rich .brt-rich__features-panel-card-icon {
+  width: 65px;
+  height: 65px;
+  margin-bottom: var(--rich-space-md);
+  object-fit: contain;
+}
+#brt-rich.brt-rich .brt-rich__features-panel-card-text,
+.brt-rich .brt-rich__features-panel-card-text {
+  margin: 0;
+  font-size: var(--rich-font-size-body);
+  line-height: 1.08;
+}
+#brt-rich.brt-rich .brt-rich__features-panel-row,
+.brt-rich .brt-rich__features-panel-row {
+  margin-bottom: var(--rich-space-sm);
+}
+#brt-rich.brt-rich .brt-rich__features-panel-row-card,
+.brt-rich .brt-rich__features-panel-row-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 177px;
+  padding: var(--rich-space-md);
+  background: var(--rich-color-bg);
+  border-radius: var(--rich-radius-sm);
+  text-align: center;
+}
+#brt-rich.brt-rich .brt-rich__features-panel-row-card--wide,
+.brt-rich .brt-rich__features-panel-row-card--wide {
+  min-height: auto;
+  padding-bottom: var(--rich-space-lg);
+}
+#brt-rich.brt-rich .brt-rich__features-panel-row-icon,
+.brt-rich .brt-rich__features-panel-row-icon {
+  width: 80px;
+  height: 82px;
+  margin-bottom: var(--rich-space-sm);
+  object-fit: contain;
+}
+#brt-rich.brt-rich .brt-rich__features-panel-row-title,
+.brt-rich .brt-rich__features-panel-row-title {
+  margin: 0 0 var(--rich-space-xs);
+  font-size: var(--rich-font-size-body);
+  font-weight: var(--rich-font-weight-semibold);
+  line-height: 1.2;
+}
+#brt-rich.brt-rich .brt-rich__features-panel-row-desc,
+.brt-rich .brt-rich__features-panel-row-desc {
+  margin: 0;
+  font-size: var(--rich-font-size-body);
+  line-height: 1.08;
+}
+#brt-rich.brt-rich .brt-rich__features-panel-row-foot,
+.brt-rich .brt-rich__features-panel-row-foot {
+  margin-top: auto;
+  font-size: var(--rich-font-size-body);
+  line-height: 1.2;
+}
+#brt-rich.brt-rich .brt-rich__features-panel-suction,
+.brt-rich .brt-rich__features-panel-suction {
+  display: flex;
+  align-items: center;
+  gap: var(--rich-space-xl);
+  margin-top: var(--rich-space-sm);
+  padding: var(--rich-space-lg) var(--rich-space-xl);
+  background: var(--rich-color-accent);
+  border-radius: var(--rich-radius-md);
+}
+#brt-rich.brt-rich .brt-rich__features-panel-suction-icon,
+.brt-rich .brt-rich__features-panel-suction-icon {
+  flex-shrink: 0;
+  width: 115px;
+  height: 101px;
+  object-fit: contain;
+}
+#brt-rich.brt-rich .brt-rich__features-panel-suction-text,
+.brt-rich .brt-rich__features-panel-suction-text {
+  margin: 0;
+  font-size: var(--rich-font-size-body);
+  line-height: 1.4;
+}
+
+/* Nozzle modes */
+#brt-rich.brt-rich .brt-rich__nozzle-modes-section,
+.brt-rich .brt-rich__nozzle-modes-section {
+  margin-block: 0;
+}
+#brt-rich.brt-rich .brt-rich__nozzle-modes,
+.brt-rich .brt-rich__nozzle-modes {
+  padding: var(--rich-space-lg);
+  background: var(--rich-color-accent);
+  border-radius: var(--rich-radius-lg);
+}
+#brt-rich.brt-rich .brt-rich__nozzle-modes-title,
+.brt-rich .brt-rich__nozzle-modes-title {
+  margin: 0 0 var(--rich-space-lg);
+  font-size: 20px;
+  font-weight: var(--rich-font-weight-semibold);
+  text-align: center;
+  color: var(--rich-color-text);
+}
+#brt-rich.brt-rich .brt-rich__nozzle-modes-item,
+.brt-rich .brt-rich__nozzle-modes-item {
+  display: flex;
+  gap: var(--rich-space-md);
+  min-height: 141px;
+  margin-bottom: var(--rich-space-sm);
+  padding: var(--rich-space-sm);
+  background: var(--rich-color-bg);
+  border-radius: var(--rich-radius-sm);
+  overflow: hidden;
+}
+#brt-rich.brt-rich .brt-rich__nozzle-modes-item:last-child,
+.brt-rich .brt-rich__nozzle-modes-item:last-child {
+  margin-bottom: 0;
+}
+#brt-rich.brt-rich .brt-rich__nozzle-modes-media,
+.brt-rich .brt-rich__nozzle-modes-media {
+  flex: 0 0 135px;
+  position: relative;
+  overflow: hidden;
+  border-radius: var(--rich-radius-sm);
+}
+#brt-rich.brt-rich .brt-rich__nozzle-modes-media img,
+.brt-rich .brt-rich__nozzle-modes-media img {
+  width: 100%;
+  height: 100%;
+  min-height: 135px;
+  object-fit: cover;
+}
+#brt-rich.brt-rich .brt-rich__nozzle-modes-label,
+.brt-rich .brt-rich__nozzle-modes-label {
+  position: absolute;
+  top: var(--rich-space-xs);
+  left: var(--rich-space-xs);
+  margin: 0;
+  font-family: var(--rich-font-family-display);
+  font-size: 17px;
+  line-height: 1.2;
+  text-transform: uppercase;
+  color: var(--rich-color-text-inverse);
+}
+#brt-rich.brt-rich .brt-rich__nozzle-modes-body,
+.brt-rich .brt-rich__nozzle-modes-body {
+  flex: 1;
+  padding: var(--rich-space-xs) 0;
+  font-size: 17px;
+  line-height: 1.2;
+}
+#brt-rich.brt-rich .brt-rich__nozzle-modes-body strong,
+.brt-rich .brt-rich__nozzle-modes-body strong {
+  font-weight: var(--rich-font-weight-bold);
+}
+
+/* Ergonomics grid */
+#brt-rich.brt-rich .brt-rich__ergonomics-grid-section,
+.brt-rich .brt-rich__ergonomics-grid-section {
+  margin-block: 0;
+}
+#brt-rich.brt-rich .brt-rich__ergonomics-grid,
+.brt-rich .brt-rich__ergonomics-grid {
+  padding: var(--rich-space-lg);
+  background: var(--rich-color-accent);
+  border-radius: var(--rich-radius-lg);
+}
+#brt-rich.brt-rich .brt-rich__ergonomics-grid-title,
+.brt-rich .brt-rich__ergonomics-grid-title {
+  margin: 0 0 var(--rich-space-lg);
+  font-size: 24px;
+  font-weight: var(--rich-font-weight-semibold);
+  text-align: center;
+}
+#brt-rich.brt-rich .brt-rich__ergonomics-grid-card,
+.brt-rich .brt-rich__ergonomics-grid-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 314px;
+  padding: var(--rich-space-md);
+  background: var(--rich-color-bg);
+  border-radius: var(--rich-radius-sm);
+}
+#brt-rich.brt-rich .brt-rich__ergonomics-grid-card--short,
+.brt-rich .brt-rich__ergonomics-grid-card--short {
+  min-height: 324px;
+}
+#brt-rich.brt-rich .brt-rich__ergonomics-grid-media,
+.brt-rich .brt-rich__ergonomics-grid-media {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: var(--rich-space-md);
+  overflow: hidden;
+}
+#brt-rich.brt-rich .brt-rich__ergonomics-grid-media img,
+.brt-rich .brt-rich__ergonomics-grid-media img {
+  max-width: 100%;
+  max-height: 240px;
+  object-fit: contain;
+}
+#brt-rich.brt-rich .brt-rich__ergonomics-grid-text,
+.brt-rich .brt-rich__ergonomics-grid-text {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.2;
+}
+
+/* Kit intro on accent */
+#brt-rich.brt-rich .brt-rich__kit-intro-section,
+.brt-rich .brt-rich__kit-intro-section {
+  margin-block: 0;
+}
+#brt-rich.brt-rich .brt-rich__kit-intro,
+.brt-rich .brt-rich__kit-intro {
+  padding: var(--rich-space-lg) var(--rich-space-xl);
+  background: var(--rich-color-accent);
+  border-radius: var(--rich-radius-lg);
+  text-align: center;
+}
+#brt-rich.brt-rich .brt-rich__kit-intro-title,
+.brt-rich .brt-rich__kit-intro-title {
+  margin: 0 0 var(--rich-space-sm);
+  font-size: 25px;
+  font-weight: var(--rich-font-weight-semibold);
+}
+#brt-rich.brt-rich .brt-rich__kit-intro-desc,
+.brt-rich .brt-rich__kit-intro-desc {
+  margin: 0;
+  font-size: 20px;
+  line-height: 1.4;
+}
+
+/* Engineering captions */
+#brt-rich.brt-rich .brt-rich__engineering-caption,
+.brt-rich .brt-rich__engineering-caption {
+  margin-top: var(--rich-space-sm);
+  padding: var(--rich-space-md) var(--rich-space-lg);
+  background: var(--rich-color-accent);
+  border-radius: var(--rich-radius-md);
+  font-size: var(--rich-font-size-body);
+  line-height: 1.3;
+}
+
+/* Shampoo section */
+#brt-rich.brt-rich .brt-rich__shampoo-section,
+.brt-rich .brt-rich__shampoo-section {
+  margin-block: 0;
+}
+#brt-rich.brt-rich .brt-rich__shampoo-banner,
+.brt-rich .brt-rich__shampoo-banner {
+  padding: var(--rich-space-lg);
+  background: var(--rich-color-bg-muted);
+  border-radius: var(--rich-radius-lg);
+}
+#brt-rich.brt-rich .brt-rich__shampoo-lead,
+.brt-rich .brt-rich__shampoo-lead {
+  margin: 0 0 var(--rich-space-lg);
+  font-size: var(--rich-font-size-body);
+  line-height: 1.4;
+  text-align: center;
+}
+
+/* Accessories mini grid */
+#brt-rich.brt-rich .brt-rich__accessory-mini,
+.brt-rich .brt-rich__accessory-mini {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 202px;
+  padding: var(--rich-space-md);
+  background: var(--rich-color-bg-muted);
+  border-radius: var(--rich-radius-lg);
+  text-align: center;
+}
+#brt-rich.brt-rich .brt-rich__accessory-mini-media,
+.brt-rich .brt-rich__accessory-mini-media {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: var(--rich-space-sm);
+}
+#brt-rich.brt-rich .brt-rich__accessory-mini-media img,
+.brt-rich .brt-rich__accessory-mini-media img {
+  max-width: 100%;
+  max-height: 160px;
+  object-fit: contain;
+}
+#brt-rich.brt-rich .brt-rich__accessory-mini-title,
+.brt-rich .brt-rich__accessory-mini-title {
+  margin: 0 0 var(--rich-space-xs);
+  font-size: 25px;
+  font-weight: var(--rich-font-weight-semibold);
+  line-height: 1.14;
+}
+#brt-rich.brt-rich .brt-rich__accessory-mini-desc,
+.brt-rich .brt-rich__accessory-mini-desc {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.14;
+}
+
+/* Utility spacing for KEX sections */
+#brt-rich.brt-rich .brt-rich__nozzle-compare,
+.brt-rich .brt-rich__nozzle-compare {
+  margin-top: var(--rich-space-md);
+}
+#brt-rich.brt-rich .brt-rich__accessories-row,
+.brt-rich .brt-rich__accessories-row {
+  margin-bottom: var(--rich-space-lg);
+}
+#brt-rich.brt-rich .brt-rich__accessory-media,
+.brt-rich .brt-rich__accessory-media {
+  margin-top: var(--rich-space-md);
+}
+#brt-rich.brt-rich .brt-rich__engineering-block,
+.brt-rich .brt-rich__engineering-block {
+  margin-bottom: var(--rich-space-lg);
+}
+#brt-rich.brt-rich .brt-rich__engineering-note,
+.brt-rich .brt-rich__engineering-note {
+  margin-top: var(--rich-space-md);
+}
+
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__features-panel-suction,
+  .brt-rich .brt-rich__features-panel-suction {
+    flex-direction: column;
+    text-align: center;
+  }
+  #brt-rich.brt-rich .brt-rich__nozzle-modes-item,
+  .brt-rich .brt-rich__nozzle-modes-item {
+    flex-direction: column;
+  }
+  #brt-rich.brt-rich .brt-rich__nozzle-modes-media,
+  .brt-rich .brt-rich__nozzle-modes-media {
+    flex: none;
+    width: 100%;
+  }
+}
+</style>
