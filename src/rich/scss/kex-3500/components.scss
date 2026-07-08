@@ -5,9 +5,11 @@
 
 	// .brt-rich__hero-note
 	.brt-rich__hero-note {
-		margin-top: var(--rich-space-md);
+		margin-top: var(--rich-hero-perks-note-gap);
+		max-width: 527px;
 		font-size: 15px;
-		line-height: 1.4;
+		line-height: normal;
+		color: var(--rich-color-text);
 	}
 
 	// .brt-rich__split-stats--stacked

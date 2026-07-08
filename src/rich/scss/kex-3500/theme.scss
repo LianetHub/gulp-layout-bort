@@ -1080,16 +1080,16 @@
 	.brt-rich__hero-card {
 		border-radius: var(--rich-radius-lg);
 		background: var(--rich-color-bg-muted);
-		overflow: hidden;
-		padding: var(--rich-card-padding-lg);
+		overflow: visible;
+		padding: var(--rich-card-padding-lg) var(--rich-card-padding-lg) var(--rich-space-xs);
 
 		@media (max-width: $md4) {
 			padding: var(--rich-space-lg);
+			overflow: hidden;
 		}
 	}
 
 	.brt-rich__hero-card>.brt-rich-row {
-		align-items: stretch;
 		min-height: var(--rich-hero-card-height);
 	}
 
@@ -1111,7 +1111,7 @@
 	.brt-rich__hero-card-model {
 		margin: var(--rich-hero-title-model-gap) 0 0;
 		font-size: var(--rich-font-size-hero-model);
-		font-weight: var(--rich-font-weight-semibold);
+		font-weight: var(--rich-font-weight-bold);
 		line-height: normal;
 		color: var(--rich-color-accent);
 	}
@@ -1122,33 +1122,26 @@
 		font-weight: var(--rich-font-weight-normal);
 		line-height: normal;
 		color: var(--rich-color-text);
-
-		&:not(:last-child) {
-			margin-bottom: var(--rich-space-lg);
-		}
+		max-width: 567px;
 	}
 
-	.brt-rich__hero-perks {
-		margin: var(--rich-hero-desc-perks-gap) 0 0;
-		padding: 0;
-		max-width: 368px;
-		list-style: none;
-
-		@media (max-width: $md4) {
-			max-width: none;
-		}
+	.brt-rich__hero-card-logo {
+		display: block;
+		width: 100%;
+		max-width: 380px;
+		height: auto;
+		margin: var(--rich-hero-desc-logo-gap) 0 var(--rich-hero-logo-perks-gap);
 	}
 
 	.brt-rich__hero-perk {
 		display: flex;
-		align-items: center;
-		gap: var(--rich-space-xs);
+		align-items: flex-start;
+		gap: var(--rich-hero-perk-gap);
 		width: 100%;
 		height: 100%;
 		min-height: var(--rich-hero-perk-min-height);
-		padding: 0 var(--rich-space-sm);
-		border-radius: var(--rich-radius-md);
-		background: var(--rich-color-bg-card);
+		padding: 0;
+		background: transparent;
 	}
 
 	.brt-rich__hero-perk-icon {
@@ -1156,8 +1149,8 @@
 		display: block;
 		width: auto;
 		height: auto;
-		max-width: 52px;
-		max-height: 52px;
+		max-width: 58px;
+		max-height: 53px;
 	}
 
 	.brt-rich__hero-perk-text {
@@ -1170,12 +1163,20 @@
 	.brt-rich__hero-media {
 		display: flex;
 		justify-content: center;
-		align-items: center;
+		align-items: flex-end;
+
+		@media (min-width: $md4) {
+			margin-top: -26px;
+		}
+
 	}
 
 	.brt-rich__hero-media-photo {
+
 		display: block;
+		width: 187px;
 		max-width: 100%;
+		height: auto;
 	}
 
 	.brt-rich__statement {

@@ -32,12 +32,15 @@
   /* --- Hero --- */
   --rich-hero-header-gap: 20px;
   --rich-hero-card-gap: var(--rich-space-sm);
-  --rich-hero-card-height: 284px;
+  --rich-hero-card-height: 477px;
   --rich-hero-media-width: 392px;
   --rich-hero-title-model-gap: var(--rich-space-xs);
   --rich-hero-model-desc-gap: var(--rich-space-sm);
-  --rich-hero-desc-perks-gap: 28px;
-  --rich-hero-perk-min-height: 76px;
+  --rich-hero-desc-logo-gap: 27px;
+  --rich-hero-logo-perks-gap: 30px;
+  --rich-hero-perks-note-gap: 40px;
+  --rich-hero-perk-gap: 23px;
+  --rich-hero-perk-min-height: 0;
   /* --- Cards Accent --- */
   --rich-cards-accent-media-height: 180px;
   /* --- Accent Bar --- */
@@ -126,7 +129,7 @@
   --rich-font-size-hero-title: 24px;
   --rich-font-size-hero-model: var(--rich-font-size-hero-title);
   --rich-font-size-hero-desc: 20px;
-  --rich-font-size-hero-perk: 12px;
+  --rich-font-size-hero-perk: 16px;
   --rich-font-size-small: 12px;
   --rich-font-size-badge: 16px;
   --rich-font-size-stat: var(--rich-font-size-page-title);
@@ -1735,18 +1738,18 @@
 		.brt-rich .brt-rich__hero-card {
 		  border-radius: var(--rich-radius-lg);
 		  background: var(--rich-color-bg-muted);
-		  overflow: hidden;
-		  padding: var(--rich-card-padding-lg);
+		  overflow: visible;
+		  padding: var(--rich-card-padding-lg) var(--rich-card-padding-lg) var(--rich-space-xs);
 		}
 		@media (max-width: 767.98px) {
 		  #brt-rich.brt-rich .brt-rich__hero-card,
 		  .brt-rich .brt-rich__hero-card {
 		    padding: var(--rich-space-lg);
+		    overflow: hidden;
 		  }
 		}
 		#brt-rich.brt-rich .brt-rich__hero-card > .brt-rich-row,
 		.brt-rich .brt-rich__hero-card > .brt-rich-row {
-		  align-items: stretch;
 		  min-height: var(--rich-hero-card-height);
 		}
 		#brt-rich.brt-rich .brt-rich__hero-card > .brt-rich-row > .brt-rich-col-md-6:first-child,
@@ -1768,7 +1771,7 @@
 		.brt-rich .brt-rich__hero-card-model {
 		  margin: var(--rich-hero-title-model-gap) 0 0;
 		  font-size: var(--rich-font-size-hero-model);
-		  font-weight: var(--rich-font-weight-semibold);
+		  font-weight: var(--rich-font-weight-bold);
 		  line-height: normal;
 		  color: var(--rich-color-accent);
 		}
@@ -1779,35 +1782,26 @@
 		  font-weight: var(--rich-font-weight-normal);
 		  line-height: normal;
 		  color: var(--rich-color-text);
+		  max-width: 567px;
 		}
-		#brt-rich.brt-rich .brt-rich__hero-card-desc:not(:last-child),
-		.brt-rich .brt-rich__hero-card-desc:not(:last-child) {
-		  margin-bottom: var(--rich-space-lg);
-		}
-		#brt-rich.brt-rich .brt-rich__hero-perks,
-		.brt-rich .brt-rich__hero-perks {
-		  margin: var(--rich-hero-desc-perks-gap) 0 0;
-		  padding: 0;
-		  max-width: 368px;
-		  list-style: none;
-		}
-		@media (max-width: 767.98px) {
-		  #brt-rich.brt-rich .brt-rich__hero-perks,
-		  .brt-rich .brt-rich__hero-perks {
-		    max-width: none;
-		  }
+		#brt-rich.brt-rich .brt-rich__hero-card-logo,
+		.brt-rich .brt-rich__hero-card-logo {
+		  display: block;
+		  width: 100%;
+		  max-width: 380px;
+		  height: auto;
+		  margin: var(--rich-hero-desc-logo-gap) 0 var(--rich-hero-logo-perks-gap);
 		}
 		#brt-rich.brt-rich .brt-rich__hero-perk,
 		.brt-rich .brt-rich__hero-perk {
 		  display: flex;
-		  align-items: center;
-		  gap: var(--rich-space-xs);
+		  align-items: flex-start;
+		  gap: var(--rich-hero-perk-gap);
 		  width: 100%;
 		  height: 100%;
 		  min-height: var(--rich-hero-perk-min-height);
-		  padding: 0 var(--rich-space-sm);
-		  border-radius: var(--rich-radius-md);
-		  background: var(--rich-color-bg-card);
+		  padding: 0;
+		  background: transparent;
 		}
 		#brt-rich.brt-rich .brt-rich__hero-perk-icon,
 		.brt-rich .brt-rich__hero-perk-icon {
@@ -1815,8 +1809,8 @@
 		  display: block;
 		  width: auto;
 		  height: auto;
-		  max-width: 52px;
-		  max-height: 52px;
+		  max-width: 58px;
+		  max-height: 53px;
 		}
 		#brt-rich.brt-rich .brt-rich__hero-perk-text,
 		.brt-rich .brt-rich__hero-perk-text {
@@ -1829,12 +1823,20 @@
 		.brt-rich .brt-rich__hero-media {
 		  display: flex;
 		  justify-content: center;
-		  align-items: center;
+		  align-items: flex-end;
+		}
+		@media (min-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__hero-media,
+		  .brt-rich .brt-rich__hero-media {
+		    margin-top: -26px;
+		  }
 		}
 		#brt-rich.brt-rich .brt-rich__hero-media-photo,
 		.brt-rich .brt-rich__hero-media-photo {
 		  display: block;
+		  width: 187px;
 		  max-width: 100%;
+		  height: auto;
 		}
 		#brt-rich.brt-rich .brt-rich__statement,
 		.brt-rich .brt-rich__statement {
@@ -3189,9 +3191,11 @@
 		 */
 		#brt-rich.brt-rich .brt-rich__hero-note,
 		.brt-rich .brt-rich__hero-note {
-		  margin-top: var(--rich-space-md);
+		  margin-top: var(--rich-hero-perks-note-gap);
+		  max-width: 527px;
 		  font-size: 15px;
-		  line-height: 1.4;
+		  line-height: normal;
+		  color: var(--rich-color-text);
 		}
 		#brt-rich.brt-rich .brt-rich__split-stats--stacked .brt-rich-col-sm-6,
 		.brt-rich .brt-rich__split-stats--stacked .brt-rich-col-sm-6 {
@@ -3629,41 +3633,42 @@
 			<section class="brt-rich__section brt-rich__hero-card-section">
 				<div class="brt-rich__container">
 					<div class="brt-rich__hero-card">
-						<div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-center">
-							<div class="brt-rich-col-12 brt-rich-col-md-8">
+						<div class="brt-rich-row brt-rich-row--gap-sm">
+							<div class="brt-rich-col-12 brt-rich-col-md-9">
 								<h1 class="brt-rich__heading brt-rich__hero-card-title">Мойка высокого давления</h1>
 								<p class="brt-rich__hero-card-model brt-rich__hero-card-model--brand">KEX-3500</p>
 								<p class="brt-rich__hero-card-desc">Универсальная высокопроизводительная мойка профессионального уровня для тех, кто ищет самое лучшее</p>
-								<ul class="brt-rich-row brt-rich-row--gap-2xs brt-rich__hero-perks">
-									<li class="brt-rich-col-sm-12 brt-rich-col-sm-6 brt-rich-col-md-12 brt-rich-col-lg-6">
+								<img class="brt-rich__hero-card-logo" src="img/kex-3500/brushless-motor.svg" alt="Brushless Motor" width="380" height="25" loading="lazy">
+								<ul class="brt-rich-row brt-rich-row--gap-sm brt-rich__hero-perks">
+									<li class="brt-rich-col-12 brt-rich-col-sm-6">
 										<div class="brt-rich__hero-perk">
-											<img class="brt-rich__hero-perk-icon" src="img/kex-3500/icon-motor.png" alt="" width="56" height="37" loading="lazy">
+											<img class="brt-rich__hero-perk-icon" src="img/kex-3500/engine.svg" alt="" width="58" height="39" loading="lazy">
 											<span class="brt-rich__hero-perk-text"><strong>Мощный индукционный<br>двигатель 3 400 Вт</strong></span>
 										</div>
 									</li>
-									<li class="brt-rich-col-sm-12 brt-rich-col-sm-6 brt-rich-col-md-12 brt-rich-col-lg-6">
+									<li class="brt-rich-col-12 brt-rich-col-sm-6">
 										<div class="brt-rich__hero-perk">
-											<img class="brt-rich__hero-perk-icon" src="img/kex-3500/icon-quick-fix.png" alt="" width="52" height="32" loading="lazy">
-											<span class="brt-rich__hero-perk-text"><strong>QUICK FIX</strong> — быстросъемное соединение всех аксессуаров</span>
-										</div>
-									</li>
-									<li class="brt-rich-col-sm-12 brt-rich-col-sm-6 brt-rich-col-md-12 brt-rich-col-lg-6">
-										<div class="brt-rich__hero-perk">
-											<img class="brt-rich__hero-perk-icon" src="img/kex-3500/icon-self-suction.png" alt="" width="50" height="44" loading="lazy">
-											<span class="brt-rich__hero-perk-text"><strong>Функция самовсасывания воды</strong> из ёмкости</span>
-										</div>
-									</li>
-									<li class="brt-rich-col-sm-12 brt-rich-col-sm-6 brt-rich-col-md-12 brt-rich-col-lg-6">
-										<div class="brt-rich__hero-perk">
-											<img class="brt-rich__hero-perk-icon" src="img/kex-3500/icon-cooling.png" alt="" width="52" height="53" loading="lazy">
+											<img class="brt-rich__hero-perk-icon" src="img/kex-3500/сombined-pump-cooling.svg" alt="" width="52" height="53" loading="lazy">
 											<span class="brt-rich__hero-perk-text"><strong>Комбинированное</strong> охлаждение помпы</span>
 										</div>
 									</li>
+									<li class="brt-rich-col-12 brt-rich-col-sm-6">
+										<div class="brt-rich__hero-perk">
+											<img class="brt-rich__hero-perk-icon" src="img/kex-3500/quick-fix.svg" alt="" width="55" height="34" loading="lazy">
+											<span class="brt-rich__hero-perk-text"><strong>QUICK FIX</strong> — быстросъемное соединение всех аксессуаров</span>
+										</div>
+									</li>
+									<li class="brt-rich-col-12 brt-rich-col-sm-6">
+										<div class="brt-rich__hero-perk">
+											<img class="brt-rich__hero-perk-icon" src="img/kex-3500/self-priming-function.svg" alt="" width="50" height="44" loading="lazy">
+											<span class="brt-rich__hero-perk-text"><strong>Функция самовсасывания воды</strong> из емкости</span>
+										</div>
+									</li>
 								</ul>
-								<p class="brt-rich__text brt-rich__hero-note"><strong>Кабель 5 м и шланг высокого давления 10 м.</strong><br>Позволяют заниматься уборкой на площади до 700 м².</p>
+								<p class="brt-rich__text brt-rich__hero-note"><strong>Кабель 5 м и шланг высокого давления 10 м.</strong><br>Позволяют заниматься уборкой на площади до 700 м² метров.</p>
 							</div>
-							<div class="brt-rich-col-12 brt-rich-col-md-4 brt-rich__hero-media">
-								<img class="brt-rich__hero-media-photo" src="img/kex-3500/hero-main.png" alt="Мойка высокого давления Bort KEX-3500" loading="lazy">
+							<div class="brt-rich-col-12 brt-rich-col-md-3 brt-rich__hero-media">
+								<img class="brt-rich__hero-media-photo" src="img/kex-3500/hero-main.png" width="187" height="503" alt="Мойка высокого давления Bort KEX-3500" loading="lazy">
 							</div>
 						</div>
 					</div>

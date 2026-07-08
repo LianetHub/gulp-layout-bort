@@ -1,12 +1,4 @@
 @font-face {
-  font-family: "Roboto";
-  src: url("../fonts/Roboto-VariableFont_wdth,wght.woff2") format("woff2 supports variations"), url("../fonts/Roboto-VariableFont_wdth,wght.woff2") format("woff2-variations"), url("../fonts/Roboto-VariableFont_wdth,wght.woff") format("woff");
-  font-weight: 100 900;
-  font-stretch: 75% 125%;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
   font-family: "icons";
   font-display: swap;
   src: url("../fonts/icons.woff2") format("woff2"), url("../fonts/icons.woff") format("woff");
@@ -19,6 +11,14 @@
   src: url("../fonts/RussoOne-Regular.woff2") format("woff2"), url("../fonts/RussoOne-Regular.woff") format("woff");
   font-weight: 400;
   font-style: normal;
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../fonts/Roboto-VariableFont_wdth,wght.woff2") format("woff2 supports variations"), url("../fonts/Roboto-VariableFont_wdth,wght.woff2") format("woff2-variations"), url("../fonts/Roboto-VariableFont_wdth,wght.woff") format("woff");
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+  font-style: normal;
+  font-display: swap;
 }
 .product-details__slide, .blog__tag.active::before, .filter-option__input[type=checkbox]:checked ~ span::before, .checkbox__input:checked ~ .checkbox__btn::before, .swiper-button-next, .swiper-button-prev, [class^=icon-]:before,
 [class*=" icon-"]:before {
