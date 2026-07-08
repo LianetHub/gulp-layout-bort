@@ -59,6 +59,20 @@
   --rich-media-text-aside-width: 268px;
   --rich-media-text-aside-height: 328px;
   --rich-media-text-title-gap: var(--rich-space-md);
+  /* --- Nozzle Splitter --- */
+  --rich-nozzle-splitter-gap: 41px;
+  --rich-nozzle-splitter-content-width: 439px;
+  --rich-nozzle-splitter-media-width: 100%;
+  --rich-nozzle-splitter-media-height: 312px;
+  --rich-nozzle-splitter-title-size: 25px;
+  --rich-nozzle-splitter-title-line-height: 1.14;
+  --rich-nozzle-splitter-text-size: 17px;
+  --rich-nozzle-splitter-text-line-height: 20px;
+  --rich-nozzle-splitter-title-body-gap: 14px;
+  --rich-nozzle-splitter-label-min-width: 219px;
+  --rich-nozzle-splitter-label-wide-width: 303px;
+  --rich-nozzle-splitter-label-height: 33px;
+  --rich-nozzle-splitter-label-size: 15px;
   /* --- Hose --- */
   --rich-hose-media-width: 470px;
   --rich-hose-media-height: 428px;
@@ -3648,9 +3662,104 @@
 		  font-size: 17px;
 		  line-height: 1.14;
 		}
-		#brt-rich.brt-rich .brt-rich__nozzle-compare,
-		.brt-rich .brt-rich__nozzle-compare {
-		  margin-top: var(--rich-space-md);
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-section,
+		.brt-rich .brt-rich__nozzle-splitter-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-row,
+		.brt-rich .brt-rich__nozzle-splitter-row {
+		  --rich-gutter-x: var(--rich-nozzle-splitter-gap);
+		  align-items: flex-start;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-content,
+		.brt-rich .brt-rich__nozzle-splitter-content {
+		  max-width: var(--rich-nozzle-splitter-content-width);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-title,
+		.brt-rich .brt-rich__nozzle-splitter-title {
+		  margin: 0;
+		  font-size: var(--rich-nozzle-splitter-title-size) !important;
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: var(--rich-nozzle-splitter-title-line-height);
+		  color: var(--rich-color-text);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-body,
+		.brt-rich .brt-rich__nozzle-splitter-body {
+		  margin-top: var(--rich-nozzle-splitter-title-body-gap);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-body .brt-rich__text,
+		.brt-rich .brt-rich__nozzle-splitter-body .brt-rich__text {
+		  margin: 0;
+		  font-size: var(--rich-nozzle-splitter-text-size) !important;
+		  font-weight: var(--rich-font-weight-normal) !important;
+		  line-height: var(--rich-nozzle-splitter-text-line-height) !important;
+		  color: var(--rich-color-text) !important;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-media,
+		.brt-rich .brt-rich__nozzle-splitter-media {
+		  position: relative;
+		  width: 100%;
+		  max-width: var(--rich-nozzle-splitter-media-width);
+		  margin-inline-start: auto;
+		  aspect-ratio: 441/312;
+		  border-radius: var(--rich-radius-lg);
+		  overflow: hidden;
+		  line-height: 0;
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__nozzle-splitter-media,
+		  .brt-rich .brt-rich__nozzle-splitter-media {
+		    margin-inline: auto;
+		    margin-top: var(--rich-space-lg);
+		  }
+		}
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-photo,
+		.brt-rich .brt-rich__nozzle-splitter-photo {
+		  display: block;
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		  object-position: center;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-labels,
+		.brt-rich .brt-rich__nozzle-splitter-labels {
+		  position: absolute;
+		  inset: 0;
+		  pointer-events: none;
+		  line-height: normal;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-label,
+		.brt-rich .brt-rich__nozzle-splitter-label {
+		  position: absolute;
+		  right: 0;
+		  display: block;
+		  box-sizing: border-box;
+		  width: var(--rich-nozzle-splitter-label-min-width);
+		  height: var(--rich-nozzle-splitter-label-height);
+		  margin: 0;
+		  font-family: var(--rich-font-family);
+		  padding: 0 12px;
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-accent);
+		  font-size: var(--rich-nozzle-splitter-label-size);
+		  font-weight: var(--rich-font-weight-semibold) !important;
+		  line-height: var(--rich-nozzle-splitter-label-height);
+		  white-space: nowrap;
+		  text-align: right;
+		  color: var(--rich-color-text);
+		}
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-label:first-child,
+		.brt-rich .brt-rich__nozzle-splitter-label:first-child {
+		  top: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-label:last-child,
+		.brt-rich .brt-rich__nozzle-splitter-label:last-child {
+		  bottom: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__nozzle-splitter-label--wide,
+		.brt-rich .brt-rich__nozzle-splitter-label--wide {
+		  width: var(--rich-nozzle-splitter-label-wide-width);
+		  max-width: calc(100% - 8px);
 		}
 		#brt-rich.brt-rich .brt-rich__accessories-row,
 		.brt-rich .brt-rich__accessories-row {
@@ -4024,29 +4133,25 @@
 				</div>
 			</section>
 
-			<!-- COMPONENT: Split Media — Nozzle Splitter
+			<!-- COMPONENT: Nozzle Splitter
 				 PRODUCT: KEX-3500 -->
-			<section class="brt-rich__section brt-rich__split-section">
+			<section class="brt-rich__section brt-rich__nozzle-splitter-section">
 				<div class="brt-rich__container">
-					<div class="brt-rich-row brt-rich-row--align-center">
-						<div class="brt-rich-col-12 brt-rich-col-md-5">
-							<div class="brt-rich__split-media">
-								<img class="brt-rich__split-photo" src="img/kex-3500/nozzle-with-splitter.png" alt="Форсунка с рассекателем" width="439" height="312" loading="lazy">
+					<div class="brt-rich-row brt-rich__nozzle-splitter-row">
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<div class="brt-rich__nozzle-splitter-content">
+								<h2 class="brt-rich__heading brt-rich__split-title">Профессиональные форсунки<br>Bort c рассекателем</h2>
+								<div class="brt-rich__nozzle-splitter-body">
+									<div class="brt-rich__text">Вода, поступающая в форсунку, движется турбулентно, то есть с завихрениями, и энергия потока частично тратится на неполезную работу. Благодаря установленному рассекателю общий поток разбивается на <strong>4 упорядоченных струи воды</strong>, что приводит к ламинарному потоку, проходящему через корпус форсунки. Это снижает гидравлические потери, делает поток равномерным перед входом в сопло, обеспечивает стабильный факел распыла (струя не «рвётся», не «плюётся»), обеспечивает максимальную дальность струи и силу удара при наличии рассекателя.</div>
+								</div>
 							</div>
 						</div>
-						<div class="brt-rich-col-12 brt-rich-col-md-7">
-							<h2 class="brt-rich__heading brt-rich__split-title">Профессиональные форсунки Bort c рассекателем</h2>
-							<div class="brt-rich__split-body">
-								<p class="brt-rich__text">Вода, поступающая в форсунку, движется турбулентно, то есть с завихрениями, и энергия потока частично тратится на неполезную работу. Благодаря установленному рассекателю общий поток разбивается на <strong>4 упорядоченных струи воды</strong>, что приводит к ламинарному потоку, проходящему через корпус форсунки. Это снижает гидравлические потери, делает поток равномерным перед входом в сопло, обеспечивает стабильный факел распыла (струя не «рвётся», не «плюётся»), обеспечивает максимальную дальность струи и силу удара при наличии рассекателя.</p>
-							</div>
-							<div class="brt-rich-row brt-rich-row--gap-sm brt-rich__nozzle-compare">
-								<div class="brt-rich-col-6">
-									<img src="img/kex-3500/nozzle-with-splitter.png" alt="Форсунка с рассекателем" width="219" height="33" loading="lazy">
-									<p class="brt-rich__text"><strong>Форсунка c рассекателем</strong></p>
-								</div>
-								<div class="brt-rich-col-6">
-									<img src="img/kex-3500/nozzle-without-splitter.png" alt="Форсунка без рассекателя" width="219" height="33" loading="lazy">
-									<p class="brt-rich__text"><strong>Форсунка без рассекателя</strong></p>
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<div class="brt-rich__nozzle-splitter-media">
+								<img class="brt-rich__nozzle-splitter-photo" src="img/kex-3500/nozzle-with-splitter.jpg" alt="Сравнение форсунок с рассекателем и без" width="441" height="312" loading="lazy">
+								<div class="brt-rich__nozzle-splitter-labels" aria-hidden="true">
+									<span class="brt-rich__nozzle-splitter-label">Форсунка c рассекателем</span>
+									<span class="brt-rich__nozzle-splitter-label ">Форсунка без рассекателя</span>
 								</div>
 							</div>
 						</div>
