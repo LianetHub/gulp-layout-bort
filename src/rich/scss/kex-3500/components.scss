@@ -330,6 +330,7 @@
 	}
 
 	.brt-rich__ergonomics-grid-card {
+		position: relative;
 		display: flex;
 		flex-direction: column;
 		height: 100%;
@@ -340,13 +341,25 @@
 		border-radius: var(--rich-radius-sm);
 
 		&--short {
-			min-height: 324px;
+			align-items: center;
+			justify-content: flex-end;
+			align-items: flex-end;
+
+			.brt-rich__ergonomics-grid-media {
+				display: flex;
+
+
+
+				& img {
+					height: 314px;
+					width: auto;
+					margin-right: 2rem;
+				}
+			}
 		}
 	}
 
 	.brt-rich__ergonomics-grid-media {
-		width: 100%;
-
 		& img {
 			width: 100%;
 		}
@@ -357,6 +370,19 @@
 		font-size: 17px;
 		line-height: 1.2;
 		padding: var(--rich-space-md);
+
+		&.brt-rich__ergonomics-grid-text--absolute {
+			position: absolute;
+			top: 1rem;
+			left: 1rem;
+		}
+
+		&.brt-rich__ergonomics-grid-text--center {
+			position: absolute;
+			top: 50%;
+			transform: translateY(-50%);
+			left: 0rem;
+		}
 	}
 
 	// .brt-rich__kit-intro-section
@@ -383,14 +409,109 @@
 		line-height: 1.4;
 	}
 
-	// .brt-rich__engineering-caption
+	// .brt-rich__engineering-section
+	.brt-rich__engineering-section {
+		margin-block: 0;
+	}
+
+	.brt-rich__engineering-heading {
+		margin-bottom: var(--rich-engineering-heading-gap) !important;
+		font-size: var(--rich-engineering-title-size) !important;
+		line-height: var(--rich-engineering-title-line-height) !important;
+		text-align: center;
+	}
+
+	.brt-rich__engineering-grid {
+		display: grid;
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+		gap: var(--rich-engineering-row-gap) var(--rich-engineering-grid-gap);
+
+		@media (max-width: $md3) {
+			grid-template-columns: 1fr;
+		}
+	}
+
+	.brt-rich__engineering-text {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.brt-rich__engineering-title {
+		margin: 0 0 var(--rich-engineering-title-body-gap);
+		font-size: var(--rich-engineering-title-size) !important;
+		line-height: var(--rich-engineering-title-line-height) !important;
+		font-weight: var(--rich-font-weight-semibold);
+		color: var(--rich-color-text);
+	}
+
+	.brt-rich__engineering-desc {
+		margin: 0;
+		font-size: var(--rich-engineering-text-size) !important;
+		line-height: var(--rich-engineering-text-line-height) !important;
+		color: var(--rich-color-text);
+
+		strong {
+			font-weight: var(--rich-font-weight-bold);
+		}
+	}
+
+	.brt-rich__engineering-card {
+		display: flex;
+		flex-direction: column;
+		min-width: 0;
+	}
+
+	.brt-rich__engineering-card-media {
+		position: relative;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		height: var(--rich-engineering-card-media-height);
+		overflow: hidden;
+		background: var(--rich-color-bg-muted);
+		border-radius: var(--rich-radius-lg);
+	}
+
+	.brt-rich__engineering-card-photo {
+		display: block;
+		width: 100%;
+		height: 100%;
+		object-fit: contain;
+		object-position: center;
+	}
+
+
+	.brt-rich__engineering-card-label {
+		position: absolute;
+		top: var(--rich-engineering-label-offset-y);
+		left: var(--rich-engineering-label-offset-x);
+		right: var(--rich-engineering-caption-padding-x);
+		margin: 0;
+		font-size: var(--rich-engineering-label-size);
+		line-height: var(--rich-engineering-label-line-height);
+		font-weight: var(--rich-font-weight-semibold);
+		color: var(--rich-color-text);
+		text-align: left;
+		pointer-events: none;
+	}
+
 	.brt-rich__engineering-caption {
-		margin-top: var(--rich-space-sm);
-		padding: var(--rich-space-md) var(--rich-space-lg);
+		margin: calc(var(--rich-engineering-caption-overlap) * -1) 0 0;
+		padding:
+			calc(var(--rich-engineering-caption-overlap) + 1rem) var(--rich-engineering-caption-padding-x) var(--rich-space-md);
 		background: var(--rich-color-accent);
-		border-radius: var(--rich-radius-md);
-		font-size: var(--rich-font-size-body);
-		line-height: 1.3;
+		border-radius: var(--rich-radius-lg);
+		font-size: var(--rich-engineering-text-size);
+		line-height: 1.2;
+		color: var(--rich-color-text);
+
+		&--short {
+			min-height: var(--rich-engineering-caption-short-height);
+		}
+
+		&--tall {
+			min-height: var(--rich-engineering-caption-tall-height);
+		}
 	}
 
 	// .brt-rich__shampoo-section
@@ -851,14 +972,6 @@
 			width: var(--rich-nozzle-splitter-label-wide-width);
 			max-width: calc(100% - 8px);
 		}
-	}
-
-	.brt-rich__engineering-block {
-		margin-bottom: var(--rich-space-lg);
-	}
-
-	.brt-rich__engineering-note {
-		margin-top: var(--rich-space-md);
 	}
 
 	// .brt-rich__summary
