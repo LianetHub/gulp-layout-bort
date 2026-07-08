@@ -1444,10 +1444,10 @@
 
 	.brt-rich__contents-item-label {
 		margin: 0;
-		padding: var(--rich-contents-label-padding);
+		padding: var(--rich-contents-label-padding) var(--rich-space-xs);
 		font-size: var(--rich-font-size-h1);
 		font-weight: var(--rich-font-weight-normal);
-		line-height: normal;
+		line-height: 114% !important;
 		text-align: center;
 		color: var(--rich-color-text);
 	}
