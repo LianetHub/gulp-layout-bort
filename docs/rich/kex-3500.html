@@ -59,6 +59,16 @@
   --rich-media-text-aside-width: 268px;
   --rich-media-text-aside-height: 328px;
   --rich-media-text-title-gap: var(--rich-space-md);
+  /* --- Hose --- */
+  --rich-hose-media-width: 470px;
+  --rich-hose-media-height: 428px;
+  --rich-hose-gap: var(--rich-space-xl);
+  --rich-hose-title-size: 25px;
+  --rich-hose-title-line-height: 1.14;
+  --rich-hose-text-size: 17px;
+  --rich-hose-text-line-height: 20px;
+  --rich-hose-body-gap: 20px;
+  --rich-hose-title-body-gap: 20px;
   /* --- Overlay Badges --- */
   --rich-overlay-badge-size: 108px;
   --rich-overlay-badge-height: 104px;
@@ -3359,6 +3369,61 @@
 		  font-size: 20px;
 		  line-height: 1.08;
 		}
+		#brt-rich.brt-rich .brt-rich__hose-section,
+		.brt-rich .brt-rich__hose-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		#brt-rich.brt-rich .brt-rich__hose-row,
+		.brt-rich .brt-rich__hose-row {
+		  --rich-gutter-x: var(--rich-hose-gap);
+		  --rich-gutter-y: var(--rich-hose-gap);
+		  align-items: flex-start;
+		}
+		#brt-rich.brt-rich .brt-rich__hose-media,
+		.brt-rich .brt-rich__hose-media {
+		  width: 100%;
+		  max-width: var(--rich-hose-media-width);
+		  height: var(--rich-hose-media-height);
+		  border-radius: var(--rich-radius-lg);
+		  overflow: hidden;
+		  line-height: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__hose-photo,
+		.brt-rich .brt-rich__hose-photo {
+		  display: block;
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		}
+		#brt-rich.brt-rich .brt-rich__hose-content,
+		.brt-rich .brt-rich__hose-content {
+		  max-width: var(--rich-hose-media-width);
+		}
+		#brt-rich.brt-rich .brt-rich__hose-title,
+		.brt-rich .brt-rich__hose-title {
+		  font-size: var(--rich-hose-title-size);
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: var(--rich-hose-title-line-height);
+		  color: var(--rich-color-text);
+		}
+		#brt-rich.brt-rich .brt-rich__hose-body,
+		.brt-rich .brt-rich__hose-body {
+		  display: flex;
+		  flex-direction: column;
+		  gap: var(--rich-hose-body-gap);
+		  margin-top: var(--rich-hose-title-body-gap);
+		}
+		#brt-rich.brt-rich .brt-rich__hose-text,
+		.brt-rich .brt-rich__hose-text {
+		  font-size: var(--rich-hose-text-size);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: var(--rich-hose-text-line-height);
+		  color: var(--rich-color-text);
+		}
+		#brt-rich.brt-rich .brt-rich__hose-text--bold,
+		.brt-rich .brt-rich__hose-text--bold {
+		  font-weight: var(--rich-font-weight-bold);
+		}
 		#brt-rich.brt-rich .brt-rich__nozzle-modes-section,
 		.brt-rich .brt-rich__nozzle-modes-section {
 		  margin-block: 0;
@@ -3884,20 +3949,22 @@
 
 			<!-- COMPONENT: Hose
 				 PRODUCT: KEX-3500 -->
-			<section class="brt-rich__section brt-rich__media-text-section">
+			<section class="brt-rich__section brt-rich__hose-section">
 				<div class="brt-rich__container">
-					<div class="brt-rich-row brt-rich-row--align-center brt-rich-row--gap-sm">
-						<div class="brt-rich-col-12 brt-rich-col-md-4 brt-rich__media-text-aside-col">
-							<div class="brt-rich__media brt-rich__media-text-aside">
-								<img class="brt-rich__media-text-photo" src="img/kex-3500/hose.jpg" alt="Профессиональный армированный шланг KEX-3500" width="439" height="428" loading="lazy">
+					<div class="brt-rich-row brt-rich__hose-row">
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<div class="brt-rich__hose-media">
+								<img class="brt-rich__hose-photo" src="img/kex-3500/hose.jpg" alt="Профессиональный армированный шланг KEX-3500" width="439" height="428" loading="lazy">
 							</div>
 						</div>
-						<div class="brt-rich-col-12 brt-rich-col-md-8">
-							<h3 class="brt-rich__heading brt-rich__media-text-title">Профессиональный эластичный армированный шланг, не подвержен изломам</h3>
-							<div class="brt-rich__media-text-body">
-								<p class="brt-rich__text">Имеет запас прочности, превосходящий мощность насоса, с легкостью выдерживает пиковые нагрузки до 250 бар.</p>
-								<p class="brt-rich__text">Эластичный шланг без эффекта памяти, выполнен из высококачественного армированного ПВХ. Материал имеет особую прочность и устойчив к деформации, изломам, разрывам и другим механическим повреждениям, имеет высокую устойчивость к любому механическому воздействию (рабочий диапазон от −20° до +60°).</p>
-								<p class="brt-rich__text"><strong>Соединения шланга высокого давления выполнены из латуни</strong> — сплава, который выдерживает высокое давление, не ржавеет и не стирается с годами. Длина шланга в комплектации 10 м.</p>
+						<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<div class="brt-rich__hose-content">
+								<div class="brt-rich__hose-title">Профессиональный эластичный армированный шланг, не подвержен изломам</div>
+								<div class="brt-rich__hose-body">
+									<div class="brt-rich__hose-text">Имеет запас прочности, превосходящий мощность насоса, с легкостью выдерживает пиковые нагрузки до 250 бар.</div>
+									<div class="brt-rich__hose-text">Эластичный шланг без эффекта памяти, выполнен из высококачественного армированного ПВХ. Материал имеет особую прочность и устойчив к деформации, изломам, разрывам и другим механическим повреждениям, имеет высокую устойчивость к любому механическому воздействию (рабочий диапазон от −20° до +60°).</div>
+									<div class="brt-rich__hose-text brt-rich__hose-text--bold">Соединения шланга высокого давления выполнены из латуни — сплава, который выдерживает высокое давление, не ржавеет и не стирается с годами. Длина шланга в комплектации 10 м.</div>
+								</div>
 							</div>
 						</div>
 					</div>
@@ -3914,8 +3981,7 @@
 							<div class="brt-rich-col-12 brt-rich-col-md-6">
 								<div class="brt-rich__nozzle-modes-item">
 									<div class="brt-rich__nozzle-modes-media">
-										<img src="img/kex-3500/nozzle-spray.jpg" alt="Факел 0°" loading="lazy">
-										<p class="brt-rich__nozzle-modes-label">Факел 0°</p>
+										<img src="img/kex-3500/nozzle-spray-0.jpg" alt="Факел 0°" loading="lazy">
 									</div>
 									<div class="brt-rich__nozzle-modes-body">
 										<p><strong>Красная форсунка:</strong> струя воды с максимальным напором, предназначена для удаления самых сложных загрязнений.</p>
@@ -3925,8 +3991,7 @@
 							<div class="brt-rich-col-12 brt-rich-col-md-6">
 								<div class="brt-rich__nozzle-modes-item">
 									<div class="brt-rich__nozzle-modes-media">
-										<img src="img/kex-3500/nozzle-spray.jpg" alt="Факел 15°" loading="lazy">
-										<p class="brt-rich__nozzle-modes-label">Факел 15°</p>
+										<img src="img/kex-3500/nozzle-spray-15.jpg" alt="Факел 15°" loading="lazy">
 									</div>
 									<div class="brt-rich__nozzle-modes-body">
 										<p><strong>Жёлтая форсунка:</strong> веерообразная струя воды с сильным напором, подходящая для смывания трудноподдающейся очистке грязи.</p>
