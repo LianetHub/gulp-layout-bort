@@ -1,24 +1,19 @@
 <style id="rich-components">
 /*
- * KEX-3500 component-specific styles
+ * COMPONENT-SPECIFIC STYLES — дополнительные правила для сложных блоков.
+ * Используют переменные из #rich-vars; при необходимости переопределяйте локально.
  */
-
-/* Hero note under card */
 #brt-rich.brt-rich .brt-rich__hero-note,
 .brt-rich .brt-rich__hero-note {
   margin-top: var(--rich-space-md);
   font-size: 15px;
   line-height: 1.4;
 }
-
-/* Split stats — single column stack */
 #brt-rich.brt-rich .brt-rich__split-stats--stacked .brt-rich-col-sm-6,
 .brt-rich .brt-rich__split-stats--stacked .brt-rich-col-sm-6 {
   flex: 0 0 100%;
   max-width: 100%;
 }
-
-/* Material banner — centered text on accent */
 #brt-rich.brt-rich .brt-rich__accent-bar--centered,
 .brt-rich .brt-rich__accent-bar--centered {
   text-align: center;
@@ -28,8 +23,6 @@
   max-width: 848px;
   margin-inline: auto;
 }
-
-/* Features panel */
 #brt-rich.brt-rich .brt-rich__features-panel-section,
 .brt-rich .brt-rich__features-panel-section {
   margin-block: 0;
@@ -142,6 +135,13 @@
   background: var(--rich-color-accent);
   border-radius: var(--rich-radius-md);
 }
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__features-panel-suction,
+  .brt-rich .brt-rich__features-panel-suction {
+    flex-direction: column;
+    text-align: center;
+  }
+}
 #brt-rich.brt-rich .brt-rich__features-panel-suction-icon,
 .brt-rich .brt-rich__features-panel-suction-icon {
   flex-shrink: 0;
@@ -155,8 +155,6 @@
   font-size: var(--rich-font-size-body);
   line-height: 1.4;
 }
-
-/* Nozzle modes */
 #brt-rich.brt-rich .brt-rich__nozzle-modes-section,
 .brt-rich .brt-rich__nozzle-modes-section {
   margin-block: 0;
@@ -190,6 +188,12 @@
 .brt-rich .brt-rich__nozzle-modes-item:last-child {
   margin-bottom: 0;
 }
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzle-modes-item,
+  .brt-rich .brt-rich__nozzle-modes-item {
+    flex-direction: column;
+  }
+}
 #brt-rich.brt-rich .brt-rich__nozzle-modes-media,
 .brt-rich .brt-rich__nozzle-modes-media {
   flex: 0 0 135px;
@@ -203,6 +207,13 @@
   height: 100%;
   min-height: 135px;
   object-fit: cover;
+}
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__nozzle-modes-media,
+  .brt-rich .brt-rich__nozzle-modes-media {
+    flex: none;
+    width: 100%;
+  }
 }
 #brt-rich.brt-rich .brt-rich__nozzle-modes-label,
 .brt-rich .brt-rich__nozzle-modes-label {
@@ -227,8 +238,6 @@
 .brt-rich .brt-rich__nozzle-modes-body strong {
   font-weight: var(--rich-font-weight-bold);
 }
-
-/* Ergonomics grid */
 #brt-rich.brt-rich .brt-rich__ergonomics-grid-section,
 .brt-rich .brt-rich__ergonomics-grid-section {
   margin-block: 0;
@@ -281,8 +290,6 @@
   font-size: 17px;
   line-height: 1.2;
 }
-
-/* Kit intro on accent */
 #brt-rich.brt-rich .brt-rich__kit-intro-section,
 .brt-rich .brt-rich__kit-intro-section {
   margin-block: 0;
@@ -306,8 +313,6 @@
   font-size: 20px;
   line-height: 1.4;
 }
-
-/* Engineering captions */
 #brt-rich.brt-rich .brt-rich__engineering-caption,
 .brt-rich .brt-rich__engineering-caption {
   margin-top: var(--rich-space-sm);
@@ -317,8 +322,6 @@
   font-size: var(--rich-font-size-body);
   line-height: 1.3;
 }
-
-/* Shampoo section */
 #brt-rich.brt-rich .brt-rich__shampoo-section,
 .brt-rich .brt-rich__shampoo-section {
   margin-block: 0;
@@ -336,8 +339,6 @@
   line-height: 1.4;
   text-align: center;
 }
-
-/* Accessories mini grid */
 #brt-rich.brt-rich .brt-rich__accessory-mini,
 .brt-rich .brt-rich__accessory-mini {
   display: flex;
@@ -377,8 +378,6 @@
   font-size: 17px;
   line-height: 1.14;
 }
-
-/* Utility spacing for KEX sections */
 #brt-rich.brt-rich .brt-rich__nozzle-compare,
 .brt-rich .brt-rich__nozzle-compare {
   margin-top: var(--rich-space-md);
@@ -399,21 +398,8 @@
 .brt-rich .brt-rich__engineering-note {
   margin-top: var(--rich-space-md);
 }
-
-@media (max-width: 767.98px) {
-  #brt-rich.brt-rich .brt-rich__features-panel-suction,
-  .brt-rich .brt-rich__features-panel-suction {
-    flex-direction: column;
-    text-align: center;
-  }
-  #brt-rich.brt-rich .brt-rich__nozzle-modes-item,
-  .brt-rich .brt-rich__nozzle-modes-item {
-    flex-direction: column;
-  }
-  #brt-rich.brt-rich .brt-rich__nozzle-modes-media,
-  .brt-rich .brt-rich__nozzle-modes-media {
-    flex: none;
-    width: 100%;
-  }
+#brt-rich.brt-rich .brt-rich__summary .brt-rich__text + .brt-rich__text,
+.brt-rich .brt-rich__summary .brt-rich__text + .brt-rich__text {
+  margin-top: 1rem;
 }
 </style>

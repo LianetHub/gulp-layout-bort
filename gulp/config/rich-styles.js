@@ -81,6 +81,38 @@ export const richProducts = [
 		],
 	},
 	{
+		id: "kex-3500",
+		blocks: [
+			{
+				src: "kex-3500/vars.scss",
+				id: "rich-vars",
+				out: "kex-3500/_styles-vars.html",
+				comment: blockComment([
+					"THEME VARIABLES — редактируйте этот блок для кастомизации под конкретный сайт.",
+					"Все компоненты используют эти переменные через var().",
+				]),
+			},
+			{
+				src: "kex-3500/theme.scss",
+				id: "rich-theme",
+				out: "kex-3500/_styles-theme.html",
+				comment: blockComment([
+					"THEME STYLES — типографика, цвета компонентов через var().",
+					"Для смены темы достаточно изменить #rich-vars; здесь — применение переменных.",
+				]),
+			},
+			{
+				src: "kex-3500/components.scss",
+				id: "rich-components",
+				out: "kex-3500/_styles-components.html",
+				comment: blockComment([
+					"COMPONENT-SPECIFIC STYLES — дополнительные правила для сложных блоков.",
+					"Используют переменные из #rich-vars; при необходимости переопределяйте локально.",
+				]),
+			},
+		],
+	},
+	{
 		id: "bdr-2400-r",
 		blocks: [
 			{

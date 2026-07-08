@@ -7,9 +7,11 @@
 
 		<style id="rich-vars">
 /*
- * THEME VARIABLES — KEX-3500
+ * THEME VARIABLES — редактируйте этот блок для кастомизации под конкретный сайт.
+ * Все компоненты используют эти переменные через var().
  */
 #brt-rich.brt-rich, .brt-rich {
+  /* --- Spacing (4px-шкала) --- */
   --rich-space-2xs: 4px;
   --rich-space-xs: 8px;
   --rich-space-sm: 12px;
@@ -18,6 +20,7 @@
   --rich-space-xl: 32px;
   --rich-space-2xl: 40px;
   --rich-space-3xl: 48px;
+  /* --- Layout (Структура) --- */
   --rich-max-width: 1024px;
   --rich-padding-x: 16px;
   --rich-section-gap: var(--rich-space-lg);
@@ -26,6 +29,7 @@
   --rich-row-gap: var(--rich-split-gap);
   --rich-gutter-x: var(--rich-row-gap);
   --rich-gutter-y: var(--rich-space-xs);
+  /* --- Hero --- */
   --rich-hero-header-gap: 20px;
   --rich-hero-card-gap: var(--rich-space-sm);
   --rich-hero-card-height: 284px;
@@ -34,10 +38,13 @@
   --rich-hero-model-desc-gap: var(--rich-space-sm);
   --rich-hero-desc-perks-gap: 28px;
   --rich-hero-perk-min-height: 76px;
+  /* --- Cards Accent --- */
   --rich-cards-accent-media-height: 180px;
+  /* --- Accent Bar --- */
   --rich-accent-bar-padding-y: var(--rich-space-xl);
   --rich-accent-bar-padding-x: var(--rich-space-2xl);
   --rich-accent-bar-icon-size: 144px;
+  /* --- Accent Cards --- */
   --rich-section-heading-gap: 20px;
   --rich-accent-card-media-height: 200px;
   --rich-accent-card-min-height: 472px;
@@ -45,12 +52,15 @@
   --rich-accent-card-padding-y: var(--rich-space-lg);
   --rich-accent-card-body-gap: var(--rich-space-lg);
   --rich-accent-card-text-gap: var(--rich-space-md);
+  /* --- Media Text --- */
   --rich-media-text-aside-width: 268px;
   --rich-media-text-aside-height: 328px;
   --rich-media-text-title-gap: var(--rich-space-md);
+  /* --- Overlay Badges --- */
   --rich-overlay-badge-size: 108px;
   --rich-overlay-badge-height: 104px;
   --rich-overlay-badges-gap: 64px;
+  /* --- Feature Grid --- */
   --rich-feature-grid-gap: 10px;
   --rich-feature-grid-title-gap: 15px;
   --rich-feature-grid-card-padding-x: 35px;
@@ -61,6 +71,7 @@
   --rich-feature-grid-tank-icon-size: 82px;
   --rich-feature-grid-blow-media-height: 117px;
   --rich-feature-grid-body-gap: 14px;
+  /* --- Product Params --- */
   --rich-params-info-min-height: 232px;
   --rich-params-info-padding: 28px 44px;
   --rich-params-info-title-gap: 28px;
@@ -68,22 +79,27 @@
   --rich-params-stat-number-size: 64px;
   --rich-params-stat-unit-size: 32px;
   --rich-params-stat-unit-small-size: 20px;
+  /* --- Advantages --- */
   --rich-info-card-body-padding-x: var(--rich-space-xl);
   --rich-info-card-body-padding-bottom: 28px;
+  /* --- Kit --- */
   --rich-section-heading-size: 40px;
   --rich-contents-item-main-media-min-height: 336px;
   --rich-contents-item-media-min-height: 140px;
   --rich-contents-item-bottom-media-min-height: 120px;
   --rich-contents-label-padding: var(--rich-space-sm) var(--rich-space-sm) var(--rich-space-md);
+  /* --- Card --- */
   --rich-card-padding-y: 28px;
   --rich-card-padding-x: 36px;
   --rich-card-padding: 20px;
   --rich-card-padding-lg: 40px;
   --rich-card-shadow: 0 2px 12px var(--rich-color-shadow);
+  /* --- Filters --- */
   --rich-columns-card-min-height: 320px;
   --rich-columns-card-feature-height: 168px;
   --rich-columns-card-feature-padding: 28px;
   --rich-columns-card-lead-gap: var(--rich-space-xs);
+  /* --- Colors (Цвета) --- */
   --rich-color-accent: #fb7e00;
   --rich-color-accent-fill: #ff9b35;
   --rich-color-accent-light: #ffa940;
@@ -98,6 +114,7 @@
   --rich-color-text-inverse: #ffffff;
   --rich-color-border: #e8e8e8;
   --rich-color-shadow: rgba(0, 0, 0, 0.08);
+  /* --- Typography (Типографика) --- */
   --rich-font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
   --rich-font-family-display: "Russo One", "Roboto", sans-serif;
   --rich-font-size-page-title: 24px;
@@ -119,6 +136,7 @@
   --rich-font-weight-bold: 700;
   --rich-font-weight-semibold: 600;
   --rich-font-weight-normal: 400;
+  /* --- Border radius (Скругления) --- */
   --rich-radius-sm: 8px;
   --rich-radius-md: 12px;
   --rich-radius-lg: 20px;
@@ -2099,7 +2117,7 @@
 		}
 		#brt-rich.brt-rich .brt-rich__summary .brt-rich__text + .brt-rich__text,
 		.brt-rich .brt-rich__summary .brt-rich__text + .brt-rich__text {
-		  margin-top: 1rem;
+		  margin-top: 0;
 		}
 		#brt-rich.brt-rich .text-nowrap,
 		.brt-rich .text-nowrap {
@@ -3166,25 +3184,20 @@
 
 		<style id="rich-components">
 		/*
-		 * KEX-3500 component-specific styles
+		 * COMPONENT-SPECIFIC STYLES — дополнительные правила для сложных блоков.
+		 * Используют переменные из #rich-vars; при необходимости переопределяйте локально.
 		 */
-
-		/* Hero note under card */
 		#brt-rich.brt-rich .brt-rich__hero-note,
 		.brt-rich .brt-rich__hero-note {
 		  margin-top: var(--rich-space-md);
 		  font-size: 15px;
 		  line-height: 1.4;
 		}
-
-		/* Split stats — single column stack */
 		#brt-rich.brt-rich .brt-rich__split-stats--stacked .brt-rich-col-sm-6,
 		.brt-rich .brt-rich__split-stats--stacked .brt-rich-col-sm-6 {
 		  flex: 0 0 100%;
 		  max-width: 100%;
 		}
-
-		/* Material banner — centered text on accent */
 		#brt-rich.brt-rich .brt-rich__accent-bar--centered,
 		.brt-rich .brt-rich__accent-bar--centered {
 		  text-align: center;
@@ -3194,8 +3207,6 @@
 		  max-width: 848px;
 		  margin-inline: auto;
 		}
-
-		/* Features panel */
 		#brt-rich.brt-rich .brt-rich__features-panel-section,
 		.brt-rich .brt-rich__features-panel-section {
 		  margin-block: 0;
@@ -3308,6 +3319,13 @@
 		  background: var(--rich-color-accent);
 		  border-radius: var(--rich-radius-md);
 		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__features-panel-suction,
+		  .brt-rich .brt-rich__features-panel-suction {
+		    flex-direction: column;
+		    text-align: center;
+		  }
+		}
 		#brt-rich.brt-rich .brt-rich__features-panel-suction-icon,
 		.brt-rich .brt-rich__features-panel-suction-icon {
 		  flex-shrink: 0;
@@ -3321,8 +3339,6 @@
 		  font-size: var(--rich-font-size-body);
 		  line-height: 1.4;
 		}
-
-		/* Nozzle modes */
 		#brt-rich.brt-rich .brt-rich__nozzle-modes-section,
 		.brt-rich .brt-rich__nozzle-modes-section {
 		  margin-block: 0;
@@ -3356,6 +3372,12 @@
 		.brt-rich .brt-rich__nozzle-modes-item:last-child {
 		  margin-bottom: 0;
 		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__nozzle-modes-item,
+		  .brt-rich .brt-rich__nozzle-modes-item {
+		    flex-direction: column;
+		  }
+		}
 		#brt-rich.brt-rich .brt-rich__nozzle-modes-media,
 		.brt-rich .brt-rich__nozzle-modes-media {
 		  flex: 0 0 135px;
@@ -3369,6 +3391,13 @@
 		  height: 100%;
 		  min-height: 135px;
 		  object-fit: cover;
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__nozzle-modes-media,
+		  .brt-rich .brt-rich__nozzle-modes-media {
+		    flex: none;
+		    width: 100%;
+		  }
 		}
 		#brt-rich.brt-rich .brt-rich__nozzle-modes-label,
 		.brt-rich .brt-rich__nozzle-modes-label {
@@ -3393,8 +3422,6 @@
 		.brt-rich .brt-rich__nozzle-modes-body strong {
 		  font-weight: var(--rich-font-weight-bold);
 		}
-
-		/* Ergonomics grid */
 		#brt-rich.brt-rich .brt-rich__ergonomics-grid-section,
 		.brt-rich .brt-rich__ergonomics-grid-section {
 		  margin-block: 0;
@@ -3447,8 +3474,6 @@
 		  font-size: 17px;
 		  line-height: 1.2;
 		}
-
-		/* Kit intro on accent */
 		#brt-rich.brt-rich .brt-rich__kit-intro-section,
 		.brt-rich .brt-rich__kit-intro-section {
 		  margin-block: 0;
@@ -3472,8 +3497,6 @@
 		  font-size: 20px;
 		  line-height: 1.4;
 		}
-
-		/* Engineering captions */
 		#brt-rich.brt-rich .brt-rich__engineering-caption,
 		.brt-rich .brt-rich__engineering-caption {
 		  margin-top: var(--rich-space-sm);
@@ -3483,8 +3506,6 @@
 		  font-size: var(--rich-font-size-body);
 		  line-height: 1.3;
 		}
-
-		/* Shampoo section */
 		#brt-rich.brt-rich .brt-rich__shampoo-section,
 		.brt-rich .brt-rich__shampoo-section {
 		  margin-block: 0;
@@ -3502,8 +3523,6 @@
 		  line-height: 1.4;
 		  text-align: center;
 		}
-
-		/* Accessories mini grid */
 		#brt-rich.brt-rich .brt-rich__accessory-mini,
 		.brt-rich .brt-rich__accessory-mini {
 		  display: flex;
@@ -3543,8 +3562,6 @@
 		  font-size: 17px;
 		  line-height: 1.14;
 		}
-
-		/* Utility spacing for KEX sections */
 		#brt-rich.brt-rich .brt-rich__nozzle-compare,
 		.brt-rich .brt-rich__nozzle-compare {
 		  margin-top: var(--rich-space-md);
@@ -3565,22 +3582,9 @@
 		.brt-rich .brt-rich__engineering-note {
 		  margin-top: var(--rich-space-md);
 		}
-
-		@media (max-width: 767.98px) {
-		  #brt-rich.brt-rich .brt-rich__features-panel-suction,
-		  .brt-rich .brt-rich__features-panel-suction {
-		    flex-direction: column;
-		    text-align: center;
-		  }
-		  #brt-rich.brt-rich .brt-rich__nozzle-modes-item,
-		  .brt-rich .brt-rich__nozzle-modes-item {
-		    flex-direction: column;
-		  }
-		  #brt-rich.brt-rich .brt-rich__nozzle-modes-media,
-		  .brt-rich .brt-rich__nozzle-modes-media {
-		    flex: none;
-		    width: 100%;
-		  }
+		#brt-rich.brt-rich .brt-rich__summary .brt-rich__text + .brt-rich__text,
+		.brt-rich .brt-rich__summary .brt-rich__text + .brt-rich__text {
+		  margin-top: 1rem;
 		}
 		</style>
 
@@ -3626,7 +3630,7 @@
 				<div class="brt-rich__container">
 					<div class="brt-rich__hero-card">
 						<div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-center">
-							<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<div class="brt-rich-col-12 brt-rich-col-md-8">
 								<h1 class="brt-rich__heading brt-rich__hero-card-title">Мойка высокого давления</h1>
 								<p class="brt-rich__hero-card-model brt-rich__hero-card-model--brand">KEX-3500</p>
 								<p class="brt-rich__hero-card-desc">Универсальная высокопроизводительная мойка профессионального уровня для тех, кто ищет самое лучшее</p>
@@ -3658,7 +3662,7 @@
 								</ul>
 								<p class="brt-rich__text brt-rich__hero-note"><strong>Кабель 5 м и шланг высокого давления 10 м.</strong><br>Позволяют заниматься уборкой на площади до 700 м².</p>
 							</div>
-							<div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__hero-media">
+							<div class="brt-rich-col-12 brt-rich-col-md-4 brt-rich__hero-media">
 								<img class="brt-rich__hero-media-photo" src="img/kex-3500/hero-main.png" alt="Мойка высокого давления Bort KEX-3500" loading="lazy">
 							</div>
 						</div>
@@ -3715,12 +3719,12 @@
 			<section class="brt-rich__section brt-rich__split-stats-section">
 				<div class="brt-rich__container">
 					<div class="brt-rich-row brt-rich-row--align-center">
-						<div class="brt-rich-col-12 brt-rich-col-md-5">
+						<div class="brt-rich-col-12 brt-rich-col-md-8">
 							<div class="brt-rich__split-stats-media">
 								<img class="brt-rich__split-stats-photo" src="img/kex-3500/specs-photo.jpg" alt="Мойка высокого давления Bort KEX-3500 в работе" width="602" height="665" loading="lazy">
 							</div>
 						</div>
-						<div class="brt-rich-col-12 brt-rich-col-md-7">
+						<div class="brt-rich-col-12 brt-rich-col-md-4">
 							<h2 class="brt-rich__heading brt-rich__section-heading">Характеристики:</h2>
 							<div class="brt-rich-row brt-rich-row--gap-2xs brt-rich__split-stats--stacked">
 								<div class="brt-rich-col-12 brt-rich-col-sm-6">
