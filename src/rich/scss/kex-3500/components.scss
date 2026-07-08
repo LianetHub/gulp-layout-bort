@@ -373,7 +373,7 @@
 
 	.brt-rich__kit-intro-title {
 		margin: 0 0 var(--rich-space-sm);
-		font-size: 25px;
+		font-size: 25px !important;
 		font-weight: var(--rich-font-weight-semibold);
 	}
 
@@ -399,16 +399,98 @@
 	}
 
 	.brt-rich__shampoo-banner {
-		padding: var(--rich-space-lg);
+		padding: var(--rich-shampoo-banner-padding-top) var(--rich-shampoo-banner-padding-right) var(--rich-shampoo-banner-padding-bottom) var(--rich-shampoo-banner-padding-left);
 		background: var(--rich-color-bg-muted);
 		border-radius: var(--rich-radius-lg);
 	}
 
 	.brt-rich__shampoo-lead {
-		margin: 0 0 var(--rich-space-lg);
-		font-size: var(--rich-font-size-body);
-		line-height: 1.4;
+		max-width: var(--rich-shampoo-lead-max-width);
+		margin: 0 auto var(--rich-shampoo-lead-body-gap) !important;
+		font-size: var(--rich-shampoo-lead-size) !important;
+		line-height: var(--rich-shampoo-lead-line-height) !important;
+		font-weight: var(--rich-font-weight-normal) !important;
+		color: var(--rich-color-text) !important;
 		text-align: center;
+	}
+
+	.brt-rich__shampoo-lead-title {
+		display: block;
+		font-size: var(--rich-shampoo-lead-size) !important;
+		line-height: var(--rich-shampoo-lead-line-height) !important;
+		font-weight: var(--rich-font-weight-bold) !important;
+		color: var(--rich-color-text) !important;
+		text-transform: uppercase;
+	}
+
+	.brt-rich__shampoo-lead-desc {
+		display: block;
+		font-size: var(--rich-shampoo-lead-size) !important;
+		line-height: var(--rich-shampoo-lead-line-height) !important;
+		font-weight: var(--rich-font-weight-normal) !important;
+		color: var(--rich-color-text) !important;
+	}
+
+	.brt-rich__shampoo-body {
+		display: flex;
+		align-items: flex-start;
+		gap: var(--rich-shampoo-body-gap);
+		margin-top: 2rem;
+	}
+
+	.brt-rich__shampoo-media {
+		flex: 0 0 var(--rich-shampoo-media-width);
+		width: var(--rich-shampoo-media-width);
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.brt-rich__shampoo-content {
+		flex: 1 1 auto;
+		max-width: var(--rich-shampoo-content-max-width);
+		min-width: 0;
+		font-size: var(--rich-shampoo-text-size);
+		line-height: var(--rich-shampoo-text-line-height);
+		color: var(--rich-color-text);
+
+		.brt-rich__shampoo-list {
+			margin: 0;
+			padding-left: var(--rich-shampoo-list-indent) !important;
+			list-style: disc !important;
+
+			li {
+				list-style: disc !important;
+			}
+		}
+	}
+
+	.brt-rich__shampoo-text {
+		margin: 0;
+	}
+
+
+
+	.brt-rich__shampoo-unit {
+		font-size: var(--rich-shampoo-unit-size);
+		line-height: 0;
+		vertical-align: baseline;
+	}
+
+	@media (max-width: $md4) {
+		.brt-rich__shampoo-body {
+			flex-direction: column;
+			align-items: center;
+			gap: var(--rich-space-lg);
+		}
+
+		.brt-rich__shampoo-content {
+			max-width: none;
+			width: 100%;
+		}
 	}
 
 	// .brt-rich__equipment-features-section
