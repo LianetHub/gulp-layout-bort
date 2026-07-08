@@ -73,6 +73,24 @@
   --rich-turbo-cutter-text-line-height: 1.08;
   --rich-turbo-cutter-title-body-gap: 20px;
   --rich-turbo-cutter-media-radius: 10px;
+  /* --- Equipment Features --- */
+  --rich-equipment-features-gap: 30px;
+  --rich-equipment-features-row-gap: 32px;
+  --rich-equipment-features-heading-gap: 32px;
+  --rich-equipment-features-heading-size: 25px;
+  --rich-equipment-features-content-width: 439px;
+  --rich-equipment-features-title-size: 25px;
+  --rich-equipment-features-title-line-height: 1.14;
+  --rich-equipment-features-text-size: 17px;
+  --rich-equipment-features-text-line-height: 20px;
+  --rich-equipment-features-title-body-gap: 14px;
+  --rich-equipment-features-tile-height: 202px;
+  --rich-equipment-features-tile-wide: 248px;
+  --rich-equipment-features-tile-narrow: 180px;
+  --rich-equipment-features-tile-gap: 11px;
+  --rich-equipment-features-gun-height: 238px;
+  --rich-equipment-features-foam-height: 240px;
+  --rich-equipment-features-foam-inset-size: 133px;
   /* --- Nozzle Splitter --- */
   --rich-nozzle-splitter-gap: 41px;
   --rich-nozzle-splitter-content-width: 439px;
@@ -3559,7 +3577,7 @@
 		  flex-direction: column;
 		  height: 100%;
 		  min-height: 314px;
-		  padding: var(--rich-space-md);
+		  overflow: hidden;
 		  background: var(--rich-color-bg);
 		  border-radius: var(--rich-radius-sm);
 		}
@@ -3569,24 +3587,18 @@
 		}
 		#brt-rich.brt-rich .brt-rich__ergonomics-grid-media,
 		.brt-rich .brt-rich__ergonomics-grid-media {
-		  flex: 1;
-		  display: flex;
-		  align-items: center;
-		  justify-content: center;
-		  margin-bottom: var(--rich-space-md);
-		  overflow: hidden;
+		  width: 100%;
 		}
 		#brt-rich.brt-rich .brt-rich__ergonomics-grid-media img,
 		.brt-rich .brt-rich__ergonomics-grid-media img {
-		  max-width: 100%;
-		  max-height: 240px;
-		  object-fit: contain;
+		  width: 100%;
 		}
 		#brt-rich.brt-rich .brt-rich__ergonomics-grid-text,
 		.brt-rich .brt-rich__ergonomics-grid-text {
 		  margin: 0;
 		  font-size: 17px;
 		  line-height: 1.2;
+		  padding: var(--rich-space-md);
 		}
 		#brt-rich.brt-rich .brt-rich__kit-intro-section,
 		.brt-rich .brt-rich__kit-intro-section {
@@ -3637,44 +3649,221 @@
 		  line-height: 1.4;
 		  text-align: center;
 		}
-		#brt-rich.brt-rich .brt-rich__accessory-mini,
-		.brt-rich .brt-rich__accessory-mini {
-		  display: flex;
-		  flex-direction: column;
-		  align-items: center;
-		  min-height: 202px;
-		  padding: var(--rich-space-md);
-		  background: var(--rich-color-bg-muted);
-		  border-radius: var(--rich-radius-lg);
+		#brt-rich.brt-rich .brt-rich__equipment-features-section,
+		.brt-rich .brt-rich__equipment-features-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-heading,
+		.brt-rich .brt-rich__equipment-features-heading {
+		  max-width: 668px;
+		  margin: 0 auto var(--rich-equipment-features-heading-gap);
+		  font-size: var(--rich-equipment-features-heading-size) !important;
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: var(--rich-equipment-features-title-line-height);
 		  text-align: center;
 		}
-		#brt-rich.brt-rich .brt-rich__accessory-mini-media,
-		.brt-rich .brt-rich__accessory-mini-media {
-		  flex: 1;
-		  display: flex;
+		#brt-rich.brt-rich .brt-rich__equipment-features .brt-rich__equipment-features-row,
+		.brt-rich .brt-rich__equipment-features .brt-rich__equipment-features-row {
+		  --rich-gutter-x: var(--rich-equipment-features-gap);
+		  --rich-gutter-y: 0;
 		  align-items: center;
-		  justify-content: center;
-		  width: 100%;
-		  margin-bottom: var(--rich-space-sm);
+		  margin-bottom: var(--rich-equipment-features-row-gap);
 		}
-		#brt-rich.brt-rich .brt-rich__accessory-mini-media img,
-		.brt-rich .brt-rich__accessory-mini-media img {
-		  max-width: 100%;
-		  max-height: 160px;
+		#brt-rich.brt-rich .brt-rich__equipment-features .brt-rich__equipment-features-row:last-child,
+		.brt-rich .brt-rich__equipment-features .brt-rich__equipment-features-row:last-child {
+		  margin-bottom: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-content,
+		.brt-rich .brt-rich__equipment-features-content {
+		  max-width: var(--rich-equipment-features-content-width);
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-title,
+		.brt-rich .brt-rich__equipment-features-title {
+		  margin: 0;
+		  font-size: var(--rich-equipment-features-title-size) !important;
+		  font-weight: var(--rich-font-weight-semibold) !important;
+		  line-height: var(--rich-equipment-features-title-line-height) !important;
+		  color: var(--rich-color-text);
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-body,
+		.brt-rich .brt-rich__equipment-features-body {
+		  margin-top: var(--rich-equipment-features-title-body-gap);
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-body .brt-rich__text,
+		.brt-rich .brt-rich__equipment-features-body .brt-rich__text {
+		  margin: 0;
+		  font-size: var(--rich-equipment-features-text-size) !important;
+		  font-weight: var(--rich-font-weight-normal) !important;
+		  line-height: var(--rich-equipment-features-text-line-height) !important;
+		  color: var(--rich-color-text) !important;
+		  word-break: break-word;
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-media,
+		.brt-rich .brt-rich__equipment-features-media {
+		  width: 100%;
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__equipment-features-media,
+		  .brt-rich .brt-rich__equipment-features-media {
+		    margin-inline: auto;
+		    margin-top: var(--rich-space-lg);
+		  }
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-media--pair,
+		.brt-rich .brt-rich__equipment-features-media--pair {
+		  display: flex;
+		  gap: var(--rich-equipment-features-tile-gap);
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__equipment-features-media--pair,
+		  .brt-rich .brt-rich__equipment-features-media--pair {
+		    width: 100%;
+		    justify-content: stretch;
+		  }
+		  #brt-rich.brt-rich .brt-rich__equipment-features-media--pair .brt-rich__equipment-features-tile--wide,
+		  #brt-rich.brt-rich .brt-rich__equipment-features-media--pair .brt-rich__equipment-features-tile--narrow,
+		  .brt-rich .brt-rich__equipment-features-media--pair .brt-rich__equipment-features-tile--wide,
+		  .brt-rich .brt-rich__equipment-features-media--pair .brt-rich__equipment-features-tile--narrow {
+		    flex: 1 1 0;
+		    width: 50%;
+		    max-width: none;
+		  }
+		}
+		#brt-rich.brt-rich .brt-rich-row--reverse.brt-rich__equipment-features-row .brt-rich__equipment-features-media,
+		.brt-rich .brt-rich-row--reverse.brt-rich__equipment-features-row .brt-rich__equipment-features-media {
+		  margin-inline: 0 auto;
+		}
+		#brt-rich.brt-rich .brt-rich-row--reverse.brt-rich__equipment-features-row .brt-rich__equipment-features-media--pair,
+		.brt-rich .brt-rich-row--reverse.brt-rich__equipment-features-row .brt-rich__equipment-features-media--pair {
+		  justify-content: flex-start;
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich-row--reverse.brt-rich__equipment-features-row .brt-rich__equipment-features-media--pair,
+		  .brt-rich .brt-rich-row--reverse.brt-rich__equipment-features-row .brt-rich__equipment-features-media--pair {
+		    justify-content: stretch;
+		  }
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-tile,
+		.brt-rich .brt-rich__equipment-features-tile {
+		  position: relative;
+		  overflow: hidden;
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-bg-muted);
+		  line-height: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-tile--wide,
+		.brt-rich .brt-rich__equipment-features-tile--wide {
+		  flex: 1 1 var(--rich-equipment-features-tile-wide);
+		  width: var(--rich-equipment-features-tile-wide);
+		  max-width: calc(100% - var(--rich-equipment-features-tile-narrow) - var(--rich-equipment-features-tile-gap));
+		  height: var(--rich-equipment-features-tile-height);
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-tile--narrow,
+		.brt-rich .brt-rich__equipment-features-tile--narrow {
+		  flex: 0 0 var(--rich-equipment-features-tile-narrow);
+		  width: var(--rich-equipment-features-tile-narrow);
+		  max-width: 42%;
+		  height: var(--rich-equipment-features-tile-height);
+		  padding: 1rem;
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-tile--gun,
+		.brt-rich .brt-rich__equipment-features-tile--gun {
+		  width: 100%;
+		  height: var(--rich-equipment-features-gun-height);
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-tile--composite,
+		.brt-rich .brt-rich__equipment-features-tile--composite {
+		  width: 100%;
+		  height: var(--rich-equipment-features-tile-height);
+		  overflow: visible;
+		  padding: 1rem;
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-tile--foam,
+		.brt-rich .brt-rich__equipment-features-tile--foam {
+		  width: 100%;
+		  height: var(--rich-equipment-features-foam-height);
+		  background: transparent;
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-photo,
+		.brt-rich .brt-rich__equipment-features-photo {
+		  display: block;
+		  width: 100%;
+		  height: 100%;
+		  object-fit: cover;
+		  object-position: center;
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-photo--hose,
+		.brt-rich .brt-rich__equipment-features-photo--hose {
+		  object-fit: contain;
+		  object-position: center;
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-photo--foam-car,
+		.brt-rich .brt-rich__equipment-features-photo--foam-car {
+		  border-radius: var(--rich-radius-lg);
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-tile--gun .brt-rich__equipment-features-photo,
+		.brt-rich .brt-rich__equipment-features-tile--gun .brt-rich__equipment-features-photo {
+		  object-fit: contain;
+		  object-position: center;
+		}
+		#brt-rich.brt-rich .brt-rich-row--reverse.brt-rich__equipment-features-row .brt-rich__equipment-features-tile--narrow .brt-rich__equipment-features-photo--hose,
+		.brt-rich .brt-rich-row--reverse.brt-rich__equipment-features-row .brt-rich__equipment-features-tile--narrow .brt-rich__equipment-features-photo--hose {
+		  transform: rotate(90deg);
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-composite-item,
+		.brt-rich .brt-rich__equipment-features-composite-item {
+		  position: absolute;
+		  display: block;
+		  object-fit: contain;
+		  pointer-events: none;
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-composite-item--nozzles,
+		.brt-rich .brt-rich__equipment-features-composite-item--nozzles {
+		  left: 3.2%;
+		  top: 7.9%;
+		  width: 40.3%;
+		  height: auto;
+		  max-height: 83.7%;
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-composite-item--turbo,
+		.brt-rich .brt-rich__equipment-features-composite-item--turbo {
+		  left: 30.3%;
+		  top: -1%;
+		  width: 34.2%;
+		  height: auto;
+		  max-height: 72.3%;
+		  transform: rotate(-45.39deg);
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-composite-item--foam,
+		.brt-rich .brt-rich__equipment-features-composite-item--foam {
+		  right: 0;
+		  top: 0;
+		  width: 29.6%;
+		  height: auto;
+		  max-height: 99%;
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-foam-inset,
+		.brt-rich .brt-rich__equipment-features-foam-inset {
+		  position: absolute;
+		  left: 4.3%;
+		  bottom: 8.8%;
+		  width: var(--rich-equipment-features-foam-inset-size);
+		  height: var(--rich-equipment-features-foam-inset-size);
+		}
+		#brt-rich.brt-rich .brt-rich__equipment-features-foam-inset-ring,
+		#brt-rich.brt-rich .brt-rich__equipment-features-foam-inset-photo,
+		.brt-rich .brt-rich__equipment-features-foam-inset-ring,
+		.brt-rich .brt-rich__equipment-features-foam-inset-photo {
+		  position: absolute;
+		  inset: 0;
+		  display: block;
+		  width: 100%;
+		  height: 100%;
 		  object-fit: contain;
 		}
-		#brt-rich.brt-rich .brt-rich__accessory-mini-title,
-		.brt-rich .brt-rich__accessory-mini-title {
-		  margin: 0 0 var(--rich-space-xs);
-		  font-size: 25px;
-		  font-weight: var(--rich-font-weight-semibold);
-		  line-height: 1.14;
-		}
-		#brt-rich.brt-rich .brt-rich__accessory-mini-desc,
-		.brt-rich .brt-rich__accessory-mini-desc {
-		  margin: 0;
-		  font-size: 17px;
-		  line-height: 1.14;
+		#brt-rich.brt-rich .brt-rich__equipment-features-foam-inset-photo,
+		.brt-rich .brt-rich__equipment-features-foam-inset-photo {
+		  border-radius: 50%;
 		}
 		#brt-rich.brt-rich .brt-rich__turbo-cutter-section,
 		.brt-rich .brt-rich__turbo-cutter-section {
@@ -3823,14 +4012,6 @@
 		.brt-rich .brt-rich__nozzle-splitter-label--wide {
 		  width: var(--rich-nozzle-splitter-label-wide-width);
 		  max-width: calc(100% - 8px);
-		}
-		#brt-rich.brt-rich .brt-rich__accessories-row,
-		.brt-rich .brt-rich__accessories-row {
-		  margin-bottom: var(--rich-space-lg);
-		}
-		#brt-rich.brt-rich .brt-rich__accessory-media,
-		.brt-rich .brt-rich__accessory-media {
-		  margin-top: var(--rich-space-md);
 		}
 		#brt-rich.brt-rich .brt-rich__engineering-block,
 		.brt-rich .brt-rich__engineering-block {
@@ -4097,7 +4278,7 @@
 								</div>
 							</div>
 						</div>
-						
+
 						<div class="brt-rich__features-panel-suction">
 							<img class="brt-rich__features-panel-suction-icon" src="img/kex-3500/icon-suction-feature.svg" alt="" width="115" height="101" loading="lazy">
 							<p class="brt-rich__features-panel-suction-text">Функция самовсасывания: воду можно забирать не только из водопровода, но и из любой емкости (ведра, бочки, бассейна). Это удобно, если нет доступа к центральному водоснабжению. Достаточно просто опустить шланг в емкость, и мойка самостоятельно начнет забор воды для работы.</p>
@@ -4111,7 +4292,7 @@
 			<section class="brt-rich__section brt-rich__accent-bar-section">
 				<div class="brt-rich__container">
 					<h2 class="brt-rich__heading brt-rich__section-heading brt-rich__heading--center">Преимущества профессиональной комплектации мойки высокого давления BORT KEX-3500:</h2>
-					
+
 					<div class="brt-rich__accent-bar brt-rich__accent-bar--centered">
 						<div class="brt-rich__accent-bar-body">
 							<p class="brt-rich__text">Все элементы мойки выполнены из <strong>прочных и качественных материалов</strong>, что обеспечивает <strong>долговечность и надёжность</strong> в эксплуатации.</p>
@@ -4248,60 +4429,104 @@
 
 			<!-- COMPONENT: Equipment Features
 				 PRODUCT: KEX-3500 -->
-			<section class="brt-rich__section">
+			<section class="brt-rich__section brt-rich__equipment-features-section">
 				<div class="brt-rich__container">
-					<h2 class="brt-rich__heading brt-rich__section-heading brt-rich__heading--center">Особенности профессиональной мойки высокого давления KEX-3500:</h2>
+					<h2 class="brt-rich__heading brt-rich__equipment-features-heading brt-rich__heading--center">Особенности профессиональной мойки высокого давления KEX-3500:</h2>
 
-					<div class="brt-rich-row brt-rich-row--gap-sm brt-rich__accessories-row">
-						<div class="brt-rich-col-12 brt-rich-col-md-3">
-							<div class="brt-rich__accessory-mini">
-								<div class="brt-rich__accessory-mini-media">
-									<img src="img/kex-3500/intake-hose.png" alt="Заборный шланг с QUICK FIX" loading="lazy">
-								</div>
-								<p class="brt-rich__accessory-mini-title">Заборный шланг<br>с QUICK FIX</p>
-								<p class="brt-rich__accessory-mini-desc">Заборный шланг со встроенной системой QUICK FIX быстро и легко соединяется с фильтром.</p>
-							</div>
-						</div>
-						<div class="brt-rich-col-12 brt-rich-col-md-3">
-							<div class="brt-rich__accessory-mini">
-								<div class="brt-rich__accessory-mini-media">
-									<img src="img/kex-3500/filter.png" alt="Фильтр" loading="lazy">
+					<div class="brt-rich__equipment-features">
+						<div class="brt-rich-row brt-rich-row--align-center brt-rich__equipment-features-row">
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__equipment-features-content">
+									<h3 class="brt-rich__heading brt-rich__equipment-features-title">Заборный шланг<br>с QUICK FIX</h3>
+									<div class="brt-rich__equipment-features-body">
+										<p class="brt-rich__text">Заборный шланг со встроенной системой QUICK FIX быстро и легко соединяется с фильтром.</p>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div class="brt-rich-col-12 brt-rich-col-md-3">
-							<div class="brt-rich__accessory-mini">
-								<div class="brt-rich__accessory-mini-media">
-									<img src="img/kex-3500/connector.png" alt="Коннектор для шланга" loading="lazy">
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__equipment-features-media brt-rich__equipment-features-media--pair">
+									<div class="brt-rich__equipment-features-tile brt-rich__equipment-features-tile--wide">
+										<img class="brt-rich__equipment-features-photo" src="img/kex-3500/equipment-intake-connection.jpg" alt="Подключение заборного шланга к фильтру" width="250" height="209" loading="lazy">
+									</div>
+									<div class="brt-rich__equipment-features-tile brt-rich__equipment-features-tile--narrow">
+										<img class="brt-rich__equipment-features-photo brt-rich__equipment-features-photo--hose" src="img/kex-3500/equipment-intake-hose.png" alt="Заборный шланг с QUICK FIX" width="164" height="172" loading="lazy">
+									</div>
 								</div>
-								<p class="brt-rich__accessory-mini-title">Коннектор для шланга высокого давления</p>
-								<p class="brt-rich__accessory-mini-desc">В комплекте идёт коннектор для шланга высокого давления, превращающий резьбовое соединение в QUICK FIX</p>
 							</div>
 						</div>
-						<div class="brt-rich-col-12 brt-rich-col-md-3">
-							<div class="brt-rich__accessory-mini">
-								<div class="brt-rich__accessory-mini-media">
-									<img src="img/kex-3500/quick-fix-nozzle.png" alt="Быстросъёмные соединения" loading="lazy">
-								</div>
-								<p class="brt-rich__accessory-mini-title">Быстросъёмные соединения</p>
-								<p class="brt-rich__accessory-mini-desc">Все аксессуары в комплекте (форсунки, грязевая фреза, пеногенератор) обладают <strong>быстросъёмными соединениями</strong>, чтобы легко и быстро менять их в процессе работы.</p>
-							</div>
-						</div>
-					</div>
 
-					<div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-center">
-						<div class="brt-rich-col-12 brt-rich-col-md-6">
-							<h3 class="brt-rich__heading brt-rich__split-title">Защита от случайного нажатия</h3>
-							<p class="brt-rich__text">Пистолет помимо быстросъёмного соединения оборудован надёжной защитой от случайных нажатий.</p>
-							<div class="brt-rich__media brt-rich__accessory-media">
-								<img src="img/kex-3500/gun-safety.png" alt="Защита от случайного нажатия на пистолете" width="439" height="238" loading="lazy">
+						<div class="brt-rich-row brt-rich-row--reverse brt-rich-row--align-center brt-rich__equipment-features-row">
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__equipment-features-content">
+									<h3 class="brt-rich__heading brt-rich__equipment-features-title">Коннектор для шланга высокого давления</h3>
+									<div class="brt-rich__equipment-features-body">
+										<p class="brt-rich__text">В комплекте идет коннектор для шланга высокого давления, превращающий резьбовое соединение в QUICK FIX</p>
+									</div>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__equipment-features-media brt-rich__equipment-features-media--pair">
+									<div class="brt-rich__equipment-features-tile brt-rich__equipment-features-tile--narrow">
+										<img class="brt-rich__equipment-features-photo brt-rich__equipment-features-photo--hose" src="img/kex-3500/equipment-intake-hose-2.png" alt="Шланг высокого давления" width="144" height="194" loading="lazy">
+									</div>
+									<div class="brt-rich__equipment-features-tile brt-rich__equipment-features-tile--wide">
+										<img class="brt-rich__equipment-features-photo" src="img/kex-3500/equipment-filter.png" alt="Фильтр и коннектор на корпусе мойки" width="248" height="202" loading="lazy">
+									</div>
+								</div>
 							</div>
 						</div>
-						<div class="brt-rich-col-12 brt-rich-col-md-6">
-							<h3 class="brt-rich__heading brt-rich__split-title">Пеногенератор с эффектом снежной пены</h3>
-							<p class="brt-rich__text">В комплекте с мойкой идёт пеногенератор с эффектом снежной пены. Достигается такой эффект благодаря встроенной сменной пенной таблетке и регулировки подачи моющего средства. Эффект снежной пены также зависит от моющего средства, которое вы используете и его концентрации.</p>
-							<div class="brt-rich__media brt-rich__accessory-media">
-								<img src="img/kex-3500/foam-generator.png" alt="Пеногенератор с эффектом снежной пены" width="441" height="240" loading="lazy">
+
+						<div class="brt-rich-row brt-rich-row--align-center brt-rich__equipment-features-row">
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__equipment-features-content">
+									<h3 class="brt-rich__heading brt-rich__equipment-features-title">Защита от случайного нажатия</h3>
+									<div class="brt-rich__equipment-features-body">
+										<p class="brt-rich__text">Пистолет помимо быстросъемного соединения оборудован <strong>надежной защитой от случайных нажатий.</strong></p>
+									</div>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__equipment-features-media">
+									<div class="brt-rich__equipment-features-tile brt-rich__equipment-features-tile--gun">
+										<img class="brt-rich__equipment-features-photo" src="img/kex-3500/equipment-gun-safety.png" alt="Защита от случайного нажатия на пистолете" width="412" height="238" loading="lazy">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="brt-rich-row brt-rich-row--reverse brt-rich-row--align-center brt-rich__equipment-features-row">
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__equipment-features-content">
+									<h3 class="brt-rich__heading brt-rich__equipment-features-title">Быстросъемные соединения</h3>
+									<div class="brt-rich__equipment-features-body">
+										<p class="brt-rich__text">Все аксессуары в комплекте (форсунки, грязевая фреза, пеногенератор) обладают <strong>быстросъемными соединениями</strong>, чтобы легко и быстро менять их в процессе работы.</p>
+									</div>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__equipment-features-media">
+									<div class="brt-rich__equipment-features-tile brt-rich__equipment-features-tile--composite">
+										<img class="brt-rich__equipment-features-photo" src="img/kex-3500/equipment-connect.png" alt="Защита от случайного нажатия на пистолете" width="412" height="238" loading="lazy">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="brt-rich-row brt-rich-row--align-center brt-rich__equipment-features-row">
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__equipment-features-content">
+									<h3 class="brt-rich__heading brt-rich__equipment-features-title">Пеногенератор с эффектом<br>снежной пены</h3>
+									<div class="brt-rich__equipment-features-body">
+										<p class="brt-rich__text">В комплекте с мойкой идет пеногенератор<br>с эффектом снежной пены. Достигается такой эффект благодаря встроенной сменной пенной таблетке и регулировки подачи моющего средства. Эффект снежной пены также зависит от моющего средства, которое вы используете<br>и его концентрации.</p>
+									</div>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-6">
+								<div class="brt-rich__equipment-features-media">
+									<div class="brt-rich__equipment-features-tile brt-rich__equipment-features-tile--foam">
+										<img class="brt-rich__equipment-features-photo brt-rich__equipment-features-photo--foam-car" src="img/kex-3500/equipment-foam-car.jpg" alt="Пеногенератор с эффектом снежной пены" width="441" height="240" loading="lazy">
+									</div>
+								</div>
 							</div>
 						</div>
 					</div>
