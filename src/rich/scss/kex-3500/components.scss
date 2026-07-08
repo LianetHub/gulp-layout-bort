@@ -34,7 +34,7 @@
 	}
 
 	.brt-rich__features-panel {
-		padding: var(--rich-space-lg);
+		padding: 1.5rem  var(--rich-feature-grid-gap) var(--rich-feature-grid-gap);
 		background: var(--rich-color-bg-muted);
 		border-radius: var(--rich-radius-lg);
 	}
@@ -43,38 +43,55 @@
 		margin: 0 0 var(--rich-space-lg);
 		font-size: 24px;
 		font-weight: var(--rich-font-weight-semibold);
+		line-height: 1.14;
 		text-align: center;
 	}
 
 	.brt-rich__features-panel-lead {
 		margin-bottom: var(--rich-space-lg);
-		padding: var(--rich-space-lg) var(--rich-space-xl);
+		padding: var(--rich-space-lg) var(--rich-space-md);
 		background: var(--rich-color-accent);
-		border-radius: var(--rich-radius-md);
-		font-size: var(--rich-font-size-body);
-		line-height: 1.4;
+		border-radius: 10px;
 		text-align: center;
 	}
 
+	.brt-rich__features-panel-lead-text {
+		margin: 0;
+		font-size: 20px;
+		font-weight: var(--rich-font-weight-semibold);
+		line-height: 1.38;
+	}
+
 	.brt-rich__features-panel-grid {
-		margin-bottom: var(--rich-space-sm);
+		> [class*="brt-rich-col"] {
+			display: flex;
+			flex-direction: column;
+		}
 	}
 
 	.brt-rich__features-panel-card {
 		display: flex;
+		flex: 1;
 		flex-direction: column;
 		align-items: center;
 		justify-content: flex-start;
-		min-height: 210px;
+		width: 100%;
 		padding: var(--rich-space-lg) var(--rich-space-md);
 		background: var(--rich-color-bg);
-		border-radius: var(--rich-radius-sm);
+		border-radius: 10px;
 		text-align: center;
+
+		&--tall {
+			min-height: 210px;
+		}
+
+		&--medium {
+			min-height: 187px;
+		}
 	}
 
 	.brt-rich__features-panel-card-icon {
-		width: 65px;
-		height: 65px;
+		display: block;
 		margin-bottom: var(--rich-space-md);
 		object-fit: contain;
 	}
@@ -85,60 +102,60 @@
 		line-height: 1.08;
 	}
 
-	.brt-rich__features-panel-row {
-		margin-bottom: var(--rich-space-sm);
-	}
-
 	.brt-rich__features-panel-row-card {
 		display: flex;
+		flex: 1;
 		flex-direction: column;
 		align-items: center;
+		justify-content: flex-start;
+		width: 100%;
 		min-height: 177px;
 		padding: var(--rich-space-md);
 		background: var(--rich-color-bg);
-		border-radius: var(--rich-radius-sm);
+		border-radius: 10px;
 		text-align: center;
-
-		&--wide {
-			min-height: auto;
-			padding-bottom: var(--rich-space-lg);
-		}
 	}
 
 	.brt-rich__features-panel-row-icon {
-		width: 80px;
-		height: 82px;
+		display: block;
 		margin-bottom: var(--rich-space-sm);
 		object-fit: contain;
 	}
 
 	.brt-rich__features-panel-row-title {
-		margin: 0 0 var(--rich-space-xs);
-		font-size: var(--rich-font-size-body);
-		font-weight: var(--rich-font-weight-semibold);
-		line-height: 1.2;
-	}
-
-	.brt-rich__features-panel-row-desc {
 		margin: 0;
 		font-size: var(--rich-font-size-body);
+		font-weight: var(--rich-font-weight-normal);
 		line-height: 1.08;
 	}
 
-	.brt-rich__features-panel-row-foot {
-		margin-top: auto;
+	.brt-rich__features-panel-note-card {
+		display: flex;
+		flex: 1;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		min-height: 74px;
+		padding: var(--rich-space-md);
+		background: var(--rich-color-bg);
+		border-radius: 10px;
+		text-align: center;
+	}
+
+	.brt-rich__features-panel-note-text {
+		margin: 0;
 		font-size: var(--rich-font-size-body);
-		line-height: 1.2;
+		line-height: 1.08;
 	}
 
 	.brt-rich__features-panel-suction {
 		display: flex;
 		align-items: center;
 		gap: var(--rich-space-xl);
-		margin-top: var(--rich-space-sm);
-		padding: var(--rich-space-lg) var(--rich-space-xl);
+		margin-top: var(--rich-feature-grid-gap);
+		padding: var(--rich-space-lg) var(--rich-space-md);
 		background: var(--rich-color-accent);
-		border-radius: var(--rich-radius-md);
+		border-radius: 10px;
 
 		@media (max-width: $md4) {
 			flex-direction: column;
@@ -148,15 +165,13 @@
 
 	.brt-rich__features-panel-suction-icon {
 		flex-shrink: 0;
-		width: 115px;
-		height: 101px;
 		object-fit: contain;
 	}
 
 	.brt-rich__features-panel-suction-text {
 		margin: 0;
-		font-size: var(--rich-font-size-body);
-		line-height: 1.4;
+		font-size: 20px;
+		line-height: 1.08;
 	}
 
 	// .brt-rich__nozzle-modes-section
