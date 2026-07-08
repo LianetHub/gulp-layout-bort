@@ -444,14 +444,16 @@
 		color: var(--rich-color-text);
 	}
 
-	.brt-rich__engineering-desc {
-		margin: 0;
+	p.brt-rich__text.brt-rich__engineering-desc {
+		margin: 0 !important;
+		font-family: var(--rich-font-family) !important;
 		font-size: var(--rich-engineering-text-size) !important;
+		font-weight: var(--rich-font-weight-normal) !important;
 		line-height: var(--rich-engineering-text-line-height) !important;
-		color: var(--rich-color-text);
+		color: var(--rich-color-text) !important;
 
 		strong {
-			font-weight: var(--rich-font-weight-bold);
+			font-weight: var(--rich-font-weight-bold) !important;
 		}
 	}
 
