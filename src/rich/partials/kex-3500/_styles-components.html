@@ -238,7 +238,7 @@
 #brt-rich.brt-rich .brt-rich__nozzle-modes-title,
 .brt-rich .brt-rich__nozzle-modes-title {
   margin: 0 0 var(--rich-space-lg);
-  font-size: 20px;
+  font-size: 20px !important;
   font-weight: var(--rich-font-weight-semibold);
   text-align: center;
   color: var(--rich-color-text);
@@ -246,8 +246,9 @@
 #brt-rich.brt-rich .brt-rich__nozzle-modes-item,
 .brt-rich .brt-rich__nozzle-modes-item {
   display: flex;
+  align-items: center;
   gap: var(--rich-space-md);
-  min-height: 141px;
+  min-height: 100%;
   margin-bottom: var(--rich-space-sm);
   padding: var(--rich-space-sm);
   background: var(--rich-color-bg);
@@ -258,7 +259,7 @@
 .brt-rich .brt-rich__nozzle-modes-item:last-child {
   margin-bottom: 0;
 }
-@media (max-width: 767.98px) {
+@media (max-width: 575.98px) {
   #brt-rich.brt-rich .brt-rich__nozzle-modes-item,
   .brt-rich .brt-rich__nozzle-modes-item {
     flex-direction: column;
@@ -278,7 +279,7 @@
   min-height: 135px;
   object-fit: cover;
 }
-@media (max-width: 767.98px) {
+@media (max-width: 575.98px) {
   #brt-rich.brt-rich .brt-rich__nozzle-modes-media,
   .brt-rich .brt-rich__nozzle-modes-media {
     flex: none;
