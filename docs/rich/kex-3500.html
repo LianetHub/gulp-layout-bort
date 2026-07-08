@@ -863,12 +863,16 @@
 		  background: var(--rich-color-bg-muted);
 		  overflow: hidden;
 		  line-height: 0;
+		  min-height: 100%;
+		  display: flex;
+		  flex-direction: column;
 		}
 		#brt-rich.brt-rich .brt-rich__split-stats-photo,
 		.brt-rich .brt-rich__split-stats-photo {
 		  display: block;
 		  width: 100%;
 		  height: auto;
+		  flex: 1 1 auto;
 		  min-height: 284px;
 		  object-fit: cover;
 		  object-position: center;
@@ -3722,7 +3726,7 @@
 				 PRODUCT: KEX-3500 -->
 			<section class="brt-rich__section brt-rich__split-stats-section">
 				<div class="brt-rich__container">
-					<div class="brt-rich-row brt-rich-row--align-center">
+					<div class="brt-rich-row">
 						<div class="brt-rich-col-12 brt-rich-col-md-8">
 							<div class="brt-rich__split-stats-media">
 								<img class="brt-rich__split-stats-photo" src="img/kex-3500/specs-photo.jpg" alt="Мойка высокого давления Bort KEX-3500 в работе" width="602" height="665" loading="lazy">
