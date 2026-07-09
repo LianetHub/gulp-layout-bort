@@ -10,7 +10,8 @@
  * THEME VARIABLES — редактируйте этот блок для кастомизации под конкретный сайт.
  * Все компоненты используют эти переменные через var().
  */
-#brt-rich.brt-rich, .brt-rich {
+#brt-rich.brt-rich,
+.brt-rich {
   /* --- Spacing (4px-шкала) --- */
   --rich-space-2xs: 4px;
   --rich-space-xs: 8px;
@@ -3426,7 +3427,7 @@
 		  align-items: center;
 		  gap: var(--rich-space-xl);
 		  margin-top: var(--rich-feature-grid-gap);
-		  padding: var(--rich-space-lg) var(--rich-space-md);
+		  padding: var(--rich-space-lg) var(--rich-space-lg);
 		  background: var(--rich-color-accent);
 		  border-radius: 10px;
 		}
@@ -3732,6 +3733,7 @@
 		  display: flex;
 		  flex-direction: column;
 		  min-width: 0;
+		  min-height: 100%;
 		}
 		#brt-rich.brt-rich .brt-rich__engineering-card-media,
 		.brt-rich .brt-rich__engineering-card-media {
@@ -3772,9 +3774,10 @@
 		  padding: calc(var(--rich-engineering-caption-overlap) + 1rem) var(--rich-engineering-caption-padding-x) var(--rich-space-md);
 		  background: var(--rich-color-accent);
 		  border-radius: var(--rich-radius-lg);
-		  font-size: var(--rich-engineering-text-size);
-		  line-height: 1.2;
+		  font-size: var(--rich-engineering-text-size) !important;
+		  line-height: 1.2 !important;
 		  color: var(--rich-color-text);
+		  flex: 1 1 auto;
 		}
 		#brt-rich.brt-rich .brt-rich__engineering-caption--short,
 		.brt-rich .brt-rich__engineering-caption--short {
@@ -4457,7 +4460,7 @@
 						<div class="brt-rich-row brt-rich-row--gap-feature-grid brt-rich__features-panel-grid">
 							<div class="brt-rich-col-12 brt-rich-col-md-6">
 								<div class="brt-rich__features-panel-card brt-rich__features-panel-card--tall">
-									<img class="brt-rich__features-panel-card-icon" src="img/kex-3500/feature-motor.svg" alt="" width="54" height="53" loading="lazy">
+									<img class="brt-rich__features-panel-card-icon" src="img/kex-3500/feature-motor.svg" alt="" width="140" height="54" loading="lazy">
 									<p class="brt-rich__features-panel-card-text">Мощный и надежный индукционный двигатель с системой охлаждения и функцией автоотключения при перегреве, обладает увеличенным ресурсом работы, подходит для длительных работ</p>
 								</div>
 							</div>
@@ -4798,7 +4801,7 @@
 							<div class="brt-rich__engineering-card-media">
 								<img class="brt-rich__engineering-card-photo brt-rich__engineering-card-photo--pump" src="img/kex-3500/pump-station.png" alt="Металлическая помпа KEX-3500" width="441" height="377" loading="lazy">
 							</div>
-							<p class="brt-rich__engineering-caption brt-rich__engineering-caption--short">Мощная трёхплунжерная система</p>
+							<p class="brt-rich__engineering-caption brt-rich__engineering-caption--short">Мощная трех плунжерная система</p>
 						</article>
 
 						<article class="brt-rich__engineering-card">

@@ -148,7 +148,7 @@
   align-items: center;
   gap: var(--rich-space-xl);
   margin-top: var(--rich-feature-grid-gap);
-  padding: var(--rich-space-lg) var(--rich-space-md);
+  padding: var(--rich-space-lg) var(--rich-space-lg);
   background: var(--rich-color-accent);
   border-radius: 10px;
 }
@@ -454,6 +454,7 @@
   display: flex;
   flex-direction: column;
   min-width: 0;
+  min-height: 100%;
 }
 #brt-rich.brt-rich .brt-rich__engineering-card-media,
 .brt-rich .brt-rich__engineering-card-media {
@@ -494,9 +495,10 @@
   padding: calc(var(--rich-engineering-caption-overlap) + 1rem) var(--rich-engineering-caption-padding-x) var(--rich-space-md);
   background: var(--rich-color-accent);
   border-radius: var(--rich-radius-lg);
-  font-size: var(--rich-engineering-text-size);
-  line-height: 1.2;
+  font-size: var(--rich-engineering-text-size) !important;
+  line-height: 1.2 !important;
   color: var(--rich-color-text);
+  flex: 1 1 auto;
 }
 #brt-rich.brt-rich .brt-rich__engineering-caption--short,
 .brt-rich .brt-rich__engineering-caption--short {
