@@ -1,0 +1,175 @@
+@import "shared/settings";
+
+#brt-rich.brt-rich,
+.brt-rich {
+	.brt-rich__hero-media img,
+	.brt-rich__hero-media .brt-rich__placeholder {
+		border-radius: var(--rich-radius-lg);
+	}
+
+	.brt-rich__hero-gift {
+		display: block;
+		width: 100%;
+		max-width: 365px;
+		height: auto;
+		margin-top: var(--rich-space-lg);
+	}
+
+	.brt-rich__hero-card-desc {
+		margin: var(--rich-space-xs) 0 0;
+		font-family: var(--rich-font-family-display);
+		font-size: 20px;
+		font-weight: 400;
+		line-height: 1.2;
+		text-transform: uppercase;
+		color: var(--rich-color-text-heading);
+	}
+
+	.brt-rich__specs-icon-grid-list--stack {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rich-space-xs);
+
+		> li {
+			width: 100%;
+		}
+	}
+
+	.brt-rich__split-stats-media {
+		height: 100%;
+		min-height: 400px;
+		background: var(--rich-color-bg-muted);
+		border-radius: var(--rich-radius-lg);
+		overflow: hidden;
+	}
+
+	.brt-rich__split-stats-photo {
+		object-fit: contain;
+		width: 100%;
+		height: 100%;
+	}
+
+	.brt-rich__modes-card--speeds {
+		.brt-rich__modes-card-body {
+			padding-top: 0;
+		}
+
+		.brt-rich__mode-card {
+			justify-content: center;
+			min-height: 64px;
+			padding: 16px 24px;
+		}
+
+		.brt-rich__mode-card-label {
+			font-size: 20px;
+			font-weight: var(--rich-font-weight-semibold);
+			line-height: 1.25;
+		}
+	}
+
+	.brt-rich__cards-accent--five {
+		@media (min-width: 992px) {
+			.brt-rich-row > [class*="brt-rich-col"] {
+				flex: 0 0 20%;
+				max-width: 20%;
+			}
+		}
+	}
+
+	.brt-rich__logo-card--brushless {
+		.brt-rich__card-logo {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			min-height: 160px;
+			padding: var(--rich-space-lg);
+			background: var(--rich-color-accent);
+			border-radius: var(--rich-radius-lg);
+		}
+
+		.brt-rich__card-logo-img {
+			width: 100%;
+			max-width: 360px;
+			height: auto;
+		}
+	}
+
+	.brt-rich__accent-bar--banner {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-height: 120px;
+		padding: var(--rich-space-lg) var(--rich-space-xl);
+		text-align: center;
+
+		.brt-rich__accent-bar-title {
+			margin: 0;
+			font-family: var(--rich-font-family-display);
+			font-size: clamp(22px, 3vw, 32px);
+			font-weight: 400;
+			line-height: 1.15;
+			text-transform: uppercase;
+			color: var(--rich-color-text);
+		}
+	}
+
+	.brt-rich__figure-wide--stacked {
+		border-radius: var(--rich-radius-lg);
+		overflow: hidden;
+		background: var(--rich-color-bg-muted);
+
+		.brt-rich__figure-wide-photo {
+			display: block;
+			width: 100%;
+			height: auto;
+			border-radius: var(--rich-radius-lg);
+		}
+	}
+
+	.brt-rich__construction-list {
+		list-style: none;
+		margin: var(--rich-space-md) 0 0;
+		padding: 0;
+
+		li {
+			position: relative;
+			padding-left: 0;
+			margin-bottom: var(--rich-space-md);
+			color: var(--rich-color-text);
+			font-size: var(--rich-font-size-body);
+			line-height: 1.35;
+
+			strong {
+				color: var(--rich-color-accent);
+			}
+		}
+	}
+
+	.brt-rich__section-lead {
+		margin: 0 0 var(--rich-section-heading-gap);
+		font-size: var(--rich-font-size-body);
+		line-height: 1.45;
+		color: var(--rich-color-text);
+	}
+
+	.brt-rich__advantages-banner {
+		margin-bottom: var(--rich-space-md);
+		border-radius: var(--rich-radius-lg);
+		overflow: hidden;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+		}
+	}
+
+	.brt-rich__info-card .brt-rich__info-card-body:first-child {
+		padding-top: var(--rich-space-lg);
+	}
+
+	// .brt-rich__summary — как в kex-3500
+	.brt-rich__summary .brt-rich__text+.brt-rich__text {
+		margin-top: 1rem;
+	}
+}
