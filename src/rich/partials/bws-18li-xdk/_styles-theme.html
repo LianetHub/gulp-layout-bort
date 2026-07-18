@@ -1400,6 +1400,45 @@
   --rich-gutter-x: var(--rich-space-2xs);
   --rich-gutter-y: var(--rich-space-sm);
 }
+#brt-rich.brt-rich .brt-rich__info-cards-section .brt-rich__info-card,
+.brt-rich .brt-rich__info-cards-section .brt-rich__info-card {
+  padding: var(--rich-info-card-padding) var(--rich-info-card-padding) 0;
+}
+#brt-rich.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-media,
+.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-media {
+  border-radius: 0.625rem;
+  aspect-ratio: 421/268;
+}
+#brt-rich.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-media img,
+.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-media img {
+  object-fit: cover;
+}
+#brt-rich.brt-rich .brt-rich__info-cards-section .brt-rich__heading.brt-rich__info-card-title,
+#brt-rich.brt-rich .brt-rich__info-cards-section :is(h2, h3, h4).brt-rich__heading.brt-rich__info-card-title,
+.brt-rich .brt-rich__info-cards-section .brt-rich__heading.brt-rich__info-card-title,
+.brt-rich .brt-rich__info-cards-section :is(h2, h3, h4).brt-rich__heading.brt-rich__info-card-title {
+  font-family: var(--rich-font-family) !important;
+  font-size: var(--rich-info-card-title-size) !important;
+  font-weight: var(--rich-font-weight-semibold) !important;
+  line-height: normal !important;
+  color: var(--rich-color-text) !important;
+}
+#brt-rich.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-body,
+.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-body {
+  gap: var(--rich-info-card-body-gap);
+  padding-right: calc(var(--rich-info-card-body-padding-x) - var(--rich-info-card-padding));
+  padding-left: calc(var(--rich-info-card-body-padding-x) - var(--rich-info-card-padding));
+}
+#brt-rich.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-desc,
+#brt-rich.brt-rich .brt-rich__info-cards-section p.brt-rich__text.brt-rich__info-card-desc,
+#brt-rich.brt-rich .brt-rich__info-cards-section p.brt-rich__info-card-desc,
+.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-desc,
+.brt-rich .brt-rich__info-cards-section p.brt-rich__text.brt-rich__info-card-desc,
+.brt-rich .brt-rich__info-cards-section p.brt-rich__info-card-desc {
+  font-size: var(--rich-info-card-desc-size) !important;
+  line-height: 1.08 !important;
+  color: var(--rich-color-text) !important;
+}
 #brt-rich.brt-rich .brt-rich__info-card,
 .brt-rich .brt-rich__info-card {
   display: flex;
@@ -1710,8 +1749,8 @@
   list-style: none !important;
   padding-left: 0 !important;
 }
-#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li),
-.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li) {
+#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li),
+.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li) {
   list-style: none !important;
   list-style-type: none !important;
   position: static !important;
@@ -1722,9 +1761,9 @@
   line-height: inherit !important;
   color: inherit !important;
 }
-#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::before, #brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::after,
-.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::before,
-.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::after {
+#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li)::before, #brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li)::after,
+.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li)::before,
+.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li)::after {
   content: none !important;
   display: none !important;
   background: none !important;
@@ -1735,8 +1774,8 @@
   left: auto !important;
   top: auto !important;
 }
-#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li):not([class*=brt-rich-col]):not([class*=brt-rich__]),
-.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li):not([class*=brt-rich-col]):not([class*=brt-rich__]) {
+#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li):not([class*=brt-rich-col]):not([class*=brt-rich__]),
+.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li):not([class*=brt-rich-col]):not([class*=brt-rich__]) {
   padding: 0 !important;
   margin: 0 !important;
 }

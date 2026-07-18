@@ -1356,6 +1356,44 @@
 			--rich-gutter-x: var(--rich-space-2xs);
 			--rich-gutter-y: var(--rich-space-sm);
 		}
+
+		// Figma 2196:2650 — inset media 10px, text 40px from card edge
+		.brt-rich__info-card {
+			padding: var(--rich-info-card-padding) var(--rich-info-card-padding) 0;
+		}
+
+		.brt-rich__info-card-media {
+			border-radius: 0.625rem;
+			aspect-ratio: 421 / 268;
+
+			img {
+				object-fit: cover;
+			}
+		}
+
+		// Figma 2196:2650 — Roboto SemiBold 29 / Regular 20 (не Russo One)
+		.brt-rich__heading.brt-rich__info-card-title,
+		:is(h2, h3, h4).brt-rich__heading.brt-rich__info-card-title {
+			font-family: var(--rich-font-family) !important;
+			font-size: var(--rich-info-card-title-size) !important;
+			font-weight: var(--rich-font-weight-semibold) !important;
+			line-height: normal !important;
+			color: var(--rich-color-text) !important;
+		}
+
+		.brt-rich__info-card-body {
+			gap: var(--rich-info-card-body-gap);
+			padding-right: calc(var(--rich-info-card-body-padding-x) - var(--rich-info-card-padding));
+			padding-left: calc(var(--rich-info-card-body-padding-x) - var(--rich-info-card-padding));
+		}
+
+		.brt-rich__info-card-desc,
+		p.brt-rich__text.brt-rich__info-card-desc,
+		p.brt-rich__info-card-desc {
+			font-size: var(--rich-info-card-desc-size) !important;
+			line-height: 1.08 !important;
+			color: var(--rich-color-text) !important;
+		}
 	}
 
 	.brt-rich__info-card {

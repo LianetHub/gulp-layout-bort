@@ -484,6 +484,42 @@
 		}
 	}
 
+	.brt-rich__info-card-list {
+		margin: 0 !important;
+		padding-left: var(--rich-info-card-list-indent) !important;
+		list-style: disc !important;
+		list-style-type: disc !important;
+		font-family: var(--rich-font-family) !important;
+		font-size: var(--rich-info-card-desc-size) !important;
+		font-weight: var(--rich-font-weight-normal) !important;
+		line-height: 1.08 !important;
+		color: var(--rich-color-text) !important;
+
+		li {
+			display: list-item !important;
+			position: static !important;
+			padding: 0 !important;
+			margin: 0 0 var(--rich-info-card-list-gap) !important;
+			list-style: disc !important;
+			list-style-type: disc !important;
+			font-family: inherit !important;
+			font-size: inherit !important;
+			font-weight: inherit !important;
+			line-height: inherit !important;
+			color: inherit !important;
+
+			&::marker {
+				color: var(--rich-color-text) !important;
+			}
+
+			&::before,
+			&::after {
+				content: none !important;
+				display: none !important;
+			}
+		}
+	}
+
 	.brt-rich__info-card-media--measure {
 		position: relative;
 	}

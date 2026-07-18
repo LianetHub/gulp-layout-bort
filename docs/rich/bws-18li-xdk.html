@@ -102,9 +102,15 @@
   --rich-specs-icon-card-unit-size-sm: var(--rich-font-size-h3);
   --rich-specs-icon-card-title-size: 18px;
   --rich-specs-icon-card-title-max-width-sm: 150px;
-  /* --- Advantages --- */
-  --rich-info-card-body-padding-x: var(--rich-space-xl);
+  /* --- Advantages / Info Cards (Figma 2196:2650) --- */
+  --rich-info-card-padding: 10px;
+  --rich-info-card-body-padding-x: 40px;
   --rich-info-card-body-padding-bottom: 28px;
+  --rich-info-card-body-gap: 20px;
+  --rich-info-card-title-size: 29px;
+  --rich-info-card-desc-size: 20px;
+  --rich-info-card-list-gap: 0;
+  --rich-info-card-list-indent: 30px;
   --rich-advantages-panel-padding: 10px;
   --rich-advantages-panel-gap: 10px;
   --rich-advantages-banner-height: 151px;
@@ -2058,6 +2064,45 @@
 		  --rich-gutter-x: var(--rich-space-2xs);
 		  --rich-gutter-y: var(--rich-space-sm);
 		}
+		#brt-rich.brt-rich .brt-rich__info-cards-section .brt-rich__info-card,
+		.brt-rich .brt-rich__info-cards-section .brt-rich__info-card {
+		  padding: var(--rich-info-card-padding) var(--rich-info-card-padding) 0;
+		}
+		#brt-rich.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-media,
+		.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-media {
+		  border-radius: 0.625rem;
+		  aspect-ratio: 421/268;
+		}
+		#brt-rich.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-media img,
+		.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-media img {
+		  object-fit: cover;
+		}
+		#brt-rich.brt-rich .brt-rich__info-cards-section .brt-rich__heading.brt-rich__info-card-title,
+		#brt-rich.brt-rich .brt-rich__info-cards-section :is(h2, h3, h4).brt-rich__heading.brt-rich__info-card-title,
+		.brt-rich .brt-rich__info-cards-section .brt-rich__heading.brt-rich__info-card-title,
+		.brt-rich .brt-rich__info-cards-section :is(h2, h3, h4).brt-rich__heading.brt-rich__info-card-title {
+		  font-family: var(--rich-font-family) !important;
+		  font-size: var(--rich-info-card-title-size) !important;
+		  font-weight: var(--rich-font-weight-semibold) !important;
+		  line-height: normal !important;
+		  color: var(--rich-color-text) !important;
+		}
+		#brt-rich.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-body,
+		.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-body {
+		  gap: var(--rich-info-card-body-gap);
+		  padding-right: calc(var(--rich-info-card-body-padding-x) - var(--rich-info-card-padding));
+		  padding-left: calc(var(--rich-info-card-body-padding-x) - var(--rich-info-card-padding));
+		}
+		#brt-rich.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-desc,
+		#brt-rich.brt-rich .brt-rich__info-cards-section p.brt-rich__text.brt-rich__info-card-desc,
+		#brt-rich.brt-rich .brt-rich__info-cards-section p.brt-rich__info-card-desc,
+		.brt-rich .brt-rich__info-cards-section .brt-rich__info-card-desc,
+		.brt-rich .brt-rich__info-cards-section p.brt-rich__text.brt-rich__info-card-desc,
+		.brt-rich .brt-rich__info-cards-section p.brt-rich__info-card-desc {
+		  font-size: var(--rich-info-card-desc-size) !important;
+		  line-height: 1.08 !important;
+		  color: var(--rich-color-text) !important;
+		}
 		#brt-rich.brt-rich .brt-rich__info-card,
 		.brt-rich .brt-rich__info-card {
 		  display: flex;
@@ -2368,8 +2413,8 @@
 		  list-style: none !important;
 		  padding-left: 0 !important;
 		}
-		#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li),
-		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li) {
+		#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li),
+		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li) {
 		  list-style: none !important;
 		  list-style-type: none !important;
 		  position: static !important;
@@ -2380,9 +2425,9 @@
 		  line-height: inherit !important;
 		  color: inherit !important;
 		}
-		#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::before, #brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::after,
-		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::before,
-		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::after {
+		#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li)::before, #brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li)::after,
+		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li)::before,
+		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li)::after {
 		  content: none !important;
 		  display: none !important;
 		  background: none !important;
@@ -2393,8 +2438,8 @@
 		  left: auto !important;
 		  top: auto !important;
 		}
-		#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li):not([class*=brt-rich-col]):not([class*=brt-rich__]),
-		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li):not([class*=brt-rich-col]):not([class*=brt-rich__]) {
+		#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li):not([class*=brt-rich-col]):not([class*=brt-rich__]),
+		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li):not([class*=brt-rich-col]):not([class*=brt-rich__]) {
 		  padding: 0 !important;
 		  margin: 0 !important;
 		}
@@ -3921,6 +3966,42 @@
 		.brt-rich .brt-rich__advantages-grid .brt-rich__info-card-title {
 		  margin-top: var(--rich-space-md);
 		}
+		#brt-rich.brt-rich .brt-rich__info-card-list,
+		.brt-rich .brt-rich__info-card-list {
+		  margin: 0 !important;
+		  padding-left: var(--rich-info-card-list-indent) !important;
+		  list-style: disc !important;
+		  list-style-type: disc !important;
+		  font-family: var(--rich-font-family) !important;
+		  font-size: var(--rich-info-card-desc-size) !important;
+		  font-weight: var(--rich-font-weight-normal) !important;
+		  line-height: 1.08 !important;
+		  color: var(--rich-color-text) !important;
+		}
+		#brt-rich.brt-rich .brt-rich__info-card-list li,
+		.brt-rich .brt-rich__info-card-list li {
+		  display: list-item !important;
+		  position: static !important;
+		  padding: 0 !important;
+		  margin: 0 0 var(--rich-info-card-list-gap) !important;
+		  list-style: disc !important;
+		  list-style-type: disc !important;
+		  font-family: inherit !important;
+		  font-size: inherit !important;
+		  font-weight: inherit !important;
+		  line-height: inherit !important;
+		  color: inherit !important;
+		}
+		#brt-rich.brt-rich .brt-rich__info-card-list li::marker,
+		.brt-rich .brt-rich__info-card-list li::marker {
+		  color: var(--rich-color-text) !important;
+		}
+		#brt-rich.brt-rich .brt-rich__info-card-list li::before, #brt-rich.brt-rich .brt-rich__info-card-list li::after,
+		.brt-rich .brt-rich__info-card-list li::before,
+		.brt-rich .brt-rich__info-card-list li::after {
+		  content: none !important;
+		  display: none !important;
+		}
 		#brt-rich.brt-rich .brt-rich__info-card-media--measure,
 		.brt-rich .brt-rich__info-card-media--measure {
 		  position: relative;
@@ -4387,7 +4468,7 @@
 						<div class="brt-rich-col-12 brt-rich-col-md-6">
 							<div class="brt-rich__card brt-rich__info-card">
 								<div class="brt-rich__media brt-rich__info-card-media">
-									<img src="img/bws-18li-xdk/lcd-screen.png" alt="Умный LCD-экран BWS-18Li-XDK" width="420" height="275" loading="lazy">
+									<img src="img/bws-18li-xdk/lcd-screen.jpg" alt="Умный LCD-экран BWS-18Li-XDK" width="420" height="275" loading="lazy">
 								</div>
 								<div class="brt-rich__info-card-body">
 									<h3 class="brt-rich__heading brt-rich__info-card-title">Умный LCD-экран — ваш центр управления</h3>
@@ -4398,11 +4479,15 @@
 						<div class="brt-rich-col-12 brt-rich-col-md-6">
 							<div class="brt-rich__card brt-rich__info-card">
 								<div class="brt-rich__media brt-rich__info-card-media">
-									<img src="img/bws-18li-xdk/control-panel.png" alt="Панель управления BWS-18Li-XDK" width="432" height="275" loading="lazy">
+									<img src="img/bws-18li-xdk/control-panel.jpg" alt="Панель управления BWS-18Li-XDK" width="432" height="275" loading="lazy">
 								</div>
 								<div class="brt-rich__info-card-body">
 									<h3 class="brt-rich__heading brt-rich__info-card-title">Панель управления инструментом:</h3>
-									<p class="brt-rich__text brt-rich__info-card-desc">Индикатор и кнопка управления скоростями (об/мин). Кнопка включения подсветки. Индикатор заряда аккумулятора.</p>
+									<ul class="brt-rich__info-card-list brt-rich__info-card-desc">
+										<li>Индикатор и кнопка управления скоростями (об/мин)</li>
+										<li>Кнопка включения подсветки</li>
+										<li>Индикатор заряда аккумулятора</li>
+									</ul>
 								</div>
 							</div>
 						</div>
