@@ -19,13 +19,13 @@
 	}
 
 	.brt-rich__hero-gift-text {
-		color: #000;
-		font-family: Inter, sans-serif;
-		font-size: 1.125rem;
-		font-style: normal;
-		font-weight: 600;
-		line-height: normal;
-		text-transform: uppercase;
+		color: #000 !important;
+		font-family: Inter, sans-serif !important;
+		font-size: 1.125rem !important;
+		font-style: normal !important;
+		font-weight: 600 !important;
+		line-height: normal !important;
+		text-transform: uppercase !important;
 	}
 
 	.brt-rich__hero-gift-img {
@@ -79,21 +79,135 @@
 		border-radius: 0 !important;
 	}
 
+	// Figma 2193:2638 — регулировка оборотов
 	.brt-rich__modes-card--speeds {
+		padding: 0;
+		background: transparent;
+		border-radius: 0;
+
+		.brt-rich-row--gap-sm {
+			@media (min-width: $md4) {
+				margin: 0;
+				align-items: stretch;
+			}
+		}
+
 		.brt-rich__modes-card-body {
-			padding-top: 0;
+			display: flex;
+			flex-direction: column;
+			height: 100%;
+			min-height: 348px;
+			padding: 0;
+		}
+
+		.brt-rich__section-heading {
+			margin-bottom: 0;
+			color: var(--rich-color-text-heading) !important;
+			font-family: var(--rich-font-family) !important;
+			font-size: var(--rich-font-size-section-title) !important;
+			font-weight: var(--rich-font-weight-semibold) !important;
+			line-height: 1.08 !important;
+			text-align: left !important;
+		}
+
+		.brt-rich__mode-list {
+			margin: auto 0 0;
+			gap: 6px;
 		}
 
 		.brt-rich__mode-card {
 			justify-content: center;
 			min-height: 64px;
+			margin: 0;
 			padding: 16px 24px;
+			border-radius: var(--rich-radius-lg);
+			background: var(--rich-color-accent);
+		}
+
+		.brt-rich__mode-card + .brt-rich__mode-card {
+			margin-top: 0;
 		}
 
 		.brt-rich__mode-card-label {
-			font-size: 20px;
-			font-weight: var(--rich-font-weight-semibold);
-			line-height: 1.25;
+			font-family: var(--rich-font-family) !important;
+			font-size: var(--rich-font-size-hero-desc) !important;
+			font-weight: var(--rich-font-weight-normal) !important;
+			line-height: 1.25 !important;
+			color: var(--rich-color-text) !important;
+			text-align: center;
+
+			b {
+				font-weight: var(--rich-font-weight-semibold) !important;
+			}
+		}
+
+		.brt-rich__overlay-media {
+			display: flex;
+			align-items: flex-end;
+			justify-content: flex-end;
+			min-height: 348px;
+			overflow: hidden;
+			border-radius: var(--rich-radius-lg);
+			background: var(--rich-color-bg-muted);
+		}
+
+		.brt-rich__overlay-photo {
+			display: block;
+			width: auto;
+			max-width: 100%;
+			height: auto;
+			max-height: 348px;
+			min-height: 0;
+			object-fit: contain;
+			object-position: right bottom;
+			border-radius: 0;
+		}
+
+		// Figma 2193:2640 — оранжевый лид
+		.brt-rich__modes-lead {
+			display: flex;
+			flex-direction: column;
+			gap: 1em;
+			margin-top: 20px;
+			padding: 27px 41px;
+			border-radius: var(--rich-radius-lg);
+			background: var(--rich-color-accent);
+		}
+
+		.brt-rich__modes-lead-text {
+			margin: 0 !important;
+			color: var(--rich-color-text) !important;
+			font-family: var(--rich-font-family) !important;
+			font-size: var(--rich-font-size-hero-desc) !important;
+			font-weight: var(--rich-font-weight-normal) !important;
+			line-height: normal !important;
+
+			b {
+				font-weight: var(--rich-font-weight-semibold) !important;
+			}
+		}
+
+		@media (max-width: $md4) {
+			.brt-rich__modes-card-body {
+				min-height: 0;
+			}
+
+			.brt-rich__mode-list {
+				margin-top: var(--rich-space-lg);
+			}
+
+			.brt-rich__overlay-media {
+				min-height: 0;
+				margin-top: var(--rich-space-lg);
+			}
+
+			.brt-rich__overlay-photo {
+				max-height: none;
+			}
+
+			.brt-rich__modes-lead {
+				padding: var(--rich-space-lg) var(--rich-space-md);
+			}
 		}
 	}
 

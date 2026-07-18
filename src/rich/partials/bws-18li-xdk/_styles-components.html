@@ -21,13 +21,13 @@
 }
 #brt-rich.brt-rich .brt-rich__hero-gift-text,
 .brt-rich .brt-rich__hero-gift-text {
-  color: #000;
-  font-family: Inter, sans-serif;
-  font-size: 1.125rem;
-  font-style: normal;
-  font-weight: 600;
-  line-height: normal;
-  text-transform: uppercase;
+  color: #000 !important;
+  font-family: Inter, sans-serif !important;
+  font-size: 1.125rem !important;
+  font-style: normal !important;
+  font-weight: 600 !important;
+  line-height: normal !important;
+  text-transform: uppercase !important;
 }
 #brt-rich.brt-rich .brt-rich__hero-gift-img,
 .brt-rich .brt-rich__hero-gift-img {
@@ -80,21 +80,135 @@
   object-fit: contain !important;
   border-radius: 0 !important;
 }
+#brt-rich.brt-rich .brt-rich__modes-card--speeds,
+.brt-rich .brt-rich__modes-card--speeds {
+  padding: 0;
+  background: transparent;
+  border-radius: 0;
+}
+@media (min-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich-row--gap-sm,
+  .brt-rich .brt-rich__modes-card--speeds .brt-rich-row--gap-sm {
+    margin: 0;
+    align-items: stretch;
+  }
+}
 #brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__modes-card-body,
 .brt-rich .brt-rich__modes-card--speeds .brt-rich__modes-card-body {
-  padding-top: 0;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 348px;
+  padding: 0;
+}
+#brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__section-heading,
+.brt-rich .brt-rich__modes-card--speeds .brt-rich__section-heading {
+  margin-bottom: 0;
+  color: var(--rich-color-text-heading) !important;
+  font-family: var(--rich-font-family) !important;
+  font-size: var(--rich-font-size-section-title) !important;
+  font-weight: var(--rich-font-weight-semibold) !important;
+  line-height: 1.08 !important;
+  text-align: left !important;
+}
+#brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__mode-list,
+.brt-rich .brt-rich__modes-card--speeds .brt-rich__mode-list {
+  margin: auto 0 0;
+  gap: 6px;
 }
 #brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__mode-card,
 .brt-rich .brt-rich__modes-card--speeds .brt-rich__mode-card {
   justify-content: center;
   min-height: 64px;
+  margin: 0;
   padding: 16px 24px;
+  border-radius: var(--rich-radius-lg);
+  background: var(--rich-color-accent);
+}
+#brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__mode-card + .brt-rich__mode-card,
+.brt-rich .brt-rich__modes-card--speeds .brt-rich__mode-card + .brt-rich__mode-card {
+  margin-top: 0;
 }
 #brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__mode-card-label,
 .brt-rich .brt-rich__modes-card--speeds .brt-rich__mode-card-label {
-  font-size: 20px;
-  font-weight: var(--rich-font-weight-semibold);
-  line-height: 1.25;
+  font-family: var(--rich-font-family) !important;
+  font-size: var(--rich-font-size-hero-desc) !important;
+  font-weight: var(--rich-font-weight-normal) !important;
+  line-height: 1.25 !important;
+  color: var(--rich-color-text) !important;
+  text-align: center;
+}
+#brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__mode-card-label b,
+.brt-rich .brt-rich__modes-card--speeds .brt-rich__mode-card-label b {
+  font-weight: var(--rich-font-weight-semibold) !important;
+}
+#brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__overlay-media,
+.brt-rich .brt-rich__modes-card--speeds .brt-rich__overlay-media {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-height: 348px;
+  overflow: hidden;
+  border-radius: var(--rich-radius-lg);
+  background: var(--rich-color-bg-muted);
+}
+#brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__overlay-photo,
+.brt-rich .brt-rich__modes-card--speeds .brt-rich__overlay-photo {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 348px;
+  min-height: 0;
+  object-fit: contain;
+  object-position: right bottom;
+  border-radius: 0;
+}
+#brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__modes-lead,
+.brt-rich .brt-rich__modes-card--speeds .brt-rich__modes-lead {
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  margin-top: 20px;
+  padding: 27px 41px;
+  border-radius: var(--rich-radius-lg);
+  background: var(--rich-color-accent);
+}
+#brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__modes-lead-text,
+.brt-rich .brt-rich__modes-card--speeds .brt-rich__modes-lead-text {
+  margin: 0 !important;
+  color: var(--rich-color-text) !important;
+  font-family: var(--rich-font-family) !important;
+  font-size: var(--rich-font-size-hero-desc) !important;
+  font-weight: var(--rich-font-weight-normal) !important;
+  line-height: normal !important;
+}
+#brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__modes-lead-text b,
+.brt-rich .brt-rich__modes-card--speeds .brt-rich__modes-lead-text b {
+  font-weight: var(--rich-font-weight-semibold) !important;
+}
+@media (max-width: 767.98px) {
+  #brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__modes-card-body,
+  .brt-rich .brt-rich__modes-card--speeds .brt-rich__modes-card-body {
+    min-height: 0;
+  }
+  #brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__mode-list,
+  .brt-rich .brt-rich__modes-card--speeds .brt-rich__mode-list {
+    margin-top: var(--rich-space-lg);
+  }
+  #brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__overlay-media,
+  .brt-rich .brt-rich__modes-card--speeds .brt-rich__overlay-media {
+    min-height: 0;
+    margin-top: var(--rich-space-lg);
+  }
+  #brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__overlay-photo,
+  .brt-rich .brt-rich__modes-card--speeds .brt-rich__overlay-photo {
+    max-height: none;
+  }
+  #brt-rich.brt-rich .brt-rich__modes-card--speeds .brt-rich__modes-lead,
+  .brt-rich .brt-rich__modes-card--speeds .brt-rich__modes-lead {
+    padding: var(--rich-space-lg) var(--rich-space-md);
+  }
 }
 @media (min-width: 992px) {
   #brt-rich.brt-rich .brt-rich__cards-accent--five .brt-rich-row > [class*=brt-rich-col],

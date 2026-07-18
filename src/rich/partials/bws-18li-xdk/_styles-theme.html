@@ -795,6 +795,9 @@
 .brt-rich .brt-rich__overlay-media {
   position: relative;
   line-height: 0;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 #brt-rich.brt-rich .brt-rich__overlay-photo,
 .brt-rich .brt-rich__overlay-photo {
@@ -803,7 +806,7 @@
   height: auto;
   min-height: 284px;
   object-fit: cover;
-  object-position: center;
+  object-position: right bottom;
   border-radius: var(--rich-radius-lg);
 }
 #brt-rich.brt-rich .brt-rich__overlay-badges,
