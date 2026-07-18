@@ -185,7 +185,7 @@ $w-bold: var(--rich-font-weight-bold);
 	}
 
 	.brt-rich__media-text-title {
-		@include rich-shield-type($ff, var(--rich-font-size-h2), $w-semibold, 1.05, $c-text);
+		@include rich-shield-type($ff, var(--rich-media-text-title-size, var(--rich-font-size-h2)), $w-semibold, 1.05, $c-text);
 	}
 
 	.brt-rich__media-text-body .brt-rich__text {
@@ -404,6 +404,10 @@ $w-bold: var(--rich-font-weight-bold);
 
 	.brt-rich__construction-list li {
 		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, var(--rich-line-height), $c-muted);
+	}
+
+	.brt-rich__construction-note {
+		@include rich-shield-type($ff, var(--rich-construction-note-size, 14px), $w-normal, 1.2, $c-text);
 	}
 
 	/* --- Элементы без BEM-класса внутри rich --- */

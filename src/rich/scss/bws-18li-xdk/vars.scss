@@ -1,6 +1,7 @@
 // CSS-переменные Rich Content.
 
-#brt-rich.brt-rich, .brt-rich {
+#brt-rich.brt-rich,
+.brt-rich {
 	/* --- Spacing (4px-шкала) --- */
 	--rich-space-2xs: 4px;
 	--rich-space-xs: 8px;
@@ -32,7 +33,7 @@
 	--rich-hero-perk-min-height: 76px;
 
 	/* --- Cards Accent (Figma 2193:2639) --- */
-	--rich-cards-accent-media-height: 109px;
+	--rich-cards-accent-media-ratio: 177 / 109;
 	--rich-cards-accent-item-bg: #f1f1f1;
 	--rich-cards-accent-item-min-height: 190px;
 	--rich-cards-accent-font-size: 15px;
@@ -52,10 +53,13 @@
 	--rich-accent-card-body-gap: var(--rich-space-lg);
 	--rich-accent-card-text-gap: var(--rich-space-md);
 
-	/* --- Media Text --- */
-	--rich-media-text-aside-width: 268px;
-	--rich-media-text-aside-height: 328px;
-	--rich-media-text-title-gap: var(--rich-space-md);
+	/* --- Media Text  --- */
+	--rich-media-text-aside-width: 410px;
+	--rich-media-text-aside-height: 401px;
+	--rich-media-text-title-size: 29px;
+	--rich-media-text-title-gap: 20px;
+	--rich-construction-list-gap: 12px;
+	--rich-construction-note-size: 14px;
 
 	/* --- Overlay Badges --- */
 	--rich-overlay-badge-size: 108px;

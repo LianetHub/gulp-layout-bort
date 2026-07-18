@@ -3035,7 +3035,7 @@
 #brt-rich.brt-rich .brt-rich__media-text-title,
 .brt-rich .brt-rich__media-text-title {
   font-family: var(--rich-font-family) !important;
-  font-size: var(--rich-font-size-h2) !important;
+  font-size: var(--rich-media-text-title-size, var(--rich-font-size-h2)) !important;
   font-weight: var(--rich-font-weight-semibold) !important;
   line-height: 1.05 !important;
   color: var(--rich-color-text) !important;
@@ -3473,6 +3473,15 @@
   font-weight: var(--rich-font-weight-normal) !important;
   line-height: var(--rich-line-height) !important;
   color: var(--rich-color-text-muted) !important;
+  font-style: normal !important;
+}
+#brt-rich.brt-rich .brt-rich__construction-note,
+.brt-rich .brt-rich__construction-note {
+  font-family: var(--rich-font-family) !important;
+  font-size: var(--rich-construction-note-size, 14px) !important;
+  font-weight: var(--rich-font-weight-normal) !important;
+  line-height: 1.2 !important;
+  color: var(--rich-color-text) !important;
   font-style: normal !important;
 }
 #brt-rich.brt-rich p:not([class*=brt-rich__]),

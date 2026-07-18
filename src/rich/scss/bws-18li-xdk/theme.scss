@@ -525,28 +525,44 @@
 		padding-block: 0 var(--rich-section-gap);
 	}
 
+	// Figma 2194:2647 — медиа на всю высоту колонки, сетка col-md-6
 	.brt-rich__media-text-aside-col {
 		@media (min-width: $md4) {
-			flex: 0 0 var(--rich-media-text-aside-width);
-			width: var(--rich-media-text-aside-width);
-			max-width: var(--rich-media-text-aside-width);
+			display: flex;
 		}
 	}
 
 	.brt-rich__media-text-aside {
+		position: relative;
+
+		width: 100%;
 		min-height: var(--rich-media-text-aside-height);
-		height: var(--rich-media-text-aside-height);
 		border-radius: var(--rich-radius-lg);
 		background: var(--rich-color-bg-muted);
+		overflow: hidden;
 		line-height: 0;
+
+		@media (min-width: $md4) {
+			flex: 1 1 auto;
+			align-self: stretch;
+			min-height: 100%;
+			height: auto;
+			max-width: var(--rich-media-text-aside-width);
+		}
 
 		img,
 		.brt-rich__media-text-photo {
 			display: block;
 			width: 100%;
-			height: 100%;
+			height: 100% !important;
 			max-width: none;
 			object-fit: cover;
+			object-position: center;
+
+			@media (min-width: $md4) {
+				position: absolute;
+				inset: 0;
+			}
 		}
 	}
 
@@ -555,10 +571,11 @@
 	}
 
 	.brt-rich__media-text-title {
-		font-size: var(--rich-font-size-h2);
-		font-weight: var(--rich-font-weight-semibold);
-		line-height: 1.05;
-		color: var(--rich-color-text);
+		margin: 0;
+		font-size: var(--rich-media-text-title-size) !important;
+		font-weight: var(--rich-font-weight-bold) !important;
+		line-height: 1.08 !important;
+		color: var(--rich-color-text-heading) !important;
 
 		@media (max-width: $md4) {
 			margin-top: var(--rich-space-lg);
@@ -916,21 +933,26 @@
 		display: flex;
 		flex-direction: column;
 		height: 100%;
-		min-height: var(--rich-cards-accent-item-min-height);
+		min-height: 0;
 		border-radius: var(--rich-radius-lg);
 		background: var(--rich-cards-accent-item-bg);
 		overflow: hidden;
+
+		@media (min-width: 992px) {
+			min-height: var(--rich-cards-accent-item-min-height);
+		}
 	}
 
 	.brt-rich__cards-accent-item-media {
 		flex-shrink: 0;
 		border-radius: 0;
 		line-height: 0;
+		aspect-ratio: var(--rich-cards-accent-media-ratio);
 
 		img {
 			display: block;
 			width: 100%;
-			height: var(--rich-cards-accent-media-height);
+			height: 100%;
 			object-fit: cover;
 		}
 	}
