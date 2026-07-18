@@ -276,7 +276,13 @@ $w-bold: var(--rich-font-weight-bold);
 	}
 
 	.brt-rich__cards-accent-item-text {
-		@include rich-shield-type($ff, var(--rich-font-size-badge), $w-normal, normal, $c-text);
+		@include rich-shield-type(
+			$ff,
+			var(--rich-cards-accent-font-size, var(--rich-font-size-badge)),
+			$w-normal,
+			var(--rich-cards-accent-line-height, normal),
+			$c-text
+		);
 	}
 
 	.brt-rich__mini-card-text {

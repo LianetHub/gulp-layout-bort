@@ -38,8 +38,12 @@
   --rich-hero-model-desc-gap: var(--rich-space-sm);
   --rich-hero-desc-perks-gap: 28px;
   --rich-hero-perk-min-height: 76px;
-  /* --- Cards Accent --- */
-  --rich-cards-accent-media-height: 180px;
+  /* --- Cards Accent (Figma 2193:2639) --- */
+  --rich-cards-accent-media-height: 109px;
+  --rich-cards-accent-item-bg: #f1f1f1;
+  --rich-cards-accent-item-min-height: 190px;
+  --rich-cards-accent-font-size: 15px;
+  --rich-cards-accent-line-height: 1.25;
   /* --- Accent Bar --- */
   --rich-accent-bar-padding-y: var(--rich-space-xl);
   --rich-accent-bar-padding-x: var(--rich-space-2xl);
@@ -1570,27 +1574,29 @@
 		}
 		#brt-rich.brt-rich .brt-rich__cards-accent,
 		.brt-rich .brt-rich__cards-accent {
-		  padding: var(--rich-space-sm);
-		  border-radius: var(--rich-radius-lg);
-		  background: var(--rich-color-accent);
+		  padding: 0;
+		  border-radius: 0;
+		  background: transparent;
 		}
 		#brt-rich.brt-rich .brt-rich__cards-accent-item,
 		.brt-rich .brt-rich__cards-accent-item {
 		  display: flex;
 		  flex-direction: column;
 		  height: 100%;
-		  min-height: 0;
-		  border-radius: var(--rich-radius-md);
-		  background: var(--rich-color-bg-card);
+		  min-height: var(--rich-cards-accent-item-min-height);
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-cards-accent-item-bg);
 		  overflow: hidden;
 		}
 		#brt-rich.brt-rich .brt-rich__cards-accent-item-media,
 		.brt-rich .brt-rich__cards-accent-item-media {
 		  flex-shrink: 0;
 		  border-radius: 0;
+		  line-height: 0;
 		}
 		#brt-rich.brt-rich .brt-rich__cards-accent-item-media img,
 		.brt-rich .brt-rich__cards-accent-item-media img {
+		  display: block;
 		  width: 100%;
 		  height: var(--rich-cards-accent-media-height);
 		  object-fit: cover;
@@ -1599,11 +1605,13 @@
 		.brt-rich .brt-rich__cards-accent-item-text {
 		  flex: 1 1 auto;
 		  margin: 0;
-		  padding: var(--rich-space-sm) var(--rich-space-xs) var(--rich-space-md);
-		  font-size: var(--rich-font-size-badge);
+		  padding: 9px var(--rich-space-xs) var(--rich-space-sm);
+		  font-size: var(--rich-cards-accent-font-size);
 		  font-weight: var(--rich-font-weight-normal);
-		  line-height: normal;
+		  line-height: var(--rich-cards-accent-line-height);
+		  text-align: center;
 		  color: var(--rich-color-text);
+		  align-content: center;
 		}
 		#brt-rich.brt-rich .brt-rich__mini-card,
 		.brt-rich .brt-rich__mini-card {
@@ -3034,9 +3042,9 @@
 		#brt-rich.brt-rich .brt-rich__cards-accent-item-text,
 		.brt-rich .brt-rich__cards-accent-item-text {
 		  font-family: var(--rich-font-family) !important;
-		  font-size: var(--rich-font-size-badge) !important;
+		  font-size: var(--rich-cards-accent-font-size, var(--rich-font-size-badge)) !important;
 		  font-weight: var(--rich-font-weight-normal) !important;
-		  line-height: normal !important;
+		  line-height: var(--rich-cards-accent-line-height, normal) !important;
 		  color: var(--rich-color-text) !important;
 		  font-style: normal !important;
 		}
@@ -3535,6 +3543,10 @@
 		    max-width: 20%;
 		  }
 		}
+		#brt-rich.brt-rich .brt-rich__cards-accent--five .brt-rich__cards-accent-item-text,
+		.brt-rich .brt-rich__cards-accent--five .brt-rich__cards-accent-item-text {
+		  text-align: center !important;
+		}
 		#brt-rich.brt-rich .brt-rich__logo-card--brushless .brt-rich__card-logo,
 		.brt-rich .brt-rich__logo-card--brushless .brt-rich__card-logo {
 		  display: flex;
@@ -3846,46 +3858,46 @@
 			<section class="brt-rich__section brt-rich__cards-accent-section">
 				<div class="brt-rich__container">
 					<div class="brt-rich__cards-accent brt-rich__cards-accent--five">
-						<div class="brt-rich-row brt-rich-row--gap-sm">
+						<div class="brt-rich-row brt-rich-row--gap-xs">
 							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
-								<article class="brt-rich__cards-accent-item">
+								<div class="brt-rich__cards-accent-item">
 									<div class="brt-rich__media brt-rich__cards-accent-item-media">
 										<img src="img/bws-18li-xdk/use-case-1.jpg" alt="Резка материалов" width="177" height="109" loading="lazy">
 									</div>
-									<p class="brt-rich__text brt-rich__cards-accent-item-text">Резка материалов (металл, камень, бетон, керамика и плитка)</p>
-								</article>
+									<div class="brt-rich__text brt-rich__cards-accent-item-text">Резка материалов (металл, камень, бетон, керамика и плитка)</div>
+								</div>
 							</div>
 							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
-								<article class="brt-rich__cards-accent-item">
+								<div class="brt-rich__cards-accent-item">
 									<div class="brt-rich__media brt-rich__cards-accent-item-media">
 										<img src="img/bws-18li-xdk/use-case-2.jpg" alt="Шлифовка и зачистка" width="174" height="109" loading="lazy">
 									</div>
-									<p class="brt-rich__text brt-rich__cards-accent-item-text">Шлифовка, зачистка (сварочные швы, ржавчина, краска)</p>
-								</article>
+									<div class="brt-rich__text brt-rich__cards-accent-item-text">Шлифовка, зачистка (сварочные швы, ржавчина, краска)</div>
+								</div>
 							</div>
 							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
-								<article class="brt-rich__cards-accent-item">
+								<div class="brt-rich__cards-accent-item">
 									<div class="brt-rich__media brt-rich__cards-accent-item-media">
 										<img src="img/bws-18li-xdk/use-case-3.jpg" alt="Полировка" width="178" height="109" loading="lazy">
 									</div>
-									<p class="brt-rich__text brt-rich__cards-accent-item-text">Полировка металла, бетона и камня</p>
-								</article>
+									<div class="brt-rich__text brt-rich__cards-accent-item-text">Полировка металла, бетона и камня</div>
+								</div>
 							</div>
 							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
-								<article class="brt-rich__cards-accent-item">
+								<div class="brt-rich__cards-accent-item">
 									<div class="brt-rich__media brt-rich__cards-accent-item-media">
 										<img src="img/bws-18li-xdk/use-case-4.jpg" alt="Заточка инструментов" width="174" height="109" loading="lazy">
 									</div>
-									<p class="brt-rich__text brt-rich__cards-accent-item-text">Заточка инструментов</p>
-								</article>
+									<div class="brt-rich__text brt-rich__cards-accent-item-text">Заточка <br> инструментов</div>
+								</div>
 							</div>
 							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
-								<article class="brt-rich__cards-accent-item">
+								<div class="brt-rich__cards-accent-item">
 									<div class="brt-rich__media brt-rich__cards-accent-item-media">
 										<img src="img/bws-18li-xdk/use-case-5.jpg" alt="Демонтажные работы" width="177" height="109" loading="lazy">
 									</div>
-									<p class="brt-rich__text brt-rich__cards-accent-item-text">Демонтажные работы</p>
-								</article>
+									<div class="brt-rich__text brt-rich__cards-accent-item-text">Демонтажные <br> работы</div>
+								</div>
 							</div>
 						</div>
 					</div>

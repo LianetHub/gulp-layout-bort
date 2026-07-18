@@ -2277,9 +2277,9 @@
 #brt-rich.brt-rich .brt-rich__cards-accent-item-text,
 .brt-rich .brt-rich__cards-accent-item-text {
   font-family: var(--rich-font-family) !important;
-  font-size: var(--rich-font-size-badge) !important;
+  font-size: var(--rich-cards-accent-font-size, var(--rich-font-size-badge)) !important;
   font-weight: var(--rich-font-weight-normal) !important;
-  line-height: normal !important;
+  line-height: var(--rich-cards-accent-line-height, normal) !important;
   color: var(--rich-color-text) !important;
   font-style: normal !important;
 }

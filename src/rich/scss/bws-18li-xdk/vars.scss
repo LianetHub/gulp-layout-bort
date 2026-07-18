@@ -31,8 +31,12 @@
 	--rich-hero-desc-perks-gap: 28px;
 	--rich-hero-perk-min-height: 76px;
 
-	/* --- Cards Accent --- */
-	--rich-cards-accent-media-height: 180px;
+	/* --- Cards Accent (Figma 2193:2639) --- */
+	--rich-cards-accent-media-height: 109px;
+	--rich-cards-accent-item-bg: #f1f1f1;
+	--rich-cards-accent-item-min-height: 190px;
+	--rich-cards-accent-font-size: 15px;
+	--rich-cards-accent-line-height: 1.25;
 
 	/* --- Accent Bar --- */
 	--rich-accent-bar-padding-y: var(--rich-space-xl);

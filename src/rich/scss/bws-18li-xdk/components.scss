@@ -211,12 +211,17 @@
 		}
 	}
 
+	// Figma 2193:2639 — сферы применения
 	.brt-rich__cards-accent--five {
 		@media (min-width: 992px) {
 			.brt-rich-row>[class*="brt-rich-col"] {
 				flex: 0 0 20%;
 				max-width: 20%;
 			}
+		}
+
+		.brt-rich__cards-accent-item-text {
+			text-align: center !important;
 		}
 	}
 
