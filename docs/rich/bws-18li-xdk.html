@@ -3392,23 +3392,25 @@
 		  max-width: 360px;
 		  height: auto;
 		}
-		#brt-rich.brt-rich .brt-rich__accent-bar--banner,
-		.brt-rich .brt-rich__accent-bar--banner {
-		  display: flex;
-		  align-items: center;
-		  justify-content: center;
-		  min-height: 120px;
+		#brt-rich.brt-rich .brt-rich__kit-intro-section,
+		.brt-rich .brt-rich__kit-intro-section {
+		  margin-block: 0;
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		#brt-rich.brt-rich .brt-rich__kit-intro,
+		.brt-rich .brt-rich__kit-intro {
 		  padding: var(--rich-space-lg) var(--rich-space-xl);
+		  background: var(--rich-color-accent);
+		  border-radius: var(--rich-radius-lg);
 		  text-align: center;
 		}
-		#brt-rich.brt-rich .brt-rich__accent-bar--banner .brt-rich__accent-bar-title,
-		.brt-rich .brt-rich__accent-bar--banner .brt-rich__accent-bar-title {
+		#brt-rich.brt-rich .brt-rich__kit-intro-title,
+		.brt-rich .brt-rich__kit-intro-title {
 		  margin: 0;
-		  font-family: var(--rich-font-family-display);
-		  font-size: clamp(22px, 3vw, 32px);
-		  font-weight: 400;
-		  line-height: 1.15;
+		  font-size: 25px !important;
+		  font-weight: var(--rich-font-weight-semibold);
 		  text-transform: uppercase;
+		  line-height: 1.25;
 		  color: var(--rich-color-text);
 		}
 		#brt-rich.brt-rich .brt-rich__figure-wide--stacked,
@@ -3468,6 +3470,10 @@
 		}
 		#brt-rich.brt-rich .brt-rich__summary .brt-rich__text + .brt-rich__text,
 		.brt-rich .brt-rich__summary .brt-rich__text + .brt-rich__text {
+		  margin-top: 1rem;
+		}
+		#brt-rich.brt-rich .brt-rich__logo-card .brt-rich__card-text + .brt-rich__card-text,
+		.brt-rich .brt-rich__logo-card .brt-rich__card-text + .brt-rich__card-text {
 		  margin-top: 1rem;
 		}
 		</style>
@@ -3891,12 +3897,12 @@
 				</div>
 			</section>
 
-			<!-- COMPONENT: Accent Bar
+			<!-- COMPONENT: Kit Intro
 				 PRODUCT: BWS-18Li-XDK — совместимость Makita -->
-			<section class="brt-rich__section brt-rich__accent-bar-section">
+			<section class="brt-rich__section brt-rich__kit-intro-section">
 				<div class="brt-rich__container">
-					<div class="brt-rich__accent-bar brt-rich__accent-bar--banner">
-						<p class="brt-rich__accent-bar-title">модель совместима с АКБ системой<br>макита 18 В LXT</p>
+					<div class="brt-rich__kit-intro">
+						<h2 class="brt-rich__heading brt-rich__kit-intro-title">МОДЕЛЬ СОВМЕСТИМА С АКБ СИСТЕМОЙ<br>МАКИТА 18 В LXT</h2>
 					</div>
 				</div>
 			</section>
@@ -3907,11 +3913,12 @@
 				<div class="brt-rich__container">
 					<div class="brt-rich__card brt-rich__logo-card">
 						<div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-center">
-							<div class="brt-rich-col-12 brt-rich-col-md-3 brt-rich__card-logo">
+							<div class="brt-rich-col-12 brt-rich-col-md-4 brt-rich__card-logo">
 								<img class="brt-rich__card-logo-img" src="img/bws-18li-xdk/battery-icon.svg" alt="Аккумулятор 18 В" width="183" height="137" loading="lazy">
 							</div>
-							<div class="brt-rich-col-12 brt-rich-col-md-9">
-								<p class="brt-rich__card-text">Крепление аккумулятора с единым разъёмом позволяет использовать аккумуляторы любой ёмкости внутри экосистемы аккумуляторов Bort или Макита 18 В LXT, номинальной мощности 18 В. Это дает возможность использовать уже имеющиеся батареи и экономить до 70% стоимости инструмента при наличии аккумуляторов.</p>
+							<div class="brt-rich-col-12 brt-rich-col-md-8 ">
+								<p class="brt-rich__card-text">Крепление аккумулятора с единым разъёмом на воздуходуве позволяет использовать аккумуляторы любой емкости внутри экосистемы аккумуляторов Bort или Макита 18 В LXT, номинальной мощности 18 B. </p>
+								<p class="brt-rich__card-text">Это дает возможность использовать уже имеющиеся батареи и экономить до 70% стоимости инструмента при наличии аккумуляторов</p>
 							</div>
 						</div>
 					</div>

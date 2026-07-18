@@ -94,23 +94,25 @@
 		}
 	}
 
-	.brt-rich__accent-bar--banner {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		min-height: 120px;
-		padding: var(--rich-space-lg) var(--rich-space-xl);
-		text-align: center;
+	.brt-rich__kit-intro-section {
+		margin-block: 0;
+		padding-block: 0 var(--rich-section-gap);
+	}
 
-		.brt-rich__accent-bar-title {
-			margin: 0;
-			font-family: var(--rich-font-family-display);
-			font-size: clamp(22px, 3vw, 32px);
-			font-weight: 400;
-			line-height: 1.15;
-			text-transform: uppercase;
-			color: var(--rich-color-text);
-		}
+	.brt-rich__kit-intro {
+		padding: var(--rich-space-lg) var(--rich-space-xl);
+		background: var(--rich-color-accent);
+		border-radius: var(--rich-radius-lg);
+		text-align: center;
+	}
+
+	.brt-rich__kit-intro-title {
+		margin: 0;
+		font-size: 25px !important;
+		font-weight: var(--rich-font-weight-semibold);
+		text-transform: uppercase;
+		line-height: 1.25;
+		color: var(--rich-color-text);
 	}
 
 	.brt-rich__figure-wide--stacked {
@@ -170,6 +172,10 @@
 
 	// .brt-rich__summary — как в kex-3500
 	.brt-rich__summary .brt-rich__text+.brt-rich__text {
+		margin-top: 1rem;
+	}
+
+	.brt-rich__logo-card .brt-rich__card-text+.brt-rich__card-text {
 		margin-top: 1rem;
 	}
 }
