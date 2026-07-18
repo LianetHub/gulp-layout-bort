@@ -1078,10 +1078,12 @@
 	}
 
 	.brt-rich__hero-card {
+		position: relative;
+		z-index: 1;
 		border-radius: var(--rich-radius-lg);
 		background: var(--rich-color-bg-muted);
 		overflow: hidden;
-		padding: var(--rich-card-padding-lg);
+		padding: var(--rich-space-xl) var(--rich-space-3xl);
 
 		@media (max-width: $md4) {
 			padding: var(--rich-space-lg);
@@ -1124,7 +1126,11 @@
 		color: var(--rich-color-text);
 
 		&:not(:last-child) {
-			margin-bottom: var(--rich-space-lg);
+			margin-bottom: var(--rich-space-sm);
+		}
+
+		&:has(+ .brt-rich__hero-card-list-block) {
+			margin-bottom: 0;
 		}
 	}
 
@@ -1171,11 +1177,18 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		margin: 0;
+		z-index: -1;
 	}
 
 	.brt-rich__hero-media-photo {
-		display: block;
-		max-width: 100%;
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
 	}
 
 	.brt-rich__statement {
