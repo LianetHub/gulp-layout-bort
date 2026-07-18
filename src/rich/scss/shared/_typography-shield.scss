@@ -377,6 +377,38 @@ $w-bold: var(--rich-font-weight-bold);
 		text-transform: none !important;
 	}
 
+	.brt-rich__advantages-section .brt-rich__section-heading,
+	.brt-rich__advantages-section :is(h2, h3, h4).brt-rich__heading.brt-rich__section-heading {
+		@include rich-shield-type($ff, var(--rich-font-size-section-title), $w-semibold, normal, $c-text);
+		text-align: left !important;
+		text-transform: none !important;
+	}
+
+	.brt-rich__advantages-text-card-title,
+	:is(h2, h3, h4).brt-rich__heading.brt-rich__advantages-text-card-title {
+		@include rich-shield-type($ffd, var(--rich-font-size-h3), 400, normal, $c-heading);
+		text-transform: none !important;
+	}
+
+	.brt-rich__advantages-text-card-desc,
+	p.brt-rich__text.brt-rich__advantages-text-card-desc,
+	p.brt-rich__advantages-text-card-desc {
+		@include rich-shield-type($ff, var(--rich-font-size-body), $w-normal, normal, #000);
+		margin: 0 !important;
+	}
+
+	.brt-rich__measure-label {
+		@include rich-shield-type($ff, var(--rich-measure-value-size, 20px), $w-semibold, 0.8, $c-inverse);
+	}
+
+	.brt-rich__measure-value {
+		font-size: var(--rich-measure-value-size, 20px) !important;
+	}
+
+	.brt-rich__measure-unit {
+		font-size: var(--rich-measure-unit-size, 15px) !important;
+	}
+
 	.brt-rich__info-card-desc,
 	p.brt-rich__text.brt-rich__info-card-desc,
 	p.brt-rich__info-card-desc {

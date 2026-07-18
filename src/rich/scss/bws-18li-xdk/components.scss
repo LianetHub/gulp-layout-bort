@@ -124,7 +124,7 @@
 			background: var(--rich-color-accent);
 		}
 
-		.brt-rich__mode-card + .brt-rich__mode-card {
+		.brt-rich__mode-card+.brt-rich__mode-card {
 			margin-top: 0;
 		}
 
@@ -285,7 +285,7 @@
 			line-height: 1.08 !important;
 		}
 
-		.brt-rich__card-text + .brt-rich__card-text {
+		.brt-rich__card-text+.brt-rich__card-text {
 			margin-top: 17px;
 		}
 	}
@@ -393,20 +393,143 @@
 		color: var(--rich-color-text);
 	}
 
-	.brt-rich__advantages-banner {
-		margin-bottom: var(--rich-space-md);
+	.brt-rich__advantages-section {
+		padding-block: 0 var(--rich-section-gap);
+
+		.brt-rich__section-heading {
+			margin-bottom: var(--rich-section-heading-gap);
+			font-family: var(--rich-font-family);
+			font-size: var(--rich-font-size-section-title);
+			font-weight: var(--rich-font-weight-semibold);
+			line-height: normal;
+			text-align: left;
+			color: var(--rich-color-text);
+		}
+	}
+
+	.brt-rich__advantages-panel {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rich-advantages-panel-gap);
+		margin-bottom: var(--rich-advantages-grid-gap);
+		padding: 0 var(--rich-advantages-panel-padding) var(--rich-advantages-panel-padding);
 		border-radius: var(--rich-radius-lg);
+		background: var(--rich-color-accent);
 		overflow: hidden;
+	}
+
+	.brt-rich__advantages-banner {
+		margin: 0 calc(var(--rich-advantages-panel-padding) * -1) 0;
+		border-radius: var(--rich-radius-lg) var(--rich-radius-lg);
+		overflow: hidden;
+		line-height: 0;
 
 		img {
 			display: block;
 			width: 100%;
-			height: auto;
+			height: var(--rich-advantages-banner-height);
+			object-fit: cover;
+			object-position: center;
 		}
 	}
 
-	.brt-rich__info-card .brt-rich__info-card-body:first-child {
-		padding-top: var(--rich-space-lg);
+	.brt-rich__advantages-panel-row {
+		--rich-gutter-x: var(--rich-advantages-panel-gap);
+		--rich-gutter-y: var(--rich-advantages-panel-gap);
+	}
+
+	.brt-rich__advantages-text-card {
+		display: flex;
+		flex-direction: column;
+		gap: var(--rich-space-sm);
+		height: 100%;
+		min-height: var(--rich-advantages-text-card-min-height);
+		padding: var(--rich-advantages-text-card-padding);
+		border-radius: var(--rich-advantages-text-card-radius);
+		background: var(--rich-color-bg);
+	}
+
+	.brt-rich__advantages-text-card-title {
+		margin: 0;
+		font-family: var(--rich-font-family-display);
+		font-size: var(--rich-font-size-h3);
+		font-weight: 400;
+		line-height: normal;
+		color: var(--rich-color-text-heading);
+	}
+
+	.brt-rich__advantages-text-card-desc {
+		margin: 0;
+		font-size: var(--rich-font-size-body);
+		font-weight: var(--rich-font-weight-normal);
+		line-height: normal;
+		color: var(--rich-color-text);
+	}
+
+	.brt-rich__advantages-grid {
+		--rich-gutter-x: var(--rich-advantages-grid-gap);
+		--rich-gutter-y: var(--rich-advantages-grid-gap);
+
+		.brt-rich__info-card-media {
+			height: var(--rich-advantages-media-height);
+			border-radius: 0;
+		}
+
+		.brt-rich__info-card-body {
+			padding: 0 var(--rich-space-md) var(--rich-space-lg);
+		}
+
+		.brt-rich__info-card-title {
+			margin-top: var(--rich-space-md);
+		}
+	}
+
+	.brt-rich__info-card-media--measure {
+		position: relative;
+	}
+
+	.brt-rich__measure-label {
+		position: absolute;
+		top: var(--rich-measure-label-top);
+		left: var(--rich-measure-label-left);
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		width: 28px;
+		line-height: 0.8;
+		font-family: var(--rich-font-family);
+		font-weight: var(--rich-font-weight-semibold);
+		color: var(--rich-color-text-inverse);
+		text-align: center;
+		transform: rotate(-90deg);
+		transform-origin: center;
+		pointer-events: none;
+		user-select: none;
+	}
+
+	.brt-rich__measure-value {
+		font-size: var(--rich-measure-value-size);
+	}
+
+	.brt-rich__measure-unit {
+		font-size: var(--rich-measure-unit-size);
+	}
+
+	@media (max-width: $md4) {
+		.brt-rich__advantages-banner img {
+			height: auto;
+			aspect-ratio: 910 / 151;
+		}
+
+		.brt-rich__advantages-text-card {
+			min-height: 0;
+		}
+
+		.brt-rich__advantages-grid .brt-rich__info-card-media {
+			height: auto;
+			aspect-ratio: 296 / 160;
+		}
 	}
 
 	// .brt-rich__summary — как в kex-3500

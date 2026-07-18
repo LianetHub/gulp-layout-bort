@@ -105,6 +105,18 @@
   /* --- Advantages --- */
   --rich-info-card-body-padding-x: var(--rich-space-xl);
   --rich-info-card-body-padding-bottom: 28px;
+  --rich-advantages-panel-padding: 10px;
+  --rich-advantages-panel-gap: 10px;
+  --rich-advantages-banner-height: 151px;
+  --rich-advantages-text-card-radius: 10px;
+  --rich-advantages-text-card-padding: 20px 16px;
+  --rich-advantages-text-card-min-height: 187px;
+  --rich-advantages-grid-gap: 10px;
+  --rich-advantages-media-height: 160px;
+  --rich-measure-label-left: 52px;
+  --rich-measure-label-top: 73px;
+  --rich-measure-value-size: 20px;
+  --rich-measure-unit-size: 15px;
   /* --- Kit --- */
   --rich-section-heading-size: 40px;
   --rich-contents-item-main-media-min-height: 336px;
@@ -2057,7 +2069,6 @@
 		#brt-rich.brt-rich .brt-rich__info-card-media,
 		.brt-rich .brt-rich__info-card-media {
 		  flex-shrink: 0;
-		  aspect-ratio: 300/276;
 		  overflow: hidden;
 		  border-radius: var(--rich-radius-lg);
 		}
@@ -3267,6 +3278,62 @@
 		  font-style: normal !important;
 		  text-transform: none !important;
 		}
+		#brt-rich.brt-rich .brt-rich__advantages-section .brt-rich__section-heading,
+		#brt-rich.brt-rich .brt-rich__advantages-section :is(h2, h3, h4).brt-rich__heading.brt-rich__section-heading,
+		.brt-rich .brt-rich__advantages-section .brt-rich__section-heading,
+		.brt-rich .brt-rich__advantages-section :is(h2, h3, h4).brt-rich__heading.brt-rich__section-heading {
+		  font-family: var(--rich-font-family) !important;
+		  font-size: var(--rich-font-size-section-title) !important;
+		  font-weight: var(--rich-font-weight-semibold) !important;
+		  line-height: normal !important;
+		  color: var(--rich-color-text) !important;
+		  font-style: normal !important;
+		  text-align: left !important;
+		  text-transform: none !important;
+		}
+		#brt-rich.brt-rich .brt-rich__advantages-text-card-title,
+		#brt-rich.brt-rich :is(h2, h3, h4).brt-rich__heading.brt-rich__advantages-text-card-title,
+		.brt-rich .brt-rich__advantages-text-card-title,
+		.brt-rich :is(h2, h3, h4).brt-rich__heading.brt-rich__advantages-text-card-title {
+		  font-family: var(--rich-font-family-display) !important;
+		  font-size: var(--rich-font-size-h3) !important;
+		  font-weight: 400 !important;
+		  line-height: normal !important;
+		  color: var(--rich-color-text-heading) !important;
+		  font-style: normal !important;
+		  text-transform: none !important;
+		}
+		#brt-rich.brt-rich .brt-rich__advantages-text-card-desc,
+		#brt-rich.brt-rich p.brt-rich__text.brt-rich__advantages-text-card-desc,
+		#brt-rich.brt-rich p.brt-rich__advantages-text-card-desc,
+		.brt-rich .brt-rich__advantages-text-card-desc,
+		.brt-rich p.brt-rich__text.brt-rich__advantages-text-card-desc,
+		.brt-rich p.brt-rich__advantages-text-card-desc {
+		  font-family: var(--rich-font-family) !important;
+		  font-size: var(--rich-font-size-body) !important;
+		  font-weight: var(--rich-font-weight-normal) !important;
+		  line-height: normal !important;
+		  color: #000 !important;
+		  font-style: normal !important;
+		  margin: 0 !important;
+		}
+		#brt-rich.brt-rich .brt-rich__measure-label,
+		.brt-rich .brt-rich__measure-label {
+		  font-family: var(--rich-font-family) !important;
+		  font-size: var(--rich-measure-value-size, 20px) !important;
+		  font-weight: var(--rich-font-weight-semibold) !important;
+		  line-height: 0.8 !important;
+		  color: var(--rich-color-text-inverse) !important;
+		  font-style: normal !important;
+		}
+		#brt-rich.brt-rich .brt-rich__measure-value,
+		.brt-rich .brt-rich__measure-value {
+		  font-size: var(--rich-measure-value-size, 20px) !important;
+		}
+		#brt-rich.brt-rich .brt-rich__measure-unit,
+		.brt-rich .brt-rich__measure-unit {
+		  font-size: var(--rich-measure-unit-size, 15px) !important;
+		}
 		#brt-rich.brt-rich .brt-rich__info-card-desc,
 		#brt-rich.brt-rich p.brt-rich__text.brt-rich__info-card-desc,
 		#brt-rich.brt-rich p.brt-rich__info-card-desc,
@@ -3763,21 +3830,144 @@
 		  line-height: 1.45;
 		  color: var(--rich-color-text);
 		}
+		#brt-rich.brt-rich .brt-rich__advantages-section,
+		.brt-rich .brt-rich__advantages-section {
+		  padding-block: 0 var(--rich-section-gap);
+		}
+		#brt-rich.brt-rich .brt-rich__advantages-section .brt-rich__section-heading,
+		.brt-rich .brt-rich__advantages-section .brt-rich__section-heading {
+		  margin-bottom: var(--rich-section-heading-gap);
+		  font-family: var(--rich-font-family);
+		  font-size: var(--rich-font-size-section-title);
+		  font-weight: var(--rich-font-weight-semibold);
+		  line-height: normal;
+		  text-align: left;
+		  color: var(--rich-color-text);
+		}
+		#brt-rich.brt-rich .brt-rich__advantages-panel,
+		.brt-rich .brt-rich__advantages-panel {
+		  display: flex;
+		  flex-direction: column;
+		  gap: var(--rich-advantages-panel-gap);
+		  margin-bottom: var(--rich-advantages-grid-gap);
+		  padding: 0 var(--rich-advantages-panel-padding) var(--rich-advantages-panel-padding);
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-accent);
+		  overflow: hidden;
+		}
 		#brt-rich.brt-rich .brt-rich__advantages-banner,
 		.brt-rich .brt-rich__advantages-banner {
-		  margin-bottom: var(--rich-space-md);
-		  border-radius: var(--rich-radius-lg);
+		  margin: 0 calc(var(--rich-advantages-panel-padding) * -1) 0;
+		  border-radius: var(--rich-radius-lg) var(--rich-radius-lg);
 		  overflow: hidden;
+		  line-height: 0;
 		}
 		#brt-rich.brt-rich .brt-rich__advantages-banner img,
 		.brt-rich .brt-rich__advantages-banner img {
 		  display: block;
 		  width: 100%;
-		  height: auto;
+		  height: var(--rich-advantages-banner-height);
+		  object-fit: cover;
+		  object-position: center;
 		}
-		#brt-rich.brt-rich .brt-rich__info-card .brt-rich__info-card-body:first-child,
-		.brt-rich .brt-rich__info-card .brt-rich__info-card-body:first-child {
-		  padding-top: var(--rich-space-lg);
+		#brt-rich.brt-rich .brt-rich__advantages-panel-row,
+		.brt-rich .brt-rich__advantages-panel-row {
+		  --rich-gutter-x: var(--rich-advantages-panel-gap);
+		  --rich-gutter-y: var(--rich-advantages-panel-gap);
+		}
+		#brt-rich.brt-rich .brt-rich__advantages-text-card,
+		.brt-rich .brt-rich__advantages-text-card {
+		  display: flex;
+		  flex-direction: column;
+		  gap: var(--rich-space-sm);
+		  height: 100%;
+		  min-height: var(--rich-advantages-text-card-min-height);
+		  padding: var(--rich-advantages-text-card-padding);
+		  border-radius: var(--rich-advantages-text-card-radius);
+		  background: var(--rich-color-bg);
+		}
+		#brt-rich.brt-rich .brt-rich__advantages-text-card-title,
+		.brt-rich .brt-rich__advantages-text-card-title {
+		  margin: 0;
+		  font-family: var(--rich-font-family-display);
+		  font-size: var(--rich-font-size-h3);
+		  font-weight: 400;
+		  line-height: normal;
+		  color: var(--rich-color-text-heading);
+		}
+		#brt-rich.brt-rich .brt-rich__advantages-text-card-desc,
+		.brt-rich .brt-rich__advantages-text-card-desc {
+		  margin: 0;
+		  font-size: var(--rich-font-size-body);
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: normal;
+		  color: var(--rich-color-text);
+		}
+		#brt-rich.brt-rich .brt-rich__advantages-grid,
+		.brt-rich .brt-rich__advantages-grid {
+		  --rich-gutter-x: var(--rich-advantages-grid-gap);
+		  --rich-gutter-y: var(--rich-advantages-grid-gap);
+		}
+		#brt-rich.brt-rich .brt-rich__advantages-grid .brt-rich__info-card-media,
+		.brt-rich .brt-rich__advantages-grid .brt-rich__info-card-media {
+		  height: var(--rich-advantages-media-height);
+		  border-radius: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__advantages-grid .brt-rich__info-card-body,
+		.brt-rich .brt-rich__advantages-grid .brt-rich__info-card-body {
+		  padding: 0 var(--rich-space-md) var(--rich-space-lg);
+		}
+		#brt-rich.brt-rich .brt-rich__advantages-grid .brt-rich__info-card-title,
+		.brt-rich .brt-rich__advantages-grid .brt-rich__info-card-title {
+		  margin-top: var(--rich-space-md);
+		}
+		#brt-rich.brt-rich .brt-rich__info-card-media--measure,
+		.brt-rich .brt-rich__info-card-media--measure {
+		  position: relative;
+		}
+		#brt-rich.brt-rich .brt-rich__measure-label,
+		.brt-rich .brt-rich__measure-label {
+		  position: absolute;
+		  top: var(--rich-measure-label-top);
+		  left: var(--rich-measure-label-left);
+		  display: flex;
+		  flex-direction: column;
+		  align-items: center;
+		  justify-content: center;
+		  width: 28px;
+		  line-height: 0.8;
+		  font-family: var(--rich-font-family);
+		  font-weight: var(--rich-font-weight-semibold);
+		  color: var(--rich-color-text-inverse);
+		  text-align: center;
+		  transform: rotate(-90deg);
+		  transform-origin: center;
+		  pointer-events: none;
+		  user-select: none;
+		}
+		#brt-rich.brt-rich .brt-rich__measure-value,
+		.brt-rich .brt-rich__measure-value {
+		  font-size: var(--rich-measure-value-size);
+		}
+		#brt-rich.brt-rich .brt-rich__measure-unit,
+		.brt-rich .brt-rich__measure-unit {
+		  font-size: var(--rich-measure-unit-size);
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__advantages-banner img,
+		  .brt-rich .brt-rich__advantages-banner img {
+		    height: auto;
+		    aspect-ratio: 910/151;
+		  }
+		  #brt-rich.brt-rich .brt-rich__advantages-text-card,
+		  .brt-rich .brt-rich__advantages-text-card {
+		    min-height: 0;
+		  }
+		  #brt-rich.brt-rich .brt-rich__advantages-grid .brt-rich__info-card-media,
+		  .brt-rich .brt-rich__advantages-grid .brt-rich__info-card-media {
+		    height: auto;
+		    aspect-ratio: 296/160;
+		  }
 		}
 		#brt-rich.brt-rich .brt-rich__summary .brt-rich__text + .brt-rich__text,
 		.brt-rich .brt-rich__summary .brt-rich__text + .brt-rich__text {
@@ -4090,43 +4280,41 @@
 
 			<!-- COMPONENT: Advantages
 				 PRODUCT: BWS-18Li-XDK -->
-			<section class="brt-rich__section brt-rich__info-cards-section">
+			<section class="brt-rich__section brt-rich__advantages-section">
 				<div class="brt-rich__container">
 					<h2 class="brt-rich__heading brt-rich__section-heading">Преимущества аккумуляторной угловой шлифовальной машины:</h2>
-					<div class="brt-rich-row">
-						<div class="brt-rich-col-12">
-							<div class="brt-rich__media brt-rich__advantages-banner">
-								<img src="img/bws-18li-xdk/feature-banner.jpg" alt="Система стабилизации оборотов BWS-18Li-XDK" width="910" height="151" loading="lazy">
-							</div>
+
+					<div class="brt-rich__advantages-panel">
+						<div class="brt-rich__media brt-rich__advantages-banner">
+							<img src="img/bws-18li-xdk/feature-banner.jpg" alt="Работа аккумуляторной УШМ BWS-18Li-XDK" width="910" height="151" loading="lazy">
 						</div>
-						<div class="brt-rich-col-12 brt-rich-col-md-4">
-							<div class="brt-rich__card brt-rich__info-card">
-								<div class="brt-rich__info-card-body">
-									<h3 class="brt-rich__heading brt-rich__info-card-title">Система стабилизации оборотов</h3>
-									<p class="brt-rich__text brt-rich__info-card-desc">Система стабилизации не дает скорости проседать под нагрузкой. Режете ли вы толстый металл или шлифуете поверхность — обороты остаются постоянными.</p>
+						<div class="brt-rich-row brt-rich__advantages-panel-row">
+							<div class="brt-rich-col-12 brt-rich-col-md-4">
+								<div class="brt-rich__advantages-text-card">
+									<h3 class="brt-rich__heading brt-rich__advantages-text-card-title">Система стабилизации оборотов</h3>
+									<p class="brt-rich__text brt-rich__advantages-text-card-desc">Система стабилизации не дает скорости проседать под нагрузкой. Режете ли вы толстый металл или шлифуете поверхность — обороты остаются постоянными.</p>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-4">
+								<div class="brt-rich__advantages-text-card">
+									<h3 class="brt-rich__heading brt-rich__advantages-text-card-title">Плавный пуск</h3>
+									<p class="brt-rich__text brt-rich__advantages-text-card-desc">Инструмент набирает обороты постепенно, без рывков, что повышает безопасность и комфорт при запуске.</p>
+								</div>
+							</div>
+							<div class="brt-rich-col-12 brt-rich-col-md-4">
+								<div class="brt-rich__advantages-text-card">
+									<h3 class="brt-rich__heading brt-rich__advantages-text-card-title">Система защиты пользователя от повторного включения</h3>
+									<p class="brt-rich__text brt-rich__advantages-text-card-desc">Система предотвращает самопроизвольный запуск, например при замене АКБ.</p>
 								</div>
 							</div>
 						</div>
-						<div class="brt-rich-col-12 brt-rich-col-md-4">
-							<div class="brt-rich__card brt-rich__info-card">
-								<div class="brt-rich__info-card-body">
-									<h3 class="brt-rich__heading brt-rich__info-card-title">Плавный пуск</h3>
-									<p class="brt-rich__text brt-rich__info-card-desc">Инструмент набирает обороты постепенно, без рывков, что повышает безопасность и комфорт при запуске.</p>
-								</div>
-							</div>
-						</div>
-						<div class="brt-rich-col-12 brt-rich-col-md-4">
-							<div class="brt-rich__card brt-rich__info-card">
-								<div class="brt-rich__info-card-body">
-									<h3 class="brt-rich__heading brt-rich__info-card-title">Система защиты пользователя от повторного включения</h3>
-									<p class="brt-rich__text brt-rich__info-card-desc">Система предотвращает самопроизвольный запуск, например при замене АКБ.</p>
-								</div>
-							</div>
-						</div>
+					</div>
+
+					<div class="brt-rich-row brt-rich__advantages-grid">
 						<div class="brt-rich-col-12 brt-rich-col-md-4">
 							<div class="brt-rich__card brt-rich__info-card">
 								<div class="brt-rich__media brt-rich__info-card-media">
-									<img src="img/bws-18li-xdk/feature-side.jpg" alt="Кнопка блокировки включения" width="296" height="160" loading="lazy">
+									<img src="img/bws-18li-xdk/feature-side.png" alt="Кнопка блокировки включения" width="296" height="160" loading="lazy">
 								</div>
 								<div class="brt-rich__info-card-body">
 									<h3 class="brt-rich__heading brt-rich__info-card-title">Кнопка блокировки включения</h3>
@@ -4136,7 +4324,7 @@
 						<div class="brt-rich-col-12 brt-rich-col-md-4">
 							<div class="brt-rich__card brt-rich__info-card">
 								<div class="brt-rich__media brt-rich__info-card-media">
-									<img src="img/bws-18li-xdk/feature-main.jpg" alt="Два положения рукоятки" width="296" height="149" loading="lazy">
+									<img src="img/bws-18li-xdk/feature-main.png" alt="Два положения рукоятки" width="296" height="149" loading="lazy">
 								</div>
 								<div class="brt-rich__info-card-body">
 									<h3 class="brt-rich__heading brt-rich__info-card-title">Два положения рукоятки</h3>
@@ -4146,7 +4334,7 @@
 						<div class="brt-rich-col-12 brt-rich-col-md-4">
 							<div class="brt-rich__card brt-rich__info-card">
 								<div class="brt-rich__media brt-rich__info-card-media">
-									<img src="img/bws-18li-xdk/feature-light.jpg" alt="Подсветка рабочей зоны" width="295" height="150" loading="lazy">
+									<img src="img/bws-18li-xdk/feature-light.png" alt="Подсветка рабочей зоны" width="295" height="150" loading="lazy">
 								</div>
 								<div class="brt-rich__info-card-body">
 									<h3 class="brt-rich__heading brt-rich__info-card-title">Подсветка рабочей зоны</h3>
@@ -4156,7 +4344,7 @@
 						<div class="brt-rich-col-12 brt-rich-col-md-4">
 							<div class="brt-rich__card brt-rich__info-card">
 								<div class="brt-rich__media brt-rich__info-card-media">
-									<img src="img/bws-18li-xdk/feature-screen.jpg" alt="Блокировка вала" width="296" height="148" loading="lazy">
+									<img src="img/bws-18li-xdk/feature-screen.png" alt="Блокировка вала" width="296" height="148" loading="lazy">
 								</div>
 								<div class="brt-rich__info-card-body">
 									<h3 class="brt-rich__heading brt-rich__info-card-title">Блокировка вала для быстрой замены дисков</h3>
@@ -4165,8 +4353,12 @@
 						</div>
 						<div class="brt-rich-col-12 brt-rich-col-md-4">
 							<div class="brt-rich__card brt-rich__info-card">
-								<div class="brt-rich__media brt-rich__info-card-media">
-									<img src="img/bws-18li-xdk/feature-gearbox.png" alt="Узкий корпус редуктора" width="296" height="160" loading="lazy">
+								<div class="brt-rich__media brt-rich__info-card-media brt-rich__info-card-media--measure">
+									<img src="img/bws-18li-xdk/feature-gearbox.png" alt="Узкий корпус редуктора 59 мм" width="295" height="160" loading="lazy">
+									<span class="brt-rich__measure-label" aria-hidden="true">
+										<span class="brt-rich__measure-value">59</span>
+										<span class="brt-rich__measure-unit">мм</span>
+									</span>
 								</div>
 								<div class="brt-rich__info-card-body">
 									<h3 class="brt-rich__heading brt-rich__info-card-title">Узкий корпус редуктора</h3>
