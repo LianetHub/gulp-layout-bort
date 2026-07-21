@@ -48,7 +48,6 @@
   font-style: normal !important;
   font-weight: 400 !important;
   line-height: normal !important;
-  text-transform: uppercase !important;
 }
 #brt-rich.brt-rich .brt-rich__specs-icon-grid-list--stack,
 .brt-rich .brt-rich__specs-icon-grid-list--stack {
@@ -277,6 +276,7 @@
 .brt-rich .brt-rich__logo-card--brushless .brt-rich__logo-card-body {
   flex: 1 1 auto;
   max-width: 413px;
+  font-size: 1.25rem;
 }
 @media (max-width: 767.98px) {
   #brt-rich.brt-rich .brt-rich__logo-card--brushless .brt-rich__logo-card-body,
@@ -460,6 +460,7 @@
   font-weight: 400;
   line-height: normal;
   color: var(--rich-color-text-heading);
+  height: var(--rich-advantages-text-card-title-height);
 }
 #brt-rich.brt-rich .brt-rich__advantages-text-card-desc,
 .brt-rich .brt-rich__advantages-text-card-desc {
@@ -565,6 +566,10 @@
   .brt-rich .brt-rich__advantages-text-card {
     min-height: 0;
   }
+  #brt-rich.brt-rich .brt-rich__advantages-text-card-title,
+  .brt-rich .brt-rich__advantages-text-card-title {
+    height: auto;
+  }
   #brt-rich.brt-rich .brt-rich__advantages-grid .brt-rich__info-card-media,
   .brt-rich .brt-rich__advantages-grid .brt-rich__info-card-media {
     height: auto;
@@ -574,6 +579,16 @@
 #brt-rich.brt-rich .brt-rich__summary .brt-rich__text + .brt-rich__text,
 .brt-rich .brt-rich__summary .brt-rich__text + .brt-rich__text {
   margin-top: 1rem;
+}
+#brt-rich.brt-rich .brt-rich__logo-card .brt-rich__card-text,
+.brt-rich .brt-rich__logo-card .brt-rich__card-text {
+  margin: 0;
+  color: var(--rich-color-text) !important;
+  font-family: var(--rich-font-family) !important;
+  font-size: 1.25rem !important;
+  font-style: normal !important;
+  font-weight: var(--rich-font-weight-normal) !important;
+  line-height: 1.08 !important;
 }
 #brt-rich.brt-rich .brt-rich__logo-card .brt-rich__card-text + .brt-rich__card-text,
 .brt-rich .brt-rich__logo-card .brt-rich__card-text + .brt-rich__card-text {

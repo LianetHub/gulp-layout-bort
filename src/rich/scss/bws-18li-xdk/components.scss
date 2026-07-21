@@ -46,7 +46,6 @@
 		font-style: normal !important;
 		font-weight: 400 !important;
 		line-height: normal !important;
-		text-transform: uppercase !important;
 	}
 
 	.brt-rich__specs-icon-grid-list--stack {
@@ -273,6 +272,7 @@
 		.brt-rich__logo-card-body {
 			flex: 1 1 auto;
 			max-width: 413px;
+			font-size: 1.25rem;
 
 			@media (max-width: $md4) {
 				max-width: 100%;
@@ -456,6 +456,7 @@
 		font-weight: 400;
 		line-height: normal;
 		color: var(--rich-color-text-heading);
+		height: var(--rich-advantages-text-card-title-height);
 	}
 
 	.brt-rich__advantages-text-card-desc {
@@ -562,6 +563,10 @@
 			min-height: 0;
 		}
 
+		.brt-rich__advantages-text-card-title {
+			height: auto;
+		}
+
 		.brt-rich__advantages-grid .brt-rich__info-card-media {
 			height: auto;
 			aspect-ratio: 296 / 160;
@@ -571,6 +576,16 @@
 	// .brt-rich__summary — как в kex-3500
 	.brt-rich__summary .brt-rich__text+.brt-rich__text {
 		margin-top: 1rem;
+	}
+
+	.brt-rich__logo-card .brt-rich__card-text {
+		margin: 0;
+		color: var(--rich-color-text) !important;
+		font-family: var(--rich-font-family) !important;
+		font-size: 1.25rem !important;
+		font-style: normal !important;
+		font-weight: var(--rich-font-weight-normal) !important;
+		line-height: 1.08 !important;
 	}
 
 	.brt-rich__logo-card .brt-rich__card-text+.brt-rich__card-text {
