@@ -762,6 +762,10 @@
 		line-height: 1.14 !important;
 		text-align: center;
 		color: var(--rich-color-text) !important;
+
+		&::after {
+			display: none !important;
+		}
 	}
 
 	.brt-rich__specs-icon-card--speed {
