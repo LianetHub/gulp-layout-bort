@@ -145,6 +145,38 @@ export const richProducts = [
 		],
 	},
 	{
+		id: "bks-218-li",
+		blocks: [
+			{
+				src: "bks-218-li/vars.scss",
+				id: "rich-vars",
+				out: "bks-218-li/_styles-vars.html",
+				comment: blockComment([
+					"THEME VARIABLES — редактируйте этот блок для кастомизации под конкретный сайт.",
+					"Все компоненты используют эти переменные через var().",
+				]),
+			},
+			{
+				src: "bks-218-li/theme.scss",
+				id: "rich-theme",
+				out: "bks-218-li/_styles-theme.html",
+				comment: blockComment([
+					"THEME STYLES — типографика, цвета компонентов через var().",
+					"Для смены темы достаточно изменить #rich-vars; здесь — применение переменных.",
+				]),
+			},
+			{
+				src: "bks-218-li/components.scss",
+				id: "rich-components",
+				out: "bks-218-li/_styles-components.html",
+				comment: blockComment([
+					"COMPONENT-SPECIFIC STYLES — дополнительные правила для сложных блоков.",
+					"Используют переменные из #rich-vars; при необходимости переопределяйте локально.",
+				]),
+			},
+		],
+	},
+	{
 		id: "bws-18li-xdk",
 		blocks: [
 			{
@@ -169,6 +201,38 @@ export const richProducts = [
 				src: "bws-18li-xdk/components.scss",
 				id: "rich-components",
 				out: "bws-18li-xdk/_styles-components.html",
+				comment: blockComment([
+					"COMPONENT-SPECIFIC STYLES — дополнительные правила для сложных блоков.",
+					"Используют переменные из #rich-vars; при необходимости переопределяйте локально.",
+				]),
+			},
+		],
+	},
+	{
+		id: "bws-18li-xk",
+		blocks: [
+			{
+				src: "bws-18li-xk/vars.scss",
+				id: "rich-vars",
+				out: "bws-18li-xk/_styles-vars.html",
+				comment: blockComment([
+					"THEME VARIABLES — редактируйте этот блок для кастомизации под конкретный сайт.",
+					"Все компоненты используют эти переменные через var().",
+				]),
+			},
+			{
+				src: "bws-18li-xk/theme.scss",
+				id: "rich-theme",
+				out: "bws-18li-xk/_styles-theme.html",
+				comment: blockComment([
+					"THEME STYLES — типографика, цвета компонентов через var().",
+					"Для смены темы достаточно изменить #rich-vars; здесь — применение переменных.",
+				]),
+			},
+			{
+				src: "bws-18li-xk/components.scss",
+				id: "rich-components",
+				out: "bws-18li-xk/_styles-components.html",
 				comment: blockComment([
 					"COMPONENT-SPECIFIC STYLES — дополнительные правила для сложных блоков.",
 					"Используют переменные из #rich-vars; при необходимости переопределяйте локально.",

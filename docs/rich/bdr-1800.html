@@ -3150,8 +3150,8 @@
 		  list-style: none !important;
 		  padding-left: 0 !important;
 		}
-		#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li),
-		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li) {
+		#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li),
+		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li) {
 		  list-style: none !important;
 		  list-style-type: none !important;
 		  position: static !important;
@@ -3162,9 +3162,9 @@
 		  line-height: inherit !important;
 		  color: inherit !important;
 		}
-		#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li)::before, #brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li)::after,
-		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li)::before,
-		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li)::after {
+		#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::before, #brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::after,
+		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::before,
+		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li)::after {
 		  content: none !important;
 		  display: none !important;
 		  background: none !important;
@@ -3175,8 +3175,8 @@
 		  left: auto !important;
 		  top: auto !important;
 		}
-		#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li):not([class*=brt-rich-col]):not([class*=brt-rich__]),
-		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li, .brt-rich__info-card-list li):not([class*=brt-rich-col]):not([class*=brt-rich__]) {
+		#brt-rich.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li):not([class*=brt-rich-col]):not([class*=brt-rich__]),
+		.brt-rich ul li:not(.brt-rich__construction-list li, .brt-rich__hero-card-list-block li):not([class*=brt-rich-col]):not([class*=brt-rich__]) {
 		  padding: 0 !important;
 		  margin: 0 !important;
 		}
@@ -3682,7 +3682,7 @@
 		#brt-rich.brt-rich .brt-rich__media-text-title,
 		.brt-rich .brt-rich__media-text-title {
 		  font-family: var(--rich-font-family) !important;
-		  font-size: var(--rich-media-text-title-size, var(--rich-font-size-h2)) !important;
+		  font-size: var(--rich-font-size-h2) !important;
 		  font-weight: var(--rich-font-weight-semibold) !important;
 		  line-height: 1.05 !important;
 		  color: var(--rich-color-text) !important;
@@ -3867,9 +3867,9 @@
 		#brt-rich.brt-rich .brt-rich__cards-accent-item-text,
 		.brt-rich .brt-rich__cards-accent-item-text {
 		  font-family: var(--rich-font-family) !important;
-		  font-size: var(--rich-cards-accent-font-size, var(--rich-font-size-badge)) !important;
+		  font-size: var(--rich-font-size-badge) !important;
 		  font-weight: var(--rich-font-weight-normal) !important;
-		  line-height: var(--rich-cards-accent-line-height, normal) !important;
+		  line-height: normal !important;
 		  color: var(--rich-color-text) !important;
 		  font-style: normal !important;
 		}
@@ -4060,62 +4060,6 @@
 		  font-style: normal !important;
 		  text-transform: none !important;
 		}
-		#brt-rich.brt-rich .brt-rich__advantages-section .brt-rich__section-heading,
-		#brt-rich.brt-rich .brt-rich__advantages-section :is(h2, h3, h4).brt-rich__heading.brt-rich__section-heading,
-		.brt-rich .brt-rich__advantages-section .brt-rich__section-heading,
-		.brt-rich .brt-rich__advantages-section :is(h2, h3, h4).brt-rich__heading.brt-rich__section-heading {
-		  font-family: var(--rich-font-family) !important;
-		  font-size: var(--rich-font-size-section-title) !important;
-		  font-weight: var(--rich-font-weight-semibold) !important;
-		  line-height: normal !important;
-		  color: var(--rich-color-text) !important;
-		  font-style: normal !important;
-		  text-align: left !important;
-		  text-transform: none !important;
-		}
-		#brt-rich.brt-rich .brt-rich__advantages-text-card-title,
-		#brt-rich.brt-rich :is(h2, h3, h4).brt-rich__heading.brt-rich__advantages-text-card-title,
-		.brt-rich .brt-rich__advantages-text-card-title,
-		.brt-rich :is(h2, h3, h4).brt-rich__heading.brt-rich__advantages-text-card-title {
-		  font-family: var(--rich-font-family-display) !important;
-		  font-size: var(--rich-font-size-h3) !important;
-		  font-weight: 400 !important;
-		  line-height: normal !important;
-		  color: var(--rich-color-text-heading) !important;
-		  font-style: normal !important;
-		  text-transform: none !important;
-		}
-		#brt-rich.brt-rich .brt-rich__advantages-text-card-desc,
-		#brt-rich.brt-rich p.brt-rich__text.brt-rich__advantages-text-card-desc,
-		#brt-rich.brt-rich p.brt-rich__advantages-text-card-desc,
-		.brt-rich .brt-rich__advantages-text-card-desc,
-		.brt-rich p.brt-rich__text.brt-rich__advantages-text-card-desc,
-		.brt-rich p.brt-rich__advantages-text-card-desc {
-		  font-family: var(--rich-font-family) !important;
-		  font-size: var(--rich-font-size-body) !important;
-		  font-weight: var(--rich-font-weight-normal) !important;
-		  line-height: normal !important;
-		  color: #000 !important;
-		  font-style: normal !important;
-		  margin: 0 !important;
-		}
-		#brt-rich.brt-rich .brt-rich__measure-label,
-		.brt-rich .brt-rich__measure-label {
-		  font-family: var(--rich-font-family) !important;
-		  font-size: var(--rich-measure-value-size, 20px) !important;
-		  font-weight: var(--rich-font-weight-semibold) !important;
-		  line-height: 0.8 !important;
-		  color: var(--rich-color-text-inverse) !important;
-		  font-style: normal !important;
-		}
-		#brt-rich.brt-rich .brt-rich__measure-value,
-		.brt-rich .brt-rich__measure-value {
-		  font-size: var(--rich-measure-value-size, 20px) !important;
-		}
-		#brt-rich.brt-rich .brt-rich__measure-unit,
-		.brt-rich .brt-rich__measure-unit {
-		  font-size: var(--rich-measure-unit-size, 15px) !important;
-		}
 		#brt-rich.brt-rich .brt-rich__info-card-desc,
 		#brt-rich.brt-rich p.brt-rich__text.brt-rich__info-card-desc,
 		#brt-rich.brt-rich p.brt-rich__info-card-desc,
@@ -4176,15 +4120,6 @@
 		  font-weight: var(--rich-font-weight-normal) !important;
 		  line-height: var(--rich-line-height) !important;
 		  color: var(--rich-color-text-muted) !important;
-		  font-style: normal !important;
-		}
-		#brt-rich.brt-rich .brt-rich__construction-note,
-		.brt-rich .brt-rich__construction-note {
-		  font-family: var(--rich-font-family) !important;
-		  font-size: var(--rich-construction-note-size, 14px) !important;
-		  font-weight: var(--rich-font-weight-normal) !important;
-		  line-height: 1.2 !important;
-		  color: var(--rich-color-text) !important;
 		  font-style: normal !important;
 		}
 		#brt-rich.brt-rich p:not([class*=brt-rich__]),
