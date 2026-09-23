@@ -4305,17 +4305,23 @@
 		  object-position: center;
 		}
 		@media (min-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws > .brt-rich__hero-card-top,
+		  .brt-rich .brt-rich__hero-card--bws > .brt-rich__hero-card-top {
+		    flex-wrap: nowrap;
+		  }
 		  #brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-media-col,
 		  .brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-media-col {
-		    flex: 0 0 var(--rich-hero-media-width);
+		    flex: 0 1 var(--rich-hero-media-width);
 		    width: var(--rich-hero-media-width);
-		    max-width: var(--rich-hero-media-width);
+		    max-width: 50%;
+		    min-width: 0;
 		  }
 		  #brt-rich.brt-rich .brt-rich__hero-card--bws > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content,
 		  .brt-rich .brt-rich__hero-card--bws > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content {
-		    flex: 1 1 auto;
+		    flex: 1 1 0;
 		    width: auto;
 		    max-width: none;
+		    min-width: 0;
 		  }
 		}
 		#brt-rich.brt-rich .brt-rich__banner--cta,
