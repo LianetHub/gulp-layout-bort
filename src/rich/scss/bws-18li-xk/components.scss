@@ -226,7 +226,7 @@
 
 	.brt-rich__logo-card--brushless {
 		background: var(--rich-color-accent);
-		padding: 54px 53px;
+		padding: 1.81rem 53px;
 		box-sizing: border-box;
 
 		@media (max-width: $md4) {
@@ -593,7 +593,7 @@
 	}
 
 	// --- BWS-18Li-XK ---
-	.brt-rich__hero-card > .brt-rich-row > .brt-rich-col-md-6:last-child {
+	.brt-rich__hero-card>.brt-rich-row>.brt-rich-col-md-6:last-child {
 		position: relative;
 	}
 
@@ -956,15 +956,44 @@
 			text-align: right;
 		}
 
-		&--speed { top: 3%; }
-		&--stab { top: 12%; }
-		&--power { top: 20%; }
-		&--spindle { top: 37%; max-width: 142px; }
-		&--grip { top: 52%; max-width: 341px; }
-		&--motor { top: 64%; }
-		&--side { top: 73%; }
-		&--disc { top: 84%; }
-		&--guard { top: 93%; max-width: 417px; }
+		&--speed {
+			top: 3%;
+		}
+
+		&--stab {
+			top: 12%;
+		}
+
+		&--power {
+			top: 20%;
+		}
+
+		&--spindle {
+			top: 37%;
+			max-width: 142px;
+		}
+
+		&--grip {
+			top: 52%;
+			max-width: 341px;
+		}
+
+		&--motor {
+			top: 64%;
+		}
+
+		&--side {
+			top: 73%;
+		}
+
+		&--disc {
+			top: 84%;
+		}
+
+		&--guard {
+			top: 93%;
+			max-width: 417px;
+		}
 	}
 
 	.brt-rich__anatomy-line {

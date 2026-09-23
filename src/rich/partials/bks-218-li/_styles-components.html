@@ -68,7 +68,7 @@
 #brt-rich.brt-rich .brt-rich__split-stats-media,
 .brt-rich .brt-rich__split-stats-media {
   display: flex;
-  align-items: stretch;
+  align-items: flex-start;
   justify-content: stretch;
   width: 100%;
   height: 100%;
@@ -80,13 +80,6 @@
 #brt-rich.brt-rich .brt-rich__split-stats-photo,
 .brt-rich .brt-rich__split-stats-photo {
   display: block;
-  max-width: none !important;
-  width: 100% !important;
-  height: 100% !important;
-  min-height: 284px !important;
-  object-fit: cover !important;
-  object-position: center !important;
-  border-radius: 0 !important;
 }
 
 #brt-rich.brt-rich .brt-rich__modes-card--speeds,
@@ -247,7 +240,7 @@
 #brt-rich.brt-rich .brt-rich__logo-card--brushless,
 .brt-rich .brt-rich__logo-card--brushless {
   background: var(--rich-color-accent);
-  padding: 54px 53px;
+  padding: 1.81rem 53px;
   box-sizing: border-box;
 }
 
@@ -369,8 +362,9 @@
 
 #brt-rich.brt-rich .brt-rich__media-text-title,
 .brt-rich .brt-rich__media-text-title {
+  font-family: var(--rich-font-family-display) !important;
   font-size: var(--rich-media-text-title-size) !important;
-  font-weight: var(--rich-font-weight-bold) !important;
+  font-weight: 400 !important;
   line-height: 1.08 !important;
   color: var(--rich-color-text-heading) !important;
 }
@@ -946,10 +940,10 @@
 }
 
 /*
-* BPS-21Li-M hero-card
-* Top: 50% text + 50% media (412px)
-* Bottom perks (Figma): 209×77 / 313×77 / 223×77
-*/
+      * BPS-21Li-M hero-card
+      * Top: 50% text + 50% media (412px)
+      * Bottom perks (Figma): 209×77 / 313×77 / 223×77
+      */
 #brt-rich.brt-rich .brt-rich__hero-card--bps,
 .brt-rich .brt-rich__hero-card--bps {
   display: flex;
@@ -1154,50 +1148,70 @@
     object-position: center;
   }
 }
+/* BKS hero (Figma 13:227847): card 910×403, text inset 64/68/64/67 */
 #brt-rich.brt-rich .brt-rich__hero-card--bks,
 .brt-rich .brt-rich__hero-card--bks {
   min-height: 403px;
-  padding: 28px 40px;
+  padding: 68px 64px 67px;
   overflow: hidden;
 }
 
 #brt-rich.brt-rich .brt-rich__hero-card--bks > .brt-rich__hero-card-top,
 .brt-rich .brt-rich__hero-card--bks > .brt-rich__hero-card-top {
-  min-height: 347px;
+  min-height: 268px;
 }
 
 #brt-rich.brt-rich .brt-rich__hero-card--bks > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content,
 .brt-rich .brt-rich__hero-card--bks > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content {
-  min-height: 347px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 268px;
 }
 
+#brt-rich.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-card-title,
 #brt-rich.brt-rich .brt-rich__hero-card--bks :is(h1).brt-rich__heading.brt-rich__hero-card-title,
+.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-card-title,
 .brt-rich .brt-rich__hero-card--bks :is(h1).brt-rich__heading.brt-rich__hero-card-title {
+  max-width: 377px;
+  margin: 0 !important;
   font-size: 24px !important;
   line-height: normal !important;
 }
 
 #brt-rich.brt-rich .brt-rich__hero-card--bks p.brt-rich__hero-card-model.brt-rich__hero-card-model--brand,
 .brt-rich .brt-rich__hero-card--bks p.brt-rich__hero-card-model.brt-rich__hero-card-model--brand {
-  margin-top: 8px;
+  margin-top: 6px !important;
   font-family: var(--rich-font-family) !important;
   font-size: 24px !important;
   font-weight: 600 !important;
-  line-height: 1 !important;
+  line-height: normal !important;
 }
 
 #brt-rich.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-card-list-block,
 .brt-rich .brt-rich__hero-card--bks .brt-rich__hero-card-list-block {
-  margin-top: 17px;
+  margin-top: 13px !important;
+  margin-left: -10px;
   max-width: 360px;
+  min-height: 140px;
+  padding-left: 30px !important;
+  font-size: 20px !important;
+  line-height: normal !important;
 }
 
-#brt-rich.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-card-desc,
-.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-card-desc {
-  margin-top: 16px !important;
+#brt-rich.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-card-list-block li + li,
+.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-card-list-block li + li {
+  margin-top: 0 !important;
+}
+
+#brt-rich.brt-rich .brt-rich__hero-card--bks > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content > .brt-rich__hero-card-desc,
+.brt-rich .brt-rich__hero-card--bks > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content > .brt-rich__hero-card-desc {
+  margin-top: 0 !important;
+  margin-bottom: 0 !important;
   font-family: var(--rich-font-family) !important;
   font-size: 20px !important;
   font-weight: 300 !important;
+  line-height: normal !important;
   color: var(--rich-color-text-heading) !important;
 }
 
