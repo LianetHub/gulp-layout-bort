@@ -1358,6 +1358,68 @@
   background: var(--rich-color-accent);
   text-align: center;
 }
+#brt-rich.brt-rich .brt-rich__params-stat-wrap,
+.brt-rich .brt-rich__params-stat-wrap {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  width: 100%;
+}
+#brt-rich.brt-rich .brt-rich__params-stat-accent,
+.brt-rich .brt-rich__params-stat-accent {
+  flex: 0 0 14px;
+  width: 14px;
+  height: 51px;
+  margin: 13px 0;
+  border-radius: 20px;
+  background: var(--rich-color-accent);
+}
+#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat,
+.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat {
+  flex: 1 1 auto;
+  align-items: flex-start;
+  justify-content: center;
+  width: auto;
+  min-width: 0;
+  height: 77px;
+  min-height: 77px;
+  padding: 8px 20px;
+  border-radius: 20px;
+  background: var(--rich-color-bg-muted);
+  text-align: left;
+}
+#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-value,
+.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-value {
+  display: flex;
+  align-items: baseline;
+  gap: 4px;
+  margin: 0;
+}
+#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-number,
+.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-number {
+  font-family: var(--rich-font-family-display);
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--rich-color-accent);
+}
+#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-unit,
+.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-unit {
+  font-family: var(--rich-font-family-display);
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 1;
+  color: var(--rich-color-text);
+}
+#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-label,
+.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-label {
+  margin: 2px 0 0;
+  font-family: var(--rich-font-family);
+  font-size: 17px;
+  font-weight: var(--rich-font-weight-normal);
+  line-height: 1.2;
+  color: var(--rich-color-text);
+}
 #brt-rich.brt-rich .brt-rich__params-stat-label,
 .brt-rich .brt-rich__params-stat-label {
   margin: 0;
@@ -1674,12 +1736,15 @@
 }
 #brt-rich.brt-rich .brt-rich__specs-icon-card-icon,
 .brt-rich .brt-rich__specs-icon-card-icon {
+  flex: 0 0 var(--rich-specs-icon-card-icon-slot);
   flex-shrink: 0;
   display: block;
-  width: auto;
+  width: var(--rich-specs-icon-card-icon-slot);
+  max-width: var(--rich-specs-icon-card-icon-slot);
   height: auto;
-  max-width: var(--rich-specs-icon-card-icon-max-width);
   max-height: var(--rich-specs-icon-card-icon-max-height);
+  object-fit: contain;
+  object-position: center;
 }
 #brt-rich.brt-rich .brt-rich__specs-icon-card-content,
 .brt-rich .brt-rich__specs-icon-card-content {
@@ -2810,5 +2875,38 @@
   color: var(--rich-color-text) !important;
   font-style: normal !important;
   text-transform: none !important;
+}
+
+#brt-rich.brt-rich .brt-rich__banner--cta,
+#brt-rich.brt-rich .brt-rich__banner--cta .brt-rich__text,
+#brt-rich.brt-rich .brt-rich__banner--cta b,
+.brt-rich .brt-rich__banner--cta,
+.brt-rich .brt-rich__banner--cta .brt-rich__text,
+.brt-rich .brt-rich__banner--cta b {
+  color: #000 !important;
+}
+#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-number,
+.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-number {
+  font-family: var(--rich-font-family-display) !important;
+  font-size: 35px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  color: var(--rich-color-accent) !important;
+}
+#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-unit,
+.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-unit {
+  font-family: var(--rich-font-family-display) !important;
+  font-size: 20px !important;
+  font-weight: 400 !important;
+  line-height: 1 !important;
+  color: var(--rich-color-text) !important;
+}
+#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-label,
+.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-label {
+  font-family: var(--rich-font-family) !important;
+  font-size: 17px !important;
+  font-weight: var(--rich-font-weight-normal) !important;
+  line-height: 1.2 !important;
+  color: var(--rich-color-text) !important;
 }
 </style>

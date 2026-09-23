@@ -25,8 +25,8 @@
 	/* --- Hero --- */
 	--rich-hero-header-gap: 20px;
 	--rich-hero-card-gap: var(--rich-space-sm);
-	--rich-hero-card-height: 438px;
-	--rich-hero-media-width: 392px;
+	--rich-hero-card-height: 475px;
+	--rich-hero-media-width: 440px;
 	--rich-hero-title-model-gap: var(--rich-space-xs);
 	--rich-hero-model-desc-gap: var(--rich-space-sm);
 	--rich-hero-desc-perks-gap: 28px;
@@ -93,8 +93,9 @@
 	--rich-specs-icon-card-padding-x: 20px;
 	--rich-specs-icon-card-padding-y: 12px;
 	--rich-specs-icon-card-gap: 20px;
-	--rich-specs-icon-card-icon-max-width: 54px;
-	--rich-specs-icon-card-icon-max-height: 54px;
+	--rich-specs-icon-card-icon-max-width: 61px;
+	--rich-specs-icon-card-icon-max-height: 61px;
+	--rich-specs-icon-card-icon-slot: 61px;
 	--rich-specs-icon-card-label-size: 17px;
 	--rich-specs-icon-card-value-size: 35px;
 	--rich-specs-icon-card-value-size-sm: var(--rich-font-size-page-title);
@@ -116,7 +117,7 @@
 	--rich-advantages-panel-gap: 10px;
 	--rich-advantages-banner-height: 151px;
 	--rich-advantages-text-card-radius: 10px;
-	--rich-advantages-text-card-padding: 20px 16px;
+	--rich-advantages-text-card-padding: 20px 16px 36px;
 	--rich-advantages-text-card-min-height: 187px;
 	--rich-advantages-text-card-title-height: 3.6em;
 	--rich-advantages-grid-gap: 10px;

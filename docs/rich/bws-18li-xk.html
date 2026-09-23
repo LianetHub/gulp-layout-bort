@@ -33,8 +33,8 @@
   /* --- Hero --- */
   --rich-hero-header-gap: 20px;
   --rich-hero-card-gap: var(--rich-space-sm);
-  --rich-hero-card-height: 438px;
-  --rich-hero-media-width: 392px;
+  --rich-hero-card-height: 475px;
+  --rich-hero-media-width: 440px;
   --rich-hero-title-model-gap: var(--rich-space-xs);
   --rich-hero-model-desc-gap: var(--rich-space-sm);
   --rich-hero-desc-perks-gap: 28px;
@@ -93,8 +93,9 @@
   --rich-specs-icon-card-padding-x: 20px;
   --rich-specs-icon-card-padding-y: 12px;
   --rich-specs-icon-card-gap: 20px;
-  --rich-specs-icon-card-icon-max-width: 54px;
-  --rich-specs-icon-card-icon-max-height: 54px;
+  --rich-specs-icon-card-icon-max-width: 61px;
+  --rich-specs-icon-card-icon-max-height: 61px;
+  --rich-specs-icon-card-icon-slot: 61px;
   --rich-specs-icon-card-label-size: 17px;
   --rich-specs-icon-card-value-size: 35px;
   --rich-specs-icon-card-value-size-sm: var(--rich-font-size-page-title);
@@ -115,7 +116,7 @@
   --rich-advantages-panel-gap: 10px;
   --rich-advantages-banner-height: 151px;
   --rich-advantages-text-card-radius: 10px;
-  --rich-advantages-text-card-padding: 20px 16px;
+  --rich-advantages-text-card-padding: 20px 16px 36px;
   --rich-advantages-text-card-min-height: 187px;
   --rich-advantages-text-card-title-height: 3.6em;
   --rich-advantages-grid-gap: 10px;
@@ -2023,6 +2024,68 @@
 		  background: var(--rich-color-accent);
 		  text-align: center;
 		}
+		#brt-rich.brt-rich .brt-rich__params-stat-wrap,
+		.brt-rich .brt-rich__params-stat-wrap {
+		  display: flex;
+		  align-items: flex-start;
+		  gap: 8px;
+		  width: 100%;
+		}
+		#brt-rich.brt-rich .brt-rich__params-stat-accent,
+		.brt-rich .brt-rich__params-stat-accent {
+		  flex: 0 0 14px;
+		  width: 14px;
+		  height: 51px;
+		  margin: 13px 0;
+		  border-radius: 20px;
+		  background: var(--rich-color-accent);
+		}
+		#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat,
+		.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat {
+		  flex: 1 1 auto;
+		  align-items: flex-start;
+		  justify-content: center;
+		  width: auto;
+		  min-width: 0;
+		  height: 77px;
+		  min-height: 77px;
+		  padding: 8px 20px;
+		  border-radius: 20px;
+		  background: var(--rich-color-bg-muted);
+		  text-align: left;
+		}
+		#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-value,
+		.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-value {
+		  display: flex;
+		  align-items: baseline;
+		  gap: 4px;
+		  margin: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-number,
+		.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-number {
+		  font-family: var(--rich-font-family-display);
+		  font-size: 35px;
+		  font-weight: 400;
+		  line-height: 1;
+		  color: var(--rich-color-accent);
+		}
+		#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-unit,
+		.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-unit {
+		  font-family: var(--rich-font-family-display);
+		  font-size: 20px;
+		  font-weight: 400;
+		  line-height: 1;
+		  color: var(--rich-color-text);
+		}
+		#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-label,
+		.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-label {
+		  margin: 2px 0 0;
+		  font-family: var(--rich-font-family);
+		  font-size: 17px;
+		  font-weight: var(--rich-font-weight-normal);
+		  line-height: 1.2;
+		  color: var(--rich-color-text);
+		}
 		#brt-rich.brt-rich .brt-rich__params-stat-label,
 		.brt-rich .brt-rich__params-stat-label {
 		  margin: 0;
@@ -2339,12 +2402,15 @@
 		}
 		#brt-rich.brt-rich .brt-rich__specs-icon-card-icon,
 		.brt-rich .brt-rich__specs-icon-card-icon {
+		  flex: 0 0 var(--rich-specs-icon-card-icon-slot);
 		  flex-shrink: 0;
 		  display: block;
-		  width: auto;
+		  width: var(--rich-specs-icon-card-icon-slot);
+		  max-width: var(--rich-specs-icon-card-icon-slot);
 		  height: auto;
-		  max-width: var(--rich-specs-icon-card-icon-max-width);
 		  max-height: var(--rich-specs-icon-card-icon-max-height);
+		  object-fit: contain;
+		  object-position: center;
 		}
 		#brt-rich.brt-rich .brt-rich__specs-icon-card-content,
 		.brt-rich .brt-rich__specs-icon-card-content {
@@ -3476,6 +3542,39 @@
 		  font-style: normal !important;
 		  text-transform: none !important;
 		}
+
+		#brt-rich.brt-rich .brt-rich__banner--cta,
+		#brt-rich.brt-rich .brt-rich__banner--cta .brt-rich__text,
+		#brt-rich.brt-rich .brt-rich__banner--cta b,
+		.brt-rich .brt-rich__banner--cta,
+		.brt-rich .brt-rich__banner--cta .brt-rich__text,
+		.brt-rich .brt-rich__banner--cta b {
+		  color: #000 !important;
+		}
+		#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-number,
+		.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-number {
+		  font-family: var(--rich-font-family-display) !important;
+		  font-size: 35px !important;
+		  font-weight: 400 !important;
+		  line-height: 1 !important;
+		  color: var(--rich-color-accent) !important;
+		}
+		#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-unit,
+		.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-unit {
+		  font-family: var(--rich-font-family-display) !important;
+		  font-size: 20px !important;
+		  font-weight: 400 !important;
+		  line-height: 1 !important;
+		  color: var(--rich-color-text) !important;
+		}
+		#brt-rich.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-label,
+		.brt-rich .brt-rich__params-stat-wrap .brt-rich__params-stat-label {
+		  font-family: var(--rich-font-family) !important;
+		  font-size: 17px !important;
+		  font-weight: var(--rich-font-weight-normal) !important;
+		  line-height: 1.2 !important;
+		  color: var(--rich-color-text) !important;
+		}
 		</style>
 
 		<style id="rich-components">
@@ -3542,8 +3641,8 @@
 		#brt-rich.brt-rich .brt-rich__split-stats-media,
 		.brt-rich .brt-rich__split-stats-media {
 		  display: flex;
-		  align-items: flex-end;
-		  justify-content: center;
+		  align-items: center;
+		  justify-content: flex-end;
 		  height: 100%;
 		  background: var(--rich-color-bg-muted);
 		  border-radius: var(--rich-radius-lg);
@@ -3552,7 +3651,7 @@
 		#brt-rich.brt-rich .brt-rich__split-stats-photo,
 		.brt-rich .brt-rich__split-stats-photo {
 		  display: block;
-		  max-width: 400px !important;
+		  max-width: 100% !important;
 		  width: 100% !important;
 		  height: auto !important;
 		  min-height: 0 !important;
@@ -4074,74 +4173,142 @@
 		.brt-rich .brt-rich__logo-card .brt-rich__card-text + .brt-rich__card-text {
 		  margin-top: 1rem;
 		}
-		#brt-rich.brt-rich .brt-rich__hero-card > .brt-rich-row > .brt-rich-col-md-6:last-child,
-		.brt-rich .brt-rich__hero-card > .brt-rich-row > .brt-rich-col-md-6:last-child {
-		  position: relative;
-		}
-		#brt-rich.brt-rich .brt-rich__hero-media,
-		.brt-rich .brt-rich__hero-media {
-		  position: relative !important;
-		  top: auto !important;
-		  right: auto !important;
-		  bottom: auto !important;
-		  z-index: 1 !important;
-		  width: 100%;
-		  height: 100%;
-		  min-height: 360px;
+		#brt-rich.brt-rich .brt-rich__hero-card--bws,
+		.brt-rich .brt-rich__hero-card--bws {
+		  min-height: var(--rich-hero-card-height);
+		  padding: 0;
 		  overflow: hidden;
-		  border-radius: 0;
 		}
-		#brt-rich.brt-rich .brt-rich__hero-media-photo,
-		.brt-rich .brt-rich__hero-media-photo {
-		  width: 100%;
+		#brt-rich.brt-rich .brt-rich__hero-card--bws > .brt-rich__hero-card-top,
+		.brt-rich .brt-rich__hero-card--bws > .brt-rich__hero-card-top {
+		  --rich-gutter-x: 0;
+		  --rich-gutter-y: 0;
+		  min-height: var(--rich-hero-card-height);
+		  align-items: stretch;
+		}
+		#brt-rich.brt-rich .brt-rich__hero-card--bws > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content,
+		.brt-rich .brt-rich__hero-card--bws > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content {
+		  display: flex;
+		  flex-direction: column;
+		  justify-content: flex-start;
+		  align-self: stretch;
 		  height: 100%;
-		  min-height: 360px;
-		  object-fit: cover;
-		  object-position: 70% center;
+		  min-height: var(--rich-hero-card-height);
+		  padding: 22px 24px 27px 34px;
+		  box-sizing: border-box;
 		}
-		#brt-rich.brt-rich .brt-rich__hero-card-title,
-		.brt-rich .brt-rich__hero-card-title {
+		#brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-content-main,
+		.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-content-main {
+		  flex: 0 0 auto;
+		}
+		#brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-title,
+		#brt-rich.brt-rich .brt-rich__hero-card--bws :is(h1).brt-rich__heading.brt-rich__hero-card-title,
+		.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-title,
+		.brt-rich .brt-rich__hero-card--bws :is(h1).brt-rich__heading.brt-rich__hero-card-title {
 		  max-width: 452px;
+		  margin: 0 !important;
+		  font-family: var(--rich-font-family-display) !important;
 		  font-size: 38px !important;
+		  font-weight: 400 !important;
 		  line-height: 1.2 !important;
 		}
-		#brt-rich.brt-rich .brt-rich__hero-card-model,
-		.brt-rich .brt-rich__hero-card-model {
+		#brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-model,
+		#brt-rich.brt-rich .brt-rich__hero-card--bws p.brt-rich__hero-card-model,
+		#brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-model--brand,
+		#brt-rich.brt-rich .brt-rich__hero-card--bws p.brt-rich__hero-card-model.brt-rich__hero-card-model--brand,
+		.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-model,
+		.brt-rich .brt-rich__hero-card--bws p.brt-rich__hero-card-model,
+		.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-model--brand,
+		.brt-rich .brt-rich__hero-card--bws p.brt-rich__hero-card-model.brt-rich__hero-card-model--brand {
+		  margin: 0 !important;
 		  font-family: var(--rich-font-family-display) !important;
 		  font-size: 40px !important;
 		  font-weight: 400 !important;
+		  line-height: normal !important;
 		}
-		#brt-rich.brt-rich .brt-rich__hero-card-list-block,
-		.brt-rich .brt-rich__hero-card-list-block {
-		  margin-top: 18px;
+		#brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-list-block,
+		.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-list-block {
+		  margin: 23px 0 0;
+		  padding-left: 1.05em !important;
+		  max-width: 419px;
 		  font-size: 25px;
+		  line-height: normal;
 		}
-		#brt-rich.brt-rich .brt-rich__hero-card-note,
-		.brt-rich .brt-rich__hero-card-note {
+		#brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-list-block li + li,
+		.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-list-block li + li {
+		  margin-top: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-note,
+		.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-note {
 		  margin-top: auto;
-		  padding-top: var(--rich-space-lg);
+		  margin-bottom: 0;
+		  padding-top: var(--rich-space-md);
+		  padding-left: 13px;
 		  font-family: var(--rich-font-family) !important;
 		  font-size: 20px !important;
 		  font-weight: 300 !important;
 		  line-height: normal !important;
 		  color: var(--rich-color-text-heading) !important;
 		}
+		#brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-media-col,
+		.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-media-col {
+		  position: relative;
+		  padding: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-media,
+		.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-media {
+		  position: relative !important;
+		  top: auto !important;
+		  right: auto !important;
+		  bottom: auto !important;
+		  z-index: 1 !important;
+		  width: 100%;
+		  height: var(--rich-hero-card-height);
+		  margin: 0;
+		  overflow: hidden;
+		  border-radius: 0;
+		  line-height: 0;
+		}
+		#brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-media-photo,
+		.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-media-photo {
+		  display: block;
+		  width: 100%;
+		  height: 100%;
+		  min-height: 0;
+		  object-fit: cover;
+		  object-position: center;
+		}
+		@media (min-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-media-col,
+		  .brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-media-col {
+		    flex: 0 0 var(--rich-hero-media-width);
+		    width: var(--rich-hero-media-width);
+		    max-width: var(--rich-hero-media-width);
+		  }
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content,
+		  .brt-rich .brt-rich__hero-card--bws > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content {
+		    flex: 1 1 auto;
+		    width: auto;
+		    max-width: none;
+		  }
+		}
 		#brt-rich.brt-rich .brt-rich__banner--cta,
 		.brt-rich .brt-rich__banner--cta {
 		  padding: 22px 30px;
 		  background: var(--rich-color-accent);
-		  color: var(--rich-color-text) !important;
+		  color: #000 !important;
 		  text-align: center;
 		}
 		#brt-rich.brt-rich .brt-rich__banner--cta .brt-rich__text,
 		.brt-rich .brt-rich__banner--cta .brt-rich__text {
 		  font-size: 20px !important;
 		  line-height: 1.08 !important;
-		  color: var(--rich-color-text-heading) !important;
+		  color: #000 !important;
 		}
 		#brt-rich.brt-rich .brt-rich__banner--cta b,
 		.brt-rich .brt-rich__banner--cta b {
 		  font-weight: 700;
+		  color: #000 !important;
 		}
 		#brt-rich.brt-rich .brt-rich__banner--cta.brt-rich__banner--compact,
 		.brt-rich .brt-rich__banner--cta.brt-rich__banner--compact {
@@ -4184,7 +4351,7 @@
 		}
 		#brt-rich.brt-rich .brt-rich__accent-stack-text,
 		.brt-rich .brt-rich__accent-stack-text {
-		  margin: 0 0 20px;
+		  margin: 0 0 var(--rich-space-lg);
 		  font-size: 20px !important;
 		  line-height: 1 !important;
 		  text-align: center;
@@ -4195,6 +4362,7 @@
 		  overflow: hidden;
 		  border-radius: var(--rich-radius-lg);
 		  line-height: 0;
+		  margin-top: 1rem;
 		}
 		#brt-rich.brt-rich .brt-rich__accent-stack-media img,
 		.brt-rich .brt-rich__accent-stack-media img {
@@ -4206,70 +4374,24 @@
 		}
 		#brt-rich.brt-rich .brt-rich__advantages-panel--photo-last,
 		.brt-rich .brt-rich__advantages-panel--photo-last {
+		  gap: 0;
 		  padding: var(--rich-advantages-panel-padding);
+		}
+		#brt-rich.brt-rich .brt-rich__advantages-panel--photo-last .brt-rich__advantages-text-card,
+		.brt-rich .brt-rich__advantages-panel--photo-last .brt-rich__advantages-text-card {
+		  border-radius: var(--rich-advantages-text-card-radius) var(--rich-advantages-text-card-radius) 0 0;
 		}
 		#brt-rich.brt-rich .brt-rich__advantages-panel--photo-last .brt-rich__advantages-banner,
 		.brt-rich .brt-rich__advantages-panel--photo-last .brt-rich__advantages-banner {
 		  order: 2;
-		  margin: 0;
+		  margin: calc(var(--rich-advantages-text-card-radius) * -1) 0 0;
 		  border-radius: 10px;
+		  position: relative;
+		  z-index: 1;
 		}
 		#brt-rich.brt-rich .brt-rich__advantages-panel--photo-last .brt-rich__advantages-banner img,
 		.brt-rich .brt-rich__advantages-panel--photo-last .brt-rich__advantages-banner img {
 		  height: 184px;
-		}
-		#brt-rich.brt-rich .brt-rich__speed-list,
-		.brt-rich .brt-rich__speed-list {
-		  display: flex;
-		  flex-direction: column;
-		  gap: var(--rich-space-xs);
-		  margin: 0;
-		  padding: 0 0 0 12px;
-		  list-style: none;
-		  overflow: visible;
-		}
-		#brt-rich.brt-rich .brt-rich__speed-chip,
-		.brt-rich .brt-rich__speed-chip {
-		  position: relative;
-		  display: flex;
-		  flex-direction: column;
-		  justify-content: center;
-		  min-height: 77px;
-		  padding: 10px 20px 10px 36px;
-		  border-radius: var(--rich-radius-lg);
-		  background: var(--rich-color-bg-muted);
-		}
-		#brt-rich.brt-rich .brt-rich__speed-chip::before,
-		.brt-rich .brt-rich__speed-chip::before {
-		  content: "";
-		  position: absolute;
-		  top: 13px;
-		  left: -11px;
-		  width: 14px;
-		  height: 51px;
-		  border-radius: var(--rich-radius-lg);
-		  background: var(--rich-color-accent);
-		}
-		#brt-rich.brt-rich .brt-rich__speed-chip-value,
-		.brt-rich .brt-rich__speed-chip-value {
-		  margin: 0;
-		  font-family: var(--rich-font-family-display) !important;
-		  font-size: 35px !important;
-		  font-weight: 400 !important;
-		  line-height: 24px !important;
-		  color: var(--rich-color-accent) !important;
-		}
-		#brt-rich.brt-rich .brt-rich__speed-chip-value .brt-rich__speed-chip-unit,
-		.brt-rich .brt-rich__speed-chip-value .brt-rich__speed-chip-unit {
-		  font-size: 20px;
-		  color: var(--rich-color-text-heading);
-		}
-		#brt-rich.brt-rich .brt-rich__speed-chip-label,
-		.brt-rich .brt-rich__speed-chip-label {
-		  margin: 6px 0 0;
-		  font-size: 17px !important;
-		  line-height: normal !important;
-		  color: var(--rich-color-text-heading) !important;
 		}
 		#brt-rich.brt-rich .brt-rich__accent-split,
 		.brt-rich .brt-rich__accent-split {
@@ -4320,15 +4442,21 @@
 		}
 		#brt-rich.brt-rich .brt-rich__modes-media,
 		.brt-rich .brt-rich__modes-media {
+		  display: flex;
+		  align-items: center;
+		  justify-content: center;
 		  height: 100%;
-		  min-height: 323px;
+		  min-height: 240px;
+		  overflow: hidden;
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-bg-muted);
 		}
 		#brt-rich.brt-rich .brt-rich__modes-media img,
 		.brt-rich .brt-rich__modes-media img {
+		  display: block;
+		  width: 100%;
 		  height: 100%;
-		  min-height: 323px;
-		  object-fit: contain;
-		  object-position: center top;
+		  object-fit: cover;
 		}
 		#brt-rich.brt-rich .brt-rich__callout,
 		.brt-rich .brt-rich__callout {
@@ -4398,90 +4526,6 @@
 		  height: 239px;
 		  object-fit: contain;
 		  object-position: center;
-		}
-		#brt-rich.brt-rich .brt-rich__figure-wide--annotated,
-		.brt-rich .brt-rich__figure-wide--annotated {
-		  position: relative;
-		  min-height: 658px;
-		  padding: 18px 24px 24px;
-		  border-radius: var(--rich-radius-lg);
-		  background: var(--rich-color-bg-muted);
-		  overflow: hidden;
-		}
-		#brt-rich.brt-rich .brt-rich__figure-wide--annotated .brt-rich__figure-wide-photo,
-		.brt-rich .brt-rich__figure-wide--annotated .brt-rich__figure-wide-photo {
-		  display: block;
-		  width: 90%;
-		  max-width: 818px;
-		  margin: 0 auto;
-		  height: auto;
-		  object-fit: contain;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-label,
-		.brt-rich .brt-rich__anatomy-label {
-		  position: absolute;
-		  z-index: 2;
-		  max-width: 220px;
-		  margin: 0;
-		  font-size: 20px !important;
-		  line-height: 1.08 !important;
-		  text-transform: uppercase;
-		  color: var(--rich-color-text) !important;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-label--left,
-		.brt-rich .brt-rich__anatomy-label--left {
-		  left: 24px;
-		  text-align: left;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-label--right,
-		.brt-rich .brt-rich__anatomy-label--right {
-		  right: 24px;
-		  text-align: right;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-label--speed,
-		.brt-rich .brt-rich__anatomy-label--speed {
-		  top: 3%;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-label--stab,
-		.brt-rich .brt-rich__anatomy-label--stab {
-		  top: 12%;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-label--power,
-		.brt-rich .brt-rich__anatomy-label--power {
-		  top: 20%;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-label--spindle,
-		.brt-rich .brt-rich__anatomy-label--spindle {
-		  top: 37%;
-		  max-width: 142px;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-label--grip,
-		.brt-rich .brt-rich__anatomy-label--grip {
-		  top: 52%;
-		  max-width: 341px;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-label--motor,
-		.brt-rich .brt-rich__anatomy-label--motor {
-		  top: 64%;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-label--side,
-		.brt-rich .brt-rich__anatomy-label--side {
-		  top: 73%;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-label--disc,
-		.brt-rich .brt-rich__anatomy-label--disc {
-		  top: 84%;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-label--guard,
-		.brt-rich .brt-rich__anatomy-label--guard {
-		  top: 93%;
-		  max-width: 417px;
-		}
-		#brt-rich.brt-rich .brt-rich__anatomy-line,
-		.brt-rich .brt-rich__anatomy-line {
-		  position: absolute;
-		  z-index: 1;
-		  pointer-events: none;
 		}
 		#brt-rich.brt-rich .brt-rich__kit-board,
 		.brt-rich .brt-rich__kit-board {
@@ -4580,13 +4624,45 @@
 		  line-height: 1.21 !important;
 		}
 		@media (max-width: 767.98px) {
-		  #brt-rich.brt-rich .brt-rich__hero-card-title,
-		  .brt-rich .brt-rich__hero-card-title {
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws,
+		  .brt-rich .brt-rich__hero-card--bws {
+		    min-height: 0;
+		  }
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws > .brt-rich__hero-card-top,
+		  .brt-rich .brt-rich__hero-card--bws > .brt-rich__hero-card-top {
+		    min-height: 0;
+		  }
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content,
+		  .brt-rich .brt-rich__hero-card--bws > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content {
+		    min-height: 0;
+		    height: auto;
+		    padding: var(--rich-space-lg);
+		  }
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-title,
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws :is(h1).brt-rich__heading.brt-rich__hero-card-title,
+		  .brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-title,
+		  .brt-rich .brt-rich__hero-card--bws :is(h1).brt-rich__heading.brt-rich__hero-card-title {
 		    font-size: 28px !important;
 		  }
-		  #brt-rich.brt-rich .brt-rich__hero-card-model,
-		  .brt-rich .brt-rich__hero-card-model {
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-model,
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws p.brt-rich__hero-card-model,
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-model--brand,
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws p.brt-rich__hero-card-model.brt-rich__hero-card-model--brand,
+		  .brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-model,
+		  .brt-rich .brt-rich__hero-card--bws p.brt-rich__hero-card-model,
+		  .brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-model--brand,
+		  .brt-rich .brt-rich__hero-card--bws p.brt-rich__hero-card-model.brt-rich__hero-card-model--brand {
 		    font-size: 32px !important;
+		  }
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-list-block,
+		  .brt-rich .brt-rich__hero-card--bws .brt-rich__hero-card-list-block {
+		    font-size: 18px;
+		    max-width: none;
+		  }
+		  #brt-rich.brt-rich .brt-rich__hero-card--bws .brt-rich__hero-media,
+		  .brt-rich .brt-rich__hero-card--bws .brt-rich__hero-media {
+		    height: auto;
+		    aspect-ratio: 440/475;
 		  }
 		  #brt-rich.brt-rich .brt-rich__accent-stack-media img,
 		  #brt-rich.brt-rich .brt-rich__accent-split-media img,
@@ -4607,34 +4683,6 @@
 		  #brt-rich.brt-rich .brt-rich__accent-split,
 		  .brt-rich .brt-rich__accent-split {
 		    flex-direction: column;
-		  }
-		  #brt-rich.brt-rich .brt-rich__speed-list,
-		  .brt-rich .brt-rich__speed-list {
-		    padding-left: 12px;
-		  }
-		  #brt-rich.brt-rich .brt-rich__modes-media,
-		  #brt-rich.brt-rich .brt-rich__modes-media img,
-		  .brt-rich .brt-rich__modes-media,
-		  .brt-rich .brt-rich__modes-media img {
-		    min-height: 0;
-		    height: auto;
-		    aspect-ratio: 1/1;
-		  }
-		  #brt-rich.brt-rich .brt-rich__figure-wide--annotated,
-		  .brt-rich .brt-rich__figure-wide--annotated {
-		    min-height: 0;
-		    padding: var(--rich-space-lg) var(--rich-space-md);
-		  }
-		  #brt-rich.brt-rich .brt-rich__anatomy-label,
-		  .brt-rich .brt-rich__anatomy-label {
-		    position: static;
-		    max-width: none;
-		    margin-top: 8px;
-		    text-align: left;
-		  }
-		  #brt-rich.brt-rich .brt-rich__anatomy-line,
-		  .brt-rich .brt-rich__anatomy-line {
-		    display: none;
 		  }
 		  #brt-rich.brt-rich .brt-rich__kit-board-grid,
 		  .brt-rich .brt-rich__kit-board-grid {
@@ -4688,26 +4736,29 @@
 			</section>
 
 			<!-- COMPONENT: Hero Card
-			 PRODUCT: BWS-18Li-XK -->
+			 PRODUCT: BWS-18Li-XK
+			 Figma: 18:227853 -->
 			<section class="brt-rich__section brt-rich__hero-card-section">
 				<div class="brt-rich__container">
-					<div class="brt-rich__hero-card brt-rich__hero-card--tinted">
-						<div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-center">
-							<div class="brt-rich-col-12 brt-rich-col-md-6">
-								<h1 class="brt-rich__heading brt-rich__hero-card-title">Машина шлифовальная угловая АКБ</h1>
-								<p class="brt-rich__hero-card-model brt-rich__hero-card-model--brand">BWS-18Li-XK</p>
-								<ul class="brt-rich__hero-card-list-block">
-									<li>4 режима работы</li>
-									<li>Функция Kickback control</li>
-									<li>Система стабилизации оборотов</li>
-									<li>Плавный пуск</li>
-									<li>Бесщеточный мотор</li>
-								</ul>
+					<div class="brt-rich__hero-card brt-rich__hero-card--tinted brt-rich__hero-card--bws">
+						<div class="brt-rich-row brt-rich-row--align-stretch brt-rich__hero-card-top">
+							<div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__hero-card-content">
+								<div class="brt-rich__hero-card-content-main">
+									<h1 class="brt-rich__heading brt-rich__hero-card-title">Машина шлифовальная угловая АКБ</h1>
+									<p class="brt-rich__hero-card-model brt-rich__hero-card-model--brand">BWS-18Li-XK</p>
+									<ul class="brt-rich__hero-card-list-block">
+										<li>4 режима работы</li>
+										<li>Функция Kickback control</li>
+										<li>Система стабилизации<br>оборотов</li>
+										<li>Плавный пуск</li>
+										<li>Бесщеточный мотор</li>
+									</ul>
+								</div>
 								<p class="brt-rich__hero-card-note">* Без АКБ и ЗУ</p>
 							</div>
-							<div class="brt-rich-col-12 brt-rich-col-md-6">
+							<div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__hero-card-media-col">
 								<div class="brt-rich__hero-media">
-									<img class="brt-rich__hero-media-photo" src="img/bws-18li-xk/hero-photo.png" alt="Аккумуляторная УШМ Bort BWS-18Li-XK" loading="lazy">
+									<img class="brt-rich__hero-media-photo" src="img/bws-18li-xk/hero-photo.png" alt="Аккумуляторная УШМ Bort BWS-18Li-XK" width="440" height="475" loading="lazy">
 								</div>
 							</div>
 						</div>
@@ -4884,31 +4935,54 @@
 				</div>
 			</section>
 
-			<section class="brt-rich__section brt-rich__split-stats-section">
+			<section class="brt-rich__section brt-rich__params-section">
 				<div class="brt-rich__container">
 					<div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-stretch">
 						<div class="brt-rich-col-12 brt-rich-col-md-6">
-							<ul class="brt-rich__speed-list">
-								<li class="brt-rich__speed-chip">
-									<p class="brt-rich__speed-chip-value">4 000 <span class="brt-rich__speed-chip-unit">об/мин</span></p>
-									<p class="brt-rich__speed-chip-label">Скорость холостого хода 1</p>
-								</li>
-								<li class="brt-rich__speed-chip">
-									<p class="brt-rich__speed-chip-value">6 000 <span class="brt-rich__speed-chip-unit">об/мин</span></p>
-									<p class="brt-rich__speed-chip-label">Скорость холостого хода 2</p>
-								</li>
-								<li class="brt-rich__speed-chip">
-									<p class="brt-rich__speed-chip-value">8 000 <span class="brt-rich__speed-chip-unit">об/мин</span></p>
-									<p class="brt-rich__speed-chip-label">Скорость холостого хода 3</p>
-								</li>
-								<li class="brt-rich__speed-chip">
-									<p class="brt-rich__speed-chip-value">AUTO</p>
-									<p class="brt-rich__speed-chip-label">Автоматический (интеллектуальный) режим</p>
-								</li>
-							</ul>
+							<div class="brt-rich__params">
+								<div class="brt-rich__params-stat-wrap">
+									<div class="brt-rich__params-stat-accent" aria-hidden="true"></div>
+									<div class="brt-rich__params-stat">
+										<p class="brt-rich__params-stat-value">
+											<span class="brt-rich__params-stat-number">4 000</span>
+											<span class="brt-rich__params-stat-unit">об/мин</span>
+										</p>
+										<p class="brt-rich__params-stat-label">Скорость холостого хода 1</p>
+									</div>
+								</div>
+								<div class="brt-rich__params-stat-wrap">
+									<div class="brt-rich__params-stat-accent" aria-hidden="true"></div>
+									<div class="brt-rich__params-stat">
+										<p class="brt-rich__params-stat-value">
+											<span class="brt-rich__params-stat-number">6 000</span>
+											<span class="brt-rich__params-stat-unit">об/мин</span>
+										</p>
+										<p class="brt-rich__params-stat-label">Скорость холостого хода 2</p>
+									</div>
+								</div>
+								<div class="brt-rich__params-stat-wrap">
+									<div class="brt-rich__params-stat-accent" aria-hidden="true"></div>
+									<div class="brt-rich__params-stat">
+										<p class="brt-rich__params-stat-value">
+											<span class="brt-rich__params-stat-number">8 000</span>
+											<span class="brt-rich__params-stat-unit">об/мин</span>
+										</p>
+										<p class="brt-rich__params-stat-label">Скорость холостого хода 3</p>
+									</div>
+								</div>
+								<div class="brt-rich__params-stat-wrap">
+									<div class="brt-rich__params-stat-accent" aria-hidden="true"></div>
+									<div class="brt-rich__params-stat">
+										<p class="brt-rich__params-stat-value">
+											<span class="brt-rich__params-stat-number">AUTO</span>
+										</p>
+										<p class="brt-rich__params-stat-label">Автоматический (интеллектуальный) режим</p>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div class="brt-rich-col-12 brt-rich-col-md-6">
-							<div class="brt-rich__feature-row-media brt-rich__modes-media">
+							<div class="brt-rich__media brt-rich__modes-media">
 								<img src="img/bws-18li-xk/modes-photo.png" alt="Регулировка режимов скорости BWS-18Li-XK" width="440" height="323" loading="lazy">
 							</div>
 						</div>
@@ -5118,21 +5192,8 @@
 			 PRODUCT: BWS-18Li-XK — анатомия инструмента -->
 			<section class="brt-rich__section brt-rich__figure-wide-section">
 				<div class="brt-rich__container">
-					<div class="brt-rich__figure-wide brt-rich__figure-wide--annotated">
-						<img class="brt-rich__figure-wide-photo" src="img/bws-18li-xk/product-photo.png" alt="Устройство аккумуляторной УШМ Bort BWS-18Li-XK" width="818" height="616" loading="lazy">
-						<p class="brt-rich__anatomy-label brt-rich__anatomy-label--left brt-rich__anatomy-label--speed">регулировка скорости</p>
-						<p class="brt-rich__anatomy-label brt-rich__anatomy-label--left brt-rich__anatomy-label--stab">система стабилизации оборотов</p>
-						<p class="brt-rich__anatomy-label brt-rich__anatomy-label--left brt-rich__anatomy-label--power">Кнопка включения</p>
-						<p class="brt-rich__anatomy-label brt-rich__anatomy-label--left brt-rich__anatomy-label--spindle">Блокировка шпинделя</p>
-						<p class="brt-rich__anatomy-label brt-rich__anatomy-label--right brt-rich__anatomy-label--grip">эргономичная прорезиненная рукоятка</p>
-						<p class="brt-rich__anatomy-label brt-rich__anatomy-label--right brt-rich__anatomy-label--motor">бесщеточный мотор</p>
-						<p class="brt-rich__anatomy-label brt-rich__anatomy-label--right brt-rich__anatomy-label--side">Боковая рукоятка</p>
-						<p class="brt-rich__anatomy-label brt-rich__anatomy-label--right brt-rich__anatomy-label--disc">Диаметр диска - 125 мм</p>
-						<p class="brt-rich__anatomy-label brt-rich__anatomy-label--right brt-rich__anatomy-label--guard">бесключевая регулировка кожуха</p>
-						<img class="brt-rich__anatomy-line" src="img/bws-18li-xk/anatomy-line-speed.svg" alt="" width="615" height="45" style="left: 24px; top: 54px;" aria-hidden="true">
-						<img class="brt-rich__anatomy-line" src="img/bws-18li-xk/anatomy-line-stab.svg" alt="" width="555" height="37" style="left: 26px; top: 113px;" aria-hidden="true">
-						<img class="brt-rich__anatomy-line" src="img/bws-18li-xk/anatomy-line-power.svg" alt="" width="343" height="45" style="left: 24px; top: 194px;" aria-hidden="true">
-						<img class="brt-rich__anatomy-line" src="img/bws-18li-xk/anatomy-line-spindle.svg" alt="" width="177" height="48" style="left: 26px; top: 301px;" aria-hidden="true">
+					<div class="brt-rich__figure-wide brt-rich__figure-wide--stacked">
+						<img class="brt-rich__figure-wide-photo" src="img/bws-18li-xk/figure-wide.png" alt="Устройство аккумуляторной УШМ Bort BWS-18Li-XK" width="863" height="628" loading="lazy">
 					</div>
 				</div>
 			</section>
