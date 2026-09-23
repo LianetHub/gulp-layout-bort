@@ -545,9 +545,10 @@
 		@media (min-width: $md4) {
 			flex: 1 1 auto;
 			align-self: stretch;
+			width: 100%;
 			min-height: 100%;
 			height: auto;
-			max-width: var(--rich-media-text-aside-width);
+			max-width: none;
 		}
 
 		img,
@@ -572,8 +573,9 @@
 
 	.brt-rich__media-text-title {
 		margin: 0;
+		font-family: var(--rich-font-family-display) !important;
 		font-size: var(--rich-media-text-title-size) !important;
-		font-weight: var(--rich-font-weight-bold) !important;
+		font-weight: 400 !important;
 		line-height: 1.08 !important;
 		color: var(--rich-color-text-heading) !important;
 
@@ -945,7 +947,7 @@
 
 	.brt-rich__cards-accent-item-media {
 		flex-shrink: 0;
-		border-radius: 0;
+		border-radius: var(--rich-radius-lg);
 		line-height: 0;
 		aspect-ratio: var(--rich-cards-accent-media-ratio);
 
@@ -1765,6 +1767,7 @@
 // BWS CTA banner: orange bg → black text (Figma), overrides typography-shield inverse
 #brt-rich.brt-rich,
 .brt-rich {
+
 	.brt-rich__banner--cta,
 	.brt-rich__banner--cta .brt-rich__text,
 	.brt-rich__banner--cta b {

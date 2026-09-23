@@ -58,7 +58,7 @@
   --rich-accent-card-body-gap: var(--rich-space-lg);
   --rich-accent-card-text-gap: var(--rich-space-md);
   /* --- Media Text  --- */
-  --rich-media-text-aside-width: 410px;
+  --rich-media-text-aside-width: 100%;
   --rich-media-text-aside-height: 401px;
   --rich-media-text-title-size: 29px;
   --rich-media-text-title-gap: 20px;
@@ -1228,9 +1228,10 @@
 		  .brt-rich .brt-rich__media-text-aside {
 		    flex: 1 1 auto;
 		    align-self: stretch;
+		    width: 100%;
 		    min-height: 100%;
 		    height: auto;
-		    max-width: var(--rich-media-text-aside-width);
+		    max-width: none;
 		  }
 		}
 		#brt-rich.brt-rich .brt-rich__media-text-aside img,
@@ -1260,8 +1261,9 @@
 		#brt-rich.brt-rich .brt-rich__media-text-title,
 		.brt-rich .brt-rich__media-text-title {
 		  margin: 0;
+		  font-family: var(--rich-font-family-display) !important;
 		  font-size: var(--rich-media-text-title-size) !important;
-		  font-weight: var(--rich-font-weight-bold) !important;
+		  font-weight: 400 !important;
 		  line-height: 1.08 !important;
 		  color: var(--rich-color-text-heading) !important;
 		}
@@ -1642,7 +1644,7 @@
 		#brt-rich.brt-rich .brt-rich__cards-accent-item-media,
 		.brt-rich .brt-rich__cards-accent-item-media {
 		  flex-shrink: 0;
-		  border-radius: 0;
+		  border-radius: var(--rich-radius-lg);
 		  line-height: 0;
 		  aspect-ratio: var(--rich-cards-accent-media-ratio);
 		}
@@ -3899,25 +3901,26 @@
 		  border-radius: var(--rich-radius-lg);
 		  overflow: hidden;
 		  background: var(--rich-color-bg-muted);
+		  padding: 2rem;
 		}
 		#brt-rich.brt-rich .brt-rich__figure-wide--stacked .brt-rich__figure-wide-photo,
 		.brt-rich .brt-rich__figure-wide--stacked .brt-rich__figure-wide-photo {
 		  display: block;
 		  width: 100%;
 		  height: auto;
-		  border-radius: var(--rich-radius-lg);
 		}
 		#brt-rich.brt-rich .brt-rich__media-text-title,
 		.brt-rich .brt-rich__media-text-title {
+		  font-family: var(--rich-font-family-display) !important;
 		  font-size: var(--rich-media-text-title-size) !important;
-		  font-weight: var(--rich-font-weight-bold) !important;
+		  font-weight: 400 !important;
 		  line-height: 1.08 !important;
 		  color: var(--rich-color-text-heading) !important;
 		}
 		#brt-rich.brt-rich .brt-rich__construction-list,
 		.brt-rich .brt-rich__construction-list {
-		  margin: var(--rich-media-text-title-gap) 0 0 !important;
-		  padding-left: 1.25em !important;
+		  margin: 20px 0 0 !important;
+		  padding-left: 1.4em !important;
 		  list-style: disc !important;
 		  list-style-type: disc !important;
 		  font-size: var(--rich-font-size-hero-desc) !important;
@@ -3929,11 +3932,11 @@
 		  display: list-item !important;
 		  position: static !important;
 		  padding: 0 !important;
-		  margin: 0 0 var(--rich-construction-list-gap) !important;
+		  margin: 0 0 12px !important;
 		  list-style: disc !important;
 		  list-style-type: disc !important;
-		  color: var(--rich-color-text) !important;
-		  font-size: var(--rich-font-size-hero-desc) !important;
+		  color: var(--rich-color-text-heading) !important;
+		  font-size: 20px !important;
 		  font-weight: var(--rich-font-weight-normal) !important;
 		  line-height: 1.2 !important;
 		  font-family: var(--rich-font-family) !important;
@@ -3967,6 +3970,22 @@
 		  font-weight: var(--rich-font-weight-normal) !important;
 		  line-height: 1.2 !important;
 		  color: var(--rich-color-text) !important;
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__media-text-aside,
+		  .brt-rich .brt-rich__media-text-aside {
+		    min-height: 0;
+		    height: auto;
+		  }
+		  #brt-rich.brt-rich .brt-rich__media-text-aside img,
+		  #brt-rich.brt-rich .brt-rich__media-text-aside .brt-rich__media-text-photo,
+		  .brt-rich .brt-rich__media-text-aside img,
+		  .brt-rich .brt-rich__media-text-aside .brt-rich__media-text-photo {
+		    position: static;
+		    width: 100%;
+		    height: auto !important;
+		    object-fit: contain;
+		  }
 		}
 		#brt-rich.brt-rich .brt-rich__section-lead,
 		.brt-rich .brt-rich__section-lead {
@@ -4402,37 +4421,55 @@
 		#brt-rich.brt-rich .brt-rich__accent-split,
 		.brt-rich .brt-rich__accent-split {
 		  display: flex;
-		  gap: 30px;
 		  align-items: stretch;
+		  gap: 0;
+		  min-height: 485px;
+		  border-radius: var(--rich-radius-lg);
+		  background: var(--rich-color-accent);
+		  overflow: hidden;
 		}
 		#brt-rich.brt-rich .brt-rich__accent-split-card,
 		.brt-rich .brt-rich__accent-split-card {
-		  flex: 1 1 0;
+		  display: flex;
+		  flex: 1 1 auto;
+		  flex-direction: column;
 		  min-width: 0;
-		  padding: 27px 15px;
-		  border-radius: var(--rich-radius-lg);
-		  background: var(--rich-color-accent);
+		  padding: 27px 30px 27px 15px;
+		  border-radius: 0;
+		  background: transparent;
 		}
+		#brt-rich.brt-rich p.brt-rich__accent-split-title,
 		#brt-rich.brt-rich .brt-rich__accent-split-title,
+		.brt-rich p.brt-rich__accent-split-title,
 		.brt-rich .brt-rich__accent-split-title {
-		  margin: 0 0 16px;
+		  margin: 0 0 14px !important;
+		  max-width: 425px;
+		  font-family: var(--rich-font-family) !important;
 		  font-size: 20px !important;
+		  font-style: normal !important;
 		  font-weight: 700 !important;
 		  line-height: 1.08 !important;
-		  color: var(--rich-color-text) !important;
+		  color: #000 !important;
 		}
+		#brt-rich.brt-rich p.brt-rich__accent-split-text,
 		#brt-rich.brt-rich .brt-rich__accent-split-text,
+		.brt-rich p.brt-rich__accent-split-text,
 		.brt-rich .brt-rich__accent-split-text {
-		  margin: 0;
+		  margin: 0 !important;
+		  max-width: 425px;
+		  font-family: var(--rich-font-family) !important;
 		  font-size: 20px !important;
+		  font-style: normal !important;
+		  font-weight: 400 !important;
 		  line-height: 1.08 !important;
-		  color: var(--rich-color-text) !important;
+		  color: #000 !important;
 		}
 		#brt-rich.brt-rich .brt-rich__accent-split-media,
 		.brt-rich .brt-rich__accent-split-media {
 		  position: relative;
-		  flex: 1 1 0;
-		  min-width: 0;
+		  flex: 0 0 440px;
+		  width: 440px;
+		  max-width: 100%;
 		  overflow: hidden;
 		  border-radius: var(--rich-radius-lg);
 		  background: var(--rich-color-bg-muted);
@@ -4443,7 +4480,7 @@
 		  width: 100%;
 		  height: 100%;
 		  min-height: 485px;
-		  object-fit: contain;
+		  object-fit: cover;
 		  object-position: center;
 		}
 		#brt-rich.brt-rich .brt-rich__modes-media,
@@ -4671,13 +4708,11 @@
 		    aspect-ratio: 440/475;
 		  }
 		  #brt-rich.brt-rich .brt-rich__accent-stack-media img,
-		  #brt-rich.brt-rich .brt-rich__accent-split-media img,
 		  #brt-rich.brt-rich .brt-rich__feature-row-media img,
 		  #brt-rich.brt-rich .brt-rich__feature-row-media--dust img,
 		  #brt-rich.brt-rich .brt-rich__feature-row-media--damper,
 		  #brt-rich.brt-rich .brt-rich__feature-row-media--damper img,
 		  .brt-rich .brt-rich__accent-stack-media img,
-		  .brt-rich .brt-rich__accent-split-media img,
 		  .brt-rich .brt-rich__feature-row-media img,
 		  .brt-rich .brt-rich__feature-row-media--dust img,
 		  .brt-rich .brt-rich__feature-row-media--damper,
@@ -4689,6 +4724,22 @@
 		  #brt-rich.brt-rich .brt-rich__accent-split,
 		  .brt-rich .brt-rich__accent-split {
 		    flex-direction: column;
+		    min-height: 0;
+		  }
+		  #brt-rich.brt-rich .brt-rich__accent-split-card,
+		  .brt-rich .brt-rich__accent-split-card {
+		    padding: 27px 15px;
+		  }
+		  #brt-rich.brt-rich .brt-rich__accent-split-media,
+		  .brt-rich .brt-rich__accent-split-media {
+		    flex: 0 0 auto;
+		    width: 100%;
+		  }
+		  #brt-rich.brt-rich .brt-rich__accent-split-media img,
+		  .brt-rich .brt-rich__accent-split-media img {
+		    min-height: 0;
+		    height: auto;
+		    aspect-ratio: 440/485;
 		  }
 		  #brt-rich.brt-rich .brt-rich__kit-board-grid,
 		  .brt-rich .brt-rich__kit-board-grid {
@@ -5048,7 +5099,7 @@
 									<div class="brt-rich__media brt-rich__cards-accent-item-media">
 										<img src="img/bws-18li-xk/use-case-4.jpg" alt="Заточка инструментов" width="174" height="109" loading="lazy">
 									</div>
-									<div class="brt-rich__text brt-rich__cards-accent-item-text">Заточка инструментов</div>
+									<div class="brt-rich__text brt-rich__cards-accent-item-text">Заточка <br> инструментов</div>
 								</div>
 							</div>
 							<div class="brt-rich-col-12 brt-rich-col-lg-3">
@@ -5056,7 +5107,7 @@
 									<div class="brt-rich__media brt-rich__cards-accent-item-media">
 										<img src="img/bws-18li-xk/use-case-5.jpg" alt="Демонтажные работы" width="177" height="109" loading="lazy">
 									</div>
-									<div class="brt-rich__text brt-rich__cards-accent-item-text">Демонтажные работы</div>
+									<div class="brt-rich__text brt-rich__cards-accent-item-text">Демонтажные <br> работы</div>
 								</div>
 							</div>
 						</div>
@@ -5088,20 +5139,39 @@
 				<div class="brt-rich__container">
 					<div class="brt-rich-row">
 						<div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__media-text-aside-col">
-							<div class="brt-rich__media brt-rich__media-text-aside">
-								<img class="brt-rich__media-text-photo" src="img/bws-18li-xk/brushless-motor.png" alt="Бесщеточный мотор Bort Brushless Motor" width="410" height="370" loading="lazy">
+							<div class="brt-rich__media brt-rich__media-text-aside brt-rich__overlay-media">
+								<img class="brt-rich__media-text-photo" src="img/bws-18li-xk/brushless-motor.png" alt="Бесщеточный мотор Bort Brushless Motor" width="440" height="370" loading="lazy">
 							</div>
 						</div>
 						<div class="brt-rich-col-12 brt-rich-col-md-6">
-							<h2 class="brt-rich__heading brt-rich__media-text-title">Преимущества<br>Bort Brushless Motor</h2>
+							<h2 class="brt-rich__heading brt-rich__media-text-title">
+								Преимущества<br>Bort Brushless Motor
+							</h2>
 							<ul class="brt-rich__construction-list">
-								<li><strong>Долговечность –</strong> нет щеток, которые могут изнашиваться.</li>
-								<li><strong>Энергоэффективность –</strong> дольше работает на одном заряде аккумулятора.</li>
-								<li><strong>Более высокая мощность –</strong> выдерживает большие нагрузки.</li>
-								<li><strong>Компактность –</strong> меньше по размеру и весу при той же производительности.</li>
-								<li><strong>Меньше нагрев –</strong> работает дольше без перегрева.</li>
+								<li>
+									<strong>Долговечность –</strong> нет щеток, которые могут
+									изнашиваться.
+								</li>
+								<li>
+									<strong>Энергоэффективность –</strong> дольше работает на
+									одном заряде аккумулятора.
+								</li>
+								<li>
+									<strong>Более высокая мощность –</strong> выдерживает большие
+									нагрузки.
+								</li>
+								<li>
+									<strong>Компактность –</strong> меньше по размеру и весу при
+									той же производительности.
+								</li>
+								<li>
+									<strong>Меньше нагрев –</strong> работает дольше без
+									перегрева.
+								</li>
 							</ul>
-							<p class="brt-rich__construction-note">*по сравнению с обычными щеточными моторами</p>
+							<p class="brt-rich__construction-note">
+								*по сравнению с обычными щеточными моторами
+							</p>
 						</div>
 					</div>
 				</div>
