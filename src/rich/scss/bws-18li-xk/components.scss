@@ -925,7 +925,7 @@
 	}
 
 	.brt-rich__feature-row {
-		align-items: flex-start;
+		align-items: center;
 	}
 
 	.brt-rich__feature-row-title {
@@ -950,36 +950,25 @@
 		border-radius: var(--rich-radius-lg);
 		background: var(--rich-color-bg-muted);
 		line-height: 0;
+		max-height: 252px;
+		display: flex;
+		justify-content: center;
+		align-items: flex-end;
+
+		&.large-image {
+			& img {
+				width: auto;
+			}
+		}
 
 		img {
 			display: block;
 			width: 100%;
-			height: 218px;
+			height: 100%;
 			object-fit: cover;
 		}
 
-		&--dust img {
-			height: 225px;
-			object-position: 20% center;
-		}
 
-		&--guard img {
-			object-position: left center;
-		}
-
-		&--spindle img {
-			object-position: 70% 80%;
-		}
-
-		&--damper {
-			height: 252px;
-
-			img {
-				height: 239px;
-				object-fit: contain;
-				object-position: center;
-			}
-		}
 	}
 
 	.brt-rich__kit-board {
