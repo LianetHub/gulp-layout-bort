@@ -1203,21 +1203,22 @@
 
 #brt-rich.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-media,
 .brt-rich .brt-rich__hero-card--bks .brt-rich__hero-media {
-  position: relative;
-  top: auto;
-  right: auto;
-  bottom: auto;
-  z-index: 1;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1;
   width: 100%;
-  height: 347px;
+  height: auto;
   margin: 0;
   overflow: hidden;
-  border-radius: var(--rich-radius-lg);
+  border-radius: 0;
 }
 
 #brt-rich.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-media-photo,
 .brt-rich .brt-rich__hero-card--bks .brt-rich__hero-media-photo {
-  object-position: 70% center;
+  object-position: right center;
 }
 
 @media (max-width: 767.98px) {
@@ -1226,9 +1227,25 @@
     min-height: 0;
     padding: var(--rich-space-lg);
   }
+  #brt-rich.brt-rich .brt-rich__hero-card--bks > .brt-rich__hero-card-top,
+  .brt-rich .brt-rich__hero-card--bks > .brt-rich__hero-card-top {
+    min-height: 0;
+  }
+  #brt-rich.brt-rich .brt-rich__hero-card--bks > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content,
+  .brt-rich .brt-rich__hero-card--bks > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content {
+    min-height: 0;
+  }
   #brt-rich.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-media,
   .brt-rich .brt-rich__hero-card--bks .brt-rich__hero-media {
+    position: relative;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    z-index: 1;
     height: 220px;
+    margin-top: var(--rich-space-md);
+    border-radius: var(--rich-radius-md);
   }
 }
 #brt-rich.brt-rich .brt-rich__accent-bar--intro,

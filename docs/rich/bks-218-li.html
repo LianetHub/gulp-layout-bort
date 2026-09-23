@@ -6,10 +6,7 @@
     <title>Пила цепная аккумуляторная BORT BKS-218-Li — Rich Content</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Russo+One&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;600;700&family=Russo+One&display=swap" rel="stylesheet" />
 
     <style id="rich-vars">
 /*
@@ -5421,21 +5418,22 @@
 
     #brt-rich.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-media,
     .brt-rich .brt-rich__hero-card--bks .brt-rich__hero-media {
-      position: relative;
-      top: auto;
-      right: auto;
-      bottom: auto;
-      z-index: 1;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      z-index: -1;
       width: 100%;
-      height: 347px;
+      height: auto;
       margin: 0;
       overflow: hidden;
-      border-radius: var(--rich-radius-lg);
+      border-radius: 0;
     }
 
     #brt-rich.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-media-photo,
     .brt-rich .brt-rich__hero-card--bks .brt-rich__hero-media-photo {
-      object-position: 70% center;
+      object-position: right center;
     }
 
     @media (max-width: 767.98px) {
@@ -5444,9 +5442,25 @@
         min-height: 0;
         padding: var(--rich-space-lg);
       }
+      #brt-rich.brt-rich .brt-rich__hero-card--bks > .brt-rich__hero-card-top,
+      .brt-rich .brt-rich__hero-card--bks > .brt-rich__hero-card-top {
+        min-height: 0;
+      }
+      #brt-rich.brt-rich .brt-rich__hero-card--bks > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content,
+      .brt-rich .brt-rich__hero-card--bks > .brt-rich-row > .brt-rich-col-md-6.brt-rich__hero-card-content {
+        min-height: 0;
+      }
       #brt-rich.brt-rich .brt-rich__hero-card--bks .brt-rich__hero-media,
       .brt-rich .brt-rich__hero-card--bks .brt-rich__hero-media {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        left: auto;
+        z-index: 1;
         height: 220px;
+        margin-top: var(--rich-space-md);
+        border-radius: var(--rich-radius-md);
       }
     }
     #brt-rich.brt-rich .brt-rich__accent-bar--intro,
@@ -5966,14 +5980,7 @@
             </li>
             <li class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-3">
               <div class="brt-rich__hero-badge brt-rich__hero-badge--filled">
-                <img
-                  class="brt-rich__hero-badge-icon"
-                  src="img/bks-218-li/badge-guarantee.png"
-                  alt=""
-                  width="43"
-                  height="43"
-                  loading="lazy"
-                />
+                <img class="brt-rich__hero-badge-icon" src="img/bks-218-li/badge-guarantee.png" alt="" width="43" height="43" loading="lazy" />
                 <span class="brt-rich__hero-badge-text">5 лет<br />гарантии</span>
               </div>
             </li>
@@ -5985,22 +5992,14 @@
 				 PRODUCT: BKS-218-Li -->
       <section class="brt-rich__section brt-rich__hero-card-section">
         <div class="brt-rich__container">
-          <div
-            class="brt-rich__hero-card brt-rich__hero-card--tinted brt-rich__hero-card--bps brt-rich__hero-card--bks"
-          >
-            <div
-              class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-stretch brt-rich__hero-card-top"
-            >
-              <div
-                class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__hero-card-content"
-              >
+          <div class="brt-rich__hero-card brt-rich__hero-card--tinted brt-rich__hero-card--bps brt-rich__hero-card--bks">
+            <div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-stretch brt-rich__hero-card-top">
+              <div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__hero-card-content">
                 <div class="brt-rich__hero-card-content-main">
                   <h1 class="brt-rich__heading brt-rich__hero-card-title">
                     Пила цепная аккумуляторная
                   </h1>
-                  <p
-                    class="brt-rich__hero-card-model brt-rich__hero-card-model--brand"
-                  >
+                  <p class="brt-rich__hero-card-model brt-rich__hero-card-model--brand">
                     BKS-218-Li
                   </p>
                   <ul class="brt-rich__hero-card-list-block">
@@ -6015,18 +6014,9 @@
                   *2 АКБ и ЗУ в комплекте
                 </p>
               </div>
-              <div
-                class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__hero-card-media-col"
-              >
+              <div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__hero-card-media-col">
                 <div class="brt-rich__hero-media">
-                  <img
-                    class="brt-rich__hero-media-photo"
-                    src="img/bks-218-li/hero-main.png"
-                    alt="Аккумуляторная цепная пила Bort BKS-218-Li"
-                    width="910"
-                    height="403"
-                    loading="lazy"
-                  />
+                  <img class="brt-rich__hero-media-photo" src="img/bks-218-li/hero-photo.png" alt="Аккумуляторная цепная пила Bort BKS-218-Li" width="910" height="403" loading="lazy" />
                 </div>
               </div>
             </div>
@@ -6042,7 +6032,7 @@
             <div class="brt-rich__accent-bar-body">
               <p class="brt-rich__text">
                 Аккумуляторная цепная пила BORT BKS-218-Li предназначена для
-                обрезки ветвей и кустарников, распила досок, реек и небольших
+                обрезки ветвей и&nbsp;кустарников, распила досок, реек и небольших
                 бревен. Работает от аккумулятора 18&nbsp;В, поэтому подходит
                 для использования в саду, на даче, строительной площадке и
                 вдали от электросети.
@@ -6056,58 +6046,23 @@
 				 PRODUCT: BKS-218-Li -->
       <section class="brt-rich__section brt-rich__split-stats-section">
         <div class="brt-rich__container">
-          <div
-            class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-stretch"
-          >
+          <div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-stretch">
             <div class="brt-rich-col-12 brt-rich-col-md-6">
-              <div
-                class="brt-rich__split-stats-media brt-rich__split-stats-media--blob"
-              >
-                <img
-                  class="brt-rich__split-stats-blob"
-                  src="img/bks-218-li/bg-blob.png"
-                  alt=""
-                  width="548"
-                  height="689"
-                  loading="lazy"
-                  aria-hidden="true"
-                />
-                <img
-                  class="brt-rich__split-stats-photo"
-                  src="img/bks-218-li/main.png"
-                  alt="Аккумуляторная цепная пила Bort BKS-218-Li"
-                  width="440"
-                  height="487"
-                  loading="lazy"
-                />
+              <div class="brt-rich__split-stats-media">
+                <img class="brt-rich__split-stats-photo" src="img/bks-218-li/main.png" alt="Аккумуляторная цепная пила Bort BKS-218-Li" width="440" height="487" loading="lazy" />
               </div>
             </div>
             <div class="brt-rich-col-12 brt-rich-col-md-6">
-              <ul
-                class="brt-rich__specs-icon-grid-list brt-rich__specs-icon-grid-list--stack"
-              >
+              <ul class="brt-rich__specs-icon-grid-list brt-rich__specs-icon-grid-list--stack">
                 <li>
-                  <div
-                    class="brt-rich__specs-icon-card brt-rich__specs-icon-card--stat"
-                  >
+                  <div class="brt-rich__specs-icon-card brt-rich__specs-icon-card--stat">
                     <div class="brt-rich__specs-icon-card-icon-wrap">
-                      <img
-                        class="brt-rich__specs-icon-card-icon"
-                        src="img/bks-218-li/spec-icon-rpm.svg"
-                        alt=""
-                        width="54"
-                        height="54"
-                        loading="lazy"
-                      />
+                      <img class="brt-rich__specs-icon-card-icon" src="img/bks-218-li/spec-icon-rpm.svg" alt="" width="54" height="54" loading="lazy" />
                     </div>
                     <div class="brt-rich__specs-icon-card-content">
                       <p class="brt-rich__specs-icon-card-value">
-                        <span class="brt-rich__specs-icon-card-number"
-                          >0-5000</span
-                        >
-                        <span class="brt-rich__specs-icon-card-unit"
-                          >об/мин</span
-                        >
+                        <span class="brt-rich__specs-icon-card-number">0-5000</span>
+                        <span class="brt-rich__specs-icon-card-unit">об/мин</span>
                       </p>
                       <p class="brt-rich__specs-icon-card-label">
                         Скорость холостого хода
@@ -6116,15 +6071,13 @@
                   </div>
                 </li>
                 <li>
-                  <div
-                    class="brt-rich__specs-icon-card brt-rich__specs-icon-card--stat"
-                  >
-                    <div class="brt-rich__specs-icon-card-icon-wrap"></div>
+                  <div class="brt-rich__specs-icon-card brt-rich__specs-icon-card--stat">
+                    <div class="brt-rich__specs-icon-card-icon-wrap">
+                      <img class="brt-rich__specs-icon-card-icon" src="img/bks-218-li/spec-icon-amperage.svg" alt="" width="54" height="54" loading="lazy" />
+                    </div>
                     <div class="brt-rich__specs-icon-card-content">
                       <p class="brt-rich__specs-icon-card-value">
-                        <span class="brt-rich__specs-icon-card-number"
-                          >1100</span
-                        >
+                        <span class="brt-rich__specs-icon-card-number">1100</span>
                         <span class="brt-rich__specs-icon-card-unit">Вт</span>
                       </p>
                       <p class="brt-rich__specs-icon-card-label">Мощность</p>
@@ -6132,25 +6085,14 @@
                   </div>
                 </li>
                 <li>
-                  <div
-                    class="brt-rich__specs-icon-card brt-rich__specs-icon-card--stat"
-                  >
+                  <div class="brt-rich__specs-icon-card brt-rich__specs-icon-card--stat">
                     <div class="brt-rich__specs-icon-card-icon-wrap">
-                      <img
-                        class="brt-rich__specs-icon-card-icon"
-                        src="img/bks-218-li/spec-icon-chain-speed.svg"
-                        alt=""
-                        width="47"
-                        height="54"
-                        loading="lazy"
-                      />
+                      <img class="brt-rich__specs-icon-card-icon" src="img/bks-218-li/spec-icon-chain-speed.svg" alt="" width="47" height="54" loading="lazy" />
                     </div>
                     <div class="brt-rich__specs-icon-card-content">
                       <p class="brt-rich__specs-icon-card-value">
                         <span class="brt-rich__specs-icon-card-number">10</span>
-                        <span class="brt-rich__specs-icon-card-unit"
-                          >м/сек</span
-                        >
+                        <span class="brt-rich__specs-icon-card-unit">м/сек</span>
                       </p>
                       <p class="brt-rich__specs-icon-card-label">
                         Скорость движения цепи
@@ -6159,18 +6101,9 @@
                   </div>
                 </li>
                 <li>
-                  <div
-                    class="brt-rich__specs-icon-card brt-rich__specs-icon-card--stat"
-                  >
+                  <div class="brt-rich__specs-icon-card brt-rich__specs-icon-card--stat">
                     <div class="brt-rich__specs-icon-card-icon-wrap">
-                      <img
-                        class="brt-rich__specs-icon-card-icon"
-                        src="img/bks-218-li/spec-icon-bar-length.svg"
-                        alt=""
-                        width="62"
-                        height="59"
-                        loading="lazy"
-                      />
+                      <img class="brt-rich__specs-icon-card-icon" src="img/bks-218-li/spec-icon-bar-length.svg" alt="" width="62" height="59" loading="lazy" />
                     </div>
                     <div class="brt-rich__specs-icon-card-content">
                       <p class="brt-rich__specs-icon-card-value">
@@ -6182,18 +6115,9 @@
                   </div>
                 </li>
                 <li>
-                  <div
-                    class="brt-rich__specs-icon-card brt-rich__specs-icon-card--stat"
-                  >
+                  <div class="brt-rich__specs-icon-card brt-rich__specs-icon-card--stat">
                     <div class="brt-rich__specs-icon-card-icon-wrap">
-                      <img
-                        class="brt-rich__specs-icon-card-icon"
-                        src="img/bks-218-li/spec-icon-voltage.svg"
-                        alt=""
-                        width="34"
-                        height="58"
-                        loading="lazy"
-                      />
+                      <img class="brt-rich__specs-icon-card-icon" src="img/bks-218-li/spec-icon-voltage.svg" alt="" width="34" height="58" loading="lazy" />
                     </div>
                     <div class="brt-rich__specs-icon-card-content">
                       <p class="brt-rich__specs-icon-card-value">
@@ -6207,24 +6131,13 @@
                   </div>
                 </li>
                 <li>
-                  <div
-                    class="brt-rich__specs-icon-card brt-rich__specs-icon-card--stat"
-                  >
+                  <div class="brt-rich__specs-icon-card brt-rich__specs-icon-card--stat">
                     <div class="brt-rich__specs-icon-card-icon-wrap">
-                      <img
-                        class="brt-rich__specs-icon-card-icon"
-                        src="img/bks-218-li/spec-icon-weight.svg"
-                        alt=""
-                        width="52"
-                        height="65"
-                        loading="lazy"
-                      />
+                      <img class="brt-rich__specs-icon-card-icon" src="img/bks-218-li/spec-icon-weight.svg" alt="" width="52" height="65" loading="lazy" />
                     </div>
                     <div class="brt-rich__specs-icon-card-content">
                       <p class="brt-rich__specs-icon-card-value">
-                        <span class="brt-rich__specs-icon-card-number"
-                          >1,41</span
-                        >
+                        <span class="brt-rich__specs-icon-card-number">1,41</span>
                         <span class="brt-rich__specs-icon-card-unit">кг</span>
                       </p>
                       <p class="brt-rich__specs-icon-card-label">Вес изделия</p>
@@ -6241,19 +6154,10 @@
 				 PRODUCT: BKS-218-Li -->
       <section class="brt-rich__section brt-rich__logo-card-section">
         <div class="brt-rich__container">
-          <div
-            class="brt-rich__card brt-rich__logo-card brt-rich__logo-card--brushless"
-          >
+          <div class="brt-rich__card brt-rich__logo-card brt-rich__logo-card--brushless">
             <div class="brt-rich__logo-card-inner">
               <div class="brt-rich__card-logo">
-                <img
-                  class="brt-rich__card-logo-img"
-                  src="img/bks-218-li/brushless-diagram.svg"
-                  alt="Bort Brushless Motor"
-                  width="391"
-                  height="94"
-                  loading="lazy"
-                />
+                <img class="brt-rich__card-logo-img" src="img/bks-218-li/brushless-diagram.svg" alt="Bort Brushless Motor" width="391" height="94" loading="lazy" />
               </div>
               <div class="brt-rich__logo-card-body">
                 <p class="brt-rich__card-text">
@@ -6274,29 +6178,10 @@
       <section class="brt-rich__section brt-rich__media-text-section">
         <div class="brt-rich__container">
           <div class="brt-rich-row">
-            <div
-              class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__media-text-aside-col"
-            >
-              <div
-                class="brt-rich__media brt-rich__media-text-aside brt-rich__overlay-media"
-              >
-                <img
-                  class="brt-rich__media-text-photo"
-                  src="img/bks-218-li/main.png"
-                  alt="Бесщеточный мотор Bort Brushless Motor"
-                  width="440"
-                  height="370"
-                  loading="lazy"
-                />
-                <img
-                  class="brt-rich__media-text-decor"
-                  src="img/bks-218-li/decor-tool.png"
-                  alt=""
-                  width="285"
-                  height="218"
-                  loading="lazy"
-                  aria-hidden="true"
-                />
+            <div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__media-text-aside-col">
+              <div class="brt-rich__media brt-rich__media-text-aside brt-rich__overlay-media">
+                <img class="brt-rich__media-text-photo" src="img/bks-218-li/main.png" alt="Бесщеточный мотор Bort Brushless Motor" width="440" height="370" loading="lazy" />
+                <img class="brt-rich__media-text-decor" src="img/bks-218-li/decor-tool.png" alt="" width="285" height="218" loading="lazy" aria-hidden="true" />
               </div>
             </div>
             <div class="brt-rich-col-12 brt-rich-col-md-6">
@@ -6338,9 +6223,7 @@
       <section class="brt-rich__section brt-rich__accent-bar-section">
         <div class="brt-rich__container">
           <div class="brt-rich__accent-bar">
-            <div
-              class="brt-rich-row brt-rich-row--gutter-0 brt-rich-row--align-stretch"
-            >
+            <div class="brt-rich-row brt-rich-row--gutter-0 brt-rich-row--align-stretch">
               <div class="brt-rich-col-12 brt-rich-col-md-6">
                 <div class="brt-rich__accent-bar-body">
                   <p class="brt-rich__text">
@@ -6355,17 +6238,8 @@
                   </p>
                 </div>
               </div>
-              <div
-                class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__accent-bar-media"
-              >
-                <img
-                  class="brt-rich__accent-bar-photo"
-                  src="img/bks-218-li/guide-bar.png"
-                  alt="Направляющая шина 203 мм пилы Bort BKS-218-Li"
-                  width="440"
-                  height="284"
-                  loading="lazy"
-                />
+              <div class="brt-rich-col-12 brt-rich-col-md-6 brt-rich__accent-bar-media">
+                <img class="brt-rich__accent-bar-photo" src="img/bks-218-li/guide-bar.png" alt="Направляющая шина 203 мм пилы Bort BKS-218-Li" width="440" height="284" loading="lazy" />
               </div>
             </div>
           </div>
@@ -6376,16 +6250,11 @@
 				 PRODUCT: BKS-218-Li -->
       <section class="brt-rich__section brt-rich__params-section">
         <div class="brt-rich__container">
-          <div
-            class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-stretch"
-          >
+          <div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-stretch">
             <div class="brt-rich-col-12 brt-rich-col-md-6">
               <div class="brt-rich__params">
                 <div class="brt-rich__params-stat-wrap">
-                  <div
-                    class="brt-rich__params-stat-accent"
-                    aria-hidden="true"
-                  ></div>
+                  <div class="brt-rich__params-stat-accent" aria-hidden="true"></div>
                   <div class="brt-rich__params-stat">
                     <p class="brt-rich__params-stat-value">
                       <span class="brt-rich__params-stat-number">46</span>
@@ -6395,10 +6264,7 @@
                   </div>
                 </div>
                 <div class="brt-rich__params-stat-wrap">
-                  <div
-                    class="brt-rich__params-stat-accent"
-                    aria-hidden="true"
-                  ></div>
+                  <div class="brt-rich__params-stat-accent" aria-hidden="true"></div>
                   <div class="brt-rich__params-stat">
                     <p class="brt-rich__params-stat-value">
                       <span class="brt-rich__params-stat-number">1,1</span>
@@ -6408,10 +6274,7 @@
                   </div>
                 </div>
                 <div class="brt-rich__params-stat-wrap">
-                  <div
-                    class="brt-rich__params-stat-accent"
-                    aria-hidden="true"
-                  ></div>
+                  <div class="brt-rich__params-stat-accent" aria-hidden="true"></div>
                   <div class="brt-rich__params-stat">
                     <p class="brt-rich__params-stat-value">
                       <span class="brt-rich__params-stat-number">1/4</span>
@@ -6424,13 +6287,7 @@
             </div>
             <div class="brt-rich-col-12 brt-rich-col-md-6">
               <div class="brt-rich__media brt-rich__chain-media">
-                <img
-                  src="img/bks-218-li/chain-closeup.png"
-                  alt="Цепь аккумуляторной пилы Bort BKS-218-Li"
-                  width="440"
-                  height="240"
-                  loading="lazy"
-                />
+                <img src="img/bks-218-li/chain-closeup.png" alt="Цепь аккумуляторной пилы Bort BKS-218-Li" width="440" height="240" loading="lazy" />
               </div>
             </div>
           </div>
@@ -6453,9 +6310,7 @@
 				 PRODUCT: BKS-218-Li -->
       <section class="brt-rich__section brt-rich__feature-stack-section">
         <div class="brt-rich__container">
-          <h2
-            class="brt-rich__heading brt-rich__section-heading brt-rich__heading--center"
-          >
+          <h2 class="brt-rich__heading brt-rich__section-heading brt-rich__heading--center">
             Преимущества цепной аккумуляторной пилы BORT BKS-218-Li:
           </h2>
           <div class="brt-rich-row brt-rich-row--gap-sm">
@@ -6466,13 +6321,7 @@
                     Безопасная работа
                   </h3>
                   <div class="brt-rich__media brt-rich__feature-stack-photo">
-                    <img
-                      src="img/bks-218-li/main.png"
-                      alt="Безопасная работа пилы Bort BKS-218-Li"
-                      width="290"
-                      height="290"
-                      loading="lazy"
-                    />
+                    <img src="img/bks-218-li/main.png" alt="Безопасная работа пилы Bort BKS-218-Li" width="290" height="290" loading="lazy" />
                   </div>
                 </article>
                 <div class="brt-rich__card brt-rich__feature-stack-body">
@@ -6491,13 +6340,7 @@
                     Бесключевая регулировка цепи
                   </h3>
                   <div class="brt-rich__media brt-rich__feature-stack-photo">
-                    <img
-                      src="img/bks-218-li/chain-tension.png"
-                      alt="Бесключевая регулировка цепи Bort BKS-218-Li"
-                      width="290"
-                      height="367"
-                      loading="lazy"
-                    />
+                    <img src="img/bks-218-li/chain-tension.png" alt="Бесключевая регулировка цепи Bort BKS-218-Li" width="290" height="367" loading="lazy" />
                   </div>
                 </article>
                 <div class="brt-rich__card brt-rich__feature-stack-body">
@@ -6516,13 +6359,7 @@
                     Автоматическая смазка цепи
                   </h3>
                   <div class="brt-rich__media brt-rich__feature-stack-photo">
-                    <img
-                      src="img/bks-218-li/auto-lube.png"
-                      alt="Автоматическая смазка цепи Bort BKS-218-Li"
-                      width="290"
-                      height="367"
-                      loading="lazy"
-                    />
+                    <img src="img/bks-218-li/auto-lube.png" alt="Автоматическая смазка цепи Bort BKS-218-Li" width="290" height="367" loading="lazy" />
                   </div>
                 </article>
                 <div class="brt-rich__card brt-rich__feature-stack-body">
@@ -6542,9 +6379,7 @@
 
       <!-- COMPONENT: Split — operator protection
 				 PRODUCT: BKS-218-Li -->
-      <section
-        class="brt-rich__section brt-rich__split-section brt-rich__split-section--card"
-      >
+      <section class="brt-rich__section brt-rich__split-section brt-rich__split-section--card">
         <div class="brt-rich__container">
           <div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-stretch">
             <div class="brt-rich-col-12 brt-rich-col-md-6">
@@ -6566,14 +6401,7 @@
             </div>
             <div class="brt-rich-col-12 brt-rich-col-md-6">
               <div class="brt-rich__media brt-rich__protect-media">
-                <img
-                  class="brt-rich__protect-photo"
-                  src="img/bks-218-li/main.png"
-                  alt="Система защиты пилы Bort BKS-218-Li"
-                  width="440"
-                  height="338"
-                  loading="lazy"
-                />
+                <img class="brt-rich__protect-photo" src="img/bks-218-li/main.png" alt="Система защиты пилы Bort BKS-218-Li" width="440" height="338" loading="lazy" />
               </div>
             </div>
           </div>
@@ -6642,27 +6470,16 @@
       <section class="brt-rich__section brt-rich__logo-card-section">
         <div class="brt-rich__container">
           <div class="brt-rich__card brt-rich__logo-card">
-            <div
-              class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-center"
-            >
+            <div class="brt-rich-row brt-rich-row--gap-sm brt-rich-row--align-center">
               <div class="brt-rich-col-12 brt-rich-col-md-4 brt-rich__card-logo">
-                <img
-                  class="brt-rich__card-logo-img"
-                  src="img/bks-218-li/battery-lock-diagram.svg"
-                  alt="Совместимость с Makita 18V LXT"
-                  width="230"
-                  height="172"
-                  loading="lazy"
-                />
+                <img class="brt-rich__card-logo-img" src="img/bks-218-li/battery-lock-diagram.svg" alt="Совместимость с Makita 18V LXT" width="230" height="172" loading="lazy" />
               </div>
               <div class="brt-rich-col-12 brt-rich-col-md-8">
                 <p class="brt-rich__card-text">
                   Крепление аккумулятора с единым разъёмом на пиле позволяет
                   использовать аккумуляторы
-                  <strong
-                    >любой емкости внутри экосистемы аккумуляторов Bort или
-                    Макита 18V LXT, номинальной мощности 18&nbsp;В</strong
-                  >.
+                  <strong>любой емкости внутри экосистемы аккумуляторов Bort или
+                    Макита 18V LXT, номинальной мощности 18&nbsp;В</strong>.
                 </p>
                 <p class="brt-rich__card-text">
                   Это дает возможность использовать уже имеющиеся батареи и
@@ -6679,88 +6496,33 @@
       <section class="brt-rich__section brt-rich__figure-wide-section">
         <div class="brt-rich__container">
           <div class="brt-rich__figure-wide brt-rich__figure-wide--callouts">
-            <img
-              class="brt-rich__figure-wide-photo"
-              src="img/bks-218-li/side-view.png"
-              alt="Устройство аккумуляторной пилы Bort BKS-218-Li"
-              width="829"
-              height="328"
-              loading="lazy"
-            />
+            <img class="brt-rich__figure-wide-photo" src="img/bks-218-li/side-view.png" alt="Устройство аккумуляторной пилы Bort BKS-218-Li" width="829" height="328" loading="lazy" />
             <p class="brt-rich__callout-label brt-rich__callout-label--tension">
               бесключевая регулировка цепи
             </p>
-            <img
-              class="brt-rich__callout-line brt-rich__callout-line--1"
-              src="img/bks-218-li/line-1.svg"
-              alt=""
-              width="364"
-              height="238"
-              aria-hidden="true"
-            />
+            <img class="brt-rich__callout-line brt-rich__callout-line--1" src="img/bks-218-li/line-1.svg" alt="" width="364" height="238" aria-hidden="true" />
             <p class="brt-rich__callout-label brt-rich__callout-label--cover">
               Верхний кожух
             </p>
-            <img
-              class="brt-rich__callout-line brt-rich__callout-line--2"
-              src="img/bks-218-li/line-2.svg"
-              alt=""
-              width="247"
-              height="61"
-              aria-hidden="true"
-            />
+            <img class="brt-rich__callout-line brt-rich__callout-line--2" src="img/bks-218-li/line-2.svg" alt="" width="247" height="61" aria-hidden="true" />
             <p class="brt-rich__callout-label brt-rich__callout-label--bar">
               Шина
             </p>
-            <img
-              class="brt-rich__callout-line brt-rich__callout-line--3"
-              src="img/bks-218-li/line-3.svg"
-              alt=""
-              width="163"
-              height="146"
-              aria-hidden="true"
-            />
+            <img class="brt-rich__callout-line brt-rich__callout-line--3" src="img/bks-218-li/line-3.svg" alt="" width="163" height="146" aria-hidden="true" />
             <p class="brt-rich__callout-label brt-rich__callout-label--teeth">
               зубцы
             </p>
-            <img
-              class="brt-rich__callout-line brt-rich__callout-line--4"
-              src="img/bks-218-li/line-4.svg"
-              alt=""
-              width="125"
-              height="146"
-              aria-hidden="true"
-            />
+            <img class="brt-rich__callout-line brt-rich__callout-line--4" src="img/bks-218-li/line-4.svg" alt="" width="125" height="146" aria-hidden="true" />
             <p class="brt-rich__callout-label brt-rich__callout-label--oil">
               масляный бак<br />и контроль уровня масла
             </p>
-            <img
-              class="brt-rich__callout-line brt-rich__callout-line--5"
-              src="img/bks-218-li/line-6.svg"
-              alt=""
-              width="368"
-              height="63"
-              aria-hidden="true"
-            />
+            <img class="brt-rich__callout-line brt-rich__callout-line--5" src="img/bks-218-li/line-6.svg" alt="" width="368" height="63" aria-hidden="true" />
             <p class="brt-rich__callout-label brt-rich__callout-label--safety">
               кнопка защиты<br />от случайного запуска
             </p>
-            <img
-              class="brt-rich__callout-line brt-rich__callout-line--6"
-              src="img/bks-218-li/line-5.svg"
-              alt=""
-              width="304"
-              height="281"
-              aria-hidden="true"
-            />
+            <img class="brt-rich__callout-line brt-rich__callout-line--6" src="img/bks-218-li/line-5.svg" alt="" width="304" height="281" aria-hidden="true" />
             <div class="brt-rich__callout-zoom">
-              <img
-                src="img/bks-218-li/auto-lube.png"
-                alt="Масляный бак пилы Bort BKS-218-Li"
-                width="134"
-                height="134"
-                loading="lazy"
-              />
+              <img src="img/bks-218-li/auto-lube.png" alt="Масляный бак пилы Bort BKS-218-Li" width="134" height="134" loading="lazy" />
             </div>
           </div>
         </div>
