@@ -1798,4 +1798,11 @@
 		line-height: 1.2 !important;
 		color: var(--rich-color-text) !important;
 	}
+
+	// Host-isolation resets h2[class*=brt-rich__] → none; restore for kit titles
+	h2.brt-rich__kit-board-title,
+	h2.brt-rich__kit-intro-title {
+		text-align: center !important;
+		text-transform: uppercase !important;
+	}
 }
