@@ -240,6 +240,38 @@ export const richProducts = [
 			},
 		],
 	},
+	{
+		id: "bhd-18li-xdk",
+		blocks: [
+			{
+				src: "bhd-18li-xdk/vars.scss",
+				id: "rich-vars",
+				out: "bhd-18li-xdk/_styles-vars.html",
+				comment: blockComment([
+					"THEME VARIABLES — редактируйте этот блок для кастомизации под конкретный сайт.",
+					"Все компоненты используют эти переменные через var().",
+				]),
+			},
+			{
+				src: "bhd-18li-xdk/theme.scss",
+				id: "rich-theme",
+				out: "bhd-18li-xdk/_styles-theme.html",
+				comment: blockComment([
+					"THEME STYLES — типографика, цвета компонентов через var().",
+					"Для смены темы достаточно изменить #rich-vars; здесь — применение переменных.",
+				]),
+			},
+			{
+				src: "bhd-18li-xdk/components.scss",
+				id: "rich-components",
+				out: "bhd-18li-xdk/_styles-components.html",
+				comment: blockComment([
+					"COMPONENT-SPECIFIC STYLES — дополнительные правила для сложных блоков.",
+					"Используют переменные из #rich-vars; при необходимости переопределяйте локально.",
+				]),
+			},
+		],
+	},
 ];
 
 export const richStandaloneBlocks = [
