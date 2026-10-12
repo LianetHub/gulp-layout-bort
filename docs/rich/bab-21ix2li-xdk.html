@@ -5363,21 +5363,51 @@
 		  object-fit: contain;
 		  background: transparent !important;
 		}
-		@media (max-width: 767.98px) {
+		@media (max-width: 991.98px) {
 		  #brt-rich.brt-rich .brt-rich__hero-card--bab,
 		  .brt-rich .brt-rich__hero-card--bab {
 		    height: auto !important;
 		    min-height: 0 !important;
 		    max-height: none;
+		    overflow: hidden;
 		  }
 		  #brt-rich.brt-rich .brt-rich__hero-card--bab > .brt-rich__hero-card-top,
 		  .brt-rich .brt-rich__hero-card--bab > .brt-rich__hero-card-top {
 		    min-height: 0 !important;
 		    height: auto;
+		    align-items: stretch;
 		  }
 		  #brt-rich.brt-rich .brt-rich__hero-card--bab > .brt-rich-row > .brt-rich-col-md-7.brt-rich__hero-card-content,
 		  .brt-rich .brt-rich__hero-card--bab > .brt-rich-row > .brt-rich-col-md-7.brt-rich__hero-card-content {
+		    min-height: 0;
+		    height: auto;
 		    padding: var(--rich-space-lg);
+		  }
+		  #brt-rich.brt-rich .brt-rich__hero-card--bab .brt-rich__hero-card-media-col,
+		  .brt-rich .brt-rich__hero-card--bab .brt-rich__hero-card-media-col {
+		    display: flex;
+		    align-items: center;
+		    justify-content: center;
+		    overflow: hidden;
+		    min-width: 0;
+		  }
+		  #brt-rich.brt-rich .brt-rich__hero-card--bab .brt-rich__hero-media,
+		  .brt-rich .brt-rich__hero-card--bab .brt-rich__hero-media {
+		    position: static !important;
+		    top: auto !important;
+		    right: auto !important;
+		    bottom: auto !important;
+		    left: auto !important;
+		    z-index: auto !important;
+		    width: 100%;
+		    height: auto;
+		    margin: 0;
+		    transform: none;
+		  }
+		  #brt-rich.brt-rich .brt-rich__hero-card--bab .brt-rich__hero-media-photo,
+		  .brt-rich .brt-rich__hero-card--bab .brt-rich__hero-media-photo {
+		    max-height: none;
+		    object-position: center;
 		  }
 		}
 		#brt-rich.brt-rich .brt-rich__logo-card--tirex,
@@ -5707,9 +5737,10 @@
 		@media (max-width: 767.98px) {
 		  #brt-rich.brt-rich .brt-rich__eco-turbo-row,
 		  .brt-rich .brt-rich__eco-turbo-row {
-		    grid-template-columns: 1fr;
+		    grid-template-columns: 1fr 1fr;
 		    gap: 0;
 		    border-top: 1px solid #2a2a2a;
+		    min-height: 0;
 		  }
 		  #brt-rich.brt-rich .brt-rich__eco-turbo-row:first-child,
 		  .brt-rich .brt-rich__eco-turbo-row:first-child {
@@ -5731,6 +5762,17 @@
 		.brt-rich .brt-rich__eco-turbo-row--head .brt-rich__eco-turbo-icon {
 		  max-width: 40px;
 		  max-height: 32px;
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__eco-turbo-row--head,
+		  .brt-rich .brt-rich__eco-turbo-row--head {
+		    height: auto;
+		    min-height: 0;
+		  }
+		  #brt-rich.brt-rich .brt-rich__eco-turbo-row--head .brt-rich__eco-turbo-cell--label,
+		  .brt-rich .brt-rich__eco-turbo-row--head .brt-rich__eco-turbo-cell--label {
+		    display: none;
+		  }
 		}
 		#brt-rich.brt-rich .brt-rich__eco-turbo-cell,
 		.brt-rich .brt-rich__eco-turbo-cell {
@@ -5760,12 +5802,14 @@
 		  #brt-rich.brt-rich .brt-rich__eco-turbo-cell,
 		  .brt-rich .brt-rich__eco-turbo-cell {
 		    border-left: 0;
-		    border-top: 1px solid #2a2a2a;
-		    padding: 10px 12px;
-		  }
-		  #brt-rich.brt-rich .brt-rich__eco-turbo-cell:first-child,
-		  .brt-rich .brt-rich__eco-turbo-cell:first-child {
 		    border-top: 0;
+		    height: auto;
+		    min-height: 0;
+		    padding: 10px 8px;
+		  }
+		  #brt-rich.brt-rich .brt-rich__eco-turbo-cell:nth-child(2),
+		  .brt-rich .brt-rich__eco-turbo-cell:nth-child(2) {
+		    border-right: 1px solid #2a2a2a;
 		  }
 		}
 		#brt-rich.brt-rich .brt-rich__eco-turbo-cell--label,
@@ -5779,7 +5823,12 @@
 		@media (max-width: 767.98px) {
 		  #brt-rich.brt-rich .brt-rich__eco-turbo-cell--label,
 		  .brt-rich .brt-rich__eco-turbo-cell--label {
-		    justify-content: center;
+		    grid-column: 1/-1;
+		    justify-content: flex-start;
+		    font-weight: 600 !important;
+		    border-right: 0 !important;
+		    border-bottom: 1px solid #2a2a2a;
+		    padding: 10px 8px;
 		  }
 		}
 		#brt-rich.brt-rich .brt-rich__eco-turbo-head-text,
@@ -5791,11 +5840,23 @@
 		  line-height: 1.08 !important;
 		  text-align: center;
 		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__eco-turbo-head-text,
+		  .brt-rich .brt-rich__eco-turbo-head-text {
+		    max-width: none;
+		  }
+		}
 		#brt-rich.brt-rich .brt-rich__eco-turbo-cell--value,
 		.brt-rich .brt-rich__eco-turbo-cell--value {
 		  font-size: 20px !important;
 		  font-weight: 500 !important;
 		  line-height: 1.08 !important;
+		}
+		@media (max-width: 767.98px) {
+		  #brt-rich.brt-rich .brt-rich__eco-turbo-cell--value,
+		  .brt-rich .brt-rich__eco-turbo-cell--value {
+		    font-size: 16px !important;
+		  }
 		}
 		#brt-rich.brt-rich .brt-rich__eco-turbo-icon,
 		.brt-rich .brt-rich__eco-turbo-icon {
@@ -6881,8 +6942,8 @@
 		  }
 		  #brt-rich.brt-rich .brt-rich__hero-badges--edges > li,
 		  .brt-rich .brt-rich__hero-badges--edges > li {
-		    flex: 0 0 278px;
-		    width: 278px;
+		    flex: 1 1 100%;
+		    width: 100%;
 		    max-width: 100%;
 		  }
 		  #brt-rich.brt-rich .brt-rich__hero-badges--edges .brt-rich__hero-badges-spacer,
@@ -6893,7 +6954,7 @@
 		  .brt-rich .brt-rich__hero-badges--edges .brt-rich__hero-badge {
 		    width: 100%;
 		    min-width: 0;
-		    max-width: 278px;
+		    max-width: 100%;
 		    height: auto;
 		    min-height: 69px;
 		  }
@@ -7405,7 +7466,7 @@
 			<section class="brt-rich__section brt-rich__figure-wide-section brt-rich__anatomy-section">
 				<div class="brt-rich__container">
 					<div class="brt-rich__figure-wide brt-rich__figure-wide--bab">
-						<img class="brt-rich__figure-wide-photo" src="img/bab-21ix2li-xdk/detial-photo.png" alt="Устройство ударной дрели-шуруповерта Bort BAB-21Ix2Li-XDK" width="909" height="674" loading="lazy">
+						<img class="brt-rich__figure-wide-photo" src="img/bab-21ix2li-xdk/detial-photo.jpg" alt="Устройство ударной дрели-шуруповерта Bort BAB-21Ix2Li-XDK" width="909" height="674" loading="lazy">
 						<ul class="brt-rich__figure-callouts">
 							<li>
 								<span class="brt-rich__figure-callout-media">
@@ -7482,7 +7543,7 @@
 							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-4">
 								<div class="brt-rich__cards-accent-item">
 									<div class="brt-rich__media brt-rich__cards-accent-item-media">
-										<img src="img/bab-21ix2li-xdk/material-brick.png" alt="Кирпич" width="272" height="144" loading="lazy">
+										<img src="img/bab-21ix2li-xdk/material-brick.jpg" alt="Кирпич" width="272" height="144" loading="lazy">
 									</div>
 									<div class="brt-rich__text brt-rich__cards-accent-item-text">кирпич</div>
 								</div>
@@ -7506,7 +7567,7 @@
 							<div class="brt-rich-col-12 brt-rich-col-sm-6 brt-rich-col-lg-4">
 								<div class="brt-rich__cards-accent-item">
 									<div class="brt-rich__media brt-rich__cards-accent-item-media">
-										<img src="img/bab-21ix2li-xdk/material-ice.png" alt="Лёд" width="272" height="144" loading="lazy">
+										<img src="img/bab-21ix2li-xdk/material-ice.jpg" alt="Лёд" width="272" height="144" loading="lazy">
 									</div>
 									<div class="brt-rich__text brt-rich__cards-accent-item-text">лед</div>
 								</div>
@@ -7546,7 +7607,7 @@
 					<div class="brt-rich__rex-family">
 						<h2 class="brt-rich__heading brt-rich__section-heading brt-rich__rex-family-title">Серия аккумуляторов Bort ReX</h2>
 						<div class="brt-rich__media brt-rich__rex-family-lineup">
-							<img src="img/bab-21ix2li-xdk/battery-lineup.png" alt="Аккумуляторы BA-21U, BA-21U-63, BA-21U-62" width="716" height="234" loading="lazy">
+							<img src="img/bab-21ix2li-xdk/battery-lineup.jpg" alt="Аккумуляторы BA-21U, BA-21U-63, BA-21U-62" width="716" height="234" loading="lazy">
 						</div>
 						<ul class="brt-rich__rex-family-list">
 							<li>- Увеличенная мощность и производительность</li>
