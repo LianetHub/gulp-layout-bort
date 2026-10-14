@@ -1,54 +1,72 @@
 <!DOCTYPE html>
 <html lang="ru">
     @@include('html/_head.html', {
-    'title': 'Главная страница'
+    'title': 'Главная страница | Авторизованный пользователь'
     })
     <body>
         <div class="wrapper">
             @@include('html/_header.html', {
-            "auth": false
+            "auth": true
             })
             <main class="page">
-                <section class="promo">
+                <div class="promotions">
                     <div class="container">
-                        <div class="promo__body">
-                            <h1 class="promo__title title-xxl">
-                                <span class="color-accent">Bort</span> Global
-                            </h1>
-                            <p class="promo__description">
-                                Как уже неоднократно упомянуто, непосредственные участники технического прогресса набирают популярность среди определенных слоев населения
-                            </p>
-                            <a href="catalog.html" class="promo__btn btn btn-primary">В каталог</a>
+                        <div class="promotions__grid">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    <a href="promotion.html" class="promotions__item swiper-slide">
+                                        <img src="@img/promotions/03.png" class="cover-image" alt="Постер акции">
+                                    </a>
+                                    <a href="promotion.html" class="promotions__item swiper-slide">
+                                        <img src="@img/promotions/04.png" class="cover-image" alt="Постер акции">
+                                    </a>
+                                    <a href="promotion.html" class="promotions__item swiper-slide">
+                                        <img src="@img/promotions/05.png" class="cover-image" alt="Постер акции">
+                                    </a>
+                                    <a href="promotion.html" class="promotions__item swiper-slide">
+                                        <img src="@img/promotions/06.png" class="cover-image" alt="Постер акции">
+                                    </a>
+                                    <a href="promotion.html" class="promotions__item swiper-slide">
+                                        <img src="@img/promotions/07.png" class="cover-image" alt="Постер акции">
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="promotions__controls">
+                                <button type="button" class="promotions__prev swiper-button-prev"></button>
+                                <button type="button" class="promotions__next swiper-button-next"></button>
+                                <div class="promotions__pagination swiper-pagination"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <section class="sales">
+                    <div class="container">
+                        <h2 class="sales__title title">Акции</h2>
+                        <div class="sales__slider">
+                            <div class="swiper">
+                                <div class="swiper-wrapper">
+                                    @@loop('./html/templates/_sales-card.html', './html/json/sales.json')
+                                </div>
+                            </div>
+                            <button type="button" class="sales__prev swiper-button-prev"></button>
+                            <button type="button" class="sales__next swiper-button-next"></button>
+                            <div class="sales__pagination swiper-pagination"></div>
                         </div>
                     </div>
                 </section>
-                <section class="nums">
+                <section class="categories">
                     <div class="container">
-                        <h2 class="nums__title title">
-                            За последние <span class="color-accent">10&nbsp;лет</span> работы мы <span class="color-grey">добились</span>
+                        <h2 class="categories__title title">
+                            <span>Популярные</span> категории
                         </h2>
-                        <ul class="nums__list">
-                            <li class="nums__item">
-                                <div class="nums__item-value title-xxl color-accent">>100500</div>
-                                <div class="nums__item-text color-grey">Инструментов было произведено на&nbsp;нашем производстве</div>
-                            </li>
-                            <li class="nums__item">
-                                <div class="nums__item-value title-xxl color-accent">>100500</div>
-                                <div class="nums__item-text color-grey">Клиентов остались довольными после&nbsp;сотрудничества с нами</div>
-                            </li>
-                            <li class="nums__item">
-                                <div class="nums__item-value title-xxl color-accent">>100500</div>
-                                <div class="nums__item-text color-grey">Обращений было отправлено нам на покупку фирменных инструментов</div>
-                            </li>
-                            <li class="nums__item">
-                                <div class="nums__item-value title-xxl color-accent">>100500</div>
-                                <div class="nums__item-text color-grey">Составила выручка компании за текущий период времени</div>
-                            </li>
+                        <ul class="categories__list">
+                            @@loop('./html/templates/_category.html', './html/json/categories.json')
                         </ul>
                     </div>
                 </section>
-                @@include('./html/includes/_benefits.html')
                 @@include('./html/includes/_popular-products.html')
+                @@include('./html/includes/_new-products.html')
+                @@include('./html/includes/_last-arrives-products.html')
                 @@include('./html/includes/_news.html')
             </main>
             @@include('html/_footer.html', {})

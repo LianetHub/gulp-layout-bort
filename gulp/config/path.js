@@ -18,7 +18,6 @@ export const path = {
 		favicon: `${buildFolder}/`,
 		fonts: `${buildFolder}/fonts/`,
 		json: `${buildFolder}/json/`,
-		rich: `${buildFolder}/rich/`,
 		php: `${buildFolder}/`,
 	},
 	src: {
@@ -34,9 +33,6 @@ export const path = {
 		images: `${srcFolder}/img/**/*.{jpg,jpeg,png,gif,webp}`,
 		svg: `${srcFolder}/img/**/*.svg`,
 		json: `${srcFolder}/json/*.*`,
-		richHtml: `${srcFolder}/rich/*.html`,
-		richScss: `${srcFolder}/rich/scss/**/*.scss`,
-		richImg: `${srcFolder}/rich/img/**/*.*`,
 		php: `${srcFolder}/*.php`,
 	},
 	watch: {
@@ -47,9 +43,6 @@ export const path = {
 		js: `${srcFolder}/js/**/*.js`,
 		images: `${srcFolder}/img/**/*.{jpg,jpeg,png,svg,gif,ico,webp}`,
 		json: `${srcFolder}/json/*.*`,
-		richHtml: `${srcFolder}/rich/**/*.html`,
-		richScss: `${srcFolder}/rich/scss/**/*.scss`,
-		richImg: `${srcFolder}/rich/img/**/*.*`,
 		fonts: `${srcFolder}/fonts/*.{ttf,otf,woff,woff2}`,
 		php: `${srcFolder}/**/*.php`,
 

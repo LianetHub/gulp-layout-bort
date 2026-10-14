@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Оформление заказа '
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {
+            "auth": true
+            })
+            <main class="page">
+                <nav aria-label="Хлебные крошки" class="breadcrumbs">
+                    <div class="container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item">
+                                <a href="/" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active">Корзина</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="cart">
+                    <div class="container">
+                        <h2 class="cart__title title">Корзина</h2>
+                        <div class="cart__actions">
+                            <a href="" class="cart__btn btn btn-primary">Быстрый заказ</a>
+                            <a href="" class="cart__sale">
+                                <img src="@img/icons/excel.svg" alt="иконка">
+                                Сохранить корзину в Excel
+                            </a>
+                        </div>
+
+                        <div class="cart__layout">
+                            <div class="cart__main">
+                                <div class="cart__content">
+                                    <div class="cart__block">
+                                        @@include('html/templates/_cart-main-product.html', {})
+
+                                        <div class="cart__recommendations ">
+                                            <h4 class="cart__recommendations-title">
+                                                <span class="color-grey">С этим товаром</span> покупают
+                                            </h4>
+                                            <div class="cart__recommendations-scroll">
+                                                <ul class="cart__recommendations-list">
+                                                    @@loop('./html/templates/_cart-product-row.html', './html/json/gallery.json')
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart__block">
+                                        @@include('html/templates/_cart-main-product.html', {})
+
+                                        <div class="cart__recommendations ">
+                                            <h4 class="cart__recommendations-title">
+                                                <span class="color-grey">С этим товаром</span> покупают
+                                            </h4>
+                                            <div class="cart__recommendations-scroll">
+                                                <ul class="cart__recommendations-list">
+                                                    @@loop('./html/templates/_cart-product-row.html', './html/json/gallery.json')
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart__block">
+                                        @@include('html/templates/_cart-main-product.html', {})
+
+                                        <div class="cart__recommendations ">
+                                            <h4 class="cart__recommendations-title">
+                                                <span class="color-grey">С этим товаром</span> покупают
+                                            </h4>
+                                            <div class="cart__recommendations-scroll">
+                                                <ul class="cart__recommendations-list">
+                                                    @@loop('./html/templates/_cart-product-row.html', './html/json/gallery.json')
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="cart__checkout">
+                                    <div class="cart__checkout-block">
+                                        <h4 class="cart__checkout-title">Способ оплаты</h4>
+                                        <div class="form__field" id="cart-payment">
+                                            <div class="dropdown is-selected">
+                                                <input type="hidden" class="dropdown__input" name="cart_payment" value="cashless">
+                                                <button type="button" class="dropdown__button selected" disabled aria-expanded="false">
+                                                    <span class="dropdown__button-text">Безналичный расчёт</span>
+                                                    <span class="dropdown__icon icon-chevron-down"></span>
+                                                </button>
+                                                <div class="dropdown__body">
+                                                    <ul class="dropdown__list" aria-hidden="true">
+                                                        <li class="dropdown__list-item active" data-value="cashless" aria-checked="true">Безналичный расчёт</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="cart__checkout-block">
+                                        <h4 class="cart__checkout-title">Способ доставки</h4>
+                                        <div class="form__field" id="cart-delivery">
+                                            <div class="dropdown">
+                                                <input type="hidden" class="dropdown__input" name="cart_delivery" value="">
+                                                <button type="button" class="dropdown__button" aria-expanded="false">
+                                                    <span class="dropdown__button-text">Выберите способ доставки</span>
+                                                    <span class="dropdown__icon icon-chevron-down"></span>
+                                                </button>
+                                                <div class="dropdown__body">
+                                                    <ul class="dropdown__list" aria-hidden="true">
+                                                        <li class="dropdown__list-item" data-value="pickup">Самовывоз</li>
+                                                        <li class="dropdown__list-item" data-value="delivery">Доставка</li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="form__field cart__checkout-address" hidden>
+                                            <div class="form__label">Адрес доставки:</div>
+                                            <input type="text" name="cart_delivery_address" class="form__control" placeholder="г. Москва, ул. Примерная, д. 1, кв. 1">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <aside class="cart__sidebar">
+                                <div class="cart__total">
+                                    <ul class="cart__total-rows">
+                                        <li class="cart__total-row">
+                                            <span class="cart__total-label">Товары, 3 шт.</span>
+                                            <span class="cart__total-value">18 120 ₽</span>
+                                        </li>
+                                        <li class="cart__total-row cart__total-row--accent">
+                                            <span class="cart__total-label">Скидка</span>
+                                            <span class="cart__total-value">−3 630 ₽</span>
+                                        </li>
+                                    </ul>
+                                    <div class="cart__total-sum">
+                                        <span class="cart__total-sum-label">Итого</span>
+                                        <span class="cart__total-sum-value">14 490 ₽</span>
+                                    </div>
+                                    <div class="cart__total-btns">
+                                        <button type="button" class="cart__total-order btn btn-primary">Оформить заказ</button>
+                                        <button type="button" class="cart__total-reset btn btn-secondary">Очистить корзину</button>
+                                    </div>
+                                </div>
+                            </aside>
+                        </div>
+                    </div>
+                </section>
+                <section class="products">
+                    <div class="container">
+                        <h2 class="products__title title">
+                            <span class="color-grey">С товарами</span> из вашей корзины <span class="color-grey">также</span> покупают
+                        </h2>
+                        @@include('./html/includes/sliders/_small-slider.html')
+                    </div>
+                </section>
+
+            </main>
+            @@include('html/_footer.html', {})
+            <div id="order" class="popup popup--medium">
+                <h2 class="popup__title title-md">оформление <span>заказа</span></h2>
+                <form action="#" class="popup__form">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form__field">
+                                <div class="form__label">Способ оплаты:</div>
+                                <div class="form__select icon-chevron-down">
+                                    <select name="payment_type" class="form__control">
+                                        <option value="cashless">Безналичный расчёт</option>
+                                        <option value="card">Банковская карта</option>
+                                        <option value="cash">Наличными при получении</option>
+                                        <option value="bill">Счёт на оплату</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form__field">
+                                <div class="form__label">Предполагаемая дата оплаты:</div>
+                                <input type="date" name="payment_date" value="2025-12-10" class="form__control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form__field">
+                                <div class="form__label">Способ получения:</div>
+                                <div class="form__select icon-chevron-down">
+                                    <select name="delivery_method" class="form__control">
+                                        <option value="pickup">Самовывоз</option>
+                                        <option value="courier">Доставка курьером</option>
+                                        <option value="transport">Транспортная компания</option>
+                                        <option value="post">Почта России</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form__field">
+                                <div class="form__label">Предполагаемая дата самовывоза:</div>
+                                <input type="date" name="pickup_date" value="2025-12-10" class="form__control">
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form__field">
+                                <div class="form__label">Телефон:</div>
+                                <input type="tel" name="phone" data-required class="form__control" placeholder="+7 (999) 999-99-99" value="+7 (999) 999-99-99">
+                                <div class="form__error-message"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form__field">
+                                <div class="form__label">Электронная почта:</div>
+                                <input type="email" name="email" data-required class="form__control" placeholder="email" value="a.polovov@extego.ru">
+                                <div class="form__error-message"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <div class="form__field">
+                                <div class="form__label">Комментарий к заказу:</div>
+                                <input type="text" name="comment" class="form__control" placeholder="Напишите пожелания к заказу">
+                                <div class="form__error-message"></div>
+                            </div>
+                        </div>
+                        <div class="col-12">
+                            <button type="submit" class="form__submit btn btn-primary">Разместить заказ</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>
