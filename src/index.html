@@ -10,33 +10,39 @@
             })
             <main class="page">
                 <div class="promotions">
-                    <div class="container">
-                        <div class="promotions__grid">
+                    <div class="promotions__container container">
+                        <div class="promotions__slider">
                             <div class="swiper">
                                 <div class="swiper-wrapper">
-                                    <a href="promotion.html" class="promotions__item swiper-slide">
-                                        <img src="@img/promotions/03.png" class="cover-image" alt="Постер акции">
-                                    </a>
-                                    <a href="promotion.html" class="promotions__item swiper-slide">
-                                        <img src="@img/promotions/04.png" class="cover-image" alt="Постер акции">
-                                    </a>
-                                    <a href="promotion.html" class="promotions__item swiper-slide">
-                                        <img src="@img/promotions/05.png" class="cover-image" alt="Постер акции">
-                                    </a>
-                                    <a href="promotion.html" class="promotions__item swiper-slide">
-                                        <img src="@img/promotions/06.png" class="cover-image" alt="Постер акции">
-                                    </a>
-                                    <a href="promotion.html" class="promotions__item swiper-slide">
-                                        <img src="@img/promotions/07.png" class="cover-image" alt="Постер акции">
-                                    </a>
+                                    @@loop('./html/templates/_promotion-card.html',{})
                                 </div>
                             </div>
                             <div class="promotions__controls">
+                                <div class="promotions__pagination swiper-pagination"></div>
                                 <button type="button" class="promotions__prev swiper-button-prev"></button>
                                 <button type="button" class="promotions__next swiper-button-next"></button>
-                                <div class="promotions__pagination swiper-pagination"></div>
                             </div>
                         </div>
+                        <div class="promotions__cards">
+                            <a href="" class="promo-card" style="background-image: url('@img/promotions/promo-guarantee.jpg');">
+                                <div class="promo-card__title title-sm">Расширенная гарантия</div>
+                                <div class="promo-card__description">Уверены в качестве и надежности</div>
+                                <div class="promo-card__logo">
+                                    <img src="@img/logo-white.svg" width="69" height="20" alt="Логотип сайта Bort">
+                                </div>
+                            </a>
+                            <a href="" class="promo-card" style="background-image: url('@img/promotions/promo-saw.jpg');">
+                                <div class="promo-card__title title-sm">Цепная аккумуляторная пила BORT BKS-2112-LI</div>
+                                <div class="promo-card__description">для регулярного использования средней интенсивности</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="categories">
+                    <div class="categories__container container">
+                        <ul class="categories__list">
+                            @@loop('./html/templates/_category.html', './html/json/categories.json')
+                        </ul>
                     </div>
                 </div>
                 <section class="sales">
@@ -54,20 +60,34 @@
                         </div>
                     </div>
                 </section>
-                <section class="categories">
-                    <div class="container">
-                        <h2 class="categories__title title">
-                            <span>Популярные</span> категории
-                        </h2>
-                        <ul class="categories__list">
-                            @@loop('./html/templates/_category.html', './html/json/categories.json')
-                        </ul>
+                <div class="banner">
+                    <div class="banner__container container">
+                        <a href="" class="banner__image">
+                            <img src="@img/promotions/banner.png" alt="Баннер">
+                        </a>
                     </div>
-                </section>
+                </div>
                 @@include('./html/includes/_popular-products.html')
                 @@include('./html/includes/_new-products.html')
                 @@include('./html/includes/_last-arrives-products.html')
-                @@include('./html/includes/_news.html')
+                <section class="news">
+                    <div class="container">
+                        <h2 class="news__title title">новости</h2>
+                        <div class="news__slider">
+                            <div class="swiper">
+                                <ul class="swiper-wrapper">
+                                    @@loop('./html/templates/_news-card.html', './html/json/news.json')
+                                </ul>
+                            </div>
+                            <div class="news__controls">
+                                <button type="button" class="news__prev swiper-button-prev"></button>
+                                <button type="button" class="news__next swiper-button-next"></button>
+                                <div class="news__pagination swiper-pagination"></div>
+                            </div>
+                        </div>
+                        <a href="/blog.html" class="news__btn btn btn-secondary">Все новости</a>
+                    </div>
+                </section>
             </main>
             @@include('html/_footer.html', {})
             @@include('html/_js.html', {})

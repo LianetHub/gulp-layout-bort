@@ -1,39 +1,17 @@
 <header class="header">
-    <div class="header__top">
-        <div class="container header__top-container">
-            <a href="tel:+74997057979" class="header__phone icon-phone">+7 (499) 705 79-79</a>
-            <nav aria-label="Меню в шапке" class="header__menu menu">
-                <ul class="menu__list">
-                    <li class="menu__item">
-                        <a href="about.html" class="menu__link">Компания</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="blog.html" class="menu__link">Новости</a>
-                    </li>
-                    <li class="menu__item">
-                        <a href="@@if(auth === true){contacts-auth.html}@@if(auth === false){contacts.html}" class="menu__link">Контакты</a>
-                    </li>
-                    @@if(auth === true) {
-                    <li class="menu__item">
-                        <a href="" class="menu__link">Быстрый заказ</a>
-                    </li>
-                    }
-                </ul>
-            </nav>
-        </div>
-    </div>
-    <div class="header__body">
-        <div class="container header__body-container">
+    <div class="header__content">
+        <div class="container header__content-container">
             <a href="index.html" class="header__logo">
-                <img src="@img/logo.svg" alt="Логотип сайта Bort">
+                <img src="@img/logo.svg" width="138" height="40" alt="Логотип сайта Bort">
             </a>
+            <a href="" class="header__catalog btn btn-primary icon-dots-grid">Каталог</a>
             <a href="tel:+74997057979" aria-label="Позвонить" class="header__phone header__phone--mobile icon-phone"></a>
             @@include('./includes/_header-catalog.html')
             @@include('./includes/_search.html')
             <div class="header__actions main-actions">
-                <a href="lk-person.html" class="main-actions__item icon-catalog">
+                <a href="catalog.html" class="main-actions__item icon-catalog">
                     <span class="main-actions__item-text">
-                        Войти
+                        Каталог
                     </span>
                 </a>
                 <a href="cart.html" class="main-actions__item icon-cart">
@@ -51,7 +29,6 @@
                     <span class="main-actions__item-text">
                         Сравнение
                     </span>
-
                 </a>
                 <a href="lk-person.html" class="main-actions__item icon-user">
                     <span class="main-actions__item-text">
@@ -60,6 +37,37 @@
                 </a>
             </div>
         </div>
-
+    </div>
+    <div class="header__bottom">
+        <div class="header__bottom-container container">
+            <nav aria-label="Меню в шапке" class="header__menu menu">
+                <ul class="menu__list">
+                    <li class="menu__item">
+                        <a href="about.html" class="menu__link icon-sale">Акция</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="" class="menu__link">Бытовая техника</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="" class="menu__link">Клининг</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="" class="menu__link">Инструмент</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="" class="menu__link">Для сада</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="" class="menu__link">Horeca</a>
+                    </li>
+                    <li class="menu__item">
+                        <a href="" class="menu__link">Расширенная гарантия</a>
+                    </li>
+                </ul>
+            </nav>
+            <div class="header__delivery">
+                Адрес доставки: <address>ул. Авиационная, д.10</address>
+            </div>
+        </div>
     </div>
 </header>

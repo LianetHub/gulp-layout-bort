@@ -1,22 +1,26 @@
 [
     {
-        "name": "Аккумуляторный инструмент",
-        "desc": "Запустили программы выгодной выгоды",
-        "image": "@img/categories/cordless-tool.png"
+        "name": "Дрели и шуруповёрты",
+        "image": "@img/categories/drills-and-screwdrivers.png"
     },
     {
-        "name": "Измельчители <br> пищевых отходов",
-        "desc": "Запустили программы выгодной выгоды",
-        "image": "@img/categories/food-waste-disposers.png"
+        "name": "Пилы",
+        "image": "@img/categories/saws.png"
     },
     {
-        "name": "бытовая техника",
-        "desc": "Запустили программы выгодной выгоды",
-        "image": "@img/categories/household-appliances.png"
+        "name": "Измельчители отходов",
+        "image": "@img/categories/waste-disposers.png"
     },
     {
-        "name": "Аккумуляторный инструмент",
-        "desc": "Запустили программы выгодной выгоды",
-        "image": "@img/categories/cordless-tool.png"
+        "name": "Отпариватели",
+        "image": "@img/categories/garment-steamers.png"
+    },
+    {
+        "name": "Пылесосы",
+        "image": "@img/categories/vacuum-cleaners.png"
+    },
+    {
+        "name": "Ручной инструмент",
+        "image": "@img/categories/hand-tools.png"
     }
 ]

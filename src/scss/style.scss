@@ -11,8 +11,9 @@
 // ======================================ШРИФТЫ===============================================
 
 // Шрифт по умолчанию
-$fontfamily: "Roboto";
+$fontfamily: "GolosText";
 $font-russo: "RussoOne";
+
 
 // Шрифт по умолчанию
 
@@ -77,3 +78,4 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 @import "pages/cart";
 @import "pages/login";
 @import "pages/comparing";
+@import "pages/sitemap";

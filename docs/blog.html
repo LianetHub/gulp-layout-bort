@@ -46,30 +46,12 @@
     <body>
         <div class="wrapper">
             <header class="header">
-                <div class="header__top">
-                    <div class="container header__top-container">
-                        <a href="tel:+74997057979" class="header__phone icon-phone">+7 (499) 705 79-79</a>
-                        <nav aria-label="Меню в шапке" class="header__menu menu">
-                            <ul class="menu__list">
-                                <li class="menu__item">
-                                    <a href="about.html" class="menu__link">Компания</a>
-                                </li>
-                                <li class="menu__item">
-                                    <a href="blog.html" class="menu__link">Новости</a>
-                                </li>
-                                <li class="menu__item">
-                                    <a href="contacts.html" class="menu__link">Контакты</a>
-                                </li>
-                                
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="header__body">
-                    <div class="container header__body-container">
+                <div class="header__content">
+                    <div class="container header__content-container">
                         <a href="index.html" class="header__logo">
-                            <img src="img/logo.svg" alt="Логотип сайта Bort">
+                            <img src="img/logo.svg" width="138" height="40" alt="Логотип сайта Bort">
                         </a>
+                        <a href="" class="header__catalog btn btn-primary icon-dots-grid">Каталог</a>
                         <a href="tel:+74997057979" aria-label="Позвонить" class="header__phone header__phone--mobile icon-phone"></a>
                         <div class="header__catalog header-catalog">
                             <button type="button" class="header-catalog__toggler btn btn-primary icon-burger">
@@ -259,7 +241,7 @@
                             <div class="search__content">
                                 <div class="container">
                                     <form action="#" class="search__form">
-                                        <input type="text" name="s" class="search__form-input form__control" placeholder="Поиск">
+                                        <input type="text" name="s" class="search__form-input form__control" placeholder="Поиск товаров">
                                         <button type="submit" aria-label="Искать" class="search__form-btn icon-search"></button>
                                     </form>
                                     <div class="search__bar">
@@ -288,9 +270,9 @@
                             </div>
                         </div>
                         <div class="header__actions main-actions">
-                            <a href="lk-person.html" class="main-actions__item icon-catalog">
+                            <a href="catalog.html" class="main-actions__item icon-catalog">
                                 <span class="main-actions__item-text">
-                                    Войти
+                                    Каталог
                                 </span>
                             </a>
                             <a href="cart.html" class="main-actions__item icon-cart">
@@ -308,7 +290,6 @@
                                 <span class="main-actions__item-text">
                                     Сравнение
                                 </span>
-
                             </a>
                             <a href="lk-person.html" class="main-actions__item icon-user">
                                 <span class="main-actions__item-text">
@@ -317,7 +298,38 @@
                             </a>
                         </div>
                     </div>
-
+                </div>
+                <div class="header__bottom">
+                    <div class="header__bottom-container container">
+                        <nav aria-label="Меню в шапке" class="header__menu menu">
+                            <ul class="menu__list">
+                                <li class="menu__item">
+                                    <a href="about.html" class="menu__link icon-sale">Акция</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="" class="menu__link">Бытовая техника</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="" class="menu__link">Клининг</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="" class="menu__link">Инструмент</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="" class="menu__link">Для сада</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="" class="menu__link">Horeca</a>
+                                </li>
+                                <li class="menu__item">
+                                    <a href="" class="menu__link">Расширенная гарантия</a>
+                                </li>
+                            </ul>
+                        </nav>
+                        <div class="header__delivery">
+                            Адрес доставки: <address>ул. Авиационная, д.10</address>
+                        </div>
+                    </div>
                 </div>
             </header>
             <main class="page">
@@ -333,335 +345,85 @@
                         </ul>
                     </div>
                 </nav>
-                <section class="blog">
+                <section class="news">
                     <div class="container">
-                        <h1 class="blog__title title">Новости <span class="color-grey">компании</span></h1>
-                        <div class="blog__filters">
-                            <div class="blog__sort">
-
-                                <div class="filter-dropdown" data-type="radio">
-                                    <button type="button" class="filter-dropdown__trigger">
-                                        <span class="filter-dropdown__text" data-default="Год публикации">Год публикации</span>
-                                        <span class="filter-dropdown__icon icon-chevron-down"></span>
-                                    </button>
-                                    <div class="filter-dropdown__body">
-                                        <div class="filter-dropdown__list">
-                                            <label class="filter-option">
-                                                <input type="radio" name="year_radio" class="filter-option__input hidden" hidden value="2023">
-                                                <span>2023</span>
-                                            </label>
-                                            <label class="filter-option">
-                                                <input type="radio" name="year_radio" class="filter-option__input hidden" hidden value="2022">
-                                                <span>2022</span>
-                                            </label>
-                                            <label class="filter-option">
-                                                <input type="radio" name="year_radio" class="filter-option__input hidden" hidden value="2021">
-                                                <span>2021</span>
-                                            </label>
-                                        </div>
-                                        <div class="filter-dropdown__footer">
-                                            <button type="button" class="btn btn-primary btn-apply">Применить</button>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="filter-dropdown" data-type="radio">
-                                    <button type="button" class="filter-dropdown__trigger">
-                                        <span class="filter-dropdown__text" data-default="Категория новости">Категория новости</span>
-                                        <span class="filter-dropdown__icon icon-chevron-down"></span>
-                                    </button>
-                                    <div class="filter-dropdown__body">
-                                        <div class="filter-dropdown__list">
-                                            <label class="filter-option">
-                                                <input type="radio" name="blog_category" class="filter-option__input hidden" hidden value="tools">
-                                                <span>Инструменты</span>
-                                            </label>
-                                            <label class="filter-option">
-                                                <input type="radio" name="blog_category" class="filter-option__input hidden" hidden value="reviews">
-                                                <span>Обзоры</span>
-                                            </label>
-                                            <label class="filter-option">
-                                                <input type="radio" name="blog_category" class="filter-option__input hidden" hidden value="news">
-                                                <span>Новости компании</span>
-                                            </label>
-                                            <label class="filter-option">
-                                                <input type="radio" name="blog_category" class="filter-option__input hidden" hidden value="guides">
-                                                <span>Инструкции</span>
-                                            </label>
-                                        </div>
-                                        <div class="filter-dropdown__footer">
-                                            <button type="button" class="btn btn-primary btn-apply">Применить</button>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="filter-dropdown" data-type="checkbox">
-                                    <button type="button" class="filter-dropdown__trigger">
-                                        <span class="filter-dropdown__text" data-default="Теги">Теги</span>
-                                        <span class="filter-dropdown__icon icon-chevron-down"></span>
-                                    </button>
-                                    <div class="filter-dropdown__body">
-                                        <div class="filter-dropdown__list">
-                                            <label class="filter-option">
-                                                <input type="checkbox" name="blog_tags" value="akkum" class="filter-option__input hidden" hidden>
-                                                <span>Аккумуляторы</span>
-                                            </label>
-                                            <label class="filter-option">
-                                                <input type="checkbox" name="blog_tags" value="garden" class="filter-option__input hidden" hidden>
-                                                <span>Садовая техника</span>
-                                            </label>
-                                            <label class="filter-option">
-                                                <input type="checkbox" name="blog_tags" value="diy" class="filter-option__input hidden" hidden>
-                                                <span>Своими руками</span>
-                                            </label>
-                                            <label class="filter-option">
-                                                <input type="checkbox" name="blog_tags" value="pro" class="filter-option__input hidden" hidden>
-                                                <span>Профессиональный инструмент</span>
-                                            </label>
-                                            <label class="filter-option">
-                                                <input type="checkbox" name="blog_tags" value="sale" class="filter-option__input hidden" hidden>
-                                                <span>Акции</span>
-                                            </label>
-                                        </div>
-                                        <div class="filter-dropdown__footer">
-                                            <button type="button" class="btn btn-primary btn-apply">Применить</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="blog__tags">
-                                <div class="blog__tags-title title-sm">
-                                    фильтр по тегам
-                                </div>
-                                <div class="blog__tags-list">
-                                    <a href="" class="blog__tag active">Измельчитель</a>
-                                    <a href="" class="blog__tag">Bort</a>
-                                    <a href="" class="blog__tag">Пищевые отходы</a>
-                                    <a href="" class="blog__tag">Измельчитель</a>
-                                    <a href="" class="blog__tag">Bort</a>
-                                    <a href="" class="blog__tag">Пищевые отходы</a>
-                                    <a href="" class="blog__tag">Titan</a>
-                                    <a href="" class="blog__tag">Измельчать</a>
-                                    <a href="" class="blog__tag">Titan</a>
-                                    <a href="" class="blog__tag">Измельчать</a>
-                                    <a href="" class="blog__tag">Измельчитель</a>
-                                    <a href="" class="blog__tag">Bort</a>
-                                    <a href="" class="blog__tag">Пищевые отходы</a>
-                                    <a href="" class="blog__tag">Измельчитель</a>
-                                    <a href="" class="blog__tag">Bort</a>
-                                </div>
-                            </div>
+                        <h2 class="news__title title">новости</h2>
+                        <div class="news__grid">
+                            <li class="news-card swiper-slide">
+                                <a href="article.html" class="news-card__poster">
+                                    <img src="img/news/01.jpg" class="cover-image" alt="@@poster">
+                                </a>
+                                <time datetime="2026-05-29" class="news-card__time icon-calendar">29.06.2026</time>
+                                <a href="article.html" class="news-card__title title-sm">Цепная аккумуляторная пила BORT BKS-2112-LI: обзор конструкции и анализ преимуществ</a>
+                                
+                            </li><li class="news-card swiper-slide">
+                                <a href="article.html" class="news-card__poster">
+                                    <img src="img/news/02.jpg" class="cover-image" alt="@@poster">
+                                </a>
+                                <time datetime="2026-05-22" class="news-card__time icon-calendar">22.06.2026</time>
+                                <a href="article.html" class="news-card__title title-sm">Проточный водонагреватель BORT BWH-3010: компактное устройство с умным управлением</a>
+                                
+                            </li><li class="news-card swiper-slide">
+                                <a href="article.html" class="news-card__poster">
+                                    <img src="img/news/03.jpg" class="cover-image" alt="@@poster">
+                                </a>
+                                <time datetime="2026-05-22" class="news-card__time icon-calendar">22.05.2026</time>
+                                <a href="article.html" class="news-card__title title-sm">Аккумуляторная дисковая пила BORT BHK-20Li: компактный универсал для точного реза</a>
+                                
+                            </li><li class="news-card swiper-slide">
+                                <a href="article.html" class="news-card__poster">
+                                    <img src="img/news/03.jpg" class="cover-image" alt="@@poster">
+                                </a>
+                                <time datetime="2026-05-22" class="news-card__time icon-calendar">22.05.2026</time>
+                                <a href="article.html" class="news-card__title title-sm">Аккумуляторная дисковая пила BORT BHK-20Li: компактный универсал для точного реза</a>
+                                
+                            </li><li class="news-card swiper-slide">
+                                <a href="article.html" class="news-card__poster">
+                                    <img src="img/news/01.jpg" class="cover-image" alt="@@poster">
+                                </a>
+                                <time datetime="2026-05-29" class="news-card__time icon-calendar">29.06.2026</time>
+                                <a href="article.html" class="news-card__title title-sm">Цепная аккумуляторная пила BORT BKS-2112-LI: обзор конструкции и анализ преимуществ</a>
+                                
+                            </li><li class="news-card swiper-slide">
+                                <a href="article.html" class="news-card__poster">
+                                    <img src="img/news/02.jpg" class="cover-image" alt="@@poster">
+                                </a>
+                                <time datetime="2026-05-22" class="news-card__time icon-calendar">22.06.2026</time>
+                                <a href="article.html" class="news-card__title title-sm">Проточный водонагреватель BORT BWH-3010: компактное устройство с умным управлением</a>
+                                
+                            </li><li class="news-card swiper-slide">
+                                <a href="article.html" class="news-card__poster">
+                                    <img src="img/news/01.jpg" class="cover-image" alt="@@poster">
+                                </a>
+                                <time datetime="2026-05-29" class="news-card__time icon-calendar">29.06.2026</time>
+                                <a href="article.html" class="news-card__title title-sm">Цепная аккумуляторная пила BORT BKS-2112-LI: обзор конструкции и анализ преимуществ</a>
+                                
+                            </li><li class="news-card swiper-slide">
+                                <a href="article.html" class="news-card__poster">
+                                    <img src="img/news/02.jpg" class="cover-image" alt="@@poster">
+                                </a>
+                                <time datetime="2026-05-22" class="news-card__time icon-calendar">22.06.2026</time>
+                                <a href="article.html" class="news-card__title title-sm">Проточный водонагреватель BORT BWH-3010: компактное устройство с умным управлением</a>
+                                
+                            </li><li class="news-card swiper-slide">
+                                <a href="article.html" class="news-card__poster">
+                                    <img src="img/news/03.jpg" class="cover-image" alt="@@poster">
+                                </a>
+                                <time datetime="2026-05-22" class="news-card__time icon-calendar">22.05.2026</time>
+                                <a href="article.html" class="news-card__title title-sm">Аккумуляторная дисковая пила BORT BHK-20Li: компактный универсал для точного реза</a>
+                                
+                            </li>
                         </div>
-                        <ul class="blog__list">
-                            <div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/01.png" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/02.jpg" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/01.png" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/02.jpg" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/01.png" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/02.jpg" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/01.png" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/02.jpg" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/01.png" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/02.jpg" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/01.png" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/02.jpg" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/01.png" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/02.jpg" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/01.png" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/02.jpg" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/01.png" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/02.jpg" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/01.png" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div><div class="news-card">
-                                <a href="article.html" class="news-card__poster">
-                                    <img src="img/blog/02.jpg" class="cover-image" alt="@@poster">
-                                </a>
-                                <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-                                <a href="article.html" class="news-card__title title-sm">
-                                    <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-                                </a>
-                                <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-                                <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-                            </div>
-                        </ul>
-                        <button type="button" class="blog__more btn btn-secondary">Показать больше</button>
+                        <a href="" class="news__btn btn btn-secondary icon-loading">Показать еще</a>
                         <div class="pagination">
+                            <a href="" class="pagination__prev icon-chevron-left"></a>
                             <a href="" class="pagination__item active">1</a>
                             <a href="" class="pagination__item">2</a>
                             <a href="" class="pagination__item">3</a>
                             <a href="" class="pagination__item">4</a>
                             <span class="pagination__item">...</span>
-                            <a href="" class="pagination__item">99</a>
+                            <a href="" class="pagination__item">40</a>
+                            <a href="" class="pagination__next icon-chevron-right"></a>
                         </div>
                     </div>
                 </section>
@@ -669,43 +431,89 @@
             <footer class="footer">
                 <div class="container">
                     <div class="footer__header">
-                        <a href="index.html" class="footer__logo">
-                            <img src="img/logo-white.svg" alt="Логотип сайта Bort">
-                        </a>
-                        <nav aria-label="Меню в подвале" class="footer__menu">
+                        <div class="footer__main">
+                            <a href="index.html" class="footer__logo">
+                                <img src="img/logo-white.svg" alt="Логотип сайта Bort">
+                            </a>
+                            <a href="tel:+74997057979" class="footer__phone">+7 (499) 705-79-79</a>
+                            <address class="footer__address">Россия, г. Москва, ул. Щукинская, д. 42</address>
+                            <div class="footer__worktime">Пн-Пт 9.00-18.00</div>
+                            <a href="mailto:sales@bort.ru" class="footer__email">sales@bort.ru</a>
+                            <a href="" class="footer__link">Показать на карте</a>
+                            <div class="footer__socials">
+                                <a href="" aria-label="Мы в Вконтакте" class="footer__social">
+                                    <img src="img/icons/vk.svg" alt="Вконтакте">
+                                </a>
+                                <a href="" aria-label="Мы в Дзен" class="footer__social">
+                                    <img src="img/icons/dzen.svg" alt="Дзен">
+                                </a>
+                                <a href="" aria-label="Мы в Rutube" class="footer__social">
+                                    <img src="img/icons/rutube.svg" alt="Rutube">
+                                </a>
+                                <a href="" aria-label="Мы в Youtube" class="footer__social">
+                                    <img src="img/icons/youtube.svg" alt="Youtube">
+                                </a>
+                                <a href="" aria-label="Мы в drive2" class="footer__social">
+                                    <img src="img/icons/d2.svg" alt="drive2">
+                                </a>
+                                <a href="" aria-label="Мы в Telegram" class="footer__social">
+                                    <img src="img/icons/telegram.svg" alt="telegram">
+                                </a>
+                                <a href="" aria-label="Мы в Max" class="footer__social">
+                                    <img src="img/icons/max.svg" alt="max">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <nav aria-label="Меню в подвале" class="footer__menu">
+                        <div class="footer__menu-block">
+                            <div class="footer__menu-caption">Кабинет покупателя</div>
+                            <ul class="footer__menu-list">
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Учетная запись</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Заказы</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Отложенные товары</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Список сравнения</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer__menu-block">
+                            <div class="footer__menu-caption">Магазин</div>
                             <ul class="footer__menu-list">
                                 <li class="footer__menu-item"><a href="" class="footer__menu-link">О компании</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Личный кабинет</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Новости</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Быстрый заказ</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Обратная связь</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Наши партнёры</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Отзывы покупателей</a></li>
                                 <li class="footer__menu-item"><a href="" class="footer__menu-link">Карта сайта</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Выход</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Оптовикам</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Контакты</a></li>
                             </ul>
-                        </nav>
-                        <div class="footer__socials">
-                            <a href="" aria-label="Мы в Telegram" class="footer__social">
-                                <img src="img/icons/telegram.svg" alt="Иконка Telegram">
-                            </a>
-                            <a href="" aria-label="Мы в Telegram" class="footer__social">
-                                <img src="img/icons/telegram.svg" alt="Иконка Telegram">
-                            </a>
-                            <a href="" aria-label="Мы в Telegram" class="footer__social">
-                                <img src="img/icons/telegram.svg" alt="Иконка Telegram">
-                            </a>
-                            <a href="" aria-label="Мы в Telegram" class="footer__social">
-                                <img src="img/icons/telegram.svg" alt="Иконка Telegram">
-                            </a>
                         </div>
-                        <a href="#callback" data-fancybox class="footer__callback btn btn-primary">Обратный звонок</a>
-                    </div>
+                        <div class="footer__menu-block">
+                            <div class="footer__menu-caption">Оформление заказа</div>
+                            <ul class="footer__menu-list">
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Доставка и оплата</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Безусловный возврат товара</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Фирменна установка измельчителей</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer__menu-block">
+                            <div class="footer__menu-caption">Дополнительно</div>
+                            <ul class="footer__menu-list">
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Обратная связь</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Акции и новости</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Купить запчасти</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Полезные сервисы Bort</a></li>
+                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Политика конфиденциальности</a></li>
+                            </ul>
+                        </div>
+                    </nav>
                     <div class="footer__bottom">
-                        <div class="footer__copyright">Bort. 2025</div>
+                        <div class="footer__copyright">© 2016-2026 Bort.ru. Все права защищены.</div>
+                        <div class="footer__desc">
+                            <p>Гарантийный срок продлевается до 3-5 лет*, если владелец регистрирует электроинструмент в течение 2 недель с момента покупки. Увеличение срока гарантии не распространяется на аккумуляторы для инструмента, зарядные устройства и принадлежности, входящие в комплект поставки. Регистрация осуществляется только на сайте warranty.bort-global.com</p>
+                            <p>Подтверждением регистрации является регистрационный сертификат, который следует распечатать во время регистрации. Регистрационный сертификат предъявляется в сервисном центре вместе с гарантийном талоном и кассовым чеком.</p>
+                        </div>
                     </div>
                 </div>
             </footer>
-            <button type="button" aria-label="Вернуться в начало страницы" class="arrow-top icon-up"></button>
+            <button type="button" aria-label="Вернуться в начало страницы" class="arrow-top icon-chevron-up"></button>
             <div class="notify-container"></div>
             <div id="callback" class="popup">
                 <div class="popup__title title-md">

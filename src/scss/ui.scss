@@ -20,12 +20,15 @@
 	line-height: 100%;
 	text-transform: uppercase;
 	font-size: 2rem;
+
 	@media (min-width: $md4) {
 		font-size: 3rem;
 	}
+
 	@media (min-width: $md2) {
 		font-size: 3.75rem;
 	}
+
 	@media (min-width: $md1) {
 		font-size: 4rem;
 	}
@@ -36,9 +39,11 @@
 	line-height: 125%;
 	text-transform: uppercase;
 	font-size: 1.75rem;
+
 	@media (min-width: $md5) {
 		font-size: 2rem;
 	}
+
 	@media (min-width: $md4) {
 		font-size: 2.25rem;
 	}
@@ -49,6 +54,7 @@
 	line-height: 125%;
 	text-transform: uppercase;
 	font-size: 1.25rem;
+
 	@media (min-width: $md4) {
 		font-size: 1.75rem;
 	}
@@ -59,6 +65,7 @@
 	line-height: 125%;
 	text-transform: uppercase;
 	font-size: 1rem;
+
 	@media (min-width: $md4) {
 		font-size: 1.25rem;
 	}
@@ -93,7 +100,8 @@
 		display: none;
 	}
 
-	transition: background-color 0.3s ease 0s, color 0.3s ease 0s;
+	transition: background-color 0.3s ease 0s,
+	color 0.3s ease 0s;
 	z-index: 2;
 	width: 1.875rem;
 	height: 1.875rem;
@@ -106,6 +114,8 @@
 	color: #63666a;
 	box-shadow: 0 0 rem(10) 0 rgba(64, 64, 64, 0.05);
 	border-radius: 50%;
+	@extend %ic, .icon-arrow-down;
+
 	@media (min-width: $md4) {
 		width: 2.5rem;
 		height: 2.5rem;
@@ -130,16 +140,26 @@
 }
 
 .swiper-button-prev {
-	@extend %ic, .icon-prev;
+	&::before {
+		transform: rotate(90deg);
+
+	}
+
 	left: rem(-15);
+
 	@media (min-width: $md4) {
 		left: rem(-20);
 	}
 }
 
 .swiper-button-next {
-	@extend %ic, .icon-next;
+	&::before {
+		transform: rotate(-90deg);
+
+	}
+
 	right: rem(-15);
+
 	@media (min-width: $md4) {
 		right: rem(-20);
 	}
@@ -151,12 +171,14 @@
 		margin: auto;
 		margin-top: 1rem;
 		width: auto;
+
 		.swiper-pagination-bullet {
 			width: 0.625rem;
 			height: 0.625rem;
 			background: #efefef;
 			opacity: 1;
 			margin: 0 rem(2.5);
+
 			&.swiper-pagination-bullet-active {
 				opacity: 1;
 				background: $orange;
@@ -176,34 +198,41 @@
 	height: 1.5625rem;
 	font-size: 1.5rem;
 	transition: color 0.15s ease-in;
+
 	.product.product--small & {
 		width: 1.5625rem;
 		height: 1.5625rem;
 		font-size: 1.5rem;
 	}
+
 	@media (min-width: $md4) {
 		font-size: 2rem;
 		width: 2.1875rem;
 		height: 2.1875rem;
 	}
+
 	&.active {
 		&::before {
 			// color: #b61d1d;
 			color: #00778b;
 			animation: pulse 0.3s ease-in-out;
+
 			@keyframes pulse {
 				0% {
 					transform: scale(1);
 				}
+
 				50% {
 					transform: scale(1.4);
 				}
+
 				100% {
 					transform: scale(1);
 				}
 			}
 		}
 	}
+
 	@media (any-hover: hover) {
 		&:hover {
 			color: #00778b;
@@ -223,16 +252,19 @@
 	width: 1.5625rem;
 	height: 1.5625rem;
 	font-size: 1.5rem;
+
 	.product.product--small & {
 		width: 1.5625rem;
 		height: 1.5625rem;
 		font-size: 1.5rem;
 	}
+
 	@media (min-width: $md4) {
 		font-size: 2rem;
 		width: 2.1875rem;
 		height: 2.1875rem;
 	}
+
 	&.active {
 		color: #00778b;
 	}
@@ -278,6 +310,7 @@
 	gap: 0.37rem;
 	padding: 0.75rem;
 	transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
 	&::before {
 		font-size: 1.5rem;
 		order: 1;
@@ -286,13 +319,16 @@
 	&.active {
 		background: #98ff3c;
 	}
+
 	&:not(.active) {
+
 		&:hover,
 		&:active {
 			background: #ff91c6;
 			box-shadow: rem(6) rem(6) rem(12) 0 rgba(0, 0, 0, 0.22);
 		}
 	}
+
 	& span {
 		font-weight: 600;
 		font-size: 1rem;
@@ -307,6 +343,7 @@
 	display: flex;
 	align-items: center;
 	gap: 0.5rem;
+
 	&::before {
 		order: 1;
 		width: 1.25rem;
@@ -326,37 +363,47 @@
 	flex-shrink: 0;
 
 	overflow: hidden;
+
 	&.quantity-block--small {
 		width: rem(105);
 	}
+
 	&.quantity-block--large {
 		width: rem(175);
+
 		.quantity-block__up,
 		.quantity-block__down {
 			width: rem(50);
 			height: rem(50);
 		}
+
 		.quantity-block__input {
 			height: rem(50);
 		}
 	}
+
 	&.quantity-block--large-desktop {
 		@media (min-width: $md4) {
 			width: rem(175);
+
 			.quantity-block__up,
 			.quantity-block__down {
 				width: rem(50);
 				height: rem(50);
 			}
+
 			.quantity-block__input {
 				height: rem(50);
 			}
 		}
 	}
+
 	width: rem(105);
+
 	@media (min-width: $md4) {
 		width: rem(140);
 	}
+
 	// .quantity-block__up
 	// .quantity-block__down
 	&__up,
@@ -367,18 +414,22 @@
 		align-items: center;
 		background: #efefef;
 		transition: background-color 0.3s ease, color 0.3s ease;
+
 		.quantity-block.quantity-block--small & {
 			width: rem(30);
 			height: rem(30);
 		}
+
 		width: rem(30);
 		height: rem(30);
 		font-size: 1.125rem;
+
 		@media (min-width: $md4) {
 			font-size: 1.5rem;
 			width: 2.5rem;
 			height: 2.5rem;
 		}
+
 		@media (any-hover: hover) {
 			&:hover {
 				background: $orange;
@@ -386,12 +437,13 @@
 			}
 		}
 	}
+
 	// .quantity-block__down
-	&__down {
-	}
+	&__down {}
+
 	// .quantity-block__up
-	&__up {
-	}
+	&__up {}
+
 	// .quantity-block__input
 	&__input {
 		border-top: rem(1) solid #efefef;
@@ -402,12 +454,15 @@
 		font-weight: 500;
 		line-height: 125%;
 		flex: 1 1 auto;
+
 		.quantity-block.quantity-block--small & {
 			height: rem(30);
 			font-size: 0.875rem;
 		}
+
 		height: rem(30);
 		font-size: 0.875rem;
+
 		@media (min-width: $md4) {
 			font-size: 1rem;
 			height: 2.5rem;
@@ -422,21 +477,24 @@
 	padding: 0.25rem;
 	display: inline-flex;
 	gap: 0.25rem;
+
 	// .switch__item
 	&__item {
 		display: block;
 		position: relative;
 		z-index: 2;
 	}
+
 	// .switch__item-input
 	&__item-input {
 		&:checked {
-			& + .switch__item-btn {
+			&+.switch__item-btn {
 				background: #ff7dbc;
 				color: #181d27;
 			}
 		}
 	}
+
 	// .switch__item-btn
 	&__item-btn {
 		font-size: 1.125rem;
@@ -446,6 +504,7 @@
 		cursor: pointer;
 		transition: color 0.3s ease, background-color 0.3s ease;
 		padding: 0.25rem 0.5rem;
+
 		@media (min-width: $md4) {
 			padding: 0.375rem 0.75rem;
 		}
@@ -460,6 +519,7 @@
 	font-size: 1rem;
 	font-weight: 500;
 	line-height: 125%;
+
 	&::before {
 		order: 1;
 		width: 1.25rem;
@@ -471,6 +531,7 @@
 		flex-shrink: 0;
 		transition: transform 0.3s ease;
 	}
+
 	@media (any-hover: hover) {
 		&:hover {
 			&::before {
@@ -500,11 +561,13 @@
 	width: 2.5rem;
 	height: 2.5rem;
 	font-size: 1.5rem;
+
 	@media (min-width: $md5) {
 		font-size: 1.75rem;
 		width: 3rem;
 		height: 3rem;
 	}
+
 	@media (min-width: $md4) {
 		width: 3.75rem;
 		height: 3.75rem;
@@ -512,17 +575,21 @@
 		bottom: 1.5rem;
 		right: 1.5rem;
 	}
+
 	@media (min-width: $md3) {
 		bottom: 2.5rem;
 		right: 2.5rem;
 	}
+
 	&.visible {
 		opacity: 1;
 		visibility: visible;
 	}
+
 	&:hover {
 		background-color: #f5912b;
 	}
+
 	&:active {
 		background-color: #f5912b;
 		color: #ea7600;
@@ -559,12 +626,15 @@ $scrollbarColor: $orange;
 ::-webkit-scrollbar {
 	width: rem(8);
 }
+
 ::-webkit-scrollbar-track {
 	background: #fff;
 }
+
 ::-webkit-scrollbar-thumb {
 	background: $scrollbarColor;
 	border-radius: rem(8);
+
 	@media (any-hover: hover) {
 		&:hover {
 			background: darken($color: $scrollbarColor, $amount: 10);

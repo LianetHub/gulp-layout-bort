@@ -1,11 +1,11 @@
-<div class="news-card@@className">
+<li class="news-card@@className">
     <a href="article.html" class="news-card__poster">
         <img src="@@image" class="cover-image" alt="@@poster">
     </a>
-    <time datetime="2024-10-26" class="news-card__time icon-calendar">26.10.2024</time>
-    <a href="article.html" class="news-card__title title-sm">
-        <span class="color-accent">НОВИНКА!</span> АППАРАТ ВЫСОКОГО ДАВЛЕНИЯ BORT KEX-2800!
-    </a>
-    <p class="news-card__description">Некоторое новостное превью, призванное заинтересовать и побудить к действию и работающее на СЕО</p>
-    <a href="article.html" class="news-card__more more-link icon-right">Читать подробнее</a>
-</div>
+    <time datetime="@@datetime" class="news-card__time icon-calendar">@@time</time>
+    <a href="article.html" class="news-card__title title-sm">@@title</a>
+    @@if(typeof desc !== 'undefined') {
+    <p class="news-card__description">@@desc</p>
+    <a href="article.html" class="news-card__more more-link icon-right">Читать далее</a>
+    }
+</li>
