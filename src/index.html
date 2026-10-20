@@ -1,91 +1,123 @@
 <!DOCTYPE html>
 <html lang="ru">
-    @@include('html/_head.html', {
-    'title': 'Главная страница | Авторизованный пользователь'
-    })
+    @@include('html/_head.html', {'title': 'Bort — инструменты и бытовая техника'})
+
     <body>
         <div class="wrapper">
-            @@include('html/_header.html', {
-            "auth": true
-            })
-            <main class="page">
-                <div class="promotions">
+            @@include('html/_header.html', {})
+            <main class="page page--showcase">
+                <div class="promotions promotions--hero">
                     <div class="promotions__container container">
                         <div class="promotions__slider">
                             <div class="swiper">
                                 <div class="swiper-wrapper">
-                                    @@loop('./html/templates/_promotion-card.html',{})
+                                    @@loop('./html/templates/_promo-slide.html', './html/json/promo-slides.json')
                                 </div>
                             </div>
-                            <div class="promotions__controls">
-                                <div class="promotions__pagination swiper-pagination"></div>
-                                <button type="button" class="promotions__prev swiper-button-prev"></button>
-                                <button type="button" class="promotions__next swiper-button-next"></button>
+                            <div class="promotions__controls swiper-controls">
+                                <div class="promotions__pagination swiper-pagination swiper-pagination--light"></div>
+                                <button type="button" class="promotions__prev swiper-button-prev" aria-label="Предыдущий слайд"></button>
+                                <button type="button" class="promotions__next swiper-button-next" aria-label="Следующий слайд"></button>
                             </div>
                         </div>
                         <div class="promotions__cards">
-                            <a href="" class="promo-card" style="background-image: url('@img/promotions/promo-guarantee.jpg');">
-                                <div class="promo-card__title title-sm">Расширенная гарантия</div>
+                            <a href="product.html" class="promo-card promo-card--small" style="background-image: url('@img/promotions/promo-guarantee.jpg');">
+                                <div class="promo-card__title title-sm title--card">Расширенная гарантия</div>
                                 <div class="promo-card__description">Уверены в качестве и надежности</div>
                                 <div class="promo-card__logo">
-                                    <img src="@img/logo-white.svg" width="69" height="20" alt="Логотип сайта Bort">
+                                    <img src="@img/logo-white.svg" width="69" height="20" alt="Логотип сайта Bort" class="promo-card__image">
                                 </div>
                             </a>
-                            <a href="" class="promo-card" style="background-image: url('@img/promotions/promo-saw.jpg');">
-                                <div class="promo-card__title title-sm">Цепная аккумуляторная пила BORT BKS-2112-LI</div>
+                            <a href="product.html" class="promo-card promo-card--small" style="background-image: url('@img/promotions/promo-saw.jpg');">
+                                <div class="promo-card__title title-sm title--card">Цепная аккумуляторная пила BORT BKS-2112-LI</div>
                                 <div class="promo-card__description">для регулярного использования средней интенсивности</div>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="categories">
+                <div class="categories categories--tiles">
                     <div class="categories__container container">
                         <ul class="categories__list">
                             @@loop('./html/templates/_category.html', './html/json/categories.json')
                         </ul>
                     </div>
                 </div>
-                <section class="sales">
-                    <div class="container">
-                        <h2 class="sales__title title">Акции</h2>
-                        <div class="sales__slider">
-                            <div class="swiper">
-                                <div class="swiper-wrapper">
-                                    @@loop('./html/templates/_sales-card.html', './html/json/sales.json')
-                                </div>
-                            </div>
-                            <button type="button" class="sales__prev swiper-button-prev"></button>
-                            <button type="button" class="sales__next swiper-button-next"></button>
-                            <div class="sales__pagination swiper-pagination"></div>
-                        </div>
-                    </div>
-                </section>
-                <div class="banner">
+                @@include('html/includes/_products-showcase.html', {
+                "title": "Новинки Bort",
+                "link": "new-arrivals.html",
+                "compact": false,
+                "popular": false
+                })
+                <div class="banner banner--strip">
                     <div class="banner__container container">
-                        <a href="" class="banner__image">
-                            <img src="@img/promotions/banner.png" alt="Баннер">
+                        <a href="product.html" class="banner__image">
+                            <img src="@img/promotions/banner-jigsaw.jpg" alt="Аккумуляторный лобзик BPS-21LI-M. Создан держать скорость под нагрузкой" width="1240" height="100" loading="lazy" class="banner__picture">
                         </a>
                     </div>
                 </div>
-                @@include('./html/includes/_popular-products.html')
-                @@include('./html/includes/_new-products.html')
-                @@include('./html/includes/_last-arrives-products.html')
-                <section class="news">
-                    <div class="container">
-                        <h2 class="news__title title">новости</h2>
-                        <div class="news__slider">
-                            <div class="swiper">
-                                <ul class="swiper-wrapper">
-                                    @@loop('./html/templates/_news-card.html', './html/json/news.json')
-                                </ul>
-                            </div>
-                            <div class="news__controls">
-                                <button type="button" class="news__prev swiper-button-prev"></button>
-                                <button type="button" class="news__next swiper-button-next"></button>
-                                <div class="news__pagination swiper-pagination"></div>
-                            </div>
+                @@include('html/includes/_products-showcase.html', {
+                "title": "Успейте купить",
+                "link": "promotions.html",
+                "compact": true,
+                "popular": false
+                })
+                <section class="solutions">
+                    <div class="solutions__container container">
+                        <div class="solutions__heading section-heading">
+                            <h2 class="solutions__title title title--section">Проверенные решения</h2>
                         </div>
-                        <a href="/blog.html" class="news__btn btn btn-secondary">Все новости</a>
+                        <ul class="solutions__list">
+                            @@loop('html/templates/_solution.html', 'html/json/solutions.json')
+                        </ul>
+                    </div>
+                </section>
+                <div class="banner banner--strip">
+                    <div class="banner__container container">
+                        <a href="product.html" class="banner__image">
+                            <img src="@img/promotions/banner.png" alt="Новинка. Аккумуляторная УШМ BWS-18LI-XDK" width="1240" height="100" loading="lazy" class="banner__picture">
+                        </a>
+                    </div>
+                </div>
+                @@include('html/includes/_products-showcase.html', {
+                "title": "Популярные товары Bort",
+                "link": "catalog.html",
+                "compact": false,
+                "popular": true
+                })
+                <div class="marketing">
+                    <div class="marketing__container container">
+                        @@loop('html/templates/_marketing-banner.html', 'html/json/marketing.json')
+                    </div>
+                </div>
+                <section class="news news--feed">
+                    <div class="news__container container">
+                        <div class="news__heading section-heading">
+                            <h2 class="news__title title title--section">Новости компании / блог</h2>
+                            <a href="blog.html" class="news__more section-more icon-chevron-right">Показать все</a>
+                        </div>
+                        <div class="news__slider" data-showcase-slider="3">
+                            <div class="swiper">
+                                <ul class="swiper-wrapper">@@loop('html/templates/_news-card.html', 'html/json/news-feed.json')</ul>
+                            </div>
+                            <button type="button" class="news__prev swiper-button-prev" aria-label="Предыдущие новости"></button>
+                            <button type="button" class="news__next swiper-button-next" aria-label="Следующие новости"></button>
+                        </div>
+                    </div>
+                </section>
+                <section class="subscribe">
+                    <div class="subscribe__container container">
+                        <div class="subscribe__body">
+                            <h2 class="subscribe__title title title--subscribe">Подпишитесь на рассылку</h2>
+                            <p class="subscribe__text">узнавайте о специальных предложениях и новинках первыми</p>
+                        </div>
+                        <form action="#" class="subscribe__form">
+                            <div class="subscribe__fields">
+                                <input type="email" name="email" placeholder="Ваш e-mail" aria-label="Ваш e-mail" autocomplete="email" required class="subscribe__input">
+                                <button type="submit" class="subscribe__submit">Подписаться</button>
+                            </div>
+                            <p class="subscribe__text">Отправляя e-mail, я подтверждаю, что ознакомлен и согласен с условиями <a href="policy.html" class="subscribe__link">Политики Конфиденциальности</a>.</p>
+                            <div class="subscribe__status" role="status"></div>
+                        </form>
                     </div>
                 </section>
             </main>
@@ -93,4 +125,5 @@
             @@include('html/_js.html', {})
         </div>
     </body>
+
 </html>

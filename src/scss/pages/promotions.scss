@@ -164,6 +164,41 @@
 			min-width: 11.25rem;
 		}
 	}
+
+	&--hero {
+		padding: rem(20) 0 0;
+
+		.promotions__container {
+			box-sizing: border-box;
+			width: 100%;
+			max-width: rem(1280);
+
+			display: grid;
+			grid-template-columns: 2fr 1fr;
+			gap: rem(10);
+		}
+
+		.promotions__slider {
+			position: relative;
+			min-width: 0;
+			border-radius: rem(10);
+			overflow: hidden;
+		}
+
+		.promotions__controls {
+			position: absolute;
+			display: flex;
+			bottom: rem(30);
+			right: rem(30);
+			z-index: 2;
+		}
+
+		.promotions__cards {
+			display: grid;
+			grid-template-rows: 1fr 1fr;
+			gap: rem(10);
+		}
+	}
 }
 
 .promotion {

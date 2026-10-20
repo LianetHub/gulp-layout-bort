@@ -1,0 +1,86 @@
+.promo-card {
+
+	position: relative;
+	padding: rem(30);
+	height: rem(450);
+	border-radius: rem(10);
+	overflow: hidden;
+	background-position: center;
+	background-size: cover;
+	background-repeat: no-repeat;
+
+	&__label {
+		display: inline-block;
+		padding: rem(5) rem(10);
+		border-radius: rem(4);
+		background: #007d89;
+		color: #fff;
+		font-size: rem(12);
+		font-weight: 700;
+	}
+
+	&__title {
+		max-width: rem(560);
+		margin-top: rem(14);
+		color: #ff6900;
+	}
+
+	&__description {
+		margin-top: rem(14);
+		color: #ff6900;
+		font-size: rem(14);
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(2, rem(180));
+		gap: rem(6);
+		margin-top: rem(22);
+	}
+
+	&__block {
+		padding: rem(13) rem(8);
+		text-align: center;
+		border-radius: rem(7);
+		background: #ff8200;
+		font-size: rem(15);
+		font-weight: 700;
+	}
+
+	&__btn {
+		position: absolute;
+		bottom: rem(30);
+		left: rem(30);
+		background: #fff;
+		color: #63666a;
+	}
+
+	&__logo {
+		position: absolute;
+		bottom: rem(25);
+		left: rem(20);
+	}
+
+	&--small {
+		height: auto;
+		padding: rem(30) rem(20);
+		color: #fff;
+
+		.promo-card__title {
+			margin-top: 0;
+			color: #fff;
+			max-width: rem(280);
+		}
+
+		.promo-card__description {
+			max-width: rem(260);
+			color: #fff;
+			line-height: 1.4;
+		}
+	}
+
+
+
+
+
+}

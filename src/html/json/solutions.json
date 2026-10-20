@@ -1,0 +1,38 @@
+[
+    {
+        "image": "@img/solutions/solution-apartment.jpg",
+        "title": "Ремонт<br>в квартире",
+        "href": "category.html",
+        "className": " marketing-card--small"
+    },
+    {
+        "image": "@img/solutions/solution-cleaning.jpg",
+        "title": "Генеральная<br>уборка",
+        "href": "category.html",
+        "className": " marketing-card--small"
+    },
+    {
+        "image": "@img/solutions/solution-construction.jpg",
+        "title": "Строительство<br>на даче",
+        "href": "category.html",
+        "className": " marketing-card--small"
+    },
+    {
+        "image": "@img/solutions/solution-car.jpg",
+        "title": "Химчистка<br>салона",
+        "href": "category.html",
+        "className": " marketing-card--small"
+    },
+    {
+        "image": "@img/solutions/solution-waste.jpg",
+        "title": "Удаление<br>пищевых отходов",
+        "href": "category.html",
+        "className": " marketing-card--small"
+    },
+    {
+        "image": "@img/solutions/solution-pressure-washer.jpg",
+        "title": "Мойка фасадов<br>и техники",
+        "href": "category.html",
+        "className": " marketing-card--small"
+    }
+]

@@ -2,11 +2,10 @@
     <div class="header__content">
         <div class="container header__content-container">
             <a href="index.html" class="header__logo">
-                <img src="@img/logo.svg" width="138" height="40" alt="Логотип сайта Bort">
+                <img src="@img/logo.svg" width="138" height="40" alt="Логотип сайта Bort" class="header__image">
             </a>
-            <a href="" class="header__catalog btn btn-primary icon-dots-grid">Каталог</a>
+            <a href="catalog.html" class="header__catalog btn btn-primary icon-dots-grid">Каталог</a>
             <a href="tel:+74997057979" aria-label="Позвонить" class="header__phone header__phone--mobile icon-phone"></a>
-            @@include('./includes/_header-catalog.html')
             @@include('./includes/_search.html')
             <div class="header__actions main-actions">
                 <a href="catalog.html" class="main-actions__item icon-catalog">
@@ -25,7 +24,7 @@
                         Избранное
                     </span>
                 </a>
-                <a href="compare.html" class="main-actions__item icon-compare">
+                <a href="compare.html" class="main-actions__item icon-bars">
                     <span class="main-actions__item-text">
                         Сравнение
                     </span>
@@ -66,7 +65,7 @@
                 </ul>
             </nav>
             <div class="header__delivery">
-                Адрес доставки: <address>ул. Авиационная, д.10</address>
+                Адрес доставки: <address class="header__address">ул. Авиационная, д.10</address>
             </div>
         </div>
     </div>

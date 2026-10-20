@@ -301,6 +301,18 @@
 			min-width: 11.25rem;
 		}
 	}
+
+	margin-top: rem(60);
+
+	&__container {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: rem(20);
+
+		box-sizing: border-box;
+		width: 100%;
+		max-width: rem(1280);
+	}
 }
 
 .tags {

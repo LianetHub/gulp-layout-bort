@@ -1,0 +1,18 @@
+[
+    {
+        "url": "@img/promotions/promo-home.jpg",
+        "heading": "h1",
+        "label": "НОВИНКА",
+        "title": "Аккумуляторная дисковая пила Bort BHK-20Li без АКБ и ЗУ",
+        "desc": "Совместима с системой MAKITA LXT 18V",
+        "features": "<li class=\"promo-card__block\">Бесщеточный<br>мотор</li><li class=\"promo-card__block\">76 мм<br>диаметр диска</li><li class=\"promo-card__block\">3 диска<br>в комплекте</li><li class=\"promo-card__block\">Функция<br>реверса</li>"
+    },
+    {
+        "url": "@img/promotions/promo-saw.jpg",
+        "heading": "h2",
+        "label": "BORT",
+        "title": "Цепная аккумуляторная пила BORT BKS-2112-LI",
+        "desc": "Для регулярного использования средней интенсивности",
+        "features": ""
+    }
+]

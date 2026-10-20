@@ -1,0 +1,18 @@
+<section class="products-showcase@@if(compact){ products-showcase--sale}@@if(popular){ products-showcase--popular}">
+    <div class="products-showcase__container container">
+        <div class="products-showcase__body">
+            <div class="products-showcase__heading section-heading">
+                <h2 class="products-showcase__title title title--section">@@title</h2><a href="@@link" class="products-showcase__more section-more icon-chevron-right">Показать все</a>
+            </div>
+            <div class="products-showcase__slider" data-showcase-slider="@@if(compact){6}@@if(!compact){5}">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        @@loop('../templates/_product-tile.html', './html/json/products-showcase.json')
+                    </div>
+                </div>
+                <button type="button" class="products-showcase__prev swiper-button-prev" aria-label="Предыдущие товары"></button>
+                <button type="button" class="products-showcase__next swiper-button-next" aria-label="Следующие товары"></button>
+            </div>
+        </div>
+    </div>
+</section>

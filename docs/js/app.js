@@ -23,12 +23,14 @@ $(function () {
 
         // toggle active state favorite
         if ($target.closest('.favorite-btn').length) {
-            $target.closest('.favorite-btn').toggleClass('active')
+            const $btn = $target.closest('.favorite-btn');
+            $btn.toggleClass('active').attr('aria-pressed', $btn.hasClass('active'));
         }
 
         // toggle active compare btn
         if ($target.closest('.compare-btn').length) {
-            $target.toggleClass('active')
+            const $btn = $target.closest('.compare-btn');
+            $btn.toggleClass('active').attr('aria-pressed', $btn.hasClass('active'));
         }
 
         // toggle review card content
@@ -482,6 +484,44 @@ $(function () {
 
     // sliders
 
+    // Each slider uses its own Swiper controls.
+    $('[data-showcase-slider]').each(function () {
+        const $container = $(this);
+        new Swiper($container.find('.swiper')[0], {
+            slidesPerView: Number($container.data('showcase-slider')),
+            spaceBetween: 10,
+            watchOverflow: true,
+            navigation: {
+                nextEl: $container.find('.swiper-button-next')[0],
+                prevEl: $container.find('.swiper-button-prev')[0]
+            }
+        });
+    });
+
+    $('.promotions__slider').each(function () {
+        const $container = $(this);
+        new Swiper($container.find('.swiper')[0], {
+            slidesPerView: 1,
+            rewind: true,
+            watchOverflow: true,
+            navigation: {
+                nextEl: $container.find('.swiper-button-next')[0],
+                prevEl: $container.find('.swiper-button-prev')[0]
+            },
+            pagination: {
+                el: $container.find('.swiper-pagination')[0],
+                clickable: true
+            }
+        });
+    });
+
+    $('.subscribe__form').on('submit', function (e) {
+        e.preventDefault();
+        if (!this.reportValidity()) return;
+        $(this).find('.subscribe__status').text('Подписка пока недоступна. Пожалуйста, попробуйте позже.');
+    });
+
+
     /**
     * @class MobileSwiper
     * @param {string} sliderName
@@ -525,20 +565,6 @@ $(function () {
             },
             pagination: {
                 el: '.benefits__pagination',
-                clickable: true
-            }
-        })
-    }
-
-    if ($('.news__slider')) {
-        new MobileSwiper('.news__slider .swiper', {
-            spaceBetween: 20,
-            navigation: {
-                nextEl: '.news__next',
-                prevEl: '.news__prev'
-            },
-            pagination: {
-                el: '.news__pagination',
                 clickable: true
             }
         })
@@ -687,8 +713,8 @@ $(function () {
         }
     }
 
-    if ($('.news__slider')) {
-        new Swiper('.news__slider .swiper', {
+    if ($('.news__slider:not([data-showcase-slider])').length) {
+        new Swiper('.news__slider:not([data-showcase-slider]) .swiper', {
 
             slidesPerView: 1,
             spaceBetween: 20,

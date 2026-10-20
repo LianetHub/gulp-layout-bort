@@ -47,6 +47,35 @@
 	@media (min-width: $md4) {
 		font-size: 2.25rem;
 	}
+
+	&--section,
+	&--promo,
+	&--card,
+	&--subscribe {
+		font-family: $fontfamily, sans-serif;
+		font-weight: 750;
+		text-transform: none;
+		line-height: 1.2;
+	}
+
+	&--section {
+		font-size: rem(30);
+	}
+
+	&--promo {
+		font-size: rem(32);
+		line-height: 1.25;
+	}
+
+	&--card {
+		font-size: rem(21);
+		line-height: 1.25;
+		font-weight: 700;
+	}
+
+	&--subscribe {
+		font-size: rem(24);
+	}
 }
 
 .title-md {
@@ -185,6 +214,17 @@
 			}
 		}
 	}
+
+	&--light.swiper-pagination-bullets {
+		.swiper-pagination-bullet {
+			background: #fff;
+			opacity: 0.5;
+		}
+		.swiper-pagination-bullet-active {
+			background: #fff;
+			opacity: 1;
+		}
+	}
 }
 
 .favorite-btn {
@@ -213,8 +253,7 @@
 
 	&.active {
 		&::before {
-			// color: #b61d1d;
-			color: #00778b;
+			color: $orange;
 			animation: pulse 0.3s ease-in-out;
 
 			@keyframes pulse {
@@ -665,3 +704,64 @@ $scrollbarColor: $orange;
 }
 
 // ========== ВСПОМОГАТЕЛЬНЫЕ КЛАССЫ ======
+
+
+.section-heading {
+
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	gap: rem(20);
+	margin-bottom: rem(28);
+
+}
+
+.section-more {
+
+	display: inline-flex;
+	align-items: center;
+	gap: rem(10);
+	padding: rem(12) rem(20);
+	border-radius: rem(8);
+	background: #f3f3f3;
+	color: #63666a;
+	font-size: rem(14);
+	font-weight: 600;
+	&::before {
+		order: 1;
+	}
+	&:hover {
+		color: #ff6900;
+	}
+
+}
+
+.swiper-controls {
+
+	display: flex;
+	align-items: center;
+	gap: rem(10);
+	.swiper-button-prev,
+	.swiper-button-next {
+		position: static;
+		margin: 0;
+		transform: none;
+	}
+	.swiper-pagination.swiper-pagination-bullets {
+		display: flex;
+		align-items: center;
+		margin: 0 rem(18) 0 0;
+		width: auto;
+	}
+
+}
+
+.title-h5 {
+
+	font-family: $font-russo;
+	font-size: 1.25rem;
+	font-weight: 400;
+	line-height: 140%;
+	color: $white;
+
+}
