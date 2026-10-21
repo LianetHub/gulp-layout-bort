@@ -2,6 +2,7 @@
 
 import { select } from './modules/select.js';
 import { mobileCatalog } from './modules/mobile-catalog.js';
+import { partsOrder } from './modules/parts-order.js';
 
 $(function () {
 
@@ -1111,6 +1112,7 @@ $(function () {
     }
 
     window.FormController = new FormController();
+    partsOrder();
 
 
     /**

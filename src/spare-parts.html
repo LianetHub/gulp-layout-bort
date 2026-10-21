@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Купить запчасти'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {})
+            <main class="page page--showcase">
+                <nav aria-label="Хлебные крошки" class="breadcrumbs">
+                    <div class="breadcrumbs__container container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item"><a href="/" class="breadcrumbs__link">Главная</a></li>
+                            <li class="breadcrumbs__item"><span class="breadcrumbs__link active" aria-current="page">Купить запчасти</span></li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="spare-parts" aria-labelledby="spare-parts-title">
+                    <div class="spare-parts__container container">
+                        <h1 class="spare-parts__title title" id="spare-parts-title">Купить запчасти</h1>
+                        <p class="spare-parts__description">Если Вы ищете запчасти для Вашей техники Bort, оставьте заявку в форме ниже.</p>
+                        <div class="spare-parts__body">
+                            <aside class="spare-parts__help parts-help" aria-labelledby="parts-help-title">
+                                <h2 class="parts-help__title title-h5" id="parts-help-title">Что указать в заявке?</h2>
+                                <ul class="parts-help__list">
+                                    <li class="parts-help__item">В поле "Товар" укажите артикул или наименование товара, для которого требуется запчасть.</li>
+                                    <li class="parts-help__item">Ниже укажите свои данные и комментарий, какая запчасть Вам требуется или другую важную информацию.</li>
+                                    <li class="parts-help__item">Приложите файлы, если это необходимо.</li>
+                                    <li class="parts-help__item">Отправьте заявку.</li>
+                                </ul>
+                                <p class="parts-help__text">После отправки заявки специалист свяжется с Вами в ближайшее время для более подробной консультации.</p>
+                                <div class="parts-help__contacts">
+                                    <p class="parts-help__text">Также Вы можете сами связаться со специалистом<br>по телефонам:</p>
+                                    <a class="parts-help__link" href="tel:+74993436242">+7(499)343-62-42</a>
+                                    <a class="parts-help__link" href="tel:+74990052300">+7(499)005-23-00</a>
+                                </div>
+                                <div class="parts-help__question">
+                                    <p class="parts-help__text">Остались вопросы?</p>
+                                    <p class="parts-help__text"><a class="parts-help__link" href="mailto:help-global@bort-global.com">Напишите нам</a>, мы обязательно поможем!</p>
+                                </div>
+                            </aside>
+                            <form class="spare-parts__form form form--parts" action="#" method="post" enctype="multipart/form-data" novalidate>
+                                <div class="form__field">
+                                    <label class="form__label" for="parts-product">Товар</label>
+                                    <input class="form__control" id="parts-product" type="text" name="product" placeholder="Товар" data-required required aria-describedby="parts-product-error">
+                                    <div class="form__error-message" id="parts-product-error" aria-live="polite"></div>
+                                </div>
+                                <div class="form__field">
+                                    <label class="form__label" for="parts-phone">Телефон</label>
+                                    <input class="form__control" id="parts-phone" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel" data-required required aria-describedby="parts-phone-error">
+                                    <div class="form__error-message" id="parts-phone-error" aria-live="polite"></div>
+                                </div>
+                                <div class="form__field">
+                                    <label class="form__label" for="parts-email">E-mail</label>
+                                    <input class="form__control" id="parts-email" type="email" name="email" placeholder="E-mail" autocomplete="email" data-required required aria-describedby="parts-email-error">
+                                    <div class="form__error-message" id="parts-email-error" aria-live="polite"></div>
+                                </div>
+                                <div class="form__field">
+                                    <label class="form__label" for="parts-city">Город</label>
+                                    <input class="form__control" id="parts-city" type="text" name="city" placeholder="Город" autocomplete="address-level2" data-required required aria-describedby="parts-city-error">
+                                    <div class="form__error-message" id="parts-city-error" aria-live="polite"></div>
+                                </div>
+                                <div class="form__field">
+                                    <label class="form__label" for="parts-files">Прикрепить документ</label>
+                                    <label class="form__file" for="parts-files">
+                                        <input class="form__file-input hidden" id="parts-files" type="file" name="attachments[]" multiple aria-describedby="parts-file-names">
+                                        <span class="form__file-btn">
+                                            <svg class="form__file-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path class="form__file-icon-path" d="m21 11-9 9a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8L15 6"></path></svg>
+                                            <span class="form__file-text">Загрузить файл</span>
+                                        </span>
+                                    </label>
+                                    <p class="form__file-name" id="parts-file-names" aria-live="polite" hidden></p>
+                                </div>
+                                <div class="form__field">
+                                    <label class="form__label" for="parts-comment">Комментарий</label>
+                                    <textarea class="form__control form__control--message" id="parts-comment" name="message" placeholder="Комментарий"></textarea>
+                                </div>
+                                <div class="form__field">
+                                    <label class="checkbox checkbox--consent">
+                                        <input class="checkbox__input hidden" type="checkbox" name="consent" value="1" data-required required aria-describedby="parts-consent-error">
+                                        <span class="checkbox__btn"><span class="checkbox__text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политики Конфиденциальности</a></span></span>
+                                    </label>
+                                    <div class="form__error-message" id="parts-consent-error" aria-live="polite"></div>
+                                </div>
+                                <button class="form__submit btn btn-primary" type="submit">Отправить</button>
+                                <p class="form__status" role="status" aria-live="polite" hidden></p>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

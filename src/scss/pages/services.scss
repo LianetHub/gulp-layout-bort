@@ -1,0 +1,36 @@
+// .services
+.services {
+	padding: rem(20) 0 rem(40);
+	@media (min-width: $md4) {
+		padding-bottom: rem(60);
+	}
+	@media (min-width: $md2) {
+		padding-bottom: rem(80);
+	}
+	// .services__container
+	&__container {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: rem(1280);
+	}
+	// .services__title
+	&__title {
+		margin-bottom: rem(20);
+	}
+	// .services__list
+	&__list {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: rem(10);
+		@media (min-width: $md4) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+		@media (min-width: $md2) {
+			grid-template-columns: repeat(4, minmax(0, 1fr));
+		}
+	}
+	// .services__item
+	&__item {
+		min-width: 0;
+	}
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Полезные сервисы Bort'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {})
+            <main class="page page--showcase">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <div class="breadcrumbs__container container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/">Главная</a></li>
+                            <li class="breadcrumbs__item"><span class="breadcrumbs__link active" aria-current="page">Полезные сервисы Bort</span></li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="services" aria-labelledby="services-title">
+                    <div class="services__container container">
+                        <h1 class="services__title title" id="services-title">Полезные сервисы Bort</h1>
+                        <ul class="services__list">
+                            @@loop('html/templates/_service-card.html', './html/json/services.json')
+                        </ul>
+                    </div>
+                </section>
+                @@include('html/includes/_subscribe.html', {
+                "modifier": "subscribe--desktop"
+                })
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

@@ -1,5 +1,12 @@
 // .subscribe
 .subscribe {
+	// .subscribe--desktop
+	&--desktop {
+		display: none;
+		@media (min-width: $md2) {
+			display: block;
+		}
+	}
 	background: #f7f7f6;
 	padding: rem(30) 0;
 	// .subscribe__container

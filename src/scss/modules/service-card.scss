@@ -1,0 +1,31 @@
+// .service-card
+.service-card {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	gap: rem(20);
+	min-width: 0;
+	min-height: rem(160);
+	padding: rem(20);
+	border-radius: rem(10);
+	background: #f7f7f6;
+	@media (any-hover: hover) {
+		// .service-card:hover .service-card__address
+		&:hover .service-card__address {
+			text-decoration: underline;
+		}
+	}
+	// .service-card:focus-visible
+	&:focus-visible {
+		outline: rem(2) solid $orange;
+		outline-offset: rem(2);
+	}
+	// .service-card__address
+	&__address {
+		font-size: rem(14);
+		font-weight: 500;
+		line-height: rem(20);
+		color: #ff6201;
+		overflow-wrap: anywhere;
+	}
+}

@@ -1,0 +1,50 @@
+// .parts-help
+.parts-help {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20);
+    padding: rem(20);
+    border-radius: rem(20);
+    background: #f7f7f6;
+    color: #2b2b2b;
+    font-size: 1rem;
+    line-height: rem(22);
+    @media (min-width: $md4) {
+        padding: rem(30);
+    }
+    // .parts-help__list
+    &__list {
+        display: grid;
+        gap: rem(10);
+        padding-left: rem(20);
+        list-style: disc;
+    }
+    // .parts-help__link
+    &__link {
+        color: $orange;
+        font-weight: 600;
+        @media (any-hover: hover) {
+            // .parts-help__link:hover
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+        // .parts-help__link:focus-visible
+        &:focus-visible {
+            outline: rem(2) solid $orange;
+            outline-offset: rem(2);
+        }
+    }
+    // .parts-help__contacts
+    &__contacts {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    // .parts-help__question
+    &__question {
+        padding: rem(16) rem(30);
+        border-radius: rem(10);
+        background: #fff;
+    }
+}

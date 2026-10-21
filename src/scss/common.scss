@@ -90,7 +90,8 @@ body {
 		}
 	}
 	// .page:has(.sitemap)
-	&:has(.sitemap) {
+	// .page:has(.policy)
+	&:has(.sitemap, .policy) {
 		padding-bottom: 0;
 	}
 	// .page.page--showcase

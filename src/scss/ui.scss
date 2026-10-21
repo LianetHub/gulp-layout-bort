@@ -58,6 +58,14 @@
 		text-transform: none;
 		line-height: 1.4;
 	}
+	// .title--service
+	&--service {
+		font-size: rem(18);
+		font-weight: 400;
+		line-height: rem(26);
+		text-transform: none;
+		color: #000;
+	}
 	// .title--search
 	&--search {
 		font-family: $fontfamily;
@@ -154,7 +162,13 @@
 }
 
 // .sitemap__title
-.sitemap__title {
+// .policy__title
+// .spare-parts__title
+// .services__title
+.sitemap__title,
+.policy__title,
+.spare-parts__title,
+.services__title {
 	font-weight: 400;
 	text-transform: none;
 	font-size: rem(24);
@@ -171,7 +185,9 @@
 }
 
 // .sitemap__caption
-.sitemap__caption {
+// .policy__caption
+.sitemap__caption,
+.policy__caption {
 	font-weight: 400;
 	text-transform: none;
 	font-size: rem(20);
@@ -180,6 +196,18 @@
 	@media (min-width: $md4) {
 		font-size: rem(24);
 		line-height: rem(36);
+	}
+}
+
+// .policy__text
+.policy__text {
+	font-size: rem(16);
+	font-weight: 400;
+	line-height: rem(22);
+	color: #2b2b2b;
+	@media (min-width: $md4) {
+		font-size: rem(18);
+		line-height: rem(26);
 	}
 }
 
@@ -887,4 +915,9 @@ $scrollbarColor: $orange;
 	font-weight: 400;
 	line-height: 140%;
 	color: $white;
+}
+
+// .parts-help__title
+.parts-help__title {
+	color: #000;
 }
