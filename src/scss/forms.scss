@@ -162,7 +162,9 @@
 		}
 	}
 	// .form--parts
-	&--parts {
+	&--parts,
+	// .form--request
+	&--request {
 		display: flex;
 		flex-direction: column;
 		gap: rem(20);
@@ -173,7 +175,7 @@
 		@media (min-width: $md4) {
 			padding: rem(40);
 		}
-		// .form--parts .form__label
+		// .form--request .form__label
 		.form__label {
 			display: block;
 			margin-bottom: rem(5);
@@ -181,7 +183,7 @@
 			line-height: rem(20);
 			color: #2b2b2b;
 		}
-		// .form--parts .form__control
+		// .form--request .form__control
 		.form__control {
 			display: block;
 			height: rem(48);
@@ -191,25 +193,29 @@
 			font-size: 1rem;
 			line-height: rem(22);
 			color: #2b2b2b;
-			// .form--parts .form__control--message
+			// .form--request .form__control--select
+			&--select {
+				appearance: auto;
+			}
+			// .form--request .form__control--message
 			&--message {
 				height: rem(120);
 			}
-			// .form--parts .form__control:focus
+			// .form--request .form__control:focus
 			&:focus {
 				border-color: $orange;
 			}
-			// .form--parts .form__control._error
+			// .form--request .form__control._error
 			&._error {
 				border-color: #ed3939;
 			}
 		}
-		// .form--parts .form__file
+		// .form--request .form__file
 		.form__file {
 			position: relative;
 			display: block;
 		}
-		// .form--parts .form__file-btn
+		// .form--request .form__file-btn
 		.form__file-btn {
 			justify-content: center;
 			gap: rem(15);
@@ -221,18 +227,18 @@
 			color: #63666a;
 			line-height: rem(22);
 		}
-		// .form--parts .form__file-input:focus-visible + .form__file-btn
+		// .form--request .form__file-input:focus-visible + .form__file-btn
 		.form__file-input:focus-visible + .form__file-btn {
 			outline: rem(2) solid $orange;
 			outline-offset: rem(2);
 		}
-		// .form--parts .form__file-icon
+		// .form--request .form__file-icon
 		.form__file-icon {
 			flex-shrink: 0;
 			width: rem(20);
 			height: rem(20);
 		}
-		// .form--parts .form__file-name
+		// .form--request .form__file-name
 		.form__file-name {
 			margin-top: rem(5);
 			overflow-wrap: anywhere;
@@ -240,7 +246,7 @@
 			line-height: rem(20);
 			color: #63666a;
 		}
-		// .form--parts .form__submit.btn
+		// .form--request .form__submit.btn
 		.form__submit.btn {
 			align-self: flex-start;
 			width: rem(184);
@@ -251,17 +257,17 @@
 			line-height: rem(22);
 			background: #ff7900;
 			@media (any-hover: hover) {
-				// .form--parts .form__submit.btn:hover
+				// .form--request .form__submit.btn:hover
 				&:hover {
 					background: $orange;
 				}
 			}
-			// .form--parts .form__submit.btn:disabled
+			// .form--request .form__submit.btn:disabled
 			&:disabled {
 				background: #efefef;
 			}
 		}
-		// .form--parts .form__status
+		// .form--request .form__status
 		.form__status {
 			font-size: rem(14);
 			line-height: rem(20);

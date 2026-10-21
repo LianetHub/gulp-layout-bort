@@ -3,10 +3,12 @@
 import { select } from './modules/select.js';
 import { mobileCatalog } from './modules/mobile-catalog.js';
 import { partsOrder } from './modules/parts-order.js';
+import { reviews } from './modules/review.js';
 
 $(function () {
 
     select();
+    reviews();
 
     const $burger = $('.header__burger');
     const $navigation = $('#header-menu');
@@ -86,16 +88,16 @@ $(function () {
         }
 
         // toggle review card content
-        if ($target.closest('.review-card__toggle').length) {
-            const $btn = $target.closest('.review-card__toggle');
-            const $content = $btn.prev('.review-card__content');
+        if ($target.closest('.review__toggle').length) {
+            const $btn = $target.closest('.review__toggle');
+            const $content = $btn.closest('.review').find('.review__content').first();
 
             if (!$btn.hasClass('is-active')) {
                 $content.addClass('expanded');
-                $btn.addClass('is-active').text('Скрыть отзыв');
+                $btn.addClass('is-active').attr('aria-expanded', 'true').text('Скрыть отзыв');
             } else {
                 $content.removeClass('expanded');
-                $btn.removeClass('is-active').text('Показать полностью');
+                $btn.removeClass('is-active').attr('aria-expanded', 'false').text('Показать полностью');
             }
         }
 
@@ -662,19 +664,27 @@ $(function () {
         }
     }
 
-    if ($('.benefits__list')) {
-        new MobileSwiper('.benefits__list .swiper', {
+    $('.benefits').each(function () {
+        const $benefits = $(this);
+        const slider = $benefits.find('.benefits__list .swiper')[0];
+        if (!slider) return;
+        new MobileSwiper(slider, {
             spaceBetween: 20,
+            a11y: {
+                prevSlideMessage: 'Предыдущий слайд',
+                nextSlideMessage: 'Следующий слайд',
+                paginationBulletMessage: 'Перейти к слайду {{index}}'
+            },
             navigation: {
-                nextEl: '.benefits__next',
-                prevEl: '.benefits__prev'
+                nextEl: $benefits.find('.benefits__next')[0],
+                prevEl: $benefits.find('.benefits__prev')[0]
             },
             pagination: {
-                el: '.benefits__pagination',
+                el: $benefits.find('.benefits__pagination')[0],
                 clickable: true
             }
-        })
-    }
+        });
+    });
 
     if ($('.products__slider').length) {
         $('.products__slider').each(function (index, element) {
@@ -1001,7 +1011,7 @@ $(function () {
         }
 
         validateField($field) {
-            const value = $field.val().trim();
+            const value = String($field.val() ?? '').trim();
             let isError = false;
             let currentMsg = this.messages.empty;
 

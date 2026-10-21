@@ -1,0 +1,35 @@
+// .rating-stars
+.rating-stars {
+    --star-size: #{rem(20)};
+    position: relative;
+    display: inline-block;
+    flex-shrink: 0;
+    width: calc(var(--star-size) * 5 + #{rem(8)});
+    height: var(--star-size);
+    vertical-align: middle;
+    // .rating-stars__background
+    &__background {
+        display: flex;
+        gap: rem(2);
+        color: #d3d6dd;
+    }
+    // .rating-stars__fill
+    &__fill {
+        position: absolute;
+        inset: 0 auto 0 0;
+        display: flex;
+        gap: rem(2);
+        width: clamp(0%, calc(var(--rating, 0) / 5 * 100%), 100%);
+        overflow: hidden;
+        color: $orange;
+    }
+    // .rating-stars .rating-stars__star
+    & &__star {
+        flex-shrink: 0;
+        width: var(--star-size);
+        height: var(--star-size);
+        color: inherit;
+        font-size: var(--star-size);
+        line-height: 1;
+    }
+}

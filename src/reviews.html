@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Отзывы'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {})
+            <main class="page page--showcase">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <div class="breadcrumbs__container container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/">Главная</a></li>
+                            <li class="breadcrumbs__item"><span class="breadcrumbs__link active" aria-current="page">Отзывы</span></li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="feedback" aria-labelledby="feedback-title">
+                    <div class="feedback__container container">
+                        <h1 class="feedback__title title title--page" id="feedback-title">Отзывы</h1>
+                        <div class="feedback__layout">
+                        <div class="feedback__reviews review-group" data-page-size="3">
+                            <div class="feedback__toolbar">@@include('html/includes/_review-sort.html')</div>
+                            <div class="review-group__list" aria-label="Отзывы покупателей">
+                                @@loop('html/templates/_review.html', './html/json/reviews.json')
+                            </div>
+                            @@include('html/includes/_pagination.html')
+                            <p class="review-group__status hidden" role="status" aria-live="polite"></p>
+                        </div>
+                        <aside class="feedback__summary" aria-label="Рейтинг покупателей">
+                            @@include('html/includes/_rating-summary.html')
+                        </aside>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

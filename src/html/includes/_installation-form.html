@@ -1,0 +1,55 @@
+<form class="service__form form form--request" action="#" method="post" enctype="multipart/form-data" novalidate data-unavailable-message="Отправка заявки временно недоступна. Пожалуйста, свяжитесь с установщиком по контактам ниже.">
+    <h2 class="service__form-heading title title--information title--information-large">Форма заявки на установку измельчителя</h2><img class="service__form-image" src="@img/shredder.png" alt="Измельчитель пищевых отходов Bort с комплектующими" loading="lazy">
+    <div class="service__form-fields">
+        <div class="form__field">
+            <label class="form__label" for="installation-product">Имя</label>
+            <input class="form__control" id="installation-product" type="text" name="name" placeholder="Имя" autocomplete="name" data-required required aria-describedby="installation-product-error">
+            <div class="form__error-message" id="installation-product-error" aria-live="polite"></div>
+        </div>
+        <div class="form__field">
+            <label class="form__label" for="installation-phone">Телефон</label>
+            <input class="form__control" id="installation-phone" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel" data-required required aria-describedby="installation-phone-error">
+            <div class="form__error-message" id="installation-phone-error" aria-live="polite"></div>
+        </div>
+        <div class="form__field">
+            <label class="form__label" for="installation-email">E-mail</label>
+            <input class="form__control" id="installation-email" type="email" name="email" placeholder="E-mail" autocomplete="email" data-required required aria-describedby="installation-email-error">
+            <div class="form__error-message" id="installation-email-error" aria-live="polite"></div>
+        </div>
+        <div class="form__field">
+            <label class="form__label" for="installation-city">Город</label>
+            <select class="form__control form__control--select" id="installation-city" name="city" autocomplete="address-level2" data-required required aria-describedby="installation-city-error">
+                <option class="form__option" value="" disabled selected>Выберите город</option>
+                <option class="form__option" value="Москва">Москва и Московская область</option>
+                <option class="form__option" value="Санкт-Петербург">Санкт-Петербург</option>
+            </select>
+            <div class="form__error-message" id="installation-city-error" aria-live="polite"></div>
+        </div>
+        <div class="form__field">
+            <label class="form__label" for="installation-files">Прикрепить документ</label>
+            <label class="form__file" for="installation-files">
+                <input class="form__file-input hidden" id="installation-files" type="file" name="attachments[]" multiple aria-describedby="installation-file-names">
+                <span class="form__file-btn">
+                    <svg class="form__file-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path class="form__file-icon-path" d="m21 11-9 9a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8L15 6"></path>
+                    </svg>
+                    <span class="form__file-text">Загрузить файл</span>
+                </span>
+            </label>
+            <p class="form__file-name" id="installation-file-names" aria-live="polite" hidden></p>
+        </div>
+        <div class="form__field">
+            <label class="form__label" for="installation-comment">Комментарий</label>
+            <textarea class="form__control form__control--message" id="installation-comment" name="message" placeholder="Комментарий"></textarea>
+        </div>
+        <div class="form__field">
+            <label class="checkbox checkbox--consent">
+                <input class="checkbox__input hidden" type="checkbox" name="consent" value="1" data-required required aria-describedby="installation-consent-error">
+                <span class="checkbox__btn"><span class="checkbox__text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политики Конфиденциальности</a></span></span>
+            </label>
+            <div class="form__error-message" id="installation-consent-error" aria-live="polite"></div>
+        </div>
+        <button class="form__submit btn btn-primary" type="submit">Отправить</button>
+        <p class="form__status" role="status" aria-live="polite" hidden></p>
+    </div>
+</form>

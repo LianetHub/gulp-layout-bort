@@ -226,3 +226,5 @@
 .icon-heart:before {
   content: "\e940";
 }
+
+.icon-star-fill:before { content: "\e943"; }

@@ -1,5 +1,5 @@
 <section id="reviews" class="reviews">
-    <div class="container">
+    <div class="reviews__container container">
         <h2 class="reviews__title title">отзывы</h2>
         <div class="reviews__column">
             <div class="rating-summary">
@@ -51,8 +51,9 @@
                 </div>
                 <button class="rating-summary__btn btn btn-primary">Написать отзыв</button>
             </div>
-            <div class="reviews__main">
-                <div class="reviews__list">
+            <div class="reviews__main review-group">
+                <div class="review-group__toolbar">@@include('./_review-sort.html')</div>
+                <div class="reviews__list review-group__list">
                     @@include('../templates/_review-card.html')
                     @@include('../templates/_review-card.html')
                     @@include('../templates/_review-card.html')

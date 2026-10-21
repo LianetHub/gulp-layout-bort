@@ -618,7 +618,7 @@
 
                                 </div>
                                 <section id="reviews" class="reviews">
-                                    <div class="container">
+                                    <div class="reviews__container container">
                                         <h2 class="reviews__title title">отзывы</h2>
                                         <div class="reviews__column">
                                             <div class="rating-summary">
@@ -670,214 +670,256 @@
                                                 </div>
                                                 <button class="rating-summary__btn btn btn-primary">Написать отзыв</button>
                                             </div>
-                                            <div class="reviews__main">
-                                                <div class="reviews__list">
-                                                    <div class="review-card">
-                                                        <div class="review-card__header">
-                                                            <div class="review-card__row">
-                                                                <h3 class="review-card__name">КОНСТАНТИН САПРЫКИН</h3>
-                                                                <span class="review-card__brand">
-                                                                    <img src="img/marketplaces/wildberries.png" alt="Лого wildberries">
-                                                                </span>
-                                                            </div>
-                                                            <div class="review-card__meta">
-                                                                <span class="review-card__date">20 мая 2025</span>
-                                                                <span class="review-card__separator"></span>
-                                                                <div class="review-card__rate">
+                                            <div class="reviews__main review-group">
+                                                <div class="review-group__toolbar"><label class="review-sort">
+    <span class="review-sort__label hidden">Сортировка отзывов</span>
+    <select class="review-sort__select" name="review-sort">
+        <option class="review-sort__option" value="helpful">Сначала полезные</option>
+        <option class="review-sort__option" value="newest">Сначала новые</option>
+        <option class="review-sort__option" value="highest">С высокой оценкой</option>
+        <option class="review-sort__option" value="lowest">С низкой оценкой</option>
+    </select>
+    <span class="review-sort__icon icon-filter-horizontal" aria-hidden="true"></span>
+</label>
+</div>
+                                                <div class="reviews__list review-group__list">
+                                                    <article class="review review--detailed" data-review-id="product-review" data-rating="4.5" data-date="2025-05-20" data-helpful="0">
+    <div class="review__header">
+        <span class="review__avatar icon-user-fill" aria-hidden="true"></span>
+        <div class="review__identity">
+            <span class="rating-stars" style="--rating: 4.5" role="img" aria-label="Оценка 4.5 из 5">
+                <span class="rating-stars__background" aria-hidden="true">
+                    <span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span>
+                </span>
+                <span class="rating-stars__fill" aria-hidden="true">
+                    <span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span>
+                </span>
+            </span>
 
-                                                                    <div class="review-card__stars">
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star icon-star--half"></div>
-                                                                        <div class="icon-star icon-star--grey"></div>
-                                                                    </div>
-                                                                    <span class="review-card__rating-val">4.5/5</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="review-card__content">
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Достоинства:</span>
-                                                                <p class="review-card__text">В своём стремлении улучшить пользовательский опыт мы упускаем, что представители современных социальных резервов неоднозначны и будут указаны как претенденты на роль ключевых факторов.</p>
-                                                            </div>
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Недостатки:</span>
-                                                                <p class="review-card__text">Курс ценных бумаг продолжает удивлять</p>
-                                                            </div>
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Комментарий:</span>
-                                                                <p class="review-card__text">Кстати, некоторые особенности внутренней политики представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом.</p>
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="review-card__toggle more-link icon-right">Показать полностью</button>
-                                                    </div>
-                                                    <div class="review-card">
-                                                        <div class="review-card__header">
-                                                            <div class="review-card__row">
-                                                                <h3 class="review-card__name">КОНСТАНТИН САПРЫКИН</h3>
-                                                                <span class="review-card__brand">
-                                                                    <img src="img/marketplaces/wildberries.png" alt="Лого wildberries">
-                                                                </span>
-                                                            </div>
-                                                            <div class="review-card__meta">
-                                                                <span class="review-card__date">20 мая 2025</span>
-                                                                <span class="review-card__separator"></span>
-                                                                <div class="review-card__rate">
+            <div class="review__row">
+                <h3 class="review__name title title--review-author">КОНСТАНТИН САПРЫКИН</h3>
+                
+            </div>
+        </div>
+        <div class="review__meta">
+            <time class="review__date" datetime="2025-05-20">20 мая 2025</time>
+        </div>
+    </div>
+    <div class="review__content">
+        <div class="review__block"><span class="review__label">Достоинства:</span>
+            <p class="review__text">В своём стремлении улучшить пользовательский опыт мы упускаем, что представители современных социальных резервов неоднозначны и будут указаны как претенденты на роль ключевых факторов.</p>
+        </div>
+        <div class="review__block"><span class="review__label">Недостатки:</span>
+            <p class="review__text">Курс ценных бумаг продолжает удивлять</p>
+        </div>
+        <div class="review__block"><span class="review__label">Комментарий:</span>
+            <p class="review__text">Кстати, некоторые особенности внутренней политики представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом.</p>
+        </div>
+    </div>
+    <button class="review__toggle icon-chevron-down" type="button" aria-expanded="false">Показать полностью</button>
+    
+    <span class="review__brand"><img class="review__brand-image" src="img/marketplaces/wildberries.png" alt="Wildberries" loading="lazy"></span>
+    <div class="review__footer">
+        <span class="review__question">Отзыв полезен?</span>
+        <div class="review__votes">
+            <button class="review__vote" type="button" data-vote="helpful" aria-label="Полезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-thumbs-up" aria-hidden="true"></span><span class="review__vote-count">0</span></button>
+            <button class="review__vote" type="button" data-vote="unhelpful" aria-label="Неполезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-dislike" aria-hidden="true"></span><span class="review__vote-count">0</span></button>
+        </div>
+    </div>
+</article>
 
-                                                                    <div class="review-card__stars">
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star icon-star--half"></div>
-                                                                        <div class="icon-star icon-star--grey"></div>
-                                                                    </div>
-                                                                    <span class="review-card__rating-val">4.5/5</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="review-card__content">
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Достоинства:</span>
-                                                                <p class="review-card__text">В своём стремлении улучшить пользовательский опыт мы упускаем, что представители современных социальных резервов неоднозначны и будут указаны как претенденты на роль ключевых факторов.</p>
-                                                            </div>
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Недостатки:</span>
-                                                                <p class="review-card__text">Курс ценных бумаг продолжает удивлять</p>
-                                                            </div>
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Комментарий:</span>
-                                                                <p class="review-card__text">Кстати, некоторые особенности внутренней политики представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом.</p>
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="review-card__toggle more-link icon-right">Показать полностью</button>
-                                                    </div>
-                                                    <div class="review-card">
-                                                        <div class="review-card__header">
-                                                            <div class="review-card__row">
-                                                                <h3 class="review-card__name">КОНСТАНТИН САПРЫКИН</h3>
-                                                                <span class="review-card__brand">
-                                                                    <img src="img/marketplaces/wildberries.png" alt="Лого wildberries">
-                                                                </span>
-                                                            </div>
-                                                            <div class="review-card__meta">
-                                                                <span class="review-card__date">20 мая 2025</span>
-                                                                <span class="review-card__separator"></span>
-                                                                <div class="review-card__rate">
 
-                                                                    <div class="review-card__stars">
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star icon-star--half"></div>
-                                                                        <div class="icon-star icon-star--grey"></div>
-                                                                    </div>
-                                                                    <span class="review-card__rating-val">4.5/5</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="review-card__content">
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Достоинства:</span>
-                                                                <p class="review-card__text">В своём стремлении улучшить пользовательский опыт мы упускаем, что представители современных социальных резервов неоднозначны и будут указаны как претенденты на роль ключевых факторов.</p>
-                                                            </div>
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Недостатки:</span>
-                                                                <p class="review-card__text">Курс ценных бумаг продолжает удивлять</p>
-                                                            </div>
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Комментарий:</span>
-                                                                <p class="review-card__text">Кстати, некоторые особенности внутренней политики представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом.</p>
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="review-card__toggle more-link icon-right">Показать полностью</button>
-                                                    </div>
-                                                    <div class="review-card">
-                                                        <div class="review-card__header">
-                                                            <div class="review-card__row">
-                                                                <h3 class="review-card__name">КОНСТАНТИН САПРЫКИН</h3>
-                                                                <span class="review-card__brand">
-                                                                    <img src="img/marketplaces/wildberries.png" alt="Лого wildberries">
-                                                                </span>
-                                                            </div>
-                                                            <div class="review-card__meta">
-                                                                <span class="review-card__date">20 мая 2025</span>
-                                                                <span class="review-card__separator"></span>
-                                                                <div class="review-card__rate">
+                                                    <article class="review review--detailed" data-review-id="product-review" data-rating="4.5" data-date="2025-05-20" data-helpful="0">
+    <div class="review__header">
+        <span class="review__avatar icon-user-fill" aria-hidden="true"></span>
+        <div class="review__identity">
+            <span class="rating-stars" style="--rating: 4.5" role="img" aria-label="Оценка 4.5 из 5">
+                <span class="rating-stars__background" aria-hidden="true">
+                    <span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span>
+                </span>
+                <span class="rating-stars__fill" aria-hidden="true">
+                    <span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span>
+                </span>
+            </span>
 
-                                                                    <div class="review-card__stars">
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star icon-star--half"></div>
-                                                                        <div class="icon-star icon-star--grey"></div>
-                                                                    </div>
-                                                                    <span class="review-card__rating-val">4.5/5</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="review-card__content">
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Достоинства:</span>
-                                                                <p class="review-card__text">В своём стремлении улучшить пользовательский опыт мы упускаем, что представители современных социальных резервов неоднозначны и будут указаны как претенденты на роль ключевых факторов.</p>
-                                                            </div>
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Недостатки:</span>
-                                                                <p class="review-card__text">Курс ценных бумаг продолжает удивлять</p>
-                                                            </div>
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Комментарий:</span>
-                                                                <p class="review-card__text">Кстати, некоторые особенности внутренней политики представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом.</p>
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="review-card__toggle more-link icon-right">Показать полностью</button>
-                                                    </div>
-                                                    <div class="review-card">
-                                                        <div class="review-card__header">
-                                                            <div class="review-card__row">
-                                                                <h3 class="review-card__name">КОНСТАНТИН САПРЫКИН</h3>
-                                                                <span class="review-card__brand">
-                                                                    <img src="img/marketplaces/wildberries.png" alt="Лого wildberries">
-                                                                </span>
-                                                            </div>
-                                                            <div class="review-card__meta">
-                                                                <span class="review-card__date">20 мая 2025</span>
-                                                                <span class="review-card__separator"></span>
-                                                                <div class="review-card__rate">
+            <div class="review__row">
+                <h3 class="review__name title title--review-author">КОНСТАНТИН САПРЫКИН</h3>
+                
+            </div>
+        </div>
+        <div class="review__meta">
+            <time class="review__date" datetime="2025-05-20">20 мая 2025</time>
+        </div>
+    </div>
+    <div class="review__content">
+        <div class="review__block"><span class="review__label">Достоинства:</span>
+            <p class="review__text">В своём стремлении улучшить пользовательский опыт мы упускаем, что представители современных социальных резервов неоднозначны и будут указаны как претенденты на роль ключевых факторов.</p>
+        </div>
+        <div class="review__block"><span class="review__label">Недостатки:</span>
+            <p class="review__text">Курс ценных бумаг продолжает удивлять</p>
+        </div>
+        <div class="review__block"><span class="review__label">Комментарий:</span>
+            <p class="review__text">Кстати, некоторые особенности внутренней политики представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом.</p>
+        </div>
+    </div>
+    <button class="review__toggle icon-chevron-down" type="button" aria-expanded="false">Показать полностью</button>
+    
+    <span class="review__brand"><img class="review__brand-image" src="img/marketplaces/wildberries.png" alt="Wildberries" loading="lazy"></span>
+    <div class="review__footer">
+        <span class="review__question">Отзыв полезен?</span>
+        <div class="review__votes">
+            <button class="review__vote" type="button" data-vote="helpful" aria-label="Полезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-thumbs-up" aria-hidden="true"></span><span class="review__vote-count">0</span></button>
+            <button class="review__vote" type="button" data-vote="unhelpful" aria-label="Неполезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-dislike" aria-hidden="true"></span><span class="review__vote-count">0</span></button>
+        </div>
+    </div>
+</article>
 
-                                                                    <div class="review-card__stars">
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star"></div>
-                                                                        <div class="icon-star icon-star--half"></div>
-                                                                        <div class="icon-star icon-star--grey"></div>
-                                                                    </div>
-                                                                    <span class="review-card__rating-val">4.5/5</span>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                        <div class="review-card__content">
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Достоинства:</span>
-                                                                <p class="review-card__text">В своём стремлении улучшить пользовательский опыт мы упускаем, что представители современных социальных резервов неоднозначны и будут указаны как претенденты на роль ключевых факторов.</p>
-                                                            </div>
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Недостатки:</span>
-                                                                <p class="review-card__text">Курс ценных бумаг продолжает удивлять</p>
-                                                            </div>
-                                                            <div class="review-card__block">
-                                                                <span class="review-card__label">Комментарий:</span>
-                                                                <p class="review-card__text">Кстати, некоторые особенности внутренней политики представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом.</p>
-                                                            </div>
-                                                        </div>
-                                                        <button type="button" class="review-card__toggle more-link icon-right">Показать полностью</button>
-                                                    </div>
+
+                                                    <article class="review review--detailed" data-review-id="product-review" data-rating="4.5" data-date="2025-05-20" data-helpful="0">
+    <div class="review__header">
+        <span class="review__avatar icon-user-fill" aria-hidden="true"></span>
+        <div class="review__identity">
+            <span class="rating-stars" style="--rating: 4.5" role="img" aria-label="Оценка 4.5 из 5">
+                <span class="rating-stars__background" aria-hidden="true">
+                    <span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span>
+                </span>
+                <span class="rating-stars__fill" aria-hidden="true">
+                    <span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span>
+                </span>
+            </span>
+
+            <div class="review__row">
+                <h3 class="review__name title title--review-author">КОНСТАНТИН САПРЫКИН</h3>
+                
+            </div>
+        </div>
+        <div class="review__meta">
+            <time class="review__date" datetime="2025-05-20">20 мая 2025</time>
+        </div>
+    </div>
+    <div class="review__content">
+        <div class="review__block"><span class="review__label">Достоинства:</span>
+            <p class="review__text">В своём стремлении улучшить пользовательский опыт мы упускаем, что представители современных социальных резервов неоднозначны и будут указаны как претенденты на роль ключевых факторов.</p>
+        </div>
+        <div class="review__block"><span class="review__label">Недостатки:</span>
+            <p class="review__text">Курс ценных бумаг продолжает удивлять</p>
+        </div>
+        <div class="review__block"><span class="review__label">Комментарий:</span>
+            <p class="review__text">Кстати, некоторые особенности внутренней политики представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом.</p>
+        </div>
+    </div>
+    <button class="review__toggle icon-chevron-down" type="button" aria-expanded="false">Показать полностью</button>
+    
+    <span class="review__brand"><img class="review__brand-image" src="img/marketplaces/wildberries.png" alt="Wildberries" loading="lazy"></span>
+    <div class="review__footer">
+        <span class="review__question">Отзыв полезен?</span>
+        <div class="review__votes">
+            <button class="review__vote" type="button" data-vote="helpful" aria-label="Полезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-thumbs-up" aria-hidden="true"></span><span class="review__vote-count">0</span></button>
+            <button class="review__vote" type="button" data-vote="unhelpful" aria-label="Неполезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-dislike" aria-hidden="true"></span><span class="review__vote-count">0</span></button>
+        </div>
+    </div>
+</article>
+
+
+                                                    <article class="review review--detailed" data-review-id="product-review" data-rating="4.5" data-date="2025-05-20" data-helpful="0">
+    <div class="review__header">
+        <span class="review__avatar icon-user-fill" aria-hidden="true"></span>
+        <div class="review__identity">
+            <span class="rating-stars" style="--rating: 4.5" role="img" aria-label="Оценка 4.5 из 5">
+                <span class="rating-stars__background" aria-hidden="true">
+                    <span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span>
+                </span>
+                <span class="rating-stars__fill" aria-hidden="true">
+                    <span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span>
+                </span>
+            </span>
+
+            <div class="review__row">
+                <h3 class="review__name title title--review-author">КОНСТАНТИН САПРЫКИН</h3>
+                
+            </div>
+        </div>
+        <div class="review__meta">
+            <time class="review__date" datetime="2025-05-20">20 мая 2025</time>
+        </div>
+    </div>
+    <div class="review__content">
+        <div class="review__block"><span class="review__label">Достоинства:</span>
+            <p class="review__text">В своём стремлении улучшить пользовательский опыт мы упускаем, что представители современных социальных резервов неоднозначны и будут указаны как претенденты на роль ключевых факторов.</p>
+        </div>
+        <div class="review__block"><span class="review__label">Недостатки:</span>
+            <p class="review__text">Курс ценных бумаг продолжает удивлять</p>
+        </div>
+        <div class="review__block"><span class="review__label">Комментарий:</span>
+            <p class="review__text">Кстати, некоторые особенности внутренней политики представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом.</p>
+        </div>
+    </div>
+    <button class="review__toggle icon-chevron-down" type="button" aria-expanded="false">Показать полностью</button>
+    
+    <span class="review__brand"><img class="review__brand-image" src="img/marketplaces/wildberries.png" alt="Wildberries" loading="lazy"></span>
+    <div class="review__footer">
+        <span class="review__question">Отзыв полезен?</span>
+        <div class="review__votes">
+            <button class="review__vote" type="button" data-vote="helpful" aria-label="Полезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-thumbs-up" aria-hidden="true"></span><span class="review__vote-count">0</span></button>
+            <button class="review__vote" type="button" data-vote="unhelpful" aria-label="Неполезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-dislike" aria-hidden="true"></span><span class="review__vote-count">0</span></button>
+        </div>
+    </div>
+</article>
+
+
+                                                    <article class="review review--detailed" data-review-id="product-review" data-rating="4.5" data-date="2025-05-20" data-helpful="0">
+    <div class="review__header">
+        <span class="review__avatar icon-user-fill" aria-hidden="true"></span>
+        <div class="review__identity">
+            <span class="rating-stars" style="--rating: 4.5" role="img" aria-label="Оценка 4.5 из 5">
+                <span class="rating-stars__background" aria-hidden="true">
+                    <span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span>
+                </span>
+                <span class="rating-stars__fill" aria-hidden="true">
+                    <span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span>
+                </span>
+            </span>
+
+            <div class="review__row">
+                <h3 class="review__name title title--review-author">КОНСТАНТИН САПРЫКИН</h3>
+                
+            </div>
+        </div>
+        <div class="review__meta">
+            <time class="review__date" datetime="2025-05-20">20 мая 2025</time>
+        </div>
+    </div>
+    <div class="review__content">
+        <div class="review__block"><span class="review__label">Достоинства:</span>
+            <p class="review__text">В своём стремлении улучшить пользовательский опыт мы упускаем, что представители современных социальных резервов неоднозначны и будут указаны как претенденты на роль ключевых факторов.</p>
+        </div>
+        <div class="review__block"><span class="review__label">Недостатки:</span>
+            <p class="review__text">Курс ценных бумаг продолжает удивлять</p>
+        </div>
+        <div class="review__block"><span class="review__label">Комментарий:</span>
+            <p class="review__text">Кстати, некоторые особенности внутренней политики представляют собой не что иное, как квинтэссенцию победы маркетинга над разумом.</p>
+        </div>
+    </div>
+    <button class="review__toggle icon-chevron-down" type="button" aria-expanded="false">Показать полностью</button>
+    
+    <span class="review__brand"><img class="review__brand-image" src="img/marketplaces/wildberries.png" alt="Wildberries" loading="lazy"></span>
+    <div class="review__footer">
+        <span class="review__question">Отзыв полезен?</span>
+        <div class="review__votes">
+            <button class="review__vote" type="button" data-vote="helpful" aria-label="Полезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-thumbs-up" aria-hidden="true"></span><span class="review__vote-count">0</span></button>
+            <button class="review__vote" type="button" data-vote="unhelpful" aria-label="Неполезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-dislike" aria-hidden="true"></span><span class="review__vote-count">0</span></button>
+        </div>
+    </div>
+</article>
+
+
                                                 </div>
                                                 <button type="button" class="reviews__more btn btn-secondary">Показать больше</button>
                                             </div>
                                         </div>
                                     </div>
                                 </section>
+
                                 <section id="related-products" class="products">
                                     <div class="container">
                                         <h2 class="products__title title">
@@ -1866,8 +1908,8 @@
                         <div class="footer__menu-block">
                             <div class="footer__menu-caption">Магазин</div>
                             <ul class="footer__menu-list">
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">О компании</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Отзывы покупателей</a></li>
+                                <li class="footer__menu-item"><a href="about.html" class="footer__menu-link">О компании</a></li>
+                                <li class="footer__menu-item"><a href="reviews.html" class="footer__menu-link">Отзывы покупателей</a></li>
                                 <li class="footer__menu-item"><a href="" class="footer__menu-link">Карта сайта</a></li>
                                 <li class="footer__menu-item"><a href="" class="footer__menu-link">Оптовикам</a></li>
                                 <li class="footer__menu-item"><a href="" class="footer__menu-link">Контакты</a></li>
@@ -1877,8 +1919,8 @@
                             <div class="footer__menu-caption">Оформление заказа</div>
                             <ul class="footer__menu-list">
                                 <li class="footer__menu-item"><a href="" class="footer__menu-link">Доставка и оплата</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Безусловный возврат товара</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Фирменна установка измельчителей</a></li>
+                                <li class="footer__menu-item"><a href="returns.html" class="footer__menu-link">Безусловный возврат товара</a></li>
+                                <li class="footer__menu-item"><a href="service.html" class="footer__menu-link">Фирменная установка измельчителей</a></li>
                             </ul>
                         </div>
                         <div class="footer__menu-block">

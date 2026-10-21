@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ru">
+    @@include('html/_head.html', {
+    'title': 'Безусловный возврат товара'
+    })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', {})
+            <main class="page page--showcase">
+                <nav class="breadcrumbs" aria-label="Хлебные крошки">
+                    <div class="breadcrumbs__container container">
+                        <ul class="breadcrumbs__list">
+                            <li class="breadcrumbs__item"><a class="breadcrumbs__link" href="/">Главная</a></li>
+                            <li class="breadcrumbs__item"><span class="breadcrumbs__link active" aria-current="page">Безусловный возврат товара</span></li>
+                        </ul>
+                    </div>
+                </nav>
+                <section class="returns" aria-labelledby="returns-title">
+                    <div class="returns__container container">
+                        <h1 class="returns__title title" id="returns-title">Безусловный возврат товара</h1>
+                        <div class="returns__intro">
+                            <h2 class="returns__caption title title--information">Гарантия спокойствия: возврат товара без лишних вопросов</h2>
+                            <p class="returns__description">Мы ценим ваше доверие и делаем покупки в нашем магазине максимально комфортными. Именно поэтому мы предлагаем уникальные условия возврата товаров купленных в нашем магазине на сайте bort.ru, которые выходят за рамки стандартных требований законодательства.</p>
+                            <ul class="returns__benefits">
+                                @@loop('html/templates/_return-benefit.html', './html/json/return-benefits.json')
+                            </ul>
+                            <p class="returns__description">Bort.ru заботится о вашем комфорте и уверенности в каждом заказе. Мы верим, что такие условия сделают вашу покупку еще более приятной и безопасной.</p>
+                        </div>
+                        <div class="returns__section">
+                            <h2 class="returns__caption title title--information">Как это работает?</h2>
+                            <p class="returns__description">Что от Вас потребуется чтобы вернуть заказ:</p>
+                            <ol class="return-steps">
+                                <li class="return-steps__item"><div class="return-steps__body"><p class="return-steps__text">Зайти к себе в Личный кабинет в раздел Заказы. Найти заказ в котором находится возвращаемый товар. Нажать на Возврат товара. Отметить возвращаемый товар и причину возврата. Нажать Возврат.</p></div></li>
+                                <li class="return-steps__item"><div class="return-steps__body"><p class="return-steps__text">Вам на указанную почту придет уведомление о рассмотрении заявки на Возврат, в котором будут ссылки на Заявление на Возврат и почтовый адрес для отправления товара.</p></div></li>
+                                <li class="return-steps__item"><div class="return-steps__body"><p class="return-steps__text">Вам нужно скачать по ссылке, распечатать и заполнить <a class="return-steps__link" href="https://extego.ru/images/companies/1/Refund_2025.pdf" target="_blank" rel="noopener noreferrer">Заявление на Возврат</a>, затем отправить нам товар Почтой России на адрес:<br>141020, Московская область, Мытищинский район, г Мытищи, Новомытищинский проспект, 47А.<br>В посылку необходимо вложить заполненное <a class="return-steps__link" href="https://extego.ru/images/companies/1/Refund_2025.pdf" target="_blank" rel="noopener noreferrer">Заявление на Возврат</a>, товар, гарантийный талон, все комплектующие, притом ярлыки, бирки и упаковка должны быть сохранены. Возврат осуществляется только Почтой России.</p></div></li>
+                                <li class="return-steps__item"><div class="return-steps__body"><p class="return-steps__text">После того, как мы получим возвращаемый товар и проверим комплектность товара и верность заполнения заявления, мы вернем деньги в течение 10 рабочих дней.</p></div></li>
+                            </ol>
+                        </div>
+                        <div class="returns__section">
+                            <h2 class="returns__caption title title--information">Алгоритм действий в случае возврата неисправного товара</h2>
+                            <ol class="return-steps">
+                                <li class="return-steps__item"><div class="return-steps__body"><p class="return-steps__text">Если товар оказался неисправным до окончания гарантийного срока, его необходимо предоставить в сервисный центр. Адреса СЦ указаны в гарантийном талоне, который вы получили с товаром.</p></div></li>
+                                <li class="return-steps__item"><div class="return-steps__body"><p class="return-steps__text">СЦ выдаст заключение о том, что стало причиной поломки. Если по вине покупателя, то к сожалению мы не сможем вам помочь.</p></div></li>
+                                <li class="return-steps__item"><div class="return-steps__body"><p class="return-steps__text">Если же причиной поломки явился брак, то мы незамедлительно обменяем ваш товар на новый, либо вернем деньги. Наши действия по возврату товара такие же как описаны в алгоритме возврата, только нужно приложить к посылке оригинал Заключения СЦ.</p><p class="return-steps__note">ПРАВИТЕЛЬСТВО РОССИЙСКОЙ ФЕДЕРАЦИИ ПОСТАНОВЛЕНИЕ от 10 ноября 2011 г. N 924 ОБ УТВЕРЖДЕНИИ ПЕРЕЧНЯ ТЕХНИЧЕСКИ СЛОЖНЫХ ТОВАРОВ Список изменяющих документов (в ред. Постановлений Правительства РФ от 27.05.2016 N 471, от 17.09.2016 N 929 утвержден «Перечень непродовольственных товаров надлежащего качества, не подлежащих возврату или обмену на аналогичный Товар другого размера, формы, фасона».</p></div></li>
+                                <li class="return-steps__item"><div class="return-steps__body"><p class="return-steps__text">Инструмент электрифицированный (машины ручные и переносные электрические) (п. 14 введен Постановлением Правительства РФ от 17.09.2016 N 929)</p></div></li>
+                            </ol>
+                        </div>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
+</html>

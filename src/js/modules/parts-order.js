@@ -1,25 +1,25 @@
 export const partsOrder = () => {
-    const $form = $('.form--parts');
+    const $form = $('.form--parts, .form--request');
     if (!$form.length) return;
 
     const $files = $form.find('.form__file-input');
-    const $fileNames = $form.find('.form__file-name');
-    const $status = $form.find('.form__status');
 
     $files.on('change', function () {
         const names = Array.from(this.files || [], file => file.name);
-        $fileNames.text(names.join(', ')).prop('hidden', !names.length);
+        $(this).closest('form').find('.form__file-name').text(names.join(', ')).prop('hidden', !names.length);
     });
 
     // Register after the shared FormController so invalid submissions stop there.
-    $(document).on('submit', '.form--parts', async function (event) {
+    $(document).on('submit', '.form--parts, .form--request', async function (event) {
         event.preventDefault();
         if ($(this).attr('aria-busy') === 'true') return;
 
         const endpoint = this.getAttribute('action');
+        const $status = $(this).find('.form__status');
+        const $fileNames = $(this).find('.form__file-name');
         $status.prop('hidden', false);
         if (!endpoint || endpoint === '#') {
-            $status.text('Отправка заявки временно недоступна. Пожалуйста, свяжитесь со специалистом по телефонам +7(499)343-62-42 или +7(499)005-23-00.');
+            $status.text(this.dataset.unavailableMessage || 'Отправка заявки временно недоступна. Пожалуйста, свяжитесь со специалистом по телефонам +7(499)343-62-42 или +7(499)005-23-00.');
             return;
         }
 

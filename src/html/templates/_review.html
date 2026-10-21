@@ -1,0 +1,39 @@
+<article class="review@@if (!compact) { review--detailed}" data-review-id="@@id" data-rating="@@rating" data-date="@@dateISO" data-helpful="@@helpful">
+    <div class="review__header">
+        <span class="review__avatar icon-user-fill" aria-hidden="true"></span>
+        <div class="review__identity">
+            @@include('../includes/_rating-stars.html', {"rating": "@@rating"})
+            <div class="review__row">
+                <h3 class="review__name title title--review-author">@@author</h3>
+                @@if (experience) {<p class="review__experience">Опыт использования: @@experience</p>}
+            </div>
+        </div>
+        <div class="review__meta">
+            <time class="review__date" datetime="@@dateISO">@@date</time>
+        </div>
+    </div>
+    <div class="review__content">
+        @@if (positive) {<div class="review__block"><span class="review__label">Достоинства:</span>
+            <p class="review__text">@@positive</p>
+        </div>}
+        @@if (negative) {<div class="review__block"><span class="review__label">Недостатки:</span>
+            <p class="review__text">@@negative</p>
+        </div>}
+        @@if (comment) {<div class="review__block">@@if (!compact) {<span class="review__label">Комментарий:</span>}
+            <p class="review__text">@@comment</p>
+        </div>}
+    </div>
+    @@if (!compact) {<button class="review__toggle icon-chevron-down" type="button" aria-expanded="false">Показать полностью</button>}
+    @@if (reply) {<div class="review__reply">
+        <p class="review__reply-author">Ответ Bort</p>
+        <p class="review__reply-text">@@reply</p>
+    </div>}
+    <span class="review__brand"><img class="review__brand-image" src="@img/@@brand" alt="@@brandName" loading="lazy"></span>
+    @@if (!compact) {<div class="review__footer">
+        <span class="review__question">Отзыв полезен?</span>
+        <div class="review__votes">
+            <button class="review__vote" type="button" data-vote="helpful" aria-label="Полезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-thumbs-up" aria-hidden="true"></span><span class="review__vote-count">@@helpful</span></button>
+            <button class="review__vote" type="button" data-vote="unhelpful" aria-label="Неполезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-dislike" aria-hidden="true"></span><span class="review__vote-count">@@unhelpful</span></button>
+        </div>
+    </div>}
+</article>

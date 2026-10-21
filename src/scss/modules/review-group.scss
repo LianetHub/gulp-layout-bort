@@ -1,0 +1,15 @@
+// .review-group
+.review-group {
+    scroll-margin-top: calc(var(--header-height, 7rem) + #{rem(20)});
+    // .review-group__list
+    &__list {
+        display: grid;
+        gap: 0;
+    }
+    // .review-group__toolbar
+    &__toolbar {
+        display: flex;
+        justify-content: flex-start;
+        margin-bottom: rem(20);
+    }
+}

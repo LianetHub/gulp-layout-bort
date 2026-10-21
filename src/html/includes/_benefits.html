@@ -1,5 +1,5 @@
-<section class="benefits">
-    <div class="container">
+<section class="benefits @@if (context.information === true) {benefits--information}">
+    <div class="benefits__container container">
         <h2 class="benefits__title title">
             <span class="color-grey">Наши</span> заслуги
         </h2>
@@ -15,8 +15,8 @@
                 </ul>
             </div>
             <div class="benefits__controls">
-                <button type="button" class="benefits__prev swiper-button-prev"></button>
-                <button type="button" class="benefits__next swiper-button-next"></button>
+                <button type="button" class="benefits__prev swiper-button-prev" aria-label="Предыдущий слайд"></button>
+                <button type="button" class="benefits__next swiper-button-next" aria-label="Следующий слайд"></button>
                 <div class="benefits__pagination swiper-pagination"></div>
             </div>
         </div>

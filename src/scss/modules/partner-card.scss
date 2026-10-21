@@ -1,0 +1,23 @@
+// .partner-card
+.partner-card {
+    align-self: start;
+    padding: rem(30);
+    border-radius: rem(10);
+    background: #f7f7f6;
+    // .partner-card__title
+    &__title {
+        margin-bottom: rem(20);
+    }
+    // .partner-card__text
+    &__text {
+        font-size: rem(14);
+        line-height: rem(20);
+        color: #63666a;
+    }
+    // .partner-card__button
+    &__button {
+        width: rem(196);
+        max-width: 100%;
+        margin-top: rem(30);
+    }
+}

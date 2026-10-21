@@ -58,6 +58,54 @@
 		text-transform: none;
 		line-height: 1.4;
 	}
+	// .title--review-author
+	&--review-author {
+		font-family: $fontfamily;
+		font-size: rem(16);
+		font-weight: 600;
+		line-height: 125%;
+		text-transform: none;
+	}
+	// .title--banner
+	&--banner {
+		font-size: rem(18);
+		font-weight: 400;
+		line-height: rem(26);
+		text-transform: none;
+		color: #000;
+		@media (min-width: $md4) {
+			font-size: rem(48);
+			line-height: rem(60);
+		}
+	}
+	// .title--benefit
+	&--benefit {
+		font-family: $fontfamily;
+		font-size: rem(16);
+		font-weight: 600;
+		line-height: rem(22);
+		text-transform: none;
+		color: #2b2b2b;
+	}
+	// .title--information
+	&--information {
+		font-size: rem(20);
+		font-weight: 400;
+		line-height: rem(28);
+		text-transform: none;
+		color: #000;
+		@media (min-width: $md4) {
+			font-size: rem(24);
+			line-height: rem(36);
+		}
+	}
+	// .title--information-large
+	&--information-large {
+		@media (min-width: $md4) {
+			font-size: rem(30);
+			line-height: rem(42);
+		}
+	}
 	// .title--service
 	&--service {
 		font-size: rem(18);
@@ -159,16 +207,36 @@
 	@media (min-width: $md4) {
 		font-size: 1.25rem;
 	}
+	// .title-sm--content
+	&--content {
+		font-size: rem(18);
+		font-weight: 400;
+		line-height: rem(26);
+		text-transform: none;
+		color: #000;
+		@media (min-width: $md4) {
+			font-size: rem(20);
+			line-height: rem(28);
+		}
+	}
 }
 
 // .sitemap__title
 // .policy__title
 // .spare-parts__title
 // .services__title
+// .returns__title
+// .service__title
+// .feedback__title
+// .title--page
 .sitemap__title,
 .policy__title,
 .spare-parts__title,
-.services__title {
+.services__title,
+.returns__title,
+.service__title,
+.feedback__title,
+.title--page {
 	font-weight: 400;
 	text-transform: none;
 	font-size: rem(24);
@@ -200,7 +268,9 @@
 }
 
 // .policy__text
-.policy__text {
+// .text-body
+.policy__text,
+.text-body {
 	font-size: rem(16);
 	font-weight: 400;
 	line-height: rem(22);
