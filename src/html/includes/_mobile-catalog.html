@@ -1,0 +1,77 @@
+<nav class="mobile-catalog" id="mobile-catalog" aria-label="Каталог товаров" hidden>
+    <div class="mobile-catalog__container container">
+        <div class="mobile-catalog__header">
+            <button type="button" class="mobile-catalog__back icon-chevron-left" aria-label="Назад в каталог" hidden></button>
+            <h2 class="mobile-catalog__title title title--catalog" id="mobile-catalog-title" tabindex="-1">Каталог</h2>
+            <button type="button" class="mobile-catalog__close icon-close" aria-label="Закрыть каталог"></button>
+        </div>
+        <div class="mobile-catalog__body">
+            <ul class="mobile-catalog__panel mobile-catalog__panel--root" id="catalog-root" data-catalog-title="Каталог">
+                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-appliances" aria-controls="catalog-appliances" aria-expanded="false">Бытовая техника<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-cleaning" aria-controls="catalog-cleaning" aria-expanded="false">Клининг<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-tools" aria-controls="catalog-tools" aria-expanded="false">Инструмент<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-garden" aria-controls="catalog-garden" aria-expanded="false">Сад и огород<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-horeca" aria-controls="catalog-horeca" aria-expanded="false">Horeca<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+            </ul>
+            <ul class="mobile-catalog__panel" id="catalog-appliances" data-catalog-title="Бытовая техника" hidden>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Измельчители отходов<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Отпариватели<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Водонагреватели<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+            </ul>
+            <ul class="mobile-catalog__panel" id="catalog-cleaning" data-catalog-title="Клининг" hidden>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Промышленные пылесосы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Мойки высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пароочистители<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Воздуходувки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link" data-catalog-target="catalog-cleaning-accessories" aria-controls="catalog-cleaning-accessories" aria-expanded="false">Аксессуары<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+            </ul>
+            <ul class="mobile-catalog__panel" id="catalog-cleaning-accessories" data-catalog-title="Аксессуары" hidden>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары для пылесосов<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары для моек высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары для пароочистителей<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+            </ul>
+            <ul class="mobile-catalog__panel" id="catalog-tools" data-catalog-title="Инструмент" hidden>
+                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link" data-catalog-target="catalog-cordless" aria-controls="catalog-cordless" aria-expanded="false">Аккумуляторный инструмент<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link" data-catalog-target="catalog-hand-tools" aria-controls="catalog-hand-tools" aria-expanded="false">Ручной инструмент<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link" data-catalog-target="catalog-auto" aria-controls="catalog-auto" aria-expanded="false">Автотовары<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link" data-catalog-target="catalog-measuring" aria-controls="catalog-measuring" aria-expanded="false">Измерительный инструмент<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+            </ul>
+            <ul class="mobile-catalog__panel" id="catalog-cordless" data-catalog-title="Аккумуляторный инструмент" hidden>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Дрели и шуруповерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Перфораторы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Гайковерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Лобзики<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы сабельные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы цепные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы циркулярные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Болгарки (УШМ)<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Технические фены<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Секаторы и сучкорезы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аккумуляторы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Зарядные устройства<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары для снегоуборщиков<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+            </ul>
+            <ul class="mobile-catalog__panel" id="catalog-hand-tools" data-catalog-title="Ручной инструмент" hidden>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Наборы ручного инструмента<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+            </ul>
+            <ul class="mobile-catalog__panel" id="catalog-auto" data-catalog-title="Автотовары" hidden>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Ударные гайковерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+            </ul>
+            <ul class="mobile-catalog__panel" id="catalog-measuring" data-catalog-title="Измерительный инструмент" hidden>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Рулетки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+            </ul>
+            <ul class="mobile-catalog__panel" id="catalog-garden" data-catalog-title="Сад и огород" hidden>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Воздуходувки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Мойки высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы цепные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы сабельные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Секаторы и сучкорезы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+            </ul>
+            <ul class="mobile-catalog__panel" id="catalog-horeca" data-catalog-title="Horeca" hidden>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пылесосы для гостиниц и отелей<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Измельчители пищевых отходов промышленные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

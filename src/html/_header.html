@@ -2,42 +2,48 @@
     <div class="header__content">
         <div class="container header__content-container">
             <a href="index.html" class="header__logo">
-                <img src="@img/logo.svg" width="138" height="40" alt="Логотип сайта Bort" class="header__image">
+                <img src="@img/logo-compact.svg" width="138" height="40" alt="Логотип сайта Bort" class="header__image">
             </a>
-            <a href="catalog.html" class="header__catalog btn btn-primary icon-dots-grid">Каталог</a>
+            <button type="button" class="header__burger icon-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="header-menu"></button>
+            <a href="catalog.html" class="header__catalog btn btn-primary" aria-label="Каталог">
+                <span class="header__catalog-icon icon-menu" aria-hidden="true"></span>
+                <span class="header__catalog-icon header__catalog-icon--grid icon-dots-grid" aria-hidden="true"></span>
+                <span class="header__catalog-text">Каталог</span>
+            </a>
             <a href="tel:+74997057979" aria-label="Позвонить" class="header__phone header__phone--mobile icon-phone"></a>
             @@include('./includes/_search.html')
-            <div class="header__actions main-actions">
-                <a href="catalog.html" class="main-actions__item icon-catalog">
+            <nav class="header__actions main-actions" aria-label="Основная навигация">
+                <a href="catalog.html" class="main-actions__item icon-dots-grid" aria-label="Каталог" aria-controls="mobile-catalog" aria-expanded="false">
                     <span class="main-actions__item-text">
                         Каталог
                     </span>
                 </a>
-                <a href="cart.html" class="main-actions__item icon-cart">
+                <a href="cart.html" class="main-actions__item icon-cart" aria-label="Корзина">
                     <span class="main-actions__item-text">
                         Корзина
                     </span>
                     <span class="main-actions__quanitity">9999</span>
                 </a>
-                <a href="favorite.html" class="main-actions__item icon-heart">
+                <a href="favorite.html" class="main-actions__item icon-heart" aria-label="Избранное">
                     <span class="main-actions__item-text">
                         Избранное
                     </span>
                 </a>
-                <a href="compare.html" class="main-actions__item icon-bars">
+                <a href="compare.html" class="main-actions__item icon-bars" aria-label="Сравнение">
                     <span class="main-actions__item-text">
                         Сравнение
                     </span>
                 </a>
-                <a href="lk-person.html" class="main-actions__item icon-user">
+                <a href="lk-person.html" class="main-actions__item icon-user-circle" aria-label="Войти">
                     <span class="main-actions__item-text">
                         Войти
                     </span>
                 </a>
-            </div>
+            </nav>
         </div>
     </div>
-    <div class="header__bottom">
+    <button type="button" class="header__backdrop" aria-label="Закрыть меню" tabindex="-1" hidden></button>
+    <div class="header__bottom" id="header-menu">
         <div class="header__bottom-container container">
             <nav aria-label="Меню в шапке" class="header__menu menu">
                 <ul class="menu__list">
@@ -69,4 +75,5 @@
             </div>
         </div>
     </div>
+    @@include('./includes/_mobile-catalog.html')
 </header>

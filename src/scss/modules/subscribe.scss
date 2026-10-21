@@ -1,62 +1,88 @@
+// .subscribe
 .subscribe {
-
-	background: #f7f7f7;
-	padding: rem(32) 0;
-
+	background: #f7f7f6;
+	padding: rem(30) 0;
+	// .subscribe__container
 	&__container {
 		display: grid;
-		grid-template-columns: 1fr 1.1fr;
-		gap: rem(30);
+		grid-template-columns: minmax(0, 1fr);
+		gap: rem(20);
 		align-items: start;
-
 		box-sizing: border-box;
 		width: 100%;
 		max-width: rem(1280);
+		@media (min-width: $md2) {
+			grid-template-columns: rem(561) minmax(0, 1fr);
+			gap: rem(30);
+		}
 	}
-
+	// .subscribe__text
 	&__text {
-		margin-top: rem(14);
-		font-size: rem(16);
+		margin-top: rem(10);
+		font-size: rem(14);
+		line-height: rem(20);
+		@media (min-width: $md4) {
+			font-size: rem(16);
+			line-height: rem(22);
+		}
 		color: #777;
 	}
-
+	// .subscribe__fields
 	&__fields {
 		display: flex;
 		gap: rem(10);
-
+		// .subscribe__fields .subscribe__input
 		.subscribe__input {
 			width: 100%;
 			min-width: 0;
 			border: 1px solid #eee;
-			padding: rem(14) rem(20);
+			padding: rem(13) rem(20);
 			background: #fff;
 			border-radius: rem(8);
 			font-size: rem(14);
+			line-height: rem(20);
 		}
-
+		// .subscribe__fields .subscribe__submit
 		.subscribe__submit {
-			padding: rem(14) rem(30);
-			background: #ff6900;
+			flex-shrink: 0;
+			padding: rem(13) rem(25);
+			background: #ff6201;
 			color: #fff;
 			border-radius: rem(8);
-			font-size: rem(14);
+			font-size: rem(16);
+			line-height: rem(22);
+			@media (min-width: $md4) {
+				padding: rem(14) rem(30);
+				font-size: rem(14);
+				line-height: rem(20);
+			}
 		}
 	}
-
+	// .subscribe__form .subscribe__text
 	&__form .subscribe__text {
-		font-size: rem(11);
-		line-height: 1.5;
+		font-size: rem(10);
+		line-height: rem(14);
+		@media (min-width: $md4) {
+			font-size: rem(12);
+			line-height: rem(16);
+		}
 		margin-top: rem(10);
-
+		// .subscribe__form .subscribe__text .subscribe__link
 		.subscribe__link {
 			text-decoration: underline;
 		}
 	}
-
+	// .subscribe__status
 	&__status {
 		font-size: rem(13);
-		margin-top: rem(6);
 		color: #63666a;
+		// .subscribe__status:not(:empty)
+		&:not(:empty) {
+			margin-top: rem(6);
+		}
 	}
-
+	// .subscribe__form
+	&__form {
+		min-width: 0;
+	}
 }

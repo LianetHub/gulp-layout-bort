@@ -1,3 +1,4 @@
+// .marketing-card
 .marketing-card {
 	position: relative;
 	display: flex;
@@ -9,7 +10,7 @@
 	background-position: center;
 	background-size: cover;
 	color: $white;
-
+	// .marketing-card::before
 	&::before {
 		content: "";
 		position: absolute;
@@ -18,8 +19,12 @@
 		background-position: center;
 		background-size: cover;
 		transition: transform 0.3s ease;
+		@media (prefers-reduced-motion: reduce) {
+			transition: none;
+			transform: none;
+		}
 	}
-
+	// .marketing-card__content
 	&__content {
 		position: relative;
 		display: flex;
@@ -30,35 +35,29 @@
 		border-radius: 0.625rem;
 		background: linear-gradient(180deg, transparent 0%, #1d1d1b 100%);
 	}
-
+	// .marketing-card__title
 	&__title {
 		width: 100%;
+		overflow-wrap: anywhere;
 	}
-
+	// .marketing-card--small
 	&--small {
 		height: rem(200);
-
+		// .marketing-card--small .marketing-card__content
 		.marketing-card__content {
 			min-height: 7.5rem;
 			padding: rem(15) rem(10);
 			text-align: center;
 		}
 	}
-
-	@media (any-hover: hover) {
-		&:hover::before {
+	// .marketing-card:hover::before
+	&:hover::before {
+		@media (any-hover: hover) {
 			transform: scale(1.05);
 		}
 	}
-
+	// .marketing-card:focus-visible::before
 	&:focus-visible::before {
 		transform: scale(1.05);
-	}
-
-	@media (prefers-reduced-motion: reduce) {
-		&::before {
-			transition: none;
-			transform: none;
-		}
 	}
 }

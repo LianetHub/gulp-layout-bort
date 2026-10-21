@@ -1,0 +1,130 @@
+// .mobile-catalog
+.mobile-catalog {
+	position: fixed;
+	inset: 0 0 calc(#{rem(54)} + env(safe-area-inset-bottom, 0px));
+	width: 100vw;
+	z-index: 5;
+	background: $white;
+	color: #292929;
+	// .mobile-catalog[hidden]
+	&[hidden] {
+		display: none;
+	}
+	@media (min-width: $md4) {
+		display: none;
+	}
+	// .mobile-catalog__container
+	&__container {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		min-height: 0;
+	}
+	// .mobile-catalog__header
+	&__header {
+		position: relative;
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+		gap: rem(10);
+		min-height: rem(76);
+		padding: rem(20) 0 rem(22);
+	}
+	// .mobile-catalog__title
+	&__title {
+		min-width: 0;
+		padding-right: rem(20);
+	}
+	// .mobile-catalog__back
+	&__back {
+		flex: 0 0 rem(20);
+		min-height: rem(26);
+		font-size: rem(20);
+		// .mobile-catalog__back[hidden]
+		&[hidden] {
+			display: none;
+		}
+	}
+	// .mobile-catalog__close
+	&__close {
+		position: absolute;
+		top: rem(10);
+		right: rem(-5);
+		width: rem(20);
+		height: rem(20);
+		font-size: rem(20);
+		color: #424449;
+		// .mobile-catalog__close[hidden]
+		&[hidden] {
+			display: none;
+		}
+	}
+	// .mobile-catalog__body
+	&__body {
+		flex: 1;
+		min-height: 0;
+		overflow-y: auto;
+		overscroll-behavior: contain;
+		padding-bottom: rem(15);
+	}
+	// .mobile-catalog__panel
+	&__panel {
+		font-size: rem(16);
+		font-weight: 500;
+		line-height: rem(22);
+		// .mobile-catalog__panel[hidden]
+		&[hidden] {
+			display: none;
+		}
+		// .mobile-catalog__panel--root
+		&--root {
+			// .mobile-catalog__panel--root .mobile-catalog__link
+			.mobile-catalog__link {
+				min-height: rem(59);
+				padding-block: rem(16);
+			}
+		}
+	}
+	// .mobile-catalog__item
+	&__item {
+		border-bottom: 1px solid #e9e9e9;
+	}
+	// .mobile-catalog__link
+	&__link {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: rem(15);
+		width: 100%;
+		min-height: rem(47);
+		padding: rem(12) 0;
+		text-align: left;
+		color: inherit;
+		@media (any-hover: hover) {
+			// .mobile-catalog__link:hover
+			&:hover {
+				color: $orange;
+			}
+		}
+	}
+	// .mobile-catalog__arrow
+	&__arrow {
+		flex-shrink: 0;
+		width: rem(24);
+		font-size: rem(20);
+		font-weight: 400;
+		color: #292929;
+	}
+	// .mobile-catalog--nested
+	&--nested {
+		// .mobile-catalog--nested .mobile-catalog__header
+		.mobile-catalog__header {
+			min-height: rem(66);
+			padding-bottom: rem(20);
+		}
+		// .mobile-catalog--nested .mobile-catalog__title
+		.mobile-catalog__title {
+			padding-right: 0;
+		}
+	}
+}

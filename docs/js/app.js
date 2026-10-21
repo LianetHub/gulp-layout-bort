@@ -1,10 +1,61 @@
 "use strict";
 
 import { select } from './modules/select.js';
+import { mobileCatalog } from './modules/mobile-catalog.js';
 
 $(function () {
 
     select();
+
+    const $burger = $('.header__burger');
+    const $navigation = $('#header-menu');
+    const $backdrop = $('.header__backdrop');
+    const mobileNavigation = window.matchMedia('(max-width: 767.97px)');
+
+    function closeNavigation(restoreFocus = false) {
+        const wasOpen = $navigation.hasClass('is-open');
+        $navigation.removeClass('is-open');
+        $backdrop.prop('hidden', true);
+        $('body').removeClass('open-navigation');
+        $burger.attr({ 'aria-expanded': 'false', 'aria-label': 'Открыть меню' })
+            .removeClass('icon-close').addClass('icon-menu');
+        if (wasOpen && restoreFocus) $burger.trigger('focus');
+    }
+
+    $burger.on('click', function () {
+        if ($navigation.hasClass('is-open')) {
+            closeNavigation();
+            return;
+        }
+        window.SearchController?.closeSearch();
+        window.CatalogController?.closeCatalog();
+        window.AuthController?.closeMenu();
+        $navigation.addClass('is-open');
+        $backdrop.prop('hidden', false);
+        $('body').addClass('open-navigation');
+        $burger.attr({ 'aria-expanded': 'true', 'aria-label': 'Закрыть меню' })
+            .removeClass('icon-menu').addClass('icon-close');
+    });
+    $backdrop.on('click', () => closeNavigation(true));
+    $(document).on('click', '.header__bottom .menu__link, .main-actions__item, .search__toggler', () => closeNavigation());
+    $(document).on('keydown', function (event) {
+        if (!$navigation.hasClass('is-open')) return;
+        if (event.key === 'Escape') closeNavigation(true);
+        if (event.key === 'Tab') {
+            const $items = $('.header__content, .header__bottom').find('a, button, input').filter(':visible');
+            const first = $items[0];
+            const last = $items[$items.length - 1];
+            if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+            }
+        }
+    });
+    mobileNavigation.addEventListener('change', () => closeNavigation());
+    mobileCatalog({ closeNavigation });
 
 
     if (typeof Fancybox !== "undefined" && Fancybox !== null) {
@@ -339,6 +390,7 @@ $(function () {
 
             $toggler.toggleClass(this.selectors.activeClass);
             $content.toggleClass(this.selectors.activeClass);
+            $toggler.attr('aria-expanded', String(isOpening));
 
             if (isOpening) {
                 setTimeout(() => {
@@ -367,7 +419,7 @@ $(function () {
         }
 
         closeSearch() {
-            $(this.selectors.toggler).removeClass(this.selectors.activeClass);
+            $(this.selectors.toggler).removeClass(this.selectors.activeClass).attr('aria-expanded', 'false');
             $(this.selectors.content).removeClass(this.selectors.activeClass);
             this.closeBar();
         }
@@ -487,9 +539,25 @@ $(function () {
     // Each slider uses its own Swiper controls.
     $('[data-showcase-slider]').each(function () {
         const $container = $(this);
+        const type = $container.data('showcase-slider');
+        const isMarketing = type === 'marketing';
+        const desktopSlides = isMarketing ? 3 : Number(type);
+        const breakpoints = isMarketing ? {
+            768: { slidesPerView: 'auto' },
+            992: { slidesPerView: 'auto' },
+            1200: { slidesPerView: 3 }
+        } : {
+            576: { slidesPerView: 2 },
+            768: { slidesPerView: 3 },
+            992: { slidesPerView: desktopSlides === 3 ? 3 : 4 },
+            1200: { slidesPerView: desktopSlides === 6 ? 5 : (desktopSlides === 5 ? 4 : 3) },
+            1320: { slidesPerView: desktopSlides }
+        };
+
         new Swiper($container.find('.swiper')[0], {
-            slidesPerView: Number($container.data('showcase-slider')),
-            spaceBetween: 10,
+            slidesPerView: isMarketing ? 'auto' : 1,
+            spaceBetween: isMarketing || desktopSlides === 3 ? 20 : 10,
+            breakpoints: breakpoints,
             watchOverflow: true,
             navigation: {
                 nextEl: $container.find('.swiper-button-next')[0],
