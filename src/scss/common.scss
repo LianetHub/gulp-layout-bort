@@ -89,6 +89,10 @@ body {
 			background: url("@img/decor/bg-wave.svg") 0 100% / 100% auto no-repeat;
 		}
 	}
+	// .page:has(.sitemap)
+	&:has(.sitemap) {
+		padding-bottom: 0;
+	}
 	// .page.page--showcase
 	&.page--showcase {
 		padding-bottom: 0;
