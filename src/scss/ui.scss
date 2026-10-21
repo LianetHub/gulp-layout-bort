@@ -58,6 +58,15 @@
 		text-transform: none;
 		line-height: 1.4;
 	}
+	// .title--search
+	&--search {
+		font-family: $fontfamily;
+		font-size: rem(16);
+		font-weight: 500;
+		line-height: rem(22);
+		text-transform: none;
+		color: #111;
+	}
 	// .title--catalog
 	&--catalog {
 		font-size: rem(24);

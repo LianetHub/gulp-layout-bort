@@ -361,7 +361,7 @@ $(function () {
                 this.handleInput($(e.target));
             });
 
-            $(document).on('focus', this.selectors.input, (e) => {
+            $(document).on('focus click', this.selectors.input, (e) => {
                 this.handleInput($(e.target));
             });
 
@@ -373,9 +373,38 @@ $(function () {
 
             $(document).on('keydown', (e) => {
                 if (e.key === 'Escape') {
-                    this.closeSearch();
+                    this.closeSearch(true);
                 }
             });
+
+            $(document).on('click', '.search__clear', (e) => {
+                const $search = $(e.currentTarget).closest(this.selectors.search);
+                const $input = $search.find(this.selectors.input);
+                $input.val('');
+                this.handleInput($input);
+                $input.trigger('focus');
+            });
+
+            $(document).on('submit', '.search__form', (e) => {
+                const $input = $(e.currentTarget).find(this.selectors.input);
+                $input.val($input.val().trim());
+                if (!$input.val()) {
+                    e.preventDefault();
+                    $input.trigger('focus');
+                }
+            });
+
+            $(document).on('keydown', this.selectors.input, (e) => {
+                if (e.key === 'ArrowDown') {
+                    const $bar = $(e.currentTarget).closest(this.selectors.search).find(this.selectors.bar);
+                    if (!$bar.prop('hidden')) {
+                        e.preventDefault();
+                        $bar.find('a').first().trigger('focus');
+                    }
+                }
+            });
+
+            window.matchMedia('(max-width: 767.97px)').addEventListener('change', () => this.closeSearch());
         }
 
         toggleSearch() {
@@ -385,6 +414,7 @@ $(function () {
             const isOpening = !$content.hasClass(this.selectors.activeClass);
 
             if (isOpening) {
+                closeNavigation();
                 window.CatalogController?.closeCatalog();
             }
 
@@ -393,15 +423,18 @@ $(function () {
             $toggler.attr('aria-expanded', String(isOpening));
 
             if (isOpening) {
-                setTimeout(() => {
-                    $search.find(this.selectors.input).focus();
-                }, 100);
+                $search.find(this.selectors.input).trigger('focus');
+            } else {
+                this.closeBar();
             }
         }
 
         handleInput($input) {
             const query = $input.val().trim();
             const $bar = $input.closest(this.selectors.search).find(this.selectors.bar);
+
+            $input.closest(this.selectors.search).find('.search__clear').prop('hidden', !query.length);
+            $input.closest(this.selectors.search).find('.search__all').attr('href', `search.html?s=${encodeURIComponent(query)}`);
 
             if (query.length >= 1) {
                 this.openBar($bar);
@@ -411,17 +444,21 @@ $(function () {
         }
 
         openBar($bar) {
-            $bar.addClass(this.selectors.visibleClass);
+            $bar.prop('hidden', false).addClass(this.selectors.visibleClass);
+            $bar.closest(this.selectors.search).find(this.selectors.input).attr('aria-expanded', 'true');
         }
 
         closeBar($bar = $(this.selectors.bar)) {
-            $bar.removeClass(this.selectors.visibleClass);
+            $bar.prop('hidden', true).removeClass(this.selectors.visibleClass);
+            $bar.closest(this.selectors.search).find(this.selectors.input).attr('aria-expanded', 'false');
         }
 
-        closeSearch() {
+        closeSearch(restoreFocus = false) {
+            const wasMobileOpen = $(this.selectors.content).hasClass(this.selectors.activeClass);
             $(this.selectors.toggler).removeClass(this.selectors.activeClass).attr('aria-expanded', 'false');
             $(this.selectors.content).removeClass(this.selectors.activeClass);
             this.closeBar();
+            if (restoreFocus && wasMobileOpen) $(this.selectors.toggler).trigger('focus');
         }
     }
 

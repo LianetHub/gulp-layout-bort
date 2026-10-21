@@ -1,33 +1,30 @@
 <div class="header__search search">
-    <button type="button" class="search__toggler icon-search" aria-label="Открыть поиск" aria-expanded="false">
+    <button type="button" class="search__toggler icon-search" aria-label="Открыть поиск" aria-expanded="false" aria-controls="header-search">
         <span class="search__toggler-text">Поиск</span>
     </button>
-    <div class="search__content">
+    <div class="search__content" id="header-search">
         <div class="search__container container">
-            <form action="#" class="search__form">
-                <input type="text" name="s" class="search__form-input form__control" placeholder="Поиск товаров">
+            <form action="search.html" method="get" role="search" class="search__form">
+                <input type="search" name="s" class="search__form-input form__control" placeholder="Поиск товаров" aria-label="Поиск товаров" aria-controls="search-results" aria-expanded="false" autocomplete="off">
+                <button type="button" aria-label="Очистить поиск" class="search__clear icon-close" hidden></button>
                 <button type="submit" aria-label="Искать" class="search__form-btn icon-search"></button>
             </form>
-            <div class="search__bar">
-                <div class="search__bar-block">
-                    <div class="search__bar-caption title-xs">
-                        Товары
-                    </div>
-                    <div class="search__bar-list">
-                        <a href="" class="search__bar-result icon-search">Мойка высокого давления Bort KEX-3000</a>
-                        <a href="" class="search__bar-result icon-search">Пылесос универсальный Bort BSS-1220-Pro</a>
-                        <a href="" class="search__bar-result icon-search">Измельчитель пищевых отходов Bort Caiman</a>
-                        <a href="" class="search__bar-result icon-search">Мойка высокого давления Bort BHR-2000M-Pro</a>
-                    </div>
+            <div class="search__bar" id="search-results" aria-label="Результаты поиска" hidden>
+                <div class="search__bar-block search__bar-block--categories">
+                    <h2 class="search__bar-caption title title--search">Категория</h2>
+                    <ul class="search__bar-list">
+                        <li class="search__category"><a href="category.html" class="search__bar-result"><img src="@img/categories/waste-disposers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Измельчители отходов</span></a></li>
+                        <li class="search__category"><a href="category.html" class="search__bar-result"><img src="@img/categories/garment-steamers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Отпариватели</span></a></li>
+                    </ul>
                 </div>
-                <div class="search__bar-block">
-                    <div class="search__bar-caption title-xs">
-                        Категории
+                <div class="search__bar-block search__bar-block--products">
+                    <div class="search__results-header">
+                        <h2 class="search__bar-caption title title--search">Товары <span class="search__count">12</span></h2>
+                        <a href="search.html" class="search__all">Все результаты<span class="search__all-icon icon-chevron-right" aria-hidden="true"></span></a>
                     </div>
-                    <div class="search__bar-list">
-                        <a href="" class="search__bar-result icon-search">Дрели и перфораторы</a>
-                        <a href="" class="search__bar-result icon-search">Измерительная техника</a>
-                    </div>
+                    <ul class="search__products" aria-label="Найденные товары">
+                        @@loop('../templates/_search-product.html', './html/json/search-products.json')
+                    </ul>
                 </div>
             </div>
         </div>
