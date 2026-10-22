@@ -258,130 +258,44 @@
 
             </header>
 
-            <main class="page">
+            <main class="page page--showcase">
                 <nav aria-label="Хлебные крошки" class="breadcrumbs">
-                    <div class="container">
+                    <div class="breadcrumbs__container container">
                         <ul class="breadcrumbs__list">
                             <li class="breadcrumbs__item">
                                 <a href="/" class="breadcrumbs__link">Главная</a>
                             </li>
                             <li class="breadcrumbs__item">
-                                <span class="breadcrumbs__link active">О компании</a>
+                                <span class="breadcrumbs__link active" aria-current="page">Доставка и оплата</span>
                             </li>
                         </ul>
                     </div>
                 </nav>
-                <article class="article">
-                    <div class="container">
-                        <h2 class="article__title title"><span class="color-grey">О</span> компании</h2>
-                        <div class="article__body typography-block">
-                            <h4>общая информация</h4>
-                            <p>Bort Global (ранее SBM group) - международная группа компаний, основанная в 1996 году. Основное направление деятельности - разработка, производство и дистрибуция электроинструмента, клининговой и бытовой техники, оборудования и расходных материалов.</p>
-                            <p>Торговая марка Bort - это высокое качество во всех смыслах этого понятия. Это качество продукции, менеджмента, персонала, дистрибуции, логистики, технического обслуживания.</p>
-                            <p>За время существования компании было произведено более 25 миллионов единиц различного инструмента. Bort Global имеет множество офисов и представительств, крупные склады и налаженную систему управления бизнесом. Комплексный подход и грамотный менеджмент позволяет производить поставки нашего товара на самых выгодных для клиента условиях.</p>
-                            <p>Bort Global имеет разветвленную сеть авторизованных сервисных центров и обеспечивает бесперебойные поставки запасных частей во все сервисные мастерские, что позволяет оперативно выполнять ремонт инструмента в любом регионе.</p>
-                            <p>Изделия под торговой маркой Bort получили известность и в настоящее время успешно распространяются в Европе, России и в странах ближнего и дальнего зарубежья.</p>
-                            <h4>Заказ продукции</h4>
-                            <p>Для вашего удобства мы предусмотрели различные формы заказа:</p>
-                            <ul>
-                                <li>по телефону;</li>
-                                <li>через форму on-line заказа на сайте;</li>
-                                <li>по электронной почте;</li>
-                                <li>через Skype;</li>
-                                <li>через ICQ;</li>
-                                <li>в офисе нашей компании.</li>
-                            </ul>
-                            <p>Стоимость товаров можно узнать на сайте или скачав прайс-лист или обратившись к нашим менеджерам. Для того чтобы иметь возможность ознакомиться с прайс-листом и заказывать товары через сайт, вам необходимо <a href="">Пройти регистрацию</a>. Зачем это нужно? Данная формальность позволит вам смотреть цены и наличие товаров в режиме реального времени, делать заказы, получать информацию о новинках и спецпредложениях. Все для того, чтобы вы могли совершать только выгодные покупки и зарабатывать больше!</p>
+                <section class="delivery" aria-labelledby="delivery-title">
+                    <div class="delivery__container container">
+                        <h1 class="delivery__title title title--page" id="delivery-title">Доставка и оплата</h1>
+                        <div class="delivery__section">
+                            <h2 class="delivery__caption title title--information">Доставка</h2>
+                            <p class="delivery__text text-body text-body--small">При сумме заказа более 3000 руб. доставка Почтой России и курьерской службой до двери осуществляется бесплатно.<br>При сумме заказа менее 3000 руб. стоимость доставки Почтой России и курьерской службой до двери составляет 350 руб.<br>Доставка осуществляется только по России.</p>
                         </div>
-                    </div>
-                </article>
-                <section class="benefits ">
-                    <div class="benefits__container container">
-                        <h2 class="benefits__title title">
-                            <span class="color-grey">Наши</span> заслуги
-                        </h2>
-                        <div class="benefits__list">
-                            <div class="swiper">
-                                <ul class="swiper-wrapper">
-                                    <li class="benefit-card swiper-slide">
-                                        <div class="benefit-card__body">
-                                            <div class="benefit-card__icon">
-                                                <img class="benefit-card__image" src="img/icons/star.svg" alt="">
-                                            </div>
-                                            <div class="benefit-card__title title-sm">
-                                                <span class="color-accent">Выгодные</span> условия для&nbsp;наших партнеров
-                                            </div>
-                                            <div class="benefit-card__description color-grey">Мы вынуждены отталкиваться от того, что внедрение современных методик обеспечивает актуальность благоприятных перспектив.</div>
-                                        </div>
-                                    </li>
+                        <div class="delivery__section">
+                            <h2 class="delivery__caption title title--information">Оплата</h2>
+                            <p class="delivery__text text-body text-body--small">Оплатить заказ на сайте Вы можете следующими способами:</p>
+                            <ul class="delivery__payments">
+                                <li class="payment-method">
+                                    <h3 class="payment-method__title title title--service">Банковской картой:</h3>
+                                    <p class="payment-method__text text-body text-body--small">При оформлении заказа на сайте мы принимаем к оплате банковские карты платежных систем Visa (включая Electron), MasterCard и Maestro, МИР.<br>Для осуществления платежа Вам потребуется сообщить данные Вашей пластиковой карты. Передача этих сведений производится с соблюдением всех необходимых мер безопасности. Данные будут сообщены только на авторизационный сервер Банка по защищенному каналу. Информация передается в зашифрованном виде и сохраняется только на специализированном сервере платежной системы. Сайт не знает и не хранит данные о вашей пластиковой карте. На указанный Вами при оформлении платежа адрес электронной почты, будет отправлен электронный чек в соответствии с ФЗ-54 о применении контрольно-кассовой техники.</p>
+                                </li>
+<li class="payment-method">
+                                    <h3 class="payment-method__title title title--service">Оплата онлайн через T-Pay и SberPay:</h3>
+                                    <p class="payment-method__text text-body text-body--small">Для оплаты через T-Pay и SberPay не требуется банковская карта. Нужен лишь телефон, на котором установлено мобильное приложение банка. T-Pay и SberPay не передают ваши данные сторонним сервисам. Перед подтверждением покупки T-Pay и SberPay покажут название магазина, сумму операции и остаток на карте, чтобы вы ещё раз всё проверили.<br>На указанный Вами при оформлении платежа адрес электронной почты, будет отправлен электронный чек в соответствии с ФЗ-54 о применении контрольно-кассовой техники.</p>
+                                </li>
+<li class="payment-method">
+                                    <h3 class="payment-method__title title title--service">Оплата при получении:</h3>
+                                    <p class="payment-method__text text-body text-body--small">Оплата наличными или банковской картой курьеру при получении заказа. (только для Москвы)</p>
+                                </li>
 
-                                    <li class="benefit-card swiper-slide">
-                                        <div class="benefit-card__body">
-                                            <div class="benefit-card__icon">
-                                                <img class="benefit-card__image" src="img/icons/star.svg" alt="">
-                                            </div>
-                                            <div class="benefit-card__title title-sm">
-                                                <span class="color-accent">Выгодные</span> условия для&nbsp;наших партнеров
-                                            </div>
-                                            <div class="benefit-card__description color-grey">Мы вынуждены отталкиваться от того, что внедрение современных методик обеспечивает актуальность благоприятных перспектив.</div>
-                                        </div>
-                                    </li>
-
-                                    <li class="benefit-card swiper-slide">
-                                        <div class="benefit-card__body">
-                                            <div class="benefit-card__icon">
-                                                <img class="benefit-card__image" src="img/icons/star.svg" alt="">
-                                            </div>
-                                            <div class="benefit-card__title title-sm">
-                                                <span class="color-accent">Выгодные</span> условия для&nbsp;наших партнеров
-                                            </div>
-                                            <div class="benefit-card__description color-grey">Мы вынуждены отталкиваться от того, что внедрение современных методик обеспечивает актуальность благоприятных перспектив.</div>
-                                        </div>
-                                    </li>
-
-                                    <li class="benefit-card swiper-slide">
-                                        <div class="benefit-card__body">
-                                            <div class="benefit-card__icon">
-                                                <img class="benefit-card__image" src="img/icons/star.svg" alt="">
-                                            </div>
-                                            <div class="benefit-card__title title-sm">
-                                                <span class="color-accent">Выгодные</span> условия для&nbsp;наших партнеров
-                                            </div>
-                                            <div class="benefit-card__description color-grey">Мы вынуждены отталкиваться от того, что внедрение современных методик обеспечивает актуальность благоприятных перспектив.</div>
-                                        </div>
-                                    </li>
-
-                                    <li class="benefit-card swiper-slide">
-                                        <div class="benefit-card__body">
-                                            <div class="benefit-card__icon">
-                                                <img class="benefit-card__image" src="img/icons/star.svg" alt="">
-                                            </div>
-                                            <div class="benefit-card__title title-sm">
-                                                <span class="color-accent">Выгодные</span> условия для&nbsp;наших партнеров
-                                            </div>
-                                            <div class="benefit-card__description color-grey">Мы вынуждены отталкиваться от того, что внедрение современных методик обеспечивает актуальность благоприятных перспектив.</div>
-                                        </div>
-                                    </li>
-
-                                    <li class="benefit-card swiper-slide">
-                                        <div class="benefit-card__body">
-                                            <div class="benefit-card__icon">
-                                                <img class="benefit-card__image" src="img/icons/star.svg" alt="">
-                                            </div>
-                                            <div class="benefit-card__title title-sm">
-                                                <span class="color-accent">Выгодные</span> условия для&nbsp;наших партнеров
-                                            </div>
-                                            <div class="benefit-card__description color-grey">Мы вынуждены отталкиваться от того, что внедрение современных методик обеспечивает актуальность благоприятных перспектив.</div>
-                                        </div>
-                                    </li>
-
-                                </ul>
-                            </div>
-                            <div class="benefits__controls">
-                                <button type="button" class="benefits__prev swiper-button-prev" aria-label="Предыдущий слайд"></button>
-                                <button type="button" class="benefits__next swiper-button-next" aria-label="Следующий слайд"></button>
-                                <div class="benefits__pagination swiper-pagination"></div>
-                            </div>
+                            </ul>
                         </div>
                     </div>
                 </section>
@@ -447,7 +361,7 @@
                         <div class="footer__menu-block">
                             <div class="footer__menu-caption">Оформление заказа</div>
                             <ul class="footer__menu-list">
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Доставка и оплата</a></li>
+                                <li class="footer__menu-item"><a href="delivery.html" class="footer__menu-link">Доставка и оплата</a></li>
                                 <li class="footer__menu-item"><a href="returns.html" class="footer__menu-link">Безусловный возврат товара</a></li>
                                 <li class="footer__menu-item"><a href="service.html" class="footer__menu-link">Фирменная установка измельчителей</a></li>
                             </ul>

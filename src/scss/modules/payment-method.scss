@@ -1,0 +1,15 @@
+// .payment-method
+.payment-method {
+    min-width: 0;
+    padding: rem(30);
+    border-radius: rem(10);
+    background: #f7f7f6;
+    // .payment-method__title
+    &__title {
+        margin-bottom: rem(10);
+    }
+    // .payment-method__text
+    &__text {
+        overflow-wrap: anywhere;
+    }
+}

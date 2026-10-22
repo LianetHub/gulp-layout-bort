@@ -1,0 +1,16 @@
+<section class="delivery" aria-labelledby="delivery-title">
+    <div class="delivery__container container">
+        <h1 class="delivery__title title title--page" id="delivery-title">Доставка и оплата</h1>
+        <div class="delivery__section">
+            <h2 class="delivery__caption title title--information">Доставка</h2>
+            <p class="delivery__text text-body text-body--small">При сумме заказа более 3000 руб. доставка Почтой России и курьерской службой до двери осуществляется бесплатно.<br>При сумме заказа менее 3000 руб. стоимость доставки Почтой России и курьерской службой до двери составляет 350 руб.<br>Доставка осуществляется только по России.</p>
+        </div>
+        <div class="delivery__section">
+            <h2 class="delivery__caption title title--information">Оплата</h2>
+            <p class="delivery__text text-body text-body--small">Оплатить заказ на сайте Вы можете следующими способами:</p>
+            <ul class="delivery__payments">
+                @@loop('../templates/_payment-method.html', './html/json/payment-methods.json')
+            </ul>
+        </div>
+    </div>
+</section>
