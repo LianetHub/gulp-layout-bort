@@ -432,6 +432,14 @@
   text-transform: none;
   line-height: 1.4;
 }
+.title--details {
+  font-family: "GolosText";
+  font-size: 1.125rem;
+  font-weight: 600;
+  line-height: 1.625rem;
+  text-transform: none;
+  color: #111;
+}
 .title--review-author {
   font-family: "GolosText";
   font-size: 1rem;
@@ -1952,7 +1960,7 @@ body:has(.arrow-top.visible) .notify-container {
   padding-bottom: 0;
   background: #fff;
 }
-.page--faq {
+.page--faq, .page--contacts {
   padding-bottom: 0;
   background: #f7f7f6;
 }
@@ -7026,10 +7034,194 @@ body:has(.arrow-top.visible) .notify-container {
     height: 21.875rem;
   }
 }
+.map-block--contacts {
+  width: 100%;
+  max-width: 35.625rem;
+  height: 21.875rem;
+}
+@media (min-width: 767.98px) {
+  .map-block--contacts {
+    height: 28.125rem;
+  }
+}
 
 .ymaps-2-1-79-copyright__wrap,
 .ymaps-2-1-79-map-copyrights-promo {
   display: none !important;
+}
+
+.contacts--public {
+  padding: 1.25rem 0 3.75rem;
+}
+@media (min-width: 1199.98px) {
+  .contacts--public {
+    padding-bottom: 3.75rem;
+  }
+}
+.contacts--public .contacts__title {
+  margin-bottom: 1.25rem;
+}
+.contacts--public .contacts__form.form--request {
+  min-width: 0;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.contacts--public .contacts__form.form--request .form__file-btn {
+  justify-content: flex-start;
+  color: #2b2b2b;
+}
+.contacts--public .contacts__form.form--request .form__submit.btn {
+  width: 100%;
+}
+@media (min-width: 767.98px) {
+  .contacts--public .contacts__form.form--request .form__submit.btn {
+    order: -1;
+    flex: 0 0 11.5rem;
+    width: 11.5rem;
+  }
+}
+.contacts--public .checkbox__btn {
+  font-size: 0.75rem;
+  line-height: 1.25rem;
+}
+.contacts--public .checkbox__link {
+  text-decoration: none;
+}
+@media (any-hover: hover) {
+  .contacts--public .checkbox__link:hover {
+    text-decoration: underline;
+  }
+}
+.contacts__container {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 80rem;
+}
+.contacts__office {
+  display: grid;
+  gap: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background: #fff;
+}
+@media (min-width: 767.98px) {
+  .contacts__office {
+    gap: 2.5rem;
+    padding: 2.5rem;
+  }
+}
+@media (min-width: 1199.98px) {
+  .contacts__office {
+    grid-template-columns: minmax(0, 540fr) minmax(0, 570fr);
+    gap: 3.125rem;
+  }
+}
+.contacts__details {
+  min-width: 0;
+}
+.contacts__channels {
+  display: grid;
+  gap: 1rem;
+  padding: 1.25rem;
+  border-radius: 0.5rem;
+  background: #f7f7f6;
+}
+.contacts__link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.625rem;
+  font-style: normal;
+  font-size: 1rem;
+  line-height: 1.5rem;
+  color: #2b2b2b;
+}
+.contacts__link::before {
+  flex: 0 0 1.5rem;
+  font-size: 1.5rem;
+  color: #ea7600;
+}
+.contacts__link--phone {
+  font-weight: 600;
+}
+@media (any-hover: hover) {
+  .contacts__link[href]:hover {
+    color: #ea7600;
+  }
+}
+.contacts__icon {
+  flex: 0 0 1.5rem;
+  color: #ea7600;
+}
+.contacts__requisites {
+  margin-top: 1.25rem;
+}
+.contacts__caption {
+  margin-bottom: 0.625rem;
+}
+.contacts__requisites-list {
+  display: grid;
+  gap: 0.625rem;
+  font-size: 1rem;
+  line-height: 1.375rem;
+  color: #2b2b2b;
+}
+.contacts__feedback {
+  display: grid;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+  padding: 1.25rem;
+  border-radius: 1.25rem;
+  background: #fff;
+}
+@media (min-width: 767.98px) {
+  .contacts__feedback {
+    gap: 1.875rem;
+    padding: 2.5rem;
+  }
+}
+@media (min-width: 1199.98px) {
+  .contacts__feedback {
+    grid-template-columns: minmax(0, 400fr) minmax(0, 710fr);
+    gap: 3.125rem;
+  }
+}
+.contacts__illustration {
+  display: none;
+}
+@media (min-width: 1199.98px) {
+  .contacts__illustration {
+    display: block;
+    margin-top: 3.75rem;
+    margin-left: 1.25rem;
+    width: 12.5rem;
+    height: 12.5rem;
+    color: #ff7900;
+  }
+}
+.contacts__fields {
+  display: grid;
+  gap: 1.25rem;
+}
+@media (min-width: 767.98px) {
+  .contacts__fields {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.contacts__actions {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 1.25rem;
+}
+@media (min-width: 767.98px) {
+  .contacts__actions {
+    flex-direction: row;
+  }
+}
+.contacts__consent {
+  min-width: 0;
+  flex: 1;
 }
 
 .error {

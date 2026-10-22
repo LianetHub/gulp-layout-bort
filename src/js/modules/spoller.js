@@ -1,4 +1,6 @@
 
+import { slide, show, hide } from './effects.js';
+
 export const spollers = () => {
 
     const spollersArray = document.querySelectorAll("[data-spollers]");
@@ -96,11 +98,12 @@ export const spollers = () => {
                     if (hideSpollerBody) {
                         spollerTitle.removeAttribute("tabindex");
                         if (!spollerTitle.classList.contains("_active")) {
+                            hide(spollerTitle.nextElementSibling);
                             spollerTitle.nextElementSibling.hidden = true;
-                        }
+                        } else show(spollerTitle.nextElementSibling);
                     } else {
                         spollerTitle.setAttribute("tabindex", "-1");
-                        spollerTitle.nextElementSibling.hidden = false;
+                        show(spollerTitle.nextElementSibling);
                     }
                 });
             }
@@ -121,7 +124,7 @@ export const spollers = () => {
                         hideSpollersBody(spollersBlock);
                     }
                     spollerTitle.classList.toggle("_active");
-                    spollerTitle.nextElementSibling.slideToggle(300);
+                    slide(spollerTitle.nextElementSibling, spollerTitle.classList.contains("_active"), 300);
                 }
                 e.preventDefault();
             }
@@ -133,7 +136,7 @@ export const spollers = () => {
             );
             if (spollerActiveTitle) {
                 spollerActiveTitle.classList.remove("_active");
-                spollerActiveTitle.nextElementSibling.slideUp(300);
+                slide(spollerActiveTitle.nextElementSibling, false, 300);
             }
         }
     }

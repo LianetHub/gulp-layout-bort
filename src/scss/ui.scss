@@ -58,6 +58,15 @@
 		text-transform: none;
 		line-height: 1.4;
 	}
+	// .title--details
+	&--details {
+		font-family: $fontfamily;
+		font-size: rem(18);
+		font-weight: 600;
+		line-height: rem(26);
+		text-transform: none;
+		color: #111;
+	}
 	// .title--review-author
 	&--review-author {
 		font-family: $fontfamily;

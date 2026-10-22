@@ -1,111 +1,80 @@
-<nav aria-label="Хлебные крошки" class="breadcrumbs">
-    <div class="container">
+<nav aria-label="Хлебные крошки" class="breadcrumbs breadcrumbs--compact">
+    <div class="breadcrumbs__container container">
         <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__item">
-                <a href="/" class="breadcrumbs__link">Главная</a>
-            </li>
-            <li class="breadcrumbs__item">
-                <span class="breadcrumbs__link active">О компании</a>
-            </li>
+            <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
+            <li class="breadcrumbs__item"><span class="breadcrumbs__link active" aria-current="page">Контакты</span></li>
         </ul>
     </div>
 </nav>
-<section class="contacts">
-    <div class="container">
-        <h2 class="contacts__title title">Контакты</h2>
-        <div class="contacts__block">
-            <h2 class="contacts__block-title title-md">офис</h2>
-            <ul class="contacts__list">
-                <li class="contacts__item">
-                    <div class="contacts__item-name">Адрес:</div>
-                    <address class="contacts__item-value icon-location">г. Москва, 1-й Волоколамский проезд, 10с16</address>
-                </li>
-                <li class="contacts__item">
-                    <div class="contacts__item-name">Телефон:</div>
-                    <a href="tel:+74997001034" class="contacts__item-value icon-phone">+7 (499) 700-10-34</a>
-                </li>
-                <li class="contacts__item">
-                    <div class="contacts__item-name">Электронная почта:</div>
-                    <a href="" class="contacts__item-value icon-envelope">info@bort-global.com</a>
-                </li>
-            </ul>
-            <div class="contacts__map">
-                <div class="map-block" data-coords="55.803544456769224,37.4905014748688" data-placemark-logo="@img/icons/location.svg"></div>
-            </div>
-            @@if(auth==true) {
-            <div class="contacts__sales-department sales-department">
-                <h3 class="sales-department__title title-sm"><span class="color-grey">контакты</span> отдела продаж</h3>
-                <ul class="sales-department__list">
-                    @@loop('../templates/_sale-separtmet-card.html', './html/json/sale-separtmets.json')
+<section class="contacts contacts--public" aria-labelledby="contacts-title">
+    <div class="contacts__container container">
+        <h1 class="contacts__title title title--page" id="contacts-title">Контакты</h1>
+        <div class="contacts__office">
+            <div class="contacts__details">
+                <ul class="contacts__channels">
+                    <li class="contacts__channel"><address class="contacts__link icon-location">г. Москва, ул. Щукинская, д. 42</address></li>
+                    <li class="contacts__channel"><a class="contacts__link" href="mailto:sales@bort.ru"><svg class="contacts__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect class="contacts__mail-outline" x="3" y="5" width="18" height="14" rx="2"></rect><path class="contacts__mail-flap" d="m3 6 9 7 9-7"></path></svg>sales@bort.ru</a></li>
+                    <li class="contacts__channel"><a class="contacts__link contacts__link--phone icon-phone" href="tel:+74997057979">+7-499-705-79-79</a></li>
+                    <li class="contacts__channel">
+                        <p class="contacts__link">
+                            <svg class="contacts__icon" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><circle class="contacts__icon-face" cx="12" cy="12" r="9"></circle><path class="contacts__icon-hands" d="M12 6v6l4 2"></path></svg>
+                            Пн – Пт, 10:00 — 18:00 (время Московское)
+                        </p>
+                    </li>
                 </ul>
+                <div class="contacts__requisites">
+                    <h2 class="contacts__caption title title--details">Реквизиты</h2>
+                    <ul class="contacts__requisites-list">
+                        <li class="contacts__requisite">Полное наименование: Общество с ограниченной ответственностью «Экстего»</li>
+                        <li class="contacts__requisite">ИНН: 6321450605</li>
+                        <li class="contacts__requisite">КПП: 632101001</li>
+                        <li class="contacts__requisite">ОГРН: 1186313073132</li>
+                        <li class="contacts__requisite">Юр. адрес: 445024, Самарская обл., г. Тольятти, Дзержинского ул., влд 98, помещение 248</li>
+                    </ul>
+                </div>
             </div>
-            }
+            <div class="contacts__location map-block map-block--contacts" data-coords="55.809474,37.464571" data-placemark-logo="@img/placemark.svg" role="region" aria-label="Адрес Bort на карте: Москва, улица Щукинская, 42"></div>
         </div>
-        @@if(auth==true) {
-        <div class="contacts__block">
-            <h2 class="contacts__block-title title-md">Склад</h2>
-            <ul class="contacts__list">
-                <li class="contacts__item">
-                    <div class="contacts__item-name">Адрес:</div>
-                    <address class="contacts__item-value icon-location">деревня Новосельцево, 93Ас1</address>
-                </li>
-                <li class="contacts__item">
-                    <div class="contacts__item-name">Телефон:</div>
-                    <a href="tel:+74997001034" class="contacts__item-value icon-phone">+7 (499) 700-10-34</a>
-                </li>
-            </ul>
-            <div class="contacts__map">
-                <div class="map-block" data-coords="56.009476068733385,37.587568499999996" data-placemark-logo="@img/icons/location.svg"></div>
+        <div class="contacts__feedback">
+            <div class="contacts__heading">
+                <h2 class="contacts__feedback-title title title--information title--information-large">Связаться с нами</h2>
+                <svg class="contacts__illustration" width="200" height="200" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="contacts__bubble" d="M87 17C43 14 16 40 17 80c0 18 5 32 14 42 2 3 0 11-5 22-2 6 0 8 6 7l24-7c9 4 19 5 32 5 44 1 68-23 68-64 0-42-25-68-69-68Z"></path><path class="contacts__bubble" d="M177 94c5 10 7 21 6 33-1 18-7 31-16 41l9 20c2 4 0 6-4 5l-27-7c-10 3-20 4-31 2-14-1-27-5-38-12"></path><path class="contacts__bubble" d="M60 67h26M60 100h50"></path></svg>
             </div>
-        </div>
-        }
-        <div class="contacts__block">
-            <h2 class="contacts__block-title title-md">Информация для клиентов</h2>
-            <div class="contacts__info typography-block">
-                <h4>общая информация</h4>
-                <p>Для того чтобы начать работать с компанией Bort Global по закупкам, заполните анкету в разделе <a href="">Сотрудничество</a>.</p>
-                <h4>Сервис и гарантия</h4>
-                <p>Вопросы по гарантийному сервисному обслуживанию присылайте в <a href="">отдел гарантии и рекламации</a> компании Bort Global.</p>
-                <p>Адреса и контакты сервисных центров вы можете посмотреть на <a href="">интерактивной карте.</a></p>
-                <h4>Общие вопросы</h4>
-                <p>По общим вопросам обращайтесь по адресу: <a href="info@bort-global.com">info@bort-global.com</a></p>
-            </div>
-        </div>
-        <div class="contacts__block">
-            <h2 class="contacts__block-title title-md"><span class="color-grey">обратная</span> связь</h2>
-            <form action="#" class="contacts__form">
-                <div class="row">
-                    <div class="col-lg-4">
-                        <div class="form__field">
-                            <div class="form__label">Имя:</div>
-                            <input type="text" name="username" data-required class="form__control" placeholder="Имя">
-                            <div class="form__error-message"></div>
-                        </div>
+            <form action="#" method="post" enctype="multipart/form-data" class="contacts__form form form--request" novalidate data-unavailable-message="Отправка сообщения временно недоступна. Пожалуйста, свяжитесь с нами по телефону +7 (499) 705-79-79 или по адресу sales@bort.ru.">
+                <div class="contacts__fields">
+                    <div class="form__field">
+                        <label class="form__label" for="contacts-name">Имя</label>
+                        <input class="form__control" id="contacts-name" name="name" type="text" autocomplete="name" placeholder="Имя">
                     </div>
-                    <div class="col-lg-4">
-                        <div class="form__field">
-                            <div class="form__label">Электронная почта:</div>
-                            <input type="email" name="email" data-required class="form__control" placeholder="Электронная почта">
-                            <div class="form__error-message"></div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4">
-                        <div class="form__field">
-                            <div class="form__label">Телефон:</div>
-                            <input type="tel" name="phone" data-required class="form__control" placeholder="+7 (999) 999-99-99">
-                            <div class="form__error-message"></div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form__field">
-                            <div class="form__label">Текст сообщения::</div>
-                            <input type="message" name="message" class="form__control" placeholder="+7 (999) 999-99-99">
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <button type="submit" class="form__submit btn btn-secondary">Отправить</button>
+                    <div class="form__field">
+                        <label class="form__label" for="contacts-phone">Телефон*</label>
+                        <input class="form__control" id="contacts-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" data-required required aria-describedby="contacts-phone-error">
+                        <div class="form__error-message" id="contacts-phone-error" aria-live="polite"></div>
                     </div>
                 </div>
+                <div class="form__field">
+                    <label class="form__label" for="contacts-file">Прикрепить документ</label>
+                    <label class="form__file" for="contacts-file">
+                        <input class="form__file-input hidden" id="contacts-file" type="file" name="attachments[]" aria-describedby="contacts-file-name">
+                        <span class="form__file-btn"><span class="form__file-icon icon-document-attachment" aria-hidden="true"></span><span class="form__file-text">Выберите файл</span></span>
+                    </label>
+                    <p class="form__file-name" id="contacts-file-name" aria-live="polite" hidden></p>
+                </div>
+                <div class="form__field">
+                    <label class="form__label" for="contacts-message">Сообщение</label>
+                    <textarea class="form__control form__control--message" id="contacts-message" name="message" placeholder="Сообщение"></textarea>
+                </div>
+                <div class="contacts__actions">
+                    <div class="contacts__consent form__field">
+                        <label class="checkbox checkbox--consent">
+                            <input class="checkbox__input hidden" type="checkbox" name="consent" value="1" data-required required aria-describedby="contacts-consent-error">
+                            <span class="checkbox__btn"><span class="checkbox__text">Я согласен с <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политикой хранения и обработки персональных данных</a> и <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a></span></span>
+                        </label>
+                        <div class="form__error-message" id="contacts-consent-error" aria-live="polite"></div>
+                    </div>
+                    <button type="submit" class="form__submit btn btn-primary">Отправить</button>
+                </div>
+                <p class="form__status" role="status" aria-live="polite" hidden></p>
             </form>
         </div>
     </div>

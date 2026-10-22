@@ -1,43 +1,48 @@
+﻿import { delegate } from './dom.js';
+
 export const partsOrder = () => {
-    const $form = $('.form--parts, .form--request');
-    if (!$form.length) return;
-
-    const $files = $form.find('.form__file-input');
-
-    $files.on('change', function () {
-        const names = Array.from(this.files || [], file => file.name);
-        $(this).closest('form').find('.form__file-name').text(names.join(', ')).prop('hidden', !names.length);
+    delegate(document, 'change', '.form--parts .form__file-input, .form--request .form__file-input', (event, input) => {
+        const names = Array.from(input.files || [], file => file.name);
+        input.closest('form')?.querySelectorAll('.form__file-name').forEach(label => {
+            label.textContent = names.join(', ');
+            label.hidden = !names.length;
+        });
     });
 
-    // Register after the shared FormController so invalid submissions stop there.
-    $(document).on('submit', '.form--parts, .form--request', async function (event) {
+    // Register after FormController: invalid submissions stop before this listener.
+    delegate(document, 'submit', '.form--parts, .form--request', async (event, form) => {
         event.preventDefault();
-        if ($(this).attr('aria-busy') === 'true') return;
-
-        const endpoint = this.getAttribute('action');
-        const $status = $(this).find('.form__status');
-        const $fileNames = $(this).find('.form__file-name');
-        $status.prop('hidden', false);
+        if (form.getAttribute('aria-busy') === 'true') return;
+        const endpoint = form.getAttribute('action');
+        const status = form.querySelector('.form__status');
+        const setStatus = message => {
+            if (!status) return;
+            status.hidden = false;
+            status.textContent = message;
+        };
         if (!endpoint || endpoint === '#') {
-            $status.text(this.dataset.unavailableMessage || 'Отправка заявки временно недоступна. Пожалуйста, свяжитесь со специалистом по телефонам +7(499)343-62-42 или +7(499)005-23-00.');
+            setStatus(form.dataset.unavailableMessage || 'Отправка заявки временно недоступна. Пожалуйста, свяжитесь со специалистом по телефонам +7(499)343-62-42 или +7(499)005-23-00.');
             return;
         }
-
-        const $submit = $(this).find('[type="submit"]');
-        $(this).attr('aria-busy', 'true');
-        $submit.prop('disabled', true);
-        $status.text('Отправляем заявку…');
+        const buttons = [...form.querySelectorAll('[type="submit"]')];
+        const disabled = buttons.map(button => button.disabled);
+        form.setAttribute('aria-busy', 'true');
+        buttons.forEach(button => { button.disabled = true; });
+        setStatus('Отправляем заявку…');
         try {
-            const response = await fetch(endpoint, { method: 'POST', body: new FormData(this) });
+            const response = await fetch(endpoint, { method: 'POST', body: new FormData(form) });
             if (!response.ok) throw new Error('Request failed');
-            this.reset();
-            $fileNames.empty().prop('hidden', true);
-            $status.text('Заявка отправлена. Специалист свяжется с Вами в ближайшее время.');
+            form.reset();
+            form.querySelectorAll('.form__file-name').forEach(label => {
+                label.textContent = '';
+                label.hidden = true;
+            });
+            setStatus('Заявка отправлена. Специалист свяжется с Вами в ближайшее время.');
         } catch {
-            $status.text('Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь с нами по телефону.');
+            setStatus('Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь с нами по телефону.');
         } finally {
-            $(this).removeAttr('aria-busy');
-            $submit.prop('disabled', false);
+            form.removeAttribute('aria-busy');
+            buttons.forEach((button, index) => { button.disabled = disabled[index]; });
         }
     });
 };

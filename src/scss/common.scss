@@ -101,7 +101,9 @@ body {
 	}
 	// .page.page--showcase
 	// .page--faq
-	&--faq {
+	// .page--contacts
+	&--faq,
+	&--contacts {
 		padding-bottom: 0;
 		background: #f7f7f6;
 	}
