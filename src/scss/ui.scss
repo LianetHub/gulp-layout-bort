@@ -139,6 +139,25 @@
 		line-height: 1.4;
 		text-transform: none;
 	}
+	// .title--listing
+	&--listing {
+		font-family: $fontfamily, sans-serif;
+		font-size: rem(24);
+		font-weight: 700;
+		line-height: 1.25;
+		text-transform: none;
+		@media (min-width: $md4) {
+			font-size: rem(36);
+		}
+	}
+	// .title--filter
+	&--filter {
+		font-family: $fontfamily, sans-serif;
+		font-size: rem(20);
+		font-weight: 700;
+		line-height: 1.4;
+		text-transform: none;
+	}
 	// .title--catalog-category
 	&--catalog-category {
 		font-size: rem(18);

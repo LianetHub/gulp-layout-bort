@@ -1,0 +1,78 @@
+<button type="button" class="listing-filter-overlay" aria-label="Закрыть фильтры" hidden></button>
+<form class="listing-filter" id="listing-filter" aria-label="Фильтры каталога">
+    <div class="listing-filter__header">
+        <h2 class="listing-filter__title title title--filter">Фильтры</h2>
+        <button type="button" class="listing-filter__close icon-close" aria-label="Закрыть фильтры"></button>
+    </div>
+    <div class="listing-filter__categories">
+        <h3 class="listing-filter__caption">Категория</h3>
+        <a href="catalog.html" class="listing-filter__category is-active">Измельчители отходов</a>
+        <a href="category.html" class="listing-filter__category">Отпариватели</a>
+        <a href="category.html" class="listing-filter__category">Водонагреватели</a>
+        <a href="category.html" class="listing-filter__category">Аксессуары</a>
+    </div>
+    <label class="listing-filter__stock">
+        <span class="listing-filter__caption">В наличии</span>
+        <input type="checkbox" name="stock" class="listing-filter__switch" value="yes">
+    </label>
+    <fieldset class="listing-filter__price">
+        <legend class="listing-filter__caption">Цена, ₽</legend>
+        <div class="listing-filter__range">
+            <input type="number" class="listing-filter__input" name="min_price" aria-label="Минимальная цена" min="0" placeholder="8 990">
+            <span class="listing-filter__dash">–</span>
+            <input type="number" class="listing-filter__input" name="max_price" aria-label="Максимальная цена" min="0" placeholder="218 690">
+        </div>
+    </fieldset>
+    <details class="listing-filter__group" open>
+        <summary class="listing-filter__summary">Мощность, Вт</summary>
+        <div class="listing-filter__choices">
+            @@loop('../templates/_listing-choice.html', [
+                {"group":"power","value":"1125","label":"1 125","checked":false},
+                {"group":"power","value":"1200","label":"1 200","checked":false},
+                {"group":"power","value":"1470","label":"1 470","checked":false},
+                {"group":"power","value":"375","label":"375","checked":false},
+                {"group":"power","value":"390","label":"390","checked":false}
+            ])
+        </div>
+        <button type="button" class="listing-filter__expand" aria-expanded="false">Показать еще</button>
+        <div class="listing-filter__extra" hidden>
+            @@include('../templates/_listing-choice.html', {"group":"power","value":"560","label":"560","checked":false})
+            @@include('../templates/_listing-choice.html', {"group":"power","value":"780","label":"780","checked":false})
+        </div>
+    </details>
+    <details class="listing-filter__group" open>
+        <summary class="listing-filter__summary">Тип мотора</summary>
+        <div class="listing-filter__choices">
+            @@loop('../templates/_listing-choice.html', [
+                {"group":"motor","value":"bldc","label":"Бесщеточный (BLDC)","checked":false},
+                {"group":"motor","value":"induction","label":"Бесщеточный (индукционный)","checked":false},
+                {"group":"motor","value":"pmdc","label":"Щеточный (PMDC)","checked":false}
+            ])
+        </div>
+    </details>
+    <div class="listing-filter__advanced">
+        @@loop('../templates/_listing-detail.html', [
+            {"name":"Управление измельчителем","group":"control","kind":"choice","firstValue":"wireless","firstLabel":"Беспроводное","secondValue":"pneumatic","secondLabel":"Пневматическое"},
+            {"name":"Тихий запуск","group":"quiet","kind":"choice","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Автоматическое выключение","group":"auto_off","kind":"choice","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Система шумоизоляции","group":"insulation","kind":"choice","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Скорость холостого хода, об/мин","group":"speed","kind":"range","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Объем камеры, мл","group":"volume","kind":"range","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Производительность, кг/мин","group":"performance","kind":"range","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Уровень шума, дБ","group":"noise","kind":"range","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Число ступеней измельчения","group":"stages","kind":"range","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Функция авто-реверса","group":"reverse","kind":"choice","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Длина шнура питания, м","group":"cable","kind":"range","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Усилитель мощности (бустер)","group":"booster","kind":"choice","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Материал корпуса камеры","group":"material","kind":"choice","firstValue":"steel","firstLabel":"Нержавеющая сталь","secondValue":"plastic","secondLabel":"Пластик"},
+            {"name":"Толщина дна раковины, мм","group":"sink","kind":"range","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Бесшумная работа","group":"silent","kind":"choice","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Размер, мм","group":"size","kind":"range","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"},
+            {"name":"Вес изделия, кг","group":"weight","kind":"range","firstValue":"yes","firstLabel":"Да","secondValue":"no","secondLabel":"Нет"}
+        ])
+    </div>
+    <div class="listing-filter__footer">
+        <button type="submit" class="listing-filter__apply">Показать товары</button>
+        <button type="reset" class="listing-filter__reset icon-loading">Сбросить</button>
+    </div>
+</form>

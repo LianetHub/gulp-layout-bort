@@ -15,6 +15,7 @@ import { interactions, NotifyController } from './modules/interactions.js';
 import { maps } from './modules/maps.js';
 import { compare } from './modules/compare.js';
 import { cart } from './modules/cart.js';
+import { productListing } from './modules/product-listing.js';
 
 function init() {
     select();
@@ -36,6 +37,7 @@ function init() {
     maps();
     compare();
     cart();
+    productListing();
 }
 
 if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, { once: true });

@@ -78,6 +78,8 @@ body {
 
 // .page
 .page {
+	// .page:has(.product-listing)
+	&:has(.product-listing) { padding-bottom: 0; background: #f7f7f6; }
 	flex: 1 1 auto;
 	overflow-x: hidden;
 	padding-bottom: rem(25);

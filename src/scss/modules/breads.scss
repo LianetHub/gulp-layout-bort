@@ -1,5 +1,14 @@
 // .breadcrumbs
 .breadcrumbs {
+	// .breadcrumbs--catalog
+	&--catalog {
+		padding-top: rem(20);
+		@media (min-width: $md4) { padding-top: rem(24); }
+		// .breadcrumbs--catalog .breadcrumbs__container
+		.breadcrumbs__container { box-sizing: border-box; width: 100%; max-width: rem(1280); }
+		// .breadcrumbs--catalog .breadcrumbs__item
+		.breadcrumbs__item { font-size: rem(12); }
+	}
 	// .page:has(.sitemap, .policy, .spare-parts, .services, .returns, .service, .feedback, .delivery, .article--information) .breadcrumbs
 	.page:has(.sitemap, .policy, .spare-parts, .services, .returns, .service, .feedback, .delivery, .article--information) & {
 		padding-top: rem(20);
