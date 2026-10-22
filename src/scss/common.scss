@@ -94,6 +94,11 @@ body {
 	&:has(.sitemap, .policy) {
 		padding-bottom: 0;
 	}
+	// .page:has(.news--listing)
+	&:has(.news--listing) {
+		padding-bottom: 0;
+		background: #fff;
+	}
 	// .page.page--showcase
 	&.page--showcase {
 		padding-bottom: 0;

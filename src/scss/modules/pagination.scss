@@ -111,4 +111,28 @@
             display: inline;
         }
     }
+    // .pagination--subtle
+    &--subtle {
+        gap: rem(10);
+        // .pagination--subtle .pagination__item
+        .pagination__item {
+            width: rem(32);
+            height: rem(32);
+            background: #f7f7f6;
+            // .pagination--subtle .pagination__item.active
+            &.active {
+                background: #f7f7f6;
+                color: #ea7600;
+            }
+        }
+        // .pagination--subtle .pagination__prev
+        // .pagination--subtle .pagination__next
+        .pagination__prev,
+        .pagination__next {
+            width: rem(32);
+            height: rem(32);
+            min-width: 0;
+            padding: 0;
+        }
+    }
 }

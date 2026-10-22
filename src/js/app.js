@@ -4,11 +4,13 @@ import { select } from './modules/select.js';
 import { mobileCatalog } from './modules/mobile-catalog.js';
 import { partsOrder } from './modules/parts-order.js';
 import { reviews } from './modules/review.js';
+import { news } from './modules/news.js';
 
 $(function () {
 
     select();
     reviews();
+    news();
 
     const $burger = $('.header__burger');
     const $navigation = $('#header-menu');
