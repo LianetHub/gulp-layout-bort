@@ -1,0 +1,37 @@
+<section class="faq" aria-labelledby="faq-title">
+    <div class="faq__container container">
+        <h1 class="faq__title title title--page" id="faq-title">Часто задаваемые вопросы</h1>
+        <div class="faq__layout">
+            <nav class="faq__navigation faq__navigation--sections" aria-label="Разделы FAQ">
+                <p class="faq__navigation-caption">Разделы FAQ</p>
+                <button class="faq__filter" type="button" data-faq-section="0" aria-pressed="false">О компании и качестве</button>
+                <button class="faq__filter" type="button" data-faq-section="1" aria-pressed="false">Выбор и оформление заказа</button>
+                <button class="faq__filter" type="button" data-faq-section="2" aria-pressed="false">Оплата</button>
+                <button class="faq__filter" type="button" data-faq-section="3" aria-pressed="false">Доставка</button>
+                <button class="faq__filter" type="button" data-faq-section="4" aria-pressed="false">Возврат и обмен</button>
+                <button class="faq__filter" type="button" data-faq-section="5" aria-pressed="false">Гарантия и документы</button>
+                <button class="faq__filter" type="button" data-faq-section="6" aria-pressed="false">О продукции BORT</button>
+                <button class="faq__filter" type="button" data-faq-section="7" aria-pressed="false">Приём и совместимость</button>
+                <button class="faq__filter" type="button" data-faq-section="8" aria-pressed="false">Состав и хранение</button>
+                <button class="faq__filter" type="button" data-faq-section="9" aria-pressed="false">Программа лояльности</button>
+                <button class="faq__filter" type="button" data-faq-section="10" aria-pressed="false">Маркетплейсы</button>
+                <button class="faq__filter" type="button" data-faq-section="11" aria-pressed="false">Поддержка и контакты</button>
+            </nav>
+            <nav class="faq__navigation faq__navigation--products" aria-label="Категории FAQ">
+                <button class="faq__filter" type="button" data-faq-product="0" aria-pressed="true">Все категории <span class="faq__count">7</span></button>
+                <button class="faq__filter" type="button" data-faq-product="1" aria-pressed="false">Измельчители отходов <span class="faq__count">1</span></button>
+                <button class="faq__filter" type="button" data-faq-product="2" aria-pressed="false">Промышленные пылесосы <span class="faq__count">1</span></button>
+                <button class="faq__filter" type="button" data-faq-product="3" aria-pressed="false">Мойки высокого давления <span class="faq__count">1</span></button>
+                <button class="faq__filter" type="button" data-faq-product="4" aria-pressed="false">Дрели-шуруповерты <span class="faq__count">1</span></button>
+                <button class="faq__filter" type="button" data-faq-product="5" aria-pressed="false">Перфораторы <span class="faq__count">1</span></button>
+                <button class="faq__filter" type="button" data-faq-product="6" aria-pressed="false">Пилы цепные <span class="faq__count">1</span></button>
+                <button class="faq__filter" type="button" data-faq-product="7" aria-pressed="false">Автотовары <span class="faq__count">1</span></button>
+            </nav>
+            <div class="faq__questions" aria-live="polite">
+                @@loop('../templates/_faq-item.html', './html/json/faq.json')
+                <p class="faq__empty text-body text-body--small" hidden>В этом разделе пока нет вопросов. Задайте свой вопрос через форму ниже.</p>
+            </div>
+        </div>
+        @@include('_contact-form.html')
+    </div>
+</section>

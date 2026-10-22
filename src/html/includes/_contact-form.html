@@ -1,0 +1,74 @@
+<form class="contact-form form form--request" id="feedback" action="#" method="post" enctype="multipart/form-data" novalidate data-unavailable-message="Отправка сообщения временно недоступна. Пожалуйста, свяжитесь с нами по телефону +7 (499) 705-79-79 или по адресу sales@bort.ru.">
+    <div class="contact-form__heading">
+        <h2 class="contact-form__title title title--information title--information-large">Обратная связь</h2>
+        <p class="contact-form__intro text-body text-body--small">Если вы не нашли ответ на свой вопрос, вы можете отправить нам сообщение, используя форму ниже.</p>
+    </div>
+    <div class="contact-form__fields">
+        <div class="contact-form__field form__field">
+            <label class="form__label" for="contact-name">Имя</label>
+            <input class="form__control" id="contact-name" name="name" type="text" autocomplete="name" placeholder="Имя" data-required required aria-describedby="contact-name-error">
+            <div class="form__error-message" id="contact-name-error" aria-live="polite"></div>
+        </div>
+        <div class="contact-form__field form__field">
+            <label class="form__label" for="contact-phone">Телефон</label>
+            <input class="form__control" id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" data-required required aria-describedby="contact-phone-error">
+            <div class="form__error-message" id="contact-phone-error" aria-live="polite"></div>
+        </div>
+        <div class="contact-form__field form__field">
+            <label class="form__label" for="contact-email">E-mail</label>
+            <input class="form__control" id="contact-email" name="email" type="email" autocomplete="email" placeholder="E-mail" data-required required aria-describedby="contact-email-error">
+            <div class="form__error-message" id="contact-email-error" aria-live="polite"></div>
+        </div>
+        <div class="contact-form__field contact-form__field--half form__field">
+            <label class="form__label" for="contact-topic">Тема</label>
+            <select class="form__control form__control--select" id="contact-topic" name="topic" data-required required aria-describedby="contact-topic-error">
+                <option class="form__option" value="" disabled selected>Выберите тему</option>
+                <option class="form__option" value="О компании и качестве">О компании и качестве</option>
+                <option class="form__option" value="Выбор и оформление заказа">Выбор и оформление заказа</option>
+                <option class="form__option" value="Оплата">Оплата</option>
+                <option class="form__option" value="Доставка">Доставка</option>
+                <option class="form__option" value="Возврат и обмен">Возврат и обмен</option>
+                <option class="form__option" value="Гарантия и документы">Гарантия и документы</option>
+                <option class="form__option" value="О продукции BORT">О продукции BORT</option>
+                <option class="form__option" value="Приём и совместимость">Приём и совместимость</option>
+                <option class="form__option" value="Состав и хранение">Состав и хранение</option>
+                <option class="form__option" value="Программа лояльности">Программа лояльности</option>
+                <option class="form__option" value="Маркетплейсы">Маркетплейсы</option>
+                <option class="form__option" value="Поддержка и контакты">Поддержка и контакты</option>
+            </select>
+            <div class="form__error-message" id="contact-topic-error" aria-live="polite"></div>
+        </div>
+        <div class="contact-form__field contact-form__field--half form__field">
+            <label class="form__label" for="contact-city">Город</label>
+            <input class="form__control" id="contact-city" name="city" type="text" autocomplete="address-level2" placeholder="Город">
+        </div>
+        <div class="contact-form__wide form__field">
+            <label class="form__label" for="contact-message">Сообщение</label>
+            <textarea class="form__control form__control--message" id="contact-message" name="message" placeholder="Сообщение" data-required required aria-describedby="contact-message-error"></textarea>
+            <div class="form__error-message" id="contact-message-error" aria-live="polite"></div>
+        </div>
+        <div class="form__field">
+            <label class="form__label" for="contact-files">Прикрепить документ</label>
+            <label class="form__file" for="contact-files">
+                <input class="form__file-input hidden" id="contact-files" type="file" name="attachments[]" multiple aria-describedby="contact-file-names">
+                <span class="form__file-btn">
+                    <svg class="form__file-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                        <path class="form__file-icon-path" d="m21 11-9 9a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8L15 6"></path>
+                    </svg>
+                    <span class="form__file-text">Загрузить файл</span>
+                </span>
+            </label>
+            <p class="form__file-name" id="contact-file-names" aria-live="polite" hidden></p>
+        </div>
+        <div class="form__field">
+            <label class="checkbox checkbox--consent">
+                <input class="checkbox__input hidden" type="checkbox" name="consent" value="1" data-required required aria-describedby="contact-consent-error">
+                <span class="checkbox__btn"><span class="checkbox__text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политики Конфиденциальности</a></span></span>
+            </label>
+            <div class="form__error-message" id="contact-consent-error" aria-live="polite"></div>
+        </div>
+        <button class="form__submit btn btn-primary" type="submit">Отправить</button>
+        <p class="form__status" role="status" aria-live="polite" hidden></p>
+        <p class="contact-form__notice">Нажимая кнопку «Отправить», я подтверждаю свою дееспособность и согласие на получение информации об оформлении и получении заказа, согласие на обработку персональных данных в соответствии с указанным <a class="contact-form__link" href="policy.html">здесь текстом</a>.</p>
+    </div>
+</form>
