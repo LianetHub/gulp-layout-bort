@@ -78,6 +78,9 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 @import "pages/product-card";
 @import "pages/lk";
 @import "pages/cart";
+@import "pages/checkout";
+@import "modules/cart-item";
+@import "modules/cart-accessory";
 @import "pages/login";
 @import "pages/comparing";
 @import "pages/sitemap";

@@ -35,6 +35,10 @@
 
 // .title
 .title {
+	// .title.title--cart
+	&.title--cart { font-family: $fontfamily; font-weight: 700; text-transform: none; font-size: rem(24); line-height: rem(32); @media (min-width: $md4) { font-size: rem(36); line-height: rem(44); } }
+	// .title.title--cart-summary
+	&.title--cart-summary { font-family: $fontfamily; font-weight: 600; text-transform: none; font-size: rem(18); line-height: rem(26); }
 	font-family: $font-russo;
 	line-height: 125%;
 	text-transform: uppercase;

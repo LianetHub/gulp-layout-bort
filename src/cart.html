@@ -1,163 +1,51 @@
 <!DOCTYPE html>
 <html lang="ru">
-    @@include('html/_head.html', {
-    'title': 'Корзина '
-    })
+    @@include('html/_head.html', {'title': 'Корзина'})
     <body>
         <div class="wrapper">
-            @@include('html/_header.html', {
-            "auth": true
-            })
-            <main class="page">
-                <nav aria-label="Хлебные крошки" class="breadcrumbs">
-                    <div class="container">
-                        <ul class="breadcrumbs__list">
-                            <li class="breadcrumbs__item">
-                                <a href="/" class="breadcrumbs__link">Главная</a>
-                            </li>
-                            <li class="breadcrumbs__item">
-                                <span class="breadcrumbs__link active">Корзина</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
+            @@include('html/_header.html', {"auth": false})
+            <main class="page page--cart">
                 <section class="cart">
-                    <div class="container">
-                        <h2 class="cart__title title">Корзина</h2>
-                        <div class="cart__actions">
-                            <a href="" class="cart__btn btn btn-primary">Быстрый заказ</a>
-                            <a href="" class="cart__sale">
-                                <img src="@img/icons/excel.svg" alt="иконка">
-                                Сохранить корзину в Excel
-                            </a>
+                    <div class="cart__container container">
+                        <a href="catalog.html" class="cart__back"><span class="cart__back-icon icon-chevron-left" aria-hidden="true"></span>Вернуться к покупкам</a>
+                        <div class="cart__heading">
+                            <h1 class="cart__title title title--cart">Корзина</h1>
+                            <button type="button" class="cart__share"><svg class="cart__share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path class="cart__share-path" d="m14 3 7 7-7 7v-4C8 13 5 14 2 19c0-9 4-12 12-12V3Z" stroke="currentColor" stroke-linejoin="round"/></svg><span class="cart__share-text">Поделиться корзиной</span></button>
                         </div>
-
                         <div class="cart__layout">
                             <div class="cart__main">
                                 <div class="cart__content">
-                                    <div class="cart__block">
-                                        @@include('html/templates/_cart-main-product.html', {})
-
-                                        <div class="cart__recommendations ">
-                                            <h4 class="cart__recommendations-title">
-                                                <span class="color-grey">С этим товаром</span> покупают
-                                            </h4>
-                                            <div class="cart__recommendations-scroll">
-                                                <ul class="cart__recommendations-list">
-                                                    @@loop('./html/templates/_cart-product-row.html', './html/json/gallery.json')
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cart__block">
-                                        @@include('html/templates/_cart-main-product.html', {})
-
-                                        <div class="cart__recommendations ">
-                                            <h4 class="cart__recommendations-title">
-                                                <span class="color-grey">С этим товаром</span> покупают
-                                            </h4>
-                                            <div class="cart__recommendations-scroll">
-                                                <ul class="cart__recommendations-list">
-                                                    @@loop('./html/templates/_cart-product-row.html', './html/json/gallery.json')
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cart__block">
-                                        @@include('html/templates/_cart-main-product.html', {})
-
-                                        <div class="cart__recommendations ">
-                                            <h4 class="cart__recommendations-title">
-                                                <span class="color-grey">С этим товаром</span> покупают
-                                            </h4>
-                                            <div class="cart__recommendations-scroll">
-                                                <ul class="cart__recommendations-list">
-                                                    @@loop('./html/templates/_cart-product-row.html', './html/json/gallery.json')
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
+                                    @@loop('html/templates/_cart-item.html', 'html/json/cart-products.json')
                                 </div>
-
-                                <div class="cart__checkout">
-                                    <div class="cart__checkout-block">
-                                        <h4 class="cart__checkout-title">Способ оплаты</h4>
-                                        <div class="form__field" id="cart-payment">
-                                            <div class="dropdown is-selected">
-                                                <input type="hidden" class="dropdown__input" name="cart_payment" value="cashless">
-                                                <button type="button" class="dropdown__button selected" disabled aria-expanded="false">
-                                                    <span class="dropdown__button-text">Безналичный расчёт</span>
-                                                    <span class="dropdown__icon icon-chevron-down"></span>
-                                                </button>
-                                                <div class="dropdown__body">
-                                                    <ul class="dropdown__list" aria-hidden="true">
-                                                        <li class="dropdown__list-item active" data-value="cashless" aria-checked="true">Безналичный расчёт</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="cart__checkout-block">
-                                        <h4 class="cart__checkout-title">Способ доставки</h4>
-                                        <div class="form__field" id="cart-delivery">
-                                            <div class="dropdown">
-                                                <input type="hidden" class="dropdown__input" name="cart_delivery" value="">
-                                                <button type="button" class="dropdown__button" aria-expanded="false">
-                                                    <span class="dropdown__button-text">Выберите способ доставки</span>
-                                                    <span class="dropdown__icon icon-chevron-down"></span>
-                                                </button>
-                                                <div class="dropdown__body">
-                                                    <ul class="dropdown__list" aria-hidden="true">
-                                                        <li class="dropdown__list-item" data-value="pickup">Самовывоз</li>
-                                                        <li class="dropdown__list-item" data-value="delivery">Доставка</li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="form__field cart__checkout-address" hidden>
-                                            <div class="form__label">Адрес доставки:</div>
-                                            <input type="text" name="cart_delivery_address" class="form__control" placeholder="г. Москва, ул. Примерная, д. 1, кв. 1">
-                                        </div>
-                                    </div>
+                                <div class="cart__empty" hidden>
+                                    <p class="cart__empty-text">Ваша корзина пока пуста</p>
+                                    <a class="cart__empty-link btn btn-primary" href="catalog.html">Перейти к покупкам</a>
                                 </div>
                             </div>
-
-                            <aside class="cart__sidebar">
+                            <aside class="cart__sidebar" aria-label="Итоги заказа">
                                 <div class="cart__total">
-                                    <ul class="cart__total-rows">
-                                        <li class="cart__total-row">
-                                            <span class="cart__total-label">Товары, 3 шт.</span>
-                                            <span class="cart__total-value">18 120 ₽</span>
-                                        </li>
-                                        <li class="cart__total-row cart__total-row--accent">
-                                            <span class="cart__total-label">Скидка</span>
-                                            <span class="cart__total-value">−3 630 ₽</span>
-                                        </li>
-                                    </ul>
-                                    <div class="cart__total-sum">
-                                        <span class="cart__total-sum-label">Итого</span>
-                                        <span class="cart__total-sum-value">14 490 ₽</span>
+                                    <h2 class="cart__total-title title title--cart-summary">Ваш заказ</h2>
+                                    <div class="cart__total-rows" aria-live="polite">
+                                        <div class="cart__total-row"><span class="cart__total-label">Вес заказа</span><span class="cart__total-value" data-cart-weight>10,45 кг</span></div>
+                                        <div class="cart__total-row"><span class="cart__total-label" data-cart-count>4 товара</span><span class="cart__total-value" data-cart-subtotal>20 456 ₽</span></div>
+                                        <div class="cart__total-row cart__total-row--discount"><span class="cart__total-label">Скидка</span><span class="cart__total-value" data-cart-discount>−3 230 ₽</span></div>
+                                        <div class="cart__total-sum"><span class="cart__total-sum-label">Итого</span><span class="cart__total-sum-value" data-cart-total>170 890 ₽</span></div>
                                     </div>
-                                    <div class="cart__total-btns">
-                                        <button type="button" class="cart__total-order btn btn-primary">Оформить заказ</button>
-                                        <button type="button" class="cart__total-reset btn btn-secondary">Очистить корзину</button>
-                                    </div>
+                                    <form class="cart__promo" novalidate>
+                                        <label class="cart__promo-label" for="cart-promo">Промокод</label>
+                                        <input id="cart-promo" class="cart__promo-input" name="promocode" placeholder="Промокод" autocomplete="off">
+                                        <button type="submit" class="cart__promo-submit" aria-label="Применить промокод">→</button>
+                                    </form>
+                                    <p class="cart__message" role="status" hidden></p>
+                                    <button type="button" class="cart__total-order btn btn-primary btn--cart">Перейти к оформлению</button>
                                 </div>
                             </aside>
                         </div>
                     </div>
                 </section>
-                <section class="products">
-                    <div class="container">
-                        <h2 class="products__title title">
-                            <span class="color-grey">С товарами</span> из вашей корзины <span class="color-grey">также</span> покупают
-                        </h2>
-                        @@include('./html/includes/sliders/_small-slider.html')
-                    </div>
-                </section>
-
             </main>
             @@include('html/_footer.html', {})
+
             <div id="order" class="popup popup--medium">
                 <h2 class="popup__title title-md">оформление <span>заказа</span></h2>
                 <form action="#" class="popup__form">
@@ -178,7 +66,7 @@
                         <div class="col-md-6">
                             <div class="form__field">
                                 <div class="form__label">Предполагаемая дата оплаты:</div>
-                                <input type="date" name="payment_date" value="2025-12-10" class="form__control">
+                                <input type="date" name="payment_date" class="form__control">
                             </div>
                         </div>
                         <div class="col-md-6">
@@ -197,20 +85,20 @@
                         <div class="col-md-6">
                             <div class="form__field">
                                 <div class="form__label">Предполагаемая дата самовывоза:</div>
-                                <input type="date" name="pickup_date" value="2025-12-10" class="form__control">
+                                <input type="date" name="pickup_date" class="form__control">
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form__field">
                                 <div class="form__label">Телефон:</div>
-                                <input type="tel" name="phone" data-required class="form__control" placeholder="+7 (999) 999-99-99" value="+7 (999) 999-99-99">
+                                <input type="tel" name="phone" data-required class="form__control" placeholder="+7 (999) 999-99-99">
                                 <div class="form__error-message"></div>
                             </div>
                         </div>
                         <div class="col-md-6">
                             <div class="form__field">
                                 <div class="form__label">Электронная почта:</div>
-                                <input type="email" name="email" data-required class="form__control" placeholder="email" value="a.polovov@extego.ru">
+                                <input type="email" name="email" data-required class="form__control" placeholder="email">
                                 <div class="form__error-message"></div>
                             </div>
                         </div>

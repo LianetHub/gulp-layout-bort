@@ -1,0 +1,39 @@
+<div class="cart__block" data-cart-item data-price="@@price" data-old-price="@@oldPrice" data-weight="@@weight">
+    <div class="cart-item">
+        <div class="cart-item__header">
+            <a href="product.html" class="cart-item__image"><img class="cart-item__picture" src="@@image" alt="@@name"></a>
+        </div>
+        <div class="cart-item__info">
+            <div class="cart-item__sku">Артикул: 91275783</div>
+            <a href="product.html" class="cart-item__name">@@name</a>
+        </div>
+        <div class="cart-item__controls">
+            <div class="cart-item__quantity quantity-block">
+                <button type="button" aria-label="Уменьшить количество" class="quantity-block__down">−</button>
+                <input type="number" name="quantity" min="1" max="9999" autocomplete="off" class="quantity-block__input" value="@@quantity" aria-label="Количество: @@name">
+                <button type="button" aria-label="Увеличить количество" class="quantity-block__up">+</button>
+            </div>
+            <div class="cart-item__price">
+                <span class="cart-item__current">@@displayPrice ₽</span>
+                @@if(context.sale){<div class="cart-item__discount"><span class="cart-item__old">45 650 ₽</span><span class="cart-item__badge">-15%</span></div>}
+            </div>
+            <div class="cart-item__actions">
+                <button type="button" class="cart-item__favorite favorite-btn icon-heart" aria-label="В избранное: @@name" aria-pressed="false"></button>
+                <button type="button" class="cart-item__remove" aria-label="Удалить: @@name">×</button>
+            </div>
+        </div>
+    </div>
+    <details class="cart__recommendations" @@if(context.expanded){open}>
+        <summary class="cart__recommendations-title">Рекомендуем <span class="cart__recommendations-chevron icon-chevron-down" aria-hidden="true"></span></summary>
+        <div class="cart__recommendations-slider swiper">
+            <ul class="cart__recommendations-list swiper-wrapper">
+                @@loop('_cart-accessory.html', [
+                {"name":"Фланец в мойку BORT Washing flange Caiman", "image":"@img/cart/flange.png", "price":1200, "oldPrice":1200, "displayPrice":"1 200", "sale":false, "selected":false},
+                {"name":"Пневмовыключатель BORT Air switch (black) long", "image":"@img/cart/air-switch.jpg", "price":12350, "oldPrice":12900, "displayPrice":"12 350", "sale":true, "selected":false}
+                ])
+            </ul>
+            <button type="button" class="cart__recommendations-prev swiper-button-prev" aria-label="Предыдущая рекомендация"></button>
+            <button type="button" class="cart__recommendations-next swiper-button-next" aria-label="Следующая рекомендация"></button>
+        </div>
+    </details>
+</div>

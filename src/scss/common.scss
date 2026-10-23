@@ -78,6 +78,8 @@ body {
 
 // .page
 .page {
+	// .page.page--cart
+	&.page--cart { background: #f7f7f6; padding-bottom: 0; }
 	// .page:has(.product-listing)
 	&:has(.product-listing) { padding-bottom: 0; background: #f7f7f6; }
 	flex: 1 1 auto;

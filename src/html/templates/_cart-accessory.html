@@ -1,0 +1,13 @@
+<li class="cart__recommendations-item swiper-slide">
+    <div class="cart-accessory" data-price="@@price" data-old-price="@@oldPrice" data-weight="0.3" data-selected="@@selected">
+        <a class="cart-accessory__image" href="product.html"><img class="cart-accessory__picture" src="@@image" alt="@@name"></a>
+        <div class="cart-accessory__content">
+            <a class="cart-accessory__name" href="product.html">@@name</a>
+            <div class="cart-accessory__prices">
+                <span class="cart-accessory__price">@@displayPrice ₽</span>
+                @@if(context.sale){<span class="cart-accessory__old">12 900 ₽</span><span class="cart-accessory__badge">-15%</span>}
+            </div>
+        </div>
+        <button class="cart-accessory__add" type="button" aria-label="Добавить: @@name" aria-pressed="false"><span class="cart-accessory__icon icon-cart" aria-hidden="true"></span></button>
+    </div>
+</li>

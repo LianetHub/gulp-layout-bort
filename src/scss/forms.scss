@@ -410,6 +410,8 @@
 	}
 
 	&.btn-primary {
+		// .btn.btn-primary.btn--cart
+		&.btn--cart { background: #ff6b00; border-color: #ff6b00; }
 		background: #ea7600;
 		color: #fff;
 

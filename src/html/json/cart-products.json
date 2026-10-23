@@ -1,0 +1,35 @@
+[
+    {
+        "name": "Дрель-шуруповерт аккумуляторная BORT BAB-12x2Li-FD (2x1,5 Ач+ЗУ)",
+        "image": "@img/search/titan-5000.png",
+        "price": 23490,
+        "oldPrice": 23490,
+        "displayPrice": "23 490",
+        "quantity": 1,
+        "weight": 2.1,
+        "sale": false,
+        "expanded": false
+    },
+    {
+        "name": "Измельчитель пищевых отходов BORT Alligator Max",
+        "image": "@img/categories/waste-disposers.png",
+        "price": 41490,
+        "oldPrice": 45650,
+        "displayPrice": "41 490",
+        "quantity": 1,
+        "weight": 4.6,
+        "sale": true,
+        "expanded": true
+    },
+    {
+        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
+        "image": "@img/search/titan-6000.png",
+        "price": 69850,
+        "oldPrice": 69850,
+        "displayPrice": "69 850",
+        "quantity": 3,
+        "weight": 3.75,
+        "sale": false,
+        "expanded": false
+    }
+]
