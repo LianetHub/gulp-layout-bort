@@ -60,7 +60,17 @@ export function cart() {
             });
             element.querySelector('[data-cart-weight]').textContent = totals.weight.toLocaleString('ru-RU', { maximumFractionDigits: 2 }) + ' кг';
             element.querySelector('.cart__empty').hidden = rows().length > 0;
-            element.querySelector('.cart__total-order').disabled = !rows().length;
+            const checkout = element.querySelector('.cart__total-order');
+            if (checkout) {
+                const empty = rows().length === 0;
+                checkout.disabled = empty;
+                checkout.setAttribute('aria-disabled', String(empty));
+                if (checkout.tagName === 'A') {
+                    if (empty) checkout.removeAttribute('href');
+                    else checkout.setAttribute('href', 'checkout.html');
+                    checkout.tabIndex = empty ? -1 : 0;
+                }
+            }
         }
         function initSlider(details) {
             const slider = details.querySelector('.swiper');
@@ -144,7 +154,11 @@ export function cart() {
             if (delivery.value === 'delivery') show(field);
             else { hide(field); field.hidden = true; }
         }
-        element.querySelectorAll('.cart__total-order').forEach(button => button.addEventListener('click', () => {
+        element.querySelectorAll('.cart__total-order').forEach(button => button.addEventListener('click', event => {
+            if (button.tagName === 'A') {
+                if (button.getAttribute('aria-disabled') === 'true') event.preventDefault();
+                return;
+            }
             if (validateCartCheckout() && typeof Fancybox !== 'undefined' && Fancybox) Fancybox.show([{ src: '#order', type: 'inline' }]);
         }));
         if (element.querySelector('[data-cart-total]')) update();

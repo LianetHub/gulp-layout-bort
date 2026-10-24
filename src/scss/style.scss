@@ -76,9 +76,12 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 @import "pages/blog";
 @import "pages/category";
 @import "pages/product-card";
+@import "modules/product-content";
 @import "pages/lk";
 @import "pages/cart";
 @import "pages/checkout";
+@import "modules/checkout";
+@import "modules/address-picker";
 @import "modules/cart-item";
 @import "modules/cart-accessory";
 @import "pages/login";
@@ -117,3 +120,6 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 @import "modules/contact-form";
 @import "modules/product-listing";
 @import "modules/listing-filter";
+
+@import "pages/favorites";
+@import "modules/favorite-dialog";

@@ -1,0 +1,47 @@
+[
+    {
+        "name": "Пневмовыключатель BORT Air switch (polish)",
+        "model": "accessory-1",
+        "sku": "2569881",
+        "price": "1 620",
+        "oldPrice": "18 590",
+        "guarantee": true,
+        "image": "@img/product/accessory-01.png"
+    },
+    {
+        "name": "Проталкиватель BORT Waste Tamper/Stopper Проталкиватель",
+        "model": "accessory-2",
+        "sku": "2569881",
+        "price": "570",
+        "oldPrice": "18 590",
+        "guarantee": true,
+        "image": "@img/product/accessory-02.png"
+    },
+    {
+        "name": "Фланец в мойку BORT Washing flange Caiman",
+        "model": "accessory-3",
+        "sku": "2569881",
+        "price": "1 200",
+        "oldPrice": "18 590",
+        "guarantee": false,
+        "image": "@img/product/accessory-03.png"
+    },
+    {
+        "name": "Пневмовыключатель BORT Air switch (black) long",
+        "model": "accessory-4",
+        "sku": "2569881",
+        "price": "2 350",
+        "oldPrice": "18 590",
+        "guarantee": false,
+        "image": "@img/product/accessory-04.png"
+    },
+    {
+        "name": "Пневмовыключатель BORT Air switch (bronze)",
+        "model": "accessory-5",
+        "sku": "2569881",
+        "price": "1 620",
+        "oldPrice": "18 590",
+        "guarantee": false,
+        "image": "@img/product/accessory-05.png"
+    }
+]

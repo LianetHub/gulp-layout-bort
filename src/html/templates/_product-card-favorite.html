@@ -1,53 +1,15 @@
-<div id="@@id" class="product@@className@@if(type==='small'){ product--small}">
-    @@if(typeof label !== 'undefined') {
-    <div class="product__labels">
-        <div class="product__label">@@label</div>
-    </div>
-    }
-    <div class="product__header">
-        <a href="product.html" class="product__image" aria-label="Перейти к товару @@name">
-            <img src="@@image" alt="Фото товара @@name">
-        </a>
-    </div>
-    <div class="product__info">
-        <div class="product__availability">
-            @@if(quantity > 0) {
-            В наличии <span class="product__availability-value">@@quantity шт.</span>
-            }
-            @@if(quantity == 0) {
-            Нет в наличии
-            }
+<article class="product product-tile product-tile--favorite" data-favorite-id="@@id" data-category="@@category" data-price="@@amount" data-order="@@order">
+    <div class="product-tile__visual">
+        @@if(guarantee){<span class="product-tile__guarantee"><img src="@img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>}
+        <div class="product-tile__actions">
+            <button type="button" class="product-tile__action" data-remove-favorite aria-label="Удалить @@name из избранного"><img src="@img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
+            <button type="button" class="product-tile__action compare-btn" aria-label="Добавить @@name к сравнению" aria-pressed="false"><img src="@img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
         </div>
-        <a href="" class="product__name title-sm">@@name</a>
+        <a href="product.html" class="product-tile__image"><img src="@@image" alt="@@name" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
+        <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
     </div>
-    <div class="product__price">
-        <div class="product__price-current">@@currentPrice</div>
-        @@if(typeof oldPrice !== 'undefined') {
-        <div class="product__price-old">@@oldPrice</div>
-        }
-        @@if(typeof sale !== 'undefined') {
-        <div class="product__price-sale">@@sale</div>
-        }
-    </div>
-    <div class="product__quantity">
-        <div class="product__quantity-caption">количество:</div>
-        <div class="quantity-block@@if(type==='small'){ quantity-block--small}">
-            <button type="button" aria-label="Уменьшить количество" class="quantity-block__down icon-minus"></button>
-            <input type="number" name="quantity" autocomplete="off" class="quantity-block__input" value="1" aria-label="Выбрать количество товара">
-            <button type="button" aria-label="Увеличить количество" class="quantity-block__up icon-plus"></button>
-        </div>
-        <div class="product__quantity-unit">шт</div>
-    </div>
-    <div class="product__actions">
-        @@if(quantity > 0) {
-        <button type="button" class="product__btn btn btn-primary add-to-cart-btn icon-cart">
-            В корзину
-        </button>
-        }
-        @@if(quantity == 0) {
-        <a href="" class="product__btn btn btn-primary icon-arrows">Аналоги</a>
-        }
-        <button type="button" aria-label="Добавить @@name в избранное" class="product__action favorite-btn icon-heart active"></button>
-        <button type="button" aria-label="Добавить @@name к сравнению" class="product__action compare-btn icon-compare"></button>
-    </div>
-</div>
+    <div class="product-tile__meta"><span class="product-tile__text">Артикул: @@sku</span><span class="product-tile__rating"><img src="@img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
+    <a href="product.html" class="product__name product-tile__name">@@name</a>
+    <div class="product-tile__price"><strong class="product-tile__value">@@price ₽</strong><del class="product-tile__old-price">@@oldPrice ₽</del>@@if(sale){<span class="product-tile__sale">-15%</span>}</div>
+    <button type="button" class="product-tile__cart add-to-cart-btn"><img src="@img/favorites/cart.svg" alt="" class="product-tile__cart-icon" width="20" height="20">2 сентября</button>
+</article>

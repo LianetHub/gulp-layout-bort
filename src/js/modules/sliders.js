@@ -84,6 +84,28 @@ export function sliders() {
         const product = gallery.closest('.product-details');
         if (!product) return;
         const thumbs = [...product.querySelectorAll('.product-details__thumb')];
+        if (product.classList.contains('product-details--retail')) {
+            const thumbnailContainer = product.querySelector('.product-details__thumbs');
+            const thumbnails = createSlider(thumbnailContainer.querySelector('.swiper'), {
+                slidesPerView: 3, spaceBetween: 10, watchOverflow: true,
+                breakpoints: { 768: { direction: 'vertical', slidesPerView: 5 } }
+            });
+            const main = createSlider(gallery.querySelector('.swiper'), {
+                slidesPerView: 1, watchOverflow: true, navigation: controls(thumbnailContainer).navigation,
+                on: { slideChange() {
+                    thumbs.forEach((thumb, index) => {
+                        thumb.classList.toggle('active', index === this.activeIndex);
+                        thumb.setAttribute('aria-pressed', String(index === this.activeIndex));
+                    });
+                    thumbnails?.slideTo(this.activeIndex);
+                    const zoom = gallery.querySelector('.product-details__zoom');
+                    if (zoom) zoom.href = this.slides[this.activeIndex].href;
+                } }
+            });
+            thumbs.forEach((thumb, index) => thumb.setAttribute('aria-pressed', String(index === 0)));
+            delegate(product, 'click', '.product-details__thumb', (event, thumb) => main?.slideTo(thumbs.indexOf(thumb)));
+            return;
+        }
         const mobileThumbs = new MobileSwiper(product.querySelector('.product-details__thumbs .swiper'), {
             slidesPerView: 'auto', spaceBetween: 10, freeMode: true, watchSlidesProgress: true
         });

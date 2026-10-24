@@ -1,5 +1,14 @@
 // .breadcrumbs
 .breadcrumbs {
+	// .breadcrumbs--product
+	&.breadcrumbs--product {
+		padding: rem(15) 0;
+		@media (min-width: $md4) { padding: rem(20) 0; }
+		// .breadcrumbs--product .breadcrumbs__container
+		.breadcrumbs__container { box-sizing: border-box; width: 100%; max-width: rem(1280); }
+		// .breadcrumbs--product .breadcrumbs__item
+		.breadcrumbs__item { font-size: rem(14); line-height: rem(20); }
+	}
 	// .breadcrumbs--catalog
 	&--catalog {
 		padding-top: rem(20);

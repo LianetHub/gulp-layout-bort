@@ -1,0 +1,111 @@
+// .address-picker
+.address-picker {
+    display: none;
+    position: relative;
+    width: calc(100% - #{rem(14)});
+    max-width: rem(500);
+    margin: rem(15) auto;
+    padding: rem(20);
+    border-radius: rem(20);
+    background: #fff;
+    color: #2b2b2b;
+    @media (min-width: $md4) { width: 100%; margin: 0 auto; padding: rem(30); }
+    // .address-picker--pickup
+    &--pickup { height: rem(630); max-height: calc(100dvh - #{rem(30)}); @media (min-width: $md4) { height: rem(650); }
+        // .address-picker--pickup.address-picker--adding
+        &.address-picker--adding { height: auto; overflow-y: auto; }
+    }
+    // .address-picker__pickup-form
+    &__pickup-form { display: flex; flex-direction: column; width: 100%; height: 100%; min-height: 0; gap: rem(10); }
+    // .address-picker__pickup-content
+    &__pickup-content { display: flex; flex-direction: column; min-height: 0; flex: 1; overflow: hidden; }
+    // .address-picker--pickup .address-picker__list
+    &--pickup .address-picker__list { flex: 1; min-height: 0; max-height: none; align-content: start; scrollbar-width: none;
+        // .address-picker--pickup .address-picker__list::-webkit-scrollbar
+        &::-webkit-scrollbar { display: none; }
+    }
+    // .address-picker--pickup .address-picker__pickup-form > .address-picker__actions
+    &--pickup .address-picker__pickup-form > .address-picker__actions { flex-shrink: 0; margin: 0; }
+    // .address-picker__availability
+    &__availability { font-size: rem(12); line-height: rem(16); color: #007681; font-weight: 500; }
+    // .address-picker__view
+    &__view { width: 100%;
+        // .address-picker__view--pickup
+        &--pickup { height: 100%; min-height: 0; }
+    }
+    // .address-picker__view[hidden]
+    &__view[hidden] { display: none; }
+    // .address-picker__heading
+    &__heading { display: grid; gap: rem(5); margin-bottom: rem(20); }
+    // .address-picker__description
+    &__description { font-size: rem(14); line-height: rem(20); color: #6a6b6d; }
+    // .address-picker__close
+    &__close { position: absolute; right: rem(10); top: rem(10); display: flex; padding: rem(4); border-radius: 50%; background: #f2f2f2; }
+    // .address-picker__toolbar
+    &__toolbar { display: flex; flex-direction: column-reverse; align-items: flex-start; gap: rem(15); margin-bottom: rem(10); @media (min-width: $md4) { flex-direction: row; justify-content: space-between; align-items: center; margin-bottom: rem(15); } }
+    // .address-picker__caption
+    &__caption { font-size: rem(14); line-height: rem(20); font-weight: 500; color: #404246; }
+    // .address-picker__add
+    &__add { display: inline-flex; align-items: center; gap: rem(5); color: #ff6201; font-size: rem(14); line-height: rem(20); font-weight: 600; }
+    // .address-picker__list
+    &__list { display: grid; gap: rem(10); max-height: 50vh; overflow-y: auto; }
+    // .address-picker__card
+    &__card { display: flex; position: relative; cursor: pointer;
+        // .address-picker__card--pickup .address-picker__card-content
+        &--pickup .address-picker__card-content { gap: rem(5); }
+        // .address-picker__card--pickup .address-picker__card-title
+        &--pickup .address-picker__card-title { font-weight: 500; }
+    }
+    // .address-picker__card[hidden]
+    &__card[hidden] { display: none; }
+    // .address-picker__radio
+    &__radio { position: absolute; width: 1px; height: 1px; opacity: 0;
+        // .address-picker__radio:checked + .address-picker__card-body
+        &:checked + .address-picker__card-body { border-color: #ff6201; box-shadow: inset 0 0 0 1px #ff6201; }
+        // .address-picker__radio:checked + .address-picker__card-body .address-picker__indicator
+        &:checked + .address-picker__card-body .address-picker__indicator { background-image: url('@img/checkout/radio-selected.svg'); }
+        // .address-picker__radio:focus-visible + .address-picker__card-body
+        &:focus-visible + .address-picker__card-body { outline: 2px solid #ff6201; outline-offset: -4px; }
+    }
+    // .address-picker__card-body
+    &__card-body { display: flex; align-items: center; gap: rem(10); width: 100%; padding: rem(14); border: 1px solid #ebeaea; border-radius: rem(10); }
+    // .address-picker__indicator
+    &__indicator { width: rem(20); height: rem(20); flex-shrink: 0; background: url('@img/checkout/radio.svg') center / contain no-repeat; }
+    // .address-picker__card-content
+    &__card-content { display: flex; flex-direction: column; min-width: 0; font-size: rem(14); line-height: rem(20); }
+    // .address-picker__card-title
+    &__card-title { font-weight: 600; overflow-wrap: anywhere; }
+    // .address-picker__card-details
+    &__card-details { color: #6a6b6d; }
+    // .address-picker__actions
+    &__actions { display: flex; gap: rem(10); margin-top: rem(20); }
+    // .address-picker__button
+    &__button { flex: 1; min-width: 0; display: flex; align-items: center; justify-content: center; min-height: rem(48); padding: rem(13) rem(10); border-radius: rem(8); background: #f2f2f2; font-size: rem(16); line-height: rem(22); font-weight: 500;
+        // .address-picker__button--primary
+        &--primary { background: #ff6201; color: #fff; }
+        // .address-picker__button:disabled
+        &:disabled { opacity: .5; cursor: default; }
+        // .address-picker__button:focus-visible
+        &:focus-visible { outline: 2px solid #ff6201; outline-offset: 2px; }
+    }
+    // .address-picker__back
+    &__back { display: inline-flex; align-items: center; gap: rem(5); font-size: rem(14); line-height: rem(20); color: #404246; margin-bottom: rem(15); }
+    // .address-picker__back-icon
+    &__back-icon { transform: scaleX(-1); }
+    // .address-picker__fields
+    &__fields { display: grid; gap: rem(20); }
+    // .address-picker__city
+    &__city { display: grid; gap: rem(10); }
+    // .address-picker__map-toggle
+    &__map-toggle { display: inline-flex; align-items: center; gap: rem(5); width: fit-content; font-size: rem(14); line-height: rem(20); font-weight: 500; }
+    // .address-picker__details
+    &__details { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: rem(10); }
+    // .address-picker__details .checkout__input
+    &__details .checkout__input { padding-inline: rem(10); @media (min-width: $md4) { padding-inline: rem(19); } }
+    // .address-picker__map
+    &__map { height: rem(240); border-radius: rem(8); overflow: hidden; }
+    // .address-picker__map[hidden]
+    &__map[hidden] { display: none; }
+    // .address-picker__map-status
+    &__map-status { font-size: rem(14); line-height: rem(20); color: #6a6b6d; }
+}

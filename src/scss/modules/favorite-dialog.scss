@@ -1,0 +1,25 @@
+// .favorite-dialog
+.favorite-dialog {
+    position: fixed; inset: 0; margin: auto; width: rem(350); max-width: calc(100% - rem(30)); padding: rem(30); border: 0; border-radius: rem(20); background: #fff; color: #2b2b2b;
+    // .favorite-dialog::backdrop
+    &::backdrop { background: rgba(0, 0, 0, .4); }
+    // .favorite-dialog__title
+    &__title { margin-bottom: rem(10); }
+    // .favorite-dialog__message
+    &__message { color: #404246; font-size: rem(16); line-height: rem(22); margin-bottom: rem(20); }
+    // .favorite-dialog__category
+    &__category { font-weight: 600; }
+    // .favorite-dialog__close
+    &__close { position: absolute; top: rem(10); right: rem(10); display: grid; place-items: center; width: rem(28); height: rem(28); background: #f2f2f2; border-radius: 50%; }
+    // .favorite-dialog__icon
+    &__icon { flex-shrink: 0; }
+    // .favorite-dialog__actions
+    &__actions { display: flex; gap: rem(10); }
+    // .favorite-dialog__confirm
+    // .favorite-dialog__cancel
+    &__confirm, &__cancel { display: flex; justify-content: center; align-items: center; flex: 1; min-height: rem(48); padding: rem(13) rem(10); border-radius: rem(8); font-size: rem(16); line-height: rem(22); font-weight: 500; }
+    // .favorite-dialog__confirm
+    &__confirm { color: #fff; background: #ff6201; }
+    // .favorite-dialog__cancel
+    &__cancel { color: #2b2b2b; background: #f2f2f2; }
+}

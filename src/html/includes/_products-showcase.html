@@ -1,4 +1,4 @@
-<section class="products-showcase@@if(compact){ products-showcase--sale}@@if(popular){ products-showcase--popular}">
+<section class="products-showcase@@if(compact){ products-showcase--sale}@@if(popular){ products-showcase--popular}@@if(typeof product !== 'undefined' && product){ products-showcase--product}">
     <div class="products-showcase__container container">
         <div class="products-showcase__body">
             <div class="products-showcase__heading section-heading">
@@ -7,7 +7,15 @@
             <div class="products-showcase__slider" data-showcase-slider="@@if(compact){6}@@if(!compact){5}">
                 <div class="swiper">
                     <div class="swiper-wrapper">
+                        @@if(typeof product !== 'undefined' && product && popular){
+                        @@loop('../templates/_product-tile.html', './html/json/product-accessories.json')
+                        }
+                        @@if(typeof product !== 'undefined' && product && !popular){
+                        @@loop('../templates/_product-tile.html', './html/json/product-recommendations.json')
+                        }
+                        @@if(typeof product === 'undefined' || !product){
                         @@loop('../templates/_product-tile.html', './html/json/products-showcase.json')
+                        }
                     </div>
                 </div>
                 <button type="button" class="products-showcase__prev swiper-button-prev" aria-label="Предыдущие товары"></button>

@@ -584,6 +584,8 @@
 
 // .main-actions
 .main-actions {
+	// .wrapper:has(.product-details--retail) .main-actions
+	.wrapper:has(.product-details--retail) & { display: none; @media (min-width: $md4) { display: flex; } }
 	display: grid;
 	grid-template-columns: repeat(5, minmax(0, 1fr));
 	position: fixed;

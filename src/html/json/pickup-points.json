@@ -1,0 +1,7 @@
+[
+    { "id": "ozon-1", "address": "Красногорск, Красногорский б-р, 23к1", "checked": false },
+    { "id": "ozon-2", "address": "Нахабино, Почтовая ул., 57", "checked": true },
+    { "id": "ozon-3", "address": "Ильинский б-р, 8, подъезд 1", "checked": false },
+    { "id": "ozon-4", "address": "Красногорск, Красногорский б-р, 18", "checked": false },
+    { "id": "ozon-5", "address": "Красногорск, Красногорский б-р, 23к1", "checked": false }
+]

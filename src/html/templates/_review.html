@@ -1,4 +1,4 @@
-<article class="review@@if (!compact) { review--detailed}" data-review-id="@@id" data-rating="@@rating" data-date="@@dateISO" data-helpful="@@helpful">
+<article class="review@@if (!compact) { review--detailed}@@if(typeof productReview !== 'undefined' && productReview){ review--product}" data-review-id="@@id" data-rating="@@rating" data-date="@@dateISO" data-helpful="@@helpful">
     <div class="review__header">
         <span class="review__avatar icon-user-fill" aria-hidden="true"></span>
         <div class="review__identity">

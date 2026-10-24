@@ -1,0 +1,46 @@
+<div class="address-picker address-picker--pickup" id="pickup-picker" aria-labelledby="pickup-picker-title">
+    <button class="address-picker__close" type="button" data-fancybox-close aria-label="Закрыть"><img class="address-picker__close-icon" src="@img/checkout/close.svg" width="20" height="20" alt=""></button>
+    <div class="address-picker__view address-picker__view--pickup" data-pickup-view="list">
+    <form class="address-picker__pickup-form">
+        <div class="address-picker__pickup-content">
+            <div class="address-picker__heading">
+                <h2 class="address-picker__title title title--dialog" id="pickup-picker-title">Выберите пункт выдачи</h2>
+                <p class="address-picker__description">Найдите удобный пункт выдачи Озон.</p>
+            </div>
+            <div class="address-picker__toolbar">
+                <p class="address-picker__caption">Пункты выдачи</p>
+                <button class="address-picker__add" type="button"><img class="address-picker__add-icon" src="@img/checkout/plus.svg" width="20" height="20" alt="">Добавить пункт выдачи</button>
+            </div>
+            <div class="address-picker__list">
+                @@loop('../templates/_pickup-point.html', './html/json/pickup-points.json')
+            </div>
+        </div>
+        <div class="address-picker__actions">
+            <button class="address-picker__button address-picker__button--primary" type="submit">Выбрать</button>
+            <button class="address-picker__button" type="button" data-fancybox-close>Отменить</button>
+        </div>
+    </form>
+    </div>
+    <div class="address-picker__view" data-pickup-view="add" hidden>
+        <div class="address-picker__heading">
+            <h2 class="address-picker__title title title--dialog" id="pickup-add-title">Добавить пункт</h2>
+            <p class="address-picker__description">Заполните данные, чтобы использовать новый пункт выдачи</p>
+        </div>
+        <button class="address-picker__back" type="button"><img class="address-picker__back-icon" src="@img/checkout/back.svg" width="20" height="20" alt="">Назад к списку</button>
+        <form class="address-picker__point-form">
+            <div class="address-picker__fields">
+                <div class="address-picker__city">
+                    <label class="checkout__field"><span class="checkout__label">Город</span><input class="checkout__input" name="city" placeholder="Город" autocomplete="address-level2" required></label>
+                    <button class="address-picker__map-toggle" type="button" aria-expanded="false" aria-controls="pickup-add-map"><img class="address-picker__map-icon" src="@img/checkout/map-pin.svg" width="20" height="20" alt="">Выбрать на карте</button>
+                    <div class="address-picker__map" id="pickup-add-map" hidden></div>
+                    <p class="address-picker__map-status" role="status" hidden></p>
+                </div>
+                <label class="checkout__field"><span class="checkout__label">Адрес пункта выдачи</span><input class="checkout__input" name="street" placeholder="Улица, номер дома" autocomplete="street-address" required></label>
+            </div>
+            <div class="address-picker__actions">
+                <button class="address-picker__button address-picker__button--primary" type="submit">Добавить и выбрать</button>
+                <button class="address-picker__button" type="button" data-fancybox-close>Отменить</button>
+            </div>
+        </form>
+    </div>
+</div>

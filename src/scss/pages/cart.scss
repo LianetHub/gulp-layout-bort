@@ -85,6 +85,8 @@
     &__total-order { width: 100%; min-height: rem(48); padding: rem(12); border-radius: rem(6); text-transform: none; font-size: rem(14);
         // .cart__total-order:disabled
         &:disabled { opacity: .5; cursor: default; }
+        // .cart__total-order[aria-disabled="true"]
+        &[aria-disabled="true"] { opacity: .5; cursor: default; }
     }
     // .cart__message
     &__message { font-size: rem(12); line-height: 1.5; color: #63666a; }

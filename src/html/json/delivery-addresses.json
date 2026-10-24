@@ -1,0 +1,5 @@
+[
+    { "id": "address-1", "city": "Москва", "street": "ул. Тверская, д. 12", "apartment": "45", "entrance": "2", "floor": "5", "details": "Кв. / офис 45 · подъезд 2 · этаж 5", "checked": false },
+    { "id": "address-2", "city": "Москва", "street": "пр-т Мира, д. 80", "apartment": "19", "entrance": "1", "floor": "3", "details": "Кв. / офис 19 · подъезд 1 · этаж 3", "checked": true },
+    { "id": "address-3", "city": "Москва", "street": "ул. Большая Садовая, д. 10", "apartment": "8", "entrance": "", "floor": "", "details": "Кв. / офис 8", "checked": false }
+]

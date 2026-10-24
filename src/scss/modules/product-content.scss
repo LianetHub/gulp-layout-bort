@@ -1,0 +1,210 @@
+// .product-content
+.product-content {
+	margin-top: rem(40);
+	@media (min-width: $md4) {
+		margin-top: rem(60);
+	}
+	// .product-content__container
+	&__container {
+		box-sizing: border-box;
+		max-width: rem(1280);
+		width: 100%;
+		@media (min-width: $md4) {
+			padding-inline: rem(20);
+		}
+	}
+	// .product-content__navigation
+	&__navigation {
+		overflow-x: auto;
+		border-bottom: 1px solid #ebeaea;
+		margin-bottom: rem(40);
+		scrollbar-width: thin;
+	}
+	// .product-content__menu
+	&__menu {
+		display: flex;
+		width: max-content;
+		gap: rem(30);
+	}
+	// .product-content__tab
+	&__tab {
+		display: block;
+		padding: rem(10) 0;
+		font-size: rem(14);
+		line-height: rem(20);
+		border-bottom: 3px solid transparent;
+		color: #6a6b6d;
+		// .product-content__tab.active
+		&.active {
+			color: #ff6201;
+			border-bottom-color: #ff6201;
+		}
+	}
+	// .product-content__block
+	&__block {
+		margin-bottom: rem(40);
+		scroll-margin-top: rem(130);
+	}
+	// .product-content__title
+	&__title {
+		margin-bottom: rem(20);
+	}
+	// .product-content__description
+	&__description {
+		display: grid;
+		gap: rem(20);
+		@media (min-width: $md4) {
+			grid-template-columns: minmax(0, 1fr) rem(250);
+			gap: rem(30);
+		}
+	}
+	// .product-content__description-main
+	&__description-main {
+		min-width: 0;
+	}
+	// .product-content__rich
+	&__rich {
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
+	// .product-content__rich-image
+	&__rich-image {
+		display: block;
+		width: 100%;
+		height: auto;
+		// .product-content__rich-image[hidden]
+		&[hidden] {
+			display: none;
+		}
+	}
+	// .product-content__expand
+	&__expand {
+		margin-top: rem(15);
+		font-size: rem(14);
+		line-height: rem(20);
+		color: #ff6201;
+	}
+	// .product-content__benefits
+	&__benefits {
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+		align-self: start;
+		border: 1px solid #ebeaea;
+		border-radius: rem(10);
+		padding: rem(20);
+	}
+	// .product-content__benefit
+	&__benefit {
+		display: flex;
+		align-items: flex-start;
+		gap: rem(15);
+		font-size: rem(14);
+		line-height: rem(20);
+	}
+	// .product-content__benefit-icon
+	&__benefit-icon {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: rem(20);
+		height: rem(20);
+		flex-shrink: 0;
+	}
+	// .product-content__prose
+	&__prose {
+		max-width: rem(920);
+		display: flex;
+		flex-direction: column;
+		gap: rem(20);
+		font-size: rem(16);
+		line-height: rem(22);
+		color: #2b2b2b;
+	}
+	// .product-content__link
+	&__link {
+		color: #ff6201;
+		text-decoration: underline;
+	}
+	// .product-content__stats
+	&__stats {
+		display: grid;
+		grid-template-columns: minmax(0, 1fr);
+		gap: rem(10);
+		@media (min-width: $md2) {
+			grid-template-rows: repeat(12, auto);
+			grid-auto-flow: column;
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			column-gap: rem(30);
+		}
+	}
+	// .product-content__stat
+	&__stat {
+		display: grid;
+		grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+		gap: rem(10);
+		font-size: rem(14);
+		line-height: rem(20);
+	}
+	// .product-content__stat-name
+	&__stat-name {
+		display: flex;
+		gap: rem(10);
+		color: #404246;
+		// .product-content__stat-name::after
+		&::after {
+			content: "";
+			flex: 1;
+			min-width: rem(10);
+			border-bottom: 1px dashed #d5d6d9;
+			align-self: baseline;
+			height: rem(15);
+		}
+	}
+	// .product-content__stat-value
+	&__stat-value {
+		font-weight: 500;
+		color: #000;
+		overflow-wrap: anywhere;
+	}
+	// .product-content__equipment
+	&__equipment {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
+	// .product-content__equipment-item
+	&__equipment-item {
+		display: flex;
+		align-items: baseline;
+		gap: rem(10);
+		font-size: rem(14);
+		line-height: rem(22);
+		// .product-content__equipment-item::before
+		&::before {
+			content: "";
+			width: rem(5);
+			height: rem(5);
+			border-radius: 50%;
+			background: #ff6201;
+			flex-shrink: 0;
+		}
+	}
+	// .product-content__collections
+	&__collections {
+		display: flex;
+		flex-wrap: wrap;
+		gap: rem(10);
+	}
+	// .product-content__collection-link
+	&__collection-link {
+		display: block;
+		padding: rem(10) rem(20);
+		border-radius: rem(40);
+		background: #f2f2f2;
+		font-size: rem(14);
+		line-height: rem(20);
+	}
+}

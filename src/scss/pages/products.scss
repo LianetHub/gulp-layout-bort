@@ -597,6 +597,18 @@
 }
 
 .reviews {
+	// .reviews--product
+	&.reviews--product {
+		padding: 0;
+		// .reviews--product .reviews__title
+		.reviews__title { margin-bottom: rem(20); }
+		// .reviews--product .reviews__body
+		.reviews__body { grid-template-columns: minmax(0, 1fr); gap: rem(30); @media (min-width: $md2) { grid-template-columns: minmax(0, 820fr) minmax(0, 350fr); gap: rem(70); } }
+		// .reviews--product .reviews__list
+		.reviews__list { gap: 0; }
+		// .reviews--product .reviews__sidebar
+		.reviews__sidebar { position: static; }
+	}
 	padding: rem(25) 0;
 
 	@media (min-width: $md4) {

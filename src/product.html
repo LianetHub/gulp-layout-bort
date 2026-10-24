@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
     @@include('html/_head.html', {
-    'title': 'Страница товара | Неавторизованный пользователь'
+    'title': 'Измельчитель пищевых отходов BORT Caiman Control'
     })
     <body>
         <div class="wrapper">
@@ -10,13 +10,10 @@
             })
             <main class="page">
 
-                @@include('./html/includes/_product-details.html', {
-                "auth": false
-                })
-                @@include('./html/includes/_reviews.html')
-                @@include('./html/includes/_related-products.html')
-                @@include('./html/includes/_simular-products.html')
-                @@include('./html/includes/_tags.html')
+                @@include('./html/includes/_product-overview.html')
+                @@include('./html/includes/_products-showcase.html', {"title": "Рекомендуем также", "link": "catalog.html", "compact": false, "popular": false, "product": true})
+                @@include('./html/includes/_product-content.html')
+                @@include('./html/includes/_products-showcase.html', {"title": "Сопутствующие товары", "link": "catalog.html", "compact": false, "popular": true, "product": true})
             </main>
             @@include('html/_footer.html', {})
             @@include('html/_js.html', {})

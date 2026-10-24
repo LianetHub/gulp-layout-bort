@@ -1,5 +1,10 @@
 // .review
 .review {
+    // .review--product
+    &--product {
+        // .review--product .review__text
+        .review__text { display: block; overflow: visible; -webkit-line-clamp: unset; }
+    }
     // .review--detailed
     &--detailed {
         // .review--detailed .review__brand
