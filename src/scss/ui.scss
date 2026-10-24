@@ -35,6 +35,10 @@
 
 // .title
 .title {
+    // .title.title--auth
+    &.title--auth { font-family: $font-russo; font-size: rem(24); line-height: rem(36); font-weight: 400; text-transform: none; color: #000; }
+    // .title.title--auth-small
+    &.title--auth-small { font-family: $font-russo; font-size: rem(20); line-height: rem(28); font-weight: 400; text-transform: none; color: #000; }
     // .title.title--dialog
     &.title--dialog { font-family: $font-russo; font-size: rem(18); line-height: rem(26); font-weight: 400; text-transform: none; color: #2b2b2b; @media (min-width: $md4) { font-size: rem(20); line-height: rem(28); } }
     // .title.title--form

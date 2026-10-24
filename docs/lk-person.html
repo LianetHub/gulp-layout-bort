@@ -137,7 +137,7 @@
                                     Сравнение
                                 </span>
                             </a>
-                            <a href="lk-person.html" class="main-actions__item icon-user-circle" aria-label="Войти">
+                            <a href="#sign-in" data-auth-open class="main-actions__item icon-user-circle" aria-label="Войти" aria-haspopup="dialog">
                                 <span class="main-actions__item-text">
                                     Войти
                                 </span>
@@ -892,53 +892,114 @@
                     <button type="submit" class="form__submit btn btn-primary">Подробнее</button>
                 </form>
             </div>
-            <div id="sign-in" class="popup">
-                <div class="popup__title title-md">
-                    Вход <br class="mobile-only"> <span class="color-grey">для клиентов</span>
+            <div id="sign-in" class="auth-dialog" aria-labelledby="auth-title">
+                <button type="button" class="auth-dialog__close" data-fancybox-close aria-label="Закрыть"><img class="auth-dialog__close-icon" src="img/auth/close.svg" width="20" height="20" alt=""></button>
+                <div class="auth-dialog__view" data-auth-view="login">
+                    <h2 class="auth-dialog__title title title--auth" id="auth-title">Вход в личный кабинет</h2>
+                    <div class="auth-dialog__tabs" role="tablist" aria-label="Способ входа">
+                        <button class="auth-dialog__tab" type="button" role="tab" id="auth-email-tab" aria-controls="auth-email-panel" aria-selected="true" data-auth-tab="email">По E-mail</button>
+                        <button class="auth-dialog__tab" type="button" role="tab" id="auth-phone-tab" aria-controls="auth-phone-panel" aria-selected="false" tabindex="-1" data-auth-tab="phone">По телефону</button>
+                    </div>
+                    <form class="auth-dialog__form" data-auth-form="email" id="auth-email-panel" role="tabpanel" aria-labelledby="auth-email-tab" novalidate>
+                        <div class="auth-dialog__fields">
+                            <div class="auth-dialog__field">
+                                <label class="auth-dialog__label" for="auth-email">E-mail</label>
+                                <input class="auth-dialog__input" id="auth-email" type="email" name="email" autocomplete="username" placeholder="" required>
+                                <span class="auth-dialog__error"></span>
+                            </div>
+
+                            <div class="auth-dialog__field">
+                                <label class="auth-dialog__label" for="auth-password">Пароль</label>
+                                <div class="auth-dialog__password">
+                                    <input class="auth-dialog__input auth-dialog__input--password" id="auth-password" type="password" name="password" autocomplete="current-password" required>
+                                    <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password><span class="auth-dialog__eye-icon" aria-hidden="true"></span></button>
+                                </div>
+                                <span class="auth-dialog__error"></span>
+                            </div>
+
+                        </div>
+                        <div class="auth-dialog__options">
+                            <label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="remember"><span class="auth-dialog__check-text">Запомнить меня</span></label>
+                            <button class="auth-dialog__link auth-dialog__link--muted" type="button" data-auth-go="recovery">Забыли пароль?</button>
+                        </div>
+                        <button class="auth-dialog__submit" type="submit">Войти</button>
+                        <p class="auth-dialog__footer">Ещё нет учётной записи?<br><button class="auth-dialog__link" type="button" data-auth-go="register">Зарегистрироваться</button></p>
+                    </form>
+                    <form class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
+                        <div class="auth-dialog__fields">
+                            <div class="auth-dialog__field">
+                                <label class="auth-dialog__label" for="auth-phone">Телефон</label>
+                                <input class="auth-dialog__input" id="auth-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
+                                <span class="auth-dialog__error"></span>
+                            </div>
+
+                            <div class="auth-dialog__field"><label class="auth-dialog__label" for="auth-code">Код из СМС</label><input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required><span class="auth-dialog__error"></span></div>
+                        </div>
+                        <button class="auth-dialog__resend" type="button" data-auth-send="phone">Получить код</button>
+                        <button class="auth-dialog__submit" type="submit">Войти</button>
+                    </form>
                 </div>
-                <form action="#" class="popup__form form">
-                    <div class="form__field">
-                        <div class="form__label">Логин:</div>
-                        <input type="text" name="login" data-required class="form__control" placeholder="Логин">
-                        <div class="form__error-message"></div>
-                    </div>
-                    <div class="form__field">
-                        <div class="form__label">Пароль:</div>
-                        <input type="password" name="password" data-required class="form__control" placeholder="Введите пароль">
-                        <div class="form__error-message"></div>
-                    </div>
-                    <div class="form__field">
-                        <label class="checkbox">
-                            <input type="checkbox" name="remember_user" checked class="checkbox__input hidden" hidden>
-                            <span class="checkbox__btn">Запомнить меня</span>
-                        </label>
-                    </div>
-                    <button type="submit" class="form__submit btn btn-primary">Войти</button>
-                    <div class="form__footer">
-                        <a href="login.html" class="form__link">Зарегистрироваться</a>
-                        <a href="#recovery-password" data-fancybox class="form__link">Забыли пароль?</a>
-                    </div>
-                </form>
-            </div>
-            <div id="recovery-password" class="popup">
-                <div class="popup__title title-md">
-                    восстановление
-                    <br class="mobile-only"> <span class="color-grey">логина или пароля</span>
+                <div class="auth-dialog__view" data-auth-view="recovery" hidden>
+                    <div class="auth-dialog__heading"><h2 class="auth-dialog__title title title--auth-small" id="auth-recovery-title">Восстановление пароля</h2><p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p></div>
+                    <form class="auth-dialog__form" data-auth-form="recovery" novalidate>
+                        <div class="auth-dialog__field">
+                            <label class="auth-dialog__label" for="auth-recovery-email">E-mail</label>
+                            <input class="auth-dialog__input" id="auth-recovery-email" type="email" name="email" autocomplete="email" placeholder="" required>
+                            <span class="auth-dialog__error"></span>
+                        </div>
+
+                        <button class="auth-dialog__submit" type="submit">Получить ссылку</button>
+                    </form>
                 </div>
-                <form action="#" class="popup__form form">
-                    <div class="form__field">
-                        <div class="form__label">Телефон::</div>
-                        <input type="tel" name="phone" data-required class="form__control" placeholder="+7 (999) 999-99-99">
-                        <div class="form__error-message"></div>
-                    </div>
-                    <div class="form__field">
-                        <div class="form__label">Город:</div>
-                        <input type="text" name="city" data-required class="form__control" placeholder="Город">
-                        <div class="form__error-message"></div>
-                    </div>
-                    <button type="submit" class="form__submit btn btn-primary">Отправить</button>
-                </form>
+                <div class="auth-dialog__view" data-auth-view="register" hidden>
+                    <h2 class="auth-dialog__title title title--auth" id="auth-register-title">Регистрация</h2>
+                    <form class="auth-dialog__form" data-auth-form="register" novalidate>
+                        <div class="auth-dialog__fields">
+                            <div class="auth-dialog__field">
+                                <label class="auth-dialog__label" for="auth-name">Имя</label>
+                                <input class="auth-dialog__input" id="auth-name" type="text" name="username" autocomplete="given-name" placeholder="Имя" required>
+                                <span class="auth-dialog__error"></span>
+                            </div>
+
+                            <div class="auth-dialog__phone-row">
+                                <div class="auth-dialog__field">
+                                    <label class="auth-dialog__label" for="auth-register-phone">Телефон</label>
+                                    <input class="auth-dialog__input" id="auth-register-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
+                                    <span class="auth-dialog__error"></span>
+                                </div>
+
+                                <button class="auth-dialog__get-code" type="button" data-auth-send="register">Получить код</button>
+                                <div class="auth-dialog__field auth-dialog__field--code" hidden><input class="auth-dialog__input auth-dialog__input--code" name="code" aria-label="Код из СМС" inputmode="numeric" autocomplete="one-time-code" placeholder="Введите код" maxlength="4" pattern="[0-9]{4}" disabled required><span class="auth-dialog__error"></span></div>
+                            </div>
+                            <div class="auth-dialog__code-note" hidden><p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register">Получить новый код</button></div>
+                            <div class="auth-dialog__field">
+                                <label class="auth-dialog__label" for="auth-register-email">E-mail</label>
+                                <input class="auth-dialog__input" id="auth-register-email" type="email" name="email" autocomplete="email" placeholder="" required>
+                                <span class="auth-dialog__error"></span>
+                            </div>
+
+                            <div class="auth-dialog__field">
+                                <label class="auth-dialog__label" for="auth-register-password">Пароль</label>
+                                <div class="auth-dialog__password">
+                                    <input class="auth-dialog__input auth-dialog__input--password" id="auth-register-password" type="password" name="password" autocomplete="new-password" required>
+                                    <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password><span class="auth-dialog__eye-icon" aria-hidden="true"></span></button>
+                                </div>
+                                <span class="auth-dialog__error"></span>
+                            </div>
+
+                        </div>
+                        <div class="auth-dialog__consent">
+                            <div class="auth-dialog__field"><label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="agreement" required><span class="auth-dialog__check-text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">Политики конфиденциальности</a>.</span></label><span class="auth-dialog__error"></span></div>
+                            <p class="auth-dialog__hint">Нажимая кнопку &quot;Зарегистрироваться&quot;, я подтверждаю свою дееспособность и согласие на получение информации об оформлении и получении заказа, согласие на обработку персональных данных в соответствии с указанным <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">здесь текстом</a>.</p>
+                        </div>
+                        <button class="auth-dialog__submit" type="submit">Зарегистрироваться</button>
+                        <p class="auth-dialog__footer">У вас есть аккаунт?<br><button class="auth-dialog__link" type="button" data-auth-go="login">Войти</button></p>
+                    </form>
+                </div>
+                <p class="auth-dialog__status" role="status" aria-live="polite" hidden></p>
             </div>
+
+
 
             <!-- plugins -->
             <script src="js/libs/fancybox.umd.js"></script>

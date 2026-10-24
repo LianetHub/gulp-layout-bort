@@ -7,6 +7,7 @@ import { header } from './modules/header.js';
 import { CatalogController } from './modules/catalog.js';
 import { SearchController } from './modules/search.js';
 import { AuthController } from './modules/auth.js';
+import { authDialogs } from './modules/auth-dialogs.js';
 import { sliders } from './modules/sliders.js';
 import { FormController, subscription } from './modules/forms.js';
 import { filters } from './modules/filters.js';
@@ -32,6 +33,7 @@ function init() {
     window.AuthController = new AuthController();
     sliders();
     window.FormController = new FormController();
+    authDialogs();
     partsOrder();
     subscription();
     window.NotifyController = new NotifyController();

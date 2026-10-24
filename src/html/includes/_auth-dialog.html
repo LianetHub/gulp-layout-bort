@@ -1,0 +1,60 @@
+<div id="sign-in" class="auth-dialog" aria-labelledby="auth-title">
+    <button type="button" class="auth-dialog__close" data-fancybox-close aria-label="Закрыть"><img class="auth-dialog__close-icon" src="@img/auth/close.svg" width="20" height="20" alt=""></button>
+    <div class="auth-dialog__view" data-auth-view="login">
+        <h2 class="auth-dialog__title title title--auth" id="auth-title">Вход в личный кабинет</h2>
+        <div class="auth-dialog__tabs" role="tablist" aria-label="Способ входа">
+            <button class="auth-dialog__tab" type="button" role="tab" id="auth-email-tab" aria-controls="auth-email-panel" aria-selected="true" data-auth-tab="email">По E-mail</button>
+            <button class="auth-dialog__tab" type="button" role="tab" id="auth-phone-tab" aria-controls="auth-phone-panel" aria-selected="false" tabindex="-1" data-auth-tab="phone">По телефону</button>
+        </div>
+        <form class="auth-dialog__form" data-auth-form="email" id="auth-email-panel" role="tabpanel" aria-labelledby="auth-email-tab" novalidate>
+            <div class="auth-dialog__fields">
+                @@include('../templates/_auth-field.html', {"id":"auth-email","label":"E-mail","type":"email","name":"email","autocomplete":"username","placeholder":""})
+                @@include('../templates/_auth-password.html', {"id":"auth-password","autocomplete":"current-password"})
+            </div>
+            <div class="auth-dialog__options">
+                <label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="remember"><span class="auth-dialog__check-text">Запомнить меня</span></label>
+                <button class="auth-dialog__link auth-dialog__link--muted" type="button" data-auth-go="recovery">Забыли пароль?</button>
+            </div>
+            <button class="auth-dialog__submit" type="submit">Войти</button>
+            <p class="auth-dialog__footer">Ещё нет учётной записи?<br><button class="auth-dialog__link" type="button" data-auth-go="register">Зарегистрироваться</button></p>
+        </form>
+        <form class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
+            <div class="auth-dialog__fields">
+                @@include('../templates/_auth-field.html', {"id":"auth-phone","label":"Телефон","type":"tel","name":"phone","autocomplete":"tel","placeholder":"+7 (999) 999-99-99"})
+                <div class="auth-dialog__field"><label class="auth-dialog__label" for="auth-code">Код из СМС</label><input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required><span class="auth-dialog__error"></span></div>
+            </div>
+            <button class="auth-dialog__resend" type="button" data-auth-send="phone">Получить код</button>
+            <button class="auth-dialog__submit" type="submit">Войти</button>
+        </form>
+    </div>
+    <div class="auth-dialog__view" data-auth-view="recovery" hidden>
+        <div class="auth-dialog__heading"><h2 class="auth-dialog__title title title--auth-small" id="auth-recovery-title">Восстановление пароля</h2><p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p></div>
+        <form class="auth-dialog__form" data-auth-form="recovery" novalidate>
+            @@include('../templates/_auth-field.html', {"id":"auth-recovery-email","label":"E-mail","type":"email","name":"email","autocomplete":"email","placeholder":""})
+            <button class="auth-dialog__submit" type="submit">Получить ссылку</button>
+        </form>
+    </div>
+    <div class="auth-dialog__view" data-auth-view="register" hidden>
+        <h2 class="auth-dialog__title title title--auth" id="auth-register-title">Регистрация</h2>
+        <form class="auth-dialog__form" data-auth-form="register" novalidate>
+            <div class="auth-dialog__fields">
+                @@include('../templates/_auth-field.html', {"id":"auth-name","label":"Имя","type":"text","name":"username","autocomplete":"given-name","placeholder":"Имя"})
+                <div class="auth-dialog__phone-row">
+                    @@include('../templates/_auth-field.html', {"id":"auth-register-phone","label":"Телефон","type":"tel","name":"phone","autocomplete":"tel","placeholder":"+7 (999) 999-99-99"})
+                    <button class="auth-dialog__get-code" type="button" data-auth-send="register">Получить код</button>
+                    <div class="auth-dialog__field auth-dialog__field--code" hidden><input class="auth-dialog__input auth-dialog__input--code" name="code" aria-label="Код из СМС" inputmode="numeric" autocomplete="one-time-code" placeholder="Введите код" maxlength="4" pattern="[0-9]{4}" disabled required><span class="auth-dialog__error"></span></div>
+                </div>
+                <div class="auth-dialog__code-note" hidden><p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register">Получить новый код</button></div>
+                @@include('../templates/_auth-field.html', {"id":"auth-register-email","label":"E-mail","type":"email","name":"email","autocomplete":"email","placeholder":""})
+                @@include('../templates/_auth-password.html', {"id":"auth-register-password","autocomplete":"new-password"})
+            </div>
+            <div class="auth-dialog__consent">
+                <div class="auth-dialog__field"><label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="agreement" required><span class="auth-dialog__check-text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">Политики конфиденциальности</a>.</span></label><span class="auth-dialog__error"></span></div>
+                <p class="auth-dialog__hint">Нажимая кнопку &quot;Зарегистрироваться&quot;, я подтверждаю свою дееспособность и согласие на получение информации об оформлении и получении заказа, согласие на обработку персональных данных в соответствии с указанным <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">здесь текстом</a>.</p>
+            </div>
+            <button class="auth-dialog__submit" type="submit">Зарегистрироваться</button>
+            <p class="auth-dialog__footer">У вас есть аккаунт?<br><button class="auth-dialog__link" type="button" data-auth-go="login">Войти</button></p>
+        </form>
+    </div>
+    <p class="auth-dialog__status" role="status" aria-live="polite" hidden></p>
+</div>

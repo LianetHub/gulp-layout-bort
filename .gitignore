@@ -6,4 +6,7 @@
 
 AGENTS.md
 
-/tests
+/tests/*
+!/tests/auth-dialogs.test.js
+!/tests/auth.html
+!/tests/auth-browser.js
