@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ru">
+@@include('html/_head.html', { 'title': 'Личный кабинет — Адреса' })
+<body>
+    <div class="wrapper">
+        @@include('html/_header.html', { "auth": true })
+        <main class="page page--account">
+            <section class="account account--addresses">
+                <div class="account__mobile-heading"><a class="account__back icon-chevron-left" href="lk-person.html#menu" aria-label="Вернуться в мой кабинет"></a><h1 class="account__mobile-title title title--auth-small">Адреса доставки</h1></div>
+                <div class="account__container container">
+                    <h1 class="account__title title title--cabinet">Мой кабинет</h1>
+                    <div class="account__body">
+                        <nav class="account__sidebar" aria-label="Мой кабинет">
+                            <ul class="account__menu">
+                                <li class="account__menu-item"><a class="account__link icon-user-circle" href="lk-person.html">Личные данные</a></li>
+                                <li class="account__menu-item"><a class="account__link icon-box" href="lk-history.html">Заказы</a></li>
+                                <li class="account__menu-item"><a class="account__link icon-location" href="lk-address.html" aria-current="page">Адреса</a></li>
+                                <li class="account__menu-item"><a class="account__link icon-heart" href="favorite.html">Избранное</a></li>
+                                <li class="account__menu-item"><a class="account__link icon-compare" href="compare.html">Сравнение</a></li>
+                                <li class="account__menu-item"><a class="account__link icon-login" href="index.html">Выйти</a></li>
+                            </ul>
+                        </nav>
+                        <div class="account__content">
+                            <div class="addresses" data-addresses>
+                                <h2 class="addresses__title title title--auth">Адреса доставки</h2>
+                                <div class="addresses__tabs" role="tablist" aria-label="Тип адреса">
+                                    <button class="addresses__tab" type="button" role="tab" id="delivery-tab" aria-selected="true" aria-controls="delivery-addresses" data-address-tab="delivery">Адреса доставки</button>
+                                    <button class="addresses__tab" type="button" role="tab" id="pickup-tab" aria-selected="false" aria-controls="pickup-addresses" data-address-tab="pickup" tabindex="-1">Пункты выдачи</button>
+                                </div>
+                                <div class="addresses__list" id="delivery-addresses" role="tabpanel" aria-labelledby="delivery-tab">
+                                    @@loop('html/templates/_account-address.html', './html/json/account-addresses.json')
+                                </div>
+                                <div class="addresses__list" id="pickup-addresses" role="tabpanel" aria-labelledby="pickup-tab" hidden>
+                                    @@loop('html/templates/_account-pickup.html', './html/json/account-pickups.json')
+                                </div>
+                                <p class="addresses__empty" data-pickup-empty hidden>У вас пока нет сохранённых пунктов выдачи.</p>
+                                <p class="addresses__empty" data-address-empty hidden>У вас пока нет сохранённых адресов.</p>
+                                <button class="addresses__add btn btn-primary" type="button">Добавить новый адрес</button>
+                                <p class="addresses__status" role="status" hidden></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        @@include('html/_footer.html', {})
+        @@include('html/includes/_address-dialog.html', {})
+        @@include('html/includes/_account-pickup-dialog.html', {})
+        @@include('html/_js.html', {})
+    </div>
+</body>
+</html>
+
+

@@ -1,168 +1,52 @@
 <!DOCTYPE html>
 <html lang="ru">
-    @@include('html/_head.html', {
-    'title': 'Личный кабинет'
-    })
-    <body>
-        <div class="wrapper">
-            @@include('html/_header.html', {
-            "auth": true
-            })
-            <main class="page">
-                <nav aria-label="Хлебные крошки" class="breadcrumbs">
-                    <div class="container">
-                        <ul class="breadcrumbs__list">
-                            <li class="breadcrumbs__item">
-                                <a href="/" class="breadcrumbs__link">Главная</a>
-                            </li>
-                            <li class="breadcrumbs__item">
-                                <span class="breadcrumbs__link active">Личный кабинет</a>
-                            </li>
-                        </ul>
-                    </div>
-                </nav>
-                <section class="products">
-                    <div class="container">
-                        <h2 class="products__title title">
-                            популярные товары <span class="color-grey">за последние дни</span>
-                        </h2>
-                        @@include('./html/includes/sliders/_small-slider.html')
-                    </div>
-                </section>
-                <section class="person">
-                    <div class="container">
-                        <h2 class="person__title title">
-                            <span class="color-grey">личный кабинет</span> ООО “Экстего”
-                        </h2>
-                        <div class="person__body">
-                            <div class="person__content">
-                                <h3 class="person__content-caption title-md">
-                                    личные <span class="color-grey">данные</span>
-                                </h3>
-                                <div class="person__content-field typography-block border-none">
-                                    <blockquote>
-                                        Поля отмеченные <span class="color-accent">"звездочкой" (*)</span> обязательны к заполнению.
-                                    </blockquote>
-                                    <form action="#" class="form">
-                                        <div class="person__content-field">
-                                            <h4>ОСНОВНЫЕ СВЕДЕНИЯ</h4>
-                                            <div class="row">
-                                                <div class="col-md-6">
-                                                    <div class="form__field">
-                                                        <div class="form__label"><span>*</span> Название организации:</div>
-                                                        <input type="text" name="company-name" class="form__control" placeholder="" value="ООО &quot;Тестовая организация&quot;">
-                                                        <div class="form__error-message"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form__field">
-                                                        <div class="form__label"><span>*</span> Контактное лицо:</div>
-                                                        <input type="text" name="contact-person" class="form__control" placeholder="" value="Николай Жемеря">
-                                                        <div class="form__error-message"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form__field">
-                                                        <div class="form__label"><span>*</span> Город:</div>
-                                                        <input type="text" name="city" class="form__control" placeholder="" value="Москва">
-                                                        <div class="form__error-message"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form__field">
-                                                        <div class="form__label"><span>*</span> Адрес:</div>
-                                                        <input type="text" name="address" class="form__control" placeholder="" value="г. Москва, ул. Ивана Франко, д. 34...">
-                                                        <div class="form__error-message"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
+@@include('html/_head.html', { 'title': 'Личный кабинет — Личные данные' })
 
-                                        <div class="person__content-field">
-                                            <h4>КОНТАКТНЫЕ ДАННЫЕ</h4>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <div class="form__field">
-                                                        <div class="form__label"><span>*</span> Адрес для корреспонденции:</div>
-                                                        <input type="text" name="mailing-address" class="form__control" placeholder="" value="111111, Московская область, г. Город, ул. Уличная, д. 7, офис 222">
-                                                        <div class="form__error-message"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form__field">
-                                                        <div class="form__label">Факс:</div>
-                                                        <input type="text" name="fax" class="form__control" placeholder="Факс" value="">
-                                                        <div class="form__error-message"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form__field">
-                                                        <div class="form__label"><span>*</span> Телефон:</div>
-                                                        <input type="tel" name="phone" class="form__control" placeholder="" value="+7-903-726-60-02">
-                                                        <div class="form__error-message"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form__field">
-                                                        <div class="form__label"><span>*</span> Электронная почта:</div>
-                                                        <input type="email" name="email" class="form__control" placeholder="" value="a.polovov@bort-global.com">
-                                                        <div class="form__error-message"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md-6">
-                                                    <div class="form__field">
-                                                        <div class="form__label">WhatsApp:</div>
-                                                        <input type="text" name="whatsapp" class="form__control" placeholder="Номер WhatsApp" value="">
-                                                        <div class="form__error-message"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form__field">
-                                                        <div class="form__label"><span>*</span> ФИО руководителя:</div>
-                                                        <input type="text" name="director-name" class="form__control" placeholder="Должность и контакты руководителя компании" value="">
-                                                        <div class="form__error-message"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form__field">
-                                                        <div class="form__label"><span>*</span> ФИО главного бухгалтера:</div>
-                                                        <input type="text" name="accountant-name" class="form__control" placeholder="Должность и контакты главного бухгалтера" value="">
-                                                        <div class="form__error-message"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="person__content-field">
-                                            <h4>настройки оповещений</h4>
-                                            <div class="row">
-                                                <div class="col-12">
-                                                    <label class="checkbox">
-                                                        <input type="checkbox" name="subscribe_price" checked class="checkbox__input hidden" hidden>
-                                                        <span class="checkbox__btn">Оповещать об изменении цен</span>
-                                                    </label>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="form__field">
-                                                        <div class="form__label"><span>*</span> Список электронных почт для оповещения:</div>
-                                                        <input type="text" name="mailing-list" class="form__control" placeholder="Введите email через запятую" value="a.orlov@extego.ru, b2b-service@bort-global.com, m.koschienko@bort-global.com">
-                                                        <div class="form__error-message"></div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <button type="submit" class="form__submit btn btn-secondary">Изменить данные</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                            @@include('./html/includes/_lk-menu.html')
+<body>
+    <div class="wrapper">
+        @@include('html/_header.html', { "auth": true })
+        <main class="page page--account">
+            <section class="account" data-account>
+                <div class="account__mobile-heading"><button class="account__back icon-chevron-left" type="button" aria-label="Вернуться в мой кабинет"></button><span class="account__mobile-title title title--auth-small">Личные данные</span></div>
+                <div class="account__container container">
+                    <h1 class="account__title title title--account">Мой кабинет</h1>
+                    <div class="account__body">
+                        <nav class="account__sidebar" aria-label="Мой кабинет">
+                            <ul class="account__menu">
+                                <li class="account__menu-item"><a class="account__link icon-user-circle" href="#personal" data-account-personal aria-current="page">Личные данные</a></li>
+                                <li class="account__menu-item"><a class="account__link icon-box" href="lk-history.html">Заказы</a></li>
+                                <li class="account__menu-item"><a class="account__link icon-location" href="lk-address.html">Адреса</a></li>
+                                <li class="account__menu-item"><a class="account__link icon-heart" href="favorite.html">Избранное</a></li>
+                                <li class="account__menu-item"><a class="account__link icon-compare" href="compare.html">Сравнение</a></li>
+                                <li class="account__menu-item"><a class="account__link icon-login" href="#logout" data-account-logout>Выйти</a></li>
+                            </ul>
+                        </nav>
+                        <div class="account__content" id="personal">
+                            <form class="account__panel" data-account-profile>
+                                <h2 class="account__caption title title--product-section">Личные данные</h2>
+                                <div class="account__grid"><label class="account__field "><span class="account__label">Имя</span><input class="account__input" type="text" name="first-name" value="Алексей" placeholder="" autocomplete="given-name"></label><label class="account__field "><span class="account__label">Фамилия</span><input class="account__input" type="text" name="last-name" value="Григорьев" placeholder="" autocomplete="family-name"></label><label class="account__field "><span class="account__label">Телефон</span><input class="account__input" type="tel" name="phone" value="+7 (987) 890-38-90" placeholder="" autocomplete="tel"></label><label class="account__field "><span class="account__label">E-mail</span><input class="account__input" type="email" name="email" value="alexey.otieo@yandex.ru" placeholder="" autocomplete="email"></label></div>
+                                <label class="account__subscription"><input class="account__check" type="checkbox" name="subscribe"><span class="account__subscription-text"><span class="account__subscription-title">Подписаться на рассылку</span><span class="account__hint">Новости компании и уникальные скидки для подписчиков</span></span></label>
+                                <label class="account__legal"><input class="account__switch" type="checkbox" name="legal" aria-controls="company-fields"><span class="account__legal-text">Я – юридическое лицо</span></label>
+                                <fieldset class="account__grid account__company" id="company-fields" hidden disabled>
+                                    <legend class="account__legend hidden">Реквизиты компании</legend><label class="account__field "><span class="account__label">Название компании</span><input class="account__input" type="text" name="company" value="" placeholder="Название компании" autocomplete="off"></label><label class="account__field "><span class="account__label">ИНН</span><input class="account__input" type="text" name="inn" value="" placeholder="ИНН" autocomplete="off"></label><label class="account__field "><span class="account__label">БИК</span><input class="account__input" type="text" name="bik" value="" placeholder="БИК" autocomplete="off"></label><label class="account__field "><span class="account__label">Расчетный счет</span><input class="account__input" type="text" name="settlement-account" value="" placeholder="Расчетный счет" autocomplete="off"></label><label class="account__field account__field--wide"><span class="account__label">Корр. счет</span><input class="account__input" type="text" name="correspondent-account" value="" placeholder="Корр. счет" autocomplete="off"></label>
+                                </fieldset>
+                                <div class="account__actions"><button type="submit" class="account__button btn btn-primary">Сохранить</button><button type="reset" class="account__button account__button--cancel btn">Отменить</button></div>
+                                <p class="account__status" role="status" hidden></p>
+                            </form>
+                            <form class="account__panel" data-account-password>
+                                <h2 class="account__caption title title--product-section">Смена пароля</h2>
+                                <div class="account__passwords"><label class="account__field"><span class="account__label">Старый пароль</span><span class="account__password"><input class="account__input" type="password" name="old-password" autocomplete="current-password" placeholder="*********" required><button class="account__reveal" type="button" aria-label="Показать пароль" aria-pressed="false"><span class="account__eye auth-dialog__eye-icon" aria-hidden="true"></span></button></span></label><label class="account__field"><span class="account__label">Новый пароль</span><span class="account__password"><input class="account__input" type="password" name="new-password" autocomplete="new-password" placeholder="*********" required><button class="account__reveal" type="button" aria-label="Показать пароль" aria-pressed="false"><span class="account__eye auth-dialog__eye-icon" aria-hidden="true"></span></button></span></label><label class="account__field"><span class="account__label">Подтверждение пароля</span><span class="account__password"><input class="account__input" type="password" name="confirm-password" autocomplete="new-password" placeholder="*********" required><button class="account__reveal" type="button" aria-label="Показать пароль" aria-pressed="false"><span class="account__eye auth-dialog__eye-icon" aria-hidden="true"></span></button></span></label></div>
+                                <div class="account__actions"><button type="submit" class="account__button btn btn-primary">Сохранить</button><button type="reset" class="account__button account__button--cancel btn">Отменить</button></div>
+                                <p class="account__status" role="status" hidden></p>
+                            </form>
                         </div>
                     </div>
-                </section>
-            </main>
-            @@include('html/_footer.html', {})
-            @@include('html/_js.html', {})
-        </div>
-    </body>
+                </div>
+            </section>
+        </main>
+        @@include('html/_footer.html', {})
+        @@include('html/_js.html', {})
+    </div>
+</body>
+
 </html>

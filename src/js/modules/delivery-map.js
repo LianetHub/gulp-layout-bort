@@ -1,6 +1,6 @@
 let mapsReady;
 
-function loadMaps() {
+export function loadMaps() {
     if (!mapsReady) mapsReady = new Promise((resolve, reject) => {
         const ready = () => {
             if (typeof ymaps === 'undefined') { reject(new Error('Map service unavailable')); return; }

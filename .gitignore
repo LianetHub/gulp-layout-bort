@@ -10,3 +10,4 @@ AGENTS.md
 !/tests/auth-dialogs.test.js
 !/tests/auth.html
 !/tests/auth-browser.js
+!/tests/comparing.test.js

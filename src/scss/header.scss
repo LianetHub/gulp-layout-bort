@@ -1,5 +1,7 @@
 // .header
 .header {
+	// .wrapper:has(.comparing) .header
+	.wrapper:has(.comparing) & { position: relative; }
 	position: sticky;
 	top: 0;
 	left: 0;
@@ -584,6 +586,8 @@
 
 // .main-actions
 .main-actions {
+	// .wrapper:has(.comparing) .main-actions
+	.wrapper:has(.comparing) & { display: none; @media (min-width: $md4) { display: flex; } }
 	// .wrapper:has(.product-details--retail) .main-actions
 	.wrapper:has(.product-details--retail) & { display: none; @media (min-width: $md4) { display: flex; } }
 	display: grid;
@@ -978,3 +982,8 @@
 		}
 	}
 }
+
+// .header:has(~ .page--account)
+.header:has(~ .page--account) { display: none; @media (min-width: $md4) { display: block; } }
+// .header:has(~ .page--account .account--addresses)
+.header:has(~ .page--account .account--addresses) { display: none; @media (min-width: $md2) { display: block; } }

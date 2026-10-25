@@ -1,0 +1,21 @@
+<div class="address-dialog" id="address-dialog" aria-labelledby="address-dialog-title">
+    <button class="address-dialog__close" type="button" data-fancybox-close aria-label="Закрыть"><img class="address-dialog__close-icon" src="@img/checkout/close.svg" width="20" height="20" alt=""></button>
+    <div class="address-dialog__view" data-dialog-view="form">
+        <h2 class="address-dialog__title title title--auth-small" id="address-dialog-title">Добавить новый адрес доставки</h2>
+        <form class="address-dialog__form">
+            <label class="account__field"><span class="account__label">Город</span><input class="account__input" name="city" placeholder="Город" autocomplete="address-level2" required></label>
+            <button class="address-dialog__map-toggle" type="button"><img class="address-dialog__map-icon" src="@img/checkout/map-pin.svg" width="20" height="20" alt="">Выбрать адрес на карте</button>
+            <label class="account__field"><span class="account__label">Улица</span><input class="account__input" name="street" placeholder="Улица, номер дома" autocomplete="street-address" required></label>
+            <div class="address-dialog__details"><label class="account__field"><span class="account__label">Подъезд</span><input class="account__input" name="entrance" placeholder="Номер подъезда" ></label><label class="account__field"><span class="account__label">Этаж</span><input class="account__input" name="floor" placeholder="Этаж" ></label><label class="account__field"><span class="account__label">Кв./ Офис</span><input class="account__input" name="apartment" placeholder="Кв./ Офис" ></label></div>
+            <input class="address-dialog__comment account__input" name="comment" placeholder="Комментарий к адресу" aria-label="Комментарий к адресу">
+            <button class="address-dialog__submit btn btn-primary" type="submit">Добавить новый адрес</button>
+        </form>
+    </div>
+    <div class="address-dialog__view" data-dialog-view="map" hidden>
+        <h2 class="address-dialog__title title title--auth">Выберите адрес на карте</h2>
+        <div class="address-dialog__map"></div>
+        <p class="address-dialog__status" role="status"></p>
+        <div class="address-dialog__selection"><p class="address-dialog__selected">Выберите точку на карте</p><button class="address-dialog__choose btn btn-primary" type="button" disabled>Выбрать</button></div>
+        <button class="address-dialog__back" type="button">Вернуться к вводу адреса</button>
+    </div>
+</div>

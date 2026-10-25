@@ -1,0 +1,128 @@
+[
+    {
+        "key": "brand",
+        "name": "Бренд",
+        "values": "[&quot;Bort&quot;,&quot;Bort&quot;,&quot;Bort&quot;]",
+        "first": "Bort",
+        "second": "Bort",
+        "third": "Bort",
+        "checked": false
+    },
+    {
+        "key": "loading",
+        "name": "Способ загрузки",
+        "values": "[&quot;непрерывный&quot;,&quot;непрерывный&quot;,&quot;непрерывный&quot;]",
+        "first": "непрерывный",
+        "second": "непрерывный",
+        "third": "непрерывный",
+        "checked": false
+    },
+    {
+        "key": "family",
+        "name": "Подходит для семьи, чел",
+        "values": "[&quot;до 4&quot;,&quot;до 6&quot;,&quot;до 6&quot;]",
+        "first": "до 4",
+        "second": "до 6",
+        "third": "до 6",
+        "checked": false
+    },
+    {
+        "key": "performance",
+        "name": "Производительность, кг/мин",
+        "values": "[&quot;4,2&quot;,&quot;5,2&quot;,&quot;5,2&quot;]",
+        "first": "4,2",
+        "second": "5,2",
+        "third": "5,2",
+        "checked": true
+    },
+    {
+        "key": "warranty",
+        "name": "Расширенная гарантия, г",
+        "values": "[&quot;5&quot;,&quot;5&quot;,&quot;5&quot;]",
+        "first": "5",
+        "second": "5",
+        "third": "5",
+        "checked": false
+    },
+    {
+        "key": "series",
+        "name": "Серия",
+        "values": "[&quot;TITAN&quot;,&quot;TITAN&quot;,&quot;TITAN&quot;]",
+        "first": "TITAN",
+        "second": "TITAN",
+        "third": "TITAN",
+        "checked": false
+    },
+    {
+        "key": "protection",
+        "name": "Система защиты от перегрузки и заклинивания",
+        "values": "[&quot;Да&quot;,&quot;Да&quot;,&quot;Да&quot;]",
+        "first": "Да",
+        "second": "Да",
+        "third": "Да",
+        "checked": false
+    },
+    {
+        "key": "noise",
+        "name": "Система шумоизоляции",
+        "values": "[&quot;частичная&quot;,&quot;полная&quot;,&quot;полная&quot;]",
+        "first": "частичная",
+        "second": "полная",
+        "third": "полная",
+        "checked": false
+    },
+    {
+        "key": "speed",
+        "name": "Скорость холостого хода, об/мин",
+        "values": "[&quot;3 500&quot;,&quot;4 100&quot;,&quot;4 500&quot;]",
+        "first": "3 500",
+        "second": "4 100",
+        "third": "4 500",
+        "checked": false
+    },
+    {
+        "key": "country",
+        "name": "Страна происхождения",
+        "values": "[&quot;Китай&quot;,&quot;Китай&quot;,&quot;Китай&quot;]",
+        "first": "Китай",
+        "second": "Китай",
+        "third": "Китай",
+        "checked": false
+    },
+    {
+        "key": "dishwasher",
+        "name": "Подключение к посудомоечной машине",
+        "values": "[&quot;Да&quot;,&quot;Да&quot;,&quot;Да&quot;]",
+        "first": "Да",
+        "second": "Да",
+        "third": "Да",
+        "checked": false
+    },
+    {
+        "key": "motor",
+        "name": "Тип мотора",
+        "values": "[&quot;щеточный (PMDC)&quot;,&quot;щеточный (PMDC)&quot;,&quot;щеточный (PMDC)&quot;]",
+        "first": "щеточный (PMDC)",
+        "second": "щеточный (PMDC)",
+        "third": "щеточный (PMDC)",
+        "checked": false
+    },
+    {
+        "key": "connection",
+        "name": "Тип соединения устройств, тип",
+        "values": "[&quot;Беспроводное&quot;,&quot;Беспроводное&quot;,&quot;Проводное&quot;]",
+        "first": "Беспроводное",
+        "second": "Беспроводное",
+        "third": "Проводное",
+        "checked": false
+    },
+    {
+        "key": "start",
+        "name": "Тихий запуск",
+        "values": "[&quot;Нет&quot;,&quot;Нет&quot;,&quot;Нет&quot;]",
+        "first": "Нет",
+        "second": "Нет",
+        "third": "Нет",
+        "checked": false
+    }
+]

@@ -1,0 +1,29 @@
+[
+    {
+        "id": "1",
+        "price": "27 435",
+        "status": "processing",
+        "statusText": "В обработке",
+        "payment": "paid",
+        "paymentText": "Оплачен",
+        "mobilePayment": "Оплачен"
+    },
+    {
+        "id": "2",
+        "price": "12 435",
+        "status": "processing",
+        "statusText": "В обработке",
+        "payment": "unpaid",
+        "paymentText": "Не оплачен",
+        "mobilePayment": "Оплачен"
+    },
+    {
+        "id": "3",
+        "price": "18 435",
+        "status": "cancelled",
+        "statusText": "Отменен",
+        "payment": "unpaid",
+        "paymentText": "Не оплачен",
+        "mobilePayment": "Не оплачен"
+    }
+]

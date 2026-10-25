@@ -10,7 +10,18 @@ export function productListing() {
     const more = root.querySelector('.product-listing__more');
     const pagination = root.querySelector('.product-listing__pagination');
     const sort = root.querySelector('.product-listing__sort');
-    const getPageSize = () => window.innerWidth < 576 ? 4 : window.innerWidth < 1200 ? 9 : 12;
+    const isSearch = root.hasAttribute('data-search-results');
+    const query = new URLSearchParams(window.location.search).get('s')?.trim() || 'измельчитель';
+    if (isSearch) {
+        root.querySelector('.product-listing__query').textContent = query;
+        document.querySelectorAll('.search__form-input').forEach(input => { input.value = query; });
+        document.querySelectorAll('.search__clear').forEach(button => { button.hidden = false; });
+        form.elements.namedItem('min_price').value = '8090';
+        form.elements.namedItem('max_price').value = '218690';
+        form.querySelector('[name="power"][value="1200"]').checked = true;
+        form.querySelector('[name="motor"][value="bldc"]').checked = true;
+    }
+    const getPageSize = () => window.innerWidth < 576 ? 4 : isSearch ? 12 : window.innerWidth < 1200 ? 9 : 12;
     let pageSize = getPageSize();
     let page = 1;
     let visibleLimit = pageSize;
@@ -63,6 +74,7 @@ export function productListing() {
     function matches(item) {
         const data = item.dataset;
         const price = Number(data.price);
+        if (isSearch && !item.querySelector('.product__name').textContent.toLocaleLowerCase('ru').includes(query.toLocaleLowerCase('ru'))) return false;
         if (activeTag && !data.tags.split('|').includes(activeTag)) return false;
         if (applied.get('min_price') && price < Number(applied.get('min_price'))) return false;
         if (applied.get('max_price') && price > Number(applied.get('max_price'))) return false;
@@ -82,6 +94,7 @@ export function productListing() {
             const chip = document.createElement('button');
             chip.type = 'button';
             chip.className = 'product-listing__chip icon-cancel-circle';
+            chip.dataset.filter = names[0];
             chip.textContent = text;
             chip.setAttribute('aria-label', `Удалить фильтр: ${text}`);
             chip.addEventListener('click', () => {
@@ -95,11 +108,12 @@ export function productListing() {
             });
             selected.append(chip);
         };
-        if (applied.get('min_price') || applied.get('max_price')) addChip(`Цена: от ${applied.get('min_price') || '0'} до ${applied.get('max_price') || '∞'} ₽`, ['min_price', 'max_price']);
+        const formatNumber = value => value ? Number(value).toLocaleString('ru-RU') : '';
+        if (applied.get('min_price') || applied.get('max_price')) addChip(`Цена: от ${formatNumber(applied.get('min_price')) || '0'} до ${formatNumber(applied.get('max_price')) || '∞'} ₽`, ['min_price', 'max_price']);
         ['power', 'motor', 'control', 'quiet', 'auto_off', 'insulation', 'reverse', 'booster', 'material', 'silent'].forEach(name => applied.getAll(name).forEach(value => {
             const input = Array.from(form.elements).find(element => element.name === name && element.value === value);
             const caption = input.closest('details').querySelector('summary').textContent.trim();
-            addChip(name === 'power' ? `Мощность: ${value} Вт` : `${caption}: ${input.closest('label').textContent.trim()}`, [name], value);
+            addChip(name === 'power' ? `Мощность: ${formatNumber(value)} Вт` : isSearch && name === 'motor' ? 'Бесщеточный' : `${caption}: ${input.closest('label').textContent.trim()}`, [name], value);
         }));
         ['speed', 'volume', 'performance', 'noise', 'stages', 'cable', 'sink', 'size', 'weight'].forEach(name => {
             if (!applied.get(`min_${name}`) && !applied.get(`max_${name}`)) return;

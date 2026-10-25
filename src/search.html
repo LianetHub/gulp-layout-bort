@@ -9,19 +9,22 @@
             "auth": false
             })
             <main class="page">
-                <nav aria-label="Хлебные крошки" class="breadcrumbs">
-                    <div class="container">
+                <nav aria-label="Хлебные крошки" class="breadcrumbs breadcrumbs--catalog breadcrumbs--search">
+                    <div class="breadcrumbs__container container">
                         <ul class="breadcrumbs__list">
                             <li class="breadcrumbs__item">
                                 <a href="/" class="breadcrumbs__link">Главная</a>
                             </li>
                             <li class="breadcrumbs__item">
-                                <span class="breadcrumbs__link active">Категория</a>
+                                <a href="catalog.html" class="breadcrumbs__link">Бытовая техника</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active" aria-current="page">Результаты поиска</span>
                             </li>
                         </ul>
                     </div>
                 </nav>
-                @@include('./html/includes/_category.html')
+                @@include('./html/includes/_search-results.html')
             </main>
             @@include('html/_footer.html', {})
             @@include('html/_js.html', {})

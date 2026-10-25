@@ -1,0 +1,48 @@
+<section class="product-listing product-listing--search" data-search-results>
+    <div class="product-listing__container container">
+        <div class="product-listing__heading">
+            <h1 class="product-listing__title title title--search-results">По запросу <span class="product-listing__query">измельчитель</span> найдено <span class="product-listing__count">18 товаров</span></h1>
+        </div>
+        <div class="product-listing__layout">
+            @@include('_listing-filter.html')
+            <div class="product-listing__content">
+                <div class="product-listing__tags" aria-label="Подборки товаров">
+                    @@loop('../templates/_listing-tag.html', [
+                        {"name":"Промышленные","active":true}, {"name":"Бытовые","active":false},
+                        {"name":"Мощные","active":false}, {"name":"Электрические","active":false},
+                        {"name":"Бесшумные","active":false}, {"name":"С авто-реверсом","active":false},
+                        {"name":"Маленькие","active":false}, {"name":"Легкие","active":false}
+                    ])
+                    <button type="button" class="product-listing__tag product-listing__tag--more" aria-expanded="false">Показать еще</button>
+                </div>
+                <div class="product-listing__toolbar">
+                    <label class="product-listing__sort-label">
+                        <span class="product-listing__sr-only">Сортировка товаров</span>
+                        <select class="product-listing__sort" aria-label="Сортировка товаров">
+                            <option class="product-listing__option" value="popular">Популярные</option>
+                            <option class="product-listing__option" value="price-asc">Сначала дешевле</option>
+                            <option class="product-listing__option" value="price-desc">Сначала дороже</option>
+                            <option class="product-listing__option" value="name">По названию</option>
+                        </select>
+                    </label>
+                    <button type="button" class="product-listing__filter-button icon-filter-horizontal" aria-controls="listing-filter" aria-expanded="false">Фильтры</button>
+                </div>
+                <div class="product-listing__selected" aria-label="Выбранные фильтры"></div>
+                <div class="product-listing__products">
+                    @@loop('../templates/_search-result.html', './html/json/search-results.json')
+                </div>
+                <p class="product-listing__empty" hidden>По выбранным параметрам товары не найдены. Попробуйте изменить фильтры.</p>
+                <button type="button" class="product-listing__more icon-loading">Показать еще</button>
+                <nav class="product-listing__pagination" aria-label="Страницы каталога">
+                    <button type="button" class="product-listing__page icon-chevron-left" data-page="prev" aria-label="Предыдущая страница" disabled></button>
+                    <button type="button" class="product-listing__page is-active" data-page="1" aria-current="page">1</button>
+                    <button type="button" class="product-listing__page" data-page="2">2</button>
+                    <button type="button" class="product-listing__page" data-page="3">3</button>
+                    <span class="product-listing__ellipsis">…</span>
+                    <button type="button" class="product-listing__page" data-page="4">4</button>
+                    <button type="button" class="product-listing__page icon-chevron-right" data-page="next" aria-label="Следующая страница"></button>
+                </nav>
+            </div>
+        </div>
+    </div>
+</section>

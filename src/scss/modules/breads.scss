@@ -1,5 +1,7 @@
 // .breadcrumbs
 .breadcrumbs {
+    // .breadcrumbs.breadcrumbs--search
+    &.breadcrumbs--search { padding-top: rem(20); }
 	// .breadcrumbs--product
 	&.breadcrumbs--product {
 		padding: rem(15) 0;

@@ -86,6 +86,7 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 @import "modules/cart-accessory";
 @import "pages/login";
 @import "pages/comparing";
+@import "modules/comparing-card";
 @import "pages/sitemap";
 @import "pages/policy";
 @import "pages/spare-parts";
@@ -124,3 +125,12 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 @import "pages/favorites";
 @import "modules/favorite-dialog";
 @import "modules/auth-dialog";
+
+@import "modules/account";
+@import "modules/addresses";
+@import "modules/address-dialog";
+@import "modules/pickup-dialog";
+@import "modules/orders";
+@import "modules/order-summary";
+@import "modules/order-details";
+@import "modules/order-product";

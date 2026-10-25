@@ -1,6 +1,8 @@
 import { fade, show, hide } from './effects.js';
+import { comparing } from './comparing.js';
 
 export function compare() {
+    comparing();
     document.querySelectorAll('.compare__table').forEach(table => {
         const rows = [...table.querySelectorAll('.compare__row')];
         const button = table.closest('.compare')?.querySelector('.compare__more-btn');

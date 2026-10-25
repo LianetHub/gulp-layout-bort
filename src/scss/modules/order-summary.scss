@@ -1,0 +1,55 @@
+// .order-summary
+.order-summary {
+    display: flex; flex-direction: column; align-items: flex-start; gap: rem(20); padding: rem(20); border-radius: rem(10); background: #fff; min-width: 0;
+    @media (min-width: $md2) { padding: rem(20) rem(30); }
+    // .order-summary[hidden]
+    &[hidden] { display: none; }
+    // .order-summary__heading
+    &__heading { display: flex; justify-content: space-between; align-items: flex-start; gap: rem(8); width: 100%; }
+    // .order-summary__info
+    &__info { min-width: 0; }
+    // .order-summary__date
+    &__date { color: #6a6b6d; font-size: rem(14); line-height: rem(20); }
+    // .order-summary__tags
+    &__tags { display: flex; gap: rem(10); margin-top: rem(10); }
+    // .order-summary__tag
+    &__tag { padding: rem(4) rem(10); border-radius: rem(8); font-size: rem(12); font-weight: 500; line-height: rem(16); white-space: nowrap; @media (min-width: $md4) { padding: rem(3) rem(10); font-size: rem(14); line-height: rem(20); }
+        // .order-summary__tag--processing
+        &--processing { color: #007681; background: rgba(0,118,129,.1); }
+        // .order-summary__tag--paid
+        &--paid { color: #149748; background: rgba(20,151,72,.1); }
+        // .order-summary__tag--unpaid
+        &--unpaid { color: #f73502; background: rgba(247,53,2,.1); }
+        // .order-summary__tag--cancelled
+        &--cancelled { color: #007681; background: rgba(0,118,129,.1); @media (min-width: $md4) { color: #6a6b6d; background: #f2f2f2; } }
+    }
+    // .order-summary__price
+    &__price { flex-shrink: 0; color: #111; font-size: rem(18); font-weight: 500; line-height: rem(26); white-space: nowrap; }
+    // .order-summary__products
+    &__products { display: flex; gap: rem(10); }
+    // .order-summary__image
+    &__image { width: rem(50); height: rem(50); object-fit: cover; border-radius: rem(5); @media (min-width: $md4) { width: rem(60); height: rem(60); } }
+    // .order-summary__more
+    &__more { display: flex; align-items: center; justify-content: center; width: rem(50); height: rem(50); border-radius: rem(5); background: #f7f7f6; color: #404246; font-size: rem(14); font-weight: 500; @media (min-width: $md4) { width: rem(60); height: rem(60); font-size: rem(16); } }
+    // .order-summary__button
+    &__button { width: 100%; border: 1px solid #ebeaea; border-radius: rem(8); padding: rem(12) rem(20); background: #f2f2f2; color: #2b2b2b; font-size: rem(14); font-weight: 500; line-height: rem(20); @media (min-width: $md4) { width: auto; padding: rem(9) rem(20); }
+        // .order-summary__button:hover
+        @media (any-hover: hover) { &:hover { background: #ebeaea; } }
+    }
+    // .order-summary__details
+    &__details { width: 100%; border-top: 1px solid #ebeaea; padding-top: rem(20); }
+    // .order-summary__description
+    &__description { font-size: rem(14); line-height: rem(22); }
+    // .order-summary__desktop
+    &__desktop { display: none; @media (min-width: $md4) { display: inline; } }
+    // .order-summary__mobile
+    &__mobile { @media (min-width: $md4) { display: none; } }
+    // .order-summary__suffix
+    &__suffix { display: none; @media (min-width: $md4) { display: inline; } }
+    // .order-summary[data-payment="unpaid"][data-status="processing"] .order-summary__tag--unpaid
+    &[data-payment="unpaid"][data-status="processing"] .order-summary__tag--unpaid { color: #149748; background: rgba(20,151,72,.1); @media (min-width: $md4) { color: #f73502; background: rgba(247,53,2,.1); } }
+    // .order-summary[data-status="cancelled"] .order-summary__image--additional
+    &[data-status="cancelled"] .order-summary__image--additional { display: none; @media (min-width: $md4) { display: block; } }
+    // .order-summary[data-status="cancelled"] .order-summary__more
+    &[data-status="cancelled"] .order-summary__more { display: none; @media (min-width: $md4) { display: flex; } }
+}

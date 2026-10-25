@@ -1,4 +1,8 @@
-import { select } from './modules/select.js';
+import { account } from './modules/account.js';
+import { addresses } from './modules/addresses.js';
+import { orders } from './modules/orders.js';
+import { orderDetails } from './modules/order-details.js';
+﻿import { select } from './modules/select.js';
 import { partsOrder } from './modules/parts-order.js';
 import { reviews } from './modules/review.js';
 import { faq } from './modules/faq.js';
@@ -22,6 +26,10 @@ import { favorites } from './modules/favorites.js';
 import { checkout } from './modules/checkout.js';
 
 function init() {
+    addresses();
+    orders();
+    orderDetails();
+    account();
     select();
     reviews();
     news();
