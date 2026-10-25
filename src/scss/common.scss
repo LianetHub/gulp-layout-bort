@@ -1,5 +1,9 @@
+@use "sass:math";
+
+// :root
 :root {
 	--swiper-pagination-bottom: #{rem(12)};
+
 	@media (min-width: $md4) {
 		--swiper-pagination-bottom: #{rem(42)};
 	}
@@ -22,8 +26,12 @@ body {
 	line-height: normal;
 	margin-right: 0 !important;
 	background: #fff;
+
 	// body:has(.favorite-dialog[open])
-	&:has(.favorite-dialog[open]) { overflow: hidden; }
+	&:has(.favorite-dialog[open]) {
+		overflow: hidden;
+	}
+
 	// body.open-mobile-catalog
 	&.open-mobile-catalog {
 		position: fixed;
@@ -31,31 +39,37 @@ body {
 		width: 100%;
 		scrollbar-gutter: auto;
 	}
+
 	// body.open-navigation
 	&.open-navigation {
 		overflow: hidden;
 		scrollbar-gutter: auto;
+
 		@media (min-width: $md4) {
 			overflow: visible;
 		}
 	}
+
 	// body.open-person-menu
 	&.open-person-menu {
 		@media (max-width: $md4) {
 			overflow: hidden;
 		}
 	}
+
 	// body.open-catalog-menu
 	&.open-catalog-menu {
 		@media (max-width: $md4) {
 			overflow: hidden;
 		}
 	}
+
 	// body:has(.arrow-top.visible)
 	&:has(.arrow-top.visible) {
 		// body:has(.arrow-top.visible) .notify-container
 		.notify-container {
 			right: 6.5rem;
+
 			@media (min-width: $md3) {
 				right: 7.5rem;
 			}
@@ -67,13 +81,25 @@ body {
 // .wrapper
 .wrapper {
 	// .wrapper:has(.comparing)
-	&:has(.comparing) { padding-bottom: 0; }
-	// .wrapper:has(.product-details--retail)
-	&:has(.product-details--retail) { padding-bottom: calc(#{rem(144)} + env(safe-area-inset-bottom, 0px)); @media (min-width: $md4) { padding-bottom: 0; } }
+	&:has(.comparing) {
+		padding-bottom: 0;
+	}
+
+	// .wrapper:has(.product-details)
+	&:has(.product-details) {
+		padding-bottom: calc(#{rem(144)} + env(safe-area-inset-bottom, 0px));
+
+		@media (min-width: $md4) {
+			padding-bottom: 0;
+		}
+	}
+
 	padding-bottom: calc(#{rem(54)} + env(safe-area-inset-bottom, 0px));
+
 	@media (min-width: $md4) {
 		padding-bottom: 0;
 	}
+
 	position: relative;
 	width: 100%;
 	min-height: 100%;
@@ -84,49 +110,18 @@ body {
 
 // .page
 .page {
-	// .page.page--account
-	&.page--account { background: #f7f7f6; padding-bottom: 0; }
-	// .page.page--comparing
-	&.page--comparing { padding-bottom: 0; background: #fff; }
-	// .page.page--favorites
-	&.page--favorites { background: #f7f7f7; padding-bottom: 0; }
-	// .page.page--cart
-	&.page--cart { background: #f7f7f6; padding-bottom: 0; }
-	// .page:has(.product-listing)
-	&:has(.product-listing) { padding-bottom: 0; background: #f7f7f6; }
 	flex: 1 1 auto;
 	overflow-x: hidden;
-	padding-bottom: rem(25);
 	@media (min-width: $md4) {
 		overflow-x: clip;
-		padding-bottom: rem(50);
-		// .page:has(.news)
-		&:has(.news) {
-			background: url("@img/decor/bg-wave.svg") 0 100% / 100% auto no-repeat;
-		}
 	}
-	// .page:has(.sitemap)
-	// .page:has(.policy)
-	&:has(.sitemap, .policy) {
-		padding-bottom: 0;
-	}
-	// .page:has(.news--listing)
-	&:has(.news--listing) {
-		padding-bottom: 0;
+	// .page--light
+	&--light {
 		background: #fff;
 	}
-	// .page.page--showcase
-	// .page--faq
-	// .page--contacts
-	&--faq,
-	&--contacts {
-		padding-bottom: 0;
+	// .page--dark
+	&--dark {
 		background: #f7f7f6;
-	}
-	// .page.page--showcase
-	&.page--showcase {
-		padding-bottom: 0;
-		background: #fff;
 	}
 }
 
@@ -137,20 +132,25 @@ body {
 	margin: 0 auto;
 	max-width: 100%;
 	padding: 0 rem(15);
+
 	@media (min-width: $md5) {
 		box-sizing: content-box;
 		max-width: rem(540);
 	}
+
 	@media (min-width: $md4) {
 		padding-inline: rem(20);
 		max-width: rem(720);
 	}
+
 	@media (min-width: $md3) {
 		max-width: rem(960);
 	}
+
 	@media (min-width: $md2) {
 		max-width: rem(1140);
 	}
+
 	@media (min-width: $md1) {
 		max-width: $maxWidthContainer;
 	}
@@ -162,129 +162,41 @@ body {
 @import "./modules/popup";
 @import "./modules/breads";
 @import "./modules/pagination";
-@import "./modules/filters";
-// @import "./modules/animation";
-// =============== MODULES ====================
-// .benefits
-.benefits {
-	// .benefits--information
-	&--information {
-		// .benefits--information .benefits__container
-		.benefits__container {
-			box-sizing: border-box;
-			width: 100%;
-			max-width: rem(1280);
-		}
-	}
-	padding: rem(25) 0;
-	@media (min-width: $md4) {
-		padding: rem(50) 0;
-	}
-	// .benefits__container
-	&__container {
-	}
-	// .benefits__title
-	&__title {
-	}
-	// .benefits__list
-	&__list {
-		margin-top: 1.25rem;
-		position: relative;
-		// .benefits__list .swiper
-		.swiper {
-			overflow: visible;
-		}
-		@media (min-width: $md4) {
-			margin-top: 2.5rem;
-			display: grid;
-			gap: 1.25rem;
-			grid-template-columns: repeat(2, 1fr);
-			// .benefits__list .swiper
-			// .benefits__list .swiper-wrapper
-			.swiper,
-			.swiper-wrapper {
-				display: contents;
-			}
-		}
-		@media (min-width: $md2) {
-			grid-template-columns: repeat(3, 1fr);
-		}
-	}
-	// .benefits__controls
-	&__controls {
-		@media (min-width: $md4) {
-			display: none;
-		}
-	}
-	// .benefits__prev
-	&__prev {
-	}
-	// .benefits__next
-	&__next {
-	}
-	// .benefits__pagination
-	&__pagination {
-	}
-}
-
-// .benefit-card
-.benefit-card {
-	height: auto;
-	display: flex;
-	flex-direction: column;
-	// .benefit-card__body
-	&__body {
-		border-radius: 1.25rem;
-		background: #fff;
-		box-shadow: 0 0 rem(20) 0 rgba(64, 64, 64, 0.05);
-		display: flex;
-		flex-direction: column;
-		align-items: center;
-		text-align: center;
-		flex: 1 1 auto;
-		margin-top: rem(25);
-		padding: rem(55) rem(20) rem(20);
-		gap: rem(14);
-		@media (min-width: $md4) {
-			gap: rem(20);
-			padding: rem(50) rem(20);
-			margin-top: rem(32);
-		}
-	}
-	// .benefit-card__icon
-	&__icon {
-		background: $orange;
-		border-radius: 50%;
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		padding: 0.625rem;
-		width: rem(50);
-		height: rem(50);
-		margin-top: rem(-75);
-		@media (min-width: $md4) {
-			margin-top: rem(-80);
-			width: 3.75rem;
-			height: 3.75rem;
-		}
-		// .benefit-card__icon img
-		& img {
-			width: 100%;
-		}
-	}
-	// .benefit-card__title
-	&__title {
-		max-width: 22rem;
-	}
-	// .benefit-card__description
-	&__description {
-	}
-}
 
 // .banner
 .banner {
+	margin-top: rem(40);
+
+	// .banner__container
+	&__container {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: rem(1280);
+	}
+
+	// .banner__image
+	&__image {
+		display: block;
+		overflow: hidden;
+		border-radius: rem(9);
+		background: #eee;
+	}
+
+	// .banner__picture
+	&__picture {
+		display: block;
+		width: 100%;
+		height: rem(80);
+		object-fit: cover;
+
+		@media (min-width: $md2) {
+			height: auto;
+		}
+	}
+
 	// .banner--service
 	&--service {
+		margin-top: 0;
 		position: relative;
 		display: flex;
 		align-items: center;
@@ -293,13 +205,16 @@ body {
 		overflow: hidden;
 		border-radius: rem(10);
 		background: #eee;
+
 		@media (min-width: $md4) {
 			min-height: rem(385);
 			padding: rem(40);
 		}
+
 		@media (min-width: $md2) {
 			padding: rem(50);
 		}
+
 		// .banner--service .banner__picture
 		.banner__picture {
 			position: absolute;
@@ -308,56 +223,25 @@ body {
 			height: 100%;
 			object-fit: cover;
 		}
+
 		// .banner--service .banner__caption
 		.banner__caption {
+			font-size: rem(18);
+			line-height: math.div(26, 18);
+			@media (min-width: $md4) {
+				font-size: rem(48);
+				line-height: math.div(60, 48);
+			}
 			position: relative;
 			width: 50%;
 			overflow-wrap: anywhere;
+
 			@media (min-width: $md2) {
 				max-width: rem(600);
 			}
 		}
 	}
-	// .banner__container
-	&__container {
-	}
-	// .banner__image
-	&__image {
-		overflow: hidden;
-		border-radius: rem(10);
-		// .banner__image img
-		& img {
-			width: 100%;
-		}
-	}
-	// .banner--strip
-	&--strip {
-		// .banner--strip .banner__container
-		.banner__container {
-			box-sizing: border-box;
-			width: 100%;
-			max-width: rem(1280);
-		}
-		margin-top: rem(40);
-		// .banner--strip .banner__image
-		.banner__image {
-			display: block;
-			overflow: hidden;
-			border-radius: rem(9);
-			background: #eee;
-		}
-		// .banner--strip .banner__picture
-		.banner__picture {
-			display: block;
-			width: 100%;
-			height: rem(80);
-			object-fit: cover;
-			@media (min-width: $md4) {
-				height: rem(80);
-			}
-			@media (min-width: $md2) {
-				height: auto;
-			}
-		}
-	}
 }
+@import "./modules/segmented-control";
+@import "./modules/search-field";
+@import "./modules/file-upload";

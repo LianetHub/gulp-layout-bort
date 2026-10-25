@@ -35,7 +35,6 @@
         <!-- plugins -->
         <link rel="stylesheet" href="css/libs/swiper-bundle.min.css">
         <link rel="stylesheet" href="css/libs/fancybox.min.css">
-        <link rel="stylesheet" href="css/libs/nouislider.min.css">
         <!-- plugins -->
 
 
@@ -52,7 +51,7 @@
                             <img src="img/logo-compact.svg" width="138" height="40" alt="Логотип сайта Bort" class="header__image">
                         </a>
                         <button type="button" class="header__burger icon-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="header-menu"></button>
-                        <a href="catalog.html" class="header__catalog btn btn-primary" aria-label="Каталог">
+                        <a href="catalog.html" class="header__catalog btn btn-dark" aria-label="Каталог" aria-controls="mobile-catalog" aria-expanded="false">
                             <span class="header__catalog-icon icon-menu" aria-hidden="true"></span>
                             <span class="header__catalog-icon header__catalog-icon--grid icon-dots-grid" aria-hidden="true"></span>
                             <span class="header__catalog-text">Каталог</span>
@@ -64,22 +63,22 @@
                             </button>
                             <div class="search__content" id="header-search">
                                 <div class="search__container container">
-                                    <form action="search.html" method="get" role="search" class="search__form">
-                                        <input type="search" name="s" class="search__form-input form__control" placeholder="Поиск товаров" aria-label="Поиск товаров" aria-controls="search-results" aria-expanded="false" autocomplete="off">
-                                        <button type="button" aria-label="Очистить поиск" class="search__clear icon-close" hidden></button>
-                                        <button type="submit" aria-label="Искать" class="search__form-btn icon-search"></button>
+                                    <form action="search.html" method="get" role="search" class="search__form search-field">
+                                        <input type="text" name="s" class="search__form-input search-field__input" placeholder="Поиск товаров" aria-label="Поиск товаров" aria-controls="search-results" aria-expanded="false" autocomplete="off">
+                                        <button type="button" aria-label="Очистить поиск" class="search__clear search-field__clear icon-close" hidden></button>
+                                        <button type="submit" aria-label="Искать" class="search__form-btn search-field__button icon-search"></button>
                                     </form>
                                     <div class="search__bar" id="search-results" aria-label="Результаты поиска" hidden>
                                         <div class="search__bar-block search__bar-block--categories">
-                                            <h2 class="search__bar-caption title title--search">Категория</h2>
+                                            <h2 class="search__bar-caption title title-sm title--sans title--medium">Категория</h2>
                                             <ul class="search__bar-list">
-                                                <li class="search__category"><a href="category.html" class="search__bar-result"><img src="img/categories/waste-disposers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Измельчители отходов</span></a></li>
-                                                <li class="search__category"><a href="category.html" class="search__bar-result"><img src="img/categories/garment-steamers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Отпариватели</span></a></li>
+                                                <li class="search__category"><a href="catalog.html" class="search__bar-result"><img src="img/categories/waste-disposers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Измельчители отходов</span></a></li>
+                                                <li class="search__category"><a href="catalog.html" class="search__bar-result"><img src="img/categories/garment-steamers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Отпариватели</span></a></li>
                                             </ul>
                                         </div>
                                         <div class="search__bar-block search__bar-block--products">
                                             <div class="search__results-header">
-                                                <h2 class="search__bar-caption title title--search">Товары <span class="search__count">12</span></h2>
+                                                <h2 class="search__bar-caption title title-sm title--sans title--medium">Товары <span class="search__count">12</span></h2>
                                                 <a href="search.html" class="search__all">Все результаты<span class="search__all-icon icon-chevron-right" aria-hidden="true"></span></a>
                                             </div>
                                             <ul class="search__products" aria-label="Найденные товары">
@@ -151,7 +150,7 @@
                         <nav aria-label="Меню в шапке" class="header__menu menu">
                             <ul class="menu__list">
                                 <li class="menu__item">
-                                    <a href="about.html" class="menu__link icon-sale">Акция</a>
+                                    <a href="catalog.html" class="menu__link icon-sale">Акция</a>
                                 </li>
                                 <li class="menu__item">
                                     <a href="" class="menu__link">Бытовая техника</a>
@@ -182,34 +181,34 @@
                     <div class="mobile-catalog__container container">
                         <div class="mobile-catalog__header">
                             <button type="button" class="mobile-catalog__back icon-chevron-left" aria-label="Назад в каталог" hidden></button>
-                            <h2 class="mobile-catalog__title title title--catalog" id="mobile-catalog-title" tabindex="-1">Каталог</h2>
+                            <h2 class="mobile-catalog__title title title-md" id="mobile-catalog-title" tabindex="-1">Каталог</h2>
                             <button type="button" class="mobile-catalog__close icon-close" aria-label="Закрыть каталог"></button>
                         </div>
                         <div class="mobile-catalog__body">
                             <ul class="mobile-catalog__panel mobile-catalog__panel--root" id="catalog-root" data-catalog-title="Каталог">
-                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-appliances" aria-controls="catalog-appliances" aria-expanded="false">Бытовая техника<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
-                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-cleaning" aria-controls="catalog-cleaning" aria-expanded="false">Клининг<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
-                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-tools" aria-controls="catalog-tools" aria-expanded="false">Инструмент<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
-                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-garden" aria-controls="catalog-garden" aria-expanded="false">Сад и огород<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
-                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-horeca" aria-controls="catalog-horeca" aria-expanded="false">Horeca<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title-sm" data-catalog-target="catalog-appliances" aria-controls="catalog-appliances" aria-expanded="false">Бытовая техника<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title-sm" data-catalog-target="catalog-cleaning" aria-controls="catalog-cleaning" aria-expanded="false">Клининг<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title-sm" data-catalog-target="catalog-tools" aria-controls="catalog-tools" aria-expanded="false">Инструмент<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title-sm" data-catalog-target="catalog-garden" aria-controls="catalog-garden" aria-expanded="false">Сад и огород<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title-sm" data-catalog-target="catalog-horeca" aria-controls="catalog-horeca" aria-expanded="false">Horeca<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-appliances" data-catalog-title="Бытовая техника" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Измельчители отходов<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Отпариватели<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Водонагреватели<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Измельчители отходов<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Отпариватели<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Водонагреватели<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Аксессуары<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-cleaning" data-catalog-title="Клининг" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Промышленные пылесосы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Мойки высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пароочистители<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Воздуходувки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Промышленные пылесосы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Мойки высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пароочистители<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Воздуходувки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                                 <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link" data-catalog-target="catalog-cleaning-accessories" aria-controls="catalog-cleaning-accessories" aria-expanded="false">Аксессуары<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-cleaning-accessories" data-catalog-title="Аксессуары" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары для пылесосов<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары для моек высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары для пароочистителей<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Аксессуары для пылесосов<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Аксессуары для моек высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Аксессуары для пароочистителей<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-tools" data-catalog-title="Инструмент" hidden>
                                 <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link" data-catalog-target="catalog-cordless" aria-controls="catalog-cordless" aria-expanded="false">Аккумуляторный инструмент<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
@@ -218,39 +217,39 @@
                                 <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link" data-catalog-target="catalog-measuring" aria-controls="catalog-measuring" aria-expanded="false">Измерительный инструмент<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-cordless" data-catalog-title="Аккумуляторный инструмент" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Дрели и шуруповерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Перфораторы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Гайковерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Лобзики<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы сабельные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы цепные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы циркулярные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Болгарки (УШМ)<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Технические фены<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Секаторы и сучкорезы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аккумуляторы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Зарядные устройства<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары для снегоуборщиков<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Дрели и шуруповерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Перфораторы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Гайковерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Лобзики<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пилы сабельные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пилы цепные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пилы циркулярные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Болгарки (УШМ)<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Технические фены<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Секаторы и сучкорезы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Аккумуляторы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Зарядные устройства<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Аксессуары для снегоуборщиков<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-hand-tools" data-catalog-title="Ручной инструмент" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Наборы ручного инструмента<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Наборы ручного инструмента<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-auto" data-catalog-title="Автотовары" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Ударные гайковерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Ударные гайковерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-measuring" data-catalog-title="Измерительный инструмент" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Рулетки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Рулетки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-garden" data-catalog-title="Сад и огород" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Воздуходувки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Мойки высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы цепные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы сабельные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Секаторы и сучкорезы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Воздуходувки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Мойки высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пилы цепные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пилы сабельные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Секаторы и сучкорезы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-horeca" data-catalog-title="Horeca" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пылесосы для гостиниц и отелей<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Измельчители пищевых отходов промышленные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пылесосы для гостиниц и отелей<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Измельчители пищевых отходов промышленные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -258,7 +257,7 @@
 
             </header>
 
-            <main class="page">
+            <main class="page page--dark">
                 <nav aria-label="Хлебные крошки" class="breadcrumbs breadcrumbs--catalog breadcrumbs--search">
                     <div class="breadcrumbs__container container">
                         <ul class="breadcrumbs__list">
@@ -274,24 +273,24 @@
                         </ul>
                     </div>
                 </nav>
-                <section class="product-listing product-listing--search" data-search-results>
+                <section class="product-listing product-listing--search">
                     <div class="product-listing__container container">
                         <div class="product-listing__heading">
-                            <h1 class="product-listing__title title title--search-results">По запросу <span class="product-listing__query">измельчитель</span> найдено <span class="product-listing__count">18 товаров</span></h1>
+                            <h1 class="product-listing__title title title-sm title--sans title--medium">По запросу <span class="product-listing__query">измельчитель</span> найдено <span class="product-listing__count">18 товаров</span></h1>
                         </div>
                         <div class="product-listing__layout">
                             <button type="button" class="listing-filter-overlay" aria-label="Закрыть фильтры" hidden></button>
                             <form class="listing-filter" id="listing-filter" aria-label="Фильтры каталога">
                                 <div class="listing-filter__header">
-                                    <h2 class="listing-filter__title title title--filter">Фильтры</h2>
+                                    <h2 class="listing-filter__title title title-md title--sans title--bold">Фильтры</h2>
                                     <button type="button" class="listing-filter__close icon-close" aria-label="Закрыть фильтры"></button>
                                 </div>
                                 <div class="listing-filter__categories">
                                     <h3 class="listing-filter__caption">Категория</h3>
                                     <a href="catalog.html" class="listing-filter__category is-active">Измельчители отходов</a>
-                                    <a href="category.html" class="listing-filter__category">Отпариватели</a>
-                                    <a href="category.html" class="listing-filter__category">Водонагреватели</a>
-                                    <a href="category.html" class="listing-filter__category">Аксессуары</a>
+                                    <a href="catalog.html" class="listing-filter__category">Отпариватели</a>
+                                    <a href="catalog.html" class="listing-filter__category">Водонагреватели</a>
+                                    <a href="catalog.html" class="listing-filter__category">Аксессуары</a>
                                 </div>
                                 <label class="listing-filter__stock">
                                     <span class="listing-filter__caption">В наличии</span>
@@ -300,46 +299,46 @@
                                 <fieldset class="listing-filter__price">
                                     <legend class="listing-filter__caption">Цена, ₽</legend>
                                     <div class="listing-filter__range">
-                                        <input type="number" class="listing-filter__input" name="min_price" aria-label="Минимальная цена" min="0" placeholder="8 990">
+                                        <input type="number" class="listing-filter__input" name="min_price" value="8090" aria-label="Минимальная цена" min="0" placeholder="8 990">
                                         <span class="listing-filter__dash">–</span>
-                                        <input type="number" class="listing-filter__input" name="max_price" aria-label="Максимальная цена" min="0" placeholder="218 690">
+                                        <input type="number" class="listing-filter__input" name="max_price" value="218690" aria-label="Максимальная цена" min="0" placeholder="218 690">
                                     </div>
                                 </fieldset>
                                 <details class="listing-filter__group" open>
                                     <summary class="listing-filter__summary">Мощность, Вт</summary>
                                     <div class="listing-filter__choices">
-                                        <label class="listing-filter__choice">
-                                            <input type="checkbox" class="listing-filter__checkbox" name="power" value="1125" >
-                                            <span class="listing-filter__choice-text">1 125</span>
+                                        <label class="listing-filter__choice checkbox">
+                                            <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="power" value="1125" >
+                                            <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">1 125</span></span>
                                         </label>
-<label class="listing-filter__choice">
-                                            <input type="checkbox" class="listing-filter__checkbox" name="power" value="1200" >
-                                            <span class="listing-filter__choice-text">1 200</span>
+<label class="listing-filter__choice checkbox">
+                                            <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="power" value="1200" checked>
+                                            <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">1 200</span></span>
                                         </label>
-<label class="listing-filter__choice">
-                                            <input type="checkbox" class="listing-filter__checkbox" name="power" value="1470" >
-                                            <span class="listing-filter__choice-text">1 470</span>
+<label class="listing-filter__choice checkbox">
+                                            <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="power" value="1470" >
+                                            <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">1 470</span></span>
                                         </label>
-<label class="listing-filter__choice">
-                                            <input type="checkbox" class="listing-filter__checkbox" name="power" value="375" >
-                                            <span class="listing-filter__choice-text">375</span>
+<label class="listing-filter__choice checkbox">
+                                            <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="power" value="375" >
+                                            <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">375</span></span>
                                         </label>
-<label class="listing-filter__choice">
-                                            <input type="checkbox" class="listing-filter__checkbox" name="power" value="390" >
-                                            <span class="listing-filter__choice-text">390</span>
+<label class="listing-filter__choice checkbox">
+                                            <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="power" value="390" >
+                                            <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">390</span></span>
                                         </label>
 
                                     </div>
                                     <button type="button" class="listing-filter__expand" aria-expanded="false">Показать еще</button>
                                     <div class="listing-filter__extra" hidden>
-                                        <label class="listing-filter__choice">
-                                            <input type="checkbox" class="listing-filter__checkbox" name="power" value="560" >
-                                            <span class="listing-filter__choice-text">560</span>
+                                        <label class="listing-filter__choice checkbox">
+                                            <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="power" value="560" >
+                                            <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">560</span></span>
                                         </label>
 
-                                        <label class="listing-filter__choice">
-                                            <input type="checkbox" class="listing-filter__checkbox" name="power" value="780" >
-                                            <span class="listing-filter__choice-text">780</span>
+                                        <label class="listing-filter__choice checkbox">
+                                            <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="power" value="780" >
+                                            <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">780</span></span>
                                         </label>
 
                                     </div>
@@ -347,17 +346,17 @@
                                 <details class="listing-filter__group" open>
                                     <summary class="listing-filter__summary">Тип мотора</summary>
                                     <div class="listing-filter__choices">
-                                        <label class="listing-filter__choice">
-                                            <input type="checkbox" class="listing-filter__checkbox" name="motor" value="bldc" >
-                                            <span class="listing-filter__choice-text">Бесщеточный (BLDC)</span>
+                                        <label class="listing-filter__choice checkbox">
+                                            <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="motor" value="bldc" checked>
+                                            <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Бесщеточный (BLDC)</span></span>
                                         </label>
-<label class="listing-filter__choice">
-                                            <input type="checkbox" class="listing-filter__checkbox" name="motor" value="induction" >
-                                            <span class="listing-filter__choice-text">Бесщеточный (индукционный)</span>
+<label class="listing-filter__choice checkbox">
+                                            <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="motor" value="induction" >
+                                            <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Бесщеточный (индукционный)</span></span>
                                         </label>
-<label class="listing-filter__choice">
-                                            <input type="checkbox" class="listing-filter__checkbox" name="motor" value="pmdc" >
-                                            <span class="listing-filter__choice-text">Щеточный (PMDC)</span>
+<label class="listing-filter__choice checkbox">
+                                            <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="motor" value="pmdc" >
+                                            <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Щеточный (PMDC)</span></span>
                                         </label>
 
                                     </div>
@@ -368,14 +367,14 @@
                                         
                                         
                                             <div class="listing-filter__choices">
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="control" value="wireless" >
-                                                    <span class="listing-filter__choice-text">Беспроводное</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="control" value="wireless" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Беспроводное</span></span>
                                                 </label>
 
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="control" value="pneumatic" >
-                                                    <span class="listing-filter__choice-text">Пневматическое</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="control" value="pneumatic" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Пневматическое</span></span>
                                                 </label>
 
                                             </div>
@@ -386,14 +385,14 @@
                                         
                                         
                                             <div class="listing-filter__choices">
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="quiet" value="yes" >
-                                                    <span class="listing-filter__choice-text">Да</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="quiet" value="yes" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Да</span></span>
                                                 </label>
 
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="quiet" value="no" >
-                                                    <span class="listing-filter__choice-text">Нет</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="quiet" value="no" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Нет</span></span>
                                                 </label>
 
                                             </div>
@@ -404,14 +403,14 @@
                                         
                                         
                                             <div class="listing-filter__choices">
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="auto_off" value="yes" >
-                                                    <span class="listing-filter__choice-text">Да</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="auto_off" value="yes" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Да</span></span>
                                                 </label>
 
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="auto_off" value="no" >
-                                                    <span class="listing-filter__choice-text">Нет</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="auto_off" value="no" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Нет</span></span>
                                                 </label>
 
                                             </div>
@@ -422,14 +421,14 @@
                                         
                                         
                                             <div class="listing-filter__choices">
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="insulation" value="yes" >
-                                                    <span class="listing-filter__choice-text">Да</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="insulation" value="yes" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Да</span></span>
                                                 </label>
 
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="insulation" value="no" >
-                                                    <span class="listing-filter__choice-text">Нет</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="insulation" value="no" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Нет</span></span>
                                                 </label>
 
                                             </div>
@@ -495,14 +494,14 @@
                                         
                                         
                                             <div class="listing-filter__choices">
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="reverse" value="yes" >
-                                                    <span class="listing-filter__choice-text">Да</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="reverse" value="yes" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Да</span></span>
                                                 </label>
 
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="reverse" value="no" >
-                                                    <span class="listing-filter__choice-text">Нет</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="reverse" value="no" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Нет</span></span>
                                                 </label>
 
                                             </div>
@@ -524,14 +523,14 @@
                                         
                                         
                                             <div class="listing-filter__choices">
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="booster" value="yes" >
-                                                    <span class="listing-filter__choice-text">Да</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="booster" value="yes" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Да</span></span>
                                                 </label>
 
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="booster" value="no" >
-                                                    <span class="listing-filter__choice-text">Нет</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="booster" value="no" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Нет</span></span>
                                                 </label>
 
                                             </div>
@@ -542,14 +541,14 @@
                                         
                                         
                                             <div class="listing-filter__choices">
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="material" value="steel" >
-                                                    <span class="listing-filter__choice-text">Нержавеющая сталь</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="material" value="steel" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Нержавеющая сталь</span></span>
                                                 </label>
 
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="material" value="plastic" >
-                                                    <span class="listing-filter__choice-text">Пластик</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="material" value="plastic" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Пластик</span></span>
                                                 </label>
 
                                             </div>
@@ -571,14 +570,14 @@
                                         
                                         
                                             <div class="listing-filter__choices">
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="silent" value="yes" >
-                                                    <span class="listing-filter__choice-text">Да</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="silent" value="yes" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Да</span></span>
                                                 </label>
 
-                                                <label class="listing-filter__choice">
-                                                    <input type="checkbox" class="listing-filter__checkbox" name="silent" value="no" >
-                                                    <span class="listing-filter__choice-text">Нет</span>
+                                                <label class="listing-filter__choice checkbox">
+                                                    <input type="checkbox" class="listing-filter__checkbox checkbox__input hidden" name="silent" value="no" >
+                                                    <span class="checkbox__btn"><span class="listing-filter__choice-text checkbox__text">Нет</span></span>
                                                 </label>
 
                                             </div>
@@ -630,7 +629,7 @@
                                 <div class="product-listing__toolbar">
                                     <label class="product-listing__sort-label">
                                         <span class="product-listing__sr-only">Сортировка товаров</span>
-                                        <select class="product-listing__sort" aria-label="Сортировка товаров">
+                                        <select data-custom-select class="product-listing__sort" aria-label="Сортировка товаров">
                                             <option class="product-listing__option" value="popular">Популярные</option>
                                             <option class="product-listing__option" value="price-asc">Сначала дешевле</option>
                                             <option class="product-listing__option" value="price-desc">Сначала дороже</option>
@@ -639,18 +638,33 @@
                                     </label>
                                     <button type="button" class="product-listing__filter-button icon-filter-horizontal" aria-controls="listing-filter" aria-expanded="false">Фильтры</button>
                                 </div>
-                                <div class="product-listing__selected" aria-label="Выбранные фильтры"></div>
+                                <div class="product-listing__selected" aria-label="Выбранные фильтры">
+                                    <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="min_price,max_price">Цена: от 8 090 до 218 690 ₽</button>
+                                    <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="power" data-filter-value="1200">Мощность: 1 200 Вт</button>
+                                    <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="motor" data-filter-value="bldc">Бесщеточный</button>
+                                    <button class="product-listing__clear icon-cancel-circle" type="button">Очистить все</button>
+                                </div>
                                 <div class="product-listing__products">
-                                    <div class="product-listing__item" data-price="23490" data-power="1200" data-motor="bldc" data-stock="true" data-order="1" data-tags="Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+                                    <div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             <span class="product-tile__guarantee"><img src="img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
@@ -659,16 +673,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="24690" data-power="1200" data-motor="bldc" data-stock="true" data-order="2" data-tags="Промышленные|Электрические|Бытовые|Маленькие|Легкие" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             <span class="product-tile__guarantee"><img src="img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
@@ -677,16 +701,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="20690" data-power="1200" data-motor="bldc" data-stock="true" data-order="3" data-tags="Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 4000</a>
@@ -695,16 +729,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="23490" data-power="1200" data-motor="bldc" data-stock="true" data-order="4" data-tags="Промышленные|Электрические|Бытовые|Маленькие|Легкие" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             <span class="product-tile__guarantee"><img src="img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
@@ -713,16 +757,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="24690" data-power="1200" data-motor="bldc" data-stock="false" data-order="5" data-tags="Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             <span class="product-tile__guarantee"><img src="img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
@@ -731,16 +785,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="20690" data-power="1200" data-motor="bldc" data-stock="true" data-order="6" data-tags="Промышленные|Электрические|Бытовые|Маленькие|Легкие" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 4000</a>
@@ -749,16 +813,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="23490" data-power="1200" data-motor="bldc" data-stock="true" data-order="7" data-tags="Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             <span class="product-tile__guarantee"><img src="img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
@@ -767,16 +841,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="24690" data-power="1200" data-motor="bldc" data-stock="true" data-order="8" data-tags="Промышленные|Электрические|Бытовые|Маленькие|Легкие" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             <span class="product-tile__guarantee"><img src="img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
@@ -785,16 +869,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="20690" data-power="1200" data-motor="bldc" data-stock="true" data-order="9" data-tags="Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 4000</a>
@@ -803,16 +897,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="23490" data-power="1200" data-motor="bldc" data-stock="false" data-order="10" data-tags="Промышленные|Электрические|Бытовые|Маленькие|Легкие" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             <span class="product-tile__guarantee"><img src="img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
@@ -821,16 +925,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="24690" data-power="1200" data-motor="bldc" data-stock="true" data-order="11" data-tags="Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             <span class="product-tile__guarantee"><img src="img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
@@ -839,16 +953,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="20690" data-power="1200" data-motor="bldc" data-stock="true" data-order="12" data-tags="Промышленные|Электрические|Бытовые|Маленькие|Легкие" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 4000</a>
@@ -857,16 +981,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="23490" data-power="1200" data-motor="bldc" data-stock="true" data-order="13" data-tags="Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             <span class="product-tile__guarantee"><img src="img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
@@ -875,16 +1009,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="24690" data-power="1200" data-motor="bldc" data-stock="true" data-order="14" data-tags="Промышленные|Электрические|Бытовые|Маленькие|Легкие" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             <span class="product-tile__guarantee"><img src="img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
@@ -893,16 +1037,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="20690" data-power="1200" data-motor="bldc" data-stock="false" data-order="15" data-tags="Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 4000</a>
@@ -911,16 +1065,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="23490" data-power="1200" data-motor="bldc" data-stock="true" data-order="16" data-tags="Промышленные|Электрические|Бытовые|Маленькие|Легкие" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             <span class="product-tile__guarantee"><img src="img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
@@ -929,16 +1093,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="24690" data-power="1200" data-motor="bldc" data-stock="true" data-order="17" data-tags="Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             <span class="product-tile__guarantee"><img src="img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
@@ -947,16 +1121,26 @@
                                     </article>
 
                                     </div>
-<div class="product-listing__item" data-price="20690" data-power="1200" data-motor="bldc" data-stock="true" data-order="18" data-tags="Промышленные|Электрические|Бытовые|Маленькие|Легкие" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
                                     <article class="product product-tile product-tile--favorite">
                                         <div class="product-tile__visual">
                                             
                                             <div class="product-tile__actions">
-                                                <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"><img src="img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-                                                <button type="button" class="product-tile__action compare-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 к сравнению" aria-pressed="false"><img src="img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+                                                <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"></button>
+                                                <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 к сравнению" aria-pressed="false"></button>
                                             </div>
-                                            <a href="product.html" class="product-tile__image"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-                                            <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+                                            <div class="product-tile__gallery" data-product-gallery>
+                                                <div class="product-tile__slider swiper">
+                                                    <div class="product-tile__track swiper-wrapper">
+                                                        <a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+<a href="product.html" class="product-tile__image swiper-slide"><img src="img/favorites/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+
+                                                    </div>
+                                                </div>
+                                                <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                            </div>
+
                                         </div>
                                         <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><img src="img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
                                         <a href="product.html" class="product__name product-tile__name">Измельчитель пищевых отходов BORT TITAN 4000</a>
@@ -970,13 +1154,13 @@
                                 <p class="product-listing__empty" hidden>По выбранным параметрам товары не найдены. Попробуйте изменить фильтры.</p>
                                 <button type="button" class="product-listing__more icon-loading">Показать еще</button>
                                 <nav class="product-listing__pagination" aria-label="Страницы каталога">
-                                    <button type="button" class="product-listing__page icon-chevron-left" data-page="prev" aria-label="Предыдущая страница" disabled></button>
-                                    <button type="button" class="product-listing__page is-active" data-page="1" aria-current="page">1</button>
-                                    <button type="button" class="product-listing__page" data-page="2">2</button>
-                                    <button type="button" class="product-listing__page" data-page="3">3</button>
+                                    <button type="button" class="product-listing__page icon-chevron-left" aria-label="Предыдущая страница" disabled></button>
+                                    <button type="button" class="product-listing__page is-active" aria-current="page">1</button>
+                                    <button type="button" class="product-listing__page">2</button>
+                                    <button type="button" class="product-listing__page">3</button>
                                     <span class="product-listing__ellipsis">…</span>
-                                    <button type="button" class="product-listing__page" data-page="4">4</button>
-                                    <button type="button" class="product-listing__page icon-chevron-right" data-page="next" aria-label="Следующая страница"></button>
+                                    <button type="button" class="product-listing__page">4</button>
+                                    <button type="button" class="product-listing__page icon-chevron-right" aria-label="Следующая страница"></button>
                                 </nav>
                             </div>
                         </div>
@@ -1025,10 +1209,10 @@
                         <div class="footer__menu-block">
                             <div class="footer__menu-caption">Кабинет покупателя</div>
                             <ul class="footer__menu-list">
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Учетная запись</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Заказы</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Отложенные товары</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Список сравнения</a></li>
+                                <li class="footer__menu-item"><a href="lk-person.html" class="footer__menu-link">Учетная запись</a></li>
+                                <li class="footer__menu-item"><a href="lk-orders.html" class="footer__menu-link">Заказы</a></li>
+                                <li class="footer__menu-item"><a href="favorite.html" class="footer__menu-link">Отложенные товары</a></li>
+                                <li class="footer__menu-item"><a href="compare.html" class="footer__menu-link">Список сравнения</a></li>
                             </ul>
                         </div>
                         <div class="footer__menu-block">
@@ -1036,9 +1220,9 @@
                             <ul class="footer__menu-list">
                                 <li class="footer__menu-item"><a href="about.html" class="footer__menu-link">О компании</a></li>
                                 <li class="footer__menu-item"><a href="reviews.html" class="footer__menu-link">Отзывы покупателей</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Карта сайта</a></li>
+                                <li class="footer__menu-item"><a href="sitemap.html" class="footer__menu-link">Карта сайта</a></li>
                                 <li class="footer__menu-item"><a href="" class="footer__menu-link">Оптовикам</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Контакты</a></li>
+                                <li class="footer__menu-item"><a href="contacts.html" class="footer__menu-link">Контакты</a></li>
                             </ul>
                         </div>
                         <div class="footer__menu-block">
@@ -1053,10 +1237,10 @@
                             <div class="footer__menu-caption">Дополнительно</div>
                             <ul class="footer__menu-list">
                                 <li class="footer__menu-item"><a href="faq.html" class="footer__menu-link">Обратная связь</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Акции и новости</a></li>
+                                <li class="footer__menu-item"><a href="blog.html" class="footer__menu-link">Акции и новости</a></li>
                                 <li class="footer__menu-item"><a href="spare-parts.html" class="footer__menu-link">Купить запчасти</a></li>
                                 <li class="footer__menu-item"><a href="services.html" class="footer__menu-link">Полезные сервисы Bort</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Политика конфиденциальности</a></li>
+                                <li class="footer__menu-item"><a href="policy.html" class="footer__menu-link">Политика конфиденциальности</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -1070,142 +1254,119 @@
                 </div>
             </footer>
             <button type="button" aria-label="Вернуться в начало страницы" class="arrow-top icon-chevron-up"></button>
-            <div class="notify-container"></div>
-            <div id="callback" class="popup">
-                <div class="popup__title title-md">
-                    <span class="color-grey">Заказать</span> звонок
-                </div>
-                <p class="popup__subtitle">
-                    Наш менеджер свяжется с Вами
-                    в&nbsp;ближайшее время!
-                </p>
-                <form action="#" class="popup__form form">
-                    <div class="form__field">
-                        <div class="form__label">Имя:</div>
-                        <input type="text" name="username" data-required class="form__control" placeholder="Имя">
-                        <div class="form__error-message"></div>
-                    </div>
-                    <div class="form__field">
-                        <div class="form__label">Телефон:</div>
-                        <input type="tel" name="phone" data-required class="form__control" placeholder="+7 (999) 999-99-99">
-                        <div class="form__error-message"></div>
-                    </div>
-                    <button type="submit" class="form__submit btn btn-primary">Подробнее</button>
-                </form>
-            </div>
+            <div class="notify-container" aria-live="polite" aria-relevant="additions"></div>
             <div id="sign-in" class="auth-dialog" aria-labelledby="auth-title">
-                <button type="button" class="auth-dialog__close" data-fancybox-close aria-label="Закрыть"><img class="auth-dialog__close-icon" src="img/auth/close.svg" width="20" height="20" alt=""></button>
-                <div class="auth-dialog__view" data-auth-view="login">
-                    <h2 class="auth-dialog__title title title--auth" id="auth-title">Вход в личный кабинет</h2>
-                    <div class="auth-dialog__tabs" role="tablist" aria-label="Способ входа">
-                        <button class="auth-dialog__tab" type="button" role="tab" id="auth-email-tab" aria-controls="auth-email-panel" aria-selected="true" data-auth-tab="email">По E-mail</button>
-                        <button class="auth-dialog__tab" type="button" role="tab" id="auth-phone-tab" aria-controls="auth-phone-panel" aria-selected="false" tabindex="-1" data-auth-tab="phone">По телефону</button>
+    <button type="button" class="auth-dialog__close" data-fancybox-close aria-label="Закрыть"><img class="auth-dialog__close-icon" src="img/auth/close.svg" width="20" height="20" alt=""></button>
+    <div class="auth-dialog__view" data-auth-view="login">
+        <h2 class="auth-dialog__title title title-md" id="auth-title">Вход в личный кабинет</h2>
+        <div class="auth-dialog__tabs segmented-control" role="tablist" aria-label="Способ входа">
+            <button class="auth-dialog__tab segmented-control__button" type="button" role="tab" id="auth-email-tab" aria-controls="auth-email-panel" aria-selected="true" data-auth-tab="email">По E-mail</button>
+            <button class="auth-dialog__tab segmented-control__button" type="button" role="tab" id="auth-phone-tab" aria-controls="auth-phone-panel" aria-selected="false" tabindex="-1" data-auth-tab="phone">По телефону</button>
+        </div>
+        <form class="auth-dialog__form" data-auth-form="email" id="auth-email-panel" role="tabpanel" aria-labelledby="auth-email-tab" novalidate>
+            <div class="auth-dialog__fields">
+                <div class="auth-dialog__field">
+                    <label class="auth-dialog__label" for="auth-email">E-mail</label>
+                    <input class="auth-dialog__input" id="auth-email" type="email" name="email" autocomplete="username" placeholder="" required>
+                    <span class="auth-dialog__error"></span>
+                </div>
+
+                <div class="auth-dialog__field">
+                    <label class="auth-dialog__label" for="auth-password">Пароль</label>
+                    <div class="auth-dialog__password">
+                        <input class="auth-dialog__input auth-dialog__input--password" id="auth-password" type="password" name="password" autocomplete="current-password" required>
+                        <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password><span class="auth-dialog__eye-icon icon-eye" aria-hidden="true"></span></button>
                     </div>
-                    <form class="auth-dialog__form" data-auth-form="email" id="auth-email-panel" role="tabpanel" aria-labelledby="auth-email-tab" novalidate>
-                        <div class="auth-dialog__fields">
-                            <div class="auth-dialog__field">
-                                <label class="auth-dialog__label" for="auth-email">E-mail</label>
-                                <input class="auth-dialog__input" id="auth-email" type="email" name="email" autocomplete="username" placeholder="" required>
-                                <span class="auth-dialog__error"></span>
-                            </div>
-
-                            <div class="auth-dialog__field">
-                                <label class="auth-dialog__label" for="auth-password">Пароль</label>
-                                <div class="auth-dialog__password">
-                                    <input class="auth-dialog__input auth-dialog__input--password" id="auth-password" type="password" name="password" autocomplete="current-password" required>
-                                    <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password><span class="auth-dialog__eye-icon" aria-hidden="true"></span></button>
-                                </div>
-                                <span class="auth-dialog__error"></span>
-                            </div>
-
-                        </div>
-                        <div class="auth-dialog__options">
-                            <label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="remember"><span class="auth-dialog__check-text">Запомнить меня</span></label>
-                            <button class="auth-dialog__link auth-dialog__link--muted" type="button" data-auth-go="recovery">Забыли пароль?</button>
-                        </div>
-                        <button class="auth-dialog__submit" type="submit">Войти</button>
-                        <p class="auth-dialog__footer">Ещё нет учётной записи?<br><button class="auth-dialog__link" type="button" data-auth-go="register">Зарегистрироваться</button></p>
-                    </form>
-                    <form class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
-                        <div class="auth-dialog__fields">
-                            <div class="auth-dialog__field">
-                                <label class="auth-dialog__label" for="auth-phone">Телефон</label>
-                                <input class="auth-dialog__input" id="auth-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
-                                <span class="auth-dialog__error"></span>
-                            </div>
-
-                            <div class="auth-dialog__field"><label class="auth-dialog__label" for="auth-code">Код из СМС</label><input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required><span class="auth-dialog__error"></span></div>
-                        </div>
-                        <button class="auth-dialog__resend" type="button" data-auth-send="phone">Получить код</button>
-                        <button class="auth-dialog__submit" type="submit">Войти</button>
-                    </form>
+                    <span class="auth-dialog__error"></span>
                 </div>
-                <div class="auth-dialog__view" data-auth-view="recovery" hidden>
-                    <div class="auth-dialog__heading"><h2 class="auth-dialog__title title title--auth-small" id="auth-recovery-title">Восстановление пароля</h2><p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p></div>
-                    <form class="auth-dialog__form" data-auth-form="recovery" novalidate>
-                        <div class="auth-dialog__field">
-                            <label class="auth-dialog__label" for="auth-recovery-email">E-mail</label>
-                            <input class="auth-dialog__input" id="auth-recovery-email" type="email" name="email" autocomplete="email" placeholder="" required>
-                            <span class="auth-dialog__error"></span>
-                        </div>
 
-                        <button class="auth-dialog__submit" type="submit">Получить ссылку</button>
-                    </form>
-                </div>
-                <div class="auth-dialog__view" data-auth-view="register" hidden>
-                    <h2 class="auth-dialog__title title title--auth" id="auth-register-title">Регистрация</h2>
-                    <form class="auth-dialog__form" data-auth-form="register" novalidate>
-                        <div class="auth-dialog__fields">
-                            <div class="auth-dialog__field">
-                                <label class="auth-dialog__label" for="auth-name">Имя</label>
-                                <input class="auth-dialog__input" id="auth-name" type="text" name="username" autocomplete="given-name" placeholder="Имя" required>
-                                <span class="auth-dialog__error"></span>
-                            </div>
-
-                            <div class="auth-dialog__phone-row">
-                                <div class="auth-dialog__field">
-                                    <label class="auth-dialog__label" for="auth-register-phone">Телефон</label>
-                                    <input class="auth-dialog__input" id="auth-register-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
-                                    <span class="auth-dialog__error"></span>
-                                </div>
-
-                                <button class="auth-dialog__get-code" type="button" data-auth-send="register">Получить код</button>
-                                <div class="auth-dialog__field auth-dialog__field--code" hidden><input class="auth-dialog__input auth-dialog__input--code" name="code" aria-label="Код из СМС" inputmode="numeric" autocomplete="one-time-code" placeholder="Введите код" maxlength="4" pattern="[0-9]{4}" disabled required><span class="auth-dialog__error"></span></div>
-                            </div>
-                            <div class="auth-dialog__code-note" hidden><p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register">Получить новый код</button></div>
-                            <div class="auth-dialog__field">
-                                <label class="auth-dialog__label" for="auth-register-email">E-mail</label>
-                                <input class="auth-dialog__input" id="auth-register-email" type="email" name="email" autocomplete="email" placeholder="" required>
-                                <span class="auth-dialog__error"></span>
-                            </div>
-
-                            <div class="auth-dialog__field">
-                                <label class="auth-dialog__label" for="auth-register-password">Пароль</label>
-                                <div class="auth-dialog__password">
-                                    <input class="auth-dialog__input auth-dialog__input--password" id="auth-register-password" type="password" name="password" autocomplete="new-password" required>
-                                    <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password><span class="auth-dialog__eye-icon" aria-hidden="true"></span></button>
-                                </div>
-                                <span class="auth-dialog__error"></span>
-                            </div>
-
-                        </div>
-                        <div class="auth-dialog__consent">
-                            <div class="auth-dialog__field"><label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="agreement" required><span class="auth-dialog__check-text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">Политики конфиденциальности</a>.</span></label><span class="auth-dialog__error"></span></div>
-                            <p class="auth-dialog__hint">Нажимая кнопку &quot;Зарегистрироваться&quot;, я подтверждаю свою дееспособность и согласие на получение информации об оформлении и получении заказа, согласие на обработку персональных данных в соответствии с указанным <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">здесь текстом</a>.</p>
-                        </div>
-                        <button class="auth-dialog__submit" type="submit">Зарегистрироваться</button>
-                        <p class="auth-dialog__footer">У вас есть аккаунт?<br><button class="auth-dialog__link" type="button" data-auth-go="login">Войти</button></p>
-                    </form>
-                </div>
-                <p class="auth-dialog__status" role="status" aria-live="polite" hidden></p>
             </div>
+            <div class="auth-dialog__options">
+                <label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="remember"><span class="auth-dialog__check-text">Запомнить меня</span></label>
+                <button class="auth-dialog__link auth-dialog__link--muted" type="button" data-auth-go="recovery">Забыли пароль?</button>
+            </div>
+            <button class="auth-dialog__submit" type="submit">Войти</button>
+            <p class="auth-dialog__footer">Ещё нет учётной записи?<br><button class="auth-dialog__link" type="button" data-auth-go="register">Зарегистрироваться</button></p>
+        </form>
+        <form class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
+            <div class="auth-dialog__fields">
+                <div class="auth-dialog__field">
+                    <label class="auth-dialog__label" for="auth-phone">Телефон</label>
+                    <input class="auth-dialog__input" id="auth-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
+                    <span class="auth-dialog__error"></span>
+                </div>
+
+                <div class="auth-dialog__field"><label class="auth-dialog__label" for="auth-code">Код из СМС</label><input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required><span class="auth-dialog__error"></span></div>
+            </div>
+            <button class="auth-dialog__resend" type="button" data-auth-send="phone">Получить код</button>
+            <button class="auth-dialog__submit" type="submit">Войти</button>
+        </form>
+    </div>
+    <div class="auth-dialog__view" data-auth-view="recovery" hidden>
+        <div class="auth-dialog__heading"><h2 class="auth-dialog__title title title-md" id="auth-recovery-title">Восстановление пароля</h2><p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p></div>
+        <form class="auth-dialog__form" data-auth-form="recovery" novalidate>
+            <div class="auth-dialog__field">
+                <label class="auth-dialog__label" for="auth-recovery-email">E-mail</label>
+                <input class="auth-dialog__input" id="auth-recovery-email" type="email" name="email" autocomplete="email" placeholder="" required>
+                <span class="auth-dialog__error"></span>
+            </div>
+
+            <button class="auth-dialog__submit" type="submit">Получить ссылку</button>
+        </form>
+    </div>
+    <div class="auth-dialog__view" data-auth-view="register" hidden>
+        <h2 class="auth-dialog__title title title-md" id="auth-register-title">Регистрация</h2>
+        <form class="auth-dialog__form" data-auth-form="register" novalidate>
+            <div class="auth-dialog__fields">
+                <div class="auth-dialog__field">
+                    <label class="auth-dialog__label" for="auth-name">Имя</label>
+                    <input class="auth-dialog__input" id="auth-name" type="text" name="username" autocomplete="given-name" placeholder="Имя" required>
+                    <span class="auth-dialog__error"></span>
+                </div>
+
+                <div class="auth-dialog__phone-row">
+                    <div class="auth-dialog__field">
+                        <label class="auth-dialog__label" for="auth-register-phone">Телефон</label>
+                        <input class="auth-dialog__input" id="auth-register-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
+                        <span class="auth-dialog__error"></span>
+                    </div>
+
+                    <button class="auth-dialog__get-code" type="button" data-auth-send="register">Получить код</button>
+                    <div class="auth-dialog__field auth-dialog__field--code" hidden><input class="auth-dialog__input auth-dialog__input--code" name="code" aria-label="Код из СМС" inputmode="numeric" autocomplete="one-time-code" placeholder="Введите код" maxlength="4" pattern="[0-9]{4}" disabled required><span class="auth-dialog__error"></span></div>
+                </div>
+                <div class="auth-dialog__code-note" hidden><p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register">Получить новый код</button></div>
+                <div class="auth-dialog__field">
+                    <label class="auth-dialog__label" for="auth-register-email">E-mail</label>
+                    <input class="auth-dialog__input" id="auth-register-email" type="email" name="email" autocomplete="email" placeholder="" required>
+                    <span class="auth-dialog__error"></span>
+                </div>
+
+                <div class="auth-dialog__field">
+                    <label class="auth-dialog__label" for="auth-register-password">Пароль</label>
+                    <div class="auth-dialog__password">
+                        <input class="auth-dialog__input auth-dialog__input--password" id="auth-register-password" type="password" name="password" autocomplete="new-password" required>
+                        <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password><span class="auth-dialog__eye-icon icon-eye" aria-hidden="true"></span></button>
+                    </div>
+                    <span class="auth-dialog__error"></span>
+                </div>
+
+            </div>
+            <div class="auth-dialog__consent">
+                <div class="auth-dialog__field"><label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="agreement" required><span class="auth-dialog__check-text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">Политики конфиденциальности</a>.</span></label><span class="auth-dialog__error"></span></div>
+                <p class="auth-dialog__hint">Нажимая кнопку &quot;Зарегистрироваться&quot;, я подтверждаю свою дееспособность и согласие на получение информации об оформлении и получении заказа, согласие на обработку персональных данных в соответствии с указанным <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">здесь текстом</a>.</p>
+            </div>
+            <button class="auth-dialog__submit" type="submit">Зарегистрироваться</button>
+            <p class="auth-dialog__footer">У вас есть аккаунт?<br><button class="auth-dialog__link" type="button" data-auth-go="login">Войти</button></p>
+        </form>
+    </div>
+    <p class="auth-dialog__status" role="status" aria-live="polite" hidden></p>
+</div>
 
 
 
             <!-- plugins -->
             <script src="js/libs/fancybox.umd.js"></script>
             <script src="js/libs/swiper-bundle.min.js"></script>
-            <script src="js/libs/nouislider.min.js"></script>
             <!-- plugins -->
 
             <script src="js/app.min.js"></script>

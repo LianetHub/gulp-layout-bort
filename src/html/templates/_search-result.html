@@ -1,13 +1,12 @@
-<div class="product-listing__item" data-price="@@amount" data-power="@@power" data-motor="@@motor" data-stock="@@stock" data-order="@@order" data-tags="@@tags" data-control="wireless" data-quiet="yes" data-auto_off="yes" data-insulation="yes" data-speed="3000" data-volume="860" data-performance="3.2" data-noise="52" data-stages="3" data-reverse="yes" data-cable="1" data-booster="no" data-material="steel" data-sink="20" data-silent="yes" data-size="350" data-weight="6">
+<div class="product-listing__item">
 <article class="product product-tile product-tile--favorite">
     <div class="product-tile__visual">
         @@if(guarantee){<span class="product-tile__guarantee"><img src="@img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>}
         <div class="product-tile__actions">
-            <button type="button" class="product-tile__action favorite-btn" aria-pressed="false" aria-label="Добавить @@name в избранное"><img src="@img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-            <button type="button" class="product-tile__action compare-btn" aria-label="Добавить @@name к сравнению" aria-pressed="false"><img src="@img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+            <button type="button" class="product-tile__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить @@name в избранное"></button>
+            <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить @@name к сравнению" aria-pressed="false"></button>
         </div>
-        <a href="product.html" class="product-tile__image"><img src="@@image" alt="@@name" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-        <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+        @@include('_product-tile-gallery.html', {"image":"@@image", "name":"@@name"})
     </div>
     <div class="product-tile__meta"><span class="product-tile__text">Артикул: @@sku</span><span class="product-tile__rating"><img src="@img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
     <a href="product.html" class="product__name product-tile__name">@@name</a>

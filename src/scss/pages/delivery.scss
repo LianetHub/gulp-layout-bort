@@ -1,31 +1,31 @@
 // .delivery
 .delivery {
-    padding: rem(20) 0 rem(40);
-    @media (min-width: $md4) {
-        padding-bottom: rem(60);
-    }
-    // .delivery__container
-    &__container {
-        box-sizing: border-box;
-        width: 100%;
-        max-width: rem(1280);
-    }
-    // .delivery__title
-    &__title {
-        margin-bottom: rem(30);
-    }
-    // .delivery__section + .delivery__section
-    &__section + &__section {
-        margin-top: rem(30);
-    }
-    // .delivery__caption
-    &__caption {
-        margin-bottom: rem(10);
-    }
-    // .delivery__payments
-    &__payments {
-        display: grid;
-        gap: rem(20);
-        margin-top: rem(30);
-    }
+	padding: rem(20) 0 rem(40);
+	@media (min-width: $md4) {
+		padding-bottom: rem(60);
+	}
+	// .delivery__container
+	&__container {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: rem(1280);
+	}
+	// .delivery__title
+	&__title {
+		margin-bottom: rem(30);
+	}
+	// .delivery__section + .delivery__section
+	&__section + &__section {
+		margin-top: rem(30);
+	}
+	// .delivery__caption
+	&__caption {
+		margin-bottom: rem(10);
+	}
+	// .delivery__payments
+	&__payments {
+		display: grid;
+		gap: rem(20);
+		margin-top: rem(30);
+	}
 }

@@ -5,8 +5,8 @@
     <body>
         <div class="wrapper">
             @@include('html/_header.html', {})
-            <main class="page page--showcase">
-                <div class="promotions promotions--hero">
+            <main class="page page--light">
+                <div class="promotions">
                     <div class="promotions__container container">
                         <div class="promotions__slider">
                             <div class="swiper">
@@ -21,21 +21,21 @@
                             </div>
                         </div>
                         <div class="promotions__cards">
-                            <a href="product.html" class="promo-card promo-card--small promo-card--guarantee" style="background-image: url('@img/promotions/promo-guarantee.jpg');">
-                                <div class="promo-card__title title title--card">Расширенная гарантия</div>
+                            <a href="product.html" class="promo-card promo-card--small" style="background-image: url('@img/promotions/promo-guarantee.jpg');">
+                                <div class="promo-card__title title">Расширенная<br>гарантия</div>
                                 <div class="promo-card__description">Уверены в качестве и надежности</div>
                                 <div class="promo-card__logo">
                                     <img src="@img/logo-white.svg" width="69" height="20" alt="Логотип сайта Bort" class="promo-card__image">
                                 </div>
                             </a>
-                            <a href="product.html" class="promo-card promo-card--small promo-card--shaded" style="background-image: url('@img/promotions/promo-saw.jpg');">
-                                <div class="promo-card__title title title--card">Цепная аккумуляторная пила BORT BKS-2112-LI</div>
+                            <a href="product.html" class="promo-card promo-card--small" style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url('@img/promotions/promo-saw.jpg');">
+                                <div class="promo-card__title title">Цепная аккумуляторная пила BORT BKS-2112-LI</div>
                                 <div class="promo-card__description">для регулярного использования средней интенсивности</div>
                             </a>
                         </div>
                     </div>
                 </div>
-                <div class="categories categories--tiles">
+                <div class="categories">
                     <div class="categories__container container">
                         <ul class="categories__list">
                             @@loop('./html/templates/_category.html', './html/json/categories.json')
@@ -44,11 +44,11 @@
                 </div>
                 @@include('html/includes/_products-showcase.html', {
                 "title": "Новинки Bort",
-                "link": "new-arrivals.html",
+                "link": "catalog.html",
                 "compact": false,
                 "popular": false
                 })
-                <div class="banner banner--strip">
+                <div class="banner">
                     <div class="banner__container container">
                         <a href="product.html" class="banner__image">
                             <img src="@img/promotions/banner-jigsaw.jpg" alt="Аккумуляторный лобзик BPS-21LI-M. Создан держать скорость под нагрузкой" width="1240" height="100" loading="lazy" class="banner__picture">
@@ -57,21 +57,21 @@
                 </div>
                 @@include('html/includes/_products-showcase.html', {
                 "title": "Успейте купить",
-                "link": "promotions.html",
+                "link": "catalog.html",
                 "compact": true,
                 "popular": false
                 })
                 <section class="solutions">
                     <div class="solutions__container container">
                         <div class="solutions__heading section-heading">
-                            <h2 class="solutions__title title title--section">Проверенные решения</h2>
+                            <h2 class="solutions__title title">Проверенные решения</h2>
                         </div>
                         <ul class="solutions__list">
                             @@loop('html/templates/_solution.html', 'html/json/solutions.json')
                         </ul>
                     </div>
                 </section>
-                <div class="banner banner--strip">
+                <div class="banner">
                     <div class="banner__container container">
                         <a href="product.html" class="banner__image">
                             <img src="@img/promotions/banner.png" alt="Новинка. Аккумуляторная УШМ BWS-18LI-XDK" width="1240" height="100" loading="lazy" class="banner__picture">
@@ -84,9 +84,9 @@
                 "compact": false,
                 "popular": true
                 })
-                <div class="marketing marketing--banners">
+                <div class="marketing">
                     <div class="marketing__container container">
-                        <div class="marketing__slider" data-showcase-slider="marketing">
+                        <div class="marketing__slider">
                             <div class="swiper">
                                 <div class="swiper-wrapper">
                                     @@loop('html/templates/_marketing-banner.html', 'html/json/marketing.json')
@@ -100,7 +100,7 @@
                 <section class="news news--feed">
                     <div class="news__container container">
                         <div class="news__heading section-heading">
-                            <h2 class="news__title title title--section">Новости компании / блог</h2>
+                            <h2 class="news__title title">Новости компании / блог</h2>
                             <a href="blog.html" class="news__more section-more icon-chevron-right">Показать все</a>
                         </div>
                         <div class="news__slider" data-showcase-slider="3">
@@ -115,7 +115,7 @@
                 <section class="subscribe">
                     <div class="subscribe__container container">
                         <div class="subscribe__body">
-                            <h2 class="subscribe__title title title--subscribe">Подпишитесь на рассылку</h2>
+                            <h2 class="subscribe__title title title-md">Подпишитесь на рассылку</h2>
                             <p class="subscribe__text">узнавайте о специальных предложениях и новинках первыми</p>
                         </div>
                         <form action="#" class="subscribe__form">

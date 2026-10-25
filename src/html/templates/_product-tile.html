@@ -5,8 +5,7 @@
             <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить @@name в избранное" aria-pressed="false"></button>
             <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить @@name к сравнению" aria-pressed="false"></button>
         </div>
-        <a href="product.html" class="product-tile__image"><img src="@@image" alt="@@name" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-        <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+        @@include('_product-tile-gallery.html', {"image":"@@image", "name":"@@name"})
     </div>
     <div class="product-tile__meta"><span class="product-tile__text">Артикул: @@sku</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
     <a href="product.html" class="product__name product-tile__name">@@name</a>

@@ -29,10 +29,8 @@ test('entry point initializes safely on a page without components', async () => 
         addEventListener() {}
     };
     await import('../src/js/app.js');
-    assert.equal(typeof window.CatalogController.closeCatalog, 'function');
+    assert.equal(window.CatalogController, undefined);
     assert.equal(typeof window.SearchController.closeSearch, 'function');
-    assert.equal(typeof window.AuthController.closeMenu, 'function');
-    window.CatalogController.closeCatalog();
+    assert.equal(window.AuthController, undefined);
     window.SearchController.closeSearch();
-    window.AuthController.closeMenu();
 });

@@ -1,0 +1,26 @@
+// .marketing
+.marketing {
+	padding: 0;
+	margin-top: rem(40);
+	@media (min-width: $md4) {
+		margin-top: rem(60);
+	}
+	// .marketing__container
+	&__container {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: rem(1280);
+	}
+	// .marketing__slider
+	&__slider {
+		position: relative;
+		min-width: 0;
+	}
+	// .marketing .marketing-card
+	.marketing-card {
+		width: min(#{rem(310)}, 100%);
+		@media (min-width: $md4) {
+			width: rem(400);
+		}
+	}
+}

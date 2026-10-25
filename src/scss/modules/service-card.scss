@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // .service-card
 .service-card {
 	display: flex;
@@ -24,7 +26,7 @@
 	&__address {
 		font-size: rem(14);
 		font-weight: 500;
-		line-height: rem(20);
+		line-height: math.div(20, 14);
 		color: #ff6201;
 		overflow-wrap: anywhere;
 	}

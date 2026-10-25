@@ -2,19 +2,19 @@
     {
         "image": "@img/marketing/promo-tools.jpg",
         "title": "Аккумуляторы и инструменты Bort по цене эконом-брендов",
-        "href": "promotions.html",
+        "href": "catalog.html",
         "className": " swiper-slide"
     },
     {
         "image": "@img/marketing/promo-pressure-washer.jpg",
         "title": "Смывай грязь и конкурентов за −20%!",
-        "href": "promotions.html",
+        "href": "catalog.html",
         "className": " swiper-slide"
     },
     {
         "image": "@img/marketing/promo-steam-cleaner.jpg",
         "title": "Чистый дом к сентябрю: лови +15% маржи на пароочистители!",
-        "href": "promotions.html",
+        "href": "catalog.html",
         "className": " swiper-slide"
     }
 ]

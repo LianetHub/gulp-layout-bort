@@ -50,98 +50,25 @@ export const copyWoff = () => {
         .pipe(app.gulp.dest(`${app.path.build.fonts}`));
 };
 
-export const fontsStyle = () => {
-    let fontsFile = `${app.path.srcFolder}/scss/fonts.scss`;
-
-    // Проверяем наличие папки с шрифтами
-    fs.readdir(app.path.build.fonts, function (err, fontsFiles) {
-        if (fontsFiles) {
-            // Если файл существует, удаляем его
-            if (fs.existsSync(fontsFile)) {
-                fs.unlinkSync(fontsFile);
-                console.log("Файл scss/fonts.scss актуализирован");
-            } else {
-                console.log("Файл scss/fonts.scss создан");
-            }
-
-            // Создаем новый файл
-            fs.writeFile(fontsFile, "", cb);
-            let newFileOnly;
-
-            for (let i = 0; i < fontsFiles.length; i++) {
-                // Получаем имя файла без расширения
-                let fontFileNameWithExtension = fontsFiles[i].split(".")[0];
-                let fontFileName = fontFileNameWithExtension;
-
-                // Проверка на вариативный шрифт
-                const isVariableFont = fontFileName.toLowerCase().includes("variablefont_");
-
-                if (isVariableFont) {
-                    fontFileName = fontFileName.replace(/-VariableFont_wght/i, "");
-                }
-
-                if (newFileOnly !== fontFileName) {
-                    let fontName = fontFileName.split("-")[0] ? fontFileName.split("-")[0] : fontFileName;
-                    let fontWeight = fontFileName.split("-")[1] || '';
-                    let fontStyle = 'normal';
-
-                    if (!isVariableFont) {
-
-                        // Обработка начертания Italic
-                        if (fontWeight.toLowerCase().includes("italic")) {
-                            fontStyle = "italic";
-                            fontWeight = fontWeight.replace(/italic/i, "").trim();
-                        }
-
-                        // Определение веса шрифта
-                        switch (fontWeight.toLowerCase()) {
-                            case "thin": fontWeight = 100; break;
-                            case "extralight": fontWeight = 200; break;
-                            case "light": fontWeight = 300; break;
-                            case "book": fontWeight = 450; break;
-                            case "medium": fontWeight = 500; break;
-                            case "semibold":
-                            case "demi": fontWeight = 600; break;
-                            case "bold": fontWeight = 700; break;
-                            case "extrabold":
-                            case "heavy": fontWeight = 800; break;
-                            case "black": fontWeight = 900; break;
-                            default: fontWeight = 400; break;
-                        }
-                    }
-
-
-                    if (isVariableFont) {
-                        // Генерация для Вариативных шрифтов
-                        fs.appendFile(fontsFile,
-                            `@font-face {
-								font-family: '${fontName}';
-								src: url("../fonts/${fontFileNameWithExtension}.woff2") format("woff2 supports variations"),
-									url("../fonts/${fontFileNameWithExtension}.woff2") format("woff2-variations"),
-									url("../fonts/${fontFileNameWithExtension}.woff") format("woff");
-								font-weight: 100 900;
-								font-stretch: 75% 125%;
-								font-style: normal;
-								font-display: swap;
-							}\r\n`, cb);
-                    } else {
-                        // Генерация для Обычных шрифтов
-                        fs.appendFile(fontsFile,
-                            `@font-face {
-								font-family: '${fontName}';
-								font-display: swap;
-								src: url("../fonts/${fontFileNameWithExtension}.woff2") format("woff2"), url("../fonts/${fontFileNameWithExtension}.woff") format("woff");
-								font-weight: ${fontWeight};
-								font-style: ${fontStyle};
-							}\r\n`, cb);
-                    }
-
-                    newFileOnly = fontFileName;
-                }
-            }
-        }
-    });
-
-    return app.gulp.src(`${app.path.srcFolder}`);
-    function cb() { }
+export const fontsStyle = async () => {
+    const sourceFolder = app.path.srcFolder + '/fonts';
+    const fonts = [...new Set(fs.readdirSync(sourceFolder)
+        .filter(file => /\.(?:ttf|otf|woff2?)$/i.test(file))
+        .map(file => file.replace(/\.[^.]+$/, '')))].sort();
+    const styles = fonts.map(file => {
+        const variable = /-VariableFont_/i.test(file);
+        const family = file.split('-')[0];
+        const weight = variable ? '100 900' : 400;
+        return `@font-face {
+    font-family: '${family}';
+    src: url("../fonts/${file}.woff2") format("woff2"), url("../fonts/${file}.woff") format("woff");
+    font-weight: ${weight};
+${variable ? '    font-stretch: 75% 125%;\n' : ''}    font-style: normal;
+    font-display: swap;
+}`;
+    }).join('\n') + '\n';
+    const destination = app.path.srcFolder + '/scss/fonts.scss';
+    if (!fs.existsSync(destination) || fs.readFileSync(destination, 'utf8') !== styles) {
+        fs.writeFileSync(destination, styles);
+    }
 };

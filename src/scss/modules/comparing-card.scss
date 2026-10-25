@@ -1,92 +1,271 @@
+@use "sass:math";
+
 // .comparing-card
 .comparing-card {
-    display: flex; flex-direction: column; position: relative; height: 100%; min-height: rem(276); padding: 0 rem(15) rem(15); border: rem(1) solid #e3e3e3; border-radius: rem(10); background: #fff; gap: rem(10);
-    @media (min-width: $md4) { min-height: rem(330); padding: 0 rem(20) rem(20); }
-    // .comparing-card__header
-    &__header { position: relative; height: rem(130); flex-shrink: 0; @media (min-width: $md4) { height: rem(210); } }
-    // .comparing-card__image
-    &__image { display: flex; justify-content: center; align-items: center; height: 100%; }
-    // .comparing-card__picture
-    &__picture { width: rem(120); height: rem(120); object-fit: contain; @media (min-width: $md4) { width: rem(180); height: rem(180); } }
-    // .comparing-card__actions
-    &__actions { position: absolute; top: rem(20); right: rem(-1); display: flex; flex-direction: column; gap: rem(10); }
-    // .comparing-card__action
-    &__action { display: flex; align-items: center; justify-content: center; width: rem(20); height: rem(20);
-        // .comparing-card__action.active
-        &.active { background: #ff620122; border-radius: rem(4); }
-    }
-    // .comparing-card__icon
-    &__icon { flex-shrink: 0; }
-    // .comparing-card__name
-    &__name { display: block; font-family: $fontfamily; font-size: rem(12); line-height: rem(16); font-weight: 500; color: #26272b; min-height: rem(48);
-        @media (min-width: $md4) { font-size: rem(14); line-height: rem(20); min-height: rem(40); }
-    }
-    // .comparing-card__bottom
-    &__bottom { display: flex; flex-direction: column; gap: rem(10); margin-top: auto;
-        @media (min-width: $md4) { flex-direction: row; align-items: center; justify-content: space-between; gap: rem(4); }
-    }
-    // .comparing-card__price
-    &__price { display: flex; align-items: center; flex-wrap: wrap; gap: rem(5);
-        @media (min-width: $md4) { gap: rem(10); }
-    }
-    // .comparing-card__current
-    &__current { font-size: rem(18); line-height: rem(26); font-weight: 600; color: #000; white-space: nowrap;
-        @media (min-width: $md4) { font-size: rem(20); line-height: rem(28); }
-    }
-    // .comparing-card__old
-    &__old { font-size: rem(12); line-height: rem(16); color: #8b8f95; white-space: nowrap;
-        @media (min-width: $md4) { font-size: rem(14); line-height: rem(20); }
-    }
-    // .comparing-card__cart
-    &__cart { display: flex; align-items: center; justify-content: center; flex-shrink: 0; min-height: rem(36); padding: rem(8); border-radius: rem(8); background: #ff6201; color: #fff; font-size: rem(14); font-weight: 500; line-height: rem(20);
-        @media (min-width: $md4) { width: rem(40); height: rem(40); padding: rem(10); }
-        // .comparing-card__cart:hover
-        @media (any-hover: hover) { &:hover { background: #e65500; } }
-    }
-    // .comparing-card__cart-text
-    &__cart-text { @media (min-width: $md4) { display: none; } }
-    // .comparing-card__cart-icon
-    &__cart-icon { display: none; @media (min-width: $md4) { display: block; } }
-    // .comparing__panel.is-stuck .comparing-card
-    .comparing__panel.is-stuck & { min-height: rem(232); padding: rem(10) rem(14); gap: rem(10);
-        @media (min-width: $md4) { min-height: rem(172); }
-        @media (min-width: $md2) { display: grid; grid-template-columns: minmax(0, 1fr) rem(32); grid-template-rows: rem(60) auto; gap: rem(10) 0; min-height: rem(152); }
-    }
-    // .comparing__panel.is-stuck .comparing-card__header
-    .comparing__panel.is-stuck &__header { height: rem(60);
-        @media (min-width: $md2) { grid-column: 1 / -1; }
-    }
-    // .comparing__panel.is-stuck .comparing-card__image
-    .comparing__panel.is-stuck &__image { justify-content: flex-start; }
-    // .comparing__panel.is-stuck .comparing-card__picture
-    .comparing__panel.is-stuck &__picture { width: rem(60); height: rem(60); }
-    // .comparing__panel.is-stuck .comparing-card__actions
-    .comparing__panel.is-stuck &__actions { top: 0; }
-    // .comparing__panel.is-stuck .comparing-card__name
-    .comparing__panel.is-stuck &__name { font-size: rem(14); line-height: rem(20); min-height: rem(60);
-        @media (min-width: $md4) { min-height: rem(40); }
-    }
-    // .comparing__panel.is-stuck .comparing-card__current
-    .comparing__panel.is-stuck &__current { font-size: rem(18); line-height: rem(26);
-        @media (min-width: $md2) { font-size: rem(14); line-height: rem(22); }
-    }
-    // .comparing__panel.is-stuck .comparing-card__old
-    .comparing__panel.is-stuck &__old { font-size: rem(12); line-height: rem(16); }
-    // .comparing__panel.is-stuck .comparing-card__bottom
-    .comparing__panel.is-stuck &__bottom {
-        @media (min-width: $md2) { display: contents; }
-    }
-    // .comparing__panel.is-stuck .comparing-card__price
-    .comparing__panel.is-stuck &__price {
-        @media (min-width: $md2) { grid-column: 1; grid-row: 2; align-self: end; gap: rem(5); }
-    }
-    // .comparing__panel.is-stuck .comparing-card__name
-    .comparing__panel.is-stuck &__name {
-        @media (min-width: $md2) { grid-column: 1; grid-row: 2; align-self: start; min-height: rem(62); padding-bottom: rem(22); }
-    }
-    // .comparing__panel.is-stuck .comparing-card__cart
-    .comparing__panel.is-stuck &__cart {
-        @media (min-width: $md4) { width: rem(32); height: rem(32); min-height: rem(32); padding: rem(6); }
-        @media (min-width: $md2) { grid-column: 2; grid-row: 2; align-self: start; }
-    }
+	display: flex;
+	flex-direction: column;
+	position: relative;
+	height: 100%;
+	min-height: rem(276);
+	padding: 0 rem(15) rem(15);
+	border: rem(1) solid #e3e3e3;
+	border-radius: rem(10);
+	background: #fff;
+	gap: rem(10);
+	@media (min-width: $md4) {
+		min-height: rem(330);
+		padding: 0 rem(20) rem(20);
+	}
+	// .comparing-card__header
+	&__header {
+		position: relative;
+		height: rem(130);
+		flex-shrink: 0;
+		@media (min-width: $md4) {
+			height: rem(210);
+		}
+	}
+	// .comparing-card__image
+	&__image {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+	}
+	// .comparing-card__picture
+	&__picture {
+		width: rem(120);
+		height: rem(120);
+		object-fit: contain;
+		@media (min-width: $md4) {
+			width: rem(180);
+			height: rem(180);
+		}
+	}
+	// .comparing-card__actions
+	&__actions {
+		position: absolute;
+		top: rem(20);
+		right: rem(-1);
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+	}
+	// .comparing-card__action
+	&__action {
+		font-size: rem(20);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(20);
+		height: rem(20);
+		// .comparing-card__action.active
+		&.active {
+			background: #ff620122;
+			border-radius: rem(4);
+		}
+	}
+	// .comparing-card__icon
+	&__icon {
+		flex-shrink: 0;
+	}
+	// .comparing-card__name
+	&__name {
+		display: block;
+		font-family: $fontfamily;
+		font-size: rem(12);
+		line-height: math.div(16, 12);
+		font-weight: 500;
+		color: #26272b;
+		min-height: rem(48);
+		@media (min-width: $md4) {
+			font-size: rem(14);
+			line-height: math.div(20, 14);
+			min-height: rem(40);
+		}
+	}
+	// .comparing-card__bottom
+	&__bottom {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		margin-top: auto;
+		@media (min-width: $md4) {
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			gap: rem(4);
+		}
+	}
+	// .comparing-card__price
+	&__price {
+		display: flex;
+		align-items: center;
+		flex-wrap: wrap;
+		gap: rem(5);
+		@media (min-width: $md4) {
+			gap: rem(10);
+		}
+	}
+	// .comparing-card__current
+	&__current {
+		font-size: rem(18);
+		line-height: math.div(26, 18);
+		font-weight: 600;
+		color: #000;
+		white-space: nowrap;
+		@media (min-width: $md4) {
+			font-size: rem(20);
+			line-height: math.div(28, 20);
+		}
+	}
+	// .comparing-card__old
+	&__old {
+		font-size: rem(12);
+		line-height: math.div(16, 12);
+		color: #8b8f95;
+		white-space: nowrap;
+		@media (min-width: $md4) {
+			font-size: rem(14);
+			line-height: math.div(20, 14);
+		}
+	}
+	// .comparing-card__cart
+	&__cart {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		min-height: rem(36);
+		padding: rem(8);
+		border-radius: rem(8);
+		background: #ff6201;
+		color: #fff;
+		font-size: rem(14);
+		font-weight: 500;
+		line-height: math.div(20, 14);
+		@media (min-width: $md4) {
+			width: rem(40);
+			height: rem(40);
+			padding: rem(10);
+		}
+		// .comparing-card__cart:hover
+		@media (any-hover: hover) {
+			// .comparing-card__cart:hover
+			&:hover {
+				background: #fb7e00;
+			}
+		}
+	}
+	// .comparing-card__cart-text
+	&__cart-text {
+		@media (min-width: $md4) {
+			display: none;
+		}
+	}
+	// .comparing-card__cart-icon
+	&__cart-icon {
+		display: none;
+		@media (min-width: $md4) {
+			display: block;
+		}
+	}
+	// .comparing__panel.is-stuck .comparing-card
+	.comparing__panel.is-stuck & {
+		min-height: rem(232);
+		padding: rem(10) rem(14);
+		gap: rem(10);
+		@media (min-width: $md4) {
+			min-height: rem(172);
+		}
+		@media (min-width: $md2) {
+			display: grid;
+			grid-template-columns: minmax(0, 1fr) rem(32);
+			grid-template-rows: rem(60) auto;
+			gap: rem(10) 0;
+			min-height: rem(152);
+		}
+	}
+	// .comparing__panel.is-stuck .comparing-card__header
+	.comparing__panel.is-stuck &__header {
+		height: rem(60);
+		@media (min-width: $md2) {
+			grid-column: 1 / -1;
+		}
+	}
+	// .comparing__panel.is-stuck .comparing-card__image
+	.comparing__panel.is-stuck &__image {
+		justify-content: flex-start;
+	}
+	// .comparing__panel.is-stuck .comparing-card__picture
+	.comparing__panel.is-stuck &__picture {
+		width: rem(60);
+		height: rem(60);
+	}
+	// .comparing__panel.is-stuck .comparing-card__actions
+	.comparing__panel.is-stuck &__actions {
+		top: 0;
+	}
+	// .comparing__panel.is-stuck .comparing-card__name
+	.comparing__panel.is-stuck &__name {
+		font-size: rem(14);
+		line-height: math.div(20, 14);
+		min-height: rem(60);
+		@media (min-width: $md4) {
+			min-height: rem(40);
+		}
+	}
+	// .comparing__panel.is-stuck .comparing-card__current
+	.comparing__panel.is-stuck &__current {
+		font-size: rem(18);
+		line-height: math.div(26, 18);
+		@media (min-width: $md2) {
+			font-size: rem(14);
+			line-height: math.div(22, 14);
+		}
+	}
+	// .comparing__panel.is-stuck .comparing-card__old
+	.comparing__panel.is-stuck &__old {
+		font-size: rem(12);
+		line-height: math.div(16, 12);
+	}
+	// .comparing__panel.is-stuck .comparing-card__bottom
+	.comparing__panel.is-stuck &__bottom {
+		@media (min-width: $md2) {
+			display: contents;
+		}
+	}
+	// .comparing__panel.is-stuck .comparing-card__price
+	.comparing__panel.is-stuck &__price {
+		@media (min-width: $md2) {
+			grid-column: 1;
+			grid-row: 2;
+			align-self: end;
+			gap: rem(5);
+		}
+	}
+	// .comparing__panel.is-stuck .comparing-card__name
+	.comparing__panel.is-stuck &__name {
+		@media (min-width: $md2) {
+			grid-column: 1;
+			grid-row: 2;
+			align-self: start;
+			min-height: rem(62);
+			padding-bottom: rem(22);
+		}
+	}
+	// .comparing__panel.is-stuck .comparing-card__cart
+	.comparing__panel.is-stuck &__cart {
+		@media (min-width: $md4) {
+			width: rem(32);
+			height: rem(32);
+			min-height: rem(32);
+			padding: rem(6);
+		}
+		@media (min-width: $md2) {
+			grid-column: 2;
+			grid-row: 2;
+			align-self: start;
+		}
+	}
 }

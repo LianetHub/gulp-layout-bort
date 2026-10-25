@@ -6,7 +6,7 @@
     <body>
         <div class="wrapper">
             @@include('html/_header.html', {})
-            <main class="page page--showcase">
+            <main class="page page--light">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
                     <div class="breadcrumbs__container container">
                         <ul class="breadcrumbs__list">
@@ -17,9 +17,9 @@
                 </nav>
                 <section class="returns" aria-labelledby="returns-title">
                     <div class="returns__container container">
-                        <h1 class="returns__title title" id="returns-title">Безусловный возврат товара</h1>
+                        <h1 class="returns__title title title-lg" id="returns-title">Безусловный возврат товара</h1>
                         <div class="returns__intro">
-                            <h2 class="returns__caption title title--information">Гарантия спокойствия: возврат товара без лишних вопросов</h2>
+                            <h2 class="returns__caption title title-md">Гарантия спокойствия: возврат товара без лишних вопросов</h2>
                             <p class="returns__description">Мы ценим ваше доверие и делаем покупки в нашем магазине максимально комфортными. Именно поэтому мы предлагаем уникальные условия возврата товаров купленных в нашем магазине на сайте bort.ru, которые выходят за рамки стандартных требований законодательства.</p>
                             <ul class="returns__benefits">
                                 @@loop('html/templates/_return-benefit.html', './html/json/return-benefits.json')
@@ -27,7 +27,7 @@
                             <p class="returns__description">Bort.ru заботится о вашем комфорте и уверенности в каждом заказе. Мы верим, что такие условия сделают вашу покупку еще более приятной и безопасной.</p>
                         </div>
                         <div class="returns__section">
-                            <h2 class="returns__caption title title--information">Как это работает?</h2>
+                            <h2 class="returns__caption title title-md">Как это работает?</h2>
                             <p class="returns__description">Что от Вас потребуется чтобы вернуть заказ:</p>
                             <ol class="return-steps">
                                 <li class="return-steps__item"><div class="return-steps__body"><p class="return-steps__text">Зайти к себе в Личный кабинет в раздел Заказы. Найти заказ в котором находится возвращаемый товар. Нажать на Возврат товара. Отметить возвращаемый товар и причину возврата. Нажать Возврат.</p></div></li>
@@ -37,7 +37,7 @@
                             </ol>
                         </div>
                         <div class="returns__section">
-                            <h2 class="returns__caption title title--information">Алгоритм действий в случае возврата неисправного товара</h2>
+                            <h2 class="returns__caption title title-md">Алгоритм действий в случае возврата неисправного товара</h2>
                             <ol class="return-steps">
                                 <li class="return-steps__item"><div class="return-steps__body"><p class="return-steps__text">Если товар оказался неисправным до окончания гарантийного срока, его необходимо предоставить в сервисный центр. Адреса СЦ указаны в гарантийном талоне, который вы получили с товаром.</p></div></li>
                                 <li class="return-steps__item"><div class="return-steps__body"><p class="return-steps__text">СЦ выдаст заключение о том, что стало причиной поломки. Если по вине покупателя, то к сожалению мы не сможем вам помочь.</p></div></li>

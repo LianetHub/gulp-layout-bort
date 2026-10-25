@@ -1,0 +1,8 @@
+node_modules/
+docs/
+**/libs/
+**/*.min.*
+src/fonts/
+src/scss/fonts.scss
+src/scss/icons.scss
+package-lock.json

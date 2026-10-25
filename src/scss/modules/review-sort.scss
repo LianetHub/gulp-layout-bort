@@ -1,33 +1,35 @@
+@use "sass:math";
+
 // .review-sort
 .review-sort {
-    position: relative;
-    display: inline-flex;
-    max-width: 100%;
-    // .review-sort__select
-    &__select {
-        width: 100%;
-        min-height: rem(24);
-        padding: rem(2) 0 rem(2) rem(30);
-        background: transparent;
-        color: #2b2b2b;
-        font-size: rem(14);
-        line-height: rem(20);
-        appearance: none;
-        cursor: pointer;
-        // .review-sort__select:focus-visible
-        &:focus-visible {
-            outline: rem(2) solid $orange;
-            outline-offset: rem(2);
-        }
-    }
-    // .review-sort__icon
-    &__icon {
-        position: absolute;
-        top: 50%;
-        left: rem(4);
-        transform: translateY(-50%);
-        pointer-events: none;
-        color: #a7a8aa;
-        font-size: rem(16);
-    }
+	position: relative;
+	display: inline-flex;
+	max-width: 100%;
+	// .review-sort__select
+	&__select {
+		width: 100%;
+		min-height: rem(24);
+		padding: rem(2) 0 rem(2) rem(30);
+		background: transparent;
+		color: #2b2b2b;
+		font-size: rem(14);
+		line-height: math.div(20, 14);
+		appearance: none;
+		cursor: pointer;
+		// .review-sort__select:focus-visible
+		&:focus-visible {
+			outline: rem(2) solid $orange;
+			outline-offset: rem(2);
+		}
+	}
+	// .review-sort__icon
+	&__icon {
+		position: absolute;
+		top: 50%;
+		left: rem(4);
+		transform: translateY(-50%);
+		pointer-events: none;
+		color: #a7a8aa;
+		font-size: rem(16);
+	}
 }

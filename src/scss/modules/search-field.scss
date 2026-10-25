@@ -1,0 +1,70 @@
+@use "sass:math";
+
+// .search-field
+.search-field {
+	position: relative;
+	display: flex;
+	min-width: 0;
+	// .search-field__input
+	&__input {
+		width: 100%;
+		min-width: 0;
+		height: rem(44);
+		padding: rem(12) rem(80) rem(12) rem(20);
+		border: 1px solid transparent;
+		border-radius: rem(8);
+		background: #f2f2f2;
+		font-size: rem(16);
+		line-height: math.div(20, 16);
+		color: #2b2b2b;
+		// .search-field__input:focus
+		&:focus {
+			background: #fff;
+			border-color: #ff6201;
+		}
+	}
+	// .search-field__button
+	&__button {
+		position: absolute;
+		right: rem(12);
+		top: 50%;
+		transform: translateY(-50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(24);
+		height: rem(32);
+		font-size: rem(24);
+		color: #6a6b6d;
+		@media (any-hover: hover) {
+			// .search-field__button:hover
+			&:hover {
+				color: #ff6201;
+			}
+		}
+	}
+	// .search-field:focus-within .search-field__button
+	&:focus-within &__button {
+		color: #ff6201;
+	}
+	// .search-field__clear
+	&__clear {
+		position: absolute;
+		right: rem(48);
+		top: 50%;
+		transform: translateY(-50%);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(24);
+		height: rem(24);
+		border-radius: 50%;
+		background: #f2f2f2;
+		color: #63666a;
+		font-size: rem(16);
+		// .search-field__clear[hidden]
+		&[hidden] {
+			display: none;
+		}
+	}
+}

@@ -5,15 +5,15 @@
 <body>
     <div class="wrapper">
         @@include('html/_header.html', { "auth": true })
-        <main class="page">
+        <main class="page page--dark">
             <section class="checkout">
                 <div class="checkout__container container">
                     <a href="cart.html" class="checkout__back"><span class="checkout__back-icon icon-chevron-left" aria-hidden="true"></span>Вернуться к покупкам</a>
-                    <h1 class="checkout__title title title--cart">Корзина</h1>
+                    <h1 class="checkout__title title title-lg title--sans title--bold">Корзина</h1>
                     <form class="checkout__layout" id="checkout-form">
                         <div class="checkout__main">
                             <section class="checkout__block">
-                                <h2 class="checkout__heading title title--form">Контактные данные</h2>
+                                <h2 class="checkout__heading title title-md title--sans">Контактные данные</h2>
                                 <div class="checkout__contacts"><label class="checkout__field"><span class="checkout__label">Имя</span><input class="checkout__input" type="text" name="first_name" value="Алексей" placeholder="" autocomplete="given-name" required></label>
                                     <label class="checkout__field"><span class="checkout__label">Фамилия</span><input class="checkout__input" type="text" name="last_name" value="Григорьев" placeholder="" autocomplete="family-name" required></label>
                                     <label class="checkout__field"><span class="checkout__label">Телефон</span><input class="checkout__input" type="tel" name="phone" value="+7 (987) 890-38-90" placeholder="" autocomplete="tel" required></label>
@@ -21,14 +21,14 @@
                                 </div>
                             </section>
                             <section class="checkout__block">
-                                <h2 class="checkout__heading title title--form">Способ доставки</h2>
+                                <h2 class="checkout__heading title title-md title--sans">Способ доставки</h2>
                                 <div class="checkout__options"><label class="checkout__option"><input class="checkout__radio" type="radio" name="delivery" value="post"><span class="checkout__option-body"><span class="checkout__option-title">Почта России</span><span class="checkout__option-description">Бесплатная доставка</span></span></label>
                                     <label class="checkout__option"><input class="checkout__radio" type="radio" name="delivery" value="courier" checked><span class="checkout__option-body"><span class="checkout__option-title">Курьером до двери по Москве</span><span class="checkout__option-description">Доставка зависит от отдаленности</span></span></label>
                                     <label class="checkout__option"><input class="checkout__radio" type="radio" name="delivery" value="ozon"><span class="checkout__option-body"><span class="checkout__option-title">Пункт выдачи Озон</span><span class="checkout__option-description">Бесплатная доставка</span></span></label>
                                 </div>
                                 <div class="checkout__address">
                                     <div class="checkout__address-heading">
-                                        <h3 class="checkout__subtitle title title--details">Выберите адрес доставки</h3>
+                                        <h3 class="checkout__subtitle title title-sm title--sans">Выберите адрес доставки</h3>
                                         <label class="checkout__save"><input class="checkout__checkbox" type="checkbox" name="save_address"><span class="checkout__save-text">Сохранить адрес</span></label>
                                     </div>
                                     <div class="checkout__selected-address" hidden>
@@ -48,7 +48,7 @@
                                 </div>
                                 <div class="checkout__pickup" hidden>
                                     <div class="checkout__pickup-content">
-                                        <h3 class="checkout__pickup-title title title--details">Выберите пункт выдачи</h3>
+                                        <h3 class="checkout__pickup-title title title-sm title--sans">Выберите пункт выдачи</h3>
                                         <p class="checkout__pickup-description">Чтобы продолжить оформление, выберите удобный пункт выдачи Озон</p>
                                     </div>
                                     <div class="checkout__pickup-selected" hidden>
@@ -65,7 +65,7 @@
                                 </div>
                             </section>
                             <section class="checkout__block">
-                                <h2 class="checkout__heading title title--form">Способ оплаты</h2>
+                                <h2 class="checkout__heading title title-md title--sans">Способ оплаты</h2>
                                 <div class="checkout__options"><label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="online" checked><span class="checkout__option-body"><span class="checkout__option-title">Оплата онлайн</span><span class="checkout__option-description">Мы отправляем заказы только после оплаты</span></span></label>
                                     <label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="receipt"><span class="checkout__option-body"><span class="checkout__option-title">Наличными или картой при получении</span><span class="checkout__option-description">Только для Москвы в пределах МКАД</span></span></label>
                                     <label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="invoice"><span class="checkout__option-body"><span class="checkout__option-title">Безналичный расчет для юридических лиц <img class="checkout__info" src="@img/checkout/info.svg" width="16" height="16" alt="Информация" title="Счет для юридических лиц"></span><span class="checkout__option-description">Формируем счет на оплату и резервируем товар</span></span></label>
@@ -73,7 +73,7 @@
                             </section>
                         </div>
                         <aside class="checkout__summary checkout__block">
-                            <h2 class="checkout__heading title title--form">Ваш заказ</h2>
+                            <h2 class="checkout__heading title title-md title--sans">Ваш заказ</h2>
                             <dl class="checkout__totals">
                                 <div class="checkout__total-row">
                                     <dt class="checkout__total-label">Вес заказа</dt>

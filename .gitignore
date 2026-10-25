@@ -6,8 +6,37 @@
 
 AGENTS.md
 
+# Temporary files and local caches
+.tmp*
+*.log
+*.tmp
+*.bak
+__pycache__/
+*.pyc
+
 /tests/*
 !/tests/auth-dialogs.test.js
 !/tests/auth.html
 !/tests/auth-browser.js
 !/tests/comparing.test.js
+!/tests/site-integrity.test.js
+!/tests/native-js.test.js
+!/tests/fonts.test.js
+!/tests/css-build.test.js
+!/tests/favorites.test.js
+!/tests/favorites.html
+!/tests/favorites-browser.js
+!/tests/demo-boundaries.test.js
+!/tests/demo.html
+!/tests/demo-browser.js
+!/tests/README.md
+!/tests/ui-stage-two.test.js
+!/tests/ui-stage-two.html
+!/tests/ui-stage-two-browser.js
+!/tests/faq-details.test.js
+!/tests/ui-unification.html
+!/tests/ui-unification-browser.js
+!/tests/select.test.js
+!/tests/tooltip.test.js
+!/tests/ui-kit.html
+!/tests/ui-kit-browser.js

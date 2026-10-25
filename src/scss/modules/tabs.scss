@@ -1,0 +1,42 @@
+@use "sass:math";
+
+// .tab
+.tab {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding: rem(10) rem(20);
+	border-radius: rem(10);
+	background: #f2f2f2;
+	color: #404246;
+	font-size: rem(16);
+	line-height: math.div(22, 16);
+	white-space: nowrap;
+	@media (any-hover: hover) {
+		// .tab:hover
+		&:hover {
+			background: #ebeaea;
+			color: #ff6201;
+		}
+	}
+	// .tab.active
+	// .tab[aria-selected="true"]
+	&.active,
+	&[aria-selected="true"] {
+		background: #ff6201;
+		color: #fff;
+	}
+	// .tab:disabled
+	// .tab[aria-disabled="true"]
+	&:disabled,
+	&[aria-disabled="true"] {
+		background: #f2f2f2;
+		color: #8b8f95;
+		pointer-events: none;
+	}
+	// .tab:focus-visible
+	&:focus-visible {
+		outline: 2px solid #ff6201;
+		outline-offset: 2px;
+	}
+}

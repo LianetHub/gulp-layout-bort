@@ -1,33 +1,26 @@
+@use "sass:math";
+
 // .bullet-list
 .bullet-list {
-    display: grid;
-    gap: rem(10);
-    font-size: rem(14);
-    line-height: rem(20);
-    color: #2b2b2b;
-    // .bullet-list--body
-    &--body {
-        font-size: rem(16);
-        line-height: rem(22);
-        @media (min-width: $md4) {
-            font-size: rem(18);
-            line-height: rem(26);
-        }
-    }
-    // .bullet-list__item
-    &__item {
-        position: relative;
-        padding-left: rem(20);
-        // .bullet-list__item::before
-        &::before {
-            content: "";
-            position: absolute;
-            top: rem(9);
-            left: rem(5);
-            width: rem(4);
-            height: rem(4);
-            border-radius: 50%;
-            background: $orange;
-        }
-    }
+	display: grid;
+	gap: rem(10);
+	font-size: rem(14);
+	line-height: math.div(20, 14);
+	color: #2b2b2b;
+	// .bullet-list__item
+	&__item {
+		position: relative;
+		padding-left: rem(20);
+		// .bullet-list__item::before
+		&::before {
+			content: "";
+			position: absolute;
+			top: rem(9);
+			left: rem(5);
+			width: rem(4);
+			height: rem(4);
+			border-radius: 50%;
+			background: $orange;
+		}
+	}
 }

@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // .subscribe
 .subscribe {
 	// .subscribe--desktop
@@ -27,10 +29,10 @@
 	&__text {
 		margin-top: rem(10);
 		font-size: rem(14);
-		line-height: rem(20);
+		line-height: math.div(20, 14);
 		@media (min-width: $md4) {
 			font-size: rem(16);
-			line-height: rem(22);
+			line-height: math.div(22, 16);
 		}
 		color: #777;
 	}
@@ -47,7 +49,16 @@
 			background: #fff;
 			border-radius: rem(8);
 			font-size: rem(14);
-			line-height: rem(20);
+			line-height: math.div(20, 14);
+			// .subscribe__fields .subscribe__input:focus
+			&:focus {
+				border-color: #ff6201;
+			}
+			// .subscribe__fields .subscribe__input:disabled
+			&:disabled {
+				background: #f2f4f8;
+				color: #8b8f95;
+			}
 		}
 		// .subscribe__fields .subscribe__submit
 		.subscribe__submit {
@@ -57,21 +68,36 @@
 			color: #fff;
 			border-radius: rem(8);
 			font-size: rem(16);
-			line-height: rem(22);
+			line-height: math.div(22, 16);
+			@media (any-hover: hover) {
+				// .subscribe__fields .subscribe__submit:hover
+				&:hover {
+					background: #fb7e00;
+				}
+			}
+			// .subscribe__fields .subscribe__submit:active
+			&:active {
+				background: #fb7e00;
+			}
+			// .subscribe__fields .subscribe__submit:disabled
+			&:disabled {
+				background: #e5e9f2;
+				color: #8b8f95;
+			}
 			@media (min-width: $md4) {
 				padding: rem(14) rem(30);
 				font-size: rem(14);
-				line-height: rem(20);
+				line-height: math.div(20, 14);
 			}
 		}
 	}
 	// .subscribe__form .subscribe__text
 	&__form .subscribe__text {
 		font-size: rem(10);
-		line-height: rem(14);
+		line-height: math.div(14, 10);
 		@media (min-width: $md4) {
 			font-size: rem(12);
-			line-height: rem(16);
+			line-height: math.div(16, 12);
 		}
 		margin-top: rem(10);
 		// .subscribe__form .subscribe__text .subscribe__link

@@ -14,7 +14,6 @@
 $fontfamily: "GolosText";
 $font-russo: "RussoOne";
 
-
 // Шрифт по умолчанию
 
 $md1: 1419.98px;
@@ -32,7 +31,7 @@ $maxWidthContainer: rem(1380); // Максимальная ширина огра
 
 // ЦВЕТА
 
-$orange: #ea7600;
+$orange: #ff6201;
 $blue: #00778b;
 $pink: #ff7dbc;
 $black: #202020;
@@ -58,8 +57,6 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 @import "header";
 @import "modules/search";
 @import "modules/mobile-catalog";
-@import "modules/catalog";
-@import "modules/range-slider";
 @import "footer";
 
 //=======================================
@@ -68,27 +65,24 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 
 @import "pages/home";
 @import "pages/products";
+@import "modules/reviews";
+@import "modules/map-block";
 @import "pages/contacts";
-@import "pages/error";
 @import "pages/article";
 @import "pages/promotions";
-@import "pages/archive";
 @import "pages/blog";
-@import "pages/category";
 @import "pages/product-card";
 @import "modules/product-content";
-@import "pages/lk";
 @import "pages/cart";
-@import "pages/checkout";
 @import "modules/checkout";
 @import "modules/address-picker";
 @import "modules/cart-item";
 @import "modules/cart-accessory";
-@import "pages/login";
 @import "pages/comparing";
 @import "modules/comparing-card";
 @import "pages/sitemap";
 @import "pages/policy";
+@import "modules/wysiwyg";
 @import "pages/spare-parts";
 @import "pages/services";
 @import "pages/returns";
@@ -108,7 +102,6 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 @import "modules/review-group";
 @import "modules/rating-stars";
 @import "modules/rating-summary";
-@import "modules/marketplace-rating";
 @import "modules/parts-help";
 @import "modules/promo-card";
 @import "modules/products-showcase";
@@ -116,6 +109,7 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 @import "modules/solutions";
 @import "modules/subscribe";
 @import "modules/marketing-card";
+@import "modules/marketing";
 
 @import "modules/faq";
 @import "modules/contact-form";
@@ -126,6 +120,7 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 @import "modules/favorite-dialog";
 @import "modules/auth-dialog";
 
+@import "modules/page-heading";
 @import "modules/account";
 @import "modules/addresses";
 @import "modules/address-dialog";

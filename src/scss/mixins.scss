@@ -3,7 +3,9 @@
 	@font-face {
 		font-family: $font_name;
 		font-display: swap;
-		src: url("../fonts/#{$file_name}.woff") format("woff"), url("../fonts/#{$file_name}.woff2") format("woff2");
+		src:
+			url("../fonts/#{$file_name}.woff") format("woff"),
+			url("../fonts/#{$file_name}.woff2") format("woff2");
 		font-weight: #{$weight};
 		font-style: #{$style};
 	}
@@ -31,7 +33,9 @@
 }
 
 @mixin drop-border($size, $color) {
-	filter: drop-shadow(0 0 rem(math.div($size, 4)) $color) drop-shadow(0 0 rem(math.div($size, 4)) $color) drop-shadow(0 0 rem(math.div($size, 4)) $color);
+	filter: drop-shadow(0 0 rem(math.div($size, 4)) $color)
+		drop-shadow(0 0 rem(math.div($size, 4)) $color)
+		drop-shadow(0 0 rem(math.div($size, 4)) $color);
 }
 
 //Cтилизация плэйсхолдеров
@@ -74,17 +78,27 @@
 		//только если меньше контейнера
 		#{$property}: $regularSize;
 		@media (max-width: $md1) {
-			#{$property}: calc(#{$minSizeValue} + #{rem($addSize)} * ((100vw - #{rem($minWidth)}) / #{$maxWidthContainer - rem($minWidth)}));
+			#{$property}: calc(
+				#{$minSizeValue} + #{rem($addSize)} *
+					((100vw - #{rem($minWidth)}) / #{$maxWidthContainer - rem($minWidth)})
+			);
 		}
 	} @else if $type == 2 {
 		//только если больше контейнера
 		#{$property}: $regularSize;
 		@media (min-width: $md1) {
-			#{$property}: calc(#{$minSizeValue} + #{rem($addSize)} * ((100vw - #{rem($minWidth)}) / #{$maxWidth - rem($minWidth)}));
+			#{$property}: calc(
+				#{$minSizeValue} + #{rem($addSize)} *
+					((100vw - #{rem($minWidth)}) / #{$maxWidth - rem($minWidth)})
+			);
 		}
 	} @else {
 		// всегда
-		#{$property}: calc(#{$minSizeValue} + #{rem($addSize)} * ((100vw - #{rem($minWidth)}) / #{$maxWidth - rem($minWidth)}));
+		#{$property}: calc(
+			#{$minSizeValue} +
+				#{rem($addSize)} *
+				((100vw - #{rem($minWidth)}) / #{$maxWidth - rem($minWidth)})
+		);
 	}
 }
 

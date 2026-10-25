@@ -1,0 +1,31 @@
+@use "sass:math";
+
+// .badge
+.badge {
+	display: inline-flex;
+	align-items: center;
+	gap: rem(5);
+	padding: rem(4) rem(6);
+	border-radius: rem(5);
+	color: #fff;
+	font-size: rem(12);
+	font-weight: 500;
+	line-height: math.div(16, 12);
+	white-space: nowrap;
+	// .badge::before
+	&::before {
+		font-size: rem(16);
+	}
+	// .badge--orange
+	&--orange {
+		background: #ff6201;
+	}
+	// .badge--yellow
+	&--yellow {
+		background: #fb7e00;
+	}
+	// .badge--green
+	&--green {
+		background: #149748;
+	}
+}

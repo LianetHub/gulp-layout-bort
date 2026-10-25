@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // .mobile-catalog
 .mobile-catalog {
 	position: fixed;
@@ -11,7 +13,13 @@
 		display: none;
 	}
 	@media (min-width: $md4) {
-		display: none;
+		inset: auto;
+		width: rem(294);
+		padding: rem(10);
+		border: 1px solid #f2f2f2;
+		border-radius: rem(10);
+		box-shadow: 0 rem(10) rem(30) #0e19231a;
+		overflow-y: auto;
 	}
 	// .mobile-catalog__container
 	&__container {
@@ -19,6 +27,11 @@
 		flex-direction: column;
 		height: 100%;
 		min-height: 0;
+		@media (min-width: $md4) {
+			padding: 0;
+			height: auto;
+			width: 100%;
+		}
 	}
 	// .mobile-catalog__header
 	&__header {
@@ -29,6 +42,9 @@
 		gap: rem(10);
 		min-height: rem(76);
 		padding: rem(20) 0 rem(22);
+		@media (min-width: $md4) {
+			display: none;
+		}
 	}
 	// .mobile-catalog__title
 	&__title {
@@ -66,12 +82,16 @@
 		overflow-y: auto;
 		overscroll-behavior: contain;
 		padding-bottom: rem(15);
+		@media (min-width: $md4) {
+			overflow: visible;
+			padding: 0;
+		}
 	}
 	// .mobile-catalog__panel
 	&__panel {
 		font-size: rem(16);
 		font-weight: 500;
-		line-height: rem(22);
+		line-height: math.div(22, 16);
 		// .mobile-catalog__panel[hidden]
 		&[hidden] {
 			display: none;
@@ -82,12 +102,21 @@
 			.mobile-catalog__link {
 				min-height: rem(59);
 				padding-block: rem(16);
+				@media (min-width: $md4) {
+					min-height: rem(48);
+					padding: rem(11) rem(15);
+					font-size: rem(18);
+					line-height: math.div(26, 18);
+				}
 			}
 		}
 	}
 	// .mobile-catalog__item
 	&__item {
 		border-bottom: 1px solid #e9e9e9;
+		@media (min-width: $md4) {
+			border: 0;
+		}
 	}
 	// .mobile-catalog__link
 	&__link {
@@ -100,10 +129,22 @@
 		padding: rem(12) 0;
 		text-align: left;
 		color: inherit;
+		@media (min-width: $md4) {
+			padding-inline: rem(15);
+			border-radius: rem(10);
+		}
+		// .mobile-catalog__link:focus-visible
+		&:focus-visible {
+			outline: 2px solid #ff6201;
+			outline-offset: -2px;
+		}
 		@media (any-hover: hover) {
 			// .mobile-catalog__link:hover
 			&:hover {
 				color: $orange;
+				@media (min-width: $md4) {
+					background: #f2f2f2;
+				}
 			}
 		}
 	}
@@ -121,6 +162,11 @@
 		.mobile-catalog__header {
 			min-height: rem(66);
 			padding-bottom: rem(20);
+			@media (min-width: $md4) {
+				display: flex;
+				min-height: rem(48);
+				padding: rem(5) rem(10) rem(15);
+			}
 		}
 		// .mobile-catalog--nested .mobile-catalog__title
 		.mobile-catalog__title {

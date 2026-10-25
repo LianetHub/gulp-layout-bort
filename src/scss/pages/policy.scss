@@ -1,35 +1,13 @@
 // .policy
 .policy {
-    padding: rem(20) 0 rem(40);
-    @media (min-width: $md4) {
-        padding-bottom: rem(60);
-    }
-
-    // .policy__container
-    &__container {
-        box-sizing: border-box;
-        width: 100%;
-        max-width: rem(1280);
-    }
-
-    // .policy__title
-    &__title {
-        margin-bottom: rem(40);
-    }
-
-    // .policy__caption
-    &__caption {
-        margin-bottom: rem(20);
-    }
-
-    // .policy__text
-    &__text {
-        margin: 0;
-        overflow-wrap: anywhere;
-    }
-
-    // .policy__text + .policy__caption
-    &__text + &__caption {
-        margin-top: rem(40);
-    }
+	padding: rem(20) 0 rem(40);
+	@media (min-width: $md4) {
+		padding-bottom: rem(60);
+	}
+	// .policy__container
+	&__container {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: rem(1280);
+	}
 }

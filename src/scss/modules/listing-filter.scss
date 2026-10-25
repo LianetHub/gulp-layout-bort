@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // .listing-filter-overlay
 .listing-filter-overlay {
 	position: fixed;
@@ -66,7 +68,7 @@
 	&__caption {
 		font-weight: 600;
 		font-size: rem(14);
-		line-height: 1.4;
+		line-height: math.div(14, 10);
 		margin-bottom: rem(8);
 	}
 	// .listing-filter__category
@@ -74,7 +76,7 @@
 		display: block;
 		padding: rem(8) rem(12);
 		font-size: rem(14);
-		line-height: 1.4;
+		line-height: math.div(14, 10);
 		border-radius: rem(4);
 		// .listing-filter__category.is-active
 		&.is-active {
@@ -99,9 +101,13 @@
 		border-radius: rem(20);
 		position: relative;
 		cursor: pointer;
+		transition: background-color 0.25s ease;
+		@media (prefers-reduced-motion: reduce) {
+			transition: none;
+		}
 		// .listing-filter__switch::before
 		&::before {
-			content: '';
+			content: "";
 			position: absolute;
 			width: rem(16);
 			height: rem(16);
@@ -109,13 +115,17 @@
 			top: rem(3);
 			left: rem(3);
 			border-radius: 50%;
+			transition: transform 0.25s ease;
+			@media (prefers-reduced-motion: reduce) {
+				transition: none;
+			}
 		}
 		// .listing-filter__switch:checked
 		&:checked {
 			background: #ff6900;
 			// .listing-filter__switch:checked::before
 			&::before {
-				left: rem(19);
+				transform: translateX(#{rem(16)});
 			}
 		}
 	}
@@ -156,20 +166,30 @@
 	// .listing-filter__summary
 	&__summary {
 		display: flex;
+		align-items: center;
 		justify-content: space-between;
 		gap: rem(12);
 		cursor: pointer;
 		list-style: none;
 		font-size: rem(14);
 		font-weight: 600;
-		line-height: 1.4;
+		line-height: math.div(14, 10);
 		// .listing-filter__summary::-webkit-details-marker
 		&::-webkit-details-marker {
 			display: none;
 		}
 		// .listing-filter__summary::after
 		&::after {
-			content: '⌄';
+			@extend %ic;
+			content: "\e92a";
+			display: block;
+			width: 1em;
+			height: 1em;
+			flex-shrink: 0;
+			transition: transform 0.25s ease;
+			@media (prefers-reduced-motion: reduce) {
+				transition: none;
+			}
 			color: #717680;
 		}
 	}
@@ -189,16 +209,8 @@
 		align-items: flex-start;
 		gap: rem(8);
 		font-size: rem(14);
-		line-height: rem(20);
+		line-height: math.div(20, 14);
 		cursor: pointer;
-	}
-	// .listing-filter__checkbox
-	&__checkbox {
-		accent-color: #ff6900;
-		width: rem(16);
-		height: rem(16);
-		margin-top: rem(2);
-		flex-shrink: 0;
 	}
 	// .listing-filter__expand
 	&__expand {
@@ -227,9 +239,20 @@
 	&__apply {
 		padding: rem(14) rem(8);
 		border-radius: rem(6);
-		background: #ff6900;
+		background: #ff6201;
 		color: #fff;
 		font-size: rem(14);
+		@media (any-hover: hover) {
+			// .listing-filter__apply:hover
+			&:hover {
+				background: #fb7e00;
+			}
+		}
+		// .listing-filter__apply:disabled
+		&:disabled {
+			background: #e5e9f2;
+			color: #8b8f95;
+		}
 	}
 	// .listing-filter__reset
 	&__reset {
@@ -241,5 +264,12 @@
 		background: #f2f2f2;
 		border-radius: rem(6);
 		font-size: rem(14);
+		@media (any-hover: hover) {
+			// .listing-filter__reset:hover
+			&:hover {
+				background: #ebeaea;
+				color: #ff6201;
+			}
+		}
 	}
 }

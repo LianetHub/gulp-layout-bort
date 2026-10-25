@@ -1,0 +1,10 @@
+<nav class="account__sidebar" aria-label="Мой кабинет">
+    <ul class="account__menu">
+        <li class="account__menu-item"><a class="account__link icon-user-circle" href="lk-person.html#personal" data-account-personal @@if(active === 'personal'){aria-current="page"}>Личные данные</a></li>
+        <li class="account__menu-item"><a class="account__link icon-box" href="lk-orders.html" @@if(active === 'orders'){aria-current="page"}>Заказы</a></li>
+        <li class="account__menu-item"><a class="account__link icon-location" href="lk-address.html" @@if(active === 'addresses'){aria-current="page"}>Адреса</a></li>
+        <li class="account__menu-item"><a class="account__link icon-heart" href="favorite.html" @@if(active === 'favorites'){aria-current="page"}>Избранное</a></li>
+        <li class="account__menu-item"><a class="account__link icon-compare" href="compare.html" @@if(active === 'compare'){aria-current="page"}>Сравнение</a></li>
+        <li class="account__menu-item"><a class="account__link icon-login" href="index.html" data-account-logout @@if(active === 'logout'){aria-current="page"}>Выйти</a></li>
+    </ul>
+</nav>

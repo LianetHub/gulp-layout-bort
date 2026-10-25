@@ -1,7 +1,7 @@
 <section class="product-listing">
     <div class="product-listing__container container">
         <div class="product-listing__heading">
-            <h1 class="product-listing__title title title--listing">Измельчители отходов</h1>
+            <h1 class="product-listing__title title title-lg title--sans title--bold">Измельчители отходов</h1>
             <span class="product-listing__count">46 товаров</span>
             <a href="service.html" class="product-listing__advice icon-information-circle">Советы по выбору измельчителя</a>
         </div>
@@ -20,7 +20,7 @@
                 <div class="product-listing__toolbar">
                     <label class="product-listing__sort-label">
                         <span class="product-listing__sr-only">Сортировка товаров</span>
-                        <select class="product-listing__sort" aria-label="Сортировка товаров">
+                        <select data-custom-select class="product-listing__sort" aria-label="Сортировка товаров">
                             <option class="product-listing__option" value="popular">Популярные</option>
                             <option class="product-listing__option" value="price-asc">Сначала дешевле</option>
                             <option class="product-listing__option" value="price-desc">Сначала дороже</option>
@@ -29,20 +29,20 @@
                     </label>
                     <button type="button" class="product-listing__filter-button icon-filter-horizontal" aria-controls="listing-filter" aria-expanded="false">Фильтры</button>
                 </div>
-                <div class="product-listing__selected" aria-label="Выбранные фильтры"></div>
+                <div class="product-listing__selected" aria-label="Выбранные фильтры" hidden></div>
                 <div class="product-listing__products">
                     @@loop('../templates/_listing-product.html', './html/json/listing-products.json')
                 </div>
                 <p class="product-listing__empty" hidden>По выбранным параметрам товары не найдены. Попробуйте изменить фильтры.</p>
                 <button type="button" class="product-listing__more icon-loading">Показать еще</button>
                 <nav class="product-listing__pagination" aria-label="Страницы каталога">
-                    <button type="button" class="product-listing__page icon-chevron-left" data-page="prev" aria-label="Предыдущая страница" disabled></button>
-                    <button type="button" class="product-listing__page is-active" data-page="1" aria-current="page">1</button>
-                    <button type="button" class="product-listing__page" data-page="2">2</button>
-                    <button type="button" class="product-listing__page" data-page="3">3</button>
+                    <button type="button" class="product-listing__page icon-chevron-left" aria-label="Предыдущая страница" disabled></button>
+                    <button type="button" class="product-listing__page is-active" aria-current="page">1</button>
+                    <button type="button" class="product-listing__page">2</button>
+                    <button type="button" class="product-listing__page">3</button>
                     <span class="product-listing__ellipsis">…</span>
-                    <button type="button" class="product-listing__page" data-page="4">4</button>
-                    <button type="button" class="product-listing__page icon-chevron-right" data-page="next" aria-label="Следующая страница"></button>
+                    <button type="button" class="product-listing__page">4</button>
+                    <button type="button" class="product-listing__page icon-chevron-right" aria-label="Следующая страница"></button>
                 </nav>
             </div>
         </div>

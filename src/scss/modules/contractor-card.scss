@@ -1,51 +1,53 @@
+@use "sass:math";
+
 // .contractor-card
 .contractor-card {
-    display: flex;
-    flex-direction: column;
-    gap: rem(20);
-    padding: rem(30);
-    border-radius: rem(10);
-    background: #f7f7f6;
-    font-size: rem(14);
-    line-height: rem(20);
-    color: #2b2b2b;
-    // .contractor-card__name
-    &__name {
-        font-size: rem(16);
-        font-weight: 600;
-        line-height: rem(22);
-    }
-    // .contractor-card__contacts
-    &__contacts {
-        display: grid;
-        gap: rem(10);
-    }
-    // .contractor-card__row
-    &__row {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 0 rem(5);
-    }
-    // .contractor-card__values
-    &__values {
-        display: flex;
-        flex-direction: column;
-        gap: 0 rem(10);
-        min-width: 0;
-    }
-    // .contractor-card__link
-    &__link {
-        color: #ff6201;
-        overflow-wrap: anywhere;
-        @media (any-hover: hover) {
-            // .contractor-card__link:hover
-            &:hover {
-                text-decoration: underline;
-            }
-        }
-    }
-    // .contractor-card__details
-    &__details {
-        margin-top: auto;
-    }
+	display: flex;
+	flex-direction: column;
+	gap: rem(20);
+	padding: rem(30);
+	border-radius: rem(10);
+	background: #f7f7f6;
+	font-size: rem(14);
+	line-height: math.div(20, 14);
+	color: #2b2b2b;
+	// .contractor-card__name
+	&__name {
+		font-size: rem(16);
+		font-weight: 600;
+		line-height: math.div(22, 16);
+	}
+	// .contractor-card__contacts
+	&__contacts {
+		display: grid;
+		gap: rem(10);
+	}
+	// .contractor-card__row
+	&__row {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0 rem(5);
+	}
+	// .contractor-card__values
+	&__values {
+		display: flex;
+		flex-direction: column;
+		gap: 0 rem(10);
+		min-width: 0;
+	}
+	// .contractor-card__link
+	&__link {
+		color: #ff6201;
+		overflow-wrap: anywhere;
+		@media (any-hover: hover) {
+			// .contractor-card__link:hover
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	// .contractor-card__details
+	&__details {
+		margin-top: auto;
+	}
 }

@@ -1,8 +1,8 @@
-<div class="faq__item" data-section="@@section" data-product="@@product">
-    <button class="faq__question@@active" type="button" id="faq-question-@@id" aria-expanded="@@opened" aria-controls="faq-answer-@@id">
+<details class="faq__item"@@if(opened){ open}>
+    <summary class="faq__question">
         <span class="faq__question-text">@@question</span><span class="faq__arrow icon-chevron-down" aria-hidden="true"></span>
-    </button>
-    <div class="faq__answer" id="faq-answer-@@id" role="region" aria-labelledby="faq-question-@@id"@@hidden>
+    </summary>
+    <div class="faq__answer">
         <p class="faq__answer-text text-body text-body--small">@@answer</p>
     </div>
-</div>
+</details>

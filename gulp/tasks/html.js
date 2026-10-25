@@ -1,6 +1,4 @@
-import { existsSync } from 'node:fs';
 import fileinclude from "gulp-file-include";
-import webpHtmlNosvg from "gulp-webp-html-nosvg";
 import versionNumber from "gulp-version-number";
 import htmlBeautify from "gulp-html-beautify";
 
@@ -34,11 +32,7 @@ export const html = () => {
             indent: true,
             context: {}
         }))
-        .pipe(app.plugins.replace(/@img\/(home\/[a-zA-Z0-9_./-]+|goods\/(?:BHD-20LI-SR|BHK-20LI|BRS-18LI-X|BWS-18LI-XDK|BKS-2112-LI|BPS-21LI-M)\.png)/g, (match, imagePath) => {
-            return existsSync(`src/img/${imagePath}`) ? `img/${imagePath}` : 'img/blank.png';
-        }))
         .pipe(app.plugins.replace(/@img\//g, "img/"))
-        // .pipe(app.plugins.if(app.isBuild, webpHtmlNosvg()))
         .pipe(
             app.plugins.if(
                 app.isBuild,

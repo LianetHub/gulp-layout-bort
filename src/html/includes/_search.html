@@ -4,22 +4,22 @@
     </button>
     <div class="search__content" id="header-search">
         <div class="search__container container">
-            <form action="search.html" method="get" role="search" class="search__form">
-                <input type="search" name="s" class="search__form-input form__control" placeholder="Поиск товаров" aria-label="Поиск товаров" aria-controls="search-results" aria-expanded="false" autocomplete="off">
-                <button type="button" aria-label="Очистить поиск" class="search__clear icon-close" hidden></button>
-                <button type="submit" aria-label="Искать" class="search__form-btn icon-search"></button>
+            <form action="search.html" method="get" role="search" class="search__form search-field">
+                <input type="text" name="s" class="search__form-input search-field__input" placeholder="Поиск товаров" aria-label="Поиск товаров" aria-controls="search-results" aria-expanded="false" autocomplete="off">
+                <button type="button" aria-label="Очистить поиск" class="search__clear search-field__clear icon-close" hidden></button>
+                <button type="submit" aria-label="Искать" class="search__form-btn search-field__button icon-search"></button>
             </form>
             <div class="search__bar" id="search-results" aria-label="Результаты поиска" hidden>
                 <div class="search__bar-block search__bar-block--categories">
-                    <h2 class="search__bar-caption title title--search">Категория</h2>
+                    <h2 class="search__bar-caption title title-sm title--sans title--medium">Категория</h2>
                     <ul class="search__bar-list">
-                        <li class="search__category"><a href="category.html" class="search__bar-result"><img src="@img/categories/waste-disposers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Измельчители отходов</span></a></li>
-                        <li class="search__category"><a href="category.html" class="search__bar-result"><img src="@img/categories/garment-steamers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Отпариватели</span></a></li>
+                        <li class="search__category"><a href="catalog.html" class="search__bar-result"><img src="@img/categories/waste-disposers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Измельчители отходов</span></a></li>
+                        <li class="search__category"><a href="catalog.html" class="search__bar-result"><img src="@img/categories/garment-steamers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Отпариватели</span></a></li>
                     </ul>
                 </div>
                 <div class="search__bar-block search__bar-block--products">
                     <div class="search__results-header">
-                        <h2 class="search__bar-caption title title--search">Товары <span class="search__count">12</span></h2>
+                        <h2 class="search__bar-caption title title-sm title--sans title--medium">Товары <span class="search__count">12</span></h2>
                         <a href="search.html" class="search__all">Все результаты<span class="search__all-icon icon-chevron-right" aria-hidden="true"></span></a>
                     </div>
                     <ul class="search__products" aria-label="Найденные товары">

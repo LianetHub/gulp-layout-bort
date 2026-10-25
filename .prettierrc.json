@@ -1,0 +1,20 @@
+{
+    "printWidth": 100,
+    "tabWidth": 4,
+    "useTabs": false,
+    "semi": true,
+    "singleQuote": true,
+    "quoteProps": "preserve",
+    "arrowParens": "always",
+    "trailingComma": "all",
+    "endOfLine": "lf",
+    "overrides": [
+        {
+            "files": "**/*.scss",
+            "options": {
+                "useTabs": true,
+                "singleQuote": false
+            }
+        }
+    ]
+}

@@ -1,12 +1,11 @@
-<article class="product product-tile product-tile--favorite" data-favorite-id="@@id" data-category="@@category" data-price="@@amount" data-order="@@order">
+<article class="product product-tile product-tile--favorite">
     <div class="product-tile__visual">
         @@if(guarantee){<span class="product-tile__guarantee"><img src="@img/favorites/like.svg" alt="" class="product-tile__guarantee-icon" width="15" height="14">5 лет гарантии</span>}
         <div class="product-tile__actions">
-            <button type="button" class="product-tile__action" data-remove-favorite aria-label="Удалить @@name из избранного"><img src="@img/favorites/heart.svg" alt="" class="product-tile__action-icon" width="17" height="16"></button>
-            <button type="button" class="product-tile__action compare-btn" aria-label="Добавить @@name к сравнению" aria-pressed="false"><img src="@img/favorites/bars.svg" alt="" class="product-tile__action-icon" width="20" height="20"></button>
+            <button type="button" class="product-tile__action favorite-btn icon-heart active" aria-label="В избранном: @@name" aria-pressed="true"></button>
+            <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить @@name к сравнению" aria-pressed="false"></button>
         </div>
-        <a href="product.html" class="product-tile__image"><img src="@@image" alt="@@name" loading="lazy" width="180" height="180" class="product-tile__picture"></a>
-        <div class="product-tile__dots" aria-hidden="true"><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i><i class="product-tile__dot"></i></div>
+        @@include('_product-tile-gallery.html', {"image":"@@image", "name":"@@name"})
     </div>
     <div class="product-tile__meta"><span class="product-tile__text">Артикул: @@sku</span><span class="product-tile__rating"><img src="@img/favorites/star.svg" alt="" class="product-tile__rating-icon" width="14" height="14"><strong class="product-tile__rating-value">4.0</strong> (2180)</span></div>
     <a href="product.html" class="product__name product-tile__name">@@name</a>

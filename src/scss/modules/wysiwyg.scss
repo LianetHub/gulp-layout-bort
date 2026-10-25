@@ -1,0 +1,50 @@
+// .wysiwyg
+.wysiwyg {
+	overflow-wrap: anywhere;
+	// .wysiwyg h1
+	h1 {
+		@extend .title;
+		@extend .title-lg;
+		margin-bottom: rem(40);
+	}
+	// .wysiwyg h2
+	h2 {
+		@extend .title;
+		@extend .title-md;
+		margin-bottom: rem(20);
+	}
+	// .wysiwyg h3
+	// .wysiwyg h4
+	// .wysiwyg h5
+	// .wysiwyg h6
+	h3,
+	h4,
+	h5,
+	h6 {
+		@extend .title;
+		@extend .title-sm;
+		margin-bottom: rem(20);
+	}
+	// .wysiwyg p
+	p {
+		@extend .text-body;
+		margin: 0;
+	}
+	// .wysiwyg p + h2
+	p + h2 {
+		margin-top: rem(40);
+	}
+	// .wysiwyg a
+	a {
+		color: $orange;
+		text-decoration: underline;
+	}
+	// .wysiwyg ul
+	// .wysiwyg ol
+	ul,
+	ol {
+		@extend .text-body;
+		padding-left: rem(24);
+		margin-block: rem(20);
+	}
+}

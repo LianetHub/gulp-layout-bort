@@ -35,7 +35,6 @@
         <!-- plugins -->
         <link rel="stylesheet" href="css/libs/swiper-bundle.min.css">
         <link rel="stylesheet" href="css/libs/fancybox.min.css">
-        <link rel="stylesheet" href="css/libs/nouislider.min.css">
         <!-- plugins -->
 
 
@@ -52,7 +51,7 @@
                             <img src="img/logo-compact.svg" width="138" height="40" alt="Логотип сайта Bort" class="header__image">
                         </a>
                         <button type="button" class="header__burger icon-menu" aria-label="Открыть меню" aria-expanded="false" aria-controls="header-menu"></button>
-                        <a href="catalog.html" class="header__catalog btn btn-primary" aria-label="Каталог">
+                        <a href="catalog.html" class="header__catalog btn btn-dark" aria-label="Каталог" aria-controls="mobile-catalog" aria-expanded="false">
                             <span class="header__catalog-icon icon-menu" aria-hidden="true"></span>
                             <span class="header__catalog-icon header__catalog-icon--grid icon-dots-grid" aria-hidden="true"></span>
                             <span class="header__catalog-text">Каталог</span>
@@ -64,22 +63,22 @@
                             </button>
                             <div class="search__content" id="header-search">
                                 <div class="search__container container">
-                                    <form action="search.html" method="get" role="search" class="search__form">
-                                        <input type="search" name="s" class="search__form-input form__control" placeholder="Поиск товаров" aria-label="Поиск товаров" aria-controls="search-results" aria-expanded="false" autocomplete="off">
-                                        <button type="button" aria-label="Очистить поиск" class="search__clear icon-close" hidden></button>
-                                        <button type="submit" aria-label="Искать" class="search__form-btn icon-search"></button>
+                                    <form action="search.html" method="get" role="search" class="search__form search-field">
+                                        <input type="text" name="s" class="search__form-input search-field__input" placeholder="Поиск товаров" aria-label="Поиск товаров" aria-controls="search-results" aria-expanded="false" autocomplete="off">
+                                        <button type="button" aria-label="Очистить поиск" class="search__clear search-field__clear icon-close" hidden></button>
+                                        <button type="submit" aria-label="Искать" class="search__form-btn search-field__button icon-search"></button>
                                     </form>
                                     <div class="search__bar" id="search-results" aria-label="Результаты поиска" hidden>
                                         <div class="search__bar-block search__bar-block--categories">
-                                            <h2 class="search__bar-caption title title--search">Категория</h2>
+                                            <h2 class="search__bar-caption title title-sm title--sans title--medium">Категория</h2>
                                             <ul class="search__bar-list">
-                                                <li class="search__category"><a href="category.html" class="search__bar-result"><img src="img/categories/waste-disposers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Измельчители отходов</span></a></li>
-                                                <li class="search__category"><a href="category.html" class="search__bar-result"><img src="img/categories/garment-steamers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Отпариватели</span></a></li>
+                                                <li class="search__category"><a href="catalog.html" class="search__bar-result"><img src="img/categories/waste-disposers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Измельчители отходов</span></a></li>
+                                                <li class="search__category"><a href="catalog.html" class="search__bar-result"><img src="img/categories/garment-steamers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Отпариватели</span></a></li>
                                             </ul>
                                         </div>
                                         <div class="search__bar-block search__bar-block--products">
                                             <div class="search__results-header">
-                                                <h2 class="search__bar-caption title title--search">Товары <span class="search__count">12</span></h2>
+                                                <h2 class="search__bar-caption title title-sm title--sans title--medium">Товары <span class="search__count">12</span></h2>
                                                 <a href="search.html" class="search__all">Все результаты<span class="search__all-icon icon-chevron-right" aria-hidden="true"></span></a>
                                             </div>
                                             <ul class="search__products" aria-label="Найденные товары">
@@ -151,7 +150,7 @@
                         <nav aria-label="Меню в шапке" class="header__menu menu">
                             <ul class="menu__list">
                                 <li class="menu__item">
-                                    <a href="about.html" class="menu__link icon-sale">Акция</a>
+                                    <a href="catalog.html" class="menu__link icon-sale">Акция</a>
                                 </li>
                                 <li class="menu__item">
                                     <a href="" class="menu__link">Бытовая техника</a>
@@ -182,34 +181,34 @@
                     <div class="mobile-catalog__container container">
                         <div class="mobile-catalog__header">
                             <button type="button" class="mobile-catalog__back icon-chevron-left" aria-label="Назад в каталог" hidden></button>
-                            <h2 class="mobile-catalog__title title title--catalog" id="mobile-catalog-title" tabindex="-1">Каталог</h2>
+                            <h2 class="mobile-catalog__title title title-md" id="mobile-catalog-title" tabindex="-1">Каталог</h2>
                             <button type="button" class="mobile-catalog__close icon-close" aria-label="Закрыть каталог"></button>
                         </div>
                         <div class="mobile-catalog__body">
                             <ul class="mobile-catalog__panel mobile-catalog__panel--root" id="catalog-root" data-catalog-title="Каталог">
-                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-appliances" aria-controls="catalog-appliances" aria-expanded="false">Бытовая техника<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
-                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-cleaning" aria-controls="catalog-cleaning" aria-expanded="false">Клининг<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
-                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-tools" aria-controls="catalog-tools" aria-expanded="false">Инструмент<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
-                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-garden" aria-controls="catalog-garden" aria-expanded="false">Сад и огород<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
-                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title--catalog-category" data-catalog-target="catalog-horeca" aria-controls="catalog-horeca" aria-expanded="false">Horeca<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title-sm" data-catalog-target="catalog-appliances" aria-controls="catalog-appliances" aria-expanded="false">Бытовая техника<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title-sm" data-catalog-target="catalog-cleaning" aria-controls="catalog-cleaning" aria-expanded="false">Клининг<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title-sm" data-catalog-target="catalog-tools" aria-controls="catalog-tools" aria-expanded="false">Инструмент<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title-sm" data-catalog-target="catalog-garden" aria-controls="catalog-garden" aria-expanded="false">Сад и огород<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
+                                <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link title title-sm" data-catalog-target="catalog-horeca" aria-controls="catalog-horeca" aria-expanded="false">Horeca<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-appliances" data-catalog-title="Бытовая техника" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Измельчители отходов<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Отпариватели<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Водонагреватели<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Измельчители отходов<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Отпариватели<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Водонагреватели<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Аксессуары<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-cleaning" data-catalog-title="Клининг" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Промышленные пылесосы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Мойки высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пароочистители<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Воздуходувки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Промышленные пылесосы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Мойки высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пароочистители<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Воздуходувки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                                 <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link" data-catalog-target="catalog-cleaning-accessories" aria-controls="catalog-cleaning-accessories" aria-expanded="false">Аксессуары<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-cleaning-accessories" data-catalog-title="Аксессуары" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары для пылесосов<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары для моек высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары для пароочистителей<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Аксессуары для пылесосов<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Аксессуары для моек высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Аксессуары для пароочистителей<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-tools" data-catalog-title="Инструмент" hidden>
                                 <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link" data-catalog-target="catalog-cordless" aria-controls="catalog-cordless" aria-expanded="false">Аккумуляторный инструмент<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
@@ -218,39 +217,39 @@
                                 <li class="mobile-catalog__item"><button type="button" class="mobile-catalog__link" data-catalog-target="catalog-measuring" aria-controls="catalog-measuring" aria-expanded="false">Измерительный инструмент<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></button></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-cordless" data-catalog-title="Аккумуляторный инструмент" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Дрели и шуруповерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Перфораторы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Гайковерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Лобзики<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы сабельные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы цепные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы циркулярные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Болгарки (УШМ)<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Технические фены<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Секаторы и сучкорезы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аккумуляторы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Зарядные устройства<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Аксессуары для снегоуборщиков<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Дрели и шуруповерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Перфораторы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Гайковерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Лобзики<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пилы сабельные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пилы цепные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пилы циркулярные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Болгарки (УШМ)<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Технические фены<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Секаторы и сучкорезы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Аккумуляторы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Зарядные устройства<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Аксессуары для снегоуборщиков<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-hand-tools" data-catalog-title="Ручной инструмент" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Наборы ручного инструмента<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Наборы ручного инструмента<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-auto" data-catalog-title="Автотовары" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Ударные гайковерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Ударные гайковерты<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-measuring" data-catalog-title="Измерительный инструмент" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Рулетки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Рулетки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-garden" data-catalog-title="Сад и огород" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Воздуходувки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Мойки высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы цепные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пилы сабельные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Секаторы и сучкорезы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Воздуходувки<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Мойки высокого давления<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пилы цепные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пилы сабельные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Секаторы и сучкорезы<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                             <ul class="mobile-catalog__panel" id="catalog-horeca" data-catalog-title="Horeca" hidden>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Пылесосы для гостиниц и отелей<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
-                                <li class="mobile-catalog__item"><a href="category.html" class="mobile-catalog__link">Измельчители пищевых отходов промышленные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Пылесосы для гостиниц и отелей<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
+                                <li class="mobile-catalog__item"><a href="catalog.html" class="mobile-catalog__link">Измельчители пищевых отходов промышленные<span class="mobile-catalog__arrow icon-chevron-right" aria-hidden="true"></span></a></li>
                             </ul>
                         </div>
                     </div>
@@ -258,7 +257,7 @@
 
             </header>
 
-            <main class="page page--comparing">
+            <main class="page page--light">
                 <nav aria-label="Хлебные крошки" class="breadcrumbs breadcrumbs--compact">
                     <div class="breadcrumbs__container container">
                         <ul class="breadcrumbs__list">
@@ -270,16 +269,16 @@
                 <section class="comparing" aria-labelledby="comparing-title">
                     <div class="comparing__container container">
                         <div class="comparing__heading">
-                            <h1 class="comparing__title title title--page" id="comparing-title">Сравнение товаров</h1>
+                            <h1 class="comparing__title title title-lg" id="comparing-title">Сравнение товаров</h1>
                             <button type="button" class="comparing__clear" data-compare-clear="all"><img src="img/comparing/trash.svg" alt="" class="comparing__icon" width="17" height="18">Очистить сравнение</button>
                         </div>
                         <div class="comparing__categories" role="group" aria-label="Категории сравнения">
-                            <button type="button" class="comparing__category is-active" data-compare-category="disposers" aria-pressed="true">Измельчители отходов <span class="comparing__count">3</span></button>
+                            <button type="button" class="comparing__category is-active" data-compare-category="disposers" aria-pressed="true">Измельчители отходов <span class="comparing__count">6</span></button>
                             <button type="button" class="comparing__category" data-compare-category="steamers" aria-pressed="false">Отпариватели <span class="comparing__count">5</span></button>
                             <button type="button" class="comparing__category" data-compare-category="hammers" aria-pressed="false">Перфораторы <span class="comparing__count">2</span></button>
                             <button type="button" class="comparing__category" data-compare-category="jigsaws" aria-pressed="false">Лобзики <span class="comparing__count">4</span></button>
                             <button type="button" class="comparing__category" data-compare-category="saws" aria-pressed="false">Пилы цепные <span class="comparing__count">2</span></button>
-                            <button type="button" class="comparing__category" data-compare-category="pruners" aria-pressed="false">Секаторы и сучкорезы <span class="comparing__count">3</span></button>
+                            <button type="button" class="comparing__category" data-compare-category="pruners" aria-pressed="false">Секаторы и сучкорезы <span class="comparing__count">6</span></button>
                         </div>
                         <div class="comparing__body">
                             <div class="comparing__anchor">
@@ -299,7 +298,7 @@
             <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 5000"><img src="img/comparing/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" class="comparing-card__picture" width="180" height="180"></a>
             <div class="comparing-card__actions">
                 <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 5000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
-                <button type="button" class="comparing-card__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"><img src="img/comparing/heart.svg" alt="" class="comparing-card__icon" width="17" height="16"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"></button>
             </div>
         </div>
         <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
@@ -315,7 +314,7 @@
             <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 4000"><img src="img/comparing/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" class="comparing-card__picture" width="180" height="180"></a>
             <div class="comparing-card__actions">
                 <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 4000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
-                <button type="button" class="comparing-card__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"><img src="img/comparing/heart.svg" alt="" class="comparing-card__icon" width="17" height="16"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"></button>
             </div>
         </div>
         <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 4000</a>
@@ -331,7 +330,55 @@
             <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 6000"><img src="img/comparing/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" class="comparing-card__picture" width="180" height="180"></a>
             <div class="comparing-card__actions">
                 <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 6000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
-                <button type="button" class="comparing-card__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"><img src="img/comparing/heart.svg" alt="" class="comparing-card__icon" width="17" height="16"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"></button>
+            </div>
+        </div>
+        <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
+        <div class="comparing-card__bottom">
+            <div class="comparing-card__price"><strong class="comparing-card__current">25 290 ₽</strong></div>
+            <button type="button" class="comparing-card__cart add-to-cart-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в корзину"><span class="comparing-card__cart-text">В корзину</span><img src="img/comparing/cart.svg" alt="" class="comparing-card__cart-icon" width="20" height="20"></button>
+        </div>
+    </article>
+</div>
+<div class="comparing__item swiper-slide" data-compare-id="compare-5000-mock">
+    <article class="product comparing-card">
+        <div class="comparing-card__header">
+            <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 5000"><img src="img/comparing/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" class="comparing-card__picture" width="180" height="180"></a>
+            <div class="comparing-card__actions">
+                <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 5000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"></button>
+            </div>
+        </div>
+        <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
+        <div class="comparing-card__bottom">
+            <div class="comparing-card__price"><strong class="comparing-card__current">27 090 ₽</strong><del class="comparing-card__old">29 590 ₽</del></div>
+            <button type="button" class="comparing-card__cart add-to-cart-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в корзину"><span class="comparing-card__cart-text">В корзину</span><img src="img/comparing/cart.svg" alt="" class="comparing-card__cart-icon" width="20" height="20"></button>
+        </div>
+    </article>
+</div>
+<div class="comparing__item swiper-slide" data-compare-id="compare-4000-mock">
+    <article class="product comparing-card">
+        <div class="comparing-card__header">
+            <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 4000"><img src="img/comparing/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" class="comparing-card__picture" width="180" height="180"></a>
+            <div class="comparing-card__actions">
+                <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 4000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"></button>
+            </div>
+        </div>
+        <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 4000</a>
+        <div class="comparing-card__bottom">
+            <div class="comparing-card__price"><strong class="comparing-card__current">29 890 ₽</strong></div>
+            <button type="button" class="comparing-card__cart add-to-cart-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в корзину"><span class="comparing-card__cart-text">В корзину</span><img src="img/comparing/cart.svg" alt="" class="comparing-card__cart-icon" width="20" height="20"></button>
+        </div>
+    </article>
+</div>
+<div class="comparing__item swiper-slide" data-compare-id="compare-6000-mock">
+    <article class="product comparing-card">
+        <div class="comparing-card__header">
+            <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 6000"><img src="img/comparing/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" class="comparing-card__picture" width="180" height="180"></a>
+            <div class="comparing-card__actions">
+                <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 6000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"></button>
             </div>
         </div>
         <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
@@ -358,7 +405,7 @@
             <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 5000"><img src="img/comparing/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" class="comparing-card__picture" width="180" height="180"></a>
             <div class="comparing-card__actions">
                 <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 5000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
-                <button type="button" class="comparing-card__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"><img src="img/comparing/heart.svg" alt="" class="comparing-card__icon" width="17" height="16"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"></button>
             </div>
         </div>
         <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
@@ -374,7 +421,7 @@
             <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 4000"><img src="img/comparing/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" class="comparing-card__picture" width="180" height="180"></a>
             <div class="comparing-card__actions">
                 <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 4000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
-                <button type="button" class="comparing-card__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"><img src="img/comparing/heart.svg" alt="" class="comparing-card__icon" width="17" height="16"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"></button>
             </div>
         </div>
         <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 4000</a>
@@ -390,7 +437,55 @@
             <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 6000"><img src="img/comparing/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" class="comparing-card__picture" width="180" height="180"></a>
             <div class="comparing-card__actions">
                 <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 6000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
-                <button type="button" class="comparing-card__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"><img src="img/comparing/heart.svg" alt="" class="comparing-card__icon" width="17" height="16"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"></button>
+            </div>
+        </div>
+        <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
+        <div class="comparing-card__bottom">
+            <div class="comparing-card__price"><strong class="comparing-card__current">25 290 ₽</strong></div>
+            <button type="button" class="comparing-card__cart add-to-cart-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в корзину"><span class="comparing-card__cart-text">В корзину</span><img src="img/comparing/cart.svg" alt="" class="comparing-card__cart-icon" width="20" height="20"></button>
+        </div>
+    </article>
+</div>
+<div class="comparing__item swiper-slide" data-compare-id="compare-5000-mock">
+    <article class="product comparing-card">
+        <div class="comparing-card__header">
+            <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 5000"><img src="img/comparing/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" class="comparing-card__picture" width="180" height="180"></a>
+            <div class="comparing-card__actions">
+                <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 5000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"></button>
+            </div>
+        </div>
+        <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
+        <div class="comparing-card__bottom">
+            <div class="comparing-card__price"><strong class="comparing-card__current">27 090 ₽</strong><del class="comparing-card__old">29 590 ₽</del></div>
+            <button type="button" class="comparing-card__cart add-to-cart-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в корзину"><span class="comparing-card__cart-text">В корзину</span><img src="img/comparing/cart.svg" alt="" class="comparing-card__cart-icon" width="20" height="20"></button>
+        </div>
+    </article>
+</div>
+<div class="comparing__item swiper-slide" data-compare-id="compare-4000-mock">
+    <article class="product comparing-card">
+        <div class="comparing-card__header">
+            <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 4000"><img src="img/comparing/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" class="comparing-card__picture" width="180" height="180"></a>
+            <div class="comparing-card__actions">
+                <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 4000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"></button>
+            </div>
+        </div>
+        <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 4000</a>
+        <div class="comparing-card__bottom">
+            <div class="comparing-card__price"><strong class="comparing-card__current">29 890 ₽</strong></div>
+            <button type="button" class="comparing-card__cart add-to-cart-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в корзину"><span class="comparing-card__cart-text">В корзину</span><img src="img/comparing/cart.svg" alt="" class="comparing-card__cart-icon" width="20" height="20"></button>
+        </div>
+    </article>
+</div>
+<div class="comparing__item swiper-slide" data-compare-id="compare-6000-mock">
+    <article class="product comparing-card">
+        <div class="comparing-card__header">
+            <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 6000"><img src="img/comparing/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" class="comparing-card__picture" width="180" height="180"></a>
+            <div class="comparing-card__actions">
+                <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 6000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"></button>
             </div>
         </div>
         <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
@@ -415,7 +510,7 @@
             <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 5000"><img src="img/comparing/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" class="comparing-card__picture" width="180" height="180"></a>
             <div class="comparing-card__actions">
                 <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 5000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
-                <button type="button" class="comparing-card__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"><img src="img/comparing/heart.svg" alt="" class="comparing-card__icon" width="17" height="16"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"></button>
             </div>
         </div>
         <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
@@ -431,7 +526,7 @@
             <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 4000"><img src="img/comparing/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" class="comparing-card__picture" width="180" height="180"></a>
             <div class="comparing-card__actions">
                 <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 4000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
-                <button type="button" class="comparing-card__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"><img src="img/comparing/heart.svg" alt="" class="comparing-card__icon" width="17" height="16"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"></button>
             </div>
         </div>
         <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 4000</a>
@@ -447,7 +542,55 @@
             <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 6000"><img src="img/comparing/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" class="comparing-card__picture" width="180" height="180"></a>
             <div class="comparing-card__actions">
                 <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 6000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
-                <button type="button" class="comparing-card__action favorite-btn" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"><img src="img/comparing/heart.svg" alt="" class="comparing-card__icon" width="17" height="16"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"></button>
+            </div>
+        </div>
+        <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
+        <div class="comparing-card__bottom">
+            <div class="comparing-card__price"><strong class="comparing-card__current">25 290 ₽</strong></div>
+            <button type="button" class="comparing-card__cart add-to-cart-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в корзину"><span class="comparing-card__cart-text">В корзину</span><img src="img/comparing/cart.svg" alt="" class="comparing-card__cart-icon" width="20" height="20"></button>
+        </div>
+    </article>
+</div>
+<div class="comparing__item swiper-slide" data-compare-id="compare-5000-mock">
+    <article class="product comparing-card">
+        <div class="comparing-card__header">
+            <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 5000"><img src="img/comparing/titan-5000.png" alt="Измельчитель пищевых отходов BORT TITAN 5000" class="comparing-card__picture" width="180" height="180"></a>
+            <div class="comparing-card__actions">
+                <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 5000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в избранное"></button>
+            </div>
+        </div>
+        <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
+        <div class="comparing-card__bottom">
+            <div class="comparing-card__price"><strong class="comparing-card__current">27 090 ₽</strong><del class="comparing-card__old">29 590 ₽</del></div>
+            <button type="button" class="comparing-card__cart add-to-cart-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в корзину"><span class="comparing-card__cart-text">В корзину</span><img src="img/comparing/cart.svg" alt="" class="comparing-card__cart-icon" width="20" height="20"></button>
+        </div>
+    </article>
+</div>
+<div class="comparing__item swiper-slide" data-compare-id="compare-4000-mock">
+    <article class="product comparing-card">
+        <div class="comparing-card__header">
+            <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 4000"><img src="img/comparing/titan-4000.png" alt="Измельчитель пищевых отходов BORT TITAN 4000" class="comparing-card__picture" width="180" height="180"></a>
+            <div class="comparing-card__actions">
+                <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 4000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в избранное"></button>
+            </div>
+        </div>
+        <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 4000</a>
+        <div class="comparing-card__bottom">
+            <div class="comparing-card__price"><strong class="comparing-card__current">29 890 ₽</strong></div>
+            <button type="button" class="comparing-card__cart add-to-cart-btn" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 4000 в корзину"><span class="comparing-card__cart-text">В корзину</span><img src="img/comparing/cart.svg" alt="" class="comparing-card__cart-icon" width="20" height="20"></button>
+        </div>
+    </article>
+</div>
+<div class="comparing__item swiper-slide" data-compare-id="compare-6000-mock">
+    <article class="product comparing-card">
+        <div class="comparing-card__header">
+            <a href="product.html" class="comparing-card__image" aria-label="Измельчитель пищевых отходов BORT TITAN 6000"><img src="img/comparing/titan-6000.png" alt="Измельчитель пищевых отходов BORT TITAN 6000" class="comparing-card__picture" width="180" height="180"></a>
+            <div class="comparing-card__actions">
+                <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить Измельчитель пищевых отходов BORT TITAN 6000 из сравнения"><img src="img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
+                <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в избранное"></button>
             </div>
         </div>
         <a href="product.html" class="product__name comparing-card__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
@@ -475,67 +618,67 @@
                             </div>
                             <div class="comparing__desc">
                                 <div class="comparing__important">
-                                    <h2 class="comparing__caption title title--comparison-group">Важные характеристики</h2>
+                                    <h2 class="comparing__caption title title-md title--sans">Важные характеристики</h2>
                                     <p class="comparing__hint">Добавьте в эту группу важные для сравнения характеристики</p>
                                     <div class="comparing__important-rows"></div>
                                 </div>
                                 <div class="comparing__content">
-                                    <h2 class="comparing__caption title title--comparison-group">Общие характеристики</h2>
-                                    <div class="comparing__block" data-parameter="brand" data-values="[&quot;Bort&quot;,&quot;Bort&quot;,&quot;Bort&quot;]">
+                                    <h2 class="comparing__caption title title-md title--sans">Общие характеристики</h2>
+                                    <div class="comparing__block" data-parameter="brand" data-values="[&quot;Bort&quot;, &quot;Bort&quot;, &quot;Bort&quot;, &quot;Bort&quot;, &quot;Bort&quot;, &quot;Bort&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="brand"><span class="comparing__label">Бренд</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">Bort</span><span class="comparing__value">Bort</span><span class="comparing__value">Bort</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">Bort</span><span class="comparing__value">Bort</span><span class="comparing__value">Bort</span><span class="comparing__value">Bort</span><span class="comparing__value">Bort</span><span class="comparing__value">Bort</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="loading" data-values="[&quot;непрерывный&quot;,&quot;непрерывный&quot;,&quot;непрерывный&quot;]">
+<div class="comparing__block" data-parameter="loading" data-values="[&quot;непрерывный&quot;, &quot;непрерывный&quot;, &quot;непрерывный&quot;, &quot;непрерывный&quot;, &quot;непрерывный&quot;, &quot;непрерывный&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="loading"><span class="comparing__label">Способ загрузки</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">непрерывный</span><span class="comparing__value">непрерывный</span><span class="comparing__value">непрерывный</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">непрерывный</span><span class="comparing__value">непрерывный</span><span class="comparing__value">непрерывный</span><span class="comparing__value">непрерывный</span><span class="comparing__value">непрерывный</span><span class="comparing__value">непрерывный</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="family" data-values="[&quot;до 4&quot;,&quot;до 6&quot;,&quot;до 6&quot;]">
+<div class="comparing__block" data-parameter="family" data-values="[&quot;до 4&quot;, &quot;до 6&quot;, &quot;до 6&quot;, &quot;до 4&quot;, &quot;до 6&quot;, &quot;до 6&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="family"><span class="comparing__label">Подходит для семьи, чел</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">до 4</span><span class="comparing__value">до 6</span><span class="comparing__value">до 6</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">до 4</span><span class="comparing__value">до 6</span><span class="comparing__value">до 6</span><span class="comparing__value">до 4</span><span class="comparing__value">до 6</span><span class="comparing__value">до 6</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="performance" data-values="[&quot;4,2&quot;,&quot;5,2&quot;,&quot;5,2&quot;]">
+<div class="comparing__block" data-parameter="performance" data-values="[&quot;4,2&quot;, &quot;5,2&quot;, &quot;5,2&quot;, &quot;4,2&quot;, &quot;5,2&quot;, &quot;5,2&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox" checked data-important="performance"><span class="comparing__label">Производительность, кг/мин</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">4,2</span><span class="comparing__value">5,2</span><span class="comparing__value">5,2</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">4,2</span><span class="comparing__value">5,2</span><span class="comparing__value">5,2</span><span class="comparing__value">4,2</span><span class="comparing__value">5,2</span><span class="comparing__value">5,2</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="warranty" data-values="[&quot;5&quot;,&quot;5&quot;,&quot;5&quot;]">
+<div class="comparing__block" data-parameter="warranty" data-values="[&quot;5&quot;, &quot;5&quot;, &quot;5&quot;, &quot;5&quot;, &quot;5&quot;, &quot;5&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="warranty"><span class="comparing__label">Расширенная гарантия, г</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">5</span><span class="comparing__value">5</span><span class="comparing__value">5</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">5</span><span class="comparing__value">5</span><span class="comparing__value">5</span><span class="comparing__value">5</span><span class="comparing__value">5</span><span class="comparing__value">5</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="series" data-values="[&quot;TITAN&quot;,&quot;TITAN&quot;,&quot;TITAN&quot;]">
+<div class="comparing__block" data-parameter="series" data-values="[&quot;TITAN&quot;, &quot;TITAN&quot;, &quot;TITAN&quot;, &quot;TITAN&quot;, &quot;TITAN&quot;, &quot;TITAN&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="series"><span class="comparing__label">Серия</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">TITAN</span><span class="comparing__value">TITAN</span><span class="comparing__value">TITAN</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">TITAN</span><span class="comparing__value">TITAN</span><span class="comparing__value">TITAN</span><span class="comparing__value">TITAN</span><span class="comparing__value">TITAN</span><span class="comparing__value">TITAN</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="protection" data-values="[&quot;Да&quot;,&quot;Да&quot;,&quot;Да&quot;]">
+<div class="comparing__block" data-parameter="protection" data-values="[&quot;Да&quot;, &quot;Да&quot;, &quot;Да&quot;, &quot;Да&quot;, &quot;Да&quot;, &quot;Да&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="protection"><span class="comparing__label">Система защиты от перегрузки и заклинивания</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">Да</span><span class="comparing__value">Да</span><span class="comparing__value">Да</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">Да</span><span class="comparing__value">Да</span><span class="comparing__value">Да</span><span class="comparing__value">Да</span><span class="comparing__value">Да</span><span class="comparing__value">Да</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="noise" data-values="[&quot;частичная&quot;,&quot;полная&quot;,&quot;полная&quot;]">
+<div class="comparing__block" data-parameter="noise" data-values="[&quot;частичная&quot;, &quot;полная&quot;, &quot;полная&quot;, &quot;частичная&quot;, &quot;полная&quot;, &quot;полная&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="noise"><span class="comparing__label">Система шумоизоляции</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">частичная</span><span class="comparing__value">полная</span><span class="comparing__value">полная</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">частичная</span><span class="comparing__value">полная</span><span class="comparing__value">полная</span><span class="comparing__value">частичная</span><span class="comparing__value">полная</span><span class="comparing__value">полная</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="speed" data-values="[&quot;3 500&quot;,&quot;4 100&quot;,&quot;4 500&quot;]">
+<div class="comparing__block" data-parameter="speed" data-values="[&quot;3 500&quot;, &quot;4 100&quot;, &quot;4 500&quot;, &quot;3 500&quot;, &quot;4 100&quot;, &quot;4 500&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="speed"><span class="comparing__label">Скорость холостого хода, об/мин</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">3 500</span><span class="comparing__value">4 100</span><span class="comparing__value">4 500</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">3 500</span><span class="comparing__value">4 100</span><span class="comparing__value">4 500</span><span class="comparing__value">3 500</span><span class="comparing__value">4 100</span><span class="comparing__value">4 500</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="country" data-values="[&quot;Китай&quot;,&quot;Китай&quot;,&quot;Китай&quot;]">
+<div class="comparing__block" data-parameter="country" data-values="[&quot;Китай&quot;, &quot;Китай&quot;, &quot;Китай&quot;, &quot;Китай&quot;, &quot;Китай&quot;, &quot;Китай&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="country"><span class="comparing__label">Страна происхождения</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">Китай</span><span class="comparing__value">Китай</span><span class="comparing__value">Китай</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">Китай</span><span class="comparing__value">Китай</span><span class="comparing__value">Китай</span><span class="comparing__value">Китай</span><span class="comparing__value">Китай</span><span class="comparing__value">Китай</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="dishwasher" data-values="[&quot;Да&quot;,&quot;Да&quot;,&quot;Да&quot;]">
+<div class="comparing__block" data-parameter="dishwasher" data-values="[&quot;Да&quot;, &quot;Да&quot;, &quot;Да&quot;, &quot;Да&quot;, &quot;Да&quot;, &quot;Да&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="dishwasher"><span class="comparing__label">Подключение к посудомоечной машине</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">Да</span><span class="comparing__value">Да</span><span class="comparing__value">Да</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">Да</span><span class="comparing__value">Да</span><span class="comparing__value">Да</span><span class="comparing__value">Да</span><span class="comparing__value">Да</span><span class="comparing__value">Да</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="motor" data-values="[&quot;щеточный (PMDC)&quot;,&quot;щеточный (PMDC)&quot;,&quot;щеточный (PMDC)&quot;]">
+<div class="comparing__block" data-parameter="motor" data-values="[&quot;щеточный (PMDC)&quot;, &quot;щеточный (PMDC)&quot;, &quot;щеточный (PMDC)&quot;, &quot;щеточный (PMDC)&quot;, &quot;щеточный (PMDC)&quot;, &quot;щеточный (PMDC)&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="motor"><span class="comparing__label">Тип мотора</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">щеточный (PMDC)</span><span class="comparing__value">щеточный (PMDC)</span><span class="comparing__value">щеточный (PMDC)</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">щеточный (PMDC)</span><span class="comparing__value">щеточный (PMDC)</span><span class="comparing__value">щеточный (PMDC)</span><span class="comparing__value">щеточный (PMDC)</span><span class="comparing__value">щеточный (PMDC)</span><span class="comparing__value">щеточный (PMDC)</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="connection" data-values="[&quot;Беспроводное&quot;,&quot;Беспроводное&quot;,&quot;Проводное&quot;]">
+<div class="comparing__block" data-parameter="connection" data-values="[&quot;Беспроводное&quot;, &quot;Беспроводное&quot;, &quot;Проводное&quot;, &quot;Беспроводное&quot;, &quot;Беспроводное&quot;, &quot;Проводное&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="connection"><span class="comparing__label">Тип соединения устройств, тип</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">Беспроводное</span><span class="comparing__value">Беспроводное</span><span class="comparing__value">Проводное</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">Беспроводное</span><span class="comparing__value">Беспроводное</span><span class="comparing__value">Проводное</span><span class="comparing__value">Беспроводное</span><span class="comparing__value">Беспроводное</span><span class="comparing__value">Проводное</span></div>
                                     </div>
-<div class="comparing__block" data-parameter="start" data-values="[&quot;Нет&quot;,&quot;Нет&quot;,&quot;Нет&quot;]">
+<div class="comparing__block" data-parameter="start" data-values="[&quot;Нет&quot;, &quot;Нет&quot;, &quot;Нет&quot;, &quot;Нет&quot;, &quot;Нет&quot;, &quot;Нет&quot;]">
                                         <label class="comparing__parameter"><input class="comparing__check" type="checkbox"  data-important="start"><span class="comparing__label">Тихий запуск</span></label>
-                                        <div class="comparing__values"><span class="comparing__value">Нет</span><span class="comparing__value">Нет</span><span class="comparing__value">Нет</span></div>
+                                        <div class="comparing__values"><span class="comparing__value">Нет</span><span class="comparing__value">Нет</span><span class="comparing__value">Нет</span><span class="comparing__value">Нет</span><span class="comparing__value">Нет</span><span class="comparing__value">Нет</span></div>
                                     </div>
 
                                 </div>
@@ -587,10 +730,10 @@
                         <div class="footer__menu-block">
                             <div class="footer__menu-caption">Кабинет покупателя</div>
                             <ul class="footer__menu-list">
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Учетная запись</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Заказы</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Отложенные товары</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Список сравнения</a></li>
+                                <li class="footer__menu-item"><a href="lk-person.html" class="footer__menu-link">Учетная запись</a></li>
+                                <li class="footer__menu-item"><a href="lk-orders.html" class="footer__menu-link">Заказы</a></li>
+                                <li class="footer__menu-item"><a href="favorite.html" class="footer__menu-link">Отложенные товары</a></li>
+                                <li class="footer__menu-item"><a href="compare.html" class="footer__menu-link">Список сравнения</a></li>
                             </ul>
                         </div>
                         <div class="footer__menu-block">
@@ -598,9 +741,9 @@
                             <ul class="footer__menu-list">
                                 <li class="footer__menu-item"><a href="about.html" class="footer__menu-link">О компании</a></li>
                                 <li class="footer__menu-item"><a href="reviews.html" class="footer__menu-link">Отзывы покупателей</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Карта сайта</a></li>
+                                <li class="footer__menu-item"><a href="sitemap.html" class="footer__menu-link">Карта сайта</a></li>
                                 <li class="footer__menu-item"><a href="" class="footer__menu-link">Оптовикам</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Контакты</a></li>
+                                <li class="footer__menu-item"><a href="contacts.html" class="footer__menu-link">Контакты</a></li>
                             </ul>
                         </div>
                         <div class="footer__menu-block">
@@ -615,10 +758,10 @@
                             <div class="footer__menu-caption">Дополнительно</div>
                             <ul class="footer__menu-list">
                                 <li class="footer__menu-item"><a href="faq.html" class="footer__menu-link">Обратная связь</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Акции и новости</a></li>
+                                <li class="footer__menu-item"><a href="blog.html" class="footer__menu-link">Акции и новости</a></li>
                                 <li class="footer__menu-item"><a href="spare-parts.html" class="footer__menu-link">Купить запчасти</a></li>
                                 <li class="footer__menu-item"><a href="services.html" class="footer__menu-link">Полезные сервисы Bort</a></li>
-                                <li class="footer__menu-item"><a href="" class="footer__menu-link">Политика конфиденциальности</a></li>
+                                <li class="footer__menu-item"><a href="policy.html" class="footer__menu-link">Политика конфиденциальности</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -632,142 +775,119 @@
                 </div>
             </footer>
             <button type="button" aria-label="Вернуться в начало страницы" class="arrow-top icon-chevron-up"></button>
-            <div class="notify-container"></div>
-            <div id="callback" class="popup">
-                <div class="popup__title title-md">
-                    <span class="color-grey">Заказать</span> звонок
-                </div>
-                <p class="popup__subtitle">
-                    Наш менеджер свяжется с Вами
-                    в&nbsp;ближайшее время!
-                </p>
-                <form action="#" class="popup__form form">
-                    <div class="form__field">
-                        <div class="form__label">Имя:</div>
-                        <input type="text" name="username" data-required class="form__control" placeholder="Имя">
-                        <div class="form__error-message"></div>
-                    </div>
-                    <div class="form__field">
-                        <div class="form__label">Телефон:</div>
-                        <input type="tel" name="phone" data-required class="form__control" placeholder="+7 (999) 999-99-99">
-                        <div class="form__error-message"></div>
-                    </div>
-                    <button type="submit" class="form__submit btn btn-primary">Подробнее</button>
-                </form>
-            </div>
+            <div class="notify-container" aria-live="polite" aria-relevant="additions"></div>
             <div id="sign-in" class="auth-dialog" aria-labelledby="auth-title">
-                <button type="button" class="auth-dialog__close" data-fancybox-close aria-label="Закрыть"><img class="auth-dialog__close-icon" src="img/auth/close.svg" width="20" height="20" alt=""></button>
-                <div class="auth-dialog__view" data-auth-view="login">
-                    <h2 class="auth-dialog__title title title--auth" id="auth-title">Вход в личный кабинет</h2>
-                    <div class="auth-dialog__tabs" role="tablist" aria-label="Способ входа">
-                        <button class="auth-dialog__tab" type="button" role="tab" id="auth-email-tab" aria-controls="auth-email-panel" aria-selected="true" data-auth-tab="email">По E-mail</button>
-                        <button class="auth-dialog__tab" type="button" role="tab" id="auth-phone-tab" aria-controls="auth-phone-panel" aria-selected="false" tabindex="-1" data-auth-tab="phone">По телефону</button>
+    <button type="button" class="auth-dialog__close" data-fancybox-close aria-label="Закрыть"><img class="auth-dialog__close-icon" src="img/auth/close.svg" width="20" height="20" alt=""></button>
+    <div class="auth-dialog__view" data-auth-view="login">
+        <h2 class="auth-dialog__title title title-md" id="auth-title">Вход в личный кабинет</h2>
+        <div class="auth-dialog__tabs segmented-control" role="tablist" aria-label="Способ входа">
+            <button class="auth-dialog__tab segmented-control__button" type="button" role="tab" id="auth-email-tab" aria-controls="auth-email-panel" aria-selected="true" data-auth-tab="email">По E-mail</button>
+            <button class="auth-dialog__tab segmented-control__button" type="button" role="tab" id="auth-phone-tab" aria-controls="auth-phone-panel" aria-selected="false" tabindex="-1" data-auth-tab="phone">По телефону</button>
+        </div>
+        <form class="auth-dialog__form" data-auth-form="email" id="auth-email-panel" role="tabpanel" aria-labelledby="auth-email-tab" novalidate>
+            <div class="auth-dialog__fields">
+                <div class="auth-dialog__field">
+                    <label class="auth-dialog__label" for="auth-email">E-mail</label>
+                    <input class="auth-dialog__input" id="auth-email" type="email" name="email" autocomplete="username" placeholder="" required>
+                    <span class="auth-dialog__error"></span>
+                </div>
+
+                <div class="auth-dialog__field">
+                    <label class="auth-dialog__label" for="auth-password">Пароль</label>
+                    <div class="auth-dialog__password">
+                        <input class="auth-dialog__input auth-dialog__input--password" id="auth-password" type="password" name="password" autocomplete="current-password" required>
+                        <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password><span class="auth-dialog__eye-icon icon-eye" aria-hidden="true"></span></button>
                     </div>
-                    <form class="auth-dialog__form" data-auth-form="email" id="auth-email-panel" role="tabpanel" aria-labelledby="auth-email-tab" novalidate>
-                        <div class="auth-dialog__fields">
-                            <div class="auth-dialog__field">
-                                <label class="auth-dialog__label" for="auth-email">E-mail</label>
-                                <input class="auth-dialog__input" id="auth-email" type="email" name="email" autocomplete="username" placeholder="" required>
-                                <span class="auth-dialog__error"></span>
-                            </div>
-
-                            <div class="auth-dialog__field">
-                                <label class="auth-dialog__label" for="auth-password">Пароль</label>
-                                <div class="auth-dialog__password">
-                                    <input class="auth-dialog__input auth-dialog__input--password" id="auth-password" type="password" name="password" autocomplete="current-password" required>
-                                    <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password><span class="auth-dialog__eye-icon" aria-hidden="true"></span></button>
-                                </div>
-                                <span class="auth-dialog__error"></span>
-                            </div>
-
-                        </div>
-                        <div class="auth-dialog__options">
-                            <label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="remember"><span class="auth-dialog__check-text">Запомнить меня</span></label>
-                            <button class="auth-dialog__link auth-dialog__link--muted" type="button" data-auth-go="recovery">Забыли пароль?</button>
-                        </div>
-                        <button class="auth-dialog__submit" type="submit">Войти</button>
-                        <p class="auth-dialog__footer">Ещё нет учётной записи?<br><button class="auth-dialog__link" type="button" data-auth-go="register">Зарегистрироваться</button></p>
-                    </form>
-                    <form class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
-                        <div class="auth-dialog__fields">
-                            <div class="auth-dialog__field">
-                                <label class="auth-dialog__label" for="auth-phone">Телефон</label>
-                                <input class="auth-dialog__input" id="auth-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
-                                <span class="auth-dialog__error"></span>
-                            </div>
-
-                            <div class="auth-dialog__field"><label class="auth-dialog__label" for="auth-code">Код из СМС</label><input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required><span class="auth-dialog__error"></span></div>
-                        </div>
-                        <button class="auth-dialog__resend" type="button" data-auth-send="phone">Получить код</button>
-                        <button class="auth-dialog__submit" type="submit">Войти</button>
-                    </form>
+                    <span class="auth-dialog__error"></span>
                 </div>
-                <div class="auth-dialog__view" data-auth-view="recovery" hidden>
-                    <div class="auth-dialog__heading"><h2 class="auth-dialog__title title title--auth-small" id="auth-recovery-title">Восстановление пароля</h2><p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p></div>
-                    <form class="auth-dialog__form" data-auth-form="recovery" novalidate>
-                        <div class="auth-dialog__field">
-                            <label class="auth-dialog__label" for="auth-recovery-email">E-mail</label>
-                            <input class="auth-dialog__input" id="auth-recovery-email" type="email" name="email" autocomplete="email" placeholder="" required>
-                            <span class="auth-dialog__error"></span>
-                        </div>
 
-                        <button class="auth-dialog__submit" type="submit">Получить ссылку</button>
-                    </form>
-                </div>
-                <div class="auth-dialog__view" data-auth-view="register" hidden>
-                    <h2 class="auth-dialog__title title title--auth" id="auth-register-title">Регистрация</h2>
-                    <form class="auth-dialog__form" data-auth-form="register" novalidate>
-                        <div class="auth-dialog__fields">
-                            <div class="auth-dialog__field">
-                                <label class="auth-dialog__label" for="auth-name">Имя</label>
-                                <input class="auth-dialog__input" id="auth-name" type="text" name="username" autocomplete="given-name" placeholder="Имя" required>
-                                <span class="auth-dialog__error"></span>
-                            </div>
-
-                            <div class="auth-dialog__phone-row">
-                                <div class="auth-dialog__field">
-                                    <label class="auth-dialog__label" for="auth-register-phone">Телефон</label>
-                                    <input class="auth-dialog__input" id="auth-register-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
-                                    <span class="auth-dialog__error"></span>
-                                </div>
-
-                                <button class="auth-dialog__get-code" type="button" data-auth-send="register">Получить код</button>
-                                <div class="auth-dialog__field auth-dialog__field--code" hidden><input class="auth-dialog__input auth-dialog__input--code" name="code" aria-label="Код из СМС" inputmode="numeric" autocomplete="one-time-code" placeholder="Введите код" maxlength="4" pattern="[0-9]{4}" disabled required><span class="auth-dialog__error"></span></div>
-                            </div>
-                            <div class="auth-dialog__code-note" hidden><p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register">Получить новый код</button></div>
-                            <div class="auth-dialog__field">
-                                <label class="auth-dialog__label" for="auth-register-email">E-mail</label>
-                                <input class="auth-dialog__input" id="auth-register-email" type="email" name="email" autocomplete="email" placeholder="" required>
-                                <span class="auth-dialog__error"></span>
-                            </div>
-
-                            <div class="auth-dialog__field">
-                                <label class="auth-dialog__label" for="auth-register-password">Пароль</label>
-                                <div class="auth-dialog__password">
-                                    <input class="auth-dialog__input auth-dialog__input--password" id="auth-register-password" type="password" name="password" autocomplete="new-password" required>
-                                    <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password><span class="auth-dialog__eye-icon" aria-hidden="true"></span></button>
-                                </div>
-                                <span class="auth-dialog__error"></span>
-                            </div>
-
-                        </div>
-                        <div class="auth-dialog__consent">
-                            <div class="auth-dialog__field"><label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="agreement" required><span class="auth-dialog__check-text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">Политики конфиденциальности</a>.</span></label><span class="auth-dialog__error"></span></div>
-                            <p class="auth-dialog__hint">Нажимая кнопку &quot;Зарегистрироваться&quot;, я подтверждаю свою дееспособность и согласие на получение информации об оформлении и получении заказа, согласие на обработку персональных данных в соответствии с указанным <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">здесь текстом</a>.</p>
-                        </div>
-                        <button class="auth-dialog__submit" type="submit">Зарегистрироваться</button>
-                        <p class="auth-dialog__footer">У вас есть аккаунт?<br><button class="auth-dialog__link" type="button" data-auth-go="login">Войти</button></p>
-                    </form>
-                </div>
-                <p class="auth-dialog__status" role="status" aria-live="polite" hidden></p>
             </div>
+            <div class="auth-dialog__options">
+                <label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="remember"><span class="auth-dialog__check-text">Запомнить меня</span></label>
+                <button class="auth-dialog__link auth-dialog__link--muted" type="button" data-auth-go="recovery">Забыли пароль?</button>
+            </div>
+            <button class="auth-dialog__submit" type="submit">Войти</button>
+            <p class="auth-dialog__footer">Ещё нет учётной записи?<br><button class="auth-dialog__link" type="button" data-auth-go="register">Зарегистрироваться</button></p>
+        </form>
+        <form class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
+            <div class="auth-dialog__fields">
+                <div class="auth-dialog__field">
+                    <label class="auth-dialog__label" for="auth-phone">Телефон</label>
+                    <input class="auth-dialog__input" id="auth-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
+                    <span class="auth-dialog__error"></span>
+                </div>
+
+                <div class="auth-dialog__field"><label class="auth-dialog__label" for="auth-code">Код из СМС</label><input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required><span class="auth-dialog__error"></span></div>
+            </div>
+            <button class="auth-dialog__resend" type="button" data-auth-send="phone">Получить код</button>
+            <button class="auth-dialog__submit" type="submit">Войти</button>
+        </form>
+    </div>
+    <div class="auth-dialog__view" data-auth-view="recovery" hidden>
+        <div class="auth-dialog__heading"><h2 class="auth-dialog__title title title-md" id="auth-recovery-title">Восстановление пароля</h2><p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p></div>
+        <form class="auth-dialog__form" data-auth-form="recovery" novalidate>
+            <div class="auth-dialog__field">
+                <label class="auth-dialog__label" for="auth-recovery-email">E-mail</label>
+                <input class="auth-dialog__input" id="auth-recovery-email" type="email" name="email" autocomplete="email" placeholder="" required>
+                <span class="auth-dialog__error"></span>
+            </div>
+
+            <button class="auth-dialog__submit" type="submit">Получить ссылку</button>
+        </form>
+    </div>
+    <div class="auth-dialog__view" data-auth-view="register" hidden>
+        <h2 class="auth-dialog__title title title-md" id="auth-register-title">Регистрация</h2>
+        <form class="auth-dialog__form" data-auth-form="register" novalidate>
+            <div class="auth-dialog__fields">
+                <div class="auth-dialog__field">
+                    <label class="auth-dialog__label" for="auth-name">Имя</label>
+                    <input class="auth-dialog__input" id="auth-name" type="text" name="username" autocomplete="given-name" placeholder="Имя" required>
+                    <span class="auth-dialog__error"></span>
+                </div>
+
+                <div class="auth-dialog__phone-row">
+                    <div class="auth-dialog__field">
+                        <label class="auth-dialog__label" for="auth-register-phone">Телефон</label>
+                        <input class="auth-dialog__input" id="auth-register-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
+                        <span class="auth-dialog__error"></span>
+                    </div>
+
+                    <button class="auth-dialog__get-code" type="button" data-auth-send="register">Получить код</button>
+                    <div class="auth-dialog__field auth-dialog__field--code" hidden><input class="auth-dialog__input auth-dialog__input--code" name="code" aria-label="Код из СМС" inputmode="numeric" autocomplete="one-time-code" placeholder="Введите код" maxlength="4" pattern="[0-9]{4}" disabled required><span class="auth-dialog__error"></span></div>
+                </div>
+                <div class="auth-dialog__code-note" hidden><p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register">Получить новый код</button></div>
+                <div class="auth-dialog__field">
+                    <label class="auth-dialog__label" for="auth-register-email">E-mail</label>
+                    <input class="auth-dialog__input" id="auth-register-email" type="email" name="email" autocomplete="email" placeholder="" required>
+                    <span class="auth-dialog__error"></span>
+                </div>
+
+                <div class="auth-dialog__field">
+                    <label class="auth-dialog__label" for="auth-register-password">Пароль</label>
+                    <div class="auth-dialog__password">
+                        <input class="auth-dialog__input auth-dialog__input--password" id="auth-register-password" type="password" name="password" autocomplete="new-password" required>
+                        <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password><span class="auth-dialog__eye-icon icon-eye" aria-hidden="true"></span></button>
+                    </div>
+                    <span class="auth-dialog__error"></span>
+                </div>
+
+            </div>
+            <div class="auth-dialog__consent">
+                <div class="auth-dialog__field"><label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="agreement" required><span class="auth-dialog__check-text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">Политики конфиденциальности</a>.</span></label><span class="auth-dialog__error"></span></div>
+                <p class="auth-dialog__hint">Нажимая кнопку &quot;Зарегистрироваться&quot;, я подтверждаю свою дееспособность и согласие на получение информации об оформлении и получении заказа, согласие на обработку персональных данных в соответствии с указанным <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">здесь текстом</a>.</p>
+            </div>
+            <button class="auth-dialog__submit" type="submit">Зарегистрироваться</button>
+            <p class="auth-dialog__footer">У вас есть аккаунт?<br><button class="auth-dialog__link" type="button" data-auth-go="login">Войти</button></p>
+        </form>
+    </div>
+    <p class="auth-dialog__status" role="status" aria-live="polite" hidden></p>
+</div>
 
 
 
             <!-- plugins -->
             <script src="js/libs/fancybox.umd.js"></script>
             <script src="js/libs/swiper-bundle.min.js"></script>
-            <script src="js/libs/nouislider.min.js"></script>
             <!-- plugins -->
 
             <script src="js/app.min.js"></script>

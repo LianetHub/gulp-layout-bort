@@ -52,5 +52,59 @@
         "guarantee": false,
         "sku": "2569886",
         "image": "@img/goods/BPS-21LI-M.png"
+    },
+    {
+        "model": "BHD-20LI-SR",
+        "name": "Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)",
+        "price": "17 090",
+        "oldPrice": "18 590",
+        "guarantee": true,
+        "sku": "2569881",
+        "image": "@img/goods/BHD-20LI-SR.png"
+    },
+    {
+        "model": "BHK-20LI",
+        "name": "Пила дисковая аккумуляторная BORT BHK-20LI",
+        "price": "15 853",
+        "oldPrice": "18 590",
+        "guarantee": true,
+        "sku": "2569882",
+        "image": "@img/goods/BHK-20LI.png"
+    },
+    {
+        "model": "BRS-18LI-X",
+        "name": "Пила сабельная аккумуляторная BORT BRS-18LI-X",
+        "price": "17 090",
+        "oldPrice": "18 590",
+        "guarantee": false,
+        "sku": "2569883",
+        "image": "@img/goods/BRS-18LI-X.png"
+    },
+    {
+        "model": "BWS-18LI-XDK",
+        "name": "Машина шлифовальная угловая BORT BWS-18LI-XDK",
+        "price": "17 090",
+        "oldPrice": "18 590",
+        "guarantee": false,
+        "sku": "2569884",
+        "image": "@img/goods/BWS-18LI-XDK.png"
+    },
+    {
+        "model": "BKS-2112-LI",
+        "name": "Пила цепная аккумуляторная BORT BKS-2112-LI",
+        "price": "15 853",
+        "oldPrice": "16 985",
+        "guarantee": false,
+        "sku": "2569885",
+        "image": "@img/goods/BKS-2112-LI.png"
+    },
+    {
+        "model": "BPS-21LI-M",
+        "name": "Лобзик аккумуляторный BORT BPS-21LI-M",
+        "price": "17 090",
+        "oldPrice": "17 985",
+        "guarantee": false,
+        "sku": "2569886",
+        "image": "@img/goods/BPS-21LI-M.png"
     }
 ]

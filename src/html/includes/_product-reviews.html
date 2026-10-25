@@ -1,7 +1,7 @@
-<div class="reviews reviews--product">
-    <h2 class="reviews__title title title--product-section">Отзывы о товаре</h2>
+<div class="reviews">
+    <h2 class="reviews__title title title-md">Отзывы о товаре</h2>
     <div class="reviews__body">
-        <div class="reviews__main review-group" data-page-size="3">
+        <div class="reviews__main review-group">
             <div class="review-group__toolbar">@@include('./_review-sort.html')</div>
             <div class="reviews__list review-group__list">
                 @@loop('../templates/_review.html', './html/json/product-reviews.json')

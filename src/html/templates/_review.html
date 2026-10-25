@@ -1,10 +1,10 @@
-<article class="review@@if (!compact) { review--detailed}@@if(typeof productReview !== 'undefined' && productReview){ review--product}" data-review-id="@@id" data-rating="@@rating" data-date="@@dateISO" data-helpful="@@helpful">
+<article class="review@@if(typeof productReview !== 'undefined' && productReview){ review--product}">
     <div class="review__header">
         <span class="review__avatar icon-user-fill" aria-hidden="true"></span>
         <div class="review__identity">
             @@include('../includes/_rating-stars.html', {"rating": "@@rating"})
             <div class="review__row">
-                <h3 class="review__name title title--review-author">@@author</h3>
+                <h3 class="review__name title title-sm title--sans">@@author</h3>
                 @@if (experience) {<p class="review__experience">Опыт использования: @@experience</p>}
             </div>
         </div>

@@ -1,0 +1,105 @@
+@use "sass:math";
+
+// .file-upload
+.file-upload {
+	// .file-upload__list
+	&__list {
+		display: grid;
+		gap: rem(8);
+		margin-top: rem(8);
+		// .file-upload__list[hidden]
+		&[hidden] {
+			display: none;
+		}
+	}
+	// .file-upload__item
+	&__item {
+		display: flex;
+		align-items: center;
+		gap: rem(15);
+		min-height: rem(70);
+		padding: rem(14) rem(20);
+		border: 1px solid #d3d6dd;
+		border-radius: rem(10);
+		background: #fff;
+		@media (any-hover: hover) {
+			// .file-upload__item:hover
+			&:hover {
+				background: #f7f7f6;
+				border-color: #f7f7f6;
+				color: #ff6201;
+			}
+		}
+		// .file-upload__item:focus-within
+		&:focus-within {
+			background: #f7f7f6;
+			color: #ff6201;
+		}
+	}
+	// .file-upload__format
+	&__format {
+		position: relative;
+		display: grid;
+		place-items: center;
+		flex-shrink: 0;
+		width: rem(34);
+		height: rem(40);
+		color: #ff6201;
+		font-size: rem(34);
+		// .file-upload__format::after
+		&::after {
+			content: attr(data-format);
+			position: absolute;
+			left: 0;
+			right: 0;
+			bottom: rem(7);
+			text-align: center;
+			color: #fff;
+			background: #ff6201;
+			font: 700 #{rem(8)}/ 1 $fontfamily;
+		}
+		// .file-upload__format[data-format="PDF"]::after
+		&[data-format="PDF"]::after {
+			display: none;
+		}
+	}
+	// .file-upload__info
+	&__info {
+		display: flex;
+		flex: 1;
+		min-width: 0;
+		flex-direction: column;
+		gap: rem(4);
+	}
+	// .file-upload__size
+	&__size {
+		color: #6a6b6d;
+		font-size: rem(14);
+		line-height: math.div(20, 14);
+	}
+	// .file-upload__name
+	&__name {
+		min-width: 0;
+		overflow-wrap: anywhere;
+		font-size: rem(14);
+		font-weight: 500;
+		line-height: math.div(20, 14);
+		color: inherit;
+	}
+	// .file-upload__remove
+	&__remove {
+		display: grid;
+		place-items: center;
+		flex-shrink: 0;
+		width: rem(24);
+		height: rem(24);
+		color: #63666a;
+		font-size: rem(16);
+		border-radius: rem(4);
+		// .file-upload__remove:focus-visible
+		&:focus-visible {
+			outline: 2px solid $orange;
+			outline-offset: 2px;
+		}
+	}
+}

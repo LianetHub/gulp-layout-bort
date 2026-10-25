@@ -1,10 +1,10 @@
 <div id="sign-in" class="auth-dialog" aria-labelledby="auth-title">
     <button type="button" class="auth-dialog__close" data-fancybox-close aria-label="Закрыть"><img class="auth-dialog__close-icon" src="@img/auth/close.svg" width="20" height="20" alt=""></button>
     <div class="auth-dialog__view" data-auth-view="login">
-        <h2 class="auth-dialog__title title title--auth" id="auth-title">Вход в личный кабинет</h2>
-        <div class="auth-dialog__tabs" role="tablist" aria-label="Способ входа">
-            <button class="auth-dialog__tab" type="button" role="tab" id="auth-email-tab" aria-controls="auth-email-panel" aria-selected="true" data-auth-tab="email">По E-mail</button>
-            <button class="auth-dialog__tab" type="button" role="tab" id="auth-phone-tab" aria-controls="auth-phone-panel" aria-selected="false" tabindex="-1" data-auth-tab="phone">По телефону</button>
+        <h2 class="auth-dialog__title title title-md" id="auth-title">Вход в личный кабинет</h2>
+        <div class="auth-dialog__tabs segmented-control" role="tablist" aria-label="Способ входа">
+            <button class="auth-dialog__tab segmented-control__button" type="button" role="tab" id="auth-email-tab" aria-controls="auth-email-panel" aria-selected="true" data-auth-tab="email">По E-mail</button>
+            <button class="auth-dialog__tab segmented-control__button" type="button" role="tab" id="auth-phone-tab" aria-controls="auth-phone-panel" aria-selected="false" tabindex="-1" data-auth-tab="phone">По телефону</button>
         </div>
         <form class="auth-dialog__form" data-auth-form="email" id="auth-email-panel" role="tabpanel" aria-labelledby="auth-email-tab" novalidate>
             <div class="auth-dialog__fields">
@@ -28,14 +28,14 @@
         </form>
     </div>
     <div class="auth-dialog__view" data-auth-view="recovery" hidden>
-        <div class="auth-dialog__heading"><h2 class="auth-dialog__title title title--auth-small" id="auth-recovery-title">Восстановление пароля</h2><p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p></div>
+        <div class="auth-dialog__heading"><h2 class="auth-dialog__title title title-md" id="auth-recovery-title">Восстановление пароля</h2><p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p></div>
         <form class="auth-dialog__form" data-auth-form="recovery" novalidate>
             @@include('../templates/_auth-field.html', {"id":"auth-recovery-email","label":"E-mail","type":"email","name":"email","autocomplete":"email","placeholder":""})
             <button class="auth-dialog__submit" type="submit">Получить ссылку</button>
         </form>
     </div>
     <div class="auth-dialog__view" data-auth-view="register" hidden>
-        <h2 class="auth-dialog__title title title--auth" id="auth-register-title">Регистрация</h2>
+        <h2 class="auth-dialog__title title title-md" id="auth-register-title">Регистрация</h2>
         <form class="auth-dialog__form" data-auth-form="register" novalidate>
             <div class="auth-dialog__fields">
                 @@include('../templates/_auth-field.html', {"id":"auth-name","label":"Имя","type":"text","name":"username","autocomplete":"given-name","placeholder":"Имя"})

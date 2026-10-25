@@ -4,12 +4,12 @@
     <body>
         <div class="wrapper">
             @@include('html/_header.html', {"auth": false})
-            <main class="page page--cart">
+            <main class="page page--dark">
                 <section class="cart">
                     <div class="cart__container container">
                         <a href="catalog.html" class="cart__back"><span class="cart__back-icon icon-chevron-left" aria-hidden="true"></span>Вернуться к покупкам</a>
                         <div class="cart__heading">
-                            <h1 class="cart__title title title--cart">Корзина</h1>
+                            <h1 class="cart__title title title-lg title--sans title--bold">Корзина</h1>
                             <button type="button" class="cart__share"><svg class="cart__share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path class="cart__share-path" d="m14 3 7 7-7 7v-4C8 13 5 14 2 19c0-9 4-12 12-12V3Z" stroke="currentColor" stroke-linejoin="round"/></svg><span class="cart__share-text">Поделиться корзиной</span></button>
                         </div>
                         <div class="cart__layout">
@@ -24,7 +24,7 @@
                             </div>
                             <aside class="cart__sidebar" aria-label="Итоги заказа">
                                 <div class="cart__total">
-                                    <h2 class="cart__total-title title title--cart-summary">Ваш заказ</h2>
+                                    <h2 class="cart__total-title title title-sm title--sans">Ваш заказ</h2>
                                     <div class="cart__total-rows" aria-live="polite">
                                         <div class="cart__total-row"><span class="cart__total-label">Вес заказа</span><span class="cart__total-value" data-cart-weight>10,45 кг</span></div>
                                         <div class="cart__total-row"><span class="cart__total-label" data-cart-count>4 товара</span><span class="cart__total-value" data-cart-subtotal>20 456 ₽</span></div>
@@ -47,14 +47,14 @@
             @@include('html/_footer.html', {})
 
             <div id="order" class="popup popup--medium">
-                <h2 class="popup__title title-md">оформление <span>заказа</span></h2>
+                <h2 class="popup__title title title-md">оформление <span>заказа</span></h2>
                 <form action="#" class="popup__form">
                     <div class="row">
                         <div class="col-md-6">
                             <div class="form__field">
                                 <div class="form__label">Способ оплаты:</div>
                                 <div class="form__select icon-chevron-down">
-                                    <select name="payment_type" class="form__control">
+                                    <select data-custom-select name="payment_type" class="form__control">
                                         <option value="cashless">Безналичный расчёт</option>
                                         <option value="card">Банковская карта</option>
                                         <option value="cash">Наличными при получении</option>
@@ -73,7 +73,7 @@
                             <div class="form__field">
                                 <div class="form__label">Способ получения:</div>
                                 <div class="form__select icon-chevron-down">
-                                    <select name="delivery_method" class="form__control">
+                                    <select data-custom-select name="delivery_method" class="form__control">
                                         <option value="pickup">Самовывоз</option>
                                         <option value="courier">Доставка курьером</option>
                                         <option value="transport">Транспортная компания</option>

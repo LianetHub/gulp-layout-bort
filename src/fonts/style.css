@@ -228,3 +228,19 @@
 }
 
 .icon-star-fill:before { content: "\e943"; }
+
+.icon-heart-fill:before {
+  content: "\e944";
+}
+
+.icon-eye:before {
+  content: "\e945";
+}
+
+.icon-eye-off:before {
+  content: "\e946";
+}
+
+.icon-clip:before {
+  content: "\e947";
+}

@@ -1,6 +1,7 @@
+@use "sass:math";
+
 // .rating-summary
 .rating-summary {
-
 	// .rating-summary__distribution
 	&__distribution {
 		display: grid;
@@ -22,7 +23,7 @@
 	&__quantity {
 		color: #63666a;
 		font-size: rem(14);
-		line-height: rem(20);
+		line-height: math.div(20, 14);
 	}
 	border-radius: 1.25rem;
 	background: #fff;
@@ -32,13 +33,6 @@
 
 	@media (min-width: $md4) {
 		padding: 2.5rem;
-	}
-
-	// .rating-summary__title
-	&__title {
-		padding-bottom: 1.25rem;
-		margin-bottom: 1.25rem;
-		border-bottom: rem(1) solid #efefef;
 	}
 
 	// .rating-summary__main
@@ -53,24 +47,15 @@
 	&__score {
 		font-size: 3rem;
 		font-weight: 600;
-		line-height: 125%;
-	}
-
-	// .rating-summary__stars
-	&__stars {
-		display: flex;
-		gap: 0.25rem;
+		line-height: math.div(125, 100);
 	}
 
 	// .rating-summary__count
 	&__count {
 		margin-top: 0.13rem;
 		font-size: 1rem;
-		line-height: 125%;
+		line-height: math.div(125, 100);
 	}
-
-	// .rating-summary__bars
-	&__bars {}
 
 	// .rating-summary__bar-row
 	&__bar-row {
@@ -88,7 +73,7 @@
 	&__bar-label {
 		font-size: 1rem;
 		font-weight: 500;
-		line-height: 125%;
+		line-height: math.div(125, 100);
 	}
 
 	// .rating-summary__line-wrapper
@@ -134,13 +119,13 @@
 		// .rating-summary--compact .rating-summary__score
 		.rating-summary__score {
 			font-size: rem(36);
-			line-height: rem(48);
+			line-height: math.div(48, 36);
 		}
 		// .rating-summary--compact .rating-summary__count
 		.rating-summary__count {
 			margin: 0;
 			font-size: rem(16);
-			line-height: rem(22);
+			line-height: math.div(22, 16);
 		}
 		// .rating-summary--compact .rating-summary__btn
 		.rating-summary__btn {
@@ -155,7 +140,7 @@
 			background: #fff;
 			color: #ff6201;
 			font-size: rem(16);
-			line-height: rem(22);
+			line-height: math.div(22, 16);
 		}
 	}
 }

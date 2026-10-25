@@ -4,28 +4,17 @@
 <body>
     <div class="wrapper">
         @@include('html/_header.html', { "auth": true })
-        <main class="page page--account">
-            <section class="account account--orders account--order-detail">
-                <div class="account__mobile-heading"><a class="account__back icon-chevron-left" href="lk-history.html" aria-label="Вернуться к заказам"></a><h1 class="account__mobile-title title title--auth-small">Мои заказы</h1></div>
+        <main class="page page--dark">
+            <section class="account">
                 <div class="account__container container">
-                    <h1 class="account__title title title--cabinet">Мой кабинет</h1>
+                    @@include('html/includes/_page-heading.html', {"title":"Мои заказы","backHref":"lk-orders.html","backLabel":"Вернуться к заказам"})
                     <div class="account__body">
-                        <nav class="account__sidebar" aria-label="Мой кабинет">
-                            <ul class="account__menu">
-                                <li class="account__menu-item account__menu-item--overview"><a class="account__link icon-layout" href="lk-person.html#menu">Мой кабинет</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-user-circle" href="lk-person.html">Личные данные</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-box" href="lk-history.html" aria-current="page">Заказы</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-location" href="lk-address.html">Адреса</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-heart" href="favorite.html">Избранное</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-compare" href="compare.html">Сравнение</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-login" href="index.html">Выйти</a></li>
-                            </ul>
-                        </nav>
+                        @@include('html/includes/_account-sidebar.html', {"active":"orders"})
                         <div class="account__content order-details" data-order-details>
                             <div class="order-details__main">
                                 <div class="order-details__panel order-details__heading">
-                                    <a class="order-details__back" href="lk-history.html"><img class="order-details__back-icon" src="@img/orders/back.svg" width="20" height="20" alt="">Назад к заказам</a>
-                                    <div class="order-details__number"><h2 class="order-details__title title title--order-detail">Заказ №2504-477215-77804</h2><button class="order-details__copy" type="button" aria-label="Скопировать номер заказа" data-copy-order><img class="order-details__copy-icon" src="@img/orders/copy.svg" alt=""></button></div>
+                                    <a class="order-details__back" href="lk-orders.html"><img class="order-details__back-icon" src="@img/orders/back.svg" width="20" height="20" alt="">Назад к заказам</a>
+                                    <div class="order-details__number"><h2 class="order-details__title title title-md">Заказ №2504-477215-77804</h2><button class="order-details__copy" type="button" aria-label="Скопировать номер заказа" data-copy-order><img class="order-details__copy-icon" src="@img/orders/copy.svg" alt=""></button></div>
                                     <p class="order-details__date">от 12 мая 2026 в 13:49</p>
                                     <span class="order-details__tag">В обработке</span>
                                 </div>
@@ -35,7 +24,7 @@
                                     <div class="order-details__field"><h3 class="order-details__label">Способ доставки</h3><div class="order-details__values order-details__values--delivery"><p class="order-details__value">Курьером до двери по Москве</p><p class="order-details__value">г. Москва, ул. Пионерская, д.278</p></div></div>
                                 </div>
                                 <div class="order-details__panel order-details__products">
-                                    <h3 class="order-details__products-title title title--order">Товары</h3>
+                                    <h3 class="order-details__products-title title title-sm">Товары</h3>
                                     <ul class="order-details__list">@@loop('html/templates/_order-product.html', './html/json/order-products.json')</ul>
                                 </div>
                             </div>

@@ -1,15 +1,15 @@
 <button type="button" class="listing-filter-overlay" aria-label="Закрыть фильтры" hidden></button>
 <form class="listing-filter" id="listing-filter" aria-label="Фильтры каталога">
     <div class="listing-filter__header">
-        <h2 class="listing-filter__title title title--filter">Фильтры</h2>
+        <h2 class="listing-filter__title title title-md title--sans title--bold">Фильтры</h2>
         <button type="button" class="listing-filter__close icon-close" aria-label="Закрыть фильтры"></button>
     </div>
     <div class="listing-filter__categories">
         <h3 class="listing-filter__caption">Категория</h3>
         <a href="catalog.html" class="listing-filter__category is-active">Измельчители отходов</a>
-        <a href="category.html" class="listing-filter__category">Отпариватели</a>
-        <a href="category.html" class="listing-filter__category">Водонагреватели</a>
-        <a href="category.html" class="listing-filter__category">Аксессуары</a>
+        <a href="catalog.html" class="listing-filter__category">Отпариватели</a>
+        <a href="catalog.html" class="listing-filter__category">Водонагреватели</a>
+        <a href="catalog.html" class="listing-filter__category">Аксессуары</a>
     </div>
     <label class="listing-filter__stock">
         <span class="listing-filter__caption">В наличии</span>
@@ -18,9 +18,9 @@
     <fieldset class="listing-filter__price">
         <legend class="listing-filter__caption">Цена, ₽</legend>
         <div class="listing-filter__range">
-            <input type="number" class="listing-filter__input" name="min_price" aria-label="Минимальная цена" min="0" placeholder="8 990">
+            <input type="number" class="listing-filter__input" name="min_price" @@if(typeof search !== 'undefined' && search){value="8090"} aria-label="Минимальная цена" min="0" placeholder="8 990">
             <span class="listing-filter__dash">–</span>
-            <input type="number" class="listing-filter__input" name="max_price" aria-label="Максимальная цена" min="0" placeholder="218 690">
+            <input type="number" class="listing-filter__input" name="max_price" @@if(typeof search !== 'undefined' && search){value="218690"} aria-label="Максимальная цена" min="0" placeholder="218 690">
         </div>
     </fieldset>
     <details class="listing-filter__group" open>
@@ -28,7 +28,7 @@
         <div class="listing-filter__choices">
             @@loop('../templates/_listing-choice.html', [
                 {"group":"power","value":"1125","label":"1 125","checked":false},
-                {"group":"power","value":"1200","label":"1 200","checked":false},
+                {"group":"power","value":"1200","label":"1 200","checked":@@if(typeof search !== 'undefined' && search){true}@@if(typeof search === 'undefined' || !search){false}},
                 {"group":"power","value":"1470","label":"1 470","checked":false},
                 {"group":"power","value":"375","label":"375","checked":false},
                 {"group":"power","value":"390","label":"390","checked":false}
@@ -44,7 +44,7 @@
         <summary class="listing-filter__summary">Тип мотора</summary>
         <div class="listing-filter__choices">
             @@loop('../templates/_listing-choice.html', [
-                {"group":"motor","value":"bldc","label":"Бесщеточный (BLDC)","checked":false},
+                {"group":"motor","value":"bldc","label":"Бесщеточный (BLDC)","checked":@@if(typeof search !== 'undefined' && search){true}@@if(typeof search === 'undefined' || !search){false}},
                 {"group":"motor","value":"induction","label":"Бесщеточный (индукционный)","checked":false},
                 {"group":"motor","value":"pmdc","label":"Щеточный (PMDC)","checked":false}
             ])

@@ -4,7 +4,7 @@
     <body>
         <div class="wrapper">
             @@include('html/_header.html', {"auth": false})
-            <main class="page page--comparing">
+            <main class="page page--light">
                 <nav aria-label="Хлебные крошки" class="breadcrumbs breadcrumbs--compact">
                     <div class="breadcrumbs__container container">
                         <ul class="breadcrumbs__list">
@@ -16,16 +16,16 @@
                 <section class="comparing" aria-labelledby="comparing-title">
                     <div class="comparing__container container">
                         <div class="comparing__heading">
-                            <h1 class="comparing__title title title--page" id="comparing-title">Сравнение товаров</h1>
+                            <h1 class="comparing__title title title-lg" id="comparing-title">Сравнение товаров</h1>
                             <button type="button" class="comparing__clear" data-compare-clear="all"><img src="@img/comparing/trash.svg" alt="" class="comparing__icon" width="17" height="18">Очистить сравнение</button>
                         </div>
                         <div class="comparing__categories" role="group" aria-label="Категории сравнения">
-                            <button type="button" class="comparing__category is-active" data-compare-category="disposers" aria-pressed="true">Измельчители отходов <span class="comparing__count">3</span></button>
+                            <button type="button" class="comparing__category is-active" data-compare-category="disposers" aria-pressed="true">Измельчители отходов <span class="comparing__count">6</span></button>
                             <button type="button" class="comparing__category" data-compare-category="steamers" aria-pressed="false">Отпариватели <span class="comparing__count">5</span></button>
                             <button type="button" class="comparing__category" data-compare-category="hammers" aria-pressed="false">Перфораторы <span class="comparing__count">2</span></button>
                             <button type="button" class="comparing__category" data-compare-category="jigsaws" aria-pressed="false">Лобзики <span class="comparing__count">4</span></button>
                             <button type="button" class="comparing__category" data-compare-category="saws" aria-pressed="false">Пилы цепные <span class="comparing__count">2</span></button>
-                            <button type="button" class="comparing__category" data-compare-category="pruners" aria-pressed="false">Секаторы и сучкорезы <span class="comparing__count">3</span></button>
+                            <button type="button" class="comparing__category" data-compare-category="pruners" aria-pressed="false">Секаторы и сучкорезы <span class="comparing__count">6</span></button>
                         </div>
                         <div class="comparing__body">
                             <div class="comparing__anchor">
@@ -53,12 +53,12 @@
                             </div>
                             <div class="comparing__desc">
                                 <div class="comparing__important">
-                                    <h2 class="comparing__caption title title--comparison-group">Важные характеристики</h2>
+                                    <h2 class="comparing__caption title title-md title--sans">Важные характеристики</h2>
                                     <p class="comparing__hint">Добавьте в эту группу важные для сравнения характеристики</p>
                                     <div class="comparing__important-rows"></div>
                                 </div>
                                 <div class="comparing__content">
-                                    <h2 class="comparing__caption title title--comparison-group">Общие характеристики</h2>
+                                    <h2 class="comparing__caption title title-md title--sans">Общие характеристики</h2>
                                     @@loop('html/templates/_comparing-row.html', 'html/json/comparing-rows.json')
                                 </div>
                             </div>

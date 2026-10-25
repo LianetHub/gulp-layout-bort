@@ -1,0 +1,12 @@
+// .map-block
+.map-block {
+	background: $grey;
+	width: 100%;
+	max-width: rem(570);
+	height: rem(350);
+	border-radius: rem(20);
+	overflow: hidden;
+	@media (min-width: $md4) {
+		height: rem(450);
+	}
+}

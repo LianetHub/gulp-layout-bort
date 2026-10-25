@@ -1,0 +1,61 @@
+@use "sass:math";
+
+// .reviews
+.reviews {
+	padding: 0;
+	// .reviews__title
+	&__title {
+		margin-bottom: rem(20);
+	}
+	// .reviews__body
+	&__body {
+		display: grid;
+		align-items: start;
+		grid-template-columns: minmax(0, 1fr);
+		gap: rem(30);
+		@media (min-width: $md2) {
+			grid-template-columns: minmax(0, 820fr) minmax(0, 350fr);
+			gap: rem(70);
+		}
+	}
+	// .reviews__list
+	&__list {
+		display: flex;
+		flex-direction: column;
+		gap: 0;
+	}
+	// .reviews__sidebar
+	&__sidebar {
+		order: -1;
+		@media (min-width: $md3) {
+			order: 0;
+		}
+	}
+	// .reviews .icon-star
+	.icon-star {
+		width: 1.25rem;
+		height: 1.25rem;
+		display: inline-block;
+		color: $orange;
+
+		// .reviews .icon-star::before
+		&::before {
+			font-size: 1.25rem;
+			line-height: math.div(1, 1);
+		}
+
+		// .reviews .icon-star--grey
+		&--grey {
+			color: #efefef;
+		}
+
+		// .reviews .icon-star--half
+		&--half {
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			background-clip: text;
+			text-fill-color: transparent;
+			background-image: linear-gradient(90deg, $orange 50%, #efefef 50%);
+		}
+	}
+}

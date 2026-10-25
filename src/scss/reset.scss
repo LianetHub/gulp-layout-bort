@@ -1,3 +1,5 @@
+@use "sass:math";
+
 * {
 	padding: 0;
 	margin: 0;
@@ -96,7 +98,7 @@ a {
 }
 
 body {
-	line-height: 1;
+	line-height: math.div(1, 1);
 	-ms-text-size-adjust: 100%;
 	-moz-text-size-adjust: 100%;
 	-webkit-text-size-adjust: 100%;

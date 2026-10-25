@@ -1,0 +1,9 @@
+<div class="page-heading">
+    @@if (backHref) {
+    <a class="page-heading__back icon-chevron-left" href="@@backHref" aria-label="@@backLabel"></a>
+    }
+    @@if (!backHref) {
+    <button class="page-heading__back icon-chevron-left" type="button" aria-label="@@backLabel"></button>
+    }
+    <h1 class="page-heading__title title title-lg">@@title</h1>
+</div>

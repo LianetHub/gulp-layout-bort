@@ -1,0 +1,38 @@
+// .page-heading
+.page-heading {
+	display: flex;
+	align-items: center;
+	gap: rem(10);
+	width: 100vw;
+	margin-inline: calc(50% - 50vw);
+	padding: rem(15);
+	background: #fff;
+	box-shadow: 0 5px 10px rgba(12, 19, 26, 0.05);
+
+	@media (min-width: $md4) {
+		width: auto;
+		margin-inline: 0;
+		padding: 0;
+		background: transparent;
+		box-shadow: none;
+	}
+
+	// .page-heading__back
+	&__back {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: rem(24);
+		height: rem(28);
+		flex-shrink: 0;
+
+		@media (min-width: $md4) {
+			display: none;
+		}
+	}
+
+	// .page-heading__title
+	&__title {
+		min-width: 0;
+	}
+}

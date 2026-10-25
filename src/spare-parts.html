@@ -6,7 +6,7 @@
     <body>
         <div class="wrapper">
             @@include('html/_header.html', {})
-            <main class="page page--showcase">
+            <main class="page page--light">
                 <nav aria-label="Хлебные крошки" class="breadcrumbs">
                     <div class="breadcrumbs__container container">
                         <ul class="breadcrumbs__list">
@@ -17,7 +17,7 @@
                 </nav>
                 <section class="spare-parts" aria-labelledby="spare-parts-title">
                     <div class="spare-parts__container container">
-                        <h1 class="spare-parts__title title" id="spare-parts-title">Купить запчасти</h1>
+                        <h1 class="spare-parts__title title title-lg" id="spare-parts-title">Купить запчасти</h1>
                         <p class="spare-parts__description">Если Вы ищете запчасти для Вашей техники Bort, оставьте заявку в форме ниже.</p>
                         <div class="spare-parts__body">
                             <aside class="spare-parts__help parts-help" aria-labelledby="parts-help-title">
@@ -60,17 +60,7 @@
                                     <input class="form__control" id="parts-city" type="text" name="city" placeholder="Город" autocomplete="address-level2" data-required required aria-describedby="parts-city-error">
                                     <div class="form__error-message" id="parts-city-error" aria-live="polite"></div>
                                 </div>
-                                <div class="form__field">
-                                    <label class="form__label" for="parts-files">Прикрепить документ</label>
-                                    <label class="form__file" for="parts-files">
-                                        <input class="form__file-input hidden" id="parts-files" type="file" name="attachments[]" multiple aria-describedby="parts-file-names">
-                                        <span class="form__file-btn">
-                                            <svg class="form__file-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path class="form__file-icon-path" d="m21 11-9 9a6 6 0 0 1-8.5-8.5l9.2-9.2a4 4 0 0 1 5.7 5.7l-9.2 9.2a2 2 0 0 1-2.8-2.8L15 6"></path></svg>
-                                            <span class="form__file-text">Загрузить файл</span>
-                                        </span>
-                                    </label>
-                                    <p class="form__file-name" id="parts-file-names" aria-live="polite" hidden></p>
-                                </div>
+                                @@include('html/includes/_file-upload.html', {"id":"parts-files","multiple":true,"buttonText":"Загрузить файл"})
                                 <div class="form__field">
                                     <label class="form__label" for="parts-comment">Комментарий</label>
                                     <textarea class="form__control form__control--message" id="parts-comment" name="message" placeholder="Комментарий"></textarea>

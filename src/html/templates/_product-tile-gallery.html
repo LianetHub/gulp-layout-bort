@@ -1,0 +1,8 @@
+<div class="product-tile__gallery" data-product-gallery>
+    <div class="product-tile__slider swiper">
+        <div class="product-tile__track swiper-wrapper">
+            @@loop('_product-tile-photo.html', [{"image":"@@image", "name":"@@name"}, {"image":"@@image", "name":"@@name"}, {"image":"@@image", "name":"@@name"}])
+        </div>
+    </div>
+    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+</div>

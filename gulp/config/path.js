@@ -47,7 +47,6 @@ export const path = {
 		php: `${srcFolder}/**/*.php`,
 
 	},
-	clean: buildFolder,
 	srcFolder: srcFolder,
 	rootFolder: rootFolder,
 	ftp: ``

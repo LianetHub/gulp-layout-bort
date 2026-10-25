@@ -6,129 +6,143 @@
     <body>
         <div class="wrapper">
             @@include('html/_header.html', {})
-            <main class="page">
+            <main class="page page--light">
                 <nav aria-label="Хлебные крошки" class="breadcrumbs">
-                    <div class="container">
+                    <div class="breadcrumbs__container container">
                         <ul class="breadcrumbs__list">
                             <li class="breadcrumbs__item">
                                 <a href="/" class="breadcrumbs__link">Главная</a>
                             </li>
                             <li class="breadcrumbs__item">
-                                <span class="breadcrumbs__link active">Карта сайта</a>
+                                <span class="breadcrumbs__link active">Карта сайта</span>
                             </li>
                         </ul>
                     </div>
                 </nav>
                 <section class="sitemap">
-                    <div class="container">
-                        <h2 class="sitemap__title title">Карта сайта</h2>
+                    <div class="sitemap__container container">
+                        <h2 class="sitemap__title title title-lg">Карта сайта</h2>
                         <div class="sitemap__body">
                             <div class="sitemap__block">
-                                <h3 class="sitemap__caption title-sm">Информация о сайте</h3>
+                                <h3 class="sitemap__caption title title-md">Информация о сайте</h3>
                                 <div class="sitemap__hint">Страницы сайта</div>
                                 <ul class="sitemap__list">
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Главная</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Сервисные центры</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Акции и новости</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">О компании</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Расширенная гарантия</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Политика конфиденциальности</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Доставка и оплата</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Отзывы</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Карта сайта</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Контакты</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Безусловный возврат товара</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Регистрация расширенной гарантии</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Обратная связь</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Фирменная установка измельчителя</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Полезные сервисы Bort</a></li>
-                                    <li class="sitemap__item"><a href="" class="sitemap__link">Гарантия</a></li>
+                                    <li class="sitemap__item"><a href="index.html" class="sitemap__link">Главная</a></li>
+                                    <li class="sitemap__item"><a href="services.html" class="sitemap__link">Сервисные центры</a></li>
+                                    <li class="sitemap__item"><a href="blog.html" class="sitemap__link">Акции и новости</a></li>
+                                    <li class="sitemap__item"><a href="about.html" class="sitemap__link">О компании</a></li>
+                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Расширенная гарантия</a></li>
+                                    <li class="sitemap__item"><a href="policy.html" class="sitemap__link">Политика конфиденциальности</a></li>
+                                    <li class="sitemap__item"><a href="delivery.html" class="sitemap__link">Доставка и оплата</a></li>
+                                    <li class="sitemap__item"><a href="reviews.html" class="sitemap__link">Отзывы</a></li>
+                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Карта сайта</a></li>
+                                    <li class="sitemap__item"><a href="contacts.html" class="sitemap__link">Контакты</a></li>
+                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Безусловный возврат товара</a></li>
+                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Регистрация расширенной гарантии</a></li>
+                                    <li class="sitemap__item"><a href="faq.html" class="sitemap__link">Обратная связь</a></li>
+                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Фирменная установка измельчителя</a></li>
+                                    <li class="sitemap__item"><a href="services.html" class="sitemap__link">Полезные сервисы Bort</a></li>
+                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Гарантия</a></li>
+                                    <li class="sitemap__item"><a href="product.html" class="sitemap__link">Карточка товара</a></li>
+                                    <li class="sitemap__item"><a href="cart.html" class="sitemap__link">Корзина</a></li>
+                                    <li class="sitemap__item"><a href="checkout.html" class="sitemap__link">Оформление заказа</a></li>
+                                    <li class="sitemap__item"><a href="favorite.html" class="sitemap__link">Избранное</a></li>
+                                    <li class="sitemap__item"><a href="compare.html" class="sitemap__link">Сравнение товаров</a></li>
+                                    <li class="sitemap__item"><a href="search.html" class="sitemap__link">Результаты поиска</a></li>
+                                    <li class="sitemap__item"><a href="lk-person.html" class="sitemap__link">Личные данные</a></li>
+                                    <li class="sitemap__item"><a href="lk-orders.html" class="sitemap__link">Мои заказы</a></li>
+                                    <li class="sitemap__item"><a href="lk-order.html" class="sitemap__link">Детали заказа</a></li>
+                                    <li class="sitemap__item"><a href="lk-address.html" class="sitemap__link">Адреса доставки и ПВЗ</a></li>
+                                    <li class="sitemap__item"><a href="returns.html" class="sitemap__link">Возврат товара</a></li>
+                                    <li class="sitemap__item"><a href="service.html" class="sitemap__link">Фирменная установка измельчителей</a></li>
+                                    <li class="sitemap__item"><a href="spare-parts.html" class="sitemap__link">Купить запчасти</a></li>
+                                    <li class="sitemap__item"><a href="sitemap.html" class="sitemap__link">Карта сайта</a></li>
                                 </ul>
                             </div>
 
                             <div class="sitemap__block">
-                                <h3 class="sitemap__caption title-sm">Каталог</h3>
+                                <h3 class="sitemap__caption title title-md">Каталог</h3>
                                 <ul class="sitemap__categories">
                                     <li class="sitemap__category">
-                                        <a href="" class="sitemap__link">Клининг</a>
+                                        <a href="catalog.html" class="sitemap__link">Клининг</a>
                                         <ul class="sitemap__list">
-                                            <li class="sitemap__item"><a href="" class="sitemap__link">Промышленные пылесосы</a></li>
-                                            <li class="sitemap__item"><a href="" class="sitemap__link">Мойки высокого давления</a></li>
-                                            <li class="sitemap__item"><a href="" class="sitemap__link">Пароочистители</a></li>
-                                            <li class="sitemap__item"><a href="" class="sitemap__link">Воздуходувки</a></li>
+                                            <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Промышленные пылесосы</a></li>
+                                            <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Мойки высокого давления</a></li>
+                                            <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Пароочистители</a></li>
+                                            <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Воздуходувки</a></li>
                                             <li class="sitemap__item">
-                                                <a href="" class="sitemap__link">Аксессуары</a>
+                                                <a href="catalog.html" class="sitemap__link">Аксессуары</a>
                                                 <ul class="sitemap__subcategories">
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Аксессуары для пылесосов</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Аксессуары для моек высокого давления</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Аксессуары для пароочистителей</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Аксессуары для пылесосов</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Аксессуары для моек высокого давления</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Аксессуары для пароочистителей</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="sitemap__category">
-                                        <a href="" class="sitemap__link">Инструмент</a>
+                                        <a href="catalog.html" class="sitemap__link">Инструмент</a>
                                         <ul class="sitemap__list">
                                             <li class="sitemap__item">
-                                                <a href="" class="sitemap__link">Аккумуляторный инструмент</a>
+                                                <a href="catalog.html" class="sitemap__link">Аккумуляторный инструмент</a>
                                                 <ul class="sitemap__subcategories">
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Дрели и шуруповерты</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Перфораторы</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Гайковерты</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Лобзики</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Пилы сабельные</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Пилы цепные</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Пилы циркулярные</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Болгарки (УШМ)</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Технические фены</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Секаторы и сучкорезы</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Аккумуляторы</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Зарядные устройства</a></li>
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Аксессуары для снегоуборщиков</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Дрели и шуруповерты</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Перфораторы</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Гайковерты</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Лобзики</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Пилы сабельные</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Пилы цепные</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Пилы циркулярные</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Болгарки (УШМ)</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Технические фены</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Секаторы и сучкорезы</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Аккумуляторы</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Зарядные устройства</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Аксессуары для снегоуборщиков</a></li>
                                                 </ul>
                                             </li>
                                             <li class="sitemap__item">
-                                                <a href="" class="sitemap__link">Ручной инструмент</a>
+                                                <a href="catalog.html" class="sitemap__link">Ручной инструмент</a>
                                                 <ul class="sitemap__subcategories">
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Наборы ручного инструмента</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Наборы ручного инструмента</a></li>
                                                 </ul>
                                             </li>
                                             <li class="sitemap__item">
-                                                <a href="" class="sitemap__link">Автотовары</a>
+                                                <a href="catalog.html" class="sitemap__link">Автотовары</a>
                                                 <ul class="sitemap__subcategories">
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Ударные гайковерты</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Ударные гайковерты</a></li>
                                                 </ul>
                                             </li>
                                             <li class="sitemap__item">
-                                                <a href="" class="sitemap__link">Измерительный инструмент</a>
+                                                <a href="catalog.html" class="sitemap__link">Измерительный инструмент</a>
                                                 <ul class="sitemap__subcategories">
-                                                    <li class="sitemap__item"><a href="" class="sitemap__link">Рулетки</a></li>
+                                                    <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Рулетки</a></li>
                                                 </ul>
                                             </li>
                                         </ul>
                                     </li>
                                     <li class="sitemap__category">
-                                        <a href="" class="sitemap__link">Сад и огород</a>
+                                        <a href="catalog.html" class="sitemap__link">Сад и огород</a>
                                         <ul class="sitemap__list">
-                                            <li class="sitemap__item"><a href="" class="sitemap__link">Воздуходувки</a></li>
-                                            <li class="sitemap__item"><a href="" class="sitemap__link">Мойки высокого давления</a></li>
-                                            <li class="sitemap__item"><a href="" class="sitemap__link">Пилы цепные</a></li>
-                                            <li class="sitemap__item"><a href="" class="sitemap__link">Пилы сабельные</a></li>
-                                            <li class="sitemap__item"><a href="" class="sitemap__link">Секаторы и сучкорезы</a></li>
+                                            <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Воздуходувки</a></li>
+                                            <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Мойки высокого давления</a></li>
+                                            <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Пилы цепные</a></li>
+                                            <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Пилы сабельные</a></li>
+                                            <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Секаторы и сучкорезы</a></li>
                                         </ul>
                                     </li>
                                     <li class="sitemap__category">
-                                        <a href="" class="sitemap__link">HoReCa</a>
+                                        <a href="catalog.html" class="sitemap__link">HoReCa</a>
                                         <ul class="sitemap__list">
-                                            <li class="sitemap__item"><a href="" class="sitemap__link">Пылесосы для гостиниц и отелей</a></li>
-                                            <li class="sitemap__item"><a href="" class="sitemap__link">Измельчители пищевых отходов промышленные</a></li>
+                                            <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Пылесосы для гостиниц и отелей</a></li>
+                                            <li class="sitemap__item"><a href="catalog.html" class="sitemap__link">Измельчители пищевых отходов промышленные</a></li>
                                         </ul>
                                     </li>
                                     <li class="sitemap__category">
-                                        <a href="" class="sitemap__link">Измельчители для своих</a>
+                                        <a href="catalog.html" class="sitemap__link">Измельчители для своих</a>
                                     </li>
                                     <li class="sitemap__category">
-                                        <a href="" class="sitemap__link">Скидки на избранные товары</a>
+                                        <a href="catalog.html" class="sitemap__link">Скидки на избранные товары</a>
                                     </li>
                                 </ul>
                             </div>

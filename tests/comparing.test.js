@@ -15,6 +15,8 @@ test('comparison filters distinguish equal and different characteristics', () =>
 });
 
 test('removing a product recalculates differences using the remaining original indexes', () => {
+    assert.deepEqual(comparisonRows(rows, [1, 2])[1].values, ['до 6', 'до 6']);
+    assert.deepEqual(comparisonRows(rows, [2, 0])[2].values, ['4 500', '3 500']);
     assert.deepEqual(comparisonRows(rows, [1, 2], 'different').map(row => row.visible), [false, false, true]);
     assert.ok(comparisonRows(rows, [2], 'similar').every(row => row.visible));
     assert.ok(comparisonRows(rows, [], 'different').every(row => !row.visible));

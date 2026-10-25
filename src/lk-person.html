@@ -1,52 +1,42 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include('html/_head.html', { 'title': 'Личный кабинет — Личные данные' })
+    @@include('html/_head.html', { 'title': 'Личный кабинет — Личные данные' })
 
-<body>
-    <div class="wrapper">
-        @@include('html/_header.html', { "auth": true })
-        <main class="page page--account">
-            <section class="account" data-account>
-                <div class="account__mobile-heading"><button class="account__back icon-chevron-left" type="button" aria-label="Вернуться в мой кабинет"></button><span class="account__mobile-title title title--auth-small">Личные данные</span></div>
-                <div class="account__container container">
-                    <h1 class="account__title title title--account">Мой кабинет</h1>
-                    <div class="account__body">
-                        <nav class="account__sidebar" aria-label="Мой кабинет">
-                            <ul class="account__menu">
-                                <li class="account__menu-item"><a class="account__link icon-user-circle" href="#personal" data-account-personal aria-current="page">Личные данные</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-box" href="lk-history.html">Заказы</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-location" href="lk-address.html">Адреса</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-heart" href="favorite.html">Избранное</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-compare" href="compare.html">Сравнение</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-login" href="#logout" data-account-logout>Выйти</a></li>
-                            </ul>
-                        </nav>
-                        <div class="account__content" id="personal">
-                            <form class="account__panel" data-account-profile>
-                                <h2 class="account__caption title title--product-section">Личные данные</h2>
-                                <div class="account__grid"><label class="account__field "><span class="account__label">Имя</span><input class="account__input" type="text" name="first-name" value="Алексей" placeholder="" autocomplete="given-name"></label><label class="account__field "><span class="account__label">Фамилия</span><input class="account__input" type="text" name="last-name" value="Григорьев" placeholder="" autocomplete="family-name"></label><label class="account__field "><span class="account__label">Телефон</span><input class="account__input" type="tel" name="phone" value="+7 (987) 890-38-90" placeholder="" autocomplete="tel"></label><label class="account__field "><span class="account__label">E-mail</span><input class="account__input" type="email" name="email" value="alexey.otieo@yandex.ru" placeholder="" autocomplete="email"></label></div>
-                                <label class="account__subscription"><input class="account__check" type="checkbox" name="subscribe"><span class="account__subscription-text"><span class="account__subscription-title">Подписаться на рассылку</span><span class="account__hint">Новости компании и уникальные скидки для подписчиков</span></span></label>
-                                <label class="account__legal"><input class="account__switch" type="checkbox" name="legal" aria-controls="company-fields"><span class="account__legal-text">Я – юридическое лицо</span></label>
-                                <fieldset class="account__grid account__company" id="company-fields" hidden disabled>
-                                    <legend class="account__legend hidden">Реквизиты компании</legend><label class="account__field "><span class="account__label">Название компании</span><input class="account__input" type="text" name="company" value="" placeholder="Название компании" autocomplete="off"></label><label class="account__field "><span class="account__label">ИНН</span><input class="account__input" type="text" name="inn" value="" placeholder="ИНН" autocomplete="off"></label><label class="account__field "><span class="account__label">БИК</span><input class="account__input" type="text" name="bik" value="" placeholder="БИК" autocomplete="off"></label><label class="account__field "><span class="account__label">Расчетный счет</span><input class="account__input" type="text" name="settlement-account" value="" placeholder="Расчетный счет" autocomplete="off"></label><label class="account__field account__field--wide"><span class="account__label">Корр. счет</span><input class="account__input" type="text" name="correspondent-account" value="" placeholder="Корр. счет" autocomplete="off"></label>
-                                </fieldset>
-                                <div class="account__actions"><button type="submit" class="account__button btn btn-primary">Сохранить</button><button type="reset" class="account__button account__button--cancel btn">Отменить</button></div>
-                                <p class="account__status" role="status" hidden></p>
-                            </form>
-                            <form class="account__panel" data-account-password>
-                                <h2 class="account__caption title title--product-section">Смена пароля</h2>
-                                <div class="account__passwords"><label class="account__field"><span class="account__label">Старый пароль</span><span class="account__password"><input class="account__input" type="password" name="old-password" autocomplete="current-password" placeholder="*********" required><button class="account__reveal" type="button" aria-label="Показать пароль" aria-pressed="false"><span class="account__eye auth-dialog__eye-icon" aria-hidden="true"></span></button></span></label><label class="account__field"><span class="account__label">Новый пароль</span><span class="account__password"><input class="account__input" type="password" name="new-password" autocomplete="new-password" placeholder="*********" required><button class="account__reveal" type="button" aria-label="Показать пароль" aria-pressed="false"><span class="account__eye auth-dialog__eye-icon" aria-hidden="true"></span></button></span></label><label class="account__field"><span class="account__label">Подтверждение пароля</span><span class="account__password"><input class="account__input" type="password" name="confirm-password" autocomplete="new-password" placeholder="*********" required><button class="account__reveal" type="button" aria-label="Показать пароль" aria-pressed="false"><span class="account__eye auth-dialog__eye-icon" aria-hidden="true"></span></button></span></label></div>
-                                <div class="account__actions"><button type="submit" class="account__button btn btn-primary">Сохранить</button><button type="reset" class="account__button account__button--cancel btn">Отменить</button></div>
-                                <p class="account__status" role="status" hidden></p>
-                            </form>
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', { "auth": true })
+            <main class="page page--dark">
+                <section class="account" data-account>
+                    <div class="account__container container">
+                        @@include('html/includes/_page-heading.html', {"title":"Личные данные","backHref":"","backLabel":"Вернуться в мой кабинет"})
+                        <div class="account__body">
+                            @@include('html/includes/_account-sidebar.html', {"active":"personal"})
+                            <div class="account__content" id="personal">
+                                <form class="account__panel" data-account-profile>
+                                    <h2 class="account__caption title title-md">Личные данные</h2>
+                                    <div class="account__grid"><label class="account__field"><span class="account__label">Имя</span><input class="account__input" type="text" name="first-name" value="Алексей" placeholder="" autocomplete="given-name"></label><label class="account__field"><span class="account__label">Фамилия</span><input class="account__input" type="text" name="last-name" value="Григорьев" placeholder="" autocomplete="family-name"></label><label class="account__field"><span class="account__label">Телефон</span><input class="account__input" type="tel" name="phone" value="+7 (987) 890-38-90" placeholder="" autocomplete="tel"></label><label class="account__field"><span class="account__label">E-mail</span><input class="account__input" type="email" name="email" value="alexey.otieo@yandex.ru" placeholder="" autocomplete="email"></label></div>
+                                    <label class="account__subscription"><input class="account__check" type="checkbox" name="subscribe"><span class="account__subscription-text"><span class="account__subscription-title">Подписаться на рассылку</span><span class="account__hint">Новости компании и уникальные скидки для подписчиков</span></span></label>
+                                    <label class="account__legal"><input class="account__switch" type="checkbox" name="legal" aria-controls="company-fields"><span class="account__legal-text">Я – юридическое лицо</span></label>
+                                    <fieldset class="account__grid account__company" id="company-fields" hidden disabled>
+                                        <legend class="account__legend hidden">Реквизиты компании</legend><label class="account__field"><span class="account__label">Название компании</span><input class="account__input" type="text" name="company" value="" placeholder="Название компании" autocomplete="off"></label><label class="account__field"><span class="account__label">ИНН</span><input class="account__input" type="text" name="inn" value="" placeholder="ИНН" autocomplete="off"></label><label class="account__field"><span class="account__label">БИК</span><input class="account__input" type="text" name="bik" value="" placeholder="БИК" autocomplete="off"></label><label class="account__field"><span class="account__label">Расчетный счет</span><input class="account__input" type="text" name="settlement-account" value="" placeholder="Расчетный счет" autocomplete="off"></label><label class="account__field account__field--wide"><span class="account__label">Корр. счет</span><input class="account__input" type="text" name="correspondent-account" value="" placeholder="Корр. счет" autocomplete="off"></label>
+                                    </fieldset>
+                                    <div class="account__actions"><button type="submit" class="account__button btn btn-primary">Сохранить</button><button type="reset" class="account__button account__button--cancel btn">Отменить</button></div>
+                                    <p class="account__status" role="status" hidden></p>
+                                </form>
+                                <form class="account__panel" data-account-password>
+                                    <h2 class="account__caption title title-md">Смена пароля</h2>
+                                    <div class="account__passwords"><label class="account__field"><span class="account__label">Старый пароль</span><span class="account__password"><input class="account__input" type="password" name="old-password" autocomplete="current-password" placeholder="*********" required><button class="account__reveal" type="button" aria-label="Показать пароль" aria-pressed="false"><span class="account__eye icon-eye" aria-hidden="true"></span></button></span></label><label class="account__field"><span class="account__label">Новый пароль</span><span class="account__password"><input class="account__input" type="password" name="new-password" autocomplete="new-password" placeholder="*********" required><button class="account__reveal" type="button" aria-label="Показать пароль" aria-pressed="false"><span class="account__eye icon-eye" aria-hidden="true"></span></button></span></label><label class="account__field"><span class="account__label">Подтверждение пароля</span><span class="account__password"><input class="account__input" type="password" name="confirm-password" autocomplete="new-password" placeholder="*********" required><button class="account__reveal" type="button" aria-label="Показать пароль" aria-pressed="false"><span class="account__eye icon-eye" aria-hidden="true"></span></button></span></label></div>
+                                    <div class="account__actions"><button type="submit" class="account__button btn btn-primary">Сохранить</button><button type="reset" class="account__button account__button--cancel btn">Отменить</button></div>
+                                    <p class="account__status" role="status" hidden></p>
+                                </form>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </section>
-        </main>
-        @@include('html/_footer.html', {})
-        @@include('html/_js.html', {})
-    </div>
-</body>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
 
 </html>

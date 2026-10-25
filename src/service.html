@@ -6,7 +6,7 @@
     <body>
         <div class="wrapper">
             @@include('html/_header.html', {})
-            <main class="page page--showcase">
+            <main class="page page--light">
                 <nav class="breadcrumbs" aria-label="Хлебные крошки">
                     <div class="breadcrumbs__container container">
                         <ul class="breadcrumbs__list">
@@ -17,13 +17,13 @@
                 </nav>
                 <section class="service" aria-labelledby="service-title">
                     <div class="service__container container">
-                        <h1 class="service__title title" id="service-title">Фирменная установка измельчителей BORT</h1>
+                        <h1 class="service__title title title-lg" id="service-title">Фирменная установка измельчителей BORT</h1>
                         <div class="service__banner banner banner--service">
                             <img class="banner__picture" src="@img/professional-installation-of-waste-disposers.jpg" alt="Специалисты по установке измельчителей Bort" width="2480" height="770">
-                            <p class="banner__caption title title--banner">Фирменная установка измельчителей BORT</p>
+                            <p class="banner__caption title title-xl">Фирменная установка измельчителей BORT</p>
                         </div>
                         <div class="service__intro">
-                            <h2 class="service__caption title title--information title--information-large">Установка измельчителей пищевых отходов Bort.</h2>
+                            <h2 class="service__caption title title-lg">Установка измельчителей пищевых отходов Bort.</h2>
                             <p class="service__text">Установка измельчителя пищевых отходов в мойку или раковину помогает по-новому решить проблему пищевых отходов. Монтаж измельчителя производится под кухонной мойкой вместо привычного сифона, а при его включении остатки пищи измельчаются в специальной дробильной камере и смываются водой в канализацию.</p>
                             <p class="service__text">Оставляя заявку, Вы гарантировано получаете профессиональную установку и подключение измельчителей пищевых отходов (диспоузеров) высококвалифицированными специалистами с большим опытом работы, с применением только проверенных современных материалов и с обязательным соблюдением действующих норм и правил.</p>
                             <p class="service__text">Для заказа установки измельчителя заполните заявку в форме ниже. Установщики свяжутся с Вами в ближайшее время.</p>
@@ -31,7 +31,7 @@
                         </div>
                         <div class="service__details">
                             <div class="service__detail">
-                                <h2 class="service__detail-title title-sm title-sm--content">Стандартная установка измельчителя — диспоузера занимает не более 1 часа и включает:</h2>
+                                <h2 class="service__detail-title title-sm title">Стандартная установка измельчителя — диспоузера занимает не более 1 часа и включает:</h2>
                                 <ul class="service__list bullet-list">
                                     <li class="bullet-list__item">перемещение и установка пищевого измельчителя к кухонной мойке;</li>
                                     <li class="bullet-list__item">подключение измельчителя пищевых отходов к существующей канализационной трубе;</li>
@@ -41,7 +41,7 @@
                                 </ul>
                             </div>
                             <div class="service__detail">
-                                <h2 class="service__detail-title title-sm title-sm--content">Если измельчитель пищевых отходов устанавливается впервые, то могут потребоваться следующие дополнительные работы:</h2>
+                                <h2 class="service__detail-title title-sm title">Если измельчитель пищевых отходов устанавливается впервые, то могут потребоваться следующие дополнительные работы:</h2>
                                 <ul class="service__list bullet-list">
                                     <li class="bullet-list__item">доработка трубопровода канализации для подключения измельчителя;</li>
                                     <li class="bullet-list__item">доработка системы электроснабжения для подключения измельчителя отходов к электросети.</li>
@@ -50,16 +50,16 @@
                         </div>
                         @@include('html/includes/_installation-form.html')
                         <div class="service__partners">
-                            <h2 class="service__caption title title--information title--information-large">Фирменная установка измельчителей Bort</h2>
+                            <h2 class="service__caption title title-lg">Фирменная установка измельчителей Bort</h2>
                             <p class="service__text">На данный момент услуга установки измельчителей возможна в Москве, Санкт-Петербурге.<br>Установку производят официальные партнеры компании Bort.</p>
                             <div class="service__city">
-                                <h3 class="service__city-title title-sm title-sm--content">г. Москва и Московская область</h3>
+                                <h3 class="service__city-title title-sm title">г. Москва и Московская область</h3>
                                 <div class="service__contractors">
                                     @@loop('html/templates/_contractor-card.html', './html/json/installers-moscow.json')
                                 </div>
                             </div>
                             <div class="service__city">
-                                <h3 class="service__city-title title-sm title-sm--content">г. Санкт-Петербург</h3>
+                                <h3 class="service__city-title title-sm title">г. Санкт-Петербург</h3>
                                 <div class="service__contractors">
                                     @@loop('html/templates/_contractor-card.html', './html/json/installers-petersburg.json')
                                 </div>

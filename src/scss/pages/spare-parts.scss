@@ -1,49 +1,51 @@
+@use "sass:math";
+
 // .spare-parts
 .spare-parts {
-    padding: rem(20) 0 rem(40);
-    @media (min-width: $md4) {
-        padding-bottom: rem(60);
-    }
-    // .spare-parts__container
-    &__container {
-        box-sizing: border-box;
-        width: 100%;
-        max-width: rem(1280);
-    }
-    // .spare-parts__title
-    &__title {
-        margin-bottom: rem(20);
-    }
-    // .spare-parts__description
-    &__description {
-        margin-bottom: rem(20);
-        font-size: 1rem;
-        line-height: rem(22);
-        color: #2b2b2b;
-    }
-    // .spare-parts__body
-    &__body {
-        display: grid;
-        align-items: start;
-        gap: rem(40);
-        @media (min-width: $md2) {
-            grid-template-columns: minmax(0, 696fr) minmax(0, 504fr);
-        }
-    }
-    // .spare-parts__help
-    &__help {
-        min-width: 0;
-        @media (min-width: $md2) {
-            grid-column: 2;
-            grid-row: 1;
-        }
-    }
-    // .spare-parts__form
-    &__form {
-        min-width: 0;
-        @media (min-width: $md2) {
-            grid-column: 1;
-            grid-row: 1;
-        }
-    }
+	padding: rem(20) 0 rem(40);
+	@media (min-width: $md4) {
+		padding-bottom: rem(60);
+	}
+	// .spare-parts__container
+	&__container {
+		box-sizing: border-box;
+		width: 100%;
+		max-width: rem(1280);
+	}
+	// .spare-parts__title
+	&__title {
+		margin-bottom: rem(20);
+	}
+	// .spare-parts__description
+	&__description {
+		margin-bottom: rem(20);
+		font-size: 1rem;
+		line-height: math.div(22, 16);
+		color: #2b2b2b;
+	}
+	// .spare-parts__body
+	&__body {
+		display: grid;
+		align-items: start;
+		gap: rem(40);
+		@media (min-width: $md2) {
+			grid-template-columns: minmax(0, 696fr) minmax(0, 504fr);
+		}
+	}
+	// .spare-parts__help
+	&__help {
+		min-width: 0;
+		@media (min-width: $md2) {
+			grid-column: 2;
+			grid-row: 1;
+		}
+	}
+	// .spare-parts__form
+	&__form {
+		min-width: 0;
+		@media (min-width: $md2) {
+			grid-column: 1;
+			grid-row: 1;
+		}
+	}
 }

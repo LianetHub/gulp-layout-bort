@@ -1,3 +1,5 @@
+@use "sass:math";
+
 // .search
 .search {
 	@media (min-width: $md4) {
@@ -60,67 +62,6 @@
 			display: contents;
 		}
 	}
-	// .search__form
-	&__form {
-		display: flex;
-		position: relative;
-	}
-	// .search__form-input
-	&__form-input {
-		width: 100%;
-		min-width: 0;
-		height: rem(44);
-		padding: rem(12) rem(74) rem(12) rem(20);
-		border: 1px solid transparent;
-		border-radius: rem(8);
-		background: #f3f3f3;
-		font-size: rem(16);
-		line-height: rem(20);
-		color: #2b2b2b;
-		// .search__form-input:focus
-		&:focus {
-			background: $white;
-			border-color: #e5e5e5;
-		}
-		// .search__form-input::-webkit-search-cancel-button
-		&::-webkit-search-cancel-button {
-			-webkit-appearance: none;
-		}
-	}
-	// .search__form-btn
-	&__form-btn {
-		position: absolute;
-		right: rem(12);
-		top: 50%;
-		transform: translateY(-50%);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: rem(24);
-		height: rem(32);
-		font-size: rem(24);
-		color: #757575;
-	}
-	// .search__clear
-	&__clear {
-		position: absolute;
-		right: rem(48);
-		top: 50%;
-		transform: translateY(-50%);
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		width: rem(24);
-		height: rem(24);
-		border-radius: 50%;
-		background: #f2f2f2;
-		color: #63666a;
-		font-size: rem(16);
-		// .search__clear[hidden]
-		&[hidden] {
-			display: none;
-		}
-	}
 	// .search__bar
 	&__bar {
 		position: absolute;
@@ -174,7 +115,7 @@
 		min-height: rem(40);
 		font-size: rem(14);
 		font-weight: 500;
-		line-height: rem(20);
+		line-height: math.div(20, 14);
 		color: #111;
 		@media (any-hover: hover) {
 			// .search__bar-result:hover
@@ -209,7 +150,7 @@
 	&__count {
 		font-size: rem(14);
 		font-weight: 400;
-		line-height: rem(20);
+		line-height: math.div(20, 14);
 		color: #757575;
 	}
 	// .search__all
@@ -218,7 +159,7 @@
 		align-items: center;
 		gap: rem(6);
 		font-size: rem(14);
-		line-height: rem(20);
+		line-height: math.div(20, 14);
 		color: #ff6900;
 		white-space: nowrap;
 	}
@@ -282,7 +223,7 @@
 		-webkit-line-clamp: unset;
 		font-size: rem(14);
 		font-weight: 500;
-		line-height: rem(20);
+		line-height: math.div(20, 14);
 		color: #2b2b2b;
 		@media (any-hover: hover) {
 			// .search .search__product-name:hover
@@ -303,13 +244,13 @@
 	&__product-price {
 		font-size: rem(16);
 		font-weight: 700;
-		line-height: rem(22);
+		line-height: math.div(22, 16);
 		color: #111;
 	}
 	// .search__product-old-price
 	&__product-old-price {
 		font-size: rem(14);
-		line-height: rem(20);
+		line-height: math.div(20, 14);
 		color: #94979f;
 	}
 	// .search__product-cart

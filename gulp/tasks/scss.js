@@ -3,11 +3,13 @@ import gulpSass from 'gulp-sass';
 import rename from 'gulp-rename';
 
 import cleanCss from 'gulp-clean-css';
-import webpcss from 'gulp-webpcss';
 import autoprefixer from 'gulp-autoprefixer';
 import shorthand from 'gulp-shorthand';
 
 const sass = gulpSass(dartSass);
+
+// Keep descendant combinators inside modern functional selectors such as :has().
+export const minifyCss = () => cleanCss({ level: { 1: { tidySelectors: false } } });
 
 
 
@@ -26,15 +28,6 @@ export const scss = () => {
         }))
         // Preserve the source cascade: moving media queries after modifiers
         // lets base component styles override their responsive variants.
-        // .pipe(
-        //     app.plugins.if(
-        //         app.isBuild,
-        //         webpcss({
-        //             webpClass: '.webp',
-        //             noWebpClass: '.no-webp'
-        //         })
-        //     )
-        // )
         .pipe(
             app.plugins.if(
                 app.isBuild,
@@ -50,7 +43,7 @@ export const scss = () => {
         .pipe(
             app.plugins.if(
                 app.isBuild,
-                cleanCss()
+                minifyCss()
             )
         )
         .pipe(rename({
@@ -92,7 +85,7 @@ export const normalize = () => {
         .pipe(
             app.plugins.if(
                 app.isBuild,
-                cleanCss()
+                minifyCss()
             )
         )
         .pipe(rename({

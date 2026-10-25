@@ -4,28 +4,18 @@
 <body>
     <div class="wrapper">
         @@include('html/_header.html', { "auth": true })
-        <main class="page page--account">
-            <section class="account account--addresses">
-                <div class="account__mobile-heading"><a class="account__back icon-chevron-left" href="lk-person.html#menu" aria-label="Вернуться в мой кабинет"></a><h1 class="account__mobile-title title title--auth-small">Адреса доставки</h1></div>
+        <main class="page page--dark">
+            <section class="account">
                 <div class="account__container container">
-                    <h1 class="account__title title title--cabinet">Мой кабинет</h1>
+                    @@include('html/includes/_page-heading.html', {"title":"Адреса доставки","backHref":"lk-person.html#menu","backLabel":"Вернуться в мой кабинет"})
                     <div class="account__body">
-                        <nav class="account__sidebar" aria-label="Мой кабинет">
-                            <ul class="account__menu">
-                                <li class="account__menu-item"><a class="account__link icon-user-circle" href="lk-person.html">Личные данные</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-box" href="lk-history.html">Заказы</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-location" href="lk-address.html" aria-current="page">Адреса</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-heart" href="favorite.html">Избранное</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-compare" href="compare.html">Сравнение</a></li>
-                                <li class="account__menu-item"><a class="account__link icon-login" href="index.html">Выйти</a></li>
-                            </ul>
-                        </nav>
+                        @@include('html/includes/_account-sidebar.html', {"active":"addresses"})
                         <div class="account__content">
                             <div class="addresses" data-addresses>
-                                <h2 class="addresses__title title title--auth">Адреса доставки</h2>
-                                <div class="addresses__tabs" role="tablist" aria-label="Тип адреса">
-                                    <button class="addresses__tab" type="button" role="tab" id="delivery-tab" aria-selected="true" aria-controls="delivery-addresses" data-address-tab="delivery">Адреса доставки</button>
-                                    <button class="addresses__tab" type="button" role="tab" id="pickup-tab" aria-selected="false" aria-controls="pickup-addresses" data-address-tab="pickup" tabindex="-1">Пункты выдачи</button>
+                                <h2 class="addresses__title title title-md">Адреса доставки</h2>
+                                <div class="addresses__tabs segmented-control segmented-control--large" role="tablist" aria-label="Тип адреса">
+                                    <button class="addresses__tab segmented-control__button" type="button" role="tab" id="delivery-tab" aria-selected="true" aria-controls="delivery-addresses" data-address-tab="delivery">Адреса доставки</button>
+                                    <button class="addresses__tab segmented-control__button" type="button" role="tab" id="pickup-tab" aria-selected="false" aria-controls="pickup-addresses" data-address-tab="pickup" tabindex="-1">Пункты выдачи</button>
                                 </div>
                                 <div class="addresses__list" id="delivery-addresses" role="tabpanel" aria-labelledby="delivery-tab">
                                     @@loop('html/templates/_account-address.html', './html/json/account-addresses.json')

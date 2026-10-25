@@ -1,10 +1,10 @@
-<section class="product-listing product-listing--search" data-search-results>
+<section class="product-listing product-listing--search">
     <div class="product-listing__container container">
         <div class="product-listing__heading">
-            <h1 class="product-listing__title title title--search-results">По запросу <span class="product-listing__query">измельчитель</span> найдено <span class="product-listing__count">18 товаров</span></h1>
+            <h1 class="product-listing__title title title-sm title--sans title--medium">По запросу <span class="product-listing__query">измельчитель</span> найдено <span class="product-listing__count">18 товаров</span></h1>
         </div>
         <div class="product-listing__layout">
-            @@include('_listing-filter.html')
+            @@include('_listing-filter.html', {"search":true})
             <div class="product-listing__content">
                 <div class="product-listing__tags" aria-label="Подборки товаров">
                     @@loop('../templates/_listing-tag.html', [
@@ -18,7 +18,7 @@
                 <div class="product-listing__toolbar">
                     <label class="product-listing__sort-label">
                         <span class="product-listing__sr-only">Сортировка товаров</span>
-                        <select class="product-listing__sort" aria-label="Сортировка товаров">
+                        <select data-custom-select class="product-listing__sort" aria-label="Сортировка товаров">
                             <option class="product-listing__option" value="popular">Популярные</option>
                             <option class="product-listing__option" value="price-asc">Сначала дешевле</option>
                             <option class="product-listing__option" value="price-desc">Сначала дороже</option>
@@ -27,20 +27,25 @@
                     </label>
                     <button type="button" class="product-listing__filter-button icon-filter-horizontal" aria-controls="listing-filter" aria-expanded="false">Фильтры</button>
                 </div>
-                <div class="product-listing__selected" aria-label="Выбранные фильтры"></div>
+                <div class="product-listing__selected" aria-label="Выбранные фильтры">
+                    <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="min_price,max_price">Цена: от 8 090 до 218 690 ₽</button>
+                    <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="power" data-filter-value="1200">Мощность: 1 200 Вт</button>
+                    <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="motor" data-filter-value="bldc">Бесщеточный</button>
+                    <button class="product-listing__clear icon-cancel-circle" type="button">Очистить все</button>
+                </div>
                 <div class="product-listing__products">
                     @@loop('../templates/_search-result.html', './html/json/search-results.json')
                 </div>
                 <p class="product-listing__empty" hidden>По выбранным параметрам товары не найдены. Попробуйте изменить фильтры.</p>
                 <button type="button" class="product-listing__more icon-loading">Показать еще</button>
                 <nav class="product-listing__pagination" aria-label="Страницы каталога">
-                    <button type="button" class="product-listing__page icon-chevron-left" data-page="prev" aria-label="Предыдущая страница" disabled></button>
-                    <button type="button" class="product-listing__page is-active" data-page="1" aria-current="page">1</button>
-                    <button type="button" class="product-listing__page" data-page="2">2</button>
-                    <button type="button" class="product-listing__page" data-page="3">3</button>
+                    <button type="button" class="product-listing__page icon-chevron-left" aria-label="Предыдущая страница" disabled></button>
+                    <button type="button" class="product-listing__page is-active" aria-current="page">1</button>
+                    <button type="button" class="product-listing__page">2</button>
+                    <button type="button" class="product-listing__page">3</button>
                     <span class="product-listing__ellipsis">…</span>
-                    <button type="button" class="product-listing__page" data-page="4">4</button>
-                    <button type="button" class="product-listing__page icon-chevron-right" data-page="next" aria-label="Следующая страница"></button>
+                    <button type="button" class="product-listing__page">4</button>
+                    <button type="button" class="product-listing__page icon-chevron-right" aria-label="Следующая страница"></button>
                 </nav>
             </div>
         </div>

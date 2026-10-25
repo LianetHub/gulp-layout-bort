@@ -6,14 +6,20 @@ export function describeAddress(address) {
         details: [
             address.apartment && `Кв. / офис ${address.apartment}`,
             address.entrance && `подъезд ${address.entrance}`,
-            address.floor && `этаж ${address.floor}`
-        ].filter(Boolean).join(' · ')
+            address.floor && `этаж ${address.floor}`,
+        ]
+            .filter(Boolean)
+            .join(' · '),
     };
 }
 
 export function addressPicker(form) {
     const picker = document.querySelector('#address-picker');
-    if (!picker || picker.dataset.initialized) return;
+
+    if (!picker || picker.dataset.initialized) {
+        return;
+    }
+
     picker.dataset.initialized = 'true';
     const list = picker.querySelector('.address-picker__list');
     const addForm = picker.querySelector('.address-picker__form');
@@ -21,15 +27,21 @@ export function addressPicker(form) {
     let selectedId = null;
     let modal;
     const map = deliveryMap(addForm);
-    const setView = name => {
-        picker.querySelectorAll('[data-address-view]').forEach(view => { view.hidden = view.dataset.addressView !== name; });
-        picker.setAttribute('aria-labelledby', name === 'add' ? 'address-add-title' : 'address-picker-title');
+    const setView = (name) => {
+        picker.querySelectorAll('[data-address-view]').forEach((view) => {
+            view.hidden = view.dataset.addressView !== name;
+        });
+        picker.setAttribute(
+            'aria-labelledby',
+            name === 'add' ? 'address-add-title' : 'address-picker-title',
+        );
     };
-    const applyAddress = input => {
+    const applyAddress = (input) => {
         const address = input.dataset;
         const description = describeAddress(address);
+
         selectedId = input.value;
-        addressFields.forEach(name => {
+        addressFields.forEach((name) => {
             form.elements[name].value = address[name] || '';
             form.elements[name].required = false;
         });
@@ -42,19 +54,35 @@ export function addressPicker(form) {
         form.querySelector('.checkout__save').hidden = true;
         modal?.close();
     };
-    form.querySelectorAll('.checkout__change').forEach(button => button.addEventListener('click', () => {
-        if (typeof Fancybox === 'undefined') return;
-        setView('list');
-        if (selectedId) list.querySelectorAll('.address-picker__radio').forEach(input => { input.checked = input.value === selectedId; });
-        Fancybox.show([{ src: '#address-picker', type: 'inline' }], {
-            closeButton: false, dragToClose: false, autoFocus: false,
-            on: {
-                done: () => picker.querySelector('.address-picker__radio:checked')?.focus(),
-                destroy: () => (button.hidden ? form.querySelector('.checkout__selected-address .checkout__change') : button).focus()
+
+    form.querySelectorAll('.checkout__change').forEach((button) =>
+        button.addEventListener('click', () => {
+            if (typeof Fancybox === 'undefined') {
+                return;
             }
-        });
-        modal = Fancybox.getInstance();
-    }));
+
+            setView('list');
+            if (selectedId) {
+                list.querySelectorAll('.address-picker__radio').forEach((input) => {
+                    input.checked = input.value === selectedId;
+                });
+            }
+            Fancybox.show([{ src: '#address-picker', type: 'inline' }], {
+                closeButton: false,
+                dragToClose: false,
+                autoFocus: false,
+                on: {
+                    done: () => picker.querySelector('.address-picker__radio:checked')?.focus(),
+                    destroy: () =>
+                        (button.hidden
+                            ? form.querySelector('.checkout__selected-address .checkout__change')
+                            : button
+                        ).focus(),
+                },
+            });
+            modal = Fancybox.getInstance();
+        }),
+    );
     picker.querySelector('.address-picker__add').addEventListener('click', () => {
         addForm.reset();
         map?.reset();
@@ -65,26 +93,39 @@ export function addressPicker(form) {
         setView('list');
         picker.querySelector('.address-picker__add').focus();
     });
-    picker.querySelector('.address-picker__selection').addEventListener('submit', event => {
+    picker.querySelector('.address-picker__selection').addEventListener('submit', (event) => {
         event.preventDefault();
         const input = list.querySelector('.address-picker__radio:checked');
-        if (input) applyAddress(input);
+
+        if (input) {
+            applyAddress(input);
+        }
     });
-    addForm.addEventListener('submit', event => {
+    addForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        if (!addForm.reportValidity()) return;
-        const address = Object.fromEntries(addressFields.map(name => [name, addForm.elements[name].value.trim()]));
+        if (!addForm.reportValidity()) {
+            return;
+        }
+
+        const address = Object.fromEntries(
+            addressFields.map((name) => [name, addForm.elements[name].value.trim()]),
+        );
+
         if (!address.city || !address.street) {
             const field = addForm.elements[address.city ? 'street' : 'city'];
+
             field.value = '';
             field.reportValidity();
+
             return;
         }
         const card = list.querySelector('.address-picker__card').cloneNode(true);
         const input = card.querySelector('.address-picker__radio');
+
         input.value = `address-${list.children.length + 1}`;
         Object.assign(input.dataset, address);
         const description = describeAddress(address);
+
         card.querySelector('.address-picker__card-title').textContent = description.title;
         card.querySelector('.address-picker__card-details').textContent = description.details;
         list.append(card);

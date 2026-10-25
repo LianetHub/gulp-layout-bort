@@ -6,9 +6,9 @@
         </ul>
     </div>
 </nav>
-<section class="contacts contacts--public" aria-labelledby="contacts-title">
+<section class="contacts" aria-labelledby="contacts-title">
     <div class="contacts__container container">
-        <h1 class="contacts__title title title--page" id="contacts-title">Контакты</h1>
+        <h1 class="contacts__title title title-lg" id="contacts-title">Контакты</h1>
         <div class="contacts__office">
             <div class="contacts__details">
                 <ul class="contacts__channels">
@@ -23,7 +23,7 @@
                     </li>
                 </ul>
                 <div class="contacts__requisites">
-                    <h2 class="contacts__caption title title--details">Реквизиты</h2>
+                    <h2 class="contacts__caption title title-sm title--sans">Реквизиты</h2>
                     <ul class="contacts__requisites-list">
                         <li class="contacts__requisite">Полное наименование: Общество с ограниченной ответственностью «Экстего»</li>
                         <li class="contacts__requisite">ИНН: 6321450605</li>
@@ -33,11 +33,11 @@
                     </ul>
                 </div>
             </div>
-            <div class="contacts__location map-block map-block--contacts" data-coords="55.809474,37.464571" data-placemark-logo="@img/placemark.svg" role="region" aria-label="Адрес Bort на карте: Москва, улица Щукинская, 42"></div>
+            <div class="contacts__location map-block" data-coords="55.809474,37.464571" data-placemark-logo="@img/placemark.svg" role="region" aria-label="Адрес Bort на карте: Москва, улица Щукинская, 42"></div>
         </div>
         <div class="contacts__feedback">
             <div class="contacts__heading">
-                <h2 class="contacts__feedback-title title title--information title--information-large">Связаться с нами</h2>
+                <h2 class="contacts__feedback-title title title-lg">Связаться с нами</h2>
                 <svg class="contacts__illustration" width="200" height="200" viewBox="0 0 200 200" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path class="contacts__bubble" d="M87 17C43 14 16 40 17 80c0 18 5 32 14 42 2 3 0 11-5 22-2 6 0 8 6 7l24-7c9 4 19 5 32 5 44 1 68-23 68-64 0-42-25-68-69-68Z"></path><path class="contacts__bubble" d="M177 94c5 10 7 21 6 33-1 18-7 31-16 41l9 20c2 4 0 6-4 5l-27-7c-10 3-20 4-31 2-14-1-27-5-38-12"></path><path class="contacts__bubble" d="M60 67h26M60 100h50"></path></svg>
             </div>
             <form action="#" method="post" enctype="multipart/form-data" class="contacts__form form form--request" novalidate data-unavailable-message="Отправка сообщения временно недоступна. Пожалуйста, свяжитесь с нами по телефону +7 (499) 705-79-79 или по адресу sales@bort.ru.">
@@ -52,14 +52,7 @@
                         <div class="form__error-message" id="contacts-phone-error" aria-live="polite"></div>
                     </div>
                 </div>
-                <div class="form__field">
-                    <label class="form__label" for="contacts-file">Прикрепить документ</label>
-                    <label class="form__file" for="contacts-file">
-                        <input class="form__file-input hidden" id="contacts-file" type="file" name="attachments[]" aria-describedby="contacts-file-name">
-                        <span class="form__file-btn"><span class="form__file-icon icon-document-attachment" aria-hidden="true"></span><span class="form__file-text">Выберите файл</span></span>
-                    </label>
-                    <p class="form__file-name" id="contacts-file-name" aria-live="polite" hidden></p>
-                </div>
+                @@include('_file-upload.html', {"id":"contacts-file","multiple":false,"buttonText":"Выберите файл"})
                 <div class="form__field">
                     <label class="form__label" for="contacts-message">Сообщение</label>
                     <textarea class="form__control form__control--message" id="contacts-message" name="message" placeholder="Сообщение"></textarea>
