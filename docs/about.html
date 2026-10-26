@@ -88,7 +88,7 @@
                                                         <a href="product.html" class="search__product-name product__name">Измельчитель пищевых отходов BORT TITAN 5000</a>
                                                         <div class="search__product-prices"><strong class="search__product-price">23 490 ₽</strong></div>
                                                     </div>
-                                                    <button type="button" class="search__product-cart add-to-cart-btn icon-cart" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в корзину"></button>
+                                                    <button type="button" class="search__product-cart add-to-cart-btn icon-cart" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 5000 в корзину" data-cart-added-label="В корзине"></button>
                                                 </li>
 <li class="search__product product">
                                                     <a href="product.html" class="search__product-image"><img src="img/categories/waste-disposers.png" width="60" height="60" alt="Измельчитель пищевых отходов BORT Alligator Max" class="search__product-picture"></a>
@@ -96,7 +96,7 @@
                                                         <a href="product.html" class="search__product-name product__name">Измельчитель пищевых отходов BORT Alligator Max</a>
                                                         <div class="search__product-prices"><strong class="search__product-price">41 490 ₽</strong><del class="search__product-old-price">45 650 ₽</del></div>
                                                     </div>
-                                                    <button type="button" class="search__product-cart add-to-cart-btn icon-cart" aria-label="Добавить Измельчитель пищевых отходов BORT Alligator Max в корзину"></button>
+                                                    <button type="button" class="search__product-cart add-to-cart-btn icon-cart" aria-label="Добавить Измельчитель пищевых отходов BORT Alligator Max в корзину" data-cart-added-label="В корзине"></button>
                                                 </li>
 <li class="search__product product">
                                                     <a href="product.html" class="search__product-image"><img src="img/search/titan-6000.png" width="60" height="60" alt="Измельчитель пищевых отходов BORT TITAN 6000" class="search__product-picture"></a>
@@ -104,7 +104,7 @@
                                                         <a href="product.html" class="search__product-name product__name">Измельчитель пищевых отходов BORT TITAN 6000</a>
                                                         <div class="search__product-prices"><strong class="search__product-price">69 850 ₽</strong></div>
                                                     </div>
-                                                    <button type="button" class="search__product-cart add-to-cart-btn icon-cart" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в корзину"></button>
+                                                    <button type="button" class="search__product-cart add-to-cart-btn icon-cart" aria-label="Добавить Измельчитель пищевых отходов BORT TITAN 6000 в корзину" data-cart-added-label="В корзине"></button>
                                                 </li>
 
                                             </ul>
@@ -400,19 +400,19 @@
         </div>
         <form action="#" class="auth-dialog__form" data-auth-form="email" id="auth-email-panel" role="tabpanel" aria-labelledby="auth-email-tab" novalidate>
             <div class="auth-dialog__fields">
-                <div class="auth-dialog__field">
+                <div class="form__field auth-dialog__field">
                     <label class="auth-dialog__label" for="auth-email">E-mail</label>
-                    <input class="auth-dialog__input" id="auth-email" type="email" name="email" autocomplete="username" placeholder="" required>
-                    <span class="auth-dialog__error"></span>
+                    <input class="auth-dialog__input" id="auth-email" type="email" name="email" autocomplete="username" placeholder="" required data-required>
+                    <span class="form__error-message auth-dialog__error" hidden aria-live="polite">Введите корректный e-mail</span>
                 </div>
 
-                <div class="auth-dialog__field">
+                <div class="form__field auth-dialog__field">
                     <label class="auth-dialog__label" for="auth-password">Пароль</label>
                     <div class="auth-dialog__password">
-                        <input class="auth-dialog__input auth-dialog__input--password" id="auth-password" type="password" name="password" autocomplete="current-password" required>
-                        <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password><span class="auth-dialog__eye-icon icon-eye" aria-hidden="true"></span></button>
+                        <input class="auth-dialog__input auth-dialog__input--password" id="auth-password" type="password" name="password" autocomplete="current-password" required data-required>
+                        <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password data-password-show-label="Показать пароль" data-password-hide-label="Скрыть пароль"><span class="auth-dialog__eye-icon icon-eye" aria-hidden="true"></span></button>
                     </div>
-                    <span class="auth-dialog__error"></span>
+                    <span class="form__error-message auth-dialog__error" hidden aria-live="polite">Поле обязательно для заполнения</span>
                 </div>
 
             </div>
@@ -425,15 +425,15 @@
         </form>
         <form action="#" class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
             <div class="auth-dialog__fields">
-                <div class="auth-dialog__field">
+                <div class="form__field auth-dialog__field">
                     <label class="auth-dialog__label" for="auth-phone">Телефон</label>
-                    <input class="auth-dialog__input" id="auth-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
-                    <span class="auth-dialog__error"></span>
+                    <input class="auth-dialog__input" id="auth-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required data-required>
+                    <span class="form__error-message auth-dialog__error" hidden aria-live="polite">Введите корректный номер телефона</span>
                 </div>
 
-                <div class="auth-dialog__field"><label class="auth-dialog__label" for="auth-code">Код из СМС</label><input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required><span class="auth-dialog__error"></span></div>
+                <div class="form__field auth-dialog__field"><label class="auth-dialog__label" for="auth-code">Код из СМС</label><input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required data-required><span class="form__error-message auth-dialog__error" hidden aria-live="polite">Введите 4 цифры из СМС</span></div>
             </div>
-            <button class="auth-dialog__resend" type="button" data-auth-send="phone">Получить код</button>
+            <button class="auth-dialog__resend" type="button" data-auth-send="phone" data-code-request-label="Получить код" data-code-resend-label="Выслать код повторно" data-code-countdown-label="Выслать код повторно через {seconds} сек.">Получить код</button>
             <button class="auth-dialog__submit" type="submit">Войти</button>
         </form>
     </div>
@@ -443,10 +443,10 @@
             <p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p>
         </div>
         <form action="#" class="auth-dialog__form" data-auth-form="recovery" novalidate>
-            <div class="auth-dialog__field">
+            <div class="form__field auth-dialog__field">
                 <label class="auth-dialog__label" for="auth-recovery-email">E-mail</label>
-                <input class="auth-dialog__input" id="auth-recovery-email" type="email" name="email" autocomplete="email" placeholder="" required>
-                <span class="auth-dialog__error"></span>
+                <input class="auth-dialog__input" id="auth-recovery-email" type="email" name="email" autocomplete="email" placeholder="" required data-required>
+                <span class="form__error-message auth-dialog__error" hidden aria-live="polite">Введите корректный e-mail</span>
             </div>
 
             <button class="auth-dialog__submit" type="submit">Получить ссылку</button>
@@ -456,50 +456,50 @@
         <h2 class="auth-dialog__title title title-md" id="auth-register-title">Регистрация</h2>
         <form action="#" class="auth-dialog__form" data-auth-form="register" novalidate>
             <div class="auth-dialog__fields">
-                <div class="auth-dialog__field">
+                <div class="form__field auth-dialog__field">
                     <label class="auth-dialog__label" for="auth-name">Имя</label>
-                    <input class="auth-dialog__input" id="auth-name" type="text" name="username" autocomplete="given-name" placeholder="Имя" required>
-                    <span class="auth-dialog__error"></span>
+                    <input class="auth-dialog__input" id="auth-name" type="text" name="username" autocomplete="given-name" placeholder="Имя" required data-required>
+                    <span class="form__error-message auth-dialog__error" hidden aria-live="polite">Поле обязательно для заполнения</span>
                 </div>
 
                 <div class="auth-dialog__phone-row">
-                    <div class="auth-dialog__field">
+                    <div class="form__field auth-dialog__field">
                         <label class="auth-dialog__label" for="auth-register-phone">Телефон</label>
-                        <input class="auth-dialog__input" id="auth-register-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required>
-                        <span class="auth-dialog__error"></span>
+                        <input class="auth-dialog__input" id="auth-register-phone" type="tel" name="phone" autocomplete="tel" placeholder="+7 (999) 999-99-99" required data-required>
+                        <span class="form__error-message auth-dialog__error" hidden aria-live="polite">Введите корректный номер телефона</span>
                     </div>
 
                     <button class="auth-dialog__get-code" type="button" data-auth-send="register">Получить код</button>
-                    <div class="auth-dialog__field auth-dialog__field--code" hidden><input class="auth-dialog__input auth-dialog__input--code" name="code" aria-label="Код из СМС" inputmode="numeric" autocomplete="one-time-code" placeholder="Введите код" maxlength="4" pattern="[0-9]{4}" disabled required><span class="auth-dialog__error"></span></div>
+                    <div class="form__field auth-dialog__field auth-dialog__field--code" hidden><input class="auth-dialog__input auth-dialog__input--code" name="code" aria-label="Код из СМС" inputmode="numeric" autocomplete="one-time-code" placeholder="Введите код" maxlength="4" pattern="[0-9]{4}" disabled required data-required><span class="form__error-message auth-dialog__error" hidden aria-live="polite">Введите 4 цифры из СМС</span></div>
                 </div>
                 <div class="auth-dialog__code-note" hidden>
-                    <p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register">Получить новый код</button>
+                    <p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register" data-code-resend-label="Получить новый код" data-code-countdown-label="Получить новый код можно через {minutes}:{seconds}">Получить новый код</button>
                 </div>
-                <div class="auth-dialog__field">
+                <div class="form__field auth-dialog__field">
                     <label class="auth-dialog__label" for="auth-register-email">E-mail</label>
-                    <input class="auth-dialog__input" id="auth-register-email" type="email" name="email" autocomplete="email" placeholder="" required>
-                    <span class="auth-dialog__error"></span>
+                    <input class="auth-dialog__input" id="auth-register-email" type="email" name="email" autocomplete="email" placeholder="" required data-required>
+                    <span class="form__error-message auth-dialog__error" hidden aria-live="polite">Введите корректный e-mail</span>
                 </div>
 
-                <div class="auth-dialog__field">
+                <div class="form__field auth-dialog__field">
                     <label class="auth-dialog__label" for="auth-register-password">Пароль</label>
                     <div class="auth-dialog__password">
-                        <input class="auth-dialog__input auth-dialog__input--password" id="auth-register-password" type="password" name="password" autocomplete="new-password" required>
-                        <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password><span class="auth-dialog__eye-icon icon-eye" aria-hidden="true"></span></button>
+                        <input class="auth-dialog__input auth-dialog__input--password" id="auth-register-password" type="password" name="password" autocomplete="new-password" required data-required>
+                        <button class="auth-dialog__eye" type="button" aria-label="Показать пароль" aria-pressed="false" data-auth-password data-password-show-label="Показать пароль" data-password-hide-label="Скрыть пароль"><span class="auth-dialog__eye-icon icon-eye" aria-hidden="true"></span></button>
                     </div>
-                    <span class="auth-dialog__error"></span>
+                    <span class="form__error-message auth-dialog__error" hidden aria-live="polite">Поле обязательно для заполнения</span>
                 </div>
 
             </div>
             <div class="auth-dialog__consent">
-                <div class="auth-dialog__field"><label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="agreement" required><span class="auth-dialog__check-text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">Политики конфиденциальности</a>.</span></label><span class="auth-dialog__error"></span></div>
+                <div class="form__field auth-dialog__field"><label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="agreement" required data-required><span class="auth-dialog__check-text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">Политики конфиденциальности</a>.</span></label><span class="form__error-message auth-dialog__error" hidden aria-live="polite">Необходимо ваше согласие</span></div>
                 <p class="auth-dialog__hint">Нажимая кнопку &quot;Зарегистрироваться&quot;, я подтверждаю свою дееспособность и согласие на получение информации об оформлении и получении заказа, согласие на обработку персональных данных в соответствии с указанным <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">здесь текстом</a>.</p>
             </div>
             <button class="auth-dialog__submit" type="submit">Зарегистрироваться</button>
             <p class="auth-dialog__footer">У вас есть аккаунт?<br><button class="auth-dialog__link" type="button" data-auth-go="login">Войти</button></p>
         </form>
     </div>
-    <p class="auth-dialog__status" role="status" aria-live="polite" hidden></p>
+    <p class="auth-dialog__status" role="status" aria-live="polite" data-code-sent-message="Демонстрация ввода кода. Отправка СМС будет доступна после подключения сервиса." data-phone-changed-message="Номер изменён. Получите новый код." data-code-required-message="Сначала получите код для указанного номера." data-recovery-message="Отправка письма будет доступна после подключения сервиса восстановления пароля." data-registration-message="Данные заполнены. Завершение регистрации будет доступно после подключения сервиса." data-login-message="Вход будет доступен после подключения сервиса авторизации." hidden></p>
 </div>
 
 
@@ -522,9 +522,6 @@
     <!-- account -->
     <span class="ui-content__text" data-ui-copy="account-01">Мой кабинет</span>
     <span class="ui-content__text" data-ui-copy="account-02">Личные данные</span>
-    <span class="ui-content__text" data-ui-copy="account-03">Скрыть пароль</span>
-    <span class="ui-content__text" data-ui-copy="account-04">Показать пароль</span>
-    <span class="ui-content__text" data-ui-copy="account-05">Пароли не совпадают</span>
     <span class="ui-content__text" data-ui-copy="account-06">Данные проверены. Сохранение будет доступно после подключения личного кабинета к серверу.</span>
     <!-- address-picker -->
     <span class="ui-content__text" data-ui-copy="address-picker-01">Кв. / офис {value0}</span>
@@ -547,22 +544,6 @@
     <span class="ui-content__text" data-ui-copy="addresses-14">Не удалось определить адрес. Выберите другую точку или введите адрес вручную.</span>
     <span class="ui-content__text" data-ui-copy="addresses-15">Не удалось загрузить карту. Вернитесь к вводу адреса вручную.</span>
     <!-- auth-dialogs -->
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-01">Необходимо ваше согласие</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-02">Поле обязательно для заполнения</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-03">Введите корректный e-mail</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-04">Введите корректный номер телефона</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-05">Введите 4 цифры из СМС</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-06">Выслать код повторно через {value0} сек.</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-07">Выслать код повторно</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-08">Получить код</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-09">Получить новый код можно через {value0}:{value1}</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-10">Получить новый код</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-11">Демонстрация ввода кода. Отправка СМС будет доступна после подключения сервиса.</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-12">Номер изменён. Получите новый код.</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-13">Сначала получите код для указанного номера.</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-14">Отправка письма будет доступна после подключения сервиса восстановления пароля.</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-15">Данные заполнены. Завершение регистрации будет доступно после подключения сервиса.</span>
-    <span class="ui-content__text" data-ui-copy="auth-dialogs-16">Вход будет доступен после подключения сервиса авторизации.</span>
     <!-- cart -->
     <span class="ui-content__text" data-ui-copy="cart-01">товар</span>
     <span class="ui-content__text" data-ui-copy="cart-02">товара</span>
@@ -587,7 +568,6 @@
     <span class="ui-content__text" data-ui-copy="comparing-01">Товар удалён из сравнения</span>
     <span class="ui-content__text" data-ui-copy="comparing-02">Сравнение очищено</span>
     <!-- forms -->
-    <span class="ui-content__text" data-ui-copy="forms-01">Подписка пока недоступна. Пожалуйста, попробуйте позже.</span>
     <!-- mobile-catalog -->
     <span class="ui-content__text" data-ui-copy="mobile-catalog-01">Назад: {value0}</span>
     <span class="ui-content__text" data-ui-copy="mobile-catalog-02">Назад в каталог</span>
@@ -608,10 +588,6 @@
     <span class="ui-content__text" data-ui-copy="parts-order-02"> КБ</span>
     <span class="ui-content__text" data-ui-copy="parts-order-03"> МБ</span>
     <span class="ui-content__text" data-ui-copy="parts-order-04">Удалить файл: </span>
-    <span class="ui-content__text" data-ui-copy="parts-order-05">Отправка заявки временно недоступна. Пожалуйста, свяжитесь со специалистом по телефонам +7(499)343-62-42 или +7(499)005-23-00.</span>
-    <span class="ui-content__text" data-ui-copy="parts-order-06">Отправляем заявку…</span>
-    <span class="ui-content__text" data-ui-copy="parts-order-07">Заявка отправлена. Специалист свяжется с Вами в ближайшее время.</span>
-    <span class="ui-content__text" data-ui-copy="parts-order-08">Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь с нами по телефону.</span>
     <!-- product-details -->
     <span class="ui-content__text" data-ui-copy="product-details-01">Свернуть</span>
     <!-- product-listing -->

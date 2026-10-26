@@ -5,7 +5,7 @@
             <h2 class="address-picker__title title title-sm" id="address-picker-title">Выберите адреса доставки</h2>
             <p class="address-picker__description">Выберите один из сохранённых адресов</p>
         </div>
-        <form action="#" class="address-picker__selection">
+        <form action="#" class="address-picker__selection" novalidate>
             <div class="address-picker__toolbar">
                 <p class="address-picker__caption">Сохранённые адреса</p>
                 <button class="address-picker__add" type="button">Добавить адрес</button>
@@ -25,15 +25,15 @@
             <p class="address-picker__description">Заполните данные, чтобы использовать новый адрес доставки</p>
         </div>
         <button class="address-picker__back" type="button"><span class="address-picker__back-icon icon-chevron-left" aria-hidden="true"></span>Назад к списку</button>
-        <form action="#" class="address-picker__form">
+        <form action="#" class="address-picker__form" novalidate>
             <div class="address-picker__fields">
                 <div class="address-picker__city">
-                    <label class="checkout__field"><span class="checkout__label">Город</span><input class="checkout__input" name="city" placeholder="Город" autocomplete="address-level2" required></label>
+                    <label class="form__field checkout__field"><span class="checkout__label">Город</span><input class="checkout__input" name="city" placeholder="Город" autocomplete="address-level2" required data-required><span class="form__error-message" hidden aria-live="polite">Поле обязательно для заполнения</span></label>
                     <button class="address-picker__map-toggle" type="button" aria-expanded="false" aria-controls="address-picker-map"><span class="address-picker__map-icon icon-marker-pin" aria-hidden="true"></span>Выбрать на карте</button>
                     <div class="address-picker__map" data-map-center="55.751244,37.618423" id="address-picker-map" hidden></div>
                     <p class="address-picker__map-status" role="status" hidden></p>
                 </div>
-                <label class="checkout__field"><span class="checkout__label">Улица</span><input class="checkout__input" name="street" placeholder="Улица, номер дома" autocomplete="address-line1" required></label>
+                <label class="form__field checkout__field"><span class="checkout__label">Улица</span><input class="checkout__input" name="street" placeholder="Улица, номер дома" autocomplete="address-line1" required data-required><span class="form__error-message" hidden aria-live="polite">Поле обязательно для заполнения</span></label>
                 <div class="address-picker__details">
                     <label class="checkout__field"><span class="checkout__label">Подъезд</span><input class="checkout__input" name="entrance" placeholder="Номер"></label>
                     <label class="checkout__field"><span class="checkout__label">Этаж</span><input class="checkout__input" name="floor" placeholder="Этаж"></label>

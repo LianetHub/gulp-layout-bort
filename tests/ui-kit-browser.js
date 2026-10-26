@@ -1,8 +1,8 @@
 import { loadApp } from './helpers/app-browser.js';
 // Synthetic hover checks must not overlap smooth scrolling caused by fixture focus.
 document.documentElement.style.scrollBehavior = 'auto';
-const { CustomSelect, initCustomSelects, interactions, NotifyController, tooltips } = await loadApp([
-    'CustomSelect', 'initCustomSelects', 'interactions', 'NotifyController', 'tooltips',
+const { CustomSelect, interactions, NotifyController, tooltips } = await loadApp([
+    'CustomSelect', 'interactions', 'NotifyController', 'tooltips',
 ]);
 const result = document.querySelector('#results');
 let count = 0;
@@ -57,10 +57,10 @@ try {
     const form = document.querySelector('#fixture');
     const native = document.querySelector('#city');
     const multiNative = document.querySelector('#multi');
-    initCustomSelects();
+    CustomSelect.initAll();
     const single = CustomSelect.get(native);
     const multi = CustomSelect.get(multiNative);
-    check(initCustomSelects()[0] === single && document.querySelectorAll('#city-trigger').length === 1, 'повторная инициализация не дублирует select');
+    check(CustomSelect.initAll()[0] === single && document.querySelectorAll('#city-trigger').length === 1, 'повторная инициализация не дублирует select');
     check(!native.hidden && native.tabIndex === -1, 'native остаётся в форме вне tab-порядка');
     single.open();
     check(document.activeElement === single.search && !single.dropdown.hidden, 'поиск получает фокус при открытии');

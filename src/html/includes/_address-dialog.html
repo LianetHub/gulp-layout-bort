@@ -2,10 +2,10 @@
     <button class="address-dialog__close" type="button" data-fancybox-close aria-label="Закрыть"><span class="address-dialog__close-icon icon-close" aria-hidden="true"></span></button>
     <div class="address-dialog__view" data-dialog-view="form">
         <h2 class="address-dialog__title title title-md" id="address-dialog-title">Добавить новый адрес доставки</h2>
-        <form action="#" class="address-dialog__form">
-            <label class="account__field"><span class="account__label">Город</span><input class="account__input" name="city" placeholder="Город" autocomplete="address-level2" required></label>
+        <form action="#" class="address-dialog__form" novalidate>
+            <label class="form__field account__field"><span class="account__label">Город</span><input class="account__input" name="city" placeholder="Город" autocomplete="address-level2" required data-required><span class="form__error-message" hidden aria-live="polite">Поле обязательно для заполнения</span></label>
             <button class="address-dialog__map-toggle" type="button"><span class="address-dialog__map-icon icon-marker-pin" aria-hidden="true"></span>Выбрать адрес на карте</button>
-            <label class="account__field"><span class="account__label">Улица</span><input class="account__input" name="street" placeholder="Улица, номер дома" autocomplete="address-line1" required></label>
+            <label class="form__field account__field"><span class="account__label">Улица</span><input class="account__input" name="street" placeholder="Улица, номер дома" autocomplete="address-line1" required data-required><span class="form__error-message" hidden aria-live="polite">Поле обязательно для заполнения</span></label>
             <div class="address-dialog__details"><label class="account__field"><span class="account__label">Подъезд</span><input class="account__input" name="entrance" placeholder="Номер подъезда"></label><label class="account__field"><span class="account__label">Этаж</span><input class="account__input" name="floor" placeholder="Этаж"></label><label class="account__field"><span class="account__label">Кв./ Офис</span><input class="account__input" name="apartment" placeholder="Кв./ Офис"></label></div>
             <input class="address-dialog__comment account__input" name="comment" placeholder="Комментарий к адресу" aria-label="Комментарий к адресу">
             <button class="address-dialog__submit btn btn-primary" type="submit">Добавить новый адрес</button>

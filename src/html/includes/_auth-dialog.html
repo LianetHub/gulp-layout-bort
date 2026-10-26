@@ -21,9 +21,9 @@
         <form action="#" class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
             <div class="auth-dialog__fields">
                 @@include('../templates/_auth-field.html', {"id":"auth-phone","label":"Телефон","type":"tel","name":"phone","autocomplete":"tel","placeholder":"+7 (999) 999-99-99"})
-                <div class="auth-dialog__field"><label class="auth-dialog__label" for="auth-code">Код из СМС</label><input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required><span class="auth-dialog__error"></span></div>
+                <div class="form__field auth-dialog__field"><label class="auth-dialog__label" for="auth-code">Код из СМС</label><input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required data-required><span class="form__error-message auth-dialog__error" hidden aria-live="polite">Введите 4 цифры из СМС</span></div>
             </div>
-            <button class="auth-dialog__resend" type="button" data-auth-send="phone">Получить код</button>
+            <button class="auth-dialog__resend" type="button" data-auth-send="phone" data-code-request-label="Получить код" data-code-resend-label="Выслать код повторно" data-code-countdown-label="Выслать код повторно через {seconds} сек.">Получить код</button>
             <button class="auth-dialog__submit" type="submit">Войти</button>
         </form>
     </div>
@@ -45,21 +45,21 @@
                 <div class="auth-dialog__phone-row">
                     @@include('../templates/_auth-field.html', {"id":"auth-register-phone","label":"Телефон","type":"tel","name":"phone","autocomplete":"tel","placeholder":"+7 (999) 999-99-99"})
                     <button class="auth-dialog__get-code" type="button" data-auth-send="register">Получить код</button>
-                    <div class="auth-dialog__field auth-dialog__field--code" hidden><input class="auth-dialog__input auth-dialog__input--code" name="code" aria-label="Код из СМС" inputmode="numeric" autocomplete="one-time-code" placeholder="Введите код" maxlength="4" pattern="[0-9]{4}" disabled required><span class="auth-dialog__error"></span></div>
+                    <div class="form__field auth-dialog__field auth-dialog__field--code" hidden><input class="auth-dialog__input auth-dialog__input--code" name="code" aria-label="Код из СМС" inputmode="numeric" autocomplete="one-time-code" placeholder="Введите код" maxlength="4" pattern="[0-9]{4}" disabled required data-required><span class="form__error-message auth-dialog__error" hidden aria-live="polite">Введите 4 цифры из СМС</span></div>
                 </div>
                 <div class="auth-dialog__code-note" hidden>
-                    <p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register">Получить новый код</button>
+                    <p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register" data-code-resend-label="Получить новый код" data-code-countdown-label="Получить новый код можно через {minutes}:{seconds}">Получить новый код</button>
                 </div>
                 @@include('../templates/_auth-field.html', {"id":"auth-register-email","label":"E-mail","type":"email","name":"email","autocomplete":"email","placeholder":""})
                 @@include('../templates/_auth-password.html', {"id":"auth-register-password","autocomplete":"new-password"})
             </div>
             <div class="auth-dialog__consent">
-                <div class="auth-dialog__field"><label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="agreement" required><span class="auth-dialog__check-text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">Политики конфиденциальности</a>.</span></label><span class="auth-dialog__error"></span></div>
+                <div class="form__field auth-dialog__field"><label class="auth-dialog__check"><input class="auth-dialog__checkbox" type="checkbox" name="agreement" required data-required><span class="auth-dialog__check-text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">Политики конфиденциальности</a>.</span></label><span class="form__error-message auth-dialog__error" hidden aria-live="polite">Необходимо ваше согласие</span></div>
                 <p class="auth-dialog__hint">Нажимая кнопку &quot;Зарегистрироваться&quot;, я подтверждаю свою дееспособность и согласие на получение информации об оформлении и получении заказа, согласие на обработку персональных данных в соответствии с указанным <a class="auth-dialog__policy" href="policy.html" target="_blank" rel="noopener">здесь текстом</a>.</p>
             </div>
             <button class="auth-dialog__submit" type="submit">Зарегистрироваться</button>
             <p class="auth-dialog__footer">У вас есть аккаунт?<br><button class="auth-dialog__link" type="button" data-auth-go="login">Войти</button></p>
         </form>
     </div>
-    <p class="auth-dialog__status" role="status" aria-live="polite" hidden></p>
+    <p class="auth-dialog__status" role="status" aria-live="polite" data-code-sent-message="Демонстрация ввода кода. Отправка СМС будет доступна после подключения сервиса." data-phone-changed-message="Номер изменён. Получите новый код." data-code-required-message="Сначала получите код для указанного номера." data-recovery-message="Отправка письма будет доступна после подключения сервиса восстановления пароля." data-registration-message="Данные заполнены. Завершение регистрации будет доступно после подключения сервиса." data-login-message="Вход будет доступен после подключения сервиса авторизации." hidden></p>
 </div>

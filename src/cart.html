@@ -51,7 +51,7 @@
 
             <div id="order" class="popup popup--medium">
                 <h2 class="popup__title title title-md">оформление <span>заказа</span></h2>
-                <form action="#" class="popup__form order-form">
+                <form action="#" class="popup__form order-form" novalidate>
                     <div class="order-form__grid">
                         <div class="order-form__field">
                             <div class="form__field">
@@ -95,21 +95,20 @@
                             <div class="form__field">
                                 <label class="form__label" for="order-phone">Телефон:</label>
                                 <input id="order-phone" type="tel" name="phone" data-required class="form__control" placeholder="+7 (999) 999-99-99">
-                                <div class="form__error-message"></div>
+                                <div class="form__error-message" hidden aria-live="polite">Введите корректный номер телефона</div>
                             </div>
                         </div>
                         <div class="order-form__field">
                             <div class="form__field">
                                 <label class="form__label" for="order-email">Электронная почта:</label>
                                 <input id="order-email" type="email" name="email" data-required class="form__control" placeholder="email">
-                                <div class="form__error-message"></div>
+                                <div class="form__error-message" hidden aria-live="polite">Введите корректный e-mail</div>
                             </div>
                         </div>
                         <div class="order-form__wide">
                             <div class="form__field">
                                 <label class="form__label" for="order-comment">Комментарий к заказу:</label>
                                 <input id="order-comment" type="text" name="comment" class="form__control" placeholder="Напишите пожелания к заказу">
-                                <div class="form__error-message"></div>
                             </div>
                         </div>
                         <div class="order-form__wide">

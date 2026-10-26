@@ -46,7 +46,7 @@
                     <path class="contacts__bubble" d="M60 67h26M60 100h50"></path>
                 </svg>
             </div>
-            <form action="#" method="post" enctype="multipart/form-data" class="contacts__form form form--request" novalidate data-unavailable-message="Отправка сообщения временно недоступна. Пожалуйста, свяжитесь с нами по телефону +7 (499) 705-79-79 или по адресу sales@bort.ru.">
+            <form action="#" method="post" enctype="multipart/form-data" class="contacts__form form form--request" novalidate data-unavailable-message="Отправка сообщения временно недоступна. Пожалуйста, свяжитесь с нами по телефону +7 (499) 705-79-79 или по адресу sales@bort.ru." data-pending-message="Отправляем заявку…" data-success-message="Заявка отправлена. Специалист свяжется с Вами в ближайшее время." data-error-message="Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь с нами по телефону.">
                 <div class="contacts__fields">
                     <div class="form__field">
                         <label class="form__label" for="contacts-name">Имя</label>
@@ -55,7 +55,7 @@
                     <div class="form__field">
                         <label class="form__label" for="contacts-phone">Телефон*</label>
                         <input class="form__control" id="contacts-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" data-required required aria-describedby="contacts-phone-error">
-                        <div class="form__error-message" id="contacts-phone-error" aria-live="polite"></div>
+                        <div class="form__error-message" id="contacts-phone-error" aria-live="polite" hidden>Введите корректный номер телефона</div>
                     </div>
                 </div>
                 @@include('_file-upload.html', {"id":"contacts-file","multiple":false,"buttonText":"Выберите файл"})
@@ -69,7 +69,7 @@
                             <input class="checkbox__input hidden" type="checkbox" name="consent" value="1" data-required required aria-describedby="contacts-consent-error">
                             <span class="checkbox__btn"><span class="checkbox__text">Я согласен с <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политикой хранения и обработки персональных данных</a> и <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a></span></span>
                         </label>
-                        <div class="form__error-message" id="contacts-consent-error" aria-live="polite"></div>
+                        <div class="form__error-message" id="contacts-consent-error" aria-live="polite" hidden>Необходимо ваше согласие</div>
                     </div>
                     <button type="submit" class="form__submit btn btn-primary">Отправить</button>
                 </div>

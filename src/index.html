@@ -118,13 +118,13 @@
                             <h2 class="subscribe__title title title-md">Подпишитесь на рассылку</h2>
                             <p class="subscribe__text">узнавайте о специальных предложениях и новинках первыми</p>
                         </div>
-                        <form action="#" class="subscribe__form">
+                        <form action="#" class="subscribe__form" novalidate>
                             <div class="subscribe__fields">
-                                <input type="email" name="email" placeholder="Ваш e-mail" aria-label="Ваш e-mail" autocomplete="email" required class="subscribe__input">
+                                <div class="subscribe__field form__field"><input type="email" name="email" placeholder="Ваш e-mail" aria-label="Ваш e-mail" autocomplete="email" required class="subscribe__input" data-required><span class="form__error-message" hidden aria-live="polite">Введите корректный e-mail</span></div>
                                 <button type="submit" class="subscribe__submit">Подписаться</button>
                             </div>
                             <p class="subscribe__text">Отправляя e-mail, я подтверждаю, что ознакомлен и согласен с условиями <a href="policy.html" class="subscribe__link">Политики Конфиденциальности</a>.</p>
-                            <div class="subscribe__status" role="status"></div>
+                            <div class="subscribe__status" role="status" hidden>Подписка пока недоступна. Пожалуйста, попробуйте позже.</div>
                         </form>
                     </div>
                 </section>

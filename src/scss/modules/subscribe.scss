@@ -36,6 +36,11 @@
 		}
 		color: #777;
 	}
+	// .subscribe__field
+	&__field {
+		flex: 1;
+		min-width: 0;
+	}
 	// .subscribe__fields
 	&__fields {
 		display: flex;

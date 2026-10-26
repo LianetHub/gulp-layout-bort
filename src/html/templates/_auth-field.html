@@ -1,5 +1,5 @@
-<div class="auth-dialog__field">
+<div class="form__field auth-dialog__field">
     <label class="auth-dialog__label" for="@@id">@@label</label>
-    <input class="auth-dialog__input" id="@@id" type="@@type" name="@@name" autocomplete="@@autocomplete" placeholder="@@placeholder" required>
-    <span class="auth-dialog__error"></span>
+    <input class="auth-dialog__input" id="@@id" type="@@type" name="@@name" autocomplete="@@autocomplete" placeholder="@@placeholder" required data-required>
+    <span class="form__error-message auth-dialog__error" hidden aria-live="polite">@@if(type === 'email'){Введите корректный e-mail}@@if(type === 'tel'){Введите корректный номер телефона}@@if(type !== 'email' && type !== 'tel'){Поле обязательно для заполнения}</span>
 </div>

@@ -14,7 +14,7 @@
     "deploy": "npm run build && git add . && git commit -m \"commit\" && git push",
     "ftp": "npm run build && node .vscode/ftp-deploy-config.js",
     "validate:html": "node scripts/validate-html.js",
-    "test:browser": "playwright test tests/browser/refactor.spec.js tests/browser/regressions.spec.js tests/browser/html-content.spec.js tests/browser/markup-refactor.spec.js"
+    "test:browser": "playwright test tests/browser/refactor.spec.js tests/browser/regressions.spec.js tests/browser/html-content.spec.js tests/browser/markup-refactor.spec.js tests/browser/unified-forms.spec.js"
   },
   "author": "Liana",
   "license": "ISC",

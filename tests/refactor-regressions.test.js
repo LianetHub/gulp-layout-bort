@@ -6,12 +6,6 @@ function formController() {
     const { FormController } = loadApp(['FormController']);
     const controller = Object.create(FormController.prototype);
     controller.selectors = { requiredAttr: '[data-required]' };
-    controller.messages = {
-        empty: 'required',
-        tel: 'phone',
-        email: 'email',
-        checkbox: 'agreement',
-    };
     controller.toggleErrorState = () => {};
     return controller;
 }
@@ -30,6 +24,7 @@ test('a required radio group is valid when another enabled option is checked', (
         value: 'first',
         checked: false,
         matches: () => false,
+        hasAttribute: name => name === 'data-required',
     };
     const second = { ...field, checked: true };
     field.form = { elements: [field, second] };

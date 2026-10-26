@@ -1,11 +1,11 @@
 <li class="news-card@@className">
-    <div class="news-card__poster">
+    <a href="service.html" class="news-card__poster">
         <img src="@@image" class="news-card__image cover-image" alt="@@title" loading="lazy">
-    </div>
+    </a>
     <time datetime="@@datetime" class="news-card__time icon-information-circle">@@time</time>
-    <div class="news-card__title title-sm@@if(typeof desc !== 'undefined') { title title-sm title--sans}">@@title</div>
+    <a href="service.html" class="news-card__title title-sm@@if(typeof desc !== 'undefined') { title title-sm title--sans}">@@title</a>
     @@if(typeof desc !== 'undefined') {
     <p class="news-card__description">@@desc</p>
-    <span class="news-card__more more-link">Читать далее</span>
+    <a href="service.html" class="news-card__more more-link">Читать далее</a>
     }
 </li>

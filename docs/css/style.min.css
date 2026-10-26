@@ -1315,6 +1315,9 @@
   position: relative;
   display: block;
 }
+.form__field [aria-invalid=true] {
+  border-color: #ea2046;
+}
 .form__label {
   display: block;
   font-size: 0.875rem;
@@ -10174,6 +10177,10 @@ body:has(.arrow-top.visible) .notify-container {
     font-size: 1rem;
     line-height: 1.375;
   }
+}
+.subscribe__field {
+  flex: 1;
+  min-width: 0;
 }
 .subscribe__fields {
   display: flex;

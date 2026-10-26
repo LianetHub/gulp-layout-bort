@@ -115,12 +115,12 @@ try {
         column.querySelector('[data-compare-remove]').click();
         await wait(120);
         const ids = [...doc.querySelector('[data-compare-column="desktop"] .swiper-wrapper').children].map(card => Number(card.dataset.compareId.endsWith('-mock') ? card.dataset.compareId.includes('5000') ? 3 : card.dataset.compareId.includes('4000') ? 4 : 5 : card.dataset.compareId.includes('5000') ? 0 : card.dataset.compareId.includes('4000') ? 1 : 2));
-        const selected = desktop ? ids : [...doc.querySelectorAll('[data-compare-column]:not([data-compare-column="desktop"]) .swiper')].map(el => ids[el.swiper.activeIndex]);
+        const selected = desktop ? ids : [...doc.querySelectorAll('[data-compare-column]:not([data-compare-column="desktop"]) .comparing__swiper')].map(el => ids[el.swiper.activeIndex]);
         check([...doc.querySelectorAll('.comparing__content .comparing__block')].every(row => {
             const values = JSON.parse(row.dataset.values);
             return [...row.querySelectorAll('.comparing__value')].filter(cell => !cell.hidden).every((cell, index) => cell.textContent === values[selected[index]]);
         }), `${width}: после удаления характеристики совпадают с товарами`);
-        check([...doc.querySelectorAll('[data-compare-column] .swiper-wrapper')].every(track => track.children.length === 5), `${width}: удаление обновляет также скрытые колонки сравнения`);
+        check([...doc.querySelectorAll('[data-compare-column] .comparing__track')].every(track => track.children.length === 5), `${width}: удаление обновляет также скрытые колонки сравнения`);
         doc = await load('reviews', width);
         const list = doc.querySelector('.review-group__list');
         const before = list.innerHTML;

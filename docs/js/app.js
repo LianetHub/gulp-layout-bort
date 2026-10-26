@@ -6,6 +6,10 @@
 
     function uiText(key, values = {}) {
         const text = uiContent?.querySelector('[data-ui-copy="' + key + '"]')?.textContent || '';
+        return formatText(text, values);
+    }
+
+    function formatText(text = '', values = {}) {
         return text.replace(/\{(\w+)\}/g, (match, name) =>
             Object.hasOwn(values, name) ? String(values[name]) : match,
         );
@@ -192,6 +196,7 @@
             { ...point, selected: true },
         ];
     }
+
     function removePickup(points, id) {
         const result = points.filter((point) => point.id !== id).map((point) => ({ ...point }));
 
@@ -201,6 +206,7 @@
 
         return result;
     }
+
     function filterPickups(points, query) {
         const normalized = query.trim().toLocaleLowerCase('ru');
         return points.filter((point) =>
@@ -508,7 +514,7 @@
                 button.setAttribute('aria-pressed', String(visible));
                 button.setAttribute(
                     'aria-label',
-                    visible ? uiText('account-03') : uiText('account-04'),
+                    visible ? button.dataset.passwordHideLabel : button.dataset.passwordShowLabel,
                 );
             });
         });
@@ -516,32 +522,20 @@
             const status = form.querySelector('.account__status');
             const passwordForm = form.hasAttribute('data-account-password');
 
-            if (passwordForm) {
-                const confirm = form.elements['confirm-password'];
-                const validate = () =>
-                    confirm.setCustomValidity(
-                        confirm.value && confirm.value !== form.elements['new-password'].value
-                            ? uiText('account-05')
-                            : '',
-                    );
-
-                form.addEventListener('input', validate);
-            }
             form.addEventListener('reset', () => {
                 status.hidden = true;
                 form.querySelectorAll('.account__password .account__input').forEach((input) => {
                     input.type = 'password';
-                    input.setCustomValidity('');
                 });
                 form.querySelectorAll('.account__reveal').forEach((button) => {
                     button.setAttribute('aria-pressed', 'false');
-                    button.setAttribute('aria-label', uiText('account-04'));
+                    button.setAttribute('aria-label', button.dataset.passwordShowLabel);
                 });
                 setTimeout(syncLegal, 0);
             });
             form.addEventListener('submit', (event) => {
                 event.preventDefault();
-                if (!form.reportValidity()) {
+                if (!window.FormController.validateForm(form)) {
                     return;
                 }
 
@@ -664,7 +658,7 @@
         });
         addForm.addEventListener('submit', (event) => {
             event.preventDefault();
-            if (!addForm.reportValidity()) {
+            if (!window.FormController.validateForm(addForm)) {
                 return;
             }
 
@@ -676,7 +670,7 @@
                 const field = addForm.elements[address.city ? 'street' : 'city'];
 
                 field.value = '';
-                field.reportValidity();
+                window.FormController.validateField(field);
 
                 return;
             }
@@ -842,7 +836,7 @@
             fields.forEach((name) => {
                 form.elements[name].value = form.elements[name].value.trim();
             });
-            if (!form.reportValidity()) {
+            if (!window.FormController.validateForm(form)) {
                 return;
             }
 
@@ -1026,25 +1020,25 @@
         }
     }
 
-    function validateAuthValue(name, value) {
+    function validateFieldValue(name, value) {
         if (name === 'agreement') {
-            return value ? '' : uiText('auth-dialogs-01');
+            return value ? '' : 'agreement';
         }
 
         if (!String(value).trim()) {
-            return uiText('auth-dialogs-02');
+            return 'required';
         }
 
         if (name === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value).trim())) {
-            return uiText('auth-dialogs-03');
+            return 'email';
         }
 
         if (name === 'phone' && !/^7\d{10}$/.test(digits(value))) {
-            return uiText('auth-dialogs-04');
+            return 'tel';
         }
 
         if (name === 'code' && !/^\d{4}$/.test(value)) {
-            return uiText('auth-dialogs-05');
+            return 'code';
         }
 
         return '';
@@ -1075,27 +1069,7 @@
             status.textContent = text;
             status.hidden = !text;
         };
-        const error = (input, message) => {
-            input.setAttribute('aria-invalid', String(Boolean(message)));
-            const field = input.closest('.auth-dialog__field');
-            const output = field?.querySelector('.auth-dialog__error');
-
-            if (output) {
-                output.id = `${input.id || `auth-${input.form.dataset.authForm}-${input.name}`}-error`;
-                output.textContent = message;
-                input.setAttribute('aria-describedby', output.id);
-            }
-
-            return !message;
-        };
-        const validate = (input) =>
-            error(
-                input,
-                validateAuthValue(
-                    input.name,
-                    input.type === 'checkbox' ? input.checked : input.value,
-                ),
-            );
+        const validate = (input) => window.FormController.validateField(input);
         const focusView = () =>
             forms[view === 'login' ? method : view]
                 .querySelector('input:not(:disabled)')
@@ -1143,17 +1117,17 @@
                     button.disabled = seconds > 0;
                     if (name === 'phone') {
                         button.textContent = seconds
-                            ? uiText('auth-dialogs-06', { value0: seconds })
+                            ? formatText(button.dataset.codeCountdownLabel, { seconds })
                             : requests[name].phone
-                              ? uiText('auth-dialogs-07')
-                              : uiText('auth-dialogs-08');
+                              ? button.dataset.codeResendLabel
+                              : button.dataset.codeRequestLabel;
                     } else if (button.classList.contains('auth-dialog__resend')) {
                         button.textContent = seconds
-                            ? uiText('auth-dialogs-09', {
-                                  value0: String(Math.floor(seconds / 60)).padStart(2, '0'),
-                                  value1: String(seconds % 60).padStart(2, '0'),
+                            ? formatText(button.dataset.codeCountdownLabel, {
+                                  minutes: String(Math.floor(seconds / 60)).padStart(2, '0'),
+                                  seconds: String(seconds % 60).padStart(2, '0'),
                               })
-                            : uiText('auth-dialogs-10');
+                            : button.dataset.codeResendLabel;
                     }
                 });
             }
@@ -1163,7 +1137,7 @@
             const form = forms[name];
 
             form.elements.code.value = '';
-            error(form.elements.code, '');
+            window.FormController.toggleErrorState(form.elements.code, false);
             if (name === 'register') {
                 form.querySelector('.auth-dialog__get-code').hidden = false;
                 form.querySelector('.auth-dialog__field--code').hidden = true;
@@ -1192,7 +1166,7 @@
             }
             updateTimers();
             form.elements.code.focus();
-            announce(uiText('auth-dialogs-11'));
+            announce(status.dataset.codeSentMessage);
         };
 
         document.addEventListener('click', (event) => {
@@ -1227,7 +1201,7 @@
                             button.closest('.auth-dialog__password').querySelector('input').type =
                                 'password';
                             button.setAttribute('aria-pressed', 'false');
-                            button.setAttribute('aria-label', uiText('account-04'));
+                            button.setAttribute('aria-label', button.dataset.passwordShowLabel);
                         });
                         opener?.focus({ preventScroll: true });
                     },
@@ -1260,7 +1234,7 @@
                 toggle.setAttribute('aria-pressed', String(visible));
                 toggle.setAttribute(
                     'aria-label',
-                    visible ? uiText('account-03') : uiText('account-04'),
+                    visible ? toggle.dataset.passwordHideLabel : toggle.dataset.passwordShowLabel,
                 );
             }
         });
@@ -1303,7 +1277,7 @@
                 !requests[name].matches(input.value)
             ) {
                 resetRequest(name);
-                announce(uiText('auth-dialogs-12'));
+                announce(status.dataset.phoneChangedMessage);
             } else {
                 announce('');
             }
@@ -1342,7 +1316,7 @@
                 if (name === 'register') {
                     sendCode(name);
                 } else {
-                    announce(uiText('auth-dialogs-13'));
+                    announce(status.dataset.codeRequiredMessage);
                     form.querySelector('[data-auth-send]').focus();
                 }
 
@@ -1350,10 +1324,10 @@
             }
             announce(
                 name === 'recovery'
-                    ? uiText('auth-dialogs-14')
+                    ? status.dataset.recoveryMessage
                     : name === 'register'
-                      ? uiText('auth-dialogs-15')
-                      : uiText('auth-dialogs-16'),
+                      ? status.dataset.registrationMessage
+                      : status.dataset.loginMessage,
             );
         });
     }
@@ -1700,7 +1674,7 @@
             for (const name of ['city', 'street']) {
                 addForm.elements[name].value = addForm.elements[name].value.trim();
             }
-            if (!addForm.reportValidity()) {
+            if (!window.FormController.validateForm(addForm)) {
                 return;
             }
 
@@ -1769,7 +1743,7 @@
                 return;
             }
 
-            if (!form.checkValidity()) {
+            if (!window.FormController.validateForm(form)) {
                 return;
             }
 
@@ -2478,15 +2452,10 @@
                 control: '.form__control',
                 errorClass: '_error',
                 errorMsg: '.form__error-message',
-                requiredAttr: '[data-required]',
+                requiredAttr: '[data-required], [data-validate]',
                 submitBtn: '[type="submit"]',
             };
-            this.messages = {
-                empty: uiText('auth-dialogs-02'),
-                tel: uiText('auth-dialogs-04'),
-                email: uiText('auth-dialogs-03'),
-                checkbox: uiText('auth-dialogs-01'),
-            };
+            this.errorId = 0;
             this.init();
         }
 
@@ -2502,6 +2471,14 @@
                     ) {
                         this.validateField(field);
                     }
+                    field.form?.querySelectorAll('[data-validate-match]').forEach((confirm) => {
+                        if (
+                            confirm.dataset.validateMatch === field.name &&
+                            confirm.getAttribute('aria-invalid') === 'true'
+                        ) {
+                            this.validateField(confirm);
+                        }
+                    });
                 });
             }
             delegate(document, 'keydown', 'input[type="tel"]', (event) =>
@@ -2551,53 +2528,76 @@
 
         validateField(field) {
             if (field.matches(':disabled')) {
+                this.toggleErrorState(field, false);
                 return true;
             }
 
             const value = String(field.value ?? '').trim();
-            let error = false;
-            let message = this.messages.empty;
+            const required = field.hasAttribute('data-required');
+            const kind =
+                field.type === 'tel'
+                    ? 'phone'
+                    : field.type === 'email'
+                      ? 'email'
+                      : field.name === 'code'
+                        ? 'code'
+                        : 'text';
+            let issue = !required && !value ? '' : validateFieldValue(kind, value);
 
-            if (field.type === 'tel') {
-                error = value.replace(/\D/g, '').length < 11;
-                message = this.messages.tel;
-            } else if (field.type === 'email') {
-                error = !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
-                message = this.messages.email;
-            } else if (field.type === 'radio' && field.name && field.form) {
-                error = ![...field.form.elements].some(
+            if (field.type === 'radio' && field.name && field.form) {
+                issue = [...field.form.elements].some(
                     (option) =>
                         option.type === 'radio' &&
                         option.name === field.name &&
                         !option.matches(':disabled') &&
                         option.checked,
-                );
-                message = this.messages.checkbox;
+                )
+                    ? ''
+                    : 'agreement';
             } else if (field.type === 'checkbox' || field.type === 'radio') {
-                error = !field.checked;
-                message = this.messages.checkbox;
-            } else {
-                error = value === '';
+                issue = required && !field.checked ? 'agreement' : '';
             }
-            this.toggleErrorState(field, error, message);
+            if (
+                !issue &&
+                value &&
+                field.dataset?.validateMatch &&
+                value !== field.form.elements[field.dataset.validateMatch]?.value
+            ) {
+                issue = 'mismatch';
+            }
+            if (!issue && value && field.validity && !field.validity.valid) {
+                issue = 'invalid';
+            }
+            this.toggleErrorState(field, Boolean(issue), issue);
 
-            return !error;
+            return !issue;
         }
 
-        toggleErrorState(field, error, message) {
+        toggleErrorState(field, error, issue = '') {
             const parent = field.closest(this.selectors.field);
 
             (parent || field).classList.toggle(this.selectors.errorClass, error);
             field.classList.toggle(this.selectors.errorClass, error);
             field.setAttribute('aria-invalid', String(error));
-            parent?.querySelectorAll(this.selectors.errorMsg).forEach((label) => {
-                if (error) {
-                    label.textContent = message;
+            const labels = [...(parent?.querySelectorAll(this.selectors.errorMsg) || [])];
+            const active =
+                labels.find((label) => label.dataset.validationError === issue) ||
+                labels.find((label) => !label.dataset.validationError);
+            const describedBy = new Set(
+                (field.getAttribute('aria-describedby') || '').split(/\s+/).filter(Boolean),
+            );
+            labels.forEach((label) => {
+                label.id ||= `validation-error-${++this.errorId}`;
+                describedBy.add(label.id);
+                if (error && label === active) {
                     show(label);
                 } else {
                     hide(label);
                 }
             });
+            if (describedBy.size) {
+                field.setAttribute('aria-describedby', [...describedBy].join(' '));
+            }
         }
 
         onPhoneInput(event) {
@@ -2689,12 +2689,12 @@
     function subscription() {
         delegate(document, 'submit', '.subscribe__form', (event, form) => {
             event.preventDefault();
-            if (!form.reportValidity()) {
+            if (!window.FormController.validateForm(form)) {
                 return;
             }
 
             form.querySelectorAll('.subscribe__status').forEach((status) => {
-                showMessage(status, 'forms-01');
+                status.hidden = false;
             });
         });
     }
@@ -3169,7 +3169,7 @@
             });
         }
         updateCartButton(button) {
-            const label = uiText('interactions-03');
+            const label = button.dataset.cartAddedLabel;
             const text = button.querySelector('.comparing-card__cart-text');
             const cartIcon = button.querySelector('.icon-cart');
             const image = button.querySelector('img');
@@ -3497,7 +3497,7 @@
             };
 
             if (!endpoint || endpoint === '#') {
-                setStatus(form.dataset.unavailableMessage || uiText('parts-order-05'));
+                setStatus(form.dataset.unavailableMessage);
 
                 return;
             }
@@ -3508,7 +3508,7 @@
             buttons.forEach((button) => {
                 button.disabled = true;
             });
-            setStatus(uiText('parts-order-06'));
+            setStatus(form.dataset.pendingMessage);
             try {
                 const response = await fetch(endpoint, {
                     method: 'POST',
@@ -3520,9 +3520,9 @@
                 }
 
                 form.reset();
-                setStatus(uiText('parts-order-07'));
+                setStatus(form.dataset.successMessage);
             } catch {
-                setStatus(uiText('parts-order-08'));
+                setStatus(form.dataset.errorMessage);
             } finally {
                 form.removeAttribute('aria-busy');
                 buttons.forEach((button, index) => {
@@ -3948,110 +3948,110 @@
      *   CustomSelect.initAll(scope, options)
      */
 
-    const ROOT_CLASS = 'custom-select';
-    const NATIVE_CLASS = 'custom-select__native';
-    const TRIGGER_CLASS = 'custom-select__trigger';
-    const VALUE_CLASS = 'custom-select__value';
-    const LIST_CLASS = 'custom-select__list';
-    const OPTION_CLASS = 'custom-select__option';
-    const GROUP_CLASS = 'custom-select__group';
-    const GROUP_LABEL_CLASS = 'custom-select__group-label';
-    const EMPTY_CLASS = 'custom-select__empty';
+    class CustomSelect {
+        static ROOT_CLASS = 'custom-select';
+        static NATIVE_CLASS = 'custom-select__native';
+        static TRIGGER_CLASS = 'custom-select__trigger';
+        static VALUE_CLASS = 'custom-select__value';
+        static LIST_CLASS = 'custom-select__list';
+        static OPTION_CLASS = 'custom-select__option';
+        static GROUP_CLASS = 'custom-select__group';
+        static GROUP_LABEL_CLASS = 'custom-select__group-label';
+        static EMPTY_CLASS = 'custom-select__empty';
 
-    const OPEN_CLASS = 'is-open';
-    const OPEN_TOP_CLASS = 'is-open-top';
-    const DETACHED_CLASS = 'is-detached';
-    const SELECTED_CLASS = 'is-selected';
-    const ACTIVE_CLASS = 'is-active';
-    const DISABLED_CLASS = 'is-disabled';
-    const FOCUSED_CLASS = 'is-focused';
-    const INVALID_CLASS = 'is-invalid';
+        static OPEN_CLASS = 'is-open';
+        static OPEN_TOP_CLASS = 'is-open-top';
+        static DETACHED_CLASS = 'is-detached';
+        static SELECTED_CLASS = 'is-selected';
+        static ACTIVE_CLASS = 'is-active';
+        static DISABLED_CLASS = 'is-disabled';
+        static FOCUSED_CLASS = 'is-focused';
+        static INVALID_CLASS = 'is-invalid';
 
-    const TYPEAHEAD_TIMEOUT = 500;
-    const MIRRORED_ATTRIBUTES = ['aria-describedby', 'aria-errormessage', 'title'];
+        static TYPEAHEAD_TIMEOUT = 500;
+        static MIRRORED_ATTRIBUTES = ['aria-describedby', 'aria-errormessage', 'title'];
 
-    function matchesOption(label, query) {
-        const normalize = (value) =>
-            String(value).trim().toLocaleLowerCase('ru').replaceAll('ё', 'е');
-        return normalize(label).includes(normalize(query));
-    }
-
-    const DEFAULTS = {
-        appendTo: null,
-        maxHeight: 300,
-        searchable: false,
-        emptyText: uiText('select-01'),
-        formatSelected: (labels) => labels.join(', '),
-        triggerIcon: 'icon-chevron-down',
-    };
-
-    let uid = 0;
-    let hooksInstalled = false;
-
-    /**
-     * @param {string} base
-     * @returns {string}
-     */
-    function uniqueId(base) {
-        let id = base;
-        while (document.getElementById(id)) {
-            uid += 1;
-            id = `${base}-${uid}`;
+        static matchesOption(label, query) {
+            const normalize = (value) =>
+                String(value).trim().toLocaleLowerCase('ru').replaceAll('ё', 'е');
+            return normalize(label).includes(normalize(query));
         }
 
-        return id;
-    }
-
-    /**
-     * `select.value`, `select.selectedIndex` and `option.selected` change no
-     * attribute and fire no event, so a MutationObserver cannot see them. The
-     * prototype setters are wrapped once and forward to the original before asking
-     * the owning instance to re-sync; elements without an instance are untouched.
-     */
-    function installNativeHooks() {
-        if (hooksInstalled) {
-            return;
-        }
-
-        hooksInstalled = true;
-
-        const instanceFor = (select) => {
-            const instance = CustomSelect.instances.get(select);
-            return instance && !instance._isSyncing ? instance : null;
+        static DEFAULTS = {
+            appendTo: null,
+            maxHeight: 300,
+            searchable: false,
+            emptyText: uiText('select-01'),
+            formatSelected: (labels) => labels.join(', '),
+            triggerIcon: 'icon-chevron-down',
         };
 
-        const hook = (prototype, property, resolve) => {
-            const descriptor = Object.getOwnPropertyDescriptor(prototype, property);
+        static uid = 0;
+        static hooksInstalled = false;
 
-            if (!descriptor?.set) {
+        /**
+         * @param {string} base
+         * @returns {string}
+         */
+        static uniqueId(base) {
+            let id = base;
+            while (document.getElementById(id)) {
+                CustomSelect.uid += 1;
+                id = `${base}-${CustomSelect.uid}`;
+            }
+
+            return id;
+        }
+
+        /**
+         * `select.value`, `select.selectedIndex` and `option.selected` change no
+         * attribute and fire no event, so a MutationObserver cannot see them. The
+         * prototype setters are wrapped once and forward to the original before asking
+         * the owning instance to re-sync; elements without an instance are untouched.
+         */
+        static installNativeHooks() {
+            if (CustomSelect.hooksInstalled) {
                 return;
             }
 
-            Object.defineProperty(prototype, property, {
-                ...descriptor,
-                set(value) {
-                    descriptor.set.call(this, value);
-                    resolve(this)?.syncFromNative();
-                },
+            CustomSelect.hooksInstalled = true;
+
+            const instanceFor = (select) => {
+                const instance = CustomSelect.instances.get(select);
+                return instance && !instance._isSyncing ? instance : null;
+            };
+
+            const hook = (prototype, property, resolve) => {
+                const descriptor = Object.getOwnPropertyDescriptor(prototype, property);
+
+                if (!descriptor?.set) {
+                    return;
+                }
+
+                Object.defineProperty(prototype, property, {
+                    ...descriptor,
+                    set(value) {
+                        descriptor.set.call(this, value);
+                        resolve(this)?.syncFromNative();
+                    },
+                });
+            };
+
+            hook(HTMLSelectElement.prototype, 'value', instanceFor);
+            hook(HTMLSelectElement.prototype, 'selectedIndex', instanceFor);
+            hook(HTMLOptionElement.prototype, 'selected', (option) => {
+                const select = option.closest('select');
+                return select ? instanceFor(select) : null;
             });
-        };
+        }
 
-        hook(HTMLSelectElement.prototype, 'value', instanceFor);
-        hook(HTMLSelectElement.prototype, 'selectedIndex', instanceFor);
-        hook(HTMLOptionElement.prototype, 'selected', (option) => {
-            const select = option.closest('select');
-            return select ? instanceFor(select) : null;
-        });
-    }
-
-    class CustomSelect {
         static instances = new WeakMap();
         static openInstance = null;
         static _documentBound = 0;
 
         /**
          * @param {HTMLSelectElement} select
-         * @param {Partial<typeof DEFAULTS>} [options]
+         * @param {Partial<typeof CustomSelect.DEFAULTS>} [options]
          */
         constructor(select, options = {}) {
             if (!(select instanceof HTMLSelectElement)) {
@@ -4066,7 +4066,7 @@
 
             this.native = select;
             this.options = {
-                ...DEFAULTS,
+                ...CustomSelect.DEFAULTS,
                 ...this._readDataOptions(),
                 ...options,
             };
@@ -4090,7 +4090,7 @@
             this._onViewportChange = this._onViewportChange.bind(this);
             this._onMutation = this._onMutation.bind(this);
 
-            installNativeHooks();
+            CustomSelect.installNativeHooks();
             CustomSelect.instances.set(select, this);
 
             this.init();
@@ -4098,7 +4098,7 @@
 
         /**
          * @param {HTMLSelectElement} select
-         * @param {Partial<typeof DEFAULTS>} [options]
+         * @param {Partial<typeof CustomSelect.DEFAULTS>} [options]
          * @returns {CustomSelect}
          */
         static init(select, options) {
@@ -4107,7 +4107,7 @@
 
         /**
          * @param {ParentNode} [scope]
-         * @param {Partial<typeof DEFAULTS>} [options]
+         * @param {Partial<typeof CustomSelect.DEFAULTS>} [options]
          * @returns {CustomSelect[]}
          */
         static initAll(scope = document, options) {
@@ -4140,11 +4140,11 @@
         render() {
             const parent = this.native.parentElement;
 
-            if (parent && parent.classList.contains(ROOT_CLASS)) {
+            if (parent && parent.classList.contains(CustomSelect.ROOT_CLASS)) {
                 this.root = parent;
             } else {
                 this.root = document.createElement('div');
-                this.root.className = ROOT_CLASS;
+                this.root.className = CustomSelect.ROOT_CLASS;
                 this._createdRoot = true;
                 this.native.replaceWith(this.root);
                 this.root.append(this.native);
@@ -4152,7 +4152,7 @@
 
             this.originalTabIndex = this.native.getAttribute('tabindex');
             this.originalAriaHidden = this.native.getAttribute('aria-hidden');
-            this.native.classList.add(NATIVE_CLASS);
+            this.native.classList.add(CustomSelect.NATIVE_CLASS);
             this.native.setAttribute('aria-hidden', 'true');
             this.native.tabIndex = -1;
             this.root.classList.toggle(
@@ -4160,28 +4160,28 @@
                 this.native.hasAttribute('data-select-chip'),
             );
 
-            const base = this.native.id || `custom-select-${(uid += 1)}`;
+            const base = this.native.id || `custom-select-${(CustomSelect.uid += 1)}`;
 
             this.baseId = base;
 
             this.trigger = document.createElement('button');
             this.trigger.type = 'button';
-            this.trigger.className = TRIGGER_CLASS;
+            this.trigger.className = CustomSelect.TRIGGER_CLASS;
             if (this.options.triggerIcon) {
                 this.trigger.classList.add(this.options.triggerIcon);
             }
-            this.trigger.id = uniqueId(`${base}-trigger`);
+            this.trigger.id = CustomSelect.uniqueId(`${base}-trigger`);
             this.trigger.setAttribute('aria-haspopup', 'listbox');
             this.trigger.setAttribute('role', 'combobox');
             this.trigger.setAttribute('aria-expanded', 'false');
 
             this.valueEl = document.createElement('span');
-            this.valueEl.className = VALUE_CLASS;
+            this.valueEl.className = CustomSelect.VALUE_CLASS;
             this.trigger.append(this.valueEl);
 
             this.list = document.createElement('div');
-            this.list.className = LIST_CLASS;
-            this.list.id = uniqueId(`${base}-listbox`);
+            this.list.className = CustomSelect.LIST_CLASS;
+            this.list.id = CustomSelect.uniqueId(`${base}-listbox`);
             this.list.setAttribute('role', 'listbox');
             this.list.tabIndex = -1;
             this.list.hidden = true;
@@ -4238,7 +4238,7 @@
             }
 
             if (this.options.appendTo) {
-                this.list.classList.add(DETACHED_CLASS);
+                this.list.classList.add(CustomSelect.DETACHED_CLASS);
                 this.options.appendTo.append(this.dropdown);
             }
 
@@ -4264,7 +4264,7 @@
 
                 if (label) {
                     if (!label.id) {
-                        label.id = uniqueId(`${this.baseId}-label`);
+                        label.id = CustomSelect.uniqueId(`${this.baseId}-label`);
                     }
                     labelIds.push(label.id);
                 }
@@ -4281,7 +4281,7 @@
                 this.trigger.removeAttribute('aria-labelledby');
             }
 
-            MIRRORED_ATTRIBUTES.forEach((name) => {
+            CustomSelect.MIRRORED_ATTRIBUTES.forEach((name) => {
                 const value = this.native.getAttribute(name);
 
                 if (value) {
@@ -4308,13 +4308,13 @@
                 if (child instanceof HTMLOptGroupElement) {
                     const group = document.createElement('div');
 
-                    group.className = GROUP_CLASS;
+                    group.className = CustomSelect.GROUP_CLASS;
                     group.setAttribute('role', 'group');
                     group.setAttribute('aria-label', child.label);
 
                     const label = document.createElement('div');
 
-                    label.className = GROUP_LABEL_CLASS;
+                    label.className = CustomSelect.GROUP_LABEL_CLASS;
                     label.textContent = child.label;
                     label.setAttribute('aria-hidden', 'true');
                     group.append(label);
@@ -4338,7 +4338,7 @@
             if (!this.optionEls.length) {
                 const empty = document.createElement('div');
 
-                empty.className = EMPTY_CLASS;
+                empty.className = CustomSelect.EMPTY_CLASS;
                 empty.textContent = this.options.emptyText;
                 this.list.append(empty);
             }
@@ -4355,18 +4355,18 @@
             this.optionEls.forEach((el) => {
                 const option = this.native.options[Number(el.dataset.index)];
 
-                el.hidden = option.hidden || !matchesOption(option.text, query);
+                el.hidden = option.hidden || !CustomSelect.matchesOption(option.text, query);
             });
-            this.list.querySelectorAll(`.${GROUP_CLASS}`).forEach((group) => {
-                group.hidden = ![...group.querySelectorAll(`.${OPTION_CLASS}`)].some(
+            this.list.querySelectorAll(`.${CustomSelect.GROUP_CLASS}`).forEach((group) => {
+                group.hidden = ![...group.querySelectorAll(`.${CustomSelect.OPTION_CLASS}`)].some(
                     (el) => !el.hidden,
                 );
             });
-            let empty = this.list.querySelector(`.${EMPTY_CLASS}`);
+            let empty = this.list.querySelector(`.${CustomSelect.EMPTY_CLASS}`);
 
             if (!empty) {
                 empty = document.createElement('div');
-                empty.className = EMPTY_CLASS;
+                empty.className = CustomSelect.EMPTY_CLASS;
                 empty.setAttribute('role', 'status');
                 this.list.append(empty);
             }
@@ -4411,8 +4411,8 @@
             const el = document.createElement('div');
             const disabled = option.disabled || groupDisabled;
 
-            el.className = OPTION_CLASS;
-            el.id = uniqueId(`${this.baseId}-option-${index}`);
+            el.className = CustomSelect.OPTION_CLASS;
+            el.id = CustomSelect.uniqueId(`${this.baseId}-option-${index}`);
             el.setAttribute('role', 'option');
             el.setAttribute('aria-selected', option.selected ? 'true' : 'false');
             el.dataset.value = option.value;
@@ -4421,10 +4421,10 @@
 
             if (disabled) {
                 el.setAttribute('aria-disabled', 'true');
-                el.classList.add(DISABLED_CLASS);
+                el.classList.add(CustomSelect.DISABLED_CLASS);
             }
             if (option.selected) {
-                el.classList.add(SELECTED_CLASS);
+                el.classList.add(CustomSelect.SELECTED_CLASS);
             }
 
             this.optionEls.push(el);
@@ -4541,15 +4541,19 @@
                 this.search.setAttribute('aria-expanded', 'true');
             }
             this.filterOptions('');
-            this.root.classList.add(OPEN_CLASS);
+            this.root.classList.add(CustomSelect.OPEN_CLASS);
             this.trigger.setAttribute('aria-expanded', 'true');
             CustomSelect.openInstance = this;
 
-            const selected = this.optionEls.find((el) => el.classList.contains(SELECTED_CLASS));
+            const selected = this.optionEls.find((el) =>
+                el.classList.contains(CustomSelect.SELECTED_CLASS),
+            );
             const fallback = this.enabledOptions[0] || null;
 
             this.activeIndex = this.optionEls.indexOf(
-                selected && !selected.hidden && !selected.classList.contains(DISABLED_CLASS)
+                selected &&
+                    !selected.hidden &&
+                    !selected.classList.contains(CustomSelect.DISABLED_CLASS)
                     ? selected
                     : fallback,
             );
@@ -4575,7 +4579,7 @@
             this.dropdown.hidden = true;
             this.list.hidden = true;
             this.search?.setAttribute('aria-expanded', 'false');
-            this.root.classList.remove(OPEN_CLASS, OPEN_TOP_CLASS);
+            this.root.classList.remove(CustomSelect.OPEN_CLASS, CustomSelect.OPEN_TOP_CLASS);
             this.trigger.setAttribute('aria-expanded', 'false');
             this.trigger.removeAttribute('aria-activedescendant');
             this.activeIndex = -1;
@@ -4662,13 +4666,13 @@
             } else {
                 this.native.setAttribute('aria-hidden', this.originalAriaHidden);
             }
-            this.native.classList.remove(NATIVE_CLASS);
+            this.native.classList.remove(CustomSelect.NATIVE_CLASS);
             this.root.classList.remove(
-                OPEN_CLASS,
-                OPEN_TOP_CLASS,
-                DISABLED_CLASS,
-                FOCUSED_CLASS,
-                INVALID_CLASS,
+                CustomSelect.OPEN_CLASS,
+                CustomSelect.OPEN_TOP_CLASS,
+                CustomSelect.DISABLED_CLASS,
+                CustomSelect.FOCUSED_CLASS,
+                CustomSelect.INVALID_CLASS,
             );
 
             if (this._createdRoot) {
@@ -4686,7 +4690,7 @@
                 !option ||
                 option.hidden ||
                 this.native.disabled ||
-                option.classList.contains(DISABLED_CLASS)
+                option.classList.contains(CustomSelect.DISABLED_CLASS)
             ) {
                 return;
             }
@@ -4745,7 +4749,7 @@
                 const isSelected = Boolean(nativeOption?.selected);
 
                 el.setAttribute('aria-selected', isSelected ? 'true' : 'false');
-                el.classList.toggle(SELECTED_CLASS, isSelected);
+                el.classList.toggle(CustomSelect.SELECTED_CLASS, isSelected);
 
                 if (!isSelected) {
                     return;
@@ -4763,7 +4767,7 @@
             this.valueEl.textContent = hasValue
                 ? this.options.formatSelected(valueLabels)
                 : placeholder || this.optionEls[0]?.textContent || '';
-            this.valueEl.classList.toggle(SELECTED_CLASS, hasValue);
+            this.valueEl.classList.toggle(CustomSelect.SELECTED_CLASS, hasValue);
             if (this.native.hasAttribute('data-select-chip')) {
                 this.valueEl.textContent =
                     (this.native.getAttribute('aria-label') || uiText('select-07')) +
@@ -4776,7 +4780,7 @@
 
         updateActiveOption() {
             this.optionEls.forEach((el, index) => {
-                el.classList.toggle(ACTIVE_CLASS, index === this.activeIndex);
+                el.classList.toggle(CustomSelect.ACTIVE_CLASS, index === this.activeIndex);
             });
 
             const active = this.optionEls[this.activeIndex];
@@ -4808,7 +4812,7 @@
             if (this.clearButton) {
                 this.clearButton.disabled = disabled;
             }
-            this.root.classList.toggle(DISABLED_CLASS, disabled);
+            this.root.classList.toggle(CustomSelect.DISABLED_CLASS, disabled);
             if (disabled) {
                 this.close();
             }
@@ -4821,10 +4825,10 @@
 
             if (invalid && invalid !== 'false') {
                 this.trigger.setAttribute('aria-invalid', invalid);
-                this.root.classList.add(INVALID_CLASS);
+                this.root.classList.add(CustomSelect.INVALID_CLASS);
             } else {
                 this.trigger.removeAttribute('aria-invalid');
-                this.root.classList.remove(INVALID_CLASS);
+                this.root.classList.remove(CustomSelect.INVALID_CLASS);
             }
         }
 
@@ -4837,7 +4841,7 @@
                 above > below;
             const height = Math.max(0, Math.min(this.options.maxHeight, up ? above : below));
 
-            this.root.classList.toggle(OPEN_TOP_CLASS, up);
+            this.root.classList.toggle(CustomSelect.OPEN_TOP_CLASS, up);
             Object.assign(this.dropdown.style, {
                 position: 'fixed',
                 width: `${Math.min(Math.max(triggerRect.width, 200), window.innerWidth - 16)}px`,
@@ -4866,7 +4870,7 @@
 
         get enabledOptions() {
             return this.optionEls.filter(
-                (el) => !el.hidden && !el.classList.contains(DISABLED_CLASS),
+                (el) => !el.hidden && !el.classList.contains(CustomSelect.DISABLED_CLASS),
             );
         }
 
@@ -4902,7 +4906,7 @@
          * @param {MouseEvent} event
          */
         _onListClick(event) {
-            const option = event.target.closest(`.${OPTION_CLASS}`);
+            const option = event.target.closest(`.${CustomSelect.OPTION_CLASS}`);
 
             if (!option || !this.list.contains(option)) {
                 return;
@@ -4912,11 +4916,11 @@
         }
 
         _onTriggerFocus() {
-            this.root.classList.add(FOCUSED_CLASS);
+            this.root.classList.add(CustomSelect.FOCUSED_CLASS);
         }
 
         _onTriggerBlur() {
-            this.root.classList.remove(FOCUSED_CLASS);
+            this.root.classList.remove(CustomSelect.FOCUSED_CLASS);
             setTimeout(() => {
                 if (
                     !this.root.contains(document.activeElement) &&
@@ -5110,7 +5114,10 @@
             if (this.typeaheadTimer) {
                 clearTimeout(this.typeaheadTimer);
             }
-            this.typeaheadTimer = setTimeout(() => this._resetTypeahead(), TYPEAHEAD_TIMEOUT);
+            this.typeaheadTimer = setTimeout(
+                () => this._resetTypeahead(),
+                CustomSelect.TYPEAHEAD_TIMEOUT,
+            );
 
             const enabled = this.enabledOptions;
             const match = enabled.find((el) =>
@@ -5190,7 +5197,7 @@
         }
 
         /**
-         * @returns {Partial<typeof DEFAULTS>}
+         * @returns {Partial<typeof CustomSelect.DEFAULTS>}
          */
         _readDataOptions() {
             const data = {};
@@ -5214,15 +5221,6 @@
 
             return data;
         }
-    }
-
-    /**
-     * @param {ParentNode} [scope]
-     * @param {Partial<typeof DEFAULTS>} [options]
-     * @returns {CustomSelect[]}
-     */
-    function initCustomSelects(scope, options) {
-        return CustomSelect.initAll(scope, options);
     }
 
     // === sliders ===
@@ -5548,7 +5546,7 @@
         }
         appInitialized = true;
 
-        initCustomSelects();
+        CustomSelect.initAll();
         tooltips();
         addresses();
         orders();

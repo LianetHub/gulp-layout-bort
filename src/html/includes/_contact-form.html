@@ -1,4 +1,4 @@
-<form class="contact-form form form--request" id="feedback" action="#" method="post" enctype="multipart/form-data" novalidate data-unavailable-message="Отправка сообщения временно недоступна. Пожалуйста, свяжитесь с нами по телефону +7 (499) 705-79-79 или по адресу sales@bort.ru.">
+<form class="contact-form form form--request" id="feedback" action="#" method="post" enctype="multipart/form-data" novalidate data-unavailable-message="Отправка сообщения временно недоступна. Пожалуйста, свяжитесь с нами по телефону +7 (499) 705-79-79 или по адресу sales@bort.ru." data-pending-message="Отправляем заявку…" data-success-message="Заявка отправлена. Специалист свяжется с Вами в ближайшее время." data-error-message="Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь с нами по телефону.">
     <div class="contact-form__heading">
         <h2 class="contact-form__title title title-lg">Обратная связь</h2>
         <p class="contact-form__intro text-body text-body--small">Если вы не нашли ответ на свой вопрос, вы можете отправить нам сообщение, используя форму ниже.</p>
@@ -7,17 +7,17 @@
         <div class="contact-form__field form__field">
             <label class="form__label" for="contact-name">Имя</label>
             <input class="form__control" id="contact-name" name="name" type="text" autocomplete="name" placeholder="Имя" data-required required aria-describedby="contact-name-error">
-            <div class="form__error-message" id="contact-name-error" aria-live="polite"></div>
+            <div class="form__error-message" id="contact-name-error" aria-live="polite" hidden>Поле обязательно для заполнения</div>
         </div>
         <div class="contact-form__field form__field">
             <label class="form__label" for="contact-phone">Телефон</label>
             <input class="form__control" id="contact-phone" name="phone" type="tel" autocomplete="tel" placeholder="+7 (___) ___-__-__" data-required required aria-describedby="contact-phone-error">
-            <div class="form__error-message" id="contact-phone-error" aria-live="polite"></div>
+            <div class="form__error-message" id="contact-phone-error" aria-live="polite" hidden>Введите корректный номер телефона</div>
         </div>
         <div class="contact-form__field form__field">
             <label class="form__label" for="contact-email">E-mail</label>
             <input class="form__control" id="contact-email" name="email" type="email" autocomplete="email" placeholder="E-mail" data-required required aria-describedby="contact-email-error">
-            <div class="form__error-message" id="contact-email-error" aria-live="polite"></div>
+            <div class="form__error-message" id="contact-email-error" aria-live="polite" hidden>Введите корректный e-mail</div>
         </div>
         <div class="contact-form__field contact-form__field--half form__field">
             <label class="form__label" for="contact-topic">Тема</label>
@@ -36,7 +36,7 @@
                 <option class="form__option" value="Маркетплейсы">Маркетплейсы</option>
                 <option class="form__option" value="Поддержка и контакты">Поддержка и контакты</option>
             </select>
-            <div class="form__error-message" id="contact-topic-error" aria-live="polite"></div>
+            <div class="form__error-message" id="contact-topic-error" aria-live="polite" hidden>Поле обязательно для заполнения</div>
         </div>
         <div class="contact-form__field contact-form__field--half form__field">
             <label class="form__label" for="contact-city">Город</label>
@@ -45,7 +45,7 @@
         <div class="contact-form__wide form__field">
             <label class="form__label" for="contact-message">Сообщение</label>
             <textarea class="form__control form__control--message" id="contact-message" name="message" placeholder="Сообщение" data-required required aria-describedby="contact-message-error"></textarea>
-            <div class="form__error-message" id="contact-message-error" aria-live="polite"></div>
+            <div class="form__error-message" id="contact-message-error" aria-live="polite" hidden>Поле обязательно для заполнения</div>
         </div>
         @@include('_file-upload.html', {"id":"contact-files","multiple":true,"buttonText":"Загрузить файл"})
         <div class="form__field">
@@ -53,7 +53,7 @@
                 <input class="checkbox__input hidden" type="checkbox" name="consent" value="1" data-required required aria-describedby="contact-consent-error">
                 <span class="checkbox__btn"><span class="checkbox__text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политики Конфиденциальности</a></span></span>
             </label>
-            <div class="form__error-message" id="contact-consent-error" aria-live="polite"></div>
+            <div class="form__error-message" id="contact-consent-error" aria-live="polite" hidden>Необходимо ваше согласие</div>
         </div>
         <button class="form__submit btn btn-primary" type="submit">Отправить</button>
         <p class="form__status" role="status" aria-live="polite" hidden></p>

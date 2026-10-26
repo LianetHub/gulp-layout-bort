@@ -39,26 +39,26 @@
                                     <p class="parts-help__text"><a class="parts-help__link" href="mailto:help-global@bort-global.com">Напишите нам</a>, мы обязательно поможем!</p>
                                 </div>
                             </aside>
-                            <form class="spare-parts__form form form--parts" action="#" method="post" enctype="multipart/form-data" novalidate>
+                            <form class="spare-parts__form form form--parts" action="#" method="post" enctype="multipart/form-data" novalidate data-unavailable-message="Отправка заявки временно недоступна. Пожалуйста, свяжитесь со специалистом по телефонам +7(499)343-62-42 или +7(499)005-23-00." data-pending-message="Отправляем заявку…" data-success-message="Заявка отправлена. Специалист свяжется с Вами в ближайшее время." data-error-message="Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь с нами по телефону.">
                                 <div class="form__field">
                                     <label class="form__label" for="parts-product">Товар</label>
                                     <input class="form__control" id="parts-product" type="text" name="product" placeholder="Товар" data-required required aria-describedby="parts-product-error">
-                                    <div class="form__error-message" id="parts-product-error" aria-live="polite"></div>
+                                    <div class="form__error-message" id="parts-product-error" aria-live="polite" hidden>Поле обязательно для заполнения</div>
                                 </div>
                                 <div class="form__field">
                                     <label class="form__label" for="parts-phone">Телефон</label>
                                     <input class="form__control" id="parts-phone" type="tel" name="phone" placeholder="+7 (___) ___-__-__" autocomplete="tel" inputmode="tel" data-required required aria-describedby="parts-phone-error">
-                                    <div class="form__error-message" id="parts-phone-error" aria-live="polite"></div>
+                                    <div class="form__error-message" id="parts-phone-error" aria-live="polite" hidden>Введите корректный номер телефона</div>
                                 </div>
                                 <div class="form__field">
                                     <label class="form__label" for="parts-email">E-mail</label>
                                     <input class="form__control" id="parts-email" type="email" name="email" placeholder="E-mail" autocomplete="email" data-required required aria-describedby="parts-email-error">
-                                    <div class="form__error-message" id="parts-email-error" aria-live="polite"></div>
+                                    <div class="form__error-message" id="parts-email-error" aria-live="polite" hidden>Введите корректный e-mail</div>
                                 </div>
                                 <div class="form__field">
                                     <label class="form__label" for="parts-city">Город</label>
                                     <input class="form__control" id="parts-city" type="text" name="city" placeholder="Город" autocomplete="address-level2" data-required required aria-describedby="parts-city-error">
-                                    <div class="form__error-message" id="parts-city-error" aria-live="polite"></div>
+                                    <div class="form__error-message" id="parts-city-error" aria-live="polite" hidden>Поле обязательно для заполнения</div>
                                 </div>
                                 @@include('html/includes/_file-upload.html', {"id":"parts-files","multiple":true,"buttonText":"Загрузить файл"})
                                 <div class="form__field">
@@ -70,7 +70,7 @@
                                         <input class="checkbox__input hidden" type="checkbox" name="consent" value="1" data-required required aria-describedby="parts-consent-error">
                                         <span class="checkbox__btn"><span class="checkbox__text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политики Конфиденциальности</a></span></span>
                                     </label>
-                                    <div class="form__error-message" id="parts-consent-error" aria-live="polite"></div>
+                                    <div class="form__error-message" id="parts-consent-error" aria-live="polite" hidden>Необходимо ваше согласие</div>
                                 </div>
                                 <button class="form__submit btn btn-primary" type="submit">Отправить</button>
                                 <p class="form__status" role="status" aria-live="polite" hidden></p>

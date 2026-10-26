@@ -65,7 +65,7 @@ for (const width of [375, 1440]) {
         await page.setViewportSize({ width, height: 1000 });
         await page.goto('/docs/compare.html');
         const column = width >= 1200 ? 'desktop' : '0';
-        const slider = page.locator(`[data-compare-column="${column}"] .swiper`);
+        const slider = page.locator(`[data-compare-column="${column}"] .comparing__swiper`);
         const initial = await slider.evaluate((element) => element.swiper.activeIndex);
         const values = page.locator('.comparing__content .comparing__values').first();
         await values.scrollIntoViewIfNeeded();
@@ -99,8 +99,8 @@ test('mobile characteristic gestures select the intended column and preserve con
 }) => {
     await page.setViewportSize({ width: 375, height: 1000 });
     await page.goto('/docs/compare.html');
-    const left = page.locator('[data-compare-column="0"] .swiper');
-    const right = page.locator('[data-compare-column="1"] .swiper');
+    const left = page.locator('[data-compare-column="0"] .comparing__swiper');
+    const right = page.locator('[data-compare-column="1"] .comparing__swiper');
     const originalLeft = await left.evaluate((element) => element.swiper.activeIndex);
     const originalRight = await right.evaluate((element) => element.swiper.activeIndex);
     const values = page.locator('.comparing__content .comparing__values').first();
@@ -148,7 +148,7 @@ test('vertical scrolling does not disable the next comparison swipe', async ({ p
         });
     }
     await session.send('Input.dispatchTouchEvent', { type: 'touchEnd', touchPoints: [] });
-    const slider = page.locator('[data-compare-column="0"] .swiper');
+    const slider = page.locator('[data-compare-column="0"] .comparing__swiper');
     await expect
         .poll(() => slider.evaluate((element) => element.swiper.touchEventsData.pointerId))
         .toBe(null);
