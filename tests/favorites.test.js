@@ -1,6 +1,7 @@
 ﻿import test from 'node:test';
 import assert from 'node:assert/strict';
-import { favorites } from '../src/js/modules/favorites.js';
+import { loadApp } from './helpers/app.js';
+const { favorites } = loadApp(['favorites']);
 
 test('favorites keep HTML cards and only reset buttons or remove a category row', () => {
     const handlers = {};

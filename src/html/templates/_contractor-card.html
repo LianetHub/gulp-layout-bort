@@ -9,7 +9,9 @@
                 @@if (phoneExtra) {<a class="contractor-card__link" href="tel:@@phoneExtraValue">@@phoneExtra</a>}
             </div>
         </div>
-        @@if (telegram) {<div class="contractor-card__contact"><p class="contractor-card__label">Telegram:</p><a class="contractor-card__link" href="@@telegram" target="_blank" rel="noopener noreferrer">@@telegramText</a></div>}
+        @@if (telegram) {<div class="contractor-card__contact">
+            <p class="contractor-card__label">Telegram:</p><a class="contractor-card__link" href="@@telegram" target="_blank" rel="noopener noreferrer">@@telegramText</a>
+        </div>}
     </div>
     <div class="contractor-card__details">
         @@if (hours) {<p class="contractor-card__hours">Время работы @@hours</p>}

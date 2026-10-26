@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import * as select from '../src/js/modules/select.js';
+import { loadApp } from './helpers/app.js';
+const select = loadApp(["matchesOption","CustomSelect","initCustomSelects"]);
 
 test('dropdown search matches a substring ignoring spaces, case and ё', () => {
     assert.equal(select.matchesOption('Орёл, Советская', ' ОРЕЛ '), true);

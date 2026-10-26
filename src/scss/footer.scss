@@ -160,6 +160,9 @@
 	// .footer__social
 	&__social {
 		transition: transform 0.3s ease;
+		@media (prefers-reduced-motion: reduce) {
+			transition: none;
+		}
 		display: flex;
 		justify-content: center;
 		align-items: center;
@@ -246,6 +249,13 @@
 
 	// .footer__phone
 	&__phone {
+		transition: color 0.3s ease;
+		@media (any-hover: hover) {
+			// .footer__phone:hover
+			&:hover {
+				color: $orange;
+			}
+		}
 		display: block;
 		font-family: $font-russo;
 		font-size: rem(18);

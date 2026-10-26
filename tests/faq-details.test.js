@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { faq } from '../src/js/modules/faq.js';
+import { loadApp } from './helpers/app.js';
+const { faq } = loadApp(['faq']);
 
 function fixture({ reduced = false, animate = true } = {}) {
     const listeners = {};

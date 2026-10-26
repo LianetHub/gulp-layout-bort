@@ -15,15 +15,19 @@
             <div class="product-details__images">
                 <div class="product-details__thumbs">
                     <button class="product-details__prev swiper-button-prev swiper-button-prev--plain" type="button" aria-label="Предыдущие фотографии"></button>
-                    <div class="product-details__thumb-slider swiper"><div class="product-details__thumb-wrapper swiper-wrapper">
-                        @@loop('../templates/_product-photo-thumb.html', './html/json/product-gallery.json')
-                    </div></div>
+                    <div class="product-details__thumb-slider swiper">
+                        <div class="product-details__thumb-wrapper swiper-wrapper">
+                            @@loop('../templates/_product-photo-thumb.html', './html/json/product-gallery.json')
+                        </div>
+                    </div>
                     <button class="product-details__next swiper-button-next swiper-button-next--plain" type="button" aria-label="Следующие фотографии"></button>
                 </div>
                 <div class="product-details__gallery">
-                    <div class="product-details__gallery-slider swiper"><div class="product-details__gallery-wrapper swiper-wrapper">
-                        @@loop('../templates/_product-photo.html', './html/json/product-gallery.json')
-                    </div></div>
+                    <div class="product-details__gallery-slider swiper">
+                        <div class="product-details__gallery-wrapper swiper-wrapper">
+                            @@loop('../templates/_product-photo.html', './html/json/product-gallery.json')
+                        </div>
+                    </div>
                     <div class="product-details__labels"><span class="product-details__warranty icon-like">5 лет гарантии</span></div>
                     <a class="product-details__zoom icon-search" href="@img/product/caiman-01.png" data-fancybox="product-zoom" aria-label="Увеличить фотографию"></a>
                 </div>
@@ -56,22 +60,54 @@
                 <div class="product-details__summary">
                     <p class="product-details__summary-title">Характеристики:</p>
                     <dl class="product-details__summary-list">
-                        <div class="product-details__summary-row"><dt class="product-details__summary-name">Скорость вращения, об/мин:</dt><dd class="product-details__summary-value">Сталь</dd></div>
-                        <div class="product-details__summary-row"><dt class="product-details__summary-name">Объем перемалывающей камеры, мл:</dt><dd class="product-details__summary-value">15х15 мм</dd></div>
-                        <div class="product-details__summary-row"><dt class="product-details__summary-name">Мощность, Вт: <span class="tooltip"><button class="tooltip__trigger icon-information-circle" type="button" aria-label="Подробнее о мощности" aria-describedby="product-power-help"></button><span class="tooltip__content" id="product-power-help" role="tooltip"><span class="tooltip__text">Максимальная активная мощность, которую устройство может отдавать на подключённые нагрузки без перегрузки. Важно для правильного расчёта подключаемого оборудования.</span></span></span></dt><dd class="product-details__summary-value">6 м</dd></div>
-                        <div class="product-details__summary-row"><dt class="product-details__summary-name">Материал камеры:</dt><dd class="product-details__summary-value">Нержавеющая сталь</dd></div>
-                        <div class="product-details__summary-row"><dt class="product-details__summary-name">Диаметр, мм:</dt><dd class="product-details__summary-value">145</dd></div>
+                        <div class="product-details__summary-row">
+                            <dt class="product-details__summary-name">Скорость вращения, об/мин:</dt>
+                            <dd class="product-details__summary-value">Сталь</dd>
+                        </div>
+                        <div class="product-details__summary-row">
+                            <dt class="product-details__summary-name">Объем перемалывающей камеры, мл:</dt>
+                            <dd class="product-details__summary-value">15х15 мм</dd>
+                        </div>
+                        <div class="product-details__summary-row">
+                            <dt class="product-details__summary-name">Мощность, Вт: <span class="tooltip"><button class="tooltip__trigger icon-information-circle" type="button" aria-label="Подробнее о мощности" aria-describedby="product-power-help"></button><span class="tooltip__content" id="product-power-help" role="tooltip"><span class="tooltip__text">Максимальная активная мощность, которую устройство может отдавать на подключённые нагрузки без перегрузки. Важно для правильного расчёта подключаемого оборудования.</span></span></span></dt>
+                            <dd class="product-details__summary-value">6 м</dd>
+                        </div>
+                        <div class="product-details__summary-row">
+                            <dt class="product-details__summary-name">Материал камеры:</dt>
+                            <dd class="product-details__summary-value">Нержавеющая сталь</dd>
+                        </div>
+                        <div class="product-details__summary-row">
+                            <dt class="product-details__summary-name">Диаметр, мм:</dt>
+                            <dd class="product-details__summary-value">145</dd>
+                        </div>
                     </dl>
                     <a class="product-details__all icon-chevron-right" href="#stats">Все характеристики</a>
                 </div>
                 <div class="product-details__services">
-                    <div class="product-details__service"><p class="product-details__service-title"><span class="product-details__service-icon icon-truck" aria-hidden="true"></span>Доставка</p><ul class="product-details__service-list"><li class="product-details__service-item">При сумме заказа более 3000 руб. доставка Почтой России и курьерской службой до двери осуществляется бесплатно.</li><li class="product-details__service-item">*При сумме заказа менее 3000 руб. стоимость доставки Почтой России и курьерской службой до двери составляет 350 руб.</li></ul></div>
-                    <div class="product-details__service"><p class="product-details__service-title"><span class="product-details__service-icon icon-wallet" aria-hidden="true"></span>Оплата</p><ul class="product-details__service-list"><li class="product-details__service-item">Оплата банковской картой онлайн</li><li class="product-details__service-item">Наличными или картой при получении</li><li class="product-details__service-item">Безналичный расчет для юридических лиц</li></ul></div>
-                    <div class="product-details__service"><p class="product-details__service-title">Документация</p><a class="product-details__file icon-file" href="https://bort.ru/index.php?attachment_id=1225&amp;dispatch=attachments.getfile" target="_blank" rel="noopener">Инструкция <span class="product-details__file-size">(1.4 Мб)</span></a></div>
-                    <div class="product-details__service"><p class="product-details__service-title">Фирменная установка измельчителей</p><a class="product-details__file icon-file" href="service.html">Инструкция <span class="product-details__file-size">(1.4 Мб)</span></a></div>
+                    <div class="product-details__service">
+                        <p class="product-details__service-title"><span class="product-details__service-icon icon-truck" aria-hidden="true"></span>Доставка</p>
+                        <ul class="product-details__service-list">
+                            <li class="product-details__service-item">При сумме заказа более 3000 руб. доставка Почтой России и курьерской службой до двери осуществляется бесплатно.</li>
+                            <li class="product-details__service-item">*При сумме заказа менее 3000 руб. стоимость доставки Почтой России и курьерской службой до двери составляет 350 руб.</li>
+                        </ul>
+                    </div>
+                    <div class="product-details__service">
+                        <p class="product-details__service-title"><span class="product-details__service-icon icon-wallet" aria-hidden="true"></span>Оплата</p>
+                        <ul class="product-details__service-list">
+                            <li class="product-details__service-item">Оплата банковской картой онлайн</li>
+                            <li class="product-details__service-item">Наличными или картой при получении</li>
+                            <li class="product-details__service-item">Безналичный расчет для юридических лиц</li>
+                        </ul>
+                    </div>
+                    <div class="product-details__service">
+                        <p class="product-details__service-title">Документация</p><a class="product-details__file icon-file" href="https://bort.ru/index.php?attachment_id=1225&amp;dispatch=attachments.getfile" target="_blank" rel="noopener">Инструкция <span class="product-details__file-size">(1.4 Мб)</span></a>
+                    </div>
+                    <div class="product-details__service">
+                        <p class="product-details__service-title">Фирменная установка измельчителей</p><a class="product-details__file icon-file" href="service.html">Инструкция <span class="product-details__file-size">(1.4 Мб)</span></a>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-    <div class="product-details__mobile-purchase" aria-label="Покупка товара">@@include('./_product-purchase-controls.html')</div>
+    <div role="group" class="product-details__mobile-purchase" aria-label="Покупка товара">@@include('./_product-purchase-controls.html')</div>
 </section>

@@ -8,17 +8,17 @@
         <div class="product-listing__layout">
             @@include('_listing-filter.html')
             <div class="product-listing__content">
-                <div class="product-listing__tags" aria-label="Подборки товаров">
+                <div role="group" class="product-listing__tags" aria-label="Подборки товаров">
                     @@loop('../templates/_listing-tag.html', [
-                        {"name":"Промышленные","active":true}, {"name":"Бытовые","active":false},
-                        {"name":"Мощные","active":false}, {"name":"Электрические","active":false},
-                        {"name":"Бесшумные","active":false}, {"name":"С авто-реверсом","active":false},
-                        {"name":"Маленькие","active":false}, {"name":"Легкие","active":false}
+                    {"name":"Промышленные","active":true}, {"name":"Бытовые","active":false},
+                    {"name":"Мощные","active":false}, {"name":"Электрические","active":false},
+                    {"name":"Бесшумные","active":false}, {"name":"С авто-реверсом","active":false},
+                    {"name":"Маленькие","active":false}, {"name":"Легкие","active":false}
                     ])
                     <button type="button" class="product-listing__tag product-listing__tag--more" aria-expanded="false">Показать еще</button>
                 </div>
                 <div class="product-listing__toolbar">
-                    <label class="product-listing__sort-label">
+                    <div class="product-listing__sort-label">
                         <span class="product-listing__sr-only">Сортировка товаров</span>
                         <select data-custom-select class="product-listing__sort" aria-label="Сортировка товаров">
                             <option class="product-listing__option" value="popular">Популярные</option>
@@ -26,10 +26,10 @@
                             <option class="product-listing__option" value="price-desc">Сначала дороже</option>
                             <option class="product-listing__option" value="name">По названию</option>
                         </select>
-                    </label>
+                    </div>
                     <button type="button" class="product-listing__filter-button icon-filter-horizontal" aria-controls="listing-filter" aria-expanded="false">Фильтры</button>
                 </div>
-                <div class="product-listing__selected" aria-label="Выбранные фильтры" hidden></div>
+                <div role="group" class="product-listing__selected" aria-label="Выбранные фильтры" hidden></div>
                 <div class="product-listing__products">
                     @@loop('../templates/_listing-product.html', './html/json/listing-products.json')
                 </div>

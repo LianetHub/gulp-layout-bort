@@ -1,42 +1,53 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include('html/_head.html', { 'title': 'Личный кабинет — Заказы' })
-<body>
-    <div class="wrapper">
-        @@include('html/_header.html', { "auth": true })
-        <main class="page page--dark">
-            <section class="account">
-                <div class="account__container container">
-                    @@include('html/includes/_page-heading.html', {"title":"Мои заказы","backHref":"lk-person.html#menu","backLabel":"Вернуться в мой кабинет"})
-                    <div class="account__body">
-                        @@include('html/includes/_account-sidebar.html', {"active":"orders"})
-                        <div class="account__content orders">
-                            <form class="orders__filters" role="search">
-                                <h2 class="orders__title title title-md">Мои заказы</h2>
-                                <div class="orders__fields">
-                                    <div class="orders__search search-field">
-                                        <input class="orders__input search-field__input" type="text" name="query" placeholder="Поиск по номеру заказа, названию товара или его коду" aria-label="Поиск по заказам" autocomplete="off">
-                                        <button class="search-field__clear icon-close" type="button" aria-label="Очистить поиск заказов" hidden></button>
-                                        <button class="search-field__button icon-search" type="submit" aria-label="Искать заказ"></button>
+    @@include('html/_head.html', { 'title': 'Личный кабинет — Заказы' })
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', { "auth": true })
+            <main class="page page--dark">
+                <section class="account">
+                    <div class="account__container container">
+                        @@include('html/includes/_page-heading.html', {"title":"Мои заказы","backHref":"lk-person.html#menu","backLabel":"Вернуться в мой кабинет"})
+                        <div class="account__body">
+                            @@include('html/includes/_account-sidebar.html', {"active":"orders"})
+                            <div class="account__content orders">
+                                <form action="#" class="orders__filters" role="search">
+                                    <h2 class="orders__title title title-md">Мои заказы</h2>
+                                    <div class="orders__fields">
+                                        <div class="orders__search search-field">
+                                            <input class="orders__input search-field__input" type="text" name="query" placeholder="Поиск по номеру заказа, названию товара или его коду" aria-label="Поиск по заказам" autocomplete="off">
+                                            <button class="search-field__clear icon-close" type="button" aria-label="Очистить поиск заказов" hidden></button>
+                                            <button class="search-field__button icon-search" type="submit" aria-label="Искать заказ"></button>
+                                        </div>
+                                        <select data-custom-select class="orders__period" name="period" aria-label="Период">
+                                            <option class="orders__option" value="">Период</option>
+                                            <option class="orders__option" value="2026-05">Май 2026</option>
+                                            <option class="orders__option" value="2026-04">Апрель 2026</option>
+                                            <option class="orders__option" value="2026">2026 год</option>
+                                        </select>
                                     </div>
-                                    <select data-custom-select class="orders__period" name="period" aria-label="Период"><option class="orders__option" value="">Период</option><option class="orders__option" value="2026-05">Май 2026</option><option class="orders__option" value="2026-04">Апрель 2026</option><option class="orders__option" value="2026">2026 год</option></select>
+                                    <div class="orders__statuses">
+                                        <select data-custom-select class="orders__select" multiple data-select-chip name="status" aria-label="Статус заказа">
+                                            <option class="orders__option" value="processing">В обработке</option>
+                                            <option class="orders__option" value="cancelled">Отменен</option>
+                                        </select>
+                                        <select data-custom-select class="orders__select" multiple data-select-chip name="payment" aria-label="Статус оплаты">
+                                            <option class="orders__option" value="paid">Оплачен</option>
+                                            <option class="orders__option" value="unpaid">Не оплачен</option>
+                                        </select>
+                                    </div>
+                                </form>
+                                <div class="orders__list">
+                                    @@loop('html/templates/_order-summary.html', './html/json/orders.json')
                                 </div>
-                                <div class="orders__statuses">
-                                    <select data-custom-select class="orders__select" multiple data-select-chip name="status" aria-label="Статус заказа"><option class="orders__option" value="processing">В обработке</option><option class="orders__option" value="cancelled">Отменен</option></select>
-                                    <select data-custom-select class="orders__select" multiple data-select-chip name="payment" aria-label="Статус оплаты"><option class="orders__option" value="paid">Оплачен</option><option class="orders__option" value="unpaid">Не оплачен</option></select>
-                                </div>
-                            </form>
-                            <div class="orders__list">
-                                @@loop('html/templates/_order-summary.html', './html/json/orders.json')
+                                <p class="orders__empty" role="status" hidden>Заказы не найдены. Попробуйте изменить условия поиска.</p>
                             </div>
-                            <p class="orders__empty" role="status" hidden>Заказы не найдены. Попробуйте изменить условия поиска.</p>
                         </div>
                     </div>
-                </div>
-            </section>
-        </main>
-        @@include('html/_footer.html', {})
-        @@include('html/_js.html', {})
-    </div>
-</body>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/_js.html', {})
+        </div>
+    </body>
 </html>

@@ -1,0 +1,3 @@
+@@for(var photos = typeof images === 'undefined' ? [] : images, once = 0; once < 1; once++){
+@@include('_product-tile.html', {"image":"@@image", "name":"@@name", "guarantee":@@guarantee, "sku":"@@sku", "price":"@@price", "oldPrice":"@@oldPrice", "images":${JSON.stringify(photos)}, "staticImage":true})
+}

@@ -37,12 +37,15 @@
 	}
 	// .contractor-card__link
 	&__link {
+		text-decoration: underline;
+		text-decoration-color: transparent;
+		transition: text-decoration-color 0.3s ease;
 		color: #ff6201;
 		overflow-wrap: anywhere;
 		@media (any-hover: hover) {
 			// .contractor-card__link:hover
 			&:hover {
-				text-decoration: underline;
+				text-decoration-color: currentColor;
 			}
 		}
 	}

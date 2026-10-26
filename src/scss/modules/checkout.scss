@@ -24,6 +24,10 @@
 	}
 	// .checkout__back-icon
 	&__back-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
 		font-size: rem(16);
 	}
 	// .checkout__title
@@ -189,6 +193,11 @@
 	}
 	// .checkout__info
 	&__info {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
 		flex-shrink: 0;
 	}
 	// .checkout__address
@@ -493,5 +502,45 @@
 	&__status {
 		font-size: rem(14);
 		line-height: math.div(20, 14);
+	}
+	// .checkout__location-icon
+	&__location-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
+		width: rem(20);
+		height: rem(20);
+	}
+	// .checkout__change-icon
+	&__change-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
+		width: rem(20);
+		height: rem(20);
+	}
+	// .checkout__pickup-button-icon
+	&__pickup-button-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
+		width: rem(20);
+		height: rem(20);
+	}
+	// .checkout__promo-icon
+	&__promo-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
+		width: rem(20);
+		height: rem(20);
 	}
 }

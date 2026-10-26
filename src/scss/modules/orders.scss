@@ -42,8 +42,7 @@
 		padding: rem(12) rem(45) rem(12) rem(20);
 		font-size: rem(14);
 		color: #6a6b6d;
-		background: #fff url("@img/orders/chevron.svg") right rem(20) center / rem(20) rem(20)
-			no-repeat;
+		background: #fff;
 		cursor: pointer;
 		@media (min-width: $md4) {
 			font-size: rem(16);
@@ -62,8 +61,7 @@
 		height: rem(36);
 		padding: rem(8) rem(29) rem(8) rem(15);
 		border-radius: rem(20);
-		background: #f2f2f2 url("@img/orders/filter-chevron.svg") right rem(10) center / rem(16)
-			rem(16) no-repeat;
+		background: #f2f2f2;
 		color: #2b2b2b;
 		font-size: rem(14);
 		line-height: math.div(20, 14);
@@ -71,7 +69,6 @@
 		@media (min-width: $md4) {
 			flex: 0 1 auto;
 			padding-right: rem(41);
-			background-position: right rem(15) center;
 		}
 	}
 	// .orders__list

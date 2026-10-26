@@ -17,7 +17,7 @@
                     <div class="comparing__container container">
                         <div class="comparing__heading">
                             <h1 class="comparing__title title title-lg" id="comparing-title">Сравнение товаров</h1>
-                            <button type="button" class="comparing__clear" data-compare-clear="all"><img src="@img/comparing/trash.svg" alt="" class="comparing__icon" width="17" height="18">Очистить сравнение</button>
+                            <button type="button" class="comparing__clear" data-compare-clear="all"><span class="comparing__icon icon-trash" aria-hidden="true"></span>Очистить сравнение</button>
                         </div>
                         <div class="comparing__categories" role="group" aria-label="Категории сравнения">
                             <button type="button" class="comparing__category is-active" data-compare-category="disposers" aria-pressed="true">Измельчители отходов <span class="comparing__count">6</span></button>
@@ -35,7 +35,7 @@
                                             <label class="comparing__filter"><input class="comparing__radio" type="radio" name="compare-filter" value="all" checked><span class="comparing__filter-text">Все характеристики</span></label>
                                             <label class="comparing__filter"><input class="comparing__radio" type="radio" name="compare-filter" value="similar"><span class="comparing__filter-text">Только похожие</span></label>
                                             <label class="comparing__filter"><input class="comparing__radio" type="radio" name="compare-filter" value="different"><span class="comparing__filter-text">Только различия</span></label>
-                                            <button type="button" class="comparing__clear comparing__clear--category" data-compare-clear="category"><img src="@img/comparing/trash.svg" alt="" class="comparing__icon" width="17" height="18">Очистить категорию</button>
+                                            <button type="button" class="comparing__clear comparing__clear--category" data-compare-clear="category"><span class="comparing__icon icon-trash" aria-hidden="true"></span>Очистить категорию</button>
                                         </div>
                                         <div class="comparing__desktop">
                                             @@include('html/includes/_comparing-column.html', {"column": "desktop"})
@@ -49,7 +49,7 @@
                             </div>
                             <div class="comparing__mobile-filters">
                                 <label class="comparing__filter"><input class="comparing__radio" type="checkbox" data-mobile-differences><span class="comparing__filter-text">Только различия</span></label>
-                                <button type="button" class="comparing__clear comparing__clear--category" data-compare-clear="category"><img src="@img/comparing/trash.svg" alt="" class="comparing__icon" width="17" height="18">Очистить категорию</button>
+                                <button type="button" class="comparing__clear comparing__clear--category" data-compare-clear="category"><span class="comparing__icon icon-trash" aria-hidden="true"></span>Очистить категорию</button>
                             </div>
                             <div class="comparing__desc">
                                 <div class="comparing__important">

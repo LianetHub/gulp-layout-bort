@@ -5,18 +5,21 @@
   "main": "gulpfile.js",
   "type": "module",
   "scripts": {
-    "format": "prettier --write \"src/js/app.js\" \"src/js/modules/**/*.js\" \"src/scss/**/*.scss\"",
-    "format:check": "prettier --check \"src/js/app.js\" \"src/js/modules/**/*.js\" \"src/scss/**/*.scss\"",
+    "format": "prettier --write \"src/js/app.js\" \"scripts/html-format.js\" \"src/scss/**/*.scss\" && node scripts/html-format.js --write",
+    "format:check": "prettier --check \"src/js/app.js\" \"scripts/html-format.js\" \"src/scss/**/*.scss\" && node scripts/html-format.js --check",
     "test": "node --test tests/*.test.js",
     "dev": "gulp",
     "build": "gulp build --build",
     "zip": "gulp deployZIP --build",
     "deploy": "npm run build && git add . && git commit -m \"commit\" && git push",
-    "ftp": "npm run build && node .vscode/ftp-deploy-config.js"
+    "ftp": "npm run build && node .vscode/ftp-deploy-config.js",
+    "validate:html": "node scripts/validate-html.js",
+    "test:browser": "playwright test tests/browser/refactor.spec.js tests/browser/regressions.spec.js tests/browser/html-content.spec.js tests/browser/markup-refactor.spec.js"
   },
   "author": "Liana",
   "license": "ISC",
   "devDependencies": {
+    "@playwright/test": "^1.64.1",
     "browser-sync": "^2.27.7",
     "del": "^6.0.0",
     "ftp-deploy": "^2.4.7",
@@ -27,6 +30,7 @@
     "gulp-file-include": "^2.3.0",
     "gulp-fonter": "^0.3.0",
     "gulp-html-beautify": "^1.0.1",
+    "js-beautify": "1.15.1",
     "gulp-if": "^3.0.0",
     "gulp-newer": "^1.4.0",
     "gulp-notify": "^4.0.0",
@@ -38,11 +42,10 @@
     "gulp-ttf2woff2": "^4.0.1",
     "gulp-version-number": "^0.2.4",
     "gulp-zip": "^5.1.0",
+    "html-validate": "^11.17.0",
     "prettier": "3.9.10",
     "sass": "^1.45.2",
-    "vinyl": "^2.2.1",
-    "webpack": "^5.65.0",
-    "webpack-stream": "^7.0.0"
+    "vinyl": "^2.2.1"
   },
   "dependencies": {
     "@fancyapps/ui": "^5.0.36",

@@ -237,6 +237,7 @@
 	}
 	// .listing-filter__apply
 	&__apply {
+		transition: background-color 0.3s ease;
 		padding: rem(14) rem(8);
 		border-radius: rem(6);
 		background: #ff6201;
@@ -256,6 +257,9 @@
 	}
 	// .listing-filter__reset
 	&__reset {
+		transition:
+			background-color 0.3s ease,
+			color 0.3s ease;
 		display: flex;
 		align-items: center;
 		justify-content: center;

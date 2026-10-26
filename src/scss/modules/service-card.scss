@@ -14,7 +14,7 @@
 	@media (any-hover: hover) {
 		// .service-card:hover .service-card__address
 		&:hover .service-card__address {
-			text-decoration: underline;
+			text-decoration-color: currentColor;
 		}
 	}
 	// .service-card:focus-visible
@@ -24,6 +24,9 @@
 	}
 	// .service-card__address
 	&__address {
+		text-decoration: underline;
+		text-decoration-color: transparent;
+		transition: text-decoration-color 0.3s ease;
 		font-size: rem(14);
 		font-weight: 500;
 		line-height: math.div(20, 14);

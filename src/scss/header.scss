@@ -426,6 +426,14 @@
 	}
 	// .header .main-actions__item
 	.main-actions__item {
+		// .header .main-actions__item::before
+		&::before {
+			transition:
+				color 0.3s ease,
+				border-radius 0.3s ease,
+				box-shadow 0.3s ease,
+				background-color 0.3s ease;
+		}
 		@media (any-hover: hover) {
 			// .header .main-actions__item:hover::before
 			&:hover::before {

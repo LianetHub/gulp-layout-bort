@@ -6,6 +6,10 @@
 	padding: rem(30);
 	border-radius: rem(10);
 	background: #f7f7f6;
+	@media (min-width: $md2) {
+		position: sticky;
+		top: calc(#{$header} + #{rem(20)});
+	}
 	// .partner-card__title
 	&__title {
 		margin-bottom: rem(20);

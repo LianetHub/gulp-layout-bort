@@ -1,5 +1,6 @@
 /node_modules
-/.vscode
+/.vscode/*
+!/.vscode/settings.json
 /makets
 /.cursor
 .cursor
@@ -40,3 +41,18 @@ __pycache__/
 !/tests/tooltip.test.js
 !/tests/ui-kit.html
 !/tests/ui-kit-browser.js
+!/tests/app-script.test.js
+!/tests/html-validation.test.js
+!/tests/address-picker.test.js
+!/tests/pickup-state.test.js
+!/tests/checkout.js
+!/tests/checkout.html
+!/tests/product-gallery.test.js
+!/tests/refactor-regressions.test.js
+!/tests/html-content.test.js
+!/tests/markup-refactor.test.js
+!/tests/html-format.test.js
+!/tests/helpers/
+!/tests/helpers/**
+!/tests/browser/
+!/tests/browser/**

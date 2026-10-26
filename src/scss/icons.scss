@@ -170,7 +170,9 @@
 }
 
 // .icon-tick:before
-.icon-tick:before {
+// .icon-check:before
+.icon-tick:before,
+.icon-check:before {
 	content: "\e91a";
 }
 

@@ -1,12 +1,12 @@
-<div id="sign-in" class="auth-dialog" aria-labelledby="auth-title">
-    <button type="button" class="auth-dialog__close" data-fancybox-close aria-label="Закрыть"><img class="auth-dialog__close-icon" src="@img/auth/close.svg" width="20" height="20" alt=""></button>
+<div role="dialog" id="sign-in" class="auth-dialog" aria-labelledby="auth-title">
+    <button type="button" class="auth-dialog__close" data-fancybox-close aria-label="Закрыть"><span class="auth-dialog__close-icon icon-close" aria-hidden="true"></span></button>
     <div class="auth-dialog__view" data-auth-view="login">
         <h2 class="auth-dialog__title title title-md" id="auth-title">Вход в личный кабинет</h2>
         <div class="auth-dialog__tabs segmented-control" role="tablist" aria-label="Способ входа">
             <button class="auth-dialog__tab segmented-control__button" type="button" role="tab" id="auth-email-tab" aria-controls="auth-email-panel" aria-selected="true" data-auth-tab="email">По E-mail</button>
             <button class="auth-dialog__tab segmented-control__button" type="button" role="tab" id="auth-phone-tab" aria-controls="auth-phone-panel" aria-selected="false" tabindex="-1" data-auth-tab="phone">По телефону</button>
         </div>
-        <form class="auth-dialog__form" data-auth-form="email" id="auth-email-panel" role="tabpanel" aria-labelledby="auth-email-tab" novalidate>
+        <form action="#" class="auth-dialog__form" data-auth-form="email" id="auth-email-panel" role="tabpanel" aria-labelledby="auth-email-tab" novalidate>
             <div class="auth-dialog__fields">
                 @@include('../templates/_auth-field.html', {"id":"auth-email","label":"E-mail","type":"email","name":"email","autocomplete":"username","placeholder":""})
                 @@include('../templates/_auth-password.html', {"id":"auth-password","autocomplete":"current-password"})
@@ -18,7 +18,7 @@
             <button class="auth-dialog__submit" type="submit">Войти</button>
             <p class="auth-dialog__footer">Ещё нет учётной записи?<br><button class="auth-dialog__link" type="button" data-auth-go="register">Зарегистрироваться</button></p>
         </form>
-        <form class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
+        <form action="#" class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
             <div class="auth-dialog__fields">
                 @@include('../templates/_auth-field.html', {"id":"auth-phone","label":"Телефон","type":"tel","name":"phone","autocomplete":"tel","placeholder":"+7 (999) 999-99-99"})
                 <div class="auth-dialog__field"><label class="auth-dialog__label" for="auth-code">Код из СМС</label><input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required><span class="auth-dialog__error"></span></div>
@@ -28,15 +28,18 @@
         </form>
     </div>
     <div class="auth-dialog__view" data-auth-view="recovery" hidden>
-        <div class="auth-dialog__heading"><h2 class="auth-dialog__title title title-md" id="auth-recovery-title">Восстановление пароля</h2><p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p></div>
-        <form class="auth-dialog__form" data-auth-form="recovery" novalidate>
+        <div class="auth-dialog__heading">
+            <h2 class="auth-dialog__title title title-md" id="auth-recovery-title">Восстановление пароля</h2>
+            <p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p>
+        </div>
+        <form action="#" class="auth-dialog__form" data-auth-form="recovery" novalidate>
             @@include('../templates/_auth-field.html', {"id":"auth-recovery-email","label":"E-mail","type":"email","name":"email","autocomplete":"email","placeholder":""})
             <button class="auth-dialog__submit" type="submit">Получить ссылку</button>
         </form>
     </div>
     <div class="auth-dialog__view" data-auth-view="register" hidden>
         <h2 class="auth-dialog__title title title-md" id="auth-register-title">Регистрация</h2>
-        <form class="auth-dialog__form" data-auth-form="register" novalidate>
+        <form action="#" class="auth-dialog__form" data-auth-form="register" novalidate>
             <div class="auth-dialog__fields">
                 @@include('../templates/_auth-field.html', {"id":"auth-name","label":"Имя","type":"text","name":"username","autocomplete":"given-name","placeholder":"Имя"})
                 <div class="auth-dialog__phone-row">
@@ -44,7 +47,9 @@
                     <button class="auth-dialog__get-code" type="button" data-auth-send="register">Получить код</button>
                     <div class="auth-dialog__field auth-dialog__field--code" hidden><input class="auth-dialog__input auth-dialog__input--code" name="code" aria-label="Код из СМС" inputmode="numeric" autocomplete="one-time-code" placeholder="Введите код" maxlength="4" pattern="[0-9]{4}" disabled required><span class="auth-dialog__error"></span></div>
                 </div>
-                <div class="auth-dialog__code-note" hidden><p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register">Получить новый код</button></div>
+                <div class="auth-dialog__code-note" hidden>
+                    <p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register">Получить новый код</button>
+                </div>
                 @@include('../templates/_auth-field.html', {"id":"auth-register-email","label":"E-mail","type":"email","name":"email","autocomplete":"email","placeholder":""})
                 @@include('../templates/_auth-password.html', {"id":"auth-register-password","autocomplete":"new-password"})
             </div>

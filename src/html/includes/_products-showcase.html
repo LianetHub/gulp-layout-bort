@@ -13,8 +13,11 @@
                         @@if(typeof product !== 'undefined' && product && !popular){
                         @@loop('../templates/_product-tile.html', './html/json/product-recommendations.json')
                         }
-                        @@if(typeof product === 'undefined' || !product){
+                        @@if((typeof product === 'undefined' || !product) && !compact){
                         @@loop('../templates/_product-tile.html', './html/json/products-showcase.json')
+                        }
+                        @@if((typeof product === 'undefined' || !product) && compact){
+                        @@loop('../templates/_product-tile-static.html', './html/json/products-showcase.json')
                         }
                     </div>
                 </div>

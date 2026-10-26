@@ -1,16 +1,16 @@
 <div class="comparing__item swiper-slide" data-compare-id="@@id">
     <article class="product comparing-card">
         <div class="comparing-card__header">
-            <a href="product.html" class="comparing-card__image" aria-label="@@name"><img src="@@image" alt="@@name" class="comparing-card__picture" width="180" height="180"></a>
+            @@for(var photos = typeof images === 'undefined' ? [] : images, once = 0; once < 1; once++){ @@include('_product-tile-gallery.html', {"image":"@@image", "name":"@@name", "images":${JSON.stringify(photos)}}) }
             <div class="comparing-card__actions">
-                <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить @@name из сравнения"><img src="@img/comparing/trash.svg" alt="" class="comparing-card__icon" width="17" height="18"></button>
+                <button type="button" class="comparing-card__action" data-compare-remove aria-label="Удалить @@name из сравнения"><span class="comparing-card__icon icon-trash" aria-hidden="true"></span></button>
                 <button type="button" class="comparing-card__action favorite-btn icon-heart" aria-pressed="false" aria-label="Добавить @@name в избранное"></button>
             </div>
         </div>
         <a href="product.html" class="product__name comparing-card__name">@@name</a>
         <div class="comparing-card__bottom">
             <div class="comparing-card__price"><strong class="comparing-card__current">@@currentPrice</strong>@@if(oldPrice){<del class="comparing-card__old">@@oldPrice</del>}</div>
-            <button type="button" class="comparing-card__cart add-to-cart-btn" aria-label="Добавить @@name в корзину"><span class="comparing-card__cart-text">В корзину</span><img src="@img/comparing/cart.svg" alt="" class="comparing-card__cart-icon" width="20" height="20"></button>
+            <button type="button" class="comparing-card__cart add-to-cart-btn" aria-label="Добавить @@name в корзину"><span class="comparing-card__cart-text">В корзину</span><span class="comparing-card__cart-icon icon-cart" aria-hidden="true"></span></button>
         </div>
     </article>
 </div>

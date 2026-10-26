@@ -37,11 +37,11 @@
         <link rel="stylesheet" href="css/libs/fancybox.min.css">
         <!-- plugins -->
 
-
         <link rel="stylesheet" href="css/reset.min.css">
         <link rel="stylesheet" href="css/style.min.css">
 
     </head>
+
     <body>
         <div class="wrapper">
             <header class="header">
@@ -68,17 +68,17 @@
                                         <button type="button" aria-label="Очистить поиск" class="search__clear search-field__clear icon-close" hidden></button>
                                         <button type="submit" aria-label="Искать" class="search__form-btn search-field__button icon-search"></button>
                                     </form>
-                                    <div class="search__bar" id="search-results" aria-label="Результаты поиска" hidden>
+                                    <div role="group" class="search__bar" id="search-results" aria-label="Результаты поиска" hidden>
                                         <div class="search__bar-block search__bar-block--categories">
-                                            <h2 class="search__bar-caption title title-sm title--sans title--medium">Категория</h2>
+                                            <p class="search__bar-caption title title-sm title--sans title--medium">Категория</p>
                                             <ul class="search__bar-list">
-                                                <li class="search__category"><a href="catalog.html" class="search__bar-result"><img src="img/categories/waste-disposers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Измельчители отходов</span></a></li>
-                                                <li class="search__category"><a href="catalog.html" class="search__bar-result"><img src="img/categories/garment-steamers.png" width="30" height="40" alt="" class="search__category-image"><span class="search__category-name">Отпариватели</span></a></li>
+                                                <li class="search__category"><a href="catalog.html" class="search__bar-result"><img src="img/categories/waste-disposers.png" width="30" height="40" alt="???????????? ??????? ???????" class="search__category-image"><span class="search__category-name">Измельчители отходов</span></a></li>
+                                                <li class="search__category"><a href="catalog.html" class="search__bar-result"><img src="img/categories/garment-steamers.png" width="30" height="40" alt="???????????? ??? ??????" class="search__category-image"><span class="search__category-name">Отпариватели</span></a></li>
                                             </ul>
                                         </div>
                                         <div class="search__bar-block search__bar-block--products">
                                             <div class="search__results-header">
-                                                <h2 class="search__bar-caption title title-sm title--sans title--medium">Товары <span class="search__count">12</span></h2>
+                                                <p class="search__bar-caption title title-sm title--sans title--medium">Товары <span class="search__count">12</span></p>
                                                 <a href="search.html" class="search__all">Все результаты<span class="search__all-icon icon-chevron-right" aria-hidden="true"></span></a>
                                             </div>
                                             <ul class="search__products" aria-label="Найденные товары">
@@ -181,7 +181,7 @@
                     <div class="mobile-catalog__container container">
                         <div class="mobile-catalog__header">
                             <button type="button" class="mobile-catalog__back icon-chevron-left" aria-label="Назад в каталог" hidden></button>
-                            <h2 class="mobile-catalog__title title title-md" id="mobile-catalog-title" tabindex="-1">Каталог</h2>
+                            <p class="mobile-catalog__title title title-md" id="mobile-catalog-title" tabindex="-1">Каталог</p>
                             <button type="button" class="mobile-catalog__close icon-close" aria-label="Закрыть каталог"></button>
                         </div>
                         <div class="mobile-catalog__body">
@@ -276,24 +276,27 @@
                             <div class="product-details__images">
                                 <div class="product-details__thumbs">
                                     <button class="product-details__prev swiper-button-prev swiper-button-prev--plain" type="button" aria-label="Предыдущие фотографии"></button>
-                                    <div class="product-details__thumb-slider swiper"><div class="product-details__thumb-wrapper swiper-wrapper">
-                                        <button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — общий вид"><img class="product-details__thumbnail" src="img/product/caiman-01.png" alt="" width="71" height="71"></button>
-<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — вид сверху"><img class="product-details__thumbnail" src="img/product/caiman-03.png" alt="" width="71" height="71"></button>
-<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — кнопка предохранителя"><img class="product-details__thumbnail" src="img/product/caiman-04.png" alt="" width="71" height="71"></button>
-<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — комплектация"><img class="product-details__thumbnail" src="img/product/caiman-02.png" alt="" width="71" height="71"></button>
-<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — упаковка"><img class="product-details__thumbnail" src="img/product/caiman-05.png" alt="" width="71" height="71"></button>
-<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — общий вид"><img class="product-details__thumbnail" src="img/product/caiman-01.png" alt="" width="71" height="71"></button>
-<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — вид сверху"><img class="product-details__thumbnail" src="img/product/caiman-03.png" alt="" width="71" height="71"></button>
-<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — кнопка предохранителя"><img class="product-details__thumbnail" src="img/product/caiman-04.png" alt="" width="71" height="71"></button>
-<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — комплектация"><img class="product-details__thumbnail" src="img/product/caiman-02.png" alt="" width="71" height="71"></button>
-<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — упаковка"><img class="product-details__thumbnail" src="img/product/caiman-05.png" alt="" width="71" height="71"></button>
+                                    <div class="product-details__thumb-slider swiper">
+                                        <div class="product-details__thumb-wrapper swiper-wrapper">
+                                            <button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — общий вид"><img class="product-details__thumbnail" src="img/product/caiman-01.png" alt="BORT Caiman — фото 01" width="71" height="71"></button>
+<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — вид сверху"><img class="product-details__thumbnail" src="img/product/caiman-03.png" alt="BORT Caiman — фото 03" width="71" height="71"></button>
+<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — кнопка предохранителя"><img class="product-details__thumbnail" src="img/product/caiman-04.png" alt="BORT Caiman — фото 04" width="71" height="71"></button>
+<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — комплектация"><img class="product-details__thumbnail" src="img/product/caiman-02.png" alt="BORT Caiman — фото 02" width="71" height="71"></button>
+<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — упаковка"><img class="product-details__thumbnail" src="img/product/caiman-05.png" alt="BORT Caiman — фото 05" width="71" height="71"></button>
+<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — общий вид"><img class="product-details__thumbnail" src="img/product/caiman-01.png" alt="BORT Caiman — фото 01" width="71" height="71"></button>
+<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — вид сверху"><img class="product-details__thumbnail" src="img/product/caiman-03.png" alt="BORT Caiman — фото 03" width="71" height="71"></button>
+<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — кнопка предохранителя"><img class="product-details__thumbnail" src="img/product/caiman-04.png" alt="BORT Caiman — фото 04" width="71" height="71"></button>
+<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — комплектация"><img class="product-details__thumbnail" src="img/product/caiman-02.png" alt="BORT Caiman — фото 02" width="71" height="71"></button>
+<button class="product-details__thumb swiper-slide" type="button" aria-label="BORT Caiman Control — упаковка"><img class="product-details__thumbnail" src="img/product/caiman-05.png" alt="BORT Caiman — фото 05" width="71" height="71"></button>
 
-                                    </div></div>
+                                        </div>
+                                    </div>
                                     <button class="product-details__next swiper-button-next swiper-button-next--plain" type="button" aria-label="Следующие фотографии"></button>
                                 </div>
                                 <div class="product-details__gallery">
-                                    <div class="product-details__gallery-slider swiper"><div class="product-details__gallery-wrapper swiper-wrapper">
-                                        <a class="product-details__slide swiper-slide" href="img/product/caiman-01.png" data-fancybox="caiman-gallery"><img class="product-details__photo" src="img/product/caiman-01.png" alt="BORT Caiman Control — общий вид" width="406" height="406"></a>
+                                    <div class="product-details__gallery-slider swiper">
+                                        <div class="product-details__gallery-wrapper swiper-wrapper">
+                                            <a class="product-details__slide swiper-slide" href="img/product/caiman-01.png" data-fancybox="caiman-gallery"><img class="product-details__photo" src="img/product/caiman-01.png" alt="BORT Caiman Control — общий вид" width="406" height="406"></a>
 <a class="product-details__slide swiper-slide" href="img/product/caiman-03.png" data-fancybox="caiman-gallery"><img class="product-details__photo" src="img/product/caiman-03.png" alt="BORT Caiman Control — вид сверху" width="406" height="406"></a>
 <a class="product-details__slide swiper-slide" href="img/product/caiman-04.png" data-fancybox="caiman-gallery"><img class="product-details__photo" src="img/product/caiman-04.png" alt="BORT Caiman Control — кнопка предохранителя" width="406" height="406"></a>
 <a class="product-details__slide swiper-slide" href="img/product/caiman-02.png" data-fancybox="caiman-gallery"><img class="product-details__photo" src="img/product/caiman-02.png" alt="BORT Caiman Control — комплектация" width="406" height="406"></a>
@@ -304,7 +307,8 @@
 <a class="product-details__slide swiper-slide" href="img/product/caiman-02.png" data-fancybox="caiman-gallery"><img class="product-details__photo" src="img/product/caiman-02.png" alt="BORT Caiman Control — комплектация" width="406" height="406"></a>
 <a class="product-details__slide swiper-slide" href="img/product/caiman-05.png" data-fancybox="caiman-gallery"><img class="product-details__photo" src="img/product/caiman-05.png" alt="BORT Caiman Control — упаковка" width="406" height="406"></a>
 
-                                    </div></div>
+                                        </div>
+                                    </div>
                                     <div class="product-details__labels"><span class="product-details__warranty icon-like">5 лет гарантии</span></div>
                                     <a class="product-details__zoom icon-search" href="img/product/caiman-01.png" data-fancybox="product-zoom" aria-label="Увеличить фотографию"></a>
                                 </div>
@@ -348,24 +352,56 @@
                                 <div class="product-details__summary">
                                     <p class="product-details__summary-title">Характеристики:</p>
                                     <dl class="product-details__summary-list">
-                                        <div class="product-details__summary-row"><dt class="product-details__summary-name">Скорость вращения, об/мин:</dt><dd class="product-details__summary-value">Сталь</dd></div>
-                                        <div class="product-details__summary-row"><dt class="product-details__summary-name">Объем перемалывающей камеры, мл:</dt><dd class="product-details__summary-value">15х15 мм</dd></div>
-                                        <div class="product-details__summary-row"><dt class="product-details__summary-name">Мощность, Вт: <span class="tooltip"><button class="tooltip__trigger icon-information-circle" type="button" aria-label="Подробнее о мощности" aria-describedby="product-power-help"></button><span class="tooltip__content" id="product-power-help" role="tooltip"><span class="tooltip__text">Максимальная активная мощность, которую устройство может отдавать на подключённые нагрузки без перегрузки. Важно для правильного расчёта подключаемого оборудования.</span></span></span></dt><dd class="product-details__summary-value">6 м</dd></div>
-                                        <div class="product-details__summary-row"><dt class="product-details__summary-name">Материал камеры:</dt><dd class="product-details__summary-value">Нержавеющая сталь</dd></div>
-                                        <div class="product-details__summary-row"><dt class="product-details__summary-name">Диаметр, мм:</dt><dd class="product-details__summary-value">145</dd></div>
+                                        <div class="product-details__summary-row">
+                                            <dt class="product-details__summary-name">Скорость вращения, об/мин:</dt>
+                                            <dd class="product-details__summary-value">Сталь</dd>
+                                        </div>
+                                        <div class="product-details__summary-row">
+                                            <dt class="product-details__summary-name">Объем перемалывающей камеры, мл:</dt>
+                                            <dd class="product-details__summary-value">15х15 мм</dd>
+                                        </div>
+                                        <div class="product-details__summary-row">
+                                            <dt class="product-details__summary-name">Мощность, Вт: <span class="tooltip"><button class="tooltip__trigger icon-information-circle" type="button" aria-label="Подробнее о мощности" aria-describedby="product-power-help"></button><span class="tooltip__content" id="product-power-help" role="tooltip"><span class="tooltip__text">Максимальная активная мощность, которую устройство может отдавать на подключённые нагрузки без перегрузки. Важно для правильного расчёта подключаемого оборудования.</span></span></span></dt>
+                                            <dd class="product-details__summary-value">6 м</dd>
+                                        </div>
+                                        <div class="product-details__summary-row">
+                                            <dt class="product-details__summary-name">Материал камеры:</dt>
+                                            <dd class="product-details__summary-value">Нержавеющая сталь</dd>
+                                        </div>
+                                        <div class="product-details__summary-row">
+                                            <dt class="product-details__summary-name">Диаметр, мм:</dt>
+                                            <dd class="product-details__summary-value">145</dd>
+                                        </div>
                                     </dl>
                                     <a class="product-details__all icon-chevron-right" href="#stats">Все характеристики</a>
                                 </div>
                                 <div class="product-details__services">
-                                    <div class="product-details__service"><p class="product-details__service-title"><span class="product-details__service-icon icon-truck" aria-hidden="true"></span>Доставка</p><ul class="product-details__service-list"><li class="product-details__service-item">При сумме заказа более 3000 руб. доставка Почтой России и курьерской службой до двери осуществляется бесплатно.</li><li class="product-details__service-item">*При сумме заказа менее 3000 руб. стоимость доставки Почтой России и курьерской службой до двери составляет 350 руб.</li></ul></div>
-                                    <div class="product-details__service"><p class="product-details__service-title"><span class="product-details__service-icon icon-wallet" aria-hidden="true"></span>Оплата</p><ul class="product-details__service-list"><li class="product-details__service-item">Оплата банковской картой онлайн</li><li class="product-details__service-item">Наличными или картой при получении</li><li class="product-details__service-item">Безналичный расчет для юридических лиц</li></ul></div>
-                                    <div class="product-details__service"><p class="product-details__service-title">Документация</p><a class="product-details__file icon-file" href="https://bort.ru/index.php?attachment_id=1225&amp;dispatch=attachments.getfile" target="_blank" rel="noopener">Инструкция <span class="product-details__file-size">(1.4 Мб)</span></a></div>
-                                    <div class="product-details__service"><p class="product-details__service-title">Фирменная установка измельчителей</p><a class="product-details__file icon-file" href="service.html">Инструкция <span class="product-details__file-size">(1.4 Мб)</span></a></div>
+                                    <div class="product-details__service">
+                                        <p class="product-details__service-title"><span class="product-details__service-icon icon-truck" aria-hidden="true"></span>Доставка</p>
+                                        <ul class="product-details__service-list">
+                                            <li class="product-details__service-item">При сумме заказа более 3000 руб. доставка Почтой России и курьерской службой до двери осуществляется бесплатно.</li>
+                                            <li class="product-details__service-item">*При сумме заказа менее 3000 руб. стоимость доставки Почтой России и курьерской службой до двери составляет 350 руб.</li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-details__service">
+                                        <p class="product-details__service-title"><span class="product-details__service-icon icon-wallet" aria-hidden="true"></span>Оплата</p>
+                                        <ul class="product-details__service-list">
+                                            <li class="product-details__service-item">Оплата банковской картой онлайн</li>
+                                            <li class="product-details__service-item">Наличными или картой при получении</li>
+                                            <li class="product-details__service-item">Безналичный расчет для юридических лиц</li>
+                                        </ul>
+                                    </div>
+                                    <div class="product-details__service">
+                                        <p class="product-details__service-title">Документация</p><a class="product-details__file icon-file" href="https://bort.ru/index.php?attachment_id=1225&amp;dispatch=attachments.getfile" target="_blank" rel="noopener">Инструкция <span class="product-details__file-size">(1.4 Мб)</span></a>
+                                    </div>
+                                    <div class="product-details__service">
+                                        <p class="product-details__service-title">Фирменная установка измельчителей</p><a class="product-details__file icon-file" href="service.html">Инструкция <span class="product-details__file-size">(1.4 Мб)</span></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="product-details__mobile-purchase" aria-label="Покупка товара"><div class="product-details__purchase-controls">
+                    <div role="group" class="product-details__mobile-purchase" aria-label="Покупка товара"><div class="product-details__purchase-controls">
     <div class="product-details__price-row"><strong class="product-details__current">11 490 ₽</strong><del class="product-details__old">13 590 ₽</del><span class="product-details__discount">-15%</span></div>
     <div class="product-details__buy-row">
         <div class="product-details__quantity-control quantity-block quantity-block--outlined">
@@ -397,18 +433,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ) в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ) к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHD-20LI-SR.png" alt="Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHD-20LI-SR.png" alt="Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHD-20LI-SR.png" alt="Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHD-20LI-SR.png" alt="Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHD-20LI-SR.png" alt="Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHD-20LI-SR.png" alt="Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)</a>
@@ -422,18 +461,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Пила дисковая аккумуляторная BORT BHK-20LI в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Пила дисковая аккумуляторная BORT BHK-20LI к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHK-20LI.png" alt="Пила дисковая аккумуляторная BORT BHK-20LI" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHK-20LI.png" alt="Пила дисковая аккумуляторная BORT BHK-20LI" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHK-20LI.png" alt="Пила дисковая аккумуляторная BORT BHK-20LI" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHK-20LI.png" alt="Пила дисковая аккумуляторная BORT BHK-20LI" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHK-20LI.png" alt="Пила дисковая аккумуляторная BORT BHK-20LI" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHK-20LI.png" alt="Пила дисковая аккумуляторная BORT BHK-20LI" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569882</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Пила дисковая аккумуляторная BORT BHK-20LI</a>
@@ -447,18 +489,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Пила сабельная аккумуляторная BORT BRS-18LI-X в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Пила сабельная аккумуляторная BORT BRS-18LI-X к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569883</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Пила сабельная аккумуляторная BORT BRS-18LI-X</a>
@@ -472,18 +517,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Машина шлифовальная угловая BORT BWS-18LI-XDK в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Машина шлифовальная угловая BORT BWS-18LI-XDK к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BWS-18LI-XDK.png" alt="Машина шлифовальная угловая BORT BWS-18LI-XDK" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BWS-18LI-XDK.png" alt="Машина шлифовальная угловая BORT BWS-18LI-XDK" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BWS-18LI-XDK.png" alt="Машина шлифовальная угловая BORT BWS-18LI-XDK" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BWS-18LI-XDK.png" alt="Машина шлифовальная угловая BORT BWS-18LI-XDK" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BWS-18LI-XDK.png" alt="Машина шлифовальная угловая BORT BWS-18LI-XDK" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BWS-18LI-XDK.png" alt="Машина шлифовальная угловая BORT BWS-18LI-XDK" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569884</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Машина шлифовальная угловая BORT BWS-18LI-XDK</a>
@@ -497,18 +545,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Пила сабельная аккумуляторная BORT BRS-18LI-X в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Пила сабельная аккумуляторная BORT BRS-18LI-X к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569885</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Пила сабельная аккумуляторная BORT BRS-18LI-X</a>
@@ -522,18 +573,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ) в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ) к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHD-20LI-SR.png" alt="Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHD-20LI-SR.png" alt="Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHD-20LI-SR.png" alt="Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHD-20LI-SR.png" alt="Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHD-20LI-SR.png" alt="Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHD-20LI-SR.png" alt="Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Перфоратор аккумуляторный BORT BHD-20LI-SR (2x4,0Ач+ЗУ)</a>
@@ -547,18 +601,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Пила дисковая аккумуляторная BORT BHK-20LI в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Пила дисковая аккумуляторная BORT BHK-20LI к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHK-20LI.png" alt="Пила дисковая аккумуляторная BORT BHK-20LI" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHK-20LI.png" alt="Пила дисковая аккумуляторная BORT BHK-20LI" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHK-20LI.png" alt="Пила дисковая аккумуляторная BORT BHK-20LI" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHK-20LI.png" alt="Пила дисковая аккумуляторная BORT BHK-20LI" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHK-20LI.png" alt="Пила дисковая аккумуляторная BORT BHK-20LI" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BHK-20LI.png" alt="Пила дисковая аккумуляторная BORT BHK-20LI" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569882</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Пила дисковая аккумуляторная BORT BHK-20LI</a>
@@ -572,18 +629,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Пила сабельная аккумуляторная BORT BRS-18LI-X в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Пила сабельная аккумуляторная BORT BRS-18LI-X к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569883</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Пила сабельная аккумуляторная BORT BRS-18LI-X</a>
@@ -597,18 +657,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Машина шлифовальная угловая BORT BWS-18LI-XDK в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Машина шлифовальная угловая BORT BWS-18LI-XDK к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BWS-18LI-XDK.png" alt="Машина шлифовальная угловая BORT BWS-18LI-XDK" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BWS-18LI-XDK.png" alt="Машина шлифовальная угловая BORT BWS-18LI-XDK" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BWS-18LI-XDK.png" alt="Машина шлифовальная угловая BORT BWS-18LI-XDK" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BWS-18LI-XDK.png" alt="Машина шлифовальная угловая BORT BWS-18LI-XDK" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BWS-18LI-XDK.png" alt="Машина шлифовальная угловая BORT BWS-18LI-XDK" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BWS-18LI-XDK.png" alt="Машина шлифовальная угловая BORT BWS-18LI-XDK" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569884</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Машина шлифовальная угловая BORT BWS-18LI-XDK</a>
@@ -622,18 +685,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Пила сабельная аккумуляторная BORT BRS-18LI-X в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Пила сабельная аккумуляторная BORT BRS-18LI-X к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/goods/BRS-18LI-X.png" alt="Пила сабельная аккумуляторная BORT BRS-18LI-X" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569885</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Пила сабельная аккумуляторная BORT BRS-18LI-X</a>
@@ -641,6 +707,7 @@
                                             <button type="button" class="product-tile__cart add-to-cart-btn icon-cart">В корзину</button>
                                         </article>
 
+                                        
                                         
                                         
                                     </div>
@@ -654,14 +721,16 @@
 
                 <section class="product-content">
                     <div class="product-content__container container">
-                        <nav class="product-content__navigation" aria-label="Информация о товаре"><ul class="product-content__menu">
-                            <li class="product-content__menu-item"><a class="tab product-content__tab active" href="#description">Описание</a></li>
-                            <li class="product-content__menu-item"><a class="tab product-content__tab" href="#stats">Характеристики</a></li>
-                            <li class="product-content__menu-item"><a class="tab product-content__tab" href="#complect">Комплектация</a></li>
-                            <li class="product-content__menu-item"><a class="tab product-content__tab" href="#warranty">Гарантийные обязательства</a></li>
-                            <li class="product-content__menu-item"><a class="tab product-content__tab" href="#collections">Подборки товаров</a></li>
-                            <li class="product-content__menu-item"><a class="tab product-content__tab" href="#reviews">Отзывы о товаре</a></li>
-                        </ul></nav>
+                        <nav class="product-content__navigation" aria-label="Информация о товаре">
+                            <ul class="product-content__menu">
+                                <li class="product-content__menu-item"><a class="tab product-content__tab active" href="#description">Описание</a></li>
+                                <li class="product-content__menu-item"><a class="tab product-content__tab" href="#stats">Характеристики</a></li>
+                                <li class="product-content__menu-item"><a class="tab product-content__tab" href="#complect">Комплектация</a></li>
+                                <li class="product-content__menu-item"><a class="tab product-content__tab" href="#warranty">Гарантийные обязательства</a></li>
+                                <li class="product-content__menu-item"><a class="tab product-content__tab" href="#collections">Подборки товаров</a></li>
+                                <li class="product-content__menu-item"><a class="tab product-content__tab" href="#reviews">Отзывы о товаре</a></li>
+                            </ul>
+                        </nav>
                         <div class="product-content__block" id="description">
                             <h2 class="product-content__title title title-md">Описание</h2>
                             <div class="product-content__description">
@@ -675,11 +744,11 @@
                                     <button class="product-content__expand" type="button" aria-expanded="false" aria-controls="product-rich-description">Показать полностью</button>
                                 </div>
                                 <ul class="product-content__benefits">
-                                    <li class="product-content__benefit"><span class="product-content__benefit-icon" aria-hidden="true"><img class="product-content__benefit-image" src="img/product/security.svg" alt=""></span>Расширенная гарантия 5 лет</li>
-                                    <li class="product-content__benefit"><span class="product-content__benefit-icon" aria-hidden="true"><img class="product-content__benefit-image" src="img/product/sms.svg" alt=""></span>Оповещение по SMS</li>
-                                    <li class="product-content__benefit"><span class="product-content__benefit-icon" aria-hidden="true"><img class="product-content__benefit-image" src="img/product/return.svg" alt=""></span>Возврат и обмен — без проблем</li>
-                                    <li class="product-content__benefit"><span class="product-content__benefit-icon" aria-hidden="true"><img class="product-content__benefit-image" src="img/product/payment.svg" alt=""></span>Различные способы оплаты</li>
-                                    <li class="product-content__benefit"><span class="product-content__benefit-icon" aria-hidden="true"><img class="product-content__benefit-image" src="img/product/original.svg" alt=""></span>Только оригинальные товары</li>
+                                    <li class="product-content__benefit"><span class="product-content__benefit-icon" aria-hidden="true"><span class="product-content__benefit-image icon-checkmark-circle" aria-hidden="true"></span></span>Расширенная гарантия 5 лет</li>
+                                    <li class="product-content__benefit"><span class="product-content__benefit-icon" aria-hidden="true"><span class="product-content__benefit-image icon-messages" aria-hidden="true"></span></span>Оповещение по SMS</li>
+                                    <li class="product-content__benefit"><span class="product-content__benefit-icon" aria-hidden="true"><span class="product-content__benefit-image icon-renewable-energy" aria-hidden="true"></span></span>Возврат и обмен — без проблем</li>
+                                    <li class="product-content__benefit"><span class="product-content__benefit-icon" aria-hidden="true"><span class="product-content__benefit-image icon-credit-card" aria-hidden="true"></span></span>Различные способы оплаты</li>
+                                    <li class="product-content__benefit"><span class="product-content__benefit-icon" aria-hidden="true"><span class="product-content__benefit-image icon-checkmark-circle" aria-hidden="true"></span></span>Только оригинальные товары</li>
                                 </ul>
                             </div>
                         </div>
@@ -695,30 +764,102 @@
                         </div>
                         <div class="product-content__block" id="stats">
                             <h2 class="product-content__title title title-md">Характеристики</h2>
-                            <dl class="product-content__stats"><div class="product-content__stat"><dt class="product-content__stat-name">Бренд</dt><dd class="product-content__stat-value">BORT</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Автоматическое выключение:</dt><dd class="product-content__stat-value">Нет</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Вес брутто, кг:</dt><dd class="product-content__stat-value">4,4</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Вес нетто, кг:</dt><dd class="product-content__stat-value">4</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Внутренний диаметр сливного отверстия, мм:</dt><dd class="product-content__stat-value">88...100</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Возможность подключения пневмокнопки:</dt><dd class="product-content__stat-value">Нет</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Гарантия, г:</dt><dd class="product-content__stat-value">2</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Материал измельчающего элемента:</dt><dd class="product-content__stat-value">Нержавеющая сталь</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Модель:</dt><dd class="product-content__stat-value">Caiman Control</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Мощность, Вт:</dt><dd class="product-content__stat-value">375</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Напряжение сети, В:</dt><dd class="product-content__stat-value">220</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Плавный пуск:</dt><dd class="product-content__stat-value">Нет</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">EAN13:</dt><dd class="product-content__stat-value">4260623419597</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Бесшумная работа:</dt><dd class="product-content__stat-value">Нет</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Вес изделия, кг:</dt><dd class="product-content__stat-value">4</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Внешний диаметр выштамповки (вальцовки), мм:</dt><dd class="product-content__stat-value">110</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Возможность подключения беспроводной кнопки:</dt><dd class="product-content__stat-value">Да</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Габариты упаковки, см:</dt><dd class="product-content__stat-value">17 x 17 x 42</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Длина шнура питания, м:</dt><dd class="product-content__stat-value">1</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Материал корпуса камеры:</dt><dd class="product-content__stat-value">Прочный композитный материал</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Мощность л.с., л.с.:</dt><dd class="product-content__stat-value">0,5</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Назначение:</dt><dd class="product-content__stat-value">бытовой</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Объем камеры, мл:</dt><dd class="product-content__stat-value">860</dd></div>
-<div class="product-content__stat"><dt class="product-content__stat-name">Подключение к посудомоечной машине:</dt><dd class="product-content__stat-value">Да</dd></div>
+                            <dl class="product-content__stats"><div class="product-content__stat">
+    <dt class="product-content__stat-name">Бренд</dt>
+    <dd class="product-content__stat-value">BORT</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Автоматическое выключение:</dt>
+    <dd class="product-content__stat-value">Нет</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Вес брутто, кг:</dt>
+    <dd class="product-content__stat-value">4,4</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Вес нетто, кг:</dt>
+    <dd class="product-content__stat-value">4</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Внутренний диаметр сливного отверстия, мм:</dt>
+    <dd class="product-content__stat-value">88...100</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Возможность подключения пневмокнопки:</dt>
+    <dd class="product-content__stat-value">Нет</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Гарантия, г:</dt>
+    <dd class="product-content__stat-value">2</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Материал измельчающего элемента:</dt>
+    <dd class="product-content__stat-value">Нержавеющая сталь</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Модель:</dt>
+    <dd class="product-content__stat-value">Caiman Control</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Мощность, Вт:</dt>
+    <dd class="product-content__stat-value">375</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Напряжение сети, В:</dt>
+    <dd class="product-content__stat-value">220</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Плавный пуск:</dt>
+    <dd class="product-content__stat-value">Нет</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">EAN13:</dt>
+    <dd class="product-content__stat-value">4260623419597</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Бесшумная работа:</dt>
+    <dd class="product-content__stat-value">Нет</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Вес изделия, кг:</dt>
+    <dd class="product-content__stat-value">4</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Внешний диаметр выштамповки (вальцовки), мм:</dt>
+    <dd class="product-content__stat-value">110</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Возможность подключения беспроводной кнопки:</dt>
+    <dd class="product-content__stat-value">Да</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Габариты упаковки, см:</dt>
+    <dd class="product-content__stat-value">17 x 17 x 42</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Длина шнура питания, м:</dt>
+    <dd class="product-content__stat-value">1</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Материал корпуса камеры:</dt>
+    <dd class="product-content__stat-value">Прочный композитный материал</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Мощность л.с., л.с.:</dt>
+    <dd class="product-content__stat-value">0,5</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Назначение:</dt>
+    <dd class="product-content__stat-value">бытовой</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Объем камеры, мл:</dt>
+    <dd class="product-content__stat-value">860</dd>
+</div>
+<div class="product-content__stat">
+    <dt class="product-content__stat-name">Подключение к посудомоечной машине:</dt>
+    <dd class="product-content__stat-value">Да</dd>
+</div>
 </dl>
                         </div>
                         <div class="product-content__block" id="complect">
@@ -741,23 +882,32 @@
                         </div>
                         <div class="product-content__block" id="collections">
                             <h2 class="product-content__title title title-md">Подборки товаров в категории Измельчители бытовых отходов</h2>
-                            <ul class="product-content__collections"><li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Измельчитель кухонный в раковину</a></li><li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Измельчитель отходов</a></li><li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Измельчитель бытовой</a></li><li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Электронные</a></li><li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Бесшумные</a></li><li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">С авто-реверсом</a></li><li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Маленькие</a></li><li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Легкие</a></li></ul>
+                            <ul class="product-content__collections">
+                                <li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Измельчитель кухонный в раковину</a></li>
+                                <li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Измельчитель отходов</a></li>
+                                <li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Измельчитель бытовой</a></li>
+                                <li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Электронные</a></li>
+                                <li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Бесшумные</a></li>
+                                <li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">С авто-реверсом</a></li>
+                                <li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Маленькие</a></li>
+                                <li class="product-content__collection"><a class="product-content__collection-link" href="catalog.html">Легкие</a></li>
+                            </ul>
                         </div>
                         <div class="product-content__block" id="reviews">
                             <div class="reviews">
                                 <h2 class="reviews__title title title-md">Отзывы о товаре</h2>
                                 <div class="reviews__body">
                                     <div class="reviews__main review-group">
-                                        <div class="review-group__toolbar"><label class="review-sort">
-    <span class="review-sort__label hidden">Сортировка отзывов</span>
-    <select data-custom-select class="review-sort__select" name="review-sort">
+                                        <div class="review-group__toolbar"><div class="review-sort">
+    <label class="review-sort__label hidden" for="review-sort">Сортировка отзывов</label>
+    <select data-custom-select class="review-sort__select" name="review-sort" id="review-sort">
         <option class="review-sort__option" value="helpful">Сначала полезные</option>
         <option class="review-sort__option" value="newest">Сначала новые</option>
         <option class="review-sort__option" value="highest">С высокой оценкой</option>
         <option class="review-sort__option" value="lowest">С низкой оценкой</option>
     </select>
     <span class="review-sort__icon icon-filter-horizontal" aria-hidden="true"></span>
-</label>
+</div>
 </div>
                                         <div class="reviews__list review-group__list">
                                             <article class="review review--product">
@@ -774,7 +924,7 @@
                                                         </span>
 
                                                         <div class="review__row">
-                                                            <h3 class="review__name title title-sm title--sans">Алексей Д.</h3>
+                                                            <p class="review__name title title-sm title--sans">Алексей Д.</p>
                                                             <p class="review__experience">Опыт использования: меньше месяца</p>
                                                         </div>
                                                     </div>
@@ -808,7 +958,7 @@
                                                         </span>
 
                                                         <div class="review__row">
-                                                            <h3 class="review__name title title-sm title--sans">Евгений К.</h3>
+                                                            <p class="review__name title title-sm title--sans">Евгений К.</p>
                                                             <p class="review__experience">Опыт использования: больше месяца</p>
                                                         </div>
                                                     </div>
@@ -842,7 +992,7 @@
                                                         </span>
 
                                                         <div class="review__row">
-                                                            <h3 class="review__name title title-sm title--sans">Анастасия Ю.</h3>
+                                                            <p class="review__name title title-sm title--sans">Анастасия Ю.</p>
                                                             <p class="review__experience">Опыт использования: 3 месяца</p>
                                                         </div>
                                                     </div>
@@ -880,7 +1030,8 @@
                                     </div>
                                     <aside class="reviews__sidebar">
                                         <div class="rating-summary">
-                                            <div class="rating-summary__main"><strong class="rating-summary__score">4.8</strong><div class="rating-summary__info"><span class="rating-stars" style="--rating: 4.8" role="img" aria-label="Оценка 4.8 из 5">
+                                            <div class="rating-summary__main"><strong class="rating-summary__score">4.8</strong>
+                                                <div class="rating-summary__info"><span class="rating-stars" style="--rating: 4.8" role="img" aria-label="Оценка 4.8 из 5">
     <span class="rating-stars__background" aria-hidden="true">
         <span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span>
     </span>
@@ -888,13 +1039,35 @@
         <span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span><span class="rating-stars__star icon-star-fill"></span>
     </span>
 </span>
-<p class="rating-summary__count">На основе 276 отзывов</p></div></div>
+<p class="rating-summary__count">На основе 276 отзывов</p>
+                                                </div>
+                                            </div>
                                             <div class="rating-summary__bars">
-                                                <div class="rating-summary__bar-row"><span class="rating-summary__bar-label">5</span><div class="rating-summary__line-wrapper"><div class="rating-summary__line" style="width: 89%"></div></div><span class="rating-summary__bar-label">246</span></div>
-                                                <div class="rating-summary__bar-row"><span class="rating-summary__bar-label">4</span><div class="rating-summary__line-wrapper"><div class="rating-summary__line" style="width: 6%"></div></div><span class="rating-summary__bar-label">16</span></div>
-                                                <div class="rating-summary__bar-row"><span class="rating-summary__bar-label">3</span><div class="rating-summary__line-wrapper"><div class="rating-summary__line" style="width: 3%"></div></div><span class="rating-summary__bar-label">8</span></div>
-                                                <div class="rating-summary__bar-row"><span class="rating-summary__bar-label">2</span><div class="rating-summary__line-wrapper"><div class="rating-summary__line" style="width: 1%"></div></div><span class="rating-summary__bar-label">3</span></div>
-                                                <div class="rating-summary__bar-row"><span class="rating-summary__bar-label">1</span><div class="rating-summary__line-wrapper"><div class="rating-summary__line" style="width: 1%"></div></div><span class="rating-summary__bar-label">3</span></div>
+                                                <div class="rating-summary__bar-row"><span class="rating-summary__bar-label">5</span>
+                                                    <div class="rating-summary__line-wrapper">
+                                                        <div class="rating-summary__line" style="width: 89%"></div>
+                                                    </div><span class="rating-summary__bar-label">246</span>
+                                                </div>
+                                                <div class="rating-summary__bar-row"><span class="rating-summary__bar-label">4</span>
+                                                    <div class="rating-summary__line-wrapper">
+                                                        <div class="rating-summary__line" style="width: 6%"></div>
+                                                    </div><span class="rating-summary__bar-label">16</span>
+                                                </div>
+                                                <div class="rating-summary__bar-row"><span class="rating-summary__bar-label">3</span>
+                                                    <div class="rating-summary__line-wrapper">
+                                                        <div class="rating-summary__line" style="width: 3%"></div>
+                                                    </div><span class="rating-summary__bar-label">8</span>
+                                                </div>
+                                                <div class="rating-summary__bar-row"><span class="rating-summary__bar-label">2</span>
+                                                    <div class="rating-summary__line-wrapper">
+                                                        <div class="rating-summary__line" style="width: 1%"></div>
+                                                    </div><span class="rating-summary__bar-label">3</span>
+                                                </div>
+                                                <div class="rating-summary__bar-row"><span class="rating-summary__bar-label">1</span>
+                                                    <div class="rating-summary__line-wrapper">
+                                                        <div class="rating-summary__line" style="width: 1%"></div>
+                                                    </div><span class="rating-summary__bar-label">3</span>
+                                                </div>
                                             </div>
                                             <a class="rating-summary__btn btn btn-primary" href="reviews.html">Написать отзыв</a>
                                         </div>
@@ -923,18 +1096,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Пневмовыключатель BORT Air switch (polish) в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Пневмовыключатель BORT Air switch (polish) к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-01.png" alt="Пневмовыключатель BORT Air switch (polish)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-01.png" alt="Пневмовыключатель BORT Air switch (polish)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-01.png" alt="Пневмовыключатель BORT Air switch (polish)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-01.png" alt="Пневмовыключатель BORT Air switch (polish)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-01.png" alt="Пневмовыключатель BORT Air switch (polish)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-01.png" alt="Пневмовыключатель BORT Air switch (polish)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Пневмовыключатель BORT Air switch (polish)</a>
@@ -948,18 +1124,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Проталкиватель BORT Waste Tamper/Stopper Проталкиватель в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Проталкиватель BORT Waste Tamper/Stopper Проталкиватель к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-02.png" alt="Проталкиватель BORT Waste Tamper/Stopper Проталкиватель" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-02.png" alt="Проталкиватель BORT Waste Tamper/Stopper Проталкиватель" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-02.png" alt="Проталкиватель BORT Waste Tamper/Stopper Проталкиватель" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-02.png" alt="Проталкиватель BORT Waste Tamper/Stopper Проталкиватель" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-02.png" alt="Проталкиватель BORT Waste Tamper/Stopper Проталкиватель" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-02.png" alt="Проталкиватель BORT Waste Tamper/Stopper Проталкиватель" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Проталкиватель BORT Waste Tamper/Stopper Проталкиватель</a>
@@ -973,18 +1152,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Фланец в мойку BORT Washing flange Caiman в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Фланец в мойку BORT Washing flange Caiman к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-03.png" alt="Фланец в мойку BORT Washing flange Caiman" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-03.png" alt="Фланец в мойку BORT Washing flange Caiman" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-03.png" alt="Фланец в мойку BORT Washing flange Caiman" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-03.png" alt="Фланец в мойку BORT Washing flange Caiman" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-03.png" alt="Фланец в мойку BORT Washing flange Caiman" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-03.png" alt="Фланец в мойку BORT Washing flange Caiman" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Фланец в мойку BORT Washing flange Caiman</a>
@@ -998,18 +1180,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Пневмовыключатель BORT Air switch (black) long в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Пневмовыключатель BORT Air switch (black) long к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-04.png" alt="Пневмовыключатель BORT Air switch (black) long" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-04.png" alt="Пневмовыключатель BORT Air switch (black) long" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-04.png" alt="Пневмовыключатель BORT Air switch (black) long" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-04.png" alt="Пневмовыключатель BORT Air switch (black) long" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-04.png" alt="Пневмовыключатель BORT Air switch (black) long" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-04.png" alt="Пневмовыключатель BORT Air switch (black) long" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Пневмовыключатель BORT Air switch (black) long</a>
@@ -1023,18 +1208,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Пневмовыключатель BORT Air switch (bronze) в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Пневмовыключатель BORT Air switch (bronze) к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-05.png" alt="Пневмовыключатель BORT Air switch (bronze)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-05.png" alt="Пневмовыключатель BORT Air switch (bronze)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-05.png" alt="Пневмовыключатель BORT Air switch (bronze)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-05.png" alt="Пневмовыключатель BORT Air switch (bronze)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-05.png" alt="Пневмовыключатель BORT Air switch (bronze)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-05.png" alt="Пневмовыключатель BORT Air switch (bronze)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Пневмовыключатель BORT Air switch (bronze)</a>
@@ -1048,18 +1236,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Пневмовыключатель BORT Air switch (polish) в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Пневмовыключатель BORT Air switch (polish) к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-01.png" alt="Пневмовыключатель BORT Air switch (polish)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-01.png" alt="Пневмовыключатель BORT Air switch (polish)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-01.png" alt="Пневмовыключатель BORT Air switch (polish)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-01.png" alt="Пневмовыключатель BORT Air switch (polish)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-01.png" alt="Пневмовыключатель BORT Air switch (polish)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-01.png" alt="Пневмовыключатель BORT Air switch (polish)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Пневмовыключатель BORT Air switch (polish)</a>
@@ -1073,18 +1264,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Проталкиватель BORT Waste Tamper/Stopper Проталкиватель в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Проталкиватель BORT Waste Tamper/Stopper Проталкиватель к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-02.png" alt="Проталкиватель BORT Waste Tamper/Stopper Проталкиватель" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-02.png" alt="Проталкиватель BORT Waste Tamper/Stopper Проталкиватель" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-02.png" alt="Проталкиватель BORT Waste Tamper/Stopper Проталкиватель" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-02.png" alt="Проталкиватель BORT Waste Tamper/Stopper Проталкиватель" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-02.png" alt="Проталкиватель BORT Waste Tamper/Stopper Проталкиватель" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-02.png" alt="Проталкиватель BORT Waste Tamper/Stopper Проталкиватель" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Проталкиватель BORT Waste Tamper/Stopper Проталкиватель</a>
@@ -1098,18 +1292,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Фланец в мойку BORT Washing flange Caiman в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Фланец в мойку BORT Washing flange Caiman к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-03.png" alt="Фланец в мойку BORT Washing flange Caiman" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-03.png" alt="Фланец в мойку BORT Washing flange Caiman" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-03.png" alt="Фланец в мойку BORT Washing flange Caiman" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-03.png" alt="Фланец в мойку BORT Washing flange Caiman" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-03.png" alt="Фланец в мойку BORT Washing flange Caiman" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-03.png" alt="Фланец в мойку BORT Washing flange Caiman" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Фланец в мойку BORT Washing flange Caiman</a>
@@ -1123,18 +1320,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Пневмовыключатель BORT Air switch (black) long в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Пневмовыключатель BORT Air switch (black) long к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-04.png" alt="Пневмовыключатель BORT Air switch (black) long" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-04.png" alt="Пневмовыключатель BORT Air switch (black) long" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-04.png" alt="Пневмовыключатель BORT Air switch (black) long" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-04.png" alt="Пневмовыключатель BORT Air switch (black) long" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-04.png" alt="Пневмовыключатель BORT Air switch (black) long" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-04.png" alt="Пневмовыключатель BORT Air switch (black) long" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Пневмовыключатель BORT Air switch (black) long</a>
@@ -1148,18 +1348,21 @@
                                                     <button type="button" class="product-tile__action favorite-btn icon-heart" aria-label="Добавить Пневмовыключатель BORT Air switch (bronze) в избранное" aria-pressed="false"></button>
                                                     <button type="button" class="product-tile__action compare-btn icon-bars" aria-label="Добавить Пневмовыключатель BORT Air switch (bronze) к сравнению" aria-pressed="false"></button>
                                                 </div>
-                                                <div class="product-tile__gallery" data-product-gallery>
-                                                    <div class="product-tile__slider swiper">
-                                                        <div class="product-tile__track swiper-wrapper">
-                                                            <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-05.png" alt="Пневмовыключатель BORT Air switch (bronze)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-05.png" alt="Пневмовыключатель BORT Air switch (bronze)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-<a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-05.png" alt="Пневмовыключатель BORT Air switch (bronze)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
-                                                </div>
-
+                                                 
+                                                 <div class="product-tile__gallery" data-product-gallery>
+                                                     <div class="product-tile__slider swiper">
+                                                         <div class="product-tile__track swiper-wrapper">
+                                                              <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-05.png" alt="Пневмовыключатель BORT Air switch (bronze)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-05.png" alt="Пневмовыключатель BORT Air switch (bronze)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                  <a href="product.html" class="product-tile__image swiper-slide"><img src="img/product/accessory-05.png" alt="Пневмовыключатель BORT Air switch (bronze)" loading="lazy" width="210" height="180" class="product-tile__picture"></a>
+                                                                 
+                                                         </div>
+                                                     </div>
+                                                     <div class="product-tile__dots swiper-pagination swiper-pagination--product"></div>
+                                                 </div>
+                                                 
+                                                 
+ 
                                             </div>
                                             <div class="product-tile__meta"><span class="product-tile__text">Артикул: 2569881</span><span class="product-tile__rating"><span class="product-tile__star">★</span> 4.0 (2180)</span></div>
                                             <a href="product.html" class="product__name product-tile__name">Пневмовыключатель BORT Air switch (bronze)</a>
@@ -1167,6 +1370,7 @@
                                             <button type="button" class="product-tile__cart add-to-cart-btn icon-cart">В корзину</button>
                                         </article>
 
+                                        
                                         
                                         
                                         
@@ -1267,15 +1471,15 @@
             </footer>
             <button type="button" aria-label="Вернуться в начало страницы" class="arrow-top icon-chevron-up"></button>
             <div class="notify-container" aria-live="polite" aria-relevant="additions"></div>
-            <div id="sign-in" class="auth-dialog" aria-labelledby="auth-title">
-    <button type="button" class="auth-dialog__close" data-fancybox-close aria-label="Закрыть"><img class="auth-dialog__close-icon" src="img/auth/close.svg" width="20" height="20" alt=""></button>
+            <div role="dialog" id="sign-in" class="auth-dialog" aria-labelledby="auth-title">
+    <button type="button" class="auth-dialog__close" data-fancybox-close aria-label="Закрыть"><span class="auth-dialog__close-icon icon-close" aria-hidden="true"></span></button>
     <div class="auth-dialog__view" data-auth-view="login">
         <h2 class="auth-dialog__title title title-md" id="auth-title">Вход в личный кабинет</h2>
         <div class="auth-dialog__tabs segmented-control" role="tablist" aria-label="Способ входа">
             <button class="auth-dialog__tab segmented-control__button" type="button" role="tab" id="auth-email-tab" aria-controls="auth-email-panel" aria-selected="true" data-auth-tab="email">По E-mail</button>
             <button class="auth-dialog__tab segmented-control__button" type="button" role="tab" id="auth-phone-tab" aria-controls="auth-phone-panel" aria-selected="false" tabindex="-1" data-auth-tab="phone">По телефону</button>
         </div>
-        <form class="auth-dialog__form" data-auth-form="email" id="auth-email-panel" role="tabpanel" aria-labelledby="auth-email-tab" novalidate>
+        <form action="#" class="auth-dialog__form" data-auth-form="email" id="auth-email-panel" role="tabpanel" aria-labelledby="auth-email-tab" novalidate>
             <div class="auth-dialog__fields">
                 <div class="auth-dialog__field">
                     <label class="auth-dialog__label" for="auth-email">E-mail</label>
@@ -1300,7 +1504,7 @@
             <button class="auth-dialog__submit" type="submit">Войти</button>
             <p class="auth-dialog__footer">Ещё нет учётной записи?<br><button class="auth-dialog__link" type="button" data-auth-go="register">Зарегистрироваться</button></p>
         </form>
-        <form class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
+        <form action="#" class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
             <div class="auth-dialog__fields">
                 <div class="auth-dialog__field">
                     <label class="auth-dialog__label" for="auth-phone">Телефон</label>
@@ -1315,8 +1519,11 @@
         </form>
     </div>
     <div class="auth-dialog__view" data-auth-view="recovery" hidden>
-        <div class="auth-dialog__heading"><h2 class="auth-dialog__title title title-md" id="auth-recovery-title">Восстановление пароля</h2><p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p></div>
-        <form class="auth-dialog__form" data-auth-form="recovery" novalidate>
+        <div class="auth-dialog__heading">
+            <h2 class="auth-dialog__title title title-md" id="auth-recovery-title">Восстановление пароля</h2>
+            <p class="auth-dialog__description">На электронную почту <span class="auth-dialog__email"></span> будет отправлено письмо со ссылкой для восстановления пароля.</p>
+        </div>
+        <form action="#" class="auth-dialog__form" data-auth-form="recovery" novalidate>
             <div class="auth-dialog__field">
                 <label class="auth-dialog__label" for="auth-recovery-email">E-mail</label>
                 <input class="auth-dialog__input" id="auth-recovery-email" type="email" name="email" autocomplete="email" placeholder="" required>
@@ -1328,7 +1535,7 @@
     </div>
     <div class="auth-dialog__view" data-auth-view="register" hidden>
         <h2 class="auth-dialog__title title title-md" id="auth-register-title">Регистрация</h2>
-        <form class="auth-dialog__form" data-auth-form="register" novalidate>
+        <form action="#" class="auth-dialog__form" data-auth-form="register" novalidate>
             <div class="auth-dialog__fields">
                 <div class="auth-dialog__field">
                     <label class="auth-dialog__label" for="auth-name">Имя</label>
@@ -1346,7 +1553,9 @@
                     <button class="auth-dialog__get-code" type="button" data-auth-send="register">Получить код</button>
                     <div class="auth-dialog__field auth-dialog__field--code" hidden><input class="auth-dialog__input auth-dialog__input--code" name="code" aria-label="Код из СМС" inputmode="numeric" autocomplete="one-time-code" placeholder="Введите код" maxlength="4" pattern="[0-9]{4}" disabled required><span class="auth-dialog__error"></span></div>
                 </div>
-                <div class="auth-dialog__code-note" hidden><p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register">Получить новый код</button></div>
+                <div class="auth-dialog__code-note" hidden>
+                    <p class="auth-dialog__hint">Мы отправили код на ваш номер телефона.</p><button class="auth-dialog__resend auth-dialog__resend--small" type="button" data-auth-send="register">Получить новый код</button>
+                </div>
                 <div class="auth-dialog__field">
                     <label class="auth-dialog__label" for="auth-register-email">E-mail</label>
                     <input class="auth-dialog__input" id="auth-register-email" type="email" name="email" autocomplete="email" placeholder="" required>
@@ -1376,12 +1585,138 @@
 
 
 
+            <!-- Shared interface copy. Component data (orders, pickup points, products) stays in its own HTML. -->
+<template id="ui-content">
+    <span class="ui-content__text" data-ui-copy="maps-api">https://api-maps.yandex.ru/2.1/?lang=ru_RU</span>
+    <span class="ui-content__text" data-ui-copy="file-unknown">FILE</span>
+    <span class="ui-content__text" data-ui-copy="currency-suffix"> ₽</span>
+    <span class="ui-content__text" data-ui-copy="cart-selected">✓</span>
+    <!-- delivery-map -->
+    <span class="ui-content__text" data-ui-copy="delivery-map-01">Нажмите на карте, чтобы выбрать адрес.</span>
+    <span class="ui-content__text" data-ui-copy="delivery-map-02">Загрузка карты…</span>
+    <span class="ui-content__text" data-ui-copy="delivery-map-03">Определяем адрес…</span>
+    <span class="ui-content__text" data-ui-copy="delivery-map-04">Адрес выбран. Проверьте город и улицу перед добавлением.</span>
+    <span class="ui-content__text" data-ui-copy="delivery-map-05">Не удалось определить адрес. Заполните город и улицу вручную.</span>
+    <span class="ui-content__text" data-ui-copy="delivery-map-06">Не удалось загрузить карту. Адрес можно ввести вручную.</span>
+    <!-- account-pickups -->
+    <span class="ui-content__text" data-ui-copy="account-pickups-01">Не удалось загрузить карту. Выберите пункт из списка.</span>
+    <!-- account -->
+    <span class="ui-content__text" data-ui-copy="account-01">Мой кабинет</span>
+    <span class="ui-content__text" data-ui-copy="account-02">Личные данные</span>
+    <span class="ui-content__text" data-ui-copy="account-03">Скрыть пароль</span>
+    <span class="ui-content__text" data-ui-copy="account-04">Показать пароль</span>
+    <span class="ui-content__text" data-ui-copy="account-05">Пароли не совпадают</span>
+    <span class="ui-content__text" data-ui-copy="account-06">Данные проверены. Сохранение будет доступно после подключения личного кабинета к серверу.</span>
+    <!-- address-picker -->
+    <span class="ui-content__text" data-ui-copy="address-picker-01">Кв. / офис {value0}</span>
+    <span class="ui-content__text" data-ui-copy="address-picker-02">подъезд {value0}</span>
+    <span class="ui-content__text" data-ui-copy="address-picker-03">этаж {value0}</span>
+    <!-- addresses -->
+    <span class="ui-content__text" data-ui-copy="addresses-01">Подъезд </span>
+    <span class="ui-content__text" data-ui-copy="addresses-02">этаж </span>
+    <span class="ui-content__text" data-ui-copy="addresses-03">кв. </span>
+    <span class="ui-content__text" data-ui-copy="addresses-04">индекс </span>
+    <span class="ui-content__text" data-ui-copy="addresses-05">Редактировать адрес доставки</span>
+    <span class="ui-content__text" data-ui-copy="addresses-06">Добавить новый адрес доставки</span>
+    <span class="ui-content__text" data-ui-copy="addresses-07">Сохранить изменения</span>
+    <span class="ui-content__text" data-ui-copy="addresses-08">Добавить новый адрес</span>
+    <span class="ui-content__text" data-ui-copy="addresses-09">Адрес удалён.</span>
+    <span class="ui-content__text" data-ui-copy="addresses-10">Добавить пункт выдачи</span>
+    <span class="ui-content__text" data-ui-copy="addresses-11">Адреса и пункты выдачи</span>
+    <span class="ui-content__text" data-ui-copy="addresses-12">Адреса доставки</span>
+    <span class="ui-content__text" data-ui-copy="addresses-13">Выберите точку на карте</span>
+    <span class="ui-content__text" data-ui-copy="addresses-14">Не удалось определить адрес. Выберите другую точку или введите адрес вручную.</span>
+    <span class="ui-content__text" data-ui-copy="addresses-15">Не удалось загрузить карту. Вернитесь к вводу адреса вручную.</span>
+    <!-- auth-dialogs -->
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-01">Необходимо ваше согласие</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-02">Поле обязательно для заполнения</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-03">Введите корректный e-mail</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-04">Введите корректный номер телефона</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-05">Введите 4 цифры из СМС</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-06">Выслать код повторно через {value0} сек.</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-07">Выслать код повторно</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-08">Получить код</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-09">Получить новый код можно через {value0}:{value1}</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-10">Получить новый код</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-11">Демонстрация ввода кода. Отправка СМС будет доступна после подключения сервиса.</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-12">Номер изменён. Получите новый код.</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-13">Сначала получите код для указанного номера.</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-14">Отправка письма будет доступна после подключения сервиса восстановления пароля.</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-15">Данные заполнены. Завершение регистрации будет доступно после подключения сервиса.</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-16">Вход будет доступен после подключения сервиса авторизации.</span>
+    <!-- cart -->
+    <span class="ui-content__text" data-ui-copy="cart-01">товар</span>
+    <span class="ui-content__text" data-ui-copy="cart-02">товара</span>
+    <span class="ui-content__text" data-ui-copy="cart-03">товаров</span>
+    <span class="ui-content__text" data-ui-copy="cart-04">Убрать из корзины: </span>
+    <span class="ui-content__text" data-ui-copy="cart-05">Добавить: </span>
+    <span class="ui-content__text" data-ui-copy="cart-06"> кг</span>
+    <span class="ui-content__text" data-ui-copy="cart-07">Предыдущая рекомендация</span>
+    <span class="ui-content__text" data-ui-copy="cart-08">Следующая рекомендация</span>
+    <span class="ui-content__text" data-ui-copy="cart-09">Ссылка на корзину скопирована.</span>
+    <span class="ui-content__text" data-ui-copy="cart-10">Ссылка на корзину: </span>
+    <span class="ui-content__text" data-ui-copy="cart-11">Проверка промокода будет доступна при подключении магазина.</span>
+    <span class="ui-content__text" data-ui-copy="cart-12">Введите промокод.</span>
+    <!-- pickup-picker -->
+    <span class="ui-content__text" data-ui-copy="pickup-picker-01">Пункт выдачи Озон</span>
+    <span class="ui-content__text" data-ui-copy="pickup-picker-02">Ежедневно, 09:00-22:00</span>
+    <span class="ui-content__text" data-ui-copy="pickup-picker-03">Изменить пункт выдачи</span>
+    <!-- checkout -->
+    <span class="ui-content__text" data-ui-copy="checkout-01">Проверка промокода будет доступна после подключения сервиса заказов.</span>
+    <span class="ui-content__text" data-ui-copy="checkout-02">Данные заполнены. Отправка заказа будет доступна после подключения сервиса заказов.</span>
+    <!-- comparing -->
+    <span class="ui-content__text" data-ui-copy="comparing-01">Товар удалён из сравнения</span>
+    <span class="ui-content__text" data-ui-copy="comparing-02">Сравнение очищено</span>
+    <!-- forms -->
+    <span class="ui-content__text" data-ui-copy="forms-01">Подписка пока недоступна. Пожалуйста, попробуйте позже.</span>
+    <!-- mobile-catalog -->
+    <span class="ui-content__text" data-ui-copy="mobile-catalog-01">Назад: {value0}</span>
+    <span class="ui-content__text" data-ui-copy="mobile-catalog-02">Назад в каталог</span>
+    <!-- header -->
+    <span class="ui-content__text" data-ui-copy="header-01">Открыть меню</span>
+    <span class="ui-content__text" data-ui-copy="header-02">Закрыть меню</span>
+    <!-- interactions -->
+    <span class="ui-content__text" data-ui-copy="interactions-01">Скрыть отзыв</span>
+    <span class="ui-content__text" data-ui-copy="interactions-02">Показать полностью</span>
+    <span class="ui-content__text" data-ui-copy="interactions-03">В корзине</span>
+    <span class="ui-content__text" data-ui-copy="interactions-04">В избранном</span>
+    <span class="ui-content__text" data-ui-copy="interactions-05">В сравнении</span>
+    <span class="ui-content__text" data-ui-copy="interactions-06">Закрыть уведомление</span>
+    <!-- maps -->
+    <span class="ui-content__text" data-ui-copy="maps-01">Не удалось загрузить карту. Адрес указан в контактной информации.</span>
+    <!-- parts-order -->
+    <span class="ui-content__text" data-ui-copy="parts-order-01">Формат: </span>
+    <span class="ui-content__text" data-ui-copy="parts-order-02"> КБ</span>
+    <span class="ui-content__text" data-ui-copy="parts-order-03"> МБ</span>
+    <span class="ui-content__text" data-ui-copy="parts-order-04">Удалить файл: </span>
+    <span class="ui-content__text" data-ui-copy="parts-order-05">Отправка заявки временно недоступна. Пожалуйста, свяжитесь со специалистом по телефонам +7(499)343-62-42 или +7(499)005-23-00.</span>
+    <span class="ui-content__text" data-ui-copy="parts-order-06">Отправляем заявку…</span>
+    <span class="ui-content__text" data-ui-copy="parts-order-07">Заявка отправлена. Специалист свяжется с Вами в ближайшее время.</span>
+    <span class="ui-content__text" data-ui-copy="parts-order-08">Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь с нами по телефону.</span>
+    <!-- product-details -->
+    <span class="ui-content__text" data-ui-copy="product-details-01">Свернуть</span>
+    <!-- product-listing -->
+    <span class="ui-content__text" data-ui-copy="product-listing-01">Показать еще</span>
+    <span class="ui-content__text" data-ui-copy="product-listing-02">Скрыть</span>
+    <!-- select -->
+    <span class="ui-content__text" data-ui-copy="select-01">Нет доступных вариантов</span>
+    <span class="ui-content__text" data-ui-copy="select-02">Поиск</span>
+    <span class="ui-content__text" data-ui-copy="select-03">Поиск вариантов</span>
+    <span class="ui-content__text" data-ui-copy="select-04">выбор</span>
+    <span class="ui-content__text" data-ui-copy="select-05">Очистить: {value0}</span>
+    <span class="ui-content__text" data-ui-copy="select-06">Ничего не найдено</span>
+    <span class="ui-content__text" data-ui-copy="select-07">Выбрано</span>
+    <template data-ui-fragment="compare-fraction"><span class="comparing__fraction"><span class="swiper-pagination-current" data-fraction-current></span> из <span class="swiper-pagination-total" data-fraction-total></span></span></template>
+    <template data-ui-fragment="gallery-bullet"><button class="swiper-pagination-bullet" type="button" aria-label="Фотография {number}"></button></template>
+</template>
+
+
             <!-- plugins -->
             <script src="js/libs/fancybox.umd.js"></script>
             <script src="js/libs/swiper-bundle.min.js"></script>
             <!-- plugins -->
 
-            <script src="js/app.min.js"></script>
+            <script src="js/app.js"></script>
 
         </div>
     </body>

@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { comparisonRows } from '../src/js/modules/comparing.js';
+import { loadApp } from './helpers/app.js';
+const { comparisonRows } = loadApp(['comparisonRows']);
 
 const rows = [
     { key: 'brand', values: ['Bort', 'Bort', 'Bort'] },

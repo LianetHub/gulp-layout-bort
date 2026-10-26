@@ -1,16 +1,16 @@
 <details class="listing-filter__group">
     <summary class="listing-filter__summary">@@name</summary>
     @@if(kind === 'range'){
-        <div class="listing-filter__range listing-filter__range--spaced">
-            <input type="number" class="listing-filter__input" name="min_@@group" min="0" step="any" placeholder="От" aria-label="@@name: от">
-            <span class="listing-filter__dash">–</span>
-            <input type="number" class="listing-filter__input" name="max_@@group" min="0" step="any" placeholder="До" aria-label="@@name: до">
-        </div>
+    <div class="listing-filter__range listing-filter__range--spaced">
+        <input type="number" class="listing-filter__input" name="min_@@group" min="0" step="any" placeholder="От" aria-label="@@name: от">
+        <span class="listing-filter__dash">–</span>
+        <input type="number" class="listing-filter__input" name="max_@@group" min="0" step="any" placeholder="До" aria-label="@@name: до">
+    </div>
     }
     @@if(kind === 'choice'){
-        <div class="listing-filter__choices">
-            @@include('_listing-choice.html', {"group":"@@group", "value":"@@firstValue", "label":"@@firstLabel", "checked":false})
-            @@include('_listing-choice.html', {"group":"@@group", "value":"@@secondValue", "label":"@@secondLabel", "checked":false})
-        </div>
+    <div class="listing-filter__choices">
+        @@include('_listing-choice.html', {"group":"@@group", "value":"@@firstValue", "label":"@@firstLabel", "checked":false})
+        @@include('_listing-choice.html', {"group":"@@group", "value":"@@secondValue", "label":"@@secondLabel", "checked":false})
+    </div>
     }
 </details>

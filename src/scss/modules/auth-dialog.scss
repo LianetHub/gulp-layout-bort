@@ -37,6 +37,10 @@
 	}
 	// .auth-dialog__close-icon
 	&__close-icon {
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
 		display: block;
 	}
 	// .auth-dialog__view
@@ -118,6 +122,7 @@
 		line-height: math.div(22, 16);
 		// .auth-dialog__input::placeholder
 		&::placeholder {
+			transition: color 0.3s ease;
 			color: #8b8f95;
 			opacity: 1;
 		}
@@ -165,6 +170,9 @@
 	}
 	// .auth-dialog__eye-icon
 	&__eye-icon {
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
 		display: block;
 		font-size: rem(20);
 	}
@@ -233,6 +241,7 @@
 	}
 	// .auth-dialog__submit
 	&__submit {
+		transition: background-color 0.3s ease;
 		display: flex;
 		align-items: center;
 		justify-content: center;

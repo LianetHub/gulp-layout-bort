@@ -174,7 +174,12 @@
 		}
 		// .address-picker__radio:checked + .address-picker__card-body .address-picker__indicator
 		&:checked + .address-picker__card-body .address-picker__indicator {
-			background-image: url("@img/checkout/radio-selected.svg");
+			color: #ff6201;
+			border-color: transparent;
+			// .address-picker__radio:checked + .address-picker__card-body .address-picker__indicator::before
+			&::before {
+				opacity: 1;
+			}
 		}
 		// .address-picker__radio:focus-visible + .address-picker__card-body
 		&:focus-visible + .address-picker__card-body {
@@ -194,10 +199,20 @@
 	}
 	// .address-picker__indicator
 	&__indicator {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
 		width: rem(20);
 		height: rem(20);
 		flex-shrink: 0;
-		background: url("@img/checkout/radio.svg") center / contain no-repeat;
+		color: #d3d6dd;
+		font-size: rem(20);
+		border: rem(1.5) solid #d3d6dd;
+		border-radius: 50%;
+		// .address-picker__indicator::before
+		&::before {
+			opacity: 0;
+		}
 	}
 	// .address-picker__card-content
 	&__card-content {
@@ -264,7 +279,11 @@
 	}
 	// .address-picker__back-icon
 	&__back-icon {
-		transform: scaleX(-1);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
 	}
 	// .address-picker__fields
 	&__fields {
@@ -314,5 +333,25 @@
 		font-size: rem(14);
 		line-height: math.div(20, 14);
 		color: #6a6b6d;
+	}
+	// .address-picker__close-icon
+	&__close-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
+		width: rem(20);
+		height: rem(20);
+	}
+	// .address-picker__map-icon
+	&__map-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
+		width: rem(20);
+		height: rem(20);
 	}
 }

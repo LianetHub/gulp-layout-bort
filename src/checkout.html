@@ -1,107 +1,107 @@
 <!DOCTYPE html>
 <html lang="ru">
-@@include('html/_head.html', { 'title': 'Оформление заказа' })
+    @@include('html/_head.html', { 'title': 'Оформление заказа' })
 
-<body>
-    <div class="wrapper">
-        @@include('html/_header.html', { "auth": true })
-        <main class="page page--dark">
-            <section class="checkout">
-                <div class="checkout__container container">
-                    <a href="cart.html" class="checkout__back"><span class="checkout__back-icon icon-chevron-left" aria-hidden="true"></span>Вернуться к покупкам</a>
-                    <h1 class="checkout__title title title-lg title--sans title--bold">Корзина</h1>
-                    <form class="checkout__layout" id="checkout-form">
-                        <div class="checkout__main">
-                            <section class="checkout__block">
-                                <h2 class="checkout__heading title title-md title--sans">Контактные данные</h2>
-                                <div class="checkout__contacts"><label class="checkout__field"><span class="checkout__label">Имя</span><input class="checkout__input" type="text" name="first_name" value="Алексей" placeholder="" autocomplete="given-name" required></label>
-                                    <label class="checkout__field"><span class="checkout__label">Фамилия</span><input class="checkout__input" type="text" name="last_name" value="Григорьев" placeholder="" autocomplete="family-name" required></label>
-                                    <label class="checkout__field"><span class="checkout__label">Телефон</span><input class="checkout__input" type="tel" name="phone" value="+7 (987) 890-38-90" placeholder="" autocomplete="tel" required></label>
-                                    <label class="checkout__field"><span class="checkout__label">E-mail</span><input class="checkout__input" type="email" name="email" value="alexey.otieo@yandex.ru" placeholder="" autocomplete="email" required></label>
-                                </div>
-                            </section>
-                            <section class="checkout__block">
-                                <h2 class="checkout__heading title title-md title--sans">Способ доставки</h2>
-                                <div class="checkout__options"><label class="checkout__option"><input class="checkout__radio" type="radio" name="delivery" value="post"><span class="checkout__option-body"><span class="checkout__option-title">Почта России</span><span class="checkout__option-description">Бесплатная доставка</span></span></label>
-                                    <label class="checkout__option"><input class="checkout__radio" type="radio" name="delivery" value="courier" checked><span class="checkout__option-body"><span class="checkout__option-title">Курьером до двери по Москве</span><span class="checkout__option-description">Доставка зависит от отдаленности</span></span></label>
-                                    <label class="checkout__option"><input class="checkout__radio" type="radio" name="delivery" value="ozon"><span class="checkout__option-body"><span class="checkout__option-title">Пункт выдачи Озон</span><span class="checkout__option-description">Бесплатная доставка</span></span></label>
-                                </div>
-                                <div class="checkout__address">
-                                    <div class="checkout__address-heading">
-                                        <h3 class="checkout__subtitle title title-sm title--sans">Выберите адрес доставки</h3>
-                                        <label class="checkout__save"><input class="checkout__checkbox" type="checkbox" name="save_address"><span class="checkout__save-text">Сохранить адрес</span></label>
+    <body>
+        <div class="wrapper">
+            @@include('html/_header.html', { "auth": true })
+            <main class="page page--dark">
+                <section class="checkout">
+                    <div class="checkout__container container">
+                        <a href="cart.html" class="checkout__back"><span class="checkout__back-icon icon-chevron-left" aria-hidden="true"></span>Вернуться к покупкам</a>
+                        <h1 class="checkout__title title title-lg title--sans title--bold">Корзина</h1>
+                        <form action="#" class="checkout__layout" id="checkout-form">
+                            <div class="checkout__main">
+                                <section class="checkout__block">
+                                    <h2 class="checkout__heading title title-md title--sans">Контактные данные</h2>
+                                    <div class="checkout__contacts"><label class="checkout__field"><span class="checkout__label">Имя</span><input class="checkout__input" type="text" name="first_name" value="Алексей" placeholder="" autocomplete="given-name" required></label>
+                                        <label class="checkout__field"><span class="checkout__label">Фамилия</span><input class="checkout__input" type="text" name="last_name" value="Григорьев" placeholder="" autocomplete="family-name" required></label>
+                                        <label class="checkout__field"><span class="checkout__label">Телефон</span><input class="checkout__input" type="tel" name="phone" value="+7 (987) 890-38-90" placeholder="" autocomplete="tel" required></label>
+                                        <label class="checkout__field"><span class="checkout__label">E-mail</span><input class="checkout__input" type="email" name="email" value="alexey.otieo@yandex.ru" placeholder="" autocomplete="email" required></label>
                                     </div>
-                                    <div class="checkout__selected-address" hidden>
-                                        <div class="checkout__selected-main">
-                                            <span class="checkout__location"><img class="checkout__location-icon" src="@img/checkout/location.svg" alt="" width="19.5027" height="21.5"></span>
+                                </section>
+                                <section class="checkout__block">
+                                    <h2 class="checkout__heading title title-md title--sans">Способ доставки</h2>
+                                    <div class="checkout__options"><label class="checkout__option"><input class="checkout__radio" type="radio" name="delivery" value="post"><span class="checkout__option-body"><span class="checkout__option-title">Почта России</span><span class="checkout__option-description">Бесплатная доставка</span></span></label>
+                                        <label class="checkout__option"><input class="checkout__radio" type="radio" name="delivery" value="courier" checked><span class="checkout__option-body"><span class="checkout__option-title">Курьером до двери по Москве</span><span class="checkout__option-description">Доставка зависит от отдаленности</span></span></label>
+                                        <label class="checkout__option"><input class="checkout__radio" type="radio" name="delivery" value="ozon"><span class="checkout__option-body"><span class="checkout__option-title">Пункт выдачи Озон</span><span class="checkout__option-description">Бесплатная доставка</span></span></label>
+                                    </div>
+                                    <div class="checkout__address">
+                                        <div class="checkout__address-heading">
+                                            <h3 class="checkout__subtitle title title-sm title--sans">Выберите адрес доставки</h3>
+                                            <label class="checkout__save"><input class="checkout__checkbox" type="checkbox" name="save_address"><span class="checkout__save-text">Сохранить адрес</span></label>
+                                        </div>
+                                        <div class="checkout__selected-address" hidden>
+                                            <div class="checkout__selected-main">
+                                                <span class="checkout__location"><span class="checkout__location-icon icon-location" aria-hidden="true"></span></span>
+                                                <div class="checkout__selected-content">
+                                                    <p class="checkout__selected-title"></p>
+                                                    <p class="checkout__selected-details"></p>
+                                                </div>
+                                            </div>
+                                            <button class="checkout__change" type="button">Изменить адрес <span class="checkout__change-icon icon-chevron-right" aria-hidden="true"></span></button>
+                                        </div>
+                                        <button class="checkout__change" type="button">Выбрать другой адрес <span class="checkout__change-icon icon-chevron-right" aria-hidden="true"></span></button>
+                                        <div class="checkout__address-fields"><label class="checkout__field"><span class="checkout__label">Город</span><input class="checkout__input" type="text" name="city" value="" placeholder="Город" autocomplete="address-level2" required></label><label class="checkout__field"><span class="checkout__label">Улица</span><input class="checkout__input" type="text" name="street" value="" placeholder="Улица, номер дома" autocomplete="address-line1" required></label>
+                                            <div class="checkout__address-details"><label class="checkout__field"><span class="checkout__label">Подъезд</span><input class="checkout__input" type="text" name="entrance" value="" placeholder="Номер подъезда"></label><label class="checkout__field"><span class="checkout__label">Этаж</span><input class="checkout__input" type="text" name="floor" value="" placeholder="Этаж"></label><label class="checkout__field"><span class="checkout__label">Кв./ Офис</span><input class="checkout__input" type="text" name="apartment" value="" placeholder="Кв./ Офис"></label></div>
+                                        </div>
+                                    </div>
+                                    <div class="checkout__pickup" hidden>
+                                        <div class="checkout__pickup-content">
+                                            <h3 class="checkout__pickup-title title title-sm title--sans">Выберите пункт выдачи</h3>
+                                            <p class="checkout__pickup-description">Чтобы продолжить оформление, выберите удобный пункт выдачи Озон</p>
+                                        </div>
+                                        <div class="checkout__pickup-selected" hidden>
+                                            <span class="checkout__location"><span class="checkout__location-icon icon-location" aria-hidden="true"></span></span>
                                             <div class="checkout__selected-content">
-                                                <p class="checkout__selected-title"></p>
-                                                <p class="checkout__selected-details"></p>
+                                                <p class="checkout__pickup-selected-title"></p>
+                                                <p class="checkout__pickup-hours"></p>
                                             </div>
                                         </div>
-                                        <button class="checkout__change" type="button">Изменить адрес <img class="checkout__change-icon" src="@img/checkout/chevron.svg" width="20" height="20" alt=""></button>
+                                        <button class="checkout__pickup-button" type="button" aria-describedby="pickup-error"><span class="checkout__pickup-button-text">Выбрать пункт выдачи</span><span class="checkout__pickup-button-icon icon-chevron-right" aria-hidden="true"></span></button>
+                                        <p class="checkout__pickup-error" id="pickup-error" role="alert" hidden>Выберите пункт выдачи, чтобы продолжить оформление заказа.</p>
+                                        <input class="checkout__pickup-input" type="hidden" name="pickup_point" disabled>
+                                        <input class="checkout__pickup-input" type="hidden" name="pickup_point_address" disabled>
                                     </div>
-                                    <button class="checkout__change" type="button">Выбрать другой адрес <img class="checkout__change-icon" src="@img/checkout/chevron.svg" width="20" height="20" alt=""></button>
-                                    <div class="checkout__address-fields"><label class="checkout__field"><span class="checkout__label">Город</span><input class="checkout__input" type="text" name="city" value="" placeholder="Город" autocomplete="address-level2" required></label><label class="checkout__field"><span class="checkout__label">Улица</span><input class="checkout__input" type="text" name="street" value="" placeholder="Улица, номер дома" autocomplete="street-address" required></label>
-                                        <div class="checkout__address-details"><label class="checkout__field"><span class="checkout__label">Подъезд</span><input class="checkout__input" type="text" name="entrance" value="" placeholder="Номер подъезда"></label><label class="checkout__field"><span class="checkout__label">Этаж</span><input class="checkout__input" type="text" name="floor" value="" placeholder="Этаж"></label><label class="checkout__field"><span class="checkout__label">Кв./ Офис</span><input class="checkout__input" type="text" name="apartment" value="" placeholder="Кв./ Офис"></label></div>
+                                </section>
+                                <section class="checkout__block">
+                                    <h2 class="checkout__heading title title-md title--sans">Способ оплаты</h2>
+                                    <div class="checkout__options"><label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="online" checked><span class="checkout__option-body"><span class="checkout__option-title">Оплата онлайн</span><span class="checkout__option-description">Мы отправляем заказы только после оплаты</span></span></label>
+                                        <label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="receipt"><span class="checkout__option-body"><span class="checkout__option-title">Наличными или картой при получении</span><span class="checkout__option-description">Только для Москвы в пределах МКАД</span></span></label>
+                                        <label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="invoice"><span class="checkout__option-body"><span class="checkout__option-title">Безналичный расчет для юридических лиц <span class="checkout__info icon-information-circle" aria-hidden="true"></span></span><span class="checkout__option-description">Формируем счет на оплату и резервируем товар</span></span></label>
                                     </div>
-                                </div>
-                                <div class="checkout__pickup" hidden>
-                                    <div class="checkout__pickup-content">
-                                        <h3 class="checkout__pickup-title title title-sm title--sans">Выберите пункт выдачи</h3>
-                                        <p class="checkout__pickup-description">Чтобы продолжить оформление, выберите удобный пункт выдачи Озон</p>
+                                </section>
+                            </div>
+                            <aside class="checkout__summary checkout__block">
+                                <h2 class="checkout__heading title title-md title--sans">Ваш заказ</h2>
+                                <dl class="checkout__totals">
+                                    <div class="checkout__total-row">
+                                        <dt class="checkout__total-label">Вес заказа</dt>
+                                        <dd class="checkout__total-value">10,45 кг</dd>
                                     </div>
-                                    <div class="checkout__pickup-selected" hidden>
-                                        <span class="checkout__location"><img class="checkout__location-icon" src="@img/checkout/location.svg" width="19.5027" height="21.5" alt=""></span>
-                                        <div class="checkout__selected-content">
-                                            <p class="checkout__pickup-selected-title"></p>
-                                            <p class="checkout__pickup-hours"></p>
-                                        </div>
+                                    <div class="checkout__total-row">
+                                        <dt class="checkout__total-label">4 товара</dt>
+                                        <dd class="checkout__total-value">20 456 ₽</dd>
                                     </div>
-                                    <button class="checkout__pickup-button" type="button" aria-describedby="pickup-error"><span class="checkout__pickup-button-text">Выбрать пункт выдачи</span><img class="checkout__pickup-button-icon" src="@img/checkout/chevron.svg" width="20" height="20" alt=""></button>
-                                    <p class="checkout__pickup-error" id="pickup-error" role="alert" hidden>Выберите пункт выдачи, чтобы продолжить оформление заказа.</p>
-                                    <input class="checkout__pickup-input" type="hidden" name="pickup_point" disabled>
-                                    <input class="checkout__pickup-input" type="hidden" name="pickup_point_address" disabled>
-                                </div>
-                            </section>
-                            <section class="checkout__block">
-                                <h2 class="checkout__heading title title-md title--sans">Способ оплаты</h2>
-                                <div class="checkout__options"><label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="online" checked><span class="checkout__option-body"><span class="checkout__option-title">Оплата онлайн</span><span class="checkout__option-description">Мы отправляем заказы только после оплаты</span></span></label>
-                                    <label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="receipt"><span class="checkout__option-body"><span class="checkout__option-title">Наличными или картой при получении</span><span class="checkout__option-description">Только для Москвы в пределах МКАД</span></span></label>
-                                    <label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="invoice"><span class="checkout__option-body"><span class="checkout__option-title">Безналичный расчет для юридических лиц <img class="checkout__info" src="@img/checkout/info.svg" width="16" height="16" alt="Информация" title="Счет для юридических лиц"></span><span class="checkout__option-description">Формируем счет на оплату и резервируем товар</span></span></label>
-                                </div>
-                            </section>
-                        </div>
-                        <aside class="checkout__summary checkout__block">
-                            <h2 class="checkout__heading title title-md title--sans">Ваш заказ</h2>
-                            <dl class="checkout__totals">
-                                <div class="checkout__total-row">
-                                    <dt class="checkout__total-label">Вес заказа</dt>
-                                    <dd class="checkout__total-value">10,45 кг</dd>
-                                </div>
-                                <div class="checkout__total-row">
-                                    <dt class="checkout__total-label">4 товара</dt>
-                                    <dd class="checkout__total-value">20 456 ₽</dd>
-                                </div>
-                                <div class="checkout__total-row">
-                                    <dt class="checkout__total-label">Скидка</dt>
-                                    <dd class="checkout__total-value checkout__total-value--discount">– 3 230 ₽</dd>
-                                </div>
-                            </dl>
-                            <div class="checkout__sum"><span class="checkout__sum-label">Итого</span><span class="checkout__sum-value">170 890 ₽</span></div>
-                            <div class="checkout__promo"><input class="checkout__input checkout__input--promo" name="promo" aria-label="Промокод" placeholder="Промокод"><button class="checkout__promo-button" type="button" aria-label="Применить промокод"><img class="checkout__promo-icon" src="@img/checkout/arrow.svg" width="20" height="20" alt=""></button></div>
-                            <button class="checkout__submit btn btn-primary" type="submit">Оформить заказ</button>
-                            <p class="checkout__status" role="status" hidden></p>
-                        </aside>
-                    </form>
-                </div>
-            </section>
-        </main>
-        @@include('html/_footer.html', {})
-        @@include('html/includes/_address-picker.html')
-        @@include('html/includes/_pickup-picker.html')
-        @@include('html/_js.html', {})
-    </div>
-</body>
+                                    <div class="checkout__total-row">
+                                        <dt class="checkout__total-label">Скидка</dt>
+                                        <dd class="checkout__total-value checkout__total-value--discount">– 3 230 ₽</dd>
+                                    </div>
+                                </dl>
+                                <div class="checkout__sum"><span class="checkout__sum-label">Итого</span><span class="checkout__sum-value">170 890 ₽</span></div>
+                                <div class="checkout__promo"><input class="checkout__input checkout__input--promo" name="promo" aria-label="Промокод" placeholder="Промокод"><button class="checkout__promo-button" type="button" aria-label="Применить промокод"><span class="checkout__promo-icon icon-chevron-right" aria-hidden="true"></span></button></div>
+                                <button class="checkout__submit btn btn-primary" type="submit">Оформить заказ</button>
+                                <p class="checkout__status" role="status" hidden></p>
+                            </aside>
+                        </form>
+                    </div>
+                </section>
+            </main>
+            @@include('html/_footer.html', {})
+            @@include('html/includes/_address-picker.html')
+            @@include('html/includes/_pickup-picker.html')
+            @@include('html/_js.html', {})
+        </div>
+    </body>
 
 </html>

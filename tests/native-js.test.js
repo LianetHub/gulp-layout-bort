@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readdir, readFile } from 'node:fs/promises';
+import { Script } from 'node:vm';
 
 test('site sources and dependencies do not require jQuery', async () => {
     const files = await readdir(new URL('../src/', import.meta.url), { recursive: true });
@@ -28,7 +29,8 @@ test('entry point initializes safely on a page without components', async () => 
         matchMedia: () => ({ matches: false, addEventListener() {} }),
         addEventListener() {}
     };
-    await import('../src/js/app.js');
+    const source = await readFile(new URL('../src/js/app.js', import.meta.url), 'utf8');
+    new Script(source, { filename: 'app.js' }).runInThisContext();
     assert.equal(window.CatalogController, undefined);
     assert.equal(typeof window.SearchController.closeSearch, 'function');
     assert.equal(window.AuthController, undefined);

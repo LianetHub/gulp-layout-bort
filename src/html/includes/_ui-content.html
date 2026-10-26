@@ -1,0 +1,124 @@
+<!-- Shared interface copy. Component data (orders, pickup points, products) stays in its own HTML. -->
+<template id="ui-content">
+    <span class="ui-content__text" data-ui-copy="maps-api">https://api-maps.yandex.ru/2.1/?lang=ru_RU</span>
+    <span class="ui-content__text" data-ui-copy="file-unknown">FILE</span>
+    <span class="ui-content__text" data-ui-copy="currency-suffix"> ₽</span>
+    <span class="ui-content__text" data-ui-copy="cart-selected">✓</span>
+    <!-- delivery-map -->
+    <span class="ui-content__text" data-ui-copy="delivery-map-01">Нажмите на карте, чтобы выбрать адрес.</span>
+    <span class="ui-content__text" data-ui-copy="delivery-map-02">Загрузка карты…</span>
+    <span class="ui-content__text" data-ui-copy="delivery-map-03">Определяем адрес…</span>
+    <span class="ui-content__text" data-ui-copy="delivery-map-04">Адрес выбран. Проверьте город и улицу перед добавлением.</span>
+    <span class="ui-content__text" data-ui-copy="delivery-map-05">Не удалось определить адрес. Заполните город и улицу вручную.</span>
+    <span class="ui-content__text" data-ui-copy="delivery-map-06">Не удалось загрузить карту. Адрес можно ввести вручную.</span>
+    <!-- account-pickups -->
+    <span class="ui-content__text" data-ui-copy="account-pickups-01">Не удалось загрузить карту. Выберите пункт из списка.</span>
+    <!-- account -->
+    <span class="ui-content__text" data-ui-copy="account-01">Мой кабинет</span>
+    <span class="ui-content__text" data-ui-copy="account-02">Личные данные</span>
+    <span class="ui-content__text" data-ui-copy="account-03">Скрыть пароль</span>
+    <span class="ui-content__text" data-ui-copy="account-04">Показать пароль</span>
+    <span class="ui-content__text" data-ui-copy="account-05">Пароли не совпадают</span>
+    <span class="ui-content__text" data-ui-copy="account-06">Данные проверены. Сохранение будет доступно после подключения личного кабинета к серверу.</span>
+    <!-- address-picker -->
+    <span class="ui-content__text" data-ui-copy="address-picker-01">Кв. / офис {value0}</span>
+    <span class="ui-content__text" data-ui-copy="address-picker-02">подъезд {value0}</span>
+    <span class="ui-content__text" data-ui-copy="address-picker-03">этаж {value0}</span>
+    <!-- addresses -->
+    <span class="ui-content__text" data-ui-copy="addresses-01">Подъезд </span>
+    <span class="ui-content__text" data-ui-copy="addresses-02">этаж </span>
+    <span class="ui-content__text" data-ui-copy="addresses-03">кв. </span>
+    <span class="ui-content__text" data-ui-copy="addresses-04">индекс </span>
+    <span class="ui-content__text" data-ui-copy="addresses-05">Редактировать адрес доставки</span>
+    <span class="ui-content__text" data-ui-copy="addresses-06">Добавить новый адрес доставки</span>
+    <span class="ui-content__text" data-ui-copy="addresses-07">Сохранить изменения</span>
+    <span class="ui-content__text" data-ui-copy="addresses-08">Добавить новый адрес</span>
+    <span class="ui-content__text" data-ui-copy="addresses-09">Адрес удалён.</span>
+    <span class="ui-content__text" data-ui-copy="addresses-10">Добавить пункт выдачи</span>
+    <span class="ui-content__text" data-ui-copy="addresses-11">Адреса и пункты выдачи</span>
+    <span class="ui-content__text" data-ui-copy="addresses-12">Адреса доставки</span>
+    <span class="ui-content__text" data-ui-copy="addresses-13">Выберите точку на карте</span>
+    <span class="ui-content__text" data-ui-copy="addresses-14">Не удалось определить адрес. Выберите другую точку или введите адрес вручную.</span>
+    <span class="ui-content__text" data-ui-copy="addresses-15">Не удалось загрузить карту. Вернитесь к вводу адреса вручную.</span>
+    <!-- auth-dialogs -->
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-01">Необходимо ваше согласие</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-02">Поле обязательно для заполнения</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-03">Введите корректный e-mail</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-04">Введите корректный номер телефона</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-05">Введите 4 цифры из СМС</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-06">Выслать код повторно через {value0} сек.</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-07">Выслать код повторно</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-08">Получить код</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-09">Получить новый код можно через {value0}:{value1}</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-10">Получить новый код</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-11">Демонстрация ввода кода. Отправка СМС будет доступна после подключения сервиса.</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-12">Номер изменён. Получите новый код.</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-13">Сначала получите код для указанного номера.</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-14">Отправка письма будет доступна после подключения сервиса восстановления пароля.</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-15">Данные заполнены. Завершение регистрации будет доступно после подключения сервиса.</span>
+    <span class="ui-content__text" data-ui-copy="auth-dialogs-16">Вход будет доступен после подключения сервиса авторизации.</span>
+    <!-- cart -->
+    <span class="ui-content__text" data-ui-copy="cart-01">товар</span>
+    <span class="ui-content__text" data-ui-copy="cart-02">товара</span>
+    <span class="ui-content__text" data-ui-copy="cart-03">товаров</span>
+    <span class="ui-content__text" data-ui-copy="cart-04">Убрать из корзины: </span>
+    <span class="ui-content__text" data-ui-copy="cart-05">Добавить: </span>
+    <span class="ui-content__text" data-ui-copy="cart-06"> кг</span>
+    <span class="ui-content__text" data-ui-copy="cart-07">Предыдущая рекомендация</span>
+    <span class="ui-content__text" data-ui-copy="cart-08">Следующая рекомендация</span>
+    <span class="ui-content__text" data-ui-copy="cart-09">Ссылка на корзину скопирована.</span>
+    <span class="ui-content__text" data-ui-copy="cart-10">Ссылка на корзину: </span>
+    <span class="ui-content__text" data-ui-copy="cart-11">Проверка промокода будет доступна при подключении магазина.</span>
+    <span class="ui-content__text" data-ui-copy="cart-12">Введите промокод.</span>
+    <!-- pickup-picker -->
+    <span class="ui-content__text" data-ui-copy="pickup-picker-01">Пункт выдачи Озон</span>
+    <span class="ui-content__text" data-ui-copy="pickup-picker-02">Ежедневно, 09:00-22:00</span>
+    <span class="ui-content__text" data-ui-copy="pickup-picker-03">Изменить пункт выдачи</span>
+    <!-- checkout -->
+    <span class="ui-content__text" data-ui-copy="checkout-01">Проверка промокода будет доступна после подключения сервиса заказов.</span>
+    <span class="ui-content__text" data-ui-copy="checkout-02">Данные заполнены. Отправка заказа будет доступна после подключения сервиса заказов.</span>
+    <!-- comparing -->
+    <span class="ui-content__text" data-ui-copy="comparing-01">Товар удалён из сравнения</span>
+    <span class="ui-content__text" data-ui-copy="comparing-02">Сравнение очищено</span>
+    <!-- forms -->
+    <span class="ui-content__text" data-ui-copy="forms-01">Подписка пока недоступна. Пожалуйста, попробуйте позже.</span>
+    <!-- mobile-catalog -->
+    <span class="ui-content__text" data-ui-copy="mobile-catalog-01">Назад: {value0}</span>
+    <span class="ui-content__text" data-ui-copy="mobile-catalog-02">Назад в каталог</span>
+    <!-- header -->
+    <span class="ui-content__text" data-ui-copy="header-01">Открыть меню</span>
+    <span class="ui-content__text" data-ui-copy="header-02">Закрыть меню</span>
+    <!-- interactions -->
+    <span class="ui-content__text" data-ui-copy="interactions-01">Скрыть отзыв</span>
+    <span class="ui-content__text" data-ui-copy="interactions-02">Показать полностью</span>
+    <span class="ui-content__text" data-ui-copy="interactions-03">В корзине</span>
+    <span class="ui-content__text" data-ui-copy="interactions-04">В избранном</span>
+    <span class="ui-content__text" data-ui-copy="interactions-05">В сравнении</span>
+    <span class="ui-content__text" data-ui-copy="interactions-06">Закрыть уведомление</span>
+    <!-- maps -->
+    <span class="ui-content__text" data-ui-copy="maps-01">Не удалось загрузить карту. Адрес указан в контактной информации.</span>
+    <!-- parts-order -->
+    <span class="ui-content__text" data-ui-copy="parts-order-01">Формат: </span>
+    <span class="ui-content__text" data-ui-copy="parts-order-02"> КБ</span>
+    <span class="ui-content__text" data-ui-copy="parts-order-03"> МБ</span>
+    <span class="ui-content__text" data-ui-copy="parts-order-04">Удалить файл: </span>
+    <span class="ui-content__text" data-ui-copy="parts-order-05">Отправка заявки временно недоступна. Пожалуйста, свяжитесь со специалистом по телефонам +7(499)343-62-42 или +7(499)005-23-00.</span>
+    <span class="ui-content__text" data-ui-copy="parts-order-06">Отправляем заявку…</span>
+    <span class="ui-content__text" data-ui-copy="parts-order-07">Заявка отправлена. Специалист свяжется с Вами в ближайшее время.</span>
+    <span class="ui-content__text" data-ui-copy="parts-order-08">Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь с нами по телефону.</span>
+    <!-- product-details -->
+    <span class="ui-content__text" data-ui-copy="product-details-01">Свернуть</span>
+    <!-- product-listing -->
+    <span class="ui-content__text" data-ui-copy="product-listing-01">Показать еще</span>
+    <span class="ui-content__text" data-ui-copy="product-listing-02">Скрыть</span>
+    <!-- select -->
+    <span class="ui-content__text" data-ui-copy="select-01">Нет доступных вариантов</span>
+    <span class="ui-content__text" data-ui-copy="select-02">Поиск</span>
+    <span class="ui-content__text" data-ui-copy="select-03">Поиск вариантов</span>
+    <span class="ui-content__text" data-ui-copy="select-04">выбор</span>
+    <span class="ui-content__text" data-ui-copy="select-05">Очистить: {value0}</span>
+    <span class="ui-content__text" data-ui-copy="select-06">Ничего не найдено</span>
+    <span class="ui-content__text" data-ui-copy="select-07">Выбрано</span>
+    <template data-ui-fragment="compare-fraction"><span class="comparing__fraction"><span class="swiper-pagination-current" data-fraction-current></span> из <span class="swiper-pagination-total" data-fraction-total></span></span></template>
+    <template data-ui-fragment="gallery-bullet"><button class="swiper-pagination-bullet" type="button" aria-label="Фотография {number}"></button></template>
+</template>

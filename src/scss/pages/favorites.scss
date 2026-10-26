@@ -45,6 +45,10 @@
 	}
 	// .favorites__icon
 	&__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: rem(20);
 		flex-shrink: 0;
 	}
 	// .favorites__layout
@@ -111,6 +115,7 @@
 	}
 	// .favorites__remove
 	&__remove {
+		transition: opacity 0.3s ease;
 		display: grid;
 		place-items: center;
 		width: rem(18);
@@ -122,6 +127,11 @@
 	}
 	// .favorites__remove-icon
 	&__remove-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(16);
 		width: rem(16);
 		height: rem(16);
 	}
@@ -137,8 +147,7 @@
 		padding: rem(7) rem(35) rem(7) rem(15);
 		border: 1px solid #ebeaea;
 		border-radius: rem(10);
-		background: #fff url("@img/favorites/chevron.svg") right rem(15) center / rem(20) rem(20)
-			no-repeat;
+		background: #fff;
 		font-size: rem(16);
 		line-height: math.div(22, 16);
 		font-weight: 500;

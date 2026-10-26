@@ -23,12 +23,15 @@
 	}
 	// .parts-help__link
 	&__link {
+		text-decoration: underline;
+		text-decoration-color: transparent;
+		transition: text-decoration-color 0.3s ease;
 		color: $orange;
 		font-weight: 600;
 		@media (any-hover: hover) {
 			// .parts-help__link:hover
 			&:hover {
-				text-decoration: underline;
+				text-decoration-color: currentColor;
 			}
 		}
 		// .parts-help__link:focus-visible

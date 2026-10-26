@@ -10,7 +10,10 @@
                         <a href="catalog.html" class="cart__back"><span class="cart__back-icon icon-chevron-left" aria-hidden="true"></span>Вернуться к покупкам</a>
                         <div class="cart__heading">
                             <h1 class="cart__title title title-lg title--sans title--bold">Корзина</h1>
-                            <button type="button" class="cart__share"><svg class="cart__share-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path class="cart__share-path" d="m14 3 7 7-7 7v-4C8 13 5 14 2 19c0-9 4-12 12-12V3Z" stroke="currentColor" stroke-linejoin="round"/></svg><span class="cart__share-text">Поделиться корзиной</span></button>
+                            <button type="button" class="cart__share">
+                                <span class="cart__share-icon icon-copy" aria-hidden="true"></span>
+                                <span class="cart__share-text">Поделиться корзиной</span>
+                            </button>
                         </div>
                         <div class="cart__layout">
                             <div class="cart__main">
@@ -31,7 +34,7 @@
                                         <div class="cart__total-row cart__total-row--discount"><span class="cart__total-label">Скидка</span><span class="cart__total-value" data-cart-discount>−3 230 ₽</span></div>
                                         <div class="cart__total-sum"><span class="cart__total-sum-label">Итого</span><span class="cart__total-sum-value" data-cart-total>170 890 ₽</span></div>
                                     </div>
-                                    <form class="cart__promo" novalidate>
+                                    <form action="#" class="cart__promo" novalidate>
                                         <label class="cart__promo-label" for="cart-promo">Промокод</label>
                                         <input id="cart-promo" class="cart__promo-input" name="promocode" placeholder="Промокод" autocomplete="off">
                                         <button type="submit" class="cart__promo-submit" aria-label="Применить промокод">→</button>
@@ -48,13 +51,13 @@
 
             <div id="order" class="popup popup--medium">
                 <h2 class="popup__title title title-md">оформление <span>заказа</span></h2>
-                <form action="#" class="popup__form">
-                    <div class="row">
-                        <div class="col-md-6">
+                <form action="#" class="popup__form order-form">
+                    <div class="order-form__grid">
+                        <div class="order-form__field">
                             <div class="form__field">
-                                <div class="form__label">Способ оплаты:</div>
+                                <label class="form__label" for="order-payment_type">Способ оплаты:</label>
                                 <div class="form__select icon-chevron-down">
-                                    <select data-custom-select name="payment_type" class="form__control">
+                                    <select id="order-payment_type" data-custom-select name="payment_type" class="form__control">
                                         <option value="cashless">Безналичный расчёт</option>
                                         <option value="card">Банковская карта</option>
                                         <option value="cash">Наличными при получении</option>
@@ -63,17 +66,17 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="order-form__field">
                             <div class="form__field">
-                                <div class="form__label">Предполагаемая дата оплаты:</div>
-                                <input type="date" name="payment_date" class="form__control">
+                                <label class="form__label" for="order-payment_date">Предполагаемая дата оплаты:</label>
+                                <input id="order-payment_date" type="date" name="payment_date" class="form__control">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="order-form__field">
                             <div class="form__field">
-                                <div class="form__label">Способ получения:</div>
+                                <label class="form__label" for="order-delivery_method">Способ получения:</label>
                                 <div class="form__select icon-chevron-down">
-                                    <select data-custom-select name="delivery_method" class="form__control">
+                                    <select id="order-delivery_method" data-custom-select name="delivery_method" class="form__control">
                                         <option value="pickup">Самовывоз</option>
                                         <option value="courier">Доставка курьером</option>
                                         <option value="transport">Транспортная компания</option>
@@ -82,34 +85,34 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="order-form__field">
                             <div class="form__field">
-                                <div class="form__label">Предполагаемая дата самовывоза:</div>
-                                <input type="date" name="pickup_date" class="form__control">
+                                <label class="form__label" for="order-pickup_date">Предполагаемая дата самовывоза:</label>
+                                <input id="order-pickup_date" type="date" name="pickup_date" class="form__control">
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="order-form__field">
                             <div class="form__field">
-                                <div class="form__label">Телефон:</div>
-                                <input type="tel" name="phone" data-required class="form__control" placeholder="+7 (999) 999-99-99">
+                                <label class="form__label" for="order-phone">Телефон:</label>
+                                <input id="order-phone" type="tel" name="phone" data-required class="form__control" placeholder="+7 (999) 999-99-99">
                                 <div class="form__error-message"></div>
                             </div>
                         </div>
-                        <div class="col-md-6">
+                        <div class="order-form__field">
                             <div class="form__field">
-                                <div class="form__label">Электронная почта:</div>
-                                <input type="email" name="email" data-required class="form__control" placeholder="email">
+                                <label class="form__label" for="order-email">Электронная почта:</label>
+                                <input id="order-email" type="email" name="email" data-required class="form__control" placeholder="email">
                                 <div class="form__error-message"></div>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="order-form__wide">
                             <div class="form__field">
-                                <div class="form__label">Комментарий к заказу:</div>
-                                <input type="text" name="comment" class="form__control" placeholder="Напишите пожелания к заказу">
+                                <label class="form__label" for="order-comment">Комментарий к заказу:</label>
+                                <input id="order-comment" type="text" name="comment" class="form__control" placeholder="Напишите пожелания к заказу">
                                 <div class="form__error-message"></div>
                             </div>
                         </div>
-                        <div class="col-12">
+                        <div class="order-form__wide">
                             <button type="submit" class="form__submit btn btn-primary">Разместить заказ</button>
                         </div>
                     </div>

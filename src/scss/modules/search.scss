@@ -109,6 +109,7 @@
 	}
 	// .search__bar-result
 	&__bar-result {
+		transition: color 0.3s ease;
 		display: flex;
 		align-items: center;
 		gap: rem(10);
@@ -218,6 +219,7 @@
 	}
 	// .search .search__product-name
 	.search__product-name {
+		transition: color 0.3s ease;
 		display: block;
 		overflow: visible;
 		-webkit-line-clamp: unset;
@@ -255,6 +257,7 @@
 	}
 	// .search__product-cart
 	&__product-cart {
+		transition: background-color 0.3s ease;
 		margin-left: rem(30);
 		display: flex;
 		align-items: center;

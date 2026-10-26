@@ -120,6 +120,9 @@
 	}
 	// .mobile-catalog__link
 	&__link {
+		transition:
+			color 0.3s ease,
+			background-color 0.3s ease;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;

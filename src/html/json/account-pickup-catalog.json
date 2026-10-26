@@ -5,11 +5,9 @@
         "address": "г. Москва, ул. Ленина, д. 15, кв./офис 10",
         "hours": "10:00–21:00",
         "distance": "1.2 км",
-        "coords": [
-            55.706,
-            37.541
-        ],
-        "checked": "checked"
+        "checked": "checked",
+        "latitude": 55.706,
+        "longitude": 37.541
     },
     {
         "id": "427-111",
@@ -17,11 +15,9 @@
         "address": "г. Москва, пр-т Мира, д. 102, корп. 1",
         "hours": "09:00–22:00",
         "distance": "2.4 км",
-        "coords": [
-            55.713,
-            37.58
-        ],
-        "checked": ""
+        "checked": "",
+        "latitude": 55.713,
+        "longitude": 37.58
     },
     {
         "id": "427-112",
@@ -29,10 +25,8 @@
         "address": "г. Москва, ул. Попова, д. 4",
         "hours": "10:00–20:00",
         "distance": "3.1 км",
-        "coords": [
-            55.687,
-            37.553
-        ],
-        "checked": ""
+        "checked": "",
+        "latitude": 55.687,
+        "longitude": 37.553
     }
 ]

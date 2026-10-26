@@ -1,0 +1,16 @@
+{
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features",
+        "editor.insertSpaces": true,
+        "editor.tabSize": 4
+    },
+    "html.format.indentInnerHtml": true,
+    "html.format.wrapLineLength": 0,
+    "html.format.wrapAttributes": "auto",
+    "html.format.extraLiners": "",
+    "html.format.unformatted": "",
+    "html.format.contentUnformatted": "pre,textarea",
+    "html.format.preserveNewLines": true,
+    "html.format.maxPreserveNewLines": 1,
+    "files.eol": "\n"
+}

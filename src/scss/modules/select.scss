@@ -21,6 +21,7 @@
 	}
 	// .custom-select__trigger
 	&__trigger {
+		transition: color 0.3s ease;
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
@@ -129,6 +130,7 @@
 	}
 	// .custom-select__option
 	&__option {
+		transition: background-color 0.3s ease;
 		display: flex;
 		align-items: center;
 		gap: rem(10);

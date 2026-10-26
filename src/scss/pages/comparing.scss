@@ -27,6 +27,7 @@
 	}
 	// .comparing__clear
 	&__clear {
+		transition: color 0.3s ease;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
@@ -62,6 +63,10 @@
 	}
 	// .comparing__icon
 	&__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: rem(20);
 		flex-shrink: 0;
 	}
 	// .comparing__categories
@@ -309,6 +314,13 @@
 	// .comparing__desc
 	&__desc {
 		margin-top: rem(20);
+		cursor: grab;
+		touch-action: pan-y;
+		user-select: none;
+		// .comparing.is-dragging .comparing__desc
+		.comparing.is-dragging & {
+			cursor: grabbing;
+		}
 		@media (min-width: $md2) {
 			margin-top: rem(40);
 		}
@@ -360,6 +372,7 @@
 	}
 	// .comparing__parameter
 	&__parameter {
+		position: relative;
 		display: flex;
 		align-items: center;
 		gap: rem(10);
@@ -382,7 +395,7 @@
 		cursor: pointer;
 		// .comparing__check:checked
 		&:checked {
-			background: #fb7e00 url("@img/comparing/check.svg") center / rem(16) no-repeat;
+			background: #fb7e00;
 			border-color: #fb7e00;
 		}
 		// .comparing__check:focus-visible
@@ -391,9 +404,25 @@
 			outline-offset: rem(3);
 		}
 	}
+	// .comparing__check-icon
+	&__check-icon {
+		position: absolute;
+		left: rem(2);
+		top: 50%;
+		transform: translateY(-50%);
+		font-size: rem(16);
+		color: #fff;
+		pointer-events: none;
+		opacity: 0;
+	}
+	// .comparing__check:checked + .comparing__check-icon
+	&__check:checked + .comparing__check-icon {
+		opacity: 1;
+	}
 	// .comparing__values
 	&__values {
 		display: grid;
+		overflow: hidden;
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: rem(10);
 		@media (min-width: $md4) {
@@ -416,6 +445,10 @@
 		@media (min-width: $md2) {
 			padding: rem(13) rem(20);
 			transform: translateX(var(--comparing-shift, 0px));
+			transition: transform var(--comparing-duration, 0ms) ease;
+		}
+		@media (prefers-reduced-motion: reduce) {
+			transition: none;
 		}
 		// .comparing__value[hidden]
 		&[hidden] {
@@ -443,5 +476,15 @@
 		height: rem(1);
 		overflow: hidden;
 		clip-path: inset(50%);
+	}
+	// .comparing__check-icon
+	&__check-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
+		width: rem(20);
+		height: rem(20);
 	}
 }

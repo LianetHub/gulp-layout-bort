@@ -25,6 +25,7 @@
 	}
 	// .search-field__button
 	&__button {
+		transition: color 0.3s ease;
 		position: absolute;
 		right: rem(12);
 		top: 50%;

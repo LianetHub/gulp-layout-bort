@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import * as tooltip from '../src/js/modules/tooltips.js';
+import { loadApp } from './helpers/app.js';
+const tooltip = loadApp(["tooltipPosition","tooltips"]);
 
 test('tooltip prefers right and flips left before leaving the viewport', () => {
     assert.deepEqual(tooltip.tooltipPosition({left:50,right:70,top:90,bottom:110}, {width:100,height:60}, {width:400,height:300}), {left:82,top:70,side:'right'});

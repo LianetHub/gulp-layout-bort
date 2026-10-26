@@ -6,17 +6,17 @@
         <div class="product-listing__layout">
             @@include('_listing-filter.html', {"search":true})
             <div class="product-listing__content">
-                <div class="product-listing__tags" aria-label="Подборки товаров">
+                <div role="group" class="product-listing__tags" aria-label="Подборки товаров">
                     @@loop('../templates/_listing-tag.html', [
-                        {"name":"Промышленные","active":true}, {"name":"Бытовые","active":false},
-                        {"name":"Мощные","active":false}, {"name":"Электрические","active":false},
-                        {"name":"Бесшумные","active":false}, {"name":"С авто-реверсом","active":false},
-                        {"name":"Маленькие","active":false}, {"name":"Легкие","active":false}
+                    {"name":"Промышленные","active":true}, {"name":"Бытовые","active":false},
+                    {"name":"Мощные","active":false}, {"name":"Электрические","active":false},
+                    {"name":"Бесшумные","active":false}, {"name":"С авто-реверсом","active":false},
+                    {"name":"Маленькие","active":false}, {"name":"Легкие","active":false}
                     ])
                     <button type="button" class="product-listing__tag product-listing__tag--more" aria-expanded="false">Показать еще</button>
                 </div>
                 <div class="product-listing__toolbar">
-                    <label class="product-listing__sort-label">
+                    <div class="product-listing__sort-label">
                         <span class="product-listing__sr-only">Сортировка товаров</span>
                         <select data-custom-select class="product-listing__sort" aria-label="Сортировка товаров">
                             <option class="product-listing__option" value="popular">Популярные</option>
@@ -24,10 +24,10 @@
                             <option class="product-listing__option" value="price-desc">Сначала дороже</option>
                             <option class="product-listing__option" value="name">По названию</option>
                         </select>
-                    </label>
+                    </div>
                     <button type="button" class="product-listing__filter-button icon-filter-horizontal" aria-controls="listing-filter" aria-expanded="false">Фильтры</button>
                 </div>
-                <div class="product-listing__selected" aria-label="Выбранные фильтры">
+                <div role="group" class="product-listing__selected" aria-label="Выбранные фильтры">
                     <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="min_price,max_price">Цена: от 8 090 до 218 690 ₽</button>
                     <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="power" data-filter-value="1200">Мощность: 1 200 Вт</button>
                     <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="motor" data-filter-value="bldc">Бесщеточный</button>

@@ -71,6 +71,9 @@
 	}
 	// .product-listing__tag
 	&__tag {
+		transition:
+			background-color 0.3s ease,
+			color 0.3s ease;
 		padding: rem(8) rem(14);
 		background: #fff;
 		border-radius: rem(6);
@@ -155,6 +158,7 @@
 	}
 	// .product-listing__chip
 	&__chip {
+		transition: background-color 0.3s ease;
 		display: flex;
 		flex-direction: row-reverse;
 		align-items: center;
@@ -174,6 +178,9 @@
 	}
 	// .product-listing__clear
 	&__clear {
+		transition:
+			background-color 0.3s ease,
+			color 0.3s ease;
 		display: flex;
 		align-items: center;
 		gap: rem(6);

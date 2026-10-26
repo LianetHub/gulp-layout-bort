@@ -1,6 +1,9 @@
-const { CustomSelect, initCustomSelects } = await import('../src/js/modules/select.js?t=' + Date.now());
-const { interactions, NotifyController } = await import('../src/js/modules/interactions.js?t=' + Date.now());
-const { tooltips } = await import('../src/js/modules/tooltips.js?t=' + Date.now());
+import { loadApp } from './helpers/app-browser.js';
+// Synthetic hover checks must not overlap smooth scrolling caused by fixture focus.
+document.documentElement.style.scrollBehavior = 'auto';
+const { CustomSelect, initCustomSelects, interactions, NotifyController, tooltips } = await loadApp([
+    'CustomSelect', 'initCustomSelects', 'interactions', 'NotifyController', 'tooltips',
+]);
 const result = document.querySelector('#results');
 let count = 0;
 const check = (ok, message) => {
@@ -113,6 +116,8 @@ try {
     check(tip.classList.contains('is-visible'), 'прокрутка содержимого не закрывает tooltip');
     key(tip.querySelector('button'), 'Escape'); check(!tip.classList.contains('is-visible'), 'tooltip закрывается по Escape');
     document.querySelector('.btn').focus();
+    // Deliver the focus-induced scroll before simulating pointer movement.
+    await wait();
     tip.dispatchEvent(new PointerEvent('pointerenter'));
     tip.dispatchEvent(new PointerEvent('pointerleave'));
     await wait(); tip.dispatchEvent(new PointerEvent('pointerenter'));
@@ -195,6 +200,7 @@ try {
     const fallbackProduct = await load('product', 375, true);
     const fallbackTip = fallbackProduct.querySelector('.tooltip'); fallbackTip.querySelector('button').focus();
     const fallbackContent = fallbackTip.querySelector('[role="tooltip"]');
+    for (let attempt = 0; attempt < 30 && frame.contentWindow.getComputedStyle(fallbackContent).visibility !== 'visible'; attempt++) await wait();
     check(frame.contentWindow.getComputedStyle(fallbackContent).visibility === 'visible' && fallbackContent.getBoundingClientRect().right <= 368, 'без JavaScript tooltip показывается по focus и помещается на мобильном');
     document.querySelector('#status').textContent = `PASS: ${count} проверок UI-кита`;
 } catch (error) {

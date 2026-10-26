@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { CodeRequest, validateAuthValue } from '../src/js/modules/auth-dialogs.js';
+import { loadApp } from './helpers/app.js';
+const { CodeRequest, validateAuthValue } = loadApp(['CodeRequest', 'validateAuthValue']);
 
 test('code request expires by wall clock and is invalidated by changed phone', () => {
     const request = new CodeRequest();

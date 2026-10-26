@@ -21,6 +21,9 @@
 	}
 	// .tooltip__content
 	&__content {
+		transition:
+			opacity 0.3s ease,
+			visibility 0.3s ease;
 		position: fixed;
 		z-index: 75;
 		left: rem(8);

@@ -429,7 +429,7 @@
 	@media (any-hover: hover) {
 		// .favorite-btn:hover
 		&:hover {
-			color: #00778b;
+			color: $orange;
 		}
 	}
 }
@@ -444,7 +444,10 @@
 	color: #a7a8aa;
 	cursor: pointer;
 	user-select: none;
-	transition: color 0.3s ease;
+	transition:
+		color 0.3s ease,
+		background-color 0.3s ease,
+		border-radius 0.3s ease;
 	width: 1.5625rem;
 	height: 1.5625rem;
 	font-size: 1.5rem;
@@ -577,7 +580,9 @@
 	font-size: rem(14);
 	font-weight: 500;
 	line-height: math.div(20, 14);
-	transition: background-color 0.3s ease;
+	transition:
+		background-color 0.3s ease,
+		color 0.3s ease;
 
 	@media (any-hover: hover) {
 		// .load-more:hover
@@ -615,6 +620,9 @@
 		align-items: center;
 		flex-shrink: 0;
 		transition: transform 0.3s ease;
+		@media (prefers-reduced-motion: reduce) {
+			transition: none;
+		}
 	}
 
 	@media (any-hover: hover) {
@@ -642,6 +650,9 @@
 	opacity: 0;
 	visibility: hidden;
 	transition: all 0.3s ease;
+	@media (prefers-reduced-motion: reduce) {
+		transition: none;
+	}
 	bottom: 5.5rem;
 	right: 1.25rem;
 	width: 2.5rem;
@@ -720,6 +731,7 @@ $scrollbarColor: $orange;
 
 // ::-webkit-scrollbar-thumb
 ::-webkit-scrollbar-thumb {
+	transition: background-color 0.3s ease;
 	background: $scrollbarColor;
 	border-radius: rem(8);
 
@@ -778,6 +790,7 @@ $scrollbarColor: $orange;
 
 // .section-more
 .section-more {
+	transition: color 0.3s ease;
 	flex-shrink: 0;
 	display: inline-flex;
 	align-items: center;

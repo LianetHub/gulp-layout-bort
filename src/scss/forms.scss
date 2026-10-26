@@ -65,6 +65,7 @@
 
 		// .form__control::placeholder
 		&::placeholder {
+			transition: color 0.3s ease;
 			color: #8b8f95;
 			opacity: 1;
 		}
@@ -416,7 +417,8 @@
 	transition:
 		background-color 0.2s ease,
 		color 0.2s ease,
-		box-shadow 0.2s ease;
+		box-shadow 0.2s ease,
+		border-color 0.2s ease;
 
 	@media (prefers-reduced-motion: reduce) {
 		transition: none;

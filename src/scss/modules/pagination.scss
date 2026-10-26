@@ -69,6 +69,7 @@
 	// .pagination__next
 	&__prev,
 	&__next {
+		transition: color 0.3s ease;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;

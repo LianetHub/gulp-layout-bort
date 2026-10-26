@@ -57,6 +57,10 @@
 	}
 	// .pickup-dialog__search-icon
 	&__search-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: rem(20);
 		flex-shrink: 0;
 	}
 	// .pickup-dialog__input
@@ -114,6 +118,7 @@
 	}
 	// .pickup-dialog__point
 	&__point {
+		transition: border-color 0.3s ease;
 		display: flex;
 		align-items: center;
 		gap: rem(12);
@@ -240,6 +245,11 @@
 	}
 	// .pickup-dialog__info-icon
 	&__info-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
 		flex: 0 0 rem(20);
 	}
 	// .pickup-dialog__choose.btn-primary
@@ -263,5 +273,15 @@
 		font-size: rem(14);
 		line-height: math.div(20, 14);
 		margin-top: rem(10);
+	}
+	// .pickup-dialog__close-icon
+	&__close-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
+		width: rem(20);
+		height: rem(20);
 	}
 }

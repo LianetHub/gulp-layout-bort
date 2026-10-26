@@ -61,6 +61,7 @@
 	}
 	// .faq__filter
 	&__filter {
+		transition: background-color 0.3s ease;
 		display: block;
 		width: 100%;
 		padding: rem(10);
@@ -159,12 +160,15 @@
 	}
 	// .faq__link
 	&__link {
+		text-decoration: underline;
+		text-decoration-color: transparent;
+		transition: text-decoration-color 0.3s ease;
 		color: $orange;
 		font-weight: 600;
 		@media (any-hover: hover) {
 			// .faq__link:hover
 			&:hover {
-				text-decoration: underline;
+				text-decoration-color: currentColor;
 			}
 		}
 	}

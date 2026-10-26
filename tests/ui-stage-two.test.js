@@ -14,7 +14,9 @@ test('account pages share one sidebar and orders have separate list/detail URLs'
 
 test('list controls contain no client-side sorting or matching of server data', () => {
     for (const name of ['orders', 'product-listing', 'review', 'faq', 'news']) {
-        assert.doesNotMatch(read(`src/js/modules/${name}.js`), /\.sort\(|function matches\(|const filter =|data-faq-/, name);
+        const section = read('src/js/app.js').split(`// === ${name} ===`)[1]?.split('// ===')[0];
+        assert.ok(section, `Missing application section: ${name}`);
+        assert.doesNotMatch(section, /\.sort\(|function matches\(|const filter =|data-faq-/, name);
     }
     assert.equal(JSON.parse(read('src/html/json/reviews.json')).length, 3);
 });

@@ -63,34 +63,18 @@ try {
             const slider = container.querySelector('.swiper').swiper;
             check(slider.slides.length >= Number(slider.params.slidesPerView) + 2, `${width}: подборка имеет запас слайдов`);
         }
-        const inner = doc.querySelector('[data-product-gallery] .swiper');
-        const outer = inner.closest('.products-showcase__slider').querySelector('.swiper').swiper;
-        const target = inner.querySelector('.product-tile__area');
-        const pointer = (type, x) => target.dispatchEvent(new frame.contentWindow.PointerEvent(type, {
-            bubbles: true, cancelable: true, pointerId: 7, pointerType: 'touch', isPrimary: true,
-            clientX: x, clientY: 100, buttons: type === 'pointerup' ? 0 : 1
-        }));
-        pointer('pointerdown', 300);
-        pointer('pointermove', 280);
-        pointer('pointermove', 170);
-        pointer('pointermove', 30);
-        pointer('pointerup', 30);
-        await wait(250);
-        check(inner.swiper.activeIndex > 0 && outer.activeIndex === 0, `${width}: touch-свайп вложенной галереи не переключает подборку (${inner.swiper.activeIndex}/${outer.activeIndex})`);
+        const tile = doc.querySelector('.product-tile');
+        check(tile.querySelectorAll('.product-tile__picture').length === 3 && tile.querySelector('.product-tile__slider').swiper, `${width}: карточка товара содержит слайдер`);
+        const saleTile = doc.querySelector('.products-showcase--sale .product-tile');
+        check(saleTile.querySelectorAll('.product-tile__picture').length === 1 && !saleTile.querySelector('[data-product-gallery]'), `${width}: в блоке «Успейте купить» изображение статично`);
+        const outerContainer = doc.querySelector('.products-showcase__slider');
+        const outer = outerContainer.querySelector('.swiper').swiper;
+        outerContainer.querySelector('.swiper-button-next').click();
+        await wait(340);
+        check(outer.activeIndex > 0, `${width}: внешний слайдер со статическими карточками работает`);
         doc = await load('catalog', width);
-        const gallery = doc.querySelector('[data-product-gallery]');
-        const slider = gallery.querySelector('.swiper').swiper;
-        check(slider.slides.length === 3 && gallery.querySelectorAll('.product-tile__area').length === 3, `${width}: галерея карточки и зоны инициализированы`);
-        gallery.querySelectorAll('.swiper-pagination-bullet')[2].click();
-        await wait(240);
-        check(slider.activeIndex === 2, `${width}: клик по пагинации переключает фотографию`);
-        const area = gallery.querySelectorAll('.product-tile__area')[1];
-        area.dispatchEvent(new frame.contentWindow.PointerEvent('pointerenter', { pointerType: 'mouse' }));
-        await wait(240);
-        check(slider.activeIndex === 1, `${width}: наведение переключает фотографию`);
-        gallery.dispatchEvent(new frame.contentWindow.PointerEvent('pointerleave', { pointerType: 'mouse' }));
-        await wait(240);
-        check(slider.activeIndex === 0, `${width}: уход мыши возвращает первую фотографию`);
+        const catalogTile = doc.querySelector('.product-tile');
+        check(catalogTile.querySelectorAll('.product-tile__picture').length === 3 && catalogTile.querySelector('.product-tile__slider').swiper, `${width}: карточка каталога содержит слайдер`);
         const listing = doc.querySelector('.product-listing__products').innerHTML;
         doc.querySelector('.product-listing__more').click();
         doc.querySelectorAll('.product-listing__page')[2].click();
@@ -170,7 +154,7 @@ try {
         doc = await load('checkout', width);
         check(Boolean(doc.querySelector('.checkout')), `${width}: checkout открывается`);
         doc = await load('search', width);
-        check(doc.querySelectorAll('[data-product-gallery]').length > 0, `${width}: поиск содержит галереи карточек`);
+        check([...doc.querySelectorAll('.product-listing__products .product-tile')].every(card => card.querySelector('.product-tile__picture')), `${width}: карточки поиска содержат изображения из шаблонов`);
     }
     document.title = `PASS: ${passed} проверок интерфейса`;
 } catch (error) {

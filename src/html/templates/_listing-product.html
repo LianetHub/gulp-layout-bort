@@ -1,3 +1,3 @@
 <div class="product-listing__item">
-    @@include('_product-tile.html', {"name":"@@name", "guarantee":true, "image":"@@image", "sku":"@@sku", "price":"@@price", "oldPrice":"@@oldPrice", "listing":true})
+    @@for(var photos = typeof images === 'undefined' ? [] : images, once = 0; once < 1; once++){ @@include('_product-tile.html', {"name":"@@name", "guarantee" :true, "image" :"@@image", "sku" :"@@sku", "price" :"@@price", "oldPrice" :"@@oldPrice", "listing" :true, "images" : ${JSON.stringify(photos)}}) }
 </div>

@@ -41,7 +41,11 @@
 	}
 	// .order-details__back-icon
 	&__back-icon {
-		transform: rotate(180deg);
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
 	}
 	// .order-details__number
 	&__number {
@@ -212,5 +216,15 @@
 		height: 1px;
 		overflow: hidden;
 		clip-path: inset(50%);
+	}
+	// .order-details__copy-icon
+	&__copy-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
+		font-size: rem(20);
+		width: rem(20);
+		height: rem(20);
 	}
 }

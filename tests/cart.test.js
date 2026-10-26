@@ -1,6 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { calculateCart } from '../src/js/modules/cart.js';
+import { loadApp } from './helpers/app.js';
+const { calculateCart } = loadApp(['calculateCart']);
 
 test('cart totals use quantities and selected accessories', () => {
     assert.deepEqual(calculateCart([

@@ -45,6 +45,10 @@
 	}
 	// .favorite-dialog__icon
 	&__icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: rem(20);
 		flex-shrink: 0;
 	}
 	// .favorite-dialog__actions

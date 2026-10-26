@@ -23,6 +23,10 @@
 	}
 	// .cart__back-icon
 	&__back-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		flex-shrink: 0;
 		font-size: rem(12);
 	}
 	// .cart__heading
@@ -57,6 +61,10 @@
 	}
 	// .cart__share-icon
 	&__share-icon {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		font-size: rem(20);
 		flex-shrink: 0;
 		width: rem(20);
 		height: rem(20);
