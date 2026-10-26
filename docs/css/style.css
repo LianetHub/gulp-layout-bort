@@ -8109,7 +8109,7 @@ body:has(.arrow-top.visible) .notify-container {
 }
 @media (min-width: 767.98px) {
   .sitemap__block > .sitemap__list {
-    grid-template-rows: repeat(8, auto);
+    grid-template-rows: repeat(15, auto);
     grid-auto-flow: column;
     grid-template-columns: repeat(2, 1fr);
     gap: 0.625rem 1.25rem;
@@ -8125,6 +8125,14 @@ body:has(.arrow-top.visible) .notify-container {
 @media (min-width: 767.98px) {
   .sitemap__block > .sitemap__list .sitemap__link {
     padding-block: 0.6875rem;
+  }
+}
+.sitemap__block > .sitemap__list > .sitemap__item {
+  order: 17;
+}
+@media (min-width: 1199.98px) {
+  .sitemap__block > .sitemap__list > .sitemap__item {
+    order: 0;
   }
 }
 .sitemap__block > .sitemap__list > .sitemap__item:nth-child(1) {

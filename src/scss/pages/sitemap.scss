@@ -58,7 +58,8 @@
 	// .sitemap__block > .sitemap__list
 	&__block > &__list {
 		@media (min-width: $md4) {
-			grid-template-rows: repeat(8, auto);
+			// Keep all 30 page links in two columns.
+			grid-template-rows: repeat(15, auto);
 			grid-auto-flow: column;
 			grid-template-columns: repeat(2, 1fr);
 			gap: rem(10) rem(20);
@@ -73,6 +74,14 @@
 		.sitemap__link {
 			@media (min-width: $md4) {
 				padding-block: rem(11);
+			}
+		}
+
+		// .sitemap__block > .sitemap__list > .sitemap__item
+		> .sitemap__item {
+			order: 17;
+			@media (min-width: $md2) {
+				order: 0;
 			}
 		}
 
