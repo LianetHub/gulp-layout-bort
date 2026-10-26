@@ -7,6 +7,8 @@
         "wrap_attributes": "auto",
         "extra_liners": [],
         "unformatted": [],
+        "inline": [],
+        "inline_custom_elements": false,
         "content_unformatted": ["pre", "textarea"],
         "preserve_newlines": true,
         "max_preserve_newlines": 1,

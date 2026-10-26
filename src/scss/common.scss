@@ -111,6 +111,11 @@ body {
 // .page
 .page {
 	flex: 1 1 auto;
+	// .page:has(> .subscribe)
+	&:has(> .subscribe) {
+		display: flex;
+		flex-direction: column;
+	}
 	overflow-x: hidden;
 	@media (min-width: $md4) {
 		overflow-x: clip;

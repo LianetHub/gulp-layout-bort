@@ -12,6 +12,12 @@ try {
     const doc = frame.contentDocument;
     const root = doc.querySelector('#sign-in');
     const find = selector => root.querySelector(selector);
+    let submitted = 0;
+    doc.addEventListener('submit', event => {
+        if (!root.contains(event.target)) return;
+        if (!event.defaultPrevented) submitted++;
+        event.preventDefault();
+    });
     const fill = (selector, value) => {
         const input = find(selector);
         input.value = value;
@@ -29,7 +35,7 @@ try {
         find('[data-auth-go="recovery"]').click();
         assert(find('#auth-recovery-email').value === 'test@example.ru', `${width}: recovery retains email`);
         find('[data-auth-form="recovery"]').requestSubmit();
-        assert(find('.auth-dialog__status').textContent.includes('после подключения'), `${width}: recovery does not fake email delivery`);
+        assert(!find('.auth-dialog__status') && submitted > 0, `${width}: recovery delegates to the engine without a status`);
         find('[data-fancybox-close]').click();
         await pause();
         assert(doc.activeElement.matches('[data-auth-open]'), `${width}: close restores focus`);
@@ -38,10 +44,10 @@ try {
         find('[data-auth-tab="phone"]').click();
         fill('#auth-phone', '+7 (999) 123-45-67');
         find('[data-auth-form="phone"] [data-auth-send]').click();
-        assert(find('[data-auth-form="phone"] [data-auth-send]').disabled, `${width}: code cooldown starts`);
+        assert(!find('[data-auth-form="phone"] [data-auth-send]').disabled, `${width}: no simulated code cooldown`);
         fill('#auth-code', '2459');
         find('[data-auth-form="phone"]').requestSubmit();
-        assert(find('.auth-dialog__status').textContent.includes('сервиса авторизации'), `${width}: phone login reaches API placeholder`);
+        assert(!find('.auth-dialog__status'), `${width}: phone login has no API placeholder`);
         fill('#auth-phone', '+7 (999) 123-45-68');
         assert(find('#auth-code').value === '', `${width}: changed phone clears old code`);
         find('[data-auth-tab="email"]').click();
@@ -59,7 +65,7 @@ try {
         assert(find('[name="agreement"]').getAttribute('aria-invalid') === 'true', `${width}: consent required`);
         find('[name="agreement"]').checked = true;
         find('[data-auth-form="register"]').requestSubmit();
-        assert(find('.auth-dialog__status').textContent.includes('Завершение регистрации'), `${width}: completed registration reaches API placeholder`);
+        assert(!find('.auth-dialog__status'), `${width}: registration has no API placeholder`);
         assert(root.scrollWidth <= root.clientWidth, `${width}: registration has no horizontal overflow`);
         fill('#auth-register-phone', '+7 (999) 123-45-68');
         assert(find('.auth-dialog__field--code').hidden, `${width}: changed registration phone resets request`);

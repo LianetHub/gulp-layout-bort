@@ -301,6 +301,11 @@
 
 // .checkbox
 .checkbox {
+	// .checkbox + .form__error-message
+	& + .form__error-message {
+		padding-left: rem(30);
+	}
+
 	// .checkbox--consent
 	&--consent {
 		// .checkbox--consent .checkbox__btn

@@ -228,6 +228,32 @@
 			outline-offset: 2px;
 		}
 	}
+	// .custom-select--sort
+	&--sort {
+		width: auto;
+		max-width: 100%;
+		// .custom-select--sort .custom-select__trigger
+		.custom-select__trigger {
+			min-height: rem(24);
+			padding: rem(2) 0 rem(2) rem(29);
+			border: 0;
+			border-radius: 0;
+			background: transparent;
+			color: #404246;
+			font-size: rem(14);
+			font-weight: 500;
+			line-height: math.div(20, 14);
+		}
+		// .custom-select--sort .custom-select__value.is-selected
+		.custom-select__value.is-selected {
+			color: inherit;
+		}
+		// .custom-select--sort.is-open .custom-select__trigger
+		&.is-open .custom-select__trigger {
+			color: #404246;
+			box-shadow: none;
+		}
+	}
 	// .custom-select--chip
 	&--chip {
 		width: auto;

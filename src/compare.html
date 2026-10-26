@@ -8,8 +8,12 @@
                 <nav aria-label="Хлебные крошки" class="breadcrumbs breadcrumbs--compact">
                     <div class="breadcrumbs__container container">
                         <ul class="breadcrumbs__list">
-                            <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
-                            <li class="breadcrumbs__item"><span class="breadcrumbs__link active" aria-current="page">Сравнение</span></li>
+                            <li class="breadcrumbs__item">
+                                <a href="index.html" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active" aria-current="page">Сравнение</span>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -17,25 +21,44 @@
                     <div class="comparing__container container">
                         <div class="comparing__heading">
                             <h1 class="comparing__title title title-lg" id="comparing-title">Сравнение товаров</h1>
-                            <button type="button" class="comparing__clear" data-compare-clear="all"><span class="comparing__icon icon-trash" aria-hidden="true"></span>Очистить сравнение</button>
+                            <button type="button" class="comparing__clear" data-compare-clear="all">
+                                <span class="comparing__icon icon-trash" aria-hidden="true"></span>Очистить сравнение
+                            </button>
                         </div>
                         <div class="comparing__categories" role="group" aria-label="Категории сравнения">
-                            <button type="button" class="comparing__category is-active" data-compare-category="disposers" aria-pressed="true">Измельчители отходов <span class="comparing__count">6</span></button>
-                            <button type="button" class="comparing__category" data-compare-category="steamers" aria-pressed="false">Отпариватели <span class="comparing__count">5</span></button>
-                            <button type="button" class="comparing__category" data-compare-category="hammers" aria-pressed="false">Перфораторы <span class="comparing__count">2</span></button>
-                            <button type="button" class="comparing__category" data-compare-category="jigsaws" aria-pressed="false">Лобзики <span class="comparing__count">4</span></button>
-                            <button type="button" class="comparing__category" data-compare-category="saws" aria-pressed="false">Пилы цепные <span class="comparing__count">2</span></button>
-                            <button type="button" class="comparing__category" data-compare-category="pruners" aria-pressed="false">Секаторы и сучкорезы <span class="comparing__count">6</span></button>
+                            <button type="button" class="comparing__category is-active" data-compare-category="disposers" aria-pressed="true">Измельчители отходов <span class="comparing__count">6</span>
+                            </button>
+                            <button type="button" class="comparing__category" data-compare-category="steamers" aria-pressed="false">Отпариватели <span class="comparing__count">5</span>
+                            </button>
+                            <button type="button" class="comparing__category" data-compare-category="hammers" aria-pressed="false">Перфораторы <span class="comparing__count">2</span>
+                            </button>
+                            <button type="button" class="comparing__category" data-compare-category="jigsaws" aria-pressed="false">Лобзики <span class="comparing__count">4</span>
+                            </button>
+                            <button type="button" class="comparing__category" data-compare-category="saws" aria-pressed="false">Пилы цепные <span class="comparing__count">2</span>
+                            </button>
+                            <button type="button" class="comparing__category" data-compare-category="pruners" aria-pressed="false">Секаторы и сучкорезы <span class="comparing__count">6</span>
+                            </button>
                         </div>
                         <div class="comparing__body">
                             <div class="comparing__anchor">
                                 <div class="comparing__panel">
                                     <div class="comparing__panel-container container">
                                         <div class="comparing__filters">
-                                            <label class="comparing__filter"><input class="comparing__radio" type="radio" name="compare-filter" value="all" checked><span class="comparing__filter-text">Все характеристики</span></label>
-                                            <label class="comparing__filter"><input class="comparing__radio" type="radio" name="compare-filter" value="similar"><span class="comparing__filter-text">Только похожие</span></label>
-                                            <label class="comparing__filter"><input class="comparing__radio" type="radio" name="compare-filter" value="different"><span class="comparing__filter-text">Только различия</span></label>
-                                            <button type="button" class="comparing__clear comparing__clear--category" data-compare-clear="category"><span class="comparing__icon icon-trash" aria-hidden="true"></span>Очистить категорию</button>
+                                            <label class="comparing__filter">
+                                                <input class="comparing__radio" type="radio" name="compare-filter" value="all" checked>
+                                                <span class="comparing__filter-text">Все характеристики</span>
+                                            </label>
+                                            <label class="comparing__filter">
+                                                <input class="comparing__radio" type="radio" name="compare-filter" value="similar">
+                                                <span class="comparing__filter-text">Только похожие</span>
+                                            </label>
+                                            <label class="comparing__filter">
+                                                <input class="comparing__radio" type="radio" name="compare-filter" value="different">
+                                                <span class="comparing__filter-text">Только различия</span>
+                                            </label>
+                                            <button type="button" class="comparing__clear comparing__clear--category" data-compare-clear="category">
+                                                <span class="comparing__icon icon-trash" aria-hidden="true"></span>Очистить категорию
+                                            </button>
                                         </div>
                                         <div class="comparing__desktop">
                                             @@include('html/includes/_comparing-column.html', {"column": "desktop"})
@@ -48,8 +71,13 @@
                                 </div>
                             </div>
                             <div class="comparing__mobile-filters">
-                                <label class="comparing__filter"><input class="comparing__radio" type="checkbox" data-mobile-differences><span class="comparing__filter-text">Только различия</span></label>
-                                <button type="button" class="comparing__clear comparing__clear--category" data-compare-clear="category"><span class="comparing__icon icon-trash" aria-hidden="true"></span>Очистить категорию</button>
+                                <label class="comparing__filter">
+                                    <input class="comparing__radio" type="checkbox" data-mobile-differences>
+                                    <span class="comparing__filter-text">Только различия</span>
+                                </label>
+                                <button type="button" class="comparing__clear comparing__clear--category" data-compare-clear="category">
+                                    <span class="comparing__icon icon-trash" aria-hidden="true"></span>Очистить категорию
+                                </button>
                             </div>
                             <div class="comparing__desc">
                                 <div class="comparing__important">
@@ -63,7 +91,8 @@
                                 </div>
                             </div>
                         </div>
-                        <p class="comparing__empty" hidden>В этой категории пока нет товаров для сравнения. <a href="catalog.html" class="comparing__catalog">Перейти в каталог</a></p>
+                        <p class="comparing__empty" hidden>В этой категории пока нет товаров для сравнения. <a href="catalog.html" class="comparing__catalog">Перейти в каталог</a>
+                        </p>
                         <p class="comparing__status" role="status" aria-live="polite"></p>
                     </div>
                 </section>

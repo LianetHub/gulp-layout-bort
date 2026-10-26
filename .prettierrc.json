@@ -8,6 +8,8 @@
     "arrowParens": "always",
     "trailingComma": "all",
     "endOfLine": "lf",
+    "plugins": ["./scripts/prettier-plugin.js"],
+    "objectWrap": "preserve",
     "overrides": [
         {
             "files": "**/*.scss",

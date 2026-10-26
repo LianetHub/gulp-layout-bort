@@ -36,6 +36,8 @@
 	&__help {
 		min-width: 0;
 		@media (min-width: $md2) {
+			position: sticky;
+			top: calc(#{$header} + 1rem);
 			grid-column: 2;
 			grid-row: 1;
 		}

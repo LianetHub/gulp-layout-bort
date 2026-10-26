@@ -5,8 +5,8 @@
   "main": "gulpfile.js",
   "type": "module",
   "scripts": {
-    "format": "prettier --write \"src/js/app.js\" \"scripts/html-format.js\" \"src/scss/**/*.scss\" && node scripts/html-format.js --write",
-    "format:check": "prettier --check \"src/js/app.js\" \"scripts/html-format.js\" \"src/scss/**/*.scss\" && node scripts/html-format.js --check",
+    "format": "prettier --write \"src/js/app.js\" \"scripts/html-format.js\" \"scripts/prettier-plugin.js\" \"src/scss/**/*.scss\" && node scripts/html-format.js --write",
+    "format:check": "prettier --check \"src/js/app.js\" \"scripts/html-format.js\" \"scripts/prettier-plugin.js\" \"src/scss/**/*.scss\" && node scripts/html-format.js --check",
     "test": "node --test tests/*.test.js",
     "dev": "gulp",
     "build": "gulp build --build",
@@ -14,7 +14,7 @@
     "deploy": "npm run build && git add . && git commit -m \"commit\" && git push",
     "ftp": "npm run build && node .vscode/ftp-deploy-config.js",
     "validate:html": "node scripts/validate-html.js",
-    "test:browser": "playwright test tests/browser/refactor.spec.js tests/browser/regressions.spec.js tests/browser/html-content.spec.js tests/browser/markup-refactor.spec.js tests/browser/unified-forms.spec.js tests/browser/checkout-controls.spec.js"
+    "test:browser": "playwright test tests/browser/refactor.spec.js tests/browser/regressions.spec.js tests/browser/html-content.spec.js tests/browser/markup-refactor.spec.js tests/browser/unified-forms.spec.js tests/browser/checkout-controls.spec.js tests/browser/comparison-polish.spec.js tests/browser/pagination.spec.js tests/browser/validation-only.spec.js"
   },
   "author": "Liana",
   "license": "ISC",

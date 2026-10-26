@@ -28,7 +28,10 @@ test('Ozon requires an explicit selection and submits only active delivery field
     form.elements.street.value = 'Тверская, 1';
     changeDelivery(form, 'ozon');
     let submitted = 0;
-    form.addEventListener('checkout:submit', () => submitted++);
+    form.addEventListener('submit', event => {
+        if (!event.defaultPrevented) submitted++;
+        event.preventDefault();
+    });
     form.requestSubmit();
     assert(!form.querySelector('.checkout__pickup-error').hidden && submitted === 0, 'Missing point must block checkout');
     form.querySelector('.checkout__pickup-button').click();

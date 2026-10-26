@@ -2,7 +2,10 @@
     <label class="form__label" for="@@id">Прикрепить документ</label>
     <label class="form__file" for="@@id">
         <input class="form__file-input hidden" id="@@id" type="file" name="attachments[]" @@if(multiple){multiple} aria-describedby="@@id-list">
-        <span class="form__file-btn"><span class="form__file-icon icon-clip" aria-hidden="true"></span><span class="form__file-text">@@buttonText</span></span>
+        <span class="form__file-btn">
+            <span class="form__file-icon icon-clip" aria-hidden="true"></span>
+            <span class="form__file-text">@@buttonText</span>
+        </span>
     </label>
     <ul class="file-upload__list" id="@@id-list" aria-live="polite" hidden></ul>
 </div>

@@ -8,8 +8,12 @@
                 <nav aria-label="Хлебные крошки" class="breadcrumbs breadcrumbs--compact">
                     <div class="breadcrumbs__container container">
                         <ul class="breadcrumbs__list">
-                            <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
-                            <li class="breadcrumbs__item"><span class="breadcrumbs__link active" aria-current="page">Избранное</span></li>
+                            <li class="breadcrumbs__item">
+                                <a href="index.html" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active" aria-current="page">Избранное</span>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -17,12 +21,15 @@
                     <div class="favorites__container container">
                         <div class="favorites__heading">
                             <h1 class="favorites__title title title-lg" id="favorites-title">Избранные товары</h1>
-                            <button type="button" class="favorites__clear"><span class="favorites__icon icon-trash" aria-hidden="true"></span>Очистить избранное</button>
+                            <button type="button" class="favorites__clear">
+                                <span class="favorites__icon icon-trash" aria-hidden="true"></span>Очистить избранное
+                            </button>
                         </div>
                         <div class="favorites__layout">
                             <nav class="favorites__categories" aria-label="Категории избранных товаров">
                                 <div class="favorites__category">
-                                    <button type="button" class="favorites__filter is-active" aria-pressed="true">Все категории <span class="favorites__count">17</span></button>
+                                    <button type="button" class="favorites__filter is-active" aria-pressed="true">Все категории <span class="favorites__count">17</span>
+                                    </button>
                                 </div>
                                 @@loop('html/templates/_favorite-category.html', 'html/json/favorite-categories.json')
                             </nav>
@@ -34,17 +41,12 @@
                                     <option class="favorites__option" value="name">По названию</option>
                                 </select>
                                 <div class="favorites__products">@@loop('html/templates/_product-card-favorite.html', 'html/json/favorite-products.json')</div>
-                                <p class="favorites__empty" hidden>В избранном пока нет товаров. <a href="catalog.html" class="favorites__catalog">Перейти в каталог</a></p>
-                                <button type="button" class="favorites__more"><span class="favorites__icon icon-loading" aria-hidden="true"></span>Показать еще</button>
-                                <nav class="favorites__pagination" aria-label="Страницы избранных товаров">
-                                    <button type="button" class="favorites__page icon-chevron-left" aria-label="Предыдущая страница" disabled></button>
-                                    <button type="button" class="favorites__page is-active" aria-current="page">1</button>
-                                    <button type="button" class="favorites__page">2</button>
-                                    <button type="button" class="favorites__page">3</button>
-                                    <span class="favorites__ellipsis">…</span>
-                                    <button type="button" class="favorites__page">6</button>
-                                    <button type="button" class="favorites__page icon-chevron-right" aria-label="Следующая страница"></button>
-                                </nav>
+                                <p class="favorites__empty" hidden>В избранном пока нет товаров. <a href="catalog.html" class="favorites__catalog">Перейти в каталог</a>
+                                </p>
+                                <button type="button" class="favorites__more">
+                                    <span class="favorites__icon icon-loading" aria-hidden="true"></span>Показать еще
+                                </button>
+                                @@include('html/includes/_pagination.html', {"className":"favorites__pagination", "label":"Страницы избранных товаров"})
                             </div>
                         </div>
                         <p class="favorites__status" role="status" aria-live="polite"></p>

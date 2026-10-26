@@ -18,16 +18,14 @@
 			gap: rem(20);
 			padding: rem(30);
 		}
-		// .return-steps__item:nth-child(3)
-		&:nth-child(3) {
-			align-items: flex-start;
-		}
+
 		// .return-steps__item::before
 		&::before {
 			content: counter(return-step, decimal-leading-zero);
 			display: flex;
 			align-items: center;
 			justify-content: center;
+			align-self: flex-start;
 			flex-shrink: 0;
 			width: rem(36);
 			height: rem(36);

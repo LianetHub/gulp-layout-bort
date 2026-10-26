@@ -5,7 +5,7 @@ import path from 'node:path';
 import { renderPage } from '../scripts/html-validation.js';
 
 const pages = (await readdir('src')).filter((name) => name.endsWith('.html'));
-const retainedImages = /^(?:logo-(?:white|compact)\.svg|icons\/(?:vk|dzen|rutube|youtube|d2|telegram|max)\.svg|pickup\/(?:ozon|pin)\.svg|placemark\.svg|marketplaces\/(?:ya_market|wb-short|ozon)\.svg|decor\/bg-wave\.svg)$/;
+const retainedImages = /^(?:logo-(?:white|compact)\.svg|icons\/(?:vk|dzen|rutube|youtube|d2|telegram|max)\.svg|marker-pin\.svg|placemark\.svg|marketplaces\/(?:ya_market|wb-short|ozon)\.svg)$/;
 
 test('expanded pages use component layouts, font icons and nonempty image descriptions', async () => {
     const failures = [];

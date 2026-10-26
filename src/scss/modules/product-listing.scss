@@ -240,40 +240,7 @@
 	}
 	// .product-listing__pagination
 	&__pagination {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		gap: rem(8);
 		margin-top: rem(24);
-	}
-	// .product-listing__page
-	// .product-listing__pagination[hidden]
-	&__pagination[hidden] {
-		display: none;
-	}
-	// .product-listing__page
-	&__page {
-		display: grid;
-		place-items: center;
-		width: rem(36);
-		height: rem(36);
-		background: #fff;
-		border-radius: rem(6);
-		font-size: rem(14);
-		// .product-listing__page.is-active
-		&.is-active {
-			color: #ff6900;
-			background: #fff0e6;
-		}
-		// .product-listing__page:disabled
-		&:disabled {
-			opacity: 0.4;
-			cursor: default;
-		}
-	}
-	// .product-listing__ellipsis
-	&__ellipsis {
-		padding: rem(4);
 	}
 	// .product-listing__empty
 	&__empty {

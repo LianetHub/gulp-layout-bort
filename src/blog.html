@@ -28,15 +28,7 @@
                             @@loop('./html/templates/_news-card.html', './html/json/news-blog.json')
                         </ul>
                         <button type="button" class="news__btn load-more icon-loading">Показать еще</button>
-                        <nav class="pagination pagination--subtle" aria-label="Страницы новостей">
-                            <a href="blog.html" class="pagination__prev icon-chevron-left" aria-label="Предыдущая страница" aria-disabled="true" tabindex="-1"></a>
-                            <a href="blog.html" class="pagination__item active" aria-current="page">1</a>
-                            <a href="blog.html?page=2" class="pagination__item">2</a>
-                            <a href="blog.html?page=3" class="pagination__item">3</a>
-                            <span class="pagination__item">...</span>
-                            <a href="blog.html?page=40" class="pagination__item">40</a>
-                            <a href="blog.html?page=2" class="pagination__next icon-chevron-right" aria-label="Следующая страница"></a>
-                        </nav>
+                        @@include('html/includes/_pagination.html', {"label":"Страницы новостей", "url":"blog.html", "lastPage":40})
                     </div>
                 </section>
             </main>

@@ -1,26 +1,26 @@
 [
     {
         "name": "Дрели и шуруповёрты",
-        "image": "@img/categories/drills-and-screwdrivers.png"
+        "image": "@img/goods/drills-and-screwdrivers.png"
     },
     {
         "name": "Пилы",
-        "image": "@img/categories/saws.png"
+        "image": "@img/goods/saws.png"
     },
     {
         "name": "Измельчители отходов",
-        "image": "@img/categories/waste-disposers.png"
+        "image": "@img/goods/waste-disposers.png"
     },
     {
         "name": "Отпариватели",
-        "image": "@img/categories/garment-steamers.png"
+        "image": "@img/goods/garment-steamers.png"
     },
     {
         "name": "Пылесосы",
-        "image": "@img/categories/vacuum-cleaners.png"
+        "image": "@img/goods/vacuum-cleaners.png"
     },
     {
         "name": "Ручной инструмент",
-        "image": "@img/categories/hand-tools.png"
+        "image": "@img/goods/hand-tools.png"
     }
 ]

@@ -1,10 +1,17 @@
 <div class="addresses__card" data-address-card>
     <label class="addresses__choice">
         <input class="addresses__radio" type="radio" name="default-address" value="@@id" data-postcode="108809" data-city="@@city" data-street="@@street" data-entrance="@@entrance" data-floor="@@floor" data-apartment="@@apartment" data-comment="" @@checked>
-        <span class="addresses__text"><span class="addresses__name">@@city, @@street</span><span class="addresses__details">@@details</span></span>
+        <span class="addresses__text">
+            <span class="addresses__name">@@city, @@street</span>
+            <span class="addresses__details">@@details</span>
+        </span>
     </label>
     <div class="addresses__actions">
-        <button class="addresses__edit" type="button" aria-label="Редактировать адрес"><span class="addresses__icon icon-edit" aria-hidden="true"></span></button>
-        <button class="addresses__delete" type="button" aria-label="Удалить адрес"><span class="addresses__icon icon-trash" aria-hidden="true"></span></button>
+        <button class="addresses__edit" type="button" aria-label="Редактировать адрес">
+            <span class="addresses__icon icon-edit" aria-hidden="true"></span>
+        </button>
+        <button class="addresses__delete" type="button" aria-label="Удалить адрес">
+            <span class="addresses__icon icon-trash" aria-hidden="true"></span>
+        </button>
     </div>
 </div>

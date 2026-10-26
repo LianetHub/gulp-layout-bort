@@ -9,10 +9,11 @@
 	&__select {
 		width: 100%;
 		min-height: rem(24);
-		padding: rem(2) 0 rem(2) rem(30);
+		padding: rem(2) 0 rem(2) rem(29);
 		background: transparent;
-		color: #2b2b2b;
+		color: #404246;
 		font-size: rem(14);
+		font-weight: 500;
 		line-height: math.div(20, 14);
 		appearance: none;
 		cursor: pointer;
@@ -26,10 +27,11 @@
 	&__icon {
 		position: absolute;
 		top: 50%;
-		left: rem(4);
+		left: 0;
+		width: rem(24);
+		height: rem(24);
+		background: url("@img/review-sort.svg") center no-repeat;
 		transform: translateY(-50%);
 		pointer-events: none;
-		color: #a7a8aa;
-		font-size: rem(16);
 	}
 }

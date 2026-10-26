@@ -10,7 +10,7 @@ export const htmlFormatOptions = JSON.parse(
 
 export function formatHtml(source) {
     // A comparison such as `i < photos.length` is JavaScript, not an HTML tag.
-    // Preserve generated loop bodies; their included HTML is formatted separately.
+    // Protect loop headers, then format their HTML bodies separately.
     const loops = [];
     const pattern = /@@for\s*\(/g;
     let match;
@@ -24,7 +24,12 @@ export function formatHtml(source) {
             continue;
         }
         const finish = balancedEnd(source, end, '{', '}');
-        loops.push({ start, end: finish, text: source.slice(start, finish) });
+        loops.push({
+            start,
+            end: finish,
+            bodyStart: end + 1,
+            text: source.slice(start, finish),
+        });
         pattern.lastIndex = finish;
     }
     let protectedSource = source;
@@ -37,7 +42,23 @@ export function formatHtml(source) {
     }
     return beautify
         .html(protectedSource, htmlFormatOptions)
-        .replace(/<!-- gulp-for-(\d+) -->/g, (token, index) => loops[index]?.text ?? token);
+        .replace(/^([ \t]*)<!-- gulp-for-(\d+) -->/gm, (token, indentation, index) => {
+            const loop = loops[index];
+            const body = source.slice(loop.bodyStart, loop.end - 1);
+            if (!/<[a-z][\w:-]*[\s>]/i.test(body)) {
+                return indentation + loop.text;
+            }
+
+            const header = source.slice(loop.start, loop.bodyStart);
+            const nestedIndentation = indentation + ' '.repeat(htmlFormatOptions.indent_size);
+            const formattedBody = formatHtml(body.trim())
+                .trimEnd()
+                .split('\n')
+                .map((line) => (line ? nestedIndentation + line : line))
+                .join('\n');
+
+            return `${indentation}${header}\n${formattedBody}\n${indentation}}`;
+        });
 }
 
 function balancedEnd(source, start, opening, closing) {
@@ -63,7 +84,9 @@ function balancedEnd(source, start, opening, closing) {
 }
 
 async function htmlFiles(directory) {
-    const entries = await readdir(directory, { withFileTypes: true });
+    const entries = await readdir(directory, {
+        withFileTypes: true,
+    });
     const files = [];
     for (const entry of entries) {
         const filename = path.join(directory, entry.name);

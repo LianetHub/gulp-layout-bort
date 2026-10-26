@@ -62,10 +62,6 @@
 			background: #ff6201;
 			font: 700 #{rem(8)}/ 1 $fontfamily;
 		}
-		// .file-upload__format[data-format="PDF"]::after
-		&[data-format="PDF"]::after {
-			display: none;
-		}
 	}
 	// .file-upload__info
 	&__info {

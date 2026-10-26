@@ -2,7 +2,7 @@
     {
         "category": "disposers",
         "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/favorites/titan-5000.png",
+        "image": "@img/goods/titan-5000.png",
         "amount": 23490,
         "guarantee": true,
         "sale": true,
@@ -15,7 +15,7 @@
     {
         "category": "disposers",
         "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/favorites/titan-6000.png",
+        "image": "@img/goods/BHK-20LI.png",
         "amount": 24690,
         "guarantee": true,
         "sale": false,
@@ -28,7 +28,7 @@
     {
         "category": "disposers",
         "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/favorites/titan-4000.png",
+        "image": "@img/goods/BRS-18LI-X.png",
         "amount": 20690,
         "guarantee": false,
         "sale": false,
@@ -41,7 +41,7 @@
     {
         "category": "disposers",
         "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/favorites/titan-5000.png",
+        "image": "@img/goods/titan-5000.png",
         "amount": 23490,
         "guarantee": true,
         "sale": true,
@@ -54,7 +54,7 @@
     {
         "category": "disposers",
         "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/favorites/titan-6000.png",
+        "image": "@img/goods/BHK-20LI.png",
         "amount": 24690,
         "guarantee": true,
         "sale": false,
@@ -67,7 +67,7 @@
     {
         "category": "vacuums",
         "name": "Пылесос промышленный BORT BSS-1330-Pro",
-        "image": "@img/categories/vacuum-cleaners.png",
+        "image": "@img/goods/vacuum-cleaners.png",
         "amount": 23490,
         "guarantee": true,
         "sale": true,
@@ -80,7 +80,7 @@
     {
         "category": "vacuums",
         "name": "Пылесос промышленный BORT BSS-1330-Pro",
-        "image": "@img/categories/vacuum-cleaners.png",
+        "image": "@img/goods/vacuum-cleaners.png",
         "amount": 24690,
         "guarantee": true,
         "sale": false,
@@ -93,7 +93,7 @@
     {
         "category": "vacuums",
         "name": "Пылесос промышленный BORT BSS-1330-Pro",
-        "image": "@img/categories/vacuum-cleaners.png",
+        "image": "@img/goods/vacuum-cleaners.png",
         "amount": 20690,
         "guarantee": false,
         "sale": false,
@@ -106,7 +106,7 @@
     {
         "category": "vacuums",
         "name": "Пылесос промышленный BORT BSS-1330-Pro",
-        "image": "@img/categories/vacuum-cleaners.png",
+        "image": "@img/goods/vacuum-cleaners.png",
         "amount": 23490,
         "guarantee": true,
         "sale": true,
@@ -119,7 +119,7 @@
     {
         "category": "washers",
         "name": "Мойка высокого давления BORT BHR-1900-Pro",
-        "image": "@img/compare/BHR-2000M-Pro.png",
+        "image": "@img/goods/BHR-2000M-Pro.png",
         "amount": 23490,
         "guarantee": true,
         "sale": true,
@@ -132,7 +132,7 @@
     {
         "category": "washers",
         "name": "Мойка высокого давления BORT BHR-1900-Pro",
-        "image": "@img/compare/BHR-2000M-Pro.png",
+        "image": "@img/goods/BHR-2000M-Pro.png",
         "amount": 24690,
         "guarantee": true,
         "sale": false,
@@ -145,7 +145,7 @@
     {
         "category": "washers",
         "name": "Мойка высокого давления BORT BHR-1900-Pro",
-        "image": "@img/compare/BHR-2000M-Pro.png",
+        "image": "@img/goods/BHR-2000M-Pro.png",
         "amount": 20690,
         "guarantee": false,
         "sale": false,
@@ -158,7 +158,7 @@
     {
         "category": "drills",
         "name": "Дрель-шуруповерт аккумуляторная BORT BAB-18Ux2Li-FDK",
-        "image": "@img/categories/drills-and-screwdrivers.png",
+        "image": "@img/goods/drills-and-screwdrivers.png",
         "amount": 23490,
         "guarantee": true,
         "sale": true,
@@ -171,7 +171,7 @@
     {
         "category": "drills",
         "name": "Дрель-шуруповерт аккумуляторная BORT BAB-18Ux2Li-FDK",
-        "image": "@img/categories/drills-and-screwdrivers.png",
+        "image": "@img/goods/drills-and-screwdrivers.png",
         "amount": 24690,
         "guarantee": true,
         "sale": false,
@@ -197,7 +197,7 @@
     {
         "category": "saws",
         "name": "Пила цепная аккумуляторная BORT BKS-2112-LI",
-        "image": "@img/goods/BKS-2112-LI.png",
+        "image": "@img/goods/BHK-20LI.png",
         "amount": 23490,
         "guarantee": true,
         "sale": true,
@@ -210,7 +210,7 @@
     {
         "category": "auto",
         "name": "Компрессор автомобильный BORT BLK-251N",
-        "image": "@img/categories/hand-tools.png",
+        "image": "@img/goods/hand-tools.png",
         "amount": 23490,
         "guarantee": true,
         "sale": true,

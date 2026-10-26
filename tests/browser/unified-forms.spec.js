@@ -37,8 +37,13 @@ test('subscription uses inline errors, clears them on correction and reset', asy
     await input.fill('reader@example.ru');
     await expect(input).toHaveAttribute('aria-invalid', 'false');
     await expect(error).toBeHidden();
+    await form.evaluate(element => {
+        document.addEventListener('submit', event => {
+            if (event.target === element) event.preventDefault();
+        });
+    });
     await form.locator('[type="submit"]').click();
-    await expect(form.locator('.subscribe__status')).not.toBeEmpty();
+    await expect(form.locator('.subscribe__status')).toHaveCount(0);
     await form.evaluate(element => element.reset());
     await expect(error).toHaveText(original);
     await expect(error).toBeHidden();
@@ -68,7 +73,7 @@ test('cart buttons use their authored state label', async ({ page }) => {
     await expect(button).toHaveText('Added locally');
 });
 
-test('auth errors preserve authored text and code timer uses the button template', async ({ page }) => {
+test('auth validates the phone without simulating SMS delivery or a cooldown', async ({ page }) => {
     await page.goto('/docs/index.html');
     await page.locator('[data-auth-open]:visible').first().click();
     await page.locator('[data-auth-tab="phone"]').click();
@@ -78,10 +83,10 @@ test('auth errors preserve authored text and code timer uses the button template
     await expect(form.locator('.auth-dialog__error').first()).toBeVisible();
     await form.locator('#auth-phone').fill('+7 (999) 123-45-67');
     const send = form.locator('[data-auth-send]');
-    await send.evaluate(element => { element.dataset.codeCountdownLabel = 'Wait {seconds}'; });
     await send.click();
-    await expect(send).toHaveText(/^Wait \d+$/);
-    await expect(send).toBeDisabled();
+    await expect(send).toHaveText('Получить код');
+    await expect(send).toBeEnabled();
+    await expect(page.locator('.auth-dialog__status')).toHaveCount(0);
     await expect(form.locator('.auth-dialog__error').first()).toHaveText('Введите корректный номер телефона');
     await expect(form.locator('.auth-dialog__error').first()).toBeHidden();
 });

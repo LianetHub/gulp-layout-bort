@@ -1,7 +1,10 @@
 <article class="contractor-card">
     <h4 class="contractor-card__name title title-sm title--sans">@@name</h4>
     <div class="contractor-card__contacts">
-        <p class="contractor-card__row"><span class="contractor-card__label">Email:</span><a class="contractor-card__link" href="mailto:@@email">@@email</a></p>
+        <p class="contractor-card__row">
+            <span class="contractor-card__label">Email:</span>
+            <a class="contractor-card__link" href="mailto:@@email">@@email</a>
+        </p>
         <div class="contractor-card__contact">
             <p class="contractor-card__label">Телефон:</p>
             <div class="contractor-card__values">
@@ -10,7 +13,8 @@
             </div>
         </div>
         @@if (telegram) {<div class="contractor-card__contact">
-            <p class="contractor-card__label">Telegram:</p><a class="contractor-card__link" href="@@telegram" target="_blank" rel="noopener noreferrer">@@telegramText</a>
+            <p class="contractor-card__label">Telegram:</p>
+            <a class="contractor-card__link" href="@@telegram" target="_blank" rel="noopener noreferrer">@@telegramText</a>
         </div>}
     </div>
     <div class="contractor-card__details">

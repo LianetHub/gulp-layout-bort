@@ -35,7 +35,7 @@ test('pickup data and validation copy are read from edited HTML', async ({ page 
     await expect(page.locator('#contacts-phone-error')).toHaveText('Ошибка телефона из HTML');
 });
 
-test('order number and action notices come from the page HTML', async ({ page }) => {
+test('order number comes from HTML and order actions have no demo notices', async ({ page }) => {
     await page.goto('/docs/lk-order.html');
     await page.evaluate(() => {
         document.querySelector('[data-order-number]').textContent = 'HTML-ORDER-42';
@@ -52,12 +52,9 @@ test('order number and action notices come from the page HTML', async ({ page })
     await page.locator('[data-copy-order]').click();
     expect(await page.evaluate(() => window.copiedOrder)).toBe('HTML-ORDER-42');
     await expect(page.locator('[data-order-state="copied"]')).toBeVisible();
-    await page.locator('[data-order-action="cancel"]').click();
-    await expect(page.locator('[data-order-state="cancel"]')).toBeVisible();
-    await expect(page.locator('[data-order-state="pay"]')).toBeHidden();
-    await page.locator('[data-order-action="pay"]').click();
-    await expect(page.locator('[data-order-state="pay"]')).toBeVisible();
-    await expect(page.locator('[data-order-state="cancel"]')).toBeHidden();
+    await page.getByRole('button', { name: 'Отменить заказ', exact: true }).click();
+    await page.getByRole('button', { name: 'Оплатить онлайн', exact: true }).click();
+    await expect(page.locator('.order-details__notice')).toHaveCount(0);
 });
 
 for (const width of [375, 1440]) {

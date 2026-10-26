@@ -199,7 +199,8 @@
 	}
 	// .listing-filter__choices
 	&__choices {
-		display: grid;
+		display: flex;
+		flex-direction: column;
 		gap: rem(6);
 		margin-top: rem(12);
 	}
@@ -220,7 +221,13 @@
 	}
 	// .listing-filter__extra
 	&__extra {
-		margin-top: rem(8);
+		display: flex;
+		flex-direction: column;
+		gap: rem(6);
+		// .listing-filter__extra[hidden]
+		&[hidden] {
+			display: none;
+		}
 	}
 	// .listing-filter__advanced
 	&__advanced {

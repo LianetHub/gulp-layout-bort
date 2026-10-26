@@ -194,6 +194,10 @@
 		align-items: flex-start;
 		gap: rem(10);
 		cursor: pointer;
+		// .auth-dialog__check + .form__error-message
+		& + .form__error-message {
+			padding-left: rem(30);
+		}
 	}
 	// .auth-dialog__checkbox
 	&__checkbox {

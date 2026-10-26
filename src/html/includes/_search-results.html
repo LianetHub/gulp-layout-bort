@@ -1,7 +1,8 @@
 <section class="product-listing product-listing--search">
     <div class="product-listing__container container">
         <div class="product-listing__heading">
-            <h1 class="product-listing__title title title-sm title--sans title--medium">По запросу <span class="product-listing__query">измельчитель</span> найдено <span class="product-listing__count">18 товаров</span></h1>
+            <h1 class="product-listing__title title title-sm title--sans title--medium">По запросу <span class="product-listing__query">измельчитель</span> найдено <span class="product-listing__count">18 товаров</span>
+            </h1>
         </div>
         <div class="product-listing__layout">
             @@include('_listing-filter.html', {"search":true})
@@ -38,15 +39,7 @@
                 </div>
                 <p class="product-listing__empty" hidden>По выбранным параметрам товары не найдены. Попробуйте изменить фильтры.</p>
                 <button type="button" class="product-listing__more icon-loading">Показать еще</button>
-                <nav class="product-listing__pagination" aria-label="Страницы каталога">
-                    <button type="button" class="product-listing__page icon-chevron-left" aria-label="Предыдущая страница" disabled></button>
-                    <button type="button" class="product-listing__page is-active" aria-current="page">1</button>
-                    <button type="button" class="product-listing__page">2</button>
-                    <button type="button" class="product-listing__page">3</button>
-                    <span class="product-listing__ellipsis">…</span>
-                    <button type="button" class="product-listing__page">4</button>
-                    <button type="button" class="product-listing__page icon-chevron-right" aria-label="Следующая страница"></button>
-                </nav>
+                @@include('_pagination.html', {"className":"product-listing__pagination", "label":"Страницы результатов поиска", "lastPage":4})
             </div>
         </div>
     </div>

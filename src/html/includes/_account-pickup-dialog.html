@@ -1,8 +1,13 @@
-<div role="dialog" class="pickup-dialog" id="account-pickup-dialog" aria-labelledby="account-pickup-title" data-map-marker="img/pickup/pin.svg">
-    <button class="pickup-dialog__close" type="button" data-fancybox-close aria-label="Закрыть"><span class="pickup-dialog__close-icon icon-close" aria-hidden="true"></span></button>
+<div role="dialog" class="pickup-dialog" id="account-pickup-dialog" aria-labelledby="account-pickup-title" data-map-marker="img/marker-pin.svg">
+    <button class="pickup-dialog__close" type="button" data-fancybox-close aria-label="Закрыть">
+        <span class="pickup-dialog__close-icon icon-close" aria-hidden="true"></span>
+    </button>
     <div class="pickup-dialog__view" data-account-pickup-view="list">
         <h2 class="pickup-dialog__title title title-md" id="account-pickup-title">Выберите пункт выдачи Ozon</h2>
-        <label class="pickup-dialog__search"><span class="pickup-dialog__search-icon icon-search" aria-hidden="true"></span><input class="pickup-dialog__input" type="search" placeholder="Введите адрес или название ПВЗ" aria-label="Введите адрес или название ПВЗ"></label>
+        <label class="pickup-dialog__search">
+            <span class="pickup-dialog__search-icon icon-search" aria-hidden="true"></span>
+            <input class="pickup-dialog__input" type="search" placeholder="Введите адрес или название ПВЗ" aria-label="Введите адрес или название ПВЗ">
+        </label>
         <div class="pickup-dialog__body">
             <div class="pickup-dialog__list-column">
                 <p class="pickup-dialog__caption">Ближайшие пункты выдачи</p>
@@ -14,14 +19,24 @@
     </div>
     <div class="pickup-dialog__view" data-account-pickup-view="detail" hidden>
         <div class="pickup-dialog__body pickup-dialog__body--detail">
-            <div class="pickup-dialog__detail-column"><button class="pickup-dialog__back icon-chevron-left" type="button" aria-label="Назад">Назад</button>
+            <div class="pickup-dialog__detail-column">
+                <button class="pickup-dialog__back icon-chevron-left" type="button" aria-label="Назад">Назад</button>
                 <div class="pickup-dialog__detail">
                     <h2 class="pickup-dialog__detail-title title title-md title--sans" id="account-pickup-detail-title">Пункт Ozon №427-110</h2>
                     <span class="pickup-dialog__badge">Доставка завтра</span>
                     <div class="pickup-dialog__info">
-                        <p class="pickup-dialog__row"><span class="pickup-dialog__info-icon icon-location" aria-hidden="true"></span><span class="pickup-dialog__address"></span></p>
-                        <p class="pickup-dialog__row"><span class="pickup-dialog__info-icon icon-information-circle" aria-hidden="true"></span><span class="pickup-dialog__hours"></span></p>
-                        <p class="pickup-dialog__row"><span class="pickup-dialog__info-icon icon-information-circle" aria-hidden="true"></span><span class="pickup-dialog__services">Примерка обуви/одежды, Оплата картой, Быстрый возврат</span></p>
+                        <p class="pickup-dialog__row">
+                            <span class="pickup-dialog__info-icon icon-location" aria-hidden="true"></span>
+                            <span class="pickup-dialog__address"></span>
+                        </p>
+                        <p class="pickup-dialog__row">
+                            <span class="pickup-dialog__info-icon icon-information-circle" aria-hidden="true"></span>
+                            <span class="pickup-dialog__hours"></span>
+                        </p>
+                        <p class="pickup-dialog__row">
+                            <span class="pickup-dialog__info-icon icon-information-circle" aria-hidden="true"></span>
+                            <span class="pickup-dialog__services">Примерка обуви/одежды, Оплата картой, Быстрый возврат</span>
+                        </p>
                     </div>
                     <button class="pickup-dialog__choose btn btn-primary" type="button">Выбрать пункт выдачи</button>
                 </div>

@@ -35,15 +35,7 @@
                 </div>
                 <p class="product-listing__empty" hidden>По выбранным параметрам товары не найдены. Попробуйте изменить фильтры.</p>
                 <button type="button" class="product-listing__more icon-loading">Показать еще</button>
-                <nav class="product-listing__pagination" aria-label="Страницы каталога">
-                    <button type="button" class="product-listing__page icon-chevron-left" aria-label="Предыдущая страница" disabled></button>
-                    <button type="button" class="product-listing__page is-active" aria-current="page">1</button>
-                    <button type="button" class="product-listing__page">2</button>
-                    <button type="button" class="product-listing__page">3</button>
-                    <span class="product-listing__ellipsis">…</span>
-                    <button type="button" class="product-listing__page">4</button>
-                    <button type="button" class="product-listing__page icon-chevron-right" aria-label="Следующая страница"></button>
-                </nav>
+                @@include('_pagination.html', {"className":"product-listing__pagination", "label":"Страницы каталога", "lastPage":4})
             </div>
         </div>
     </div>

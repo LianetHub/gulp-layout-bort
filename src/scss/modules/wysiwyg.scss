@@ -38,6 +38,13 @@
 	a {
 		color: $orange;
 		text-decoration: underline;
+
+		@media (any-hover: hover) {
+			// .wysiwyg a:hover
+			&:hover {
+				text-decoration: none;
+			}
+		}
 	}
 	// .wysiwyg ul
 	// .wysiwyg ol

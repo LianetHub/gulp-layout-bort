@@ -13,25 +13,24 @@
 		grid-template-columns: repeat(2, minmax(0, 1fr));
 		gap: rem(20);
 		margin-block: rem(10);
-		// .text-content__gallery .text-content__image
-		.text-content__image {
-			margin: 0;
-		}
 	}
-	// .text-content__image
-	&__image {
+	// .text-content > a[data-fancybox]
+	> a[data-fancybox] {
+		margin-block: rem(10);
+	}
+	// .text-content img
+	img {
 		display: block;
 		width: 100%;
 		height: auto;
 		min-width: 0;
-		margin-block: rem(10);
 		border-radius: rem(20);
 	}
-	// .text-content__link
-	&__link {
+	// .text-content a
+	a {
 		color: #ff6201;
 		text-decoration: underline;
-		// .text-content__link:focus-visible
+		// .text-content a:focus-visible
 		&:focus-visible {
 			outline: rem(2) solid $orange;
 			outline-offset: rem(2);

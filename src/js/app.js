@@ -1,153 +1,168 @@
 (function () {
     'use strict';
 
-    // Content is authored in HTML. JavaScript only selects a state and fills runtime values.
-    const uiContent = document.getElementById?.('ui-content')?.content;
-
-    function uiText(key, values = {}) {
-        const text = uiContent?.querySelector('[data-ui-copy="' + key + '"]')?.textContent || '';
-        return formatText(text, values);
-    }
-
-    function formatText(text = '', values = {}) {
-        return text.replace(/\{(\w+)\}/g, (match, name) =>
-            Object.hasOwn(values, name) ? String(values[name]) : match,
-        );
-    }
-
-    function uiFragment(key) {
-        return uiContent.querySelector('[data-ui-fragment="' + key + '"]').content.cloneNode(true);
-    }
-
-    function showMessage(element, key, values = {}) {
-        const template = uiContent?.querySelector('[data-ui-copy="' + key + '"]');
-        if (!template) {
-            return;
+    class TextUtils {
+        static showMessage(element, text) {
+            element.textContent = text;
         }
-        const message = template.cloneNode(true);
-        message.textContent = uiText(key, values);
-        element.replaceChildren(message);
+
+        static digits(value) {
+            return String(value).replace(/\D/g, '');
+        }
+
+        static money(value) {
+            return new Intl.NumberFormat('ru-RU').format(value) + ' ₽';
+        }
+
+        static productWord(count) {
+            return count % 10 === 1 && count % 100 !== 11
+                ? 'товар'
+                : count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 12 || count % 100 > 14)
+                  ? 'товара'
+                  : 'товаров';
+        }
     }
 
     // === delivery-map ===
 
-    let mapsReady;
+    class MapLoader {
+        static mapsReady = undefined;
 
-    function loadMaps() {
-        if (!mapsReady) {
-            mapsReady = new Promise((resolve, reject) => {
-                const ready = () => {
-                    if (typeof ymaps === 'undefined') {
-                        reject(new Error('Map service unavailable'));
+        static loadMaps() {
+            const mapsUrl = 'https://api-maps.yandex.ru/2.1/?lang=ru_RU';
+
+            if (!MapLoader.mapsReady) {
+                MapLoader.mapsReady = new Promise((resolve, reject) => {
+                    const ready = () => {
+                        if (typeof ymaps === 'undefined') {
+                            reject(new Error('Map service unavailable'));
+
+                            return;
+                        }
+                        ymaps.ready(() => resolve(ymaps));
+                    };
+
+                    if (typeof ymaps !== 'undefined') {
+                        ready();
 
                         return;
                     }
-                    ymaps.ready(() => resolve(ymaps));
-                };
-
-                if (typeof ymaps !== 'undefined') {
-                    ready();
-
-                    return;
-                }
-                const existing = document.querySelector('script[src="' + uiText('maps-api') + '"]');
-                const script = existing || document.createElement('script');
-                const timeout = setTimeout(() => {
-                    script.remove();
-                    reject(new Error('Map loading timed out'));
-                }, 15000);
-
-                script.addEventListener(
-                    'load',
-                    () => {
-                        clearTimeout(timeout);
-                        ready();
-                    },
-                    { once: true },
-                );
-                script.addEventListener(
-                    'error',
-                    () => {
-                        clearTimeout(timeout);
+                    const existing = document.querySelector(`script[src="${mapsUrl}"]`);
+                    const script = existing || document.createElement('script');
+                    const timeout = setTimeout(() => {
                         script.remove();
-                        reject(new Error('Map loading failed'));
-                    },
-                    { once: true },
-                );
-                if (!existing) {
-                    script.async = true;
-                    script.src = uiText('maps-api');
-                    document.head.append(script);
-                }
-            }).catch((error) => {
-                mapsReady = null;
-                throw error;
-            });
-        }
+                        reject(new Error('Map loading timed out'));
+                    }, 15000);
 
-        return mapsReady;
+                    script.addEventListener(
+                        'load',
+                        () => {
+                            clearTimeout(timeout);
+                            ready();
+                        },
+                        {
+                            once: true,
+                        },
+                    );
+                    script.addEventListener(
+                        'error',
+                        () => {
+                            clearTimeout(timeout);
+                            script.remove();
+                            reject(new Error('Map loading failed'));
+                        },
+                        {
+                            once: true,
+                        },
+                    );
+                    if (!existing) {
+                        script.async = true;
+                        script.src = mapsUrl;
+                        document.head.append(script);
+                    }
+                }).catch((error) => {
+                    MapLoader.mapsReady = null;
+                    throw error;
+                });
+            }
+
+            return MapLoader.mapsReady;
+        }
     }
 
-    function deliveryMap(form) {
-        const container = form.querySelector('.address-picker__map');
-        const toggle = form.querySelector('.address-picker__map-toggle');
-        const status = form.querySelector('.address-picker__map-status');
-
-        if (!container || !toggle || !status) {
-            return;
+    class DeliveryMap {
+        constructor() {
+            this.reset = this.reset.bind(this);
+            this.toggleMap = this.toggleMap.bind(this);
         }
 
-        let map;
-        let loading = false;
-        let request = 0;
-        const reset = () => {
-            request++;
-            container.hidden = true;
-            toggle.setAttribute('aria-expanded', 'false');
-            status.hidden = true;
-            map?.geoObjects.removeAll();
-        };
+        init(form) {
+            this.form = form;
+            this.container = this.form.querySelector('.address-picker__map');
+            this.toggle = this.form.querySelector('.address-picker__map-toggle');
+            this.status = this.form.querySelector('.address-picker__map-status');
 
-        toggle.addEventListener('click', async () => {
-            container.hidden = !container.hidden;
-            toggle.setAttribute('aria-expanded', String(!container.hidden));
-            if (container.hidden) {
+            if (!this.container || !this.toggle || !this.status) {
                 return;
             }
 
-            status.hidden = false;
-            if (map) {
-                map.container.fitToViewport();
-                showMessage(status, 'delivery-map-01');
+            this.map = undefined;
+            this.loading = false;
+            this.request = 0;
+
+            this.toggle.addEventListener('click', this.toggleMap);
+
+            return this;
+        }
+
+        reset() {
+            this.request++;
+            this.container.hidden = true;
+            this.toggle.setAttribute('aria-expanded', 'false');
+            this.status.hidden = true;
+            this.map?.geoObjects.removeAll();
+        }
+
+        async toggleMap() {
+            this.container.hidden = !this.container.hidden;
+            this.toggle.setAttribute('aria-expanded', String(!this.container.hidden));
+            if (this.container.hidden) {
+                return;
+            }
+
+            this.status.hidden = false;
+            if (this.map) {
+                this.map.container.fitToViewport();
+                TextUtils.showMessage(this.status, 'Нажмите на карте, чтобы выбрать адрес.');
 
                 return;
             }
-            if (loading) {
+            if (this.loading) {
                 return;
             }
 
-            loading = true;
-            showMessage(status, 'delivery-map-02');
+            this.loading = true;
+            TextUtils.showMessage(this.status, 'Загрузка карты…');
             try {
-                const api = await loadMaps();
+                const api = await MapLoader.loadMaps();
 
-                map = new api.Map(container, {
-                    center: container.dataset.mapCenter.split(',').map(Number),
+                this.map = new api.Map(this.container, {
+                    center: this.container.dataset.mapCenter.split(',').map(Number),
                     zoom: 11,
                     controls: ['zoomControl'],
                 });
-                if (!container.hidden) {
-                    showMessage(status, 'delivery-map-01');
+                if (!this.container.hidden) {
+                    TextUtils.showMessage(this.status, 'Нажмите на карте, чтобы выбрать адрес.');
                 }
-                map.events.add('click', async (event) => {
-                    const current = ++request;
+                this.map.events.add('click', async (event) => {
+                    const current = ++this.request;
                     const coords = event.get('coords');
 
-                    showMessage(status, 'delivery-map-03');
+                    TextUtils.showMessage(this.status, 'Определяем адрес…');
                     try {
                         const result = await api.geocode(coords);
 
-                        if (current !== request || container.hidden) {
+                        if (current !== this.request || this.container.hidden) {
                             return;
                         }
 
@@ -157,105 +172,161 @@
                             throw new Error('Address not found');
                         }
 
-                        form.elements.city.value =
+                        this.form.elements.city.value =
                             place.getLocalities()[0] || place.getAdministrativeAreas()[0] || '';
-                        form.elements.street.value = [
+                        this.form.elements.street.value = [
                             place.getThoroughfare(),
                             place.getPremiseNumber(),
                         ]
                             .filter(Boolean)
                             .join(', ');
-                        map.geoObjects.removeAll();
-                        map.geoObjects.add(new api.Placemark(coords));
-                        showMessage(status, 'delivery-map-04');
+                        this.map.geoObjects.removeAll();
+                        this.map.geoObjects.add(new api.Placemark(coords));
+                        TextUtils.showMessage(
+                            this.status,
+                            'Адрес выбран. Проверьте город и улицу перед добавлением.',
+                        );
                     } catch {
-                        if (current === request) {
-                            showMessage(status, 'delivery-map-05');
+                        if (current === this.request) {
+                            TextUtils.showMessage(
+                                this.status,
+                                'Не удалось определить адрес. Заполните город и улицу вручную.',
+                            );
                         }
                     }
                 });
             } catch {
-                container.hidden = true;
-                toggle.setAttribute('aria-expanded', 'false');
-                showMessage(status, 'delivery-map-06');
+                this.container.hidden = true;
+                this.toggle.setAttribute('aria-expanded', 'false');
+                TextUtils.showMessage(
+                    this.status,
+                    'Не удалось загрузить карту. Адрес можно ввести вручную.',
+                );
             } finally {
-                loading = false;
+                this.loading = false;
             }
-        });
-
-        return { reset };
+        }
     }
 
     // === pickup-state ===
 
-    function savePickup(points, point, replacingId) {
-        return [
-            ...points
-                .filter((item) => item.id !== replacingId && item.id !== point.id)
-                .map((item) => ({ ...item, selected: false })),
-            { ...point, selected: true },
-        ];
-    }
-
-    function removePickup(points, id) {
-        const result = points.filter((point) => point.id !== id).map((point) => ({ ...point }));
-
-        if (result.length && !result.some((point) => point.selected)) {
-            result[0].selected = true;
+    class PickupState {
+        static savePickup(points, point, replacingId) {
+            return [
+                ...points
+                    .filter((item) => item.id !== replacingId && item.id !== point.id)
+                    .map((item) => ({
+                        ...item,
+                        selected: false,
+                    })),
+                {
+                    ...point,
+                    selected: true,
+                },
+            ];
         }
 
-        return result;
-    }
+        static removePickup(points, id) {
+            const result = points
+                .filter((point) => point.id !== id)
+                .map((point) => ({
+                    ...point,
+                }));
 
-    function filterPickups(points, query) {
-        const normalized = query.trim().toLocaleLowerCase('ru');
-        return points.filter((point) =>
-            (point.title + ' ' + point.address).toLocaleLowerCase('ru').includes(normalized),
-        );
+            if (result.length && !result.some((point) => point.selected)) {
+                result[0].selected = true;
+            }
+
+            return result;
+        }
+
+        static filterPickups(points, query) {
+            const normalized = query.trim().toLocaleLowerCase('ru');
+            return points.filter((point) =>
+                (point.title + ' ' + point.address).toLocaleLowerCase('ru').includes(normalized),
+            );
+        }
     }
 
     // === account-pickups ===
 
-    function accountPickups(root) {
-        const dialog = document.querySelector('#account-pickup-dialog');
-        const list = root.querySelector('#pickup-addresses');
-
-        if (!dialog || !list || dialog.dataset.initialized) {
-            return;
+    class AccountPickups {
+        constructor() {
+            this.render = this.render.bind(this);
+            this.showView = this.showView.bind(this);
+            this.visiblePoints = this.visiblePoints.bind(this);
+            this.drawMap = this.drawMap.bind(this);
+            this.detail = this.detail.bind(this);
+            this.filter = this.filter.bind(this);
+            this.open = this.open.bind(this);
+            this.refresh = this.refresh.bind(this);
+            this.backToList = this.backToList.bind(this);
+            this.choosePoint = this.choosePoint.bind(this);
+            this.selectSavedPoint = this.selectSavedPoint.bind(this);
+            this.handleSavedPointAction = this.handleSavedPointAction.bind(this);
         }
 
-        dialog.dataset.initialized = 'true';
-        const catalog = [...dialog.querySelectorAll('[data-pickup-id]')].map((button) => ({
-            id: button.dataset.pickupId,
-            title: button.querySelector('.pickup-dialog__point-title').textContent.trim(),
-            address: button.dataset.address,
-            hours: button.dataset.hours,
-            coords: button.dataset.coords.split(',').map(Number),
-            detailTitle: button.querySelector('[data-pickup-detail-title]').textContent,
-            detailHours: button.querySelector('[data-pickup-detail-hours]').textContent,
-            summary: button.querySelector('[data-pickup-summary]').textContent,
-        }));
-        const template = list.querySelector('[data-pickup-card]').cloneNode(true);
-        const search = dialog.querySelector('.pickup-dialog__input');
-        const status = dialog.querySelector('.pickup-dialog__map-status');
-        const maps = {};
-        let points = [...list.querySelectorAll('[data-pickup-card]')].map((card) => {
-            const input = card.querySelector('input');
-            return {
-                ...catalog.find((point) => point.id === input.value),
-                selected: input.checked,
-            };
-        });
-        let active;
-        let replacingId;
-        let modal;
-        let trigger;
-        let version = 0;
-        let currentView = 'list';
-        const render = () => {
-            list.replaceChildren(
-                ...points.map((point) => {
-                    const card = template.cloneNode(true);
+        init(root) {
+            this.root = root;
+            this.dialog = document.querySelector('#account-pickup-dialog');
+            this.list = this.root.querySelector('#pickup-addresses');
+
+            if (!this.dialog || !this.list || this.dialog.dataset.initialized) {
+                return;
+            }
+
+            this.dialog.dataset.initialized = 'true';
+            this.catalog = [...this.dialog.querySelectorAll('[data-pickup-id]')].map((button) => ({
+                id: button.dataset.pickupId,
+                title: button.querySelector('.pickup-dialog__point-title').textContent.trim(),
+                address: button.dataset.address,
+                hours: button.dataset.hours,
+                coords: button.dataset.coords.split(',').map(Number),
+                detailTitle: button.querySelector('[data-pickup-detail-title]').textContent,
+                detailHours: button.querySelector('[data-pickup-detail-hours]').textContent,
+                summary: button.querySelector('[data-pickup-summary]').textContent,
+            }));
+            this.template = this.list.querySelector('[data-pickup-card]').cloneNode(true);
+            this.search = this.dialog.querySelector('.pickup-dialog__input');
+            this.status = this.dialog.querySelector('.pickup-dialog__map-status');
+            this.maps = {};
+            this.points = [...this.list.querySelectorAll('[data-pickup-card]')].map((card) => {
+                const input = card.querySelector('input');
+                return {
+                    ...this.catalog.find((point) => point.id === input.value),
+                    selected: input.checked,
+                };
+            });
+            this.active = undefined;
+            this.replacingId = undefined;
+            this.modal = undefined;
+            this.trigger = undefined;
+            this.version = 0;
+            this.currentView = 'list';
+
+            this.search.addEventListener('input', this.filter);
+            this.dialog
+                .querySelectorAll('[data-pickup-id]')
+                .forEach((button) =>
+                    button.addEventListener('click', () => this.detail(button.dataset.pickupId)),
+                );
+            this.dialog
+                .querySelector('.pickup-dialog__back')
+                .addEventListener('click', this.backToList);
+            this.dialog
+                .querySelector('.pickup-dialog__choose')
+                .addEventListener('click', this.choosePoint);
+
+            this.list.addEventListener('change', this.selectSavedPoint);
+            this.list.addEventListener('click', this.handleSavedPointAction);
+
+            return this;
+        }
+
+        render() {
+            this.list.replaceChildren(
+                ...this.points.map((point) => {
+                    const card = this.template.cloneNode(true);
                     const input = card.querySelector('input');
 
                     input.value = point.id;
@@ -266,67 +337,75 @@
                     return card;
                 }),
             );
-            root.querySelector('[data-pickup-empty]').hidden = list.hidden || points.length > 0;
-        };
-        const showView = (name) => {
-            version++;
-            currentView = name;
-            dialog.classList.toggle('pickup-dialog--detail', name === 'detail');
-            dialog.querySelectorAll('[data-account-pickup-view]').forEach((view) => {
+            this.root.querySelector('[data-pickup-empty]').hidden =
+                this.list.hidden || this.points.length > 0;
+        }
+
+        showView(name) {
+            this.version++;
+            this.currentView = name;
+            this.dialog.classList.toggle('pickup-dialog--detail', name === 'detail');
+            this.dialog.querySelectorAll('[data-account-pickup-view]').forEach((view) => {
                 view.hidden = view.dataset.accountPickupView !== name;
             });
-            dialog.setAttribute(
+            this.dialog.setAttribute(
                 'aria-labelledby',
                 name === 'list' ? 'account-pickup-title' : 'account-pickup-detail-title',
             );
-        };
-        const visiblePoints = () => filterPickups(catalog, search.value);
-        const drawMap = async (name) => {
-            const ticket = version;
+        }
 
-            status.hidden = false;
-            showMessage(status, 'delivery-map-02');
+        visiblePoints() {
+            return PickupState.filterPickups(this.catalog, this.search.value);
+        }
+
+        async drawMap(name) {
+            const ticket = this.version;
+
+            this.status.hidden = false;
+            TextUtils.showMessage(this.status, 'Загрузка карты…');
             try {
-                const api = await loadMaps();
+                const api = await MapLoader.loadMaps();
 
-                if (ticket !== version) {
+                if (ticket !== this.version) {
                     return;
                 }
 
-                if (!maps[name]) {
-                    const container = dialog.querySelector('[data-pickup-map="' + name + '"]');
+                if (!this.maps[name]) {
+                    const container = this.dialog.querySelector('[data-pickup-map="' + name + '"]');
 
-                    maps[name] = new api.Map(container, {
-                        center: catalog[0].coords,
+                    this.maps[name] = new api.Map(container, {
+                        center: this.catalog[0].coords,
                         zoom: 12,
                         controls: ['zoomControl'],
                     });
                     const observer = new ResizeObserver(() => {
-                        if (container.offsetWidth && currentView === name) {
-                            maps[name].container.fitToViewport();
+                        if (container.offsetWidth && this.currentView === name) {
+                            this.maps[name].container.fitToViewport();
                         }
                     });
 
                     observer.observe(container);
                 }
-                const map = maps[name];
+                const map = this.maps[name];
 
                 map.geoObjects.removeAll();
-                const shown = name === 'detail' ? [active] : visiblePoints();
+                const shown = name === 'detail' ? [this.active] : this.visiblePoints();
 
                 shown.forEach((point) => {
                     const marker = new api.Placemark(
                         point.coords,
-                        { hintContent: point.title },
+                        {
+                            hintContent: point.title,
+                        },
                         {
                             iconLayout: 'default#image',
-                            iconImageHref: dialog.dataset.mapMarker,
+                            iconImageHref: this.dialog.dataset.mapMarker,
                             iconImageSize: [40, 40],
                             iconImageOffset: [-20, -40],
                         },
                     );
 
-                    marker.events.add('click', () => detail(point.id));
+                    marker.events.add('click', () => this.detail(point.id));
                     map.geoObjects.add(marker);
                 });
                 map.container.fitToViewport();
@@ -338,108 +417,124 @@
                         zoomMargin: 35,
                     });
                 }
-                status.hidden = true;
+                this.status.hidden = true;
             } catch {
-                if (ticket !== version) {
+                if (ticket !== this.version) {
                     return;
                 }
 
-                showMessage(status, 'account-pickups-01');
+                TextUtils.showMessage(
+                    this.status,
+                    'Не удалось загрузить карту. Выберите пункт из списка.',
+                );
             }
-        };
-        const detail = (id) => {
-            active = catalog.find((point) => point.id === id);
-            if (!active) {
+        }
+
+        detail(id) {
+            this.active = this.catalog.find((point) => point.id === id);
+            if (!this.active) {
                 return;
             }
 
-            showView('detail');
-            dialog.querySelector('.pickup-dialog__detail-title').textContent = active.detailTitle;
-            dialog.querySelector('.pickup-dialog__address').textContent = active.address;
-            dialog.querySelector('.pickup-dialog__hours').textContent = active.detailHours;
-            drawMap('detail');
-            dialog.querySelector('.pickup-dialog__back').focus();
-        };
-        const filter = () => {
-            const visible = visiblePoints();
+            this.showView('detail');
+            this.dialog.querySelector('.pickup-dialog__detail-title').textContent =
+                this.active.detailTitle;
+            this.dialog.querySelector('.pickup-dialog__address').textContent = this.active.address;
+            this.dialog.querySelector('.pickup-dialog__hours').textContent =
+                this.active.detailHours;
+            this.drawMap('detail');
+            this.dialog.querySelector('.pickup-dialog__back').focus();
+        }
 
-            dialog.querySelectorAll('[data-pickup-id]').forEach((button) => {
+        filter() {
+            const visible = this.visiblePoints();
+
+            this.dialog.querySelectorAll('[data-pickup-id]').forEach((button) => {
                 button.hidden = !visible.some((point) => point.id === button.dataset.pickupId);
             });
-            dialog.querySelector('.pickup-dialog__empty').hidden = !!visible.length;
-            if (currentView === 'list') {
-                drawMap('list');
+            this.dialog.querySelector('.pickup-dialog__empty').hidden = !!visible.length;
+            if (this.currentView === 'list') {
+                this.drawMap('list');
             }
-        };
+        }
 
-        search.addEventListener('input', filter);
-        dialog
-            .querySelectorAll('[data-pickup-id]')
-            .forEach((button) =>
-                button.addEventListener('click', () => detail(button.dataset.pickupId)),
-            );
-        dialog.querySelector('.pickup-dialog__back').addEventListener('click', () => {
-            showView('list');
-            drawMap('list');
-            const button = dialog.querySelector('[data-pickup-id="' + active.id + '"]');
-
-            (button && !button.hidden ? button : search).focus();
-        });
-        dialog.querySelector('.pickup-dialog__choose').addEventListener('click', () => {
-            if (!active) {
-                return;
-            }
-
-            points = savePickup(points, active, replacingId);
-            render();
-            modal?.close();
-        });
-        const open = (button, id) => {
+        open(button, id) {
             if (typeof Fancybox === 'undefined') {
                 return;
             }
 
-            trigger = button;
-            replacingId = id;
-            search.value = '';
-            showView('list');
-            dialog.querySelectorAll('[data-pickup-id]').forEach((option) => {
+            this.trigger = button;
+            this.replacingId = id;
+            this.search.value = '';
+            this.showView('list');
+            this.dialog.querySelectorAll('[data-pickup-id]').forEach((option) => {
                 option.hidden = false;
             });
-            dialog.querySelector('.pickup-dialog__empty').hidden = true;
-            Fancybox.show([{ src: '#account-pickup-dialog', type: 'inline' }], {
-                closeButton: false,
-                dragToClose: false,
-                autoFocus: false,
-                on: {
-                    ready: () => {
-                        drawMap('list');
-                        search.focus();
+            this.dialog.querySelector('.pickup-dialog__empty').hidden = true;
+            Fancybox.show(
+                [
+                    {
+                        src: '#account-pickup-dialog',
+                        type: 'inline',
                     },
-                    destroy: () => {
-                        version++;
-                        const fallback =
-                            list.querySelector('.addresses__edit') ||
-                            root.querySelector('.addresses__add');
+                ],
+                {
+                    closeButton: false,
+                    dragToClose: false,
+                    autoFocus: false,
+                    on: {
+                        ready: () => {
+                            this.drawMap('list');
+                            this.search.focus();
+                        },
+                        destroy: () => {
+                            this.version++;
+                            const fallback =
+                                this.list.querySelector('.addresses__edit') ||
+                                this.root.querySelector('.addresses__add');
 
-                        (trigger?.isConnected ? trigger : fallback)?.focus();
+                            (this.trigger?.isConnected ? this.trigger : fallback)?.focus();
+                        },
                     },
                 },
-            });
-            modal = Fancybox.getInstance();
-        };
+            );
+            this.modal = Fancybox.getInstance();
+        }
 
-        list.addEventListener('change', (event) => {
+        refresh(...args) {
+            return this.render(...args);
+        }
+
+        backToList() {
+            this.showView('list');
+            this.drawMap('list');
+            const button = this.dialog.querySelector('[data-pickup-id="' + this.active.id + '"]');
+
+            (button && !button.hidden ? button : this.search).focus();
+        }
+
+        choosePoint() {
+            if (!this.active) {
+                return;
+            }
+
+            this.points = PickupState.savePickup(this.points, this.active, this.replacingId);
+            this.render();
+            this.modal?.close();
+        }
+
+        selectSavedPoint(event) {
             if (!event.target.matches('.addresses__radio')) {
                 return;
             }
 
-            points = points.map((point) => ({
+            this.points = this.points.map((point) => ({
                 ...point,
                 selected: point.id === event.target.value,
             }));
-        });
-        list.addEventListener('click', (event) => {
+        }
+
+        handleSavedPointAction(event) {
             const card = event.target.closest('[data-pickup-card]');
 
             if (!card) {
@@ -449,288 +544,400 @@
             const id = card.querySelector('input').value;
 
             if (event.target.closest('.addresses__edit')) {
-                open(event.target.closest('button'), id);
+                this.open(event.target.closest('button'), id);
             }
             if (event.target.closest('.addresses__delete')) {
-                points = removePickup(points, id);
-                render();
+                this.points = PickupState.removePickup(this.points, id);
+                this.render();
                 (
-                    list.querySelector('.addresses__edit') || root.querySelector('.addresses__add')
+                    this.list.querySelector('.addresses__edit') ||
+                    this.root.querySelector('.addresses__add')
                 ).focus();
             }
-        });
-
-        return { open, refresh: render };
+        }
     }
 
     // === account ===
 
-    function account() {
-        const root = document.querySelector('[data-account]');
-
-        if (!root || root.dataset.initialized) {
-            return;
+    class AccountController {
+        constructor() {
+            this.syncLegal = this.syncLegal.bind(this);
+            this.setMenu = this.setMenu.bind(this);
+            this.showMenu = this.showMenu.bind(this);
+            this.showProfile = this.showProfile.bind(this);
+            this.handleHashChange = this.handleHashChange.bind(this);
         }
 
-        root.dataset.initialized = 'true';
-        const profile = root.querySelector('[data-account-profile]');
-        const legal = profile.elements.legal;
-        const company = root.querySelector('#company-fields');
-        const syncLegal = () => {
-            company.hidden = !legal.checked;
-            company.disabled = !legal.checked;
-        };
+        init() {
+            this.root = document.querySelector('[data-account]');
 
-        legal.addEventListener('change', syncLegal);
-        syncLegal();
-        const setMenu = (menu) => {
-            root.classList.toggle('account--menu', menu);
-            root.querySelector('.page-heading__title').textContent = menu
-                ? uiText('account-01')
-                : uiText('account-02');
-        };
+            if (!this.root || this.root.dataset.initialized) {
+                return;
+            }
 
-        root.querySelector('.page-heading__back').addEventListener('click', () => {
+            this.root.dataset.initialized = 'true';
+            this.profile = this.root.querySelector('[data-account-profile]');
+            this.legal = this.profile.elements.legal;
+            this.company = this.root.querySelector('#company-fields');
+
+            this.legal.addEventListener('change', this.syncLegal);
+            this.syncLegal();
+
+            this.root.querySelector('.page-heading__back').addEventListener('click', this.showMenu);
+            this.root
+                .querySelector('[data-account-personal]')
+                .addEventListener('click', this.showProfile);
+            window.addEventListener('hashchange', this.handleHashChange);
+            this.setMenu(location.hash === '#menu');
+            this.root.querySelectorAll('.account__reveal').forEach((button) => {
+                button.addEventListener('click', () => {
+                    const input = button.previousElementSibling;
+                    const visible = input.type === 'password';
+
+                    input.type = visible ? 'text' : 'password';
+                    button.setAttribute('aria-pressed', String(visible));
+                    button.setAttribute(
+                        'aria-label',
+                        visible
+                            ? button.dataset.passwordHideLabel
+                            : button.dataset.passwordShowLabel,
+                    );
+                });
+            });
+            this.root.querySelectorAll('form').forEach((form) => {
+                form.addEventListener('reset', () => {
+                    form.querySelectorAll('.account__password .account__input').forEach((input) => {
+                        input.type = 'password';
+                    });
+                    form.querySelectorAll('.account__reveal').forEach((button) => {
+                        button.setAttribute('aria-pressed', 'false');
+                        button.setAttribute('aria-label', button.dataset.passwordShowLabel);
+                    });
+                    setTimeout(this.syncLegal, 0);
+                });
+            });
+
+            return this;
+        }
+
+        syncLegal() {
+            this.company.hidden = !this.legal.checked;
+            this.company.disabled = !this.legal.checked;
+        }
+
+        setMenu(menu) {
+            this.root.classList.toggle('account--menu', menu);
+            this.root.querySelector('.page-heading__title').textContent = menu
+                ? 'Мой кабинет'
+                : 'Личные данные';
+        }
+
+        showMenu() {
             history.replaceState(null, '', '#menu');
-            setMenu(true);
+            this.setMenu(true);
             window.scrollTo(0, 0);
-        });
-        root.querySelector('[data-account-personal]').addEventListener('click', () => {
-            setMenu(false);
+        }
+
+        showProfile() {
+            this.setMenu(false);
             window.scrollTo(0, 0);
-        });
-        window.addEventListener('hashchange', () => setMenu(location.hash === '#menu'));
-        setMenu(location.hash === '#menu');
-        root.querySelector('[data-account-logout]').addEventListener('click', (event) => {
-            event.preventDefault();
-            root.dispatchEvent(new CustomEvent('account:logout', { bubbles: true }));
-        });
-        root.querySelectorAll('.account__reveal').forEach((button) => {
-            button.addEventListener('click', () => {
-                const input = button.previousElementSibling;
-                const visible = input.type === 'password';
+        }
 
-                input.type = visible ? 'text' : 'password';
-                button.setAttribute('aria-pressed', String(visible));
-                button.setAttribute(
-                    'aria-label',
-                    visible ? button.dataset.passwordHideLabel : button.dataset.passwordShowLabel,
-                );
-            });
-        });
-        root.querySelectorAll('form').forEach((form) => {
-            const status = form.querySelector('.account__status');
-            const passwordForm = form.hasAttribute('data-account-password');
-
-            form.addEventListener('reset', () => {
-                status.hidden = true;
-                form.querySelectorAll('.account__password .account__input').forEach((input) => {
-                    input.type = 'password';
-                });
-                form.querySelectorAll('.account__reveal').forEach((button) => {
-                    button.setAttribute('aria-pressed', 'false');
-                    button.setAttribute('aria-label', button.dataset.passwordShowLabel);
-                });
-                setTimeout(syncLegal, 0);
-            });
-            form.addEventListener('submit', (event) => {
-                event.preventDefault();
-                if (!window.FormController.validateForm(form)) {
-                    return;
-                }
-
-                form.dispatchEvent(
-                    new CustomEvent(passwordForm ? 'account:password' : 'account:save', {
-                        bubbles: true,
-                        detail: Object.fromEntries(new FormData(form)),
-                    }),
-                );
-                showMessage(status, 'account-06');
-                status.hidden = false;
-            });
-        });
+        handleHashChange() {
+            return this.setMenu(location.hash === '#menu');
+        }
     }
 
     // === address-picker ===
 
-    function describeAddress(address) {
-        return {
-            title: [address.city, address.street].filter(Boolean).join(', '),
-            details: [
-                address.apartment && uiText('address-picker-01', { value0: address.apartment }),
-                address.entrance && uiText('address-picker-02', { value0: address.entrance }),
-                address.floor && uiText('address-picker-03', { value0: address.floor }),
-            ]
-                .filter(Boolean)
-                .join(' · '),
-        };
-    }
-
-    function addressPicker(form) {
-        const picker = document.querySelector('#address-picker');
-
-        if (!picker || picker.dataset.initialized) {
-            return;
+    class AddressPicker {
+        static describeAddress(address) {
+            return {
+                title: [address.city, address.street].filter(Boolean).join(', '),
+                details: [
+                    address.apartment && `Кв. / офис ${address.apartment}`,
+                    address.entrance && `подъезд ${address.entrance}`,
+                    address.floor && `этаж ${address.floor}`,
+                ]
+                    .filter(Boolean)
+                    .join(' · '),
+            };
         }
 
-        picker.dataset.initialized = 'true';
-        const list = picker.querySelector('.address-picker__list');
-        const addForm = picker.querySelector('.address-picker__form');
-        const addressFields = ['city', 'street', 'entrance', 'floor', 'apartment'];
-        let selectedId = null;
-        let modal;
-        const map = deliveryMap(addForm);
-        const setView = (name) => {
-            picker.querySelectorAll('[data-address-view]').forEach((view) => {
+        constructor() {
+            this.setView = this.setView.bind(this);
+            this.applyAddress = this.applyAddress.bind(this);
+            this.showAddForm = this.showAddForm.bind(this);
+            this.showList = this.showList.bind(this);
+            this.selectAddress = this.selectAddress.bind(this);
+            this.addAddress = this.addAddress.bind(this);
+        }
+
+        init(form) {
+            this.form = form;
+            this.picker = document.querySelector('#address-picker');
+
+            if (!this.picker || this.picker.dataset.initialized) {
+                return;
+            }
+
+            this.picker.dataset.initialized = 'true';
+            this.list = this.picker.querySelector('.address-picker__list');
+            this.addForm = this.picker.querySelector('.address-picker__form');
+            this.addressFields = ['city', 'street', 'entrance', 'floor', 'apartment'];
+            this.selectedId = null;
+            this.modal = undefined;
+            this.map = new DeliveryMap().init(this.addForm);
+
+            this.form.querySelectorAll('.checkout__change').forEach((button) =>
+                button.addEventListener('click', () => {
+                    if (typeof Fancybox === 'undefined') {
+                        return;
+                    }
+
+                    this.setView('list');
+                    if (this.selectedId) {
+                        this.list.querySelectorAll('.address-picker__radio').forEach((input) => {
+                            input.checked = input.value === this.selectedId;
+                        });
+                    }
+                    Fancybox.show(
+                        [
+                            {
+                                src: '#address-picker',
+                                type: 'inline',
+                            },
+                        ],
+                        {
+                            closeButton: false,
+                            dragToClose: false,
+                            autoFocus: false,
+                            on: {
+                                done: () =>
+                                    this.picker
+                                        .querySelector('.address-picker__radio:checked')
+                                        ?.focus(),
+                                destroy: () =>
+                                    (button.hidden
+                                        ? this.form.querySelector(
+                                              '.checkout__selected-address .checkout__change',
+                                          )
+                                        : button
+                                    ).focus(),
+                            },
+                        },
+                    );
+                    this.modal = Fancybox.getInstance();
+                }),
+            );
+            this.picker
+                .querySelector('.address-picker__add')
+                .addEventListener('click', this.showAddForm);
+            this.picker
+                .querySelector('.address-picker__back')
+                .addEventListener('click', this.showList);
+            this.picker
+                .querySelector('.address-picker__selection')
+                .addEventListener('submit', this.selectAddress);
+            this.addForm.addEventListener('submit', this.addAddress);
+
+            return this;
+        }
+
+        setView(name) {
+            this.picker.querySelectorAll('[data-address-view]').forEach((view) => {
                 view.hidden = view.dataset.addressView !== name;
             });
-            picker.setAttribute(
+            this.picker.setAttribute(
                 'aria-labelledby',
                 name === 'add' ? 'address-add-title' : 'address-picker-title',
             );
-        };
-        const applyAddress = (input) => {
+        }
+
+        applyAddress(input) {
             const address = input.dataset;
-            const description = describeAddress(address);
+            const description = AddressPicker.describeAddress(address);
 
-            selectedId = input.value;
-            addressFields.forEach((name) => {
-                form.elements[name].value = address[name] || '';
-                form.elements[name].required = false;
+            this.selectedId = input.value;
+            this.addressFields.forEach((name) => {
+                this.form.elements[name].value = address[name] || '';
+                this.form.elements[name].required = false;
             });
-            form.querySelector('.checkout__selected-title').textContent = description.title;
-            form.querySelector('.checkout__selected-details').textContent = description.details;
-            form.querySelector('.checkout__selected-details').hidden = !description.details;
-            form.querySelector('.checkout__selected-address').hidden = false;
-            form.querySelector('.checkout__address-fields').hidden = true;
-            form.querySelector('.checkout__address > .checkout__change').hidden = true;
-            form.querySelector('.checkout__save').hidden = true;
-            modal?.close();
-        };
+            this.form.querySelector('.checkout__selected-title').textContent = description.title;
+            this.form.querySelector('.checkout__selected-details').textContent =
+                description.details;
+            this.form.querySelector('.checkout__selected-details').hidden = !description.details;
+            this.form.querySelector('.checkout__selected-address').hidden = false;
+            this.form.querySelector('.checkout__address-fields').hidden = true;
+            this.form.querySelector('.checkout__address > .checkout__change').hidden = true;
+            this.form.querySelector('.checkout__save').hidden = true;
+            this.modal?.close();
+        }
 
-        form.querySelectorAll('.checkout__change').forEach((button) =>
-            button.addEventListener('click', () => {
-                if (typeof Fancybox === 'undefined') {
-                    return;
-                }
+        showAddForm() {
+            this.addForm.reset();
+            this.map?.reset();
+            this.setView('add');
+            this.addForm.elements.city.focus();
+        }
 
-                setView('list');
-                if (selectedId) {
-                    list.querySelectorAll('.address-picker__radio').forEach((input) => {
-                        input.checked = input.value === selectedId;
-                    });
-                }
-                Fancybox.show([{ src: '#address-picker', type: 'inline' }], {
-                    closeButton: false,
-                    dragToClose: false,
-                    autoFocus: false,
-                    on: {
-                        done: () => picker.querySelector('.address-picker__radio:checked')?.focus(),
-                        destroy: () =>
-                            (button.hidden
-                                ? form.querySelector(
-                                      '.checkout__selected-address .checkout__change',
-                                  )
-                                : button
-                            ).focus(),
-                    },
-                });
-                modal = Fancybox.getInstance();
-            }),
-        );
-        picker.querySelector('.address-picker__add').addEventListener('click', () => {
-            addForm.reset();
-            map?.reset();
-            setView('add');
-            addForm.elements.city.focus();
-        });
-        picker.querySelector('.address-picker__back').addEventListener('click', () => {
-            setView('list');
-            picker.querySelector('.address-picker__add').focus();
-        });
-        picker.querySelector('.address-picker__selection').addEventListener('submit', (event) => {
+        showList() {
+            this.setView('list');
+            this.picker.querySelector('.address-picker__add').focus();
+        }
+
+        selectAddress(event) {
             event.preventDefault();
-            const input = list.querySelector('.address-picker__radio:checked');
+            const input = this.list.querySelector('.address-picker__radio:checked');
 
             if (input) {
-                applyAddress(input);
+                this.applyAddress(input);
             }
-        });
-        addForm.addEventListener('submit', (event) => {
+        }
+
+        addAddress(event) {
             event.preventDefault();
-            if (!window.FormController.validateForm(addForm)) {
+            if (!window.FormController.validateForm(this.addForm)) {
                 return;
             }
 
             const address = Object.fromEntries(
-                addressFields.map((name) => [name, addForm.elements[name].value.trim()]),
+                this.addressFields.map((name) => [name, this.addForm.elements[name].value.trim()]),
             );
 
             if (!address.city || !address.street) {
-                const field = addForm.elements[address.city ? 'street' : 'city'];
+                const field = this.addForm.elements[address.city ? 'street' : 'city'];
 
                 field.value = '';
                 window.FormController.validateField(field);
 
                 return;
             }
-            const card = list.querySelector('.address-picker__card').cloneNode(true);
+            const card = this.list.querySelector('.address-picker__card').cloneNode(true);
             const input = card.querySelector('.address-picker__radio');
 
-            input.value = `address-${list.children.length + 1}`;
+            input.value = `address-${this.list.children.length + 1}`;
             Object.assign(input.dataset, address);
-            const description = describeAddress(address);
+            const description = AddressPicker.describeAddress(address);
 
             card.querySelector('.address-picker__card-title').textContent = description.title;
             card.querySelector('.address-picker__card-details').textContent = description.details;
-            list.append(card);
+            this.list.append(card);
             input.checked = true;
-            applyAddress(input);
-        });
+            this.applyAddress(input);
+        }
     }
 
     // === addresses ===
 
-    function addresses() {
-        const root = document.querySelector('[data-addresses]');
-
-        if (!root || root.dataset.initialized) {
-            return;
+    class AddressesController {
+        constructor() {
+            this.report = this.report.bind(this);
+            this.empty = this.empty.bind(this);
+            this.fillCard = this.fillCard.bind(this);
+            this.view = this.view.bind(this);
+            this.open = this.open.bind(this);
+            this.activate = this.activate.bind(this);
+            this.add = this.add.bind(this);
+            this.handleAddressAction = this.handleAddressAction.bind(this);
+            this.saveAddress = this.saveAddress.bind(this);
+            this.backToForm = this.backToForm.bind(this);
+            this.chooseMapAddress = this.chooseMapAddress.bind(this);
+            this.showMap = this.showMap.bind(this);
         }
 
-        root.dataset.initialized = 'true';
-        const list = root.querySelector('#delivery-addresses');
-        const template = list?.querySelector('[data-address-card]')?.cloneNode(true);
-        const dialog = document.querySelector('#address-dialog');
+        init() {
+            this.root = document.querySelector('[data-addresses]');
 
-        if (!template || !dialog) {
-            return;
+            if (!this.root || this.root.dataset.initialized) {
+                return;
+            }
+
+            this.root.dataset.initialized = 'true';
+            this.list = this.root.querySelector('#delivery-addresses');
+            this.template = this.list?.querySelector('[data-address-card]')?.cloneNode(true);
+            this.dialog = document.querySelector('#address-dialog');
+
+            if (!this.template || !this.dialog) {
+                return;
+            }
+
+            this.pickups = new AccountPickups().init(this.root);
+            this.form = this.dialog.querySelector('form');
+            this.title = this.dialog.querySelector('#address-dialog-title');
+            this.submit = this.dialog.querySelector('.address-dialog__submit');
+            this.status = this.root.querySelector('.addresses__status');
+            this.fields = ['city', 'street', 'entrance', 'floor', 'apartment', 'comment'];
+            this.editing = null;
+            this.trigger = undefined;
+            this.modal = undefined;
+            this.map = undefined;
+            this.mapAddress = undefined;
+            this.request = 0;
+
+            this.empty();
+
+            this.dialog.querySelector('[data-dialog-view="map"] .address-dialog__title').id =
+                'address-map-title';
+
+            this.root.querySelector('.addresses__add').addEventListener('click', this.add);
+            this.list.addEventListener('change', this.empty);
+            this.list.addEventListener('click', this.handleAddressAction);
+            this.form.addEventListener('submit', this.saveAddress);
+            this.tabs = [...this.root.querySelectorAll('[data-address-tab]')];
+
+            this.tabs.forEach((tab, index) => {
+                tab.addEventListener('click', () => this.activate(tab));
+                tab.addEventListener('keydown', (event) => {
+                    if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    const next =
+                        this.tabs[
+                            event.key === 'Home'
+                                ? 0
+                                : event.key === 'End'
+                                  ? this.tabs.length - 1
+                                  : (index + 1) % this.tabs.length
+                        ];
+
+                    this.activate(next);
+                    next.focus();
+                });
+            });
+            if (location.hash === '#pickup') {
+                this.activate(this.tabs.find((tab) => tab.dataset.addressTab === 'pickup'));
+            }
+            this.dialog
+                .querySelector('.address-dialog__back')
+                .addEventListener('click', this.backToForm);
+            this.dialog
+                .querySelector('.address-dialog__choose')
+                .addEventListener('click', this.chooseMapAddress);
+            this.dialog
+                .querySelector('.address-dialog__map-toggle')
+                .addEventListener('click', this.showMap);
+
+            return this;
         }
 
-        const pickups = accountPickups(root);
-        const form = dialog.querySelector('form');
-        const title = dialog.querySelector('#address-dialog-title');
-        const submit = dialog.querySelector('.address-dialog__submit');
-        const status = root.querySelector('.addresses__status');
-        const fields = ['city', 'street', 'entrance', 'floor', 'apartment', 'comment'];
-        let editing = null;
-        let trigger;
-        let modal;
-        let map;
-        let mapAddress;
-        let request = 0;
-        const report = (message) => {
-            status.textContent = message;
-            status.hidden = false;
-        };
-        const empty = () => {
-            root.querySelector('[data-address-empty]').hidden =
-                !!list.children.length || root.querySelector('#delivery-addresses').hidden;
-        };
-        const fillCard = (card, address) => {
+        report(message) {
+            this.status.textContent = message;
+            this.status.hidden = false;
+        }
+
+        empty() {
+            this.root.querySelector('[data-address-empty]').hidden =
+                !!this.list.children.length ||
+                this.root.querySelector('#delivery-addresses').hidden;
+        }
+
+        fillCard(card, address) {
             const input = card.querySelector('input');
 
-            fields.forEach((name) => {
+            this.fields.forEach((name) => {
                 input.dataset[name] = address[name] || '';
             });
             input.value = address.id;
@@ -739,10 +946,10 @@
                 .filter(Boolean)
                 .join(', ');
             card.querySelector('.addresses__details').textContent = [
-                address.entrance && uiText('addresses-01') + address.entrance,
-                address.floor && uiText('addresses-02') + address.floor,
-                address.apartment && uiText('addresses-03') + address.apartment,
-                address.postcode && uiText('addresses-04') + address.postcode,
+                address.entrance && 'Подъезд ' + address.entrance,
+                address.floor && 'этаж ' + address.floor,
+                address.apartment && 'кв. ' + address.apartment,
+                address.postcode && 'индекс ' + address.postcode,
                 address.comment,
             ]
                 .filter(Boolean)
@@ -750,64 +957,95 @@
             input.dataset.postcode = address.postcode || '';
 
             return card;
-        };
+        }
 
-        empty();
-        const view = (name) => {
-            request++;
-            dialog.classList.toggle('address-dialog--map', name === 'map');
-            dialog.querySelectorAll('[data-dialog-view]').forEach((part) => {
+        view(name) {
+            this.request++;
+            this.dialog.classList.toggle('address-dialog--map', name === 'map');
+            this.dialog.querySelectorAll('[data-dialog-view]').forEach((part) => {
                 part.hidden = part.dataset.dialogView !== name;
             });
-            dialog.setAttribute(
+            this.dialog.setAttribute(
                 'aria-labelledby',
                 name === 'form' ? 'address-dialog-title' : 'address-map-title',
             );
-        };
+        }
 
-        dialog.querySelector('[data-dialog-view="map"] .address-dialog__title').id =
-            'address-map-title';
-        const open = (button, card = null) => {
+        open(button, card = null) {
             if (typeof Fancybox === 'undefined') {
                 return;
             }
 
-            trigger = button;
-            editing = card;
-            form.reset();
-            fields.forEach((name) => {
-                form.elements[name].value = card?.querySelector('input').dataset[name] || '';
+            this.trigger = button;
+            this.editing = card;
+            this.form.reset();
+            this.fields.forEach((name) => {
+                this.form.elements[name].value = card?.querySelector('input').dataset[name] || '';
             });
-            title.textContent = card ? uiText('addresses-05') : uiText('addresses-06');
-            submit.textContent = card ? uiText('addresses-07') : uiText('addresses-08');
-            view('form');
-            Fancybox.show([{ src: '#address-dialog', type: 'inline' }], {
-                closeButton: false,
-                dragToClose: false,
-                autoFocus: false,
-                on: {
-                    ready: () => form.elements.city.focus(),
-                    destroy: () => {
-                        request++;
-                        trigger?.focus();
+            this.title.textContent = card
+                ? 'Редактировать адрес доставки'
+                : 'Добавить новый адрес доставки';
+            this.submit.textContent = card ? 'Сохранить изменения' : 'Добавить новый адрес';
+            this.view('form');
+            Fancybox.show(
+                [
+                    {
+                        src: '#address-dialog',
+                        type: 'inline',
+                    },
+                ],
+                {
+                    closeButton: false,
+                    dragToClose: false,
+                    autoFocus: false,
+                    on: {
+                        ready: () => this.form.elements.city.focus(),
+                        destroy: () => {
+                            this.request++;
+                            this.trigger?.focus();
+                        },
                     },
                 },
-            });
-            modal = Fancybox.getInstance();
-        };
+            );
+            this.modal = Fancybox.getInstance();
+        }
 
-        root.querySelector('.addresses__add').addEventListener('click', (event) => {
+        activate(tab) {
+            this.tabs.forEach((button) => {
+                const selected = button === tab;
+
+                button.setAttribute('aria-selected', String(selected));
+                button.tabIndex = selected ? 0 : -1;
+                this.root.querySelector('#' + button.getAttribute('aria-controls')).hidden =
+                    !selected;
+            });
+            const pickup = tab.dataset.addressTab === 'pickup';
+
+            this.root.classList.toggle('addresses--pickup', pickup);
+            this.root.querySelector('.addresses__add').textContent = pickup
+                ? 'Добавить пункт выдачи'
+                : 'Добавить новый адрес';
+            this.root.querySelector('.addresses__title').textContent = pickup
+                ? 'Адреса и пункты выдачи'
+                : 'Адреса доставки';
+            this.status.hidden = true;
+            this.pickups?.refresh();
+            this.empty();
+        }
+
+        add(event) {
             if (
-                root.querySelector('[data-address-tab="pickup"]').getAttribute('aria-selected') ===
-                'true'
+                this.root
+                    .querySelector('[data-address-tab="pickup"]')
+                    .getAttribute('aria-selected') === 'true'
             ) {
-                pickups?.open(event.currentTarget);
+                this.pickups?.open(event.currentTarget);
             } else {
-                open(event.currentTarget);
+                this.open(event.currentTarget);
             }
-        });
-        list.addEventListener('change', empty);
-        list.addEventListener('click', (event) => {
+        }
+
+        handleAddressAction(event) {
             const card = event.target.closest('[data-address-card]');
 
             if (!card) {
@@ -815,147 +1053,108 @@
             }
 
             if (event.target.closest('.addresses__edit')) {
-                open(event.target.closest('button'), card);
+                this.open(event.target.closest('button'), card);
             }
             if (event.target.closest('.addresses__delete')) {
                 const checked = card.querySelector('input').checked;
 
                 card.remove();
-                if (checked && list.querySelector('input')) {
-                    list.querySelector('input').checked = true;
+                if (checked && this.list.querySelector('input')) {
+                    this.list.querySelector('input').checked = true;
                 }
-                empty();
-                report(uiText('addresses-09'));
+                this.empty();
+                this.report('Адрес удалён.');
                 (
-                    list.querySelector('.addresses__edit') || root.querySelector('.addresses__add')
+                    this.list.querySelector('.addresses__edit') ||
+                    this.root.querySelector('.addresses__add')
                 ).focus();
             }
-        });
-        form.addEventListener('submit', (event) => {
+        }
+
+        saveAddress(event) {
             event.preventDefault();
-            fields.forEach((name) => {
-                form.elements[name].value = form.elements[name].value.trim();
+            this.fields.forEach((name) => {
+                this.form.elements[name].value = this.form.elements[name].value.trim();
             });
-            if (!window.FormController.validateForm(form)) {
+            if (!window.FormController.validateForm(this.form)) {
                 return;
             }
 
-            const address = Object.fromEntries(new FormData(form));
+            const address = Object.fromEntries(new FormData(this.form));
 
-            address.id = editing?.querySelector('input').value || String(Date.now());
-            address.postcode = editing?.querySelector('input').dataset.postcode || '';
-            address.selected = editing ? editing.querySelector('input').checked : true;
+            address.id = this.editing?.querySelector('input').value || String(Date.now());
+            address.postcode = this.editing?.querySelector('input').dataset.postcode || '';
+            address.selected = this.editing ? this.editing.querySelector('input').checked : true;
             if (address.selected) {
-                list.querySelectorAll('input').forEach((input) => {
+                this.list.querySelectorAll('input').forEach((input) => {
                     input.checked = false;
                 });
             }
-            if (editing) {
-                fillCard(editing, address);
+            if (this.editing) {
+                this.fillCard(this.editing, address);
             } else {
-                list.append(fillCard(template.cloneNode(true), address));
+                this.list.append(this.fillCard(this.template.cloneNode(true), address));
             }
-            empty();
-            modal?.close();
-        });
-        const tabs = [...root.querySelectorAll('[data-address-tab]')];
-        const activate = (tab) => {
-            tabs.forEach((button) => {
-                const selected = button === tab;
-
-                button.setAttribute('aria-selected', String(selected));
-                button.tabIndex = selected ? 0 : -1;
-                root.querySelector('#' + button.getAttribute('aria-controls')).hidden = !selected;
-            });
-            const pickup = tab.dataset.addressTab === 'pickup';
-
-            root.classList.toggle('addresses--pickup', pickup);
-            root.querySelector('.addresses__add').textContent = pickup
-                ? uiText('addresses-10')
-                : uiText('addresses-08');
-            root.querySelector('.addresses__title').textContent = pickup
-                ? uiText('addresses-11')
-                : uiText('addresses-12');
-            status.hidden = true;
-            pickups?.refresh();
-            empty();
-        };
-
-        tabs.forEach((tab, index) => {
-            tab.addEventListener('click', () => activate(tab));
-            tab.addEventListener('keydown', (event) => {
-                if (!['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) {
-                    return;
-                }
-
-                event.preventDefault();
-                const next =
-                    tabs[
-                        event.key === 'Home'
-                            ? 0
-                            : event.key === 'End'
-                              ? tabs.length - 1
-                              : (index + 1) % tabs.length
-                    ];
-
-                activate(next);
-                next.focus();
-            });
-        });
-        if (location.hash === '#pickup') {
-            activate(tabs.find((tab) => tab.dataset.addressTab === 'pickup'));
+            this.empty();
+            this.modal?.close();
         }
-        dialog.querySelector('.address-dialog__back').addEventListener('click', () => {
-            view('form');
-            form.elements.city.focus();
-        });
-        dialog.querySelector('.address-dialog__choose').addEventListener('click', () => {
-            if (!mapAddress) {
+
+        backToForm() {
+            this.view('form');
+            this.form.elements.city.focus();
+        }
+
+        chooseMapAddress() {
+            if (!this.mapAddress) {
                 return;
             }
 
-            form.elements.city.value = mapAddress.city;
-            form.elements.street.value = mapAddress.street;
-            view('form');
-            form.elements.street.focus();
-        });
-        dialog.querySelector('.address-dialog__map-toggle').addEventListener('click', async () => {
-            view('map');
-            mapAddress = null;
-            const choose = dialog.querySelector('.address-dialog__choose');
-            const message = dialog.querySelector('.address-dialog__status');
+            this.form.elements.city.value = this.mapAddress.city;
+            this.form.elements.street.value = this.mapAddress.street;
+            this.view('form');
+            this.form.elements.street.focus();
+        }
+
+        async showMap() {
+            this.view('map');
+            this.mapAddress = null;
+            const choose = this.dialog.querySelector('.address-dialog__choose');
+            const message = this.dialog.querySelector('.address-dialog__status');
 
             choose.disabled = true;
-            showMessage(dialog.querySelector('.address-dialog__selected'), 'addresses-13');
-            showMessage(message, 'delivery-map-02');
-            const current = request;
+            TextUtils.showMessage(
+                this.dialog.querySelector('.address-dialog__selected'),
+                'Выберите точку на карте',
+            );
+            TextUtils.showMessage(message, 'Загрузка карты…');
+            const current = this.request;
             try {
-                const api = await loadMaps();
+                const api = await MapLoader.loadMaps();
 
-                if (current !== request) {
+                if (current !== this.request) {
                     return;
                 }
 
-                if (!map) {
-                    map = new api.Map(dialog.querySelector('.address-dialog__map'), {
-                        center: dialog
+                if (!this.map) {
+                    this.map = new api.Map(this.dialog.querySelector('.address-dialog__map'), {
+                        center: this.dialog
                             .querySelector('.address-dialog__map')
                             .dataset.mapCenter.split(',')
                             .map(Number),
                         zoom: 13,
                         controls: ['zoomControl'],
                     });
-                    map.events.add('click', async (event) => {
-                        const pending = ++request;
+                    this.map.events.add('click', async (event) => {
+                        const pending = ++this.request;
 
                         choose.disabled = true;
                         const coords = event.get('coords');
 
-                        showMessage(message, 'delivery-map-03');
+                        TextUtils.showMessage(message, 'Определяем адрес…');
                         try {
                             const result = await api.geocode(coords);
 
-                            if (pending !== request) {
+                            if (pending !== this.request) {
                                 return;
                             }
 
@@ -970,171 +1169,168 @@
                                 throw new Error('No street address');
                             }
 
-                            mapAddress = { city, street };
-                            map.geoObjects.removeAll();
-                            map.geoObjects.add(
-                                new api.Placemark(coords, {}, { preset: 'islands#orangeDotIcon' }),
+                            this.mapAddress = {
+                                city,
+                                street,
+                            };
+                            this.map.geoObjects.removeAll();
+                            this.map.geoObjects.add(
+                                new api.Placemark(
+                                    coords,
+                                    {},
+                                    {
+                                        preset: 'islands#orangeDotIcon',
+                                    },
+                                ),
                             );
-                            dialog.querySelector('.address-dialog__selected').textContent =
+                            this.dialog.querySelector('.address-dialog__selected').textContent =
                                 city + ', ' + street;
                             message.textContent = '';
                             choose.disabled = false;
                         } catch {
-                            if (pending === request) {
-                                showMessage(message, 'addresses-14');
+                            if (pending === this.request) {
+                                TextUtils.showMessage(
+                                    message,
+                                    'Не удалось определить адрес. Выберите другую точку или введите адрес вручную.',
+                                );
                             }
                         }
                     });
                 }
-                map.container.fitToViewport();
-                showMessage(message, 'delivery-map-01');
+                this.map.container.fitToViewport();
+                TextUtils.showMessage(message, 'Нажмите на карте, чтобы выбрать адрес.');
             } catch {
-                if (current === request) {
-                    showMessage(message, 'addresses-15');
+                if (current === this.request) {
+                    TextUtils.showMessage(
+                        message,
+                        'Не удалось загрузить карту. Вернитесь к вводу адреса вручную.',
+                    );
                 }
             }
-        });
+        }
     }
 
     // === auth-dialogs ===
 
-    const digits = (value) => String(value).replace(/\D/g, '');
+    class AuthDialogs {
+        static validateFieldValue(name, value) {
+            if (name === 'agreement') {
+                return value ? '' : 'agreement';
+            }
 
-    class CodeRequest {
+            if (!String(value).trim()) {
+                return 'required';
+            }
+
+            if (name === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value).trim())) {
+                return 'email';
+            }
+
+            if (name === 'phone' && !/^7\d{10}$/.test(TextUtils.digits(value))) {
+                return 'tel';
+            }
+
+            if (name === 'code' && !/^\d{4}$/.test(value)) {
+                return 'code';
+            }
+
+            return '';
+        }
+
         constructor() {
-            this.reset();
-        }
-        start(phone, now = Date.now()) {
-            this.phone = digits(phone);
-            this.deadline = now + 60000;
-        }
-        remaining(now = Date.now()) {
-            return Math.max(0, Math.ceil((this.deadline - now) / 1000));
-        }
-        matches(phone) {
-            return Boolean(this.phone && this.phone === digits(phone));
-        }
-        reset() {
-            this.phone = '';
-            this.deadline = 0;
-        }
-    }
-
-    function validateFieldValue(name, value) {
-        if (name === 'agreement') {
-            return value ? '' : 'agreement';
+            this.validate = this.validate.bind(this);
+            this.focusView = this.focusView.bind(this);
+            this.switchView = this.switchView.bind(this);
+            this.switchMethod = this.switchMethod.bind(this);
+            this.resetCode = this.resetCode.bind(this);
+            this.showCodeInput = this.showCodeInput.bind(this);
+            this.open = this.open.bind(this);
+            this.handleAction = this.handleAction.bind(this);
+            this.handleTabKeydown = this.handleTabKeydown.bind(this);
+            this.handleInput = this.handleInput.bind(this);
+            this.handleChange = this.handleChange.bind(this);
+            this.submit = this.submit.bind(this);
         }
 
-        if (!String(value).trim()) {
-            return 'required';
+        init() {
+            this.root = document.querySelector('#sign-in.auth-dialog');
+
+            if (!this.root || this.root.dataset.initialized) {
+                return;
+            }
+
+            this.root.dataset.initialized = 'true';
+            this.forms = Object.fromEntries(
+                [...this.root.querySelectorAll('[data-auth-form]')].map((form) => [
+                    form.dataset.authForm,
+                    form,
+                ]),
+            );
+            this.codePhones = {};
+            this.view = 'login';
+            this.method = 'email';
+            this.opener = undefined;
+
+            document.addEventListener('click', this.open);
+            this.root.addEventListener('click', this.handleAction);
+            this.root.addEventListener('keydown', this.handleTabKeydown);
+            this.root.addEventListener('input', this.handleInput);
+            this.root.addEventListener('change', this.handleChange);
+            this.root.addEventListener('submit', this.submit);
+
+            return this;
         }
 
-        if (name === 'email' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(value).trim())) {
-            return 'email';
+        validate(input) {
+            return window.FormController.validateField(input);
         }
 
-        if (name === 'phone' && !/^7\d{10}$/.test(digits(value))) {
-            return 'tel';
-        }
-
-        if (name === 'code' && !/^\d{4}$/.test(value)) {
-            return 'code';
-        }
-
-        return '';
-    }
-
-    function authDialogs() {
-        const root = document.querySelector('#sign-in.auth-dialog');
-
-        if (!root || root.dataset.initialized) {
-            return;
-        }
-
-        root.dataset.initialized = 'true';
-        const forms = Object.fromEntries(
-            [...root.querySelectorAll('[data-auth-form]')].map((form) => [
-                form.dataset.authForm,
-                form,
-            ]),
-        );
-        const requests = { phone: new CodeRequest(), register: new CodeRequest() };
-        const status = root.querySelector('.auth-dialog__status');
-        let interval;
-        let view = 'login';
-        let method = 'email';
-        let opener;
-
-        const announce = (text) => {
-            status.textContent = text;
-            status.hidden = !text;
-        };
-        const validate = (input) => window.FormController.validateField(input);
-        const focusView = () =>
-            forms[view === 'login' ? method : view]
+        focusView() {
+            return this.forms[this.view === 'login' ? this.method : this.view]
                 .querySelector('input:not(:disabled)')
-                ?.focus({ preventScroll: true });
-        const switchView = (name) => {
+                ?.focus({
+                    preventScroll: true,
+                });
+        }
+
+        switchView(name) {
             if (!['login', 'register', 'recovery'].includes(name)) {
                 return;
             }
 
-            view = name;
-            root.querySelectorAll('[data-auth-view]').forEach((panel) => {
+            this.view = name;
+            this.root.querySelectorAll('[data-auth-view]').forEach((panel) => {
                 panel.hidden = panel.dataset.authView !== name;
             });
-            root.classList.toggle('auth-dialog--recovery', name === 'recovery');
-            root.setAttribute(
+            this.root.classList.toggle('auth-dialog--recovery', name === 'recovery');
+            this.root.setAttribute(
                 'aria-labelledby',
                 name === 'login' ? 'auth-title' : `auth-${name}-title`,
             );
             if (name === 'recovery') {
-                forms.recovery.elements.email.value = forms.email.elements.email.value;
-                root.querySelector('.auth-dialog__email').textContent =
-                    forms.recovery.elements.email.value.trim();
+                this.forms.recovery.elements.email.value = this.forms.email.elements.email.value;
+                this.root.querySelector('.auth-dialog__email').textContent =
+                    this.forms.recovery.elements.email.value.trim();
             }
-            announce('');
-            focusView();
-        };
-        const switchMethod = (name) => {
-            method = name;
-            root.querySelectorAll('[data-auth-tab]').forEach((tab) => {
+            this.focusView();
+        }
+
+        switchMethod(name) {
+            this.method = name;
+            this.root.querySelectorAll('[data-auth-tab]').forEach((tab) => {
                 const active = tab.dataset.authTab === name;
 
                 tab.setAttribute('aria-selected', String(active));
                 tab.tabIndex = active ? 0 : -1;
             });
-            forms.email.hidden = name !== 'email';
-            forms.phone.hidden = name !== 'phone';
-            announce('');
-            forms[name].querySelector('input').focus();
-        };
-        const updateTimers = () => {
-            for (const name of ['phone', 'register']) {
-                const seconds = requests[name].remaining();
+            this.forms.email.hidden = name !== 'email';
+            this.forms.phone.hidden = name !== 'phone';
+            this.forms[name].querySelector('input').focus();
+        }
 
-                forms[name].querySelectorAll('[data-auth-send]').forEach((button) => {
-                    button.disabled = seconds > 0;
-                    if (name === 'phone') {
-                        button.textContent = seconds
-                            ? formatText(button.dataset.codeCountdownLabel, { seconds })
-                            : requests[name].phone
-                              ? button.dataset.codeResendLabel
-                              : button.dataset.codeRequestLabel;
-                    } else if (button.classList.contains('auth-dialog__resend')) {
-                        button.textContent = seconds
-                            ? formatText(button.dataset.codeCountdownLabel, {
-                                  minutes: String(Math.floor(seconds / 60)).padStart(2, '0'),
-                                  seconds: String(seconds % 60).padStart(2, '0'),
-                              })
-                            : button.dataset.codeResendLabel;
-                    }
-                });
-            }
-        };
-        const resetRequest = (name) => {
-            requests[name].reset();
-            const form = forms[name];
+        resetCode(name) {
+            delete this.codePhones[name];
+            const form = this.forms[name];
 
             form.elements.code.value = '';
             window.FormController.toggleErrorState(form.elements.code, false);
@@ -1144,19 +1340,15 @@
                 form.querySelector('.auth-dialog__code-note').hidden = true;
                 form.elements.code.disabled = true;
             }
-            updateTimers();
-        };
-        const sendCode = (name) => {
-            const form = forms[name];
+        }
 
-            if (requests[name].remaining() || !validate(form.elements.phone)) {
-                if (!requests[name].remaining()) {
-                    form.elements.phone.focus();
-                }
-
+        showCodeInput(name) {
+            const form = this.forms[name];
+            if (!this.validate(form.elements.phone)) {
+                form.elements.phone.focus();
                 return;
             }
-            requests[name].start(form.elements.phone.value);
+            this.codePhones[name] = TextUtils.digits(form.elements.phone.value);
             form.elements.code.value = '';
             if (name === 'register') {
                 form.querySelector('.auth-dialog__get-code').hidden = true;
@@ -1164,12 +1356,10 @@
                 form.querySelector('.auth-dialog__code-note').hidden = false;
                 form.elements.code.disabled = false;
             }
-            updateTimers();
             form.elements.code.focus();
-            announce(status.dataset.codeSentMessage);
-        };
+        }
 
-        document.addEventListener('click', (event) => {
+        open(event) {
             const trigger = event.target.closest('[data-auth-open]');
 
             if (!trigger) {
@@ -1181,48 +1371,56 @@
                 return;
             }
 
-            opener = trigger;
+            this.opener = trigger;
             window.SearchController?.closeSearch();
-            switchView('login');
-            switchMethod('email');
-            clearInterval(interval);
-            updateTimers();
-            interval = setInterval(updateTimers, 1000);
-            Fancybox.show([{ src: '#sign-in', type: 'inline' }], {
-                closeButton: false,
-                dragToClose: false,
-                autoFocus: true,
-                triggerEl: trigger,
-                on: {
-                    done: focusView,
-                    destroy: () => {
-                        clearInterval(interval);
-                        root.querySelectorAll('[data-auth-password]').forEach((button) => {
-                            button.closest('.auth-dialog__password').querySelector('input').type =
-                                'password';
-                            button.setAttribute('aria-pressed', 'false');
-                            button.setAttribute('aria-label', button.dataset.passwordShowLabel);
-                        });
-                        opener?.focus({ preventScroll: true });
+            this.switchView('login');
+            this.switchMethod('email');
+            Fancybox.show(
+                [
+                    {
+                        src: '#sign-in',
+                        type: 'inline',
+                    },
+                ],
+                {
+                    closeButton: false,
+                    dragToClose: false,
+                    autoFocus: true,
+                    triggerEl: trigger,
+                    on: {
+                        done: this.focusView,
+                        destroy: () => {
+                            this.root.querySelectorAll('[data-auth-password]').forEach((button) => {
+                                button
+                                    .closest('.auth-dialog__password')
+                                    .querySelector('input').type = 'password';
+                                button.setAttribute('aria-pressed', 'false');
+                                button.setAttribute('aria-label', button.dataset.passwordShowLabel);
+                            });
+                            this.opener?.focus({
+                                preventScroll: true,
+                            });
+                        },
                     },
                 },
-            });
-        });
-        root.addEventListener('click', (event) => {
+            );
+        }
+
+        handleAction(event) {
             const go = event.target.closest('[data-auth-go]');
 
             if (go) {
-                switchView(go.dataset.authGo);
+                this.switchView(go.dataset.authGo);
             }
             const tab = event.target.closest('[data-auth-tab]');
 
             if (tab) {
-                switchMethod(tab.dataset.authTab);
+                this.switchMethod(tab.dataset.authTab);
             }
             const send = event.target.closest('[data-auth-send]');
 
             if (send) {
-                sendCode(send.dataset.authSend);
+                this.showCodeInput(send.dataset.authSend);
             }
             const toggle = event.target.closest('[data-auth-password]');
 
@@ -1237,8 +1435,9 @@
                     visible ? toggle.dataset.passwordHideLabel : toggle.dataset.passwordShowLabel,
                 );
             }
-        });
-        root.addEventListener('keydown', (event) => {
+        }
+
+        handleTabKeydown(event) {
             if (
                 !event.target.matches('[data-auth-tab]') ||
                 !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)
@@ -1252,14 +1451,15 @@
                     ? 'email'
                     : event.key === 'End'
                       ? 'phone'
-                      : method === 'email'
+                      : this.method === 'email'
                         ? 'phone'
                         : 'email';
 
-            switchMethod(name);
-            root.querySelector(`[data-auth-tab="${name}"]`).focus();
-        });
-        root.addEventListener('input', (event) => {
+            this.switchMethod(name);
+            this.root.querySelector(`[data-auth-tab="${name}"]`).focus();
+        }
+
+        handleInput(event) {
             const input = event.target;
 
             if (!input.matches('input')) {
@@ -1269,596 +1469,619 @@
             const name = input.form.dataset.authForm;
 
             if (input.name === 'code') {
-                input.value = digits(input.value).slice(0, 4);
+                input.value = TextUtils.digits(input.value).slice(0, 4);
             }
             if (
                 input.name === 'phone' &&
-                requests[name]?.phone &&
-                !requests[name].matches(input.value)
+                this.codePhones[name] &&
+                this.codePhones[name] !== TextUtils.digits(input.value)
             ) {
-                resetRequest(name);
-                announce(status.dataset.phoneChangedMessage);
-            } else {
-                announce('');
+                this.resetCode(name);
             }
             if (input.getAttribute('aria-invalid') === 'true') {
-                validate(input);
+                this.validate(input);
             }
             if (name === 'recovery') {
-                root.querySelector('.auth-dialog__email').textContent = input.value.trim();
+                this.root.querySelector('.auth-dialog__email').textContent = input.value.trim();
             }
-        });
-        root.addEventListener('change', (event) => {
+        }
+
+        handleChange(event) {
             if (event.target.type === 'checkbox') {
-                validate(event.target);
+                this.validate(event.target);
             }
-        });
-        root.addEventListener('submit', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
+        }
+
+        submit(event) {
             const form = event.target;
-            const name = form.dataset.authForm;
-
-            announce('');
             let firstInvalid;
-
             form.querySelectorAll('input[required]:not(:disabled)').forEach((input) => {
-                if (!validate(input)) {
+                if (!this.validate(input)) {
                     firstInvalid ||= input;
                 }
             });
             if (firstInvalid) {
+                event.preventDefault();
                 firstInvalid.focus();
-
-                return;
             }
-            if (requests[name] && !requests[name].matches(form.elements.phone.value)) {
-                if (name === 'register') {
-                    sendCode(name);
-                } else {
-                    announce(status.dataset.codeRequiredMessage);
-                    form.querySelector('[data-auth-send]').focus();
-                }
-
-                return;
-            }
-            announce(
-                name === 'recovery'
-                    ? status.dataset.recoveryMessage
-                    : name === 'register'
-                      ? status.dataset.registrationMessage
-                      : status.dataset.loginMessage,
-            );
-        });
+        }
     }
 
     // === cart ===
 
-    function calculateCart(items) {
-        return items.reduce(
-            (result, item) => ({
-                total: result.total + item.price * item.quantity,
-                discount: result.discount + Math.max(0, item.oldPrice - item.price) * item.quantity,
-                quantity: result.quantity + item.quantity,
-                weight: Math.round((result.weight + item.weight * item.quantity) * 100) / 100,
-            }),
-            {
-                total: 0,
-                discount: 0,
-                quantity: 0,
-                weight: 0,
-            },
-        );
-    }
+    class CartController {
+        static calculateCart(items) {
+            return items.reduce(
+                (result, item) => ({
+                    total: result.total + item.price * item.quantity,
+                    discount:
+                        result.discount + Math.max(0, item.oldPrice - item.price) * item.quantity,
+                    quantity: result.quantity + item.quantity,
+                    weight: Math.round((result.weight + item.weight * item.quantity) * 100) / 100,
+                }),
+                {
+                    total: 0,
+                    discount: 0,
+                    quantity: 0,
+                    weight: 0,
+                },
+            );
+        }
 
-    const money = (value) =>
-        new Intl.NumberFormat('ru-RU').format(value) + uiText('currency-suffix');
-    const productWord = (count) =>
-        count % 10 === 1 && count % 100 !== 11
-            ? uiText('cart-01')
-            : count % 10 >= 2 && count % 10 <= 4 && (count % 100 < 12 || count % 100 > 14)
-              ? uiText('cart-02')
-              : uiText('cart-03');
+        static initAll() {
+            document
+                .querySelectorAll('.cart')
+                .forEach((element) => new CartController().init(element));
+        }
 
-    function cart() {
-        document.querySelectorAll('.cart').forEach((element) => {
-            if (element.dataset.cartReady) {
+        constructor() {
+            this.rows = this.rows.bind(this);
+            this.announce = this.announce.bind(this);
+            this.readItem = this.readItem.bind(this);
+            this.selectAccessory = this.selectAccessory.bind(this);
+            this.update = this.update.bind(this);
+            this.initSlider = this.initSlider.bind(this);
+            this.handleClick = this.handleClick.bind(this);
+            this.handleQuantityInput = this.handleQuantityInput.bind(this);
+            this.share = this.share.bind(this);
+        }
+
+        init(element) {
+            this.element = element;
+            if (this.element.dataset.cartReady) {
                 return;
             }
 
-            element.dataset.cartReady = 'true';
-            const rows = () => [...element.querySelectorAll('[data-cart-item]')];
-            const message = element.querySelector('.cart__message');
-            const announce = (text) => {
-                if (!message) {
-                    return;
-                }
+            this.element.dataset.cartReady = 'true';
 
-                message.hidden = false;
-                message.textContent = text;
-            };
-            const readItem = (row, quantity = 1) => ({
-                price: Number(row.dataset.price),
-                oldPrice: Number(row.dataset.oldPrice),
-                weight: Number(row.dataset.weight),
-                quantity,
-            });
-            function selectAccessory(accessory, selected) {
-                const button = accessory.querySelector('.cart-accessory__add');
+            this.message = this.element.querySelector('.cart__message');
 
-                accessory.dataset.selected = String(selected);
-                button.setAttribute('aria-pressed', String(selected));
-                button.setAttribute(
-                    'aria-label',
-                    (selected ? uiText('cart-04') : uiText('cart-05')) +
-                        accessory.querySelector('.cart-accessory__name').textContent,
-                );
-                const icon = button.querySelector('.cart-accessory__icon');
-
-                icon.classList.toggle('icon-cart', !selected);
-                icon.textContent = selected ? uiText('cart-selected') : '';
-            }
-            function update() {
-                if (!element.querySelector('[data-cart-total]')) {
-                    return;
-                }
-
-                const items = [];
-
-                rows().forEach((row) => {
-                    const input = row.querySelector('.quantity-block__input');
-                    const quantity = Math.min(9999, Math.max(1, parseInt(input.value, 10) || 1));
-
-                    input.value = quantity;
-                    items.push(readItem(row, quantity));
-                    row.querySelector('.cart-item__current').textContent = money(
-                        Number(row.dataset.price) * quantity,
-                    );
-                    row.querySelectorAll('.cart-accessory[data-selected="true"]').forEach(
-                        (accessory) => items.push(readItem(accessory)),
-                    );
-                });
-                const totals = calculateCart(items);
-
-                element.querySelector('[data-cart-total]').textContent = money(totals.total);
-                element.querySelector('[data-cart-subtotal]').textContent = money(
-                    totals.total + totals.discount,
-                );
-                element.querySelector('[data-cart-discount]').textContent =
-                    '−' + money(totals.discount);
-                element.querySelector('[data-cart-count]').textContent =
-                    totals.quantity + ' ' + productWord(totals.quantity);
-                document
-                    .querySelectorAll('.main-actions__item.icon-cart .main-actions__quanitity')
-                    .forEach((badge) => {
-                        badge.textContent = totals.quantity;
-                        badge.hidden = totals.quantity === 0;
-                    });
-                element.querySelector('[data-cart-weight]').textContent =
-                    totals.weight.toLocaleString('ru-RU', { maximumFractionDigits: 2 }) +
-                    uiText('cart-06');
-                element.querySelector('.cart__empty').hidden = rows().length > 0;
-                const checkout = element.querySelector('.cart__total-order');
-
-                if (checkout) {
-                    const empty = rows().length === 0;
-
-                    checkout.disabled = empty;
-                    checkout.setAttribute('aria-disabled', String(empty));
-                    if (checkout.tagName === 'A') {
-                        if (empty) {
-                            checkout.removeAttribute('href');
-                        } else {
-                            checkout.setAttribute('href', 'checkout.html');
-                        }
-                        checkout.tabIndex = empty ? -1 : 0;
-                    }
-                }
-            }
-            function initSlider(details) {
-                const slider = details.querySelector('.swiper');
-
-                if (!details.open || !slider || typeof Swiper === 'undefined') {
-                    return;
-                }
-
-                if (slider.swiper) {
-                    slider.swiper.update();
-
-                    return;
-                }
-                new Swiper(slider, {
-                    slidesPerView: 1,
-                    spaceBetween: 10,
-                    watchOverflow: true,
-                    a11y: {
-                        prevSlideMessage: uiText('cart-07'),
-                        nextSlideMessage: uiText('cart-08'),
-                    },
-                    breakpoints: { 576: { slidesPerView: 2 } },
-                    navigation: {
-                        prevEl: slider.querySelector('.swiper-button-prev'),
-                        nextEl: slider.querySelector('.swiper-button-next'),
-                    },
-                });
-            }
-            element.querySelectorAll('.cart__recommendations').forEach((details) => {
+            this.element.querySelectorAll('.cart__recommendations').forEach((details) => {
                 if (details.open) {
                     const accessory = details.querySelector('.cart-accessory');
 
                     if (accessory) {
-                        selectAccessory(accessory, true);
+                        this.selectAccessory(accessory, true);
                     }
                 }
-                details.addEventListener('toggle', () => initSlider(details));
-                initSlider(details);
+                details.addEventListener('toggle', () => this.initSlider(details));
+                this.initSlider(details);
             });
-            element.addEventListener('click', (event) => {
-                const remove = event.target.closest('.cart-item__remove');
+            this.element.addEventListener('click', this.handleClick);
+            this.element.addEventListener('input', this.handleQuantityInput);
+            this.element.querySelector('.cart__share')?.addEventListener('click', this.share);
 
-                if (remove) {
-                    const row = remove.closest('[data-cart-item]');
-
-                    row.querySelectorAll('.swiper').forEach((slider) => slider.swiper?.destroy());
-                    row.remove();
-                    update();
-
-                    return;
-                }
-                const add = event.target.closest('.cart-accessory__add');
-
-                if (add) {
-                    const accessory = add.closest('.cart-accessory');
-                    const selected = accessory.dataset.selected !== 'true';
-
-                    selectAccessory(accessory, selected);
-                    update();
-                    if (selected) {
-                        window.NotifyController?.show(
-                            accessory.querySelector('.cart-accessory__name').textContent.trim(),
-                            1,
-                            'cart',
-                        );
-                    }
-                }
-                if (event.target.closest('.quantity-block__up, .quantity-block__down')) {
-                    update();
-                }
-            });
-            element.addEventListener('input', (event) => {
-                if (event.target.matches('.quantity-block__input')) {
-                    update();
-                }
-            });
-            element.querySelector('.cart__share')?.addEventListener('click', async () => {
-                try {
-                    await navigator.clipboard.writeText(window.location.href);
-                    announce(uiText('cart-09'));
-                } catch {
-                    announce(uiText('cart-10') + window.location.href);
-                }
-            });
-            element.querySelector('.cart__promo')?.addEventListener('submit', (event) => {
-                event.preventDefault();
-                const input = element.querySelector('.cart__promo-input');
-
-                announce(input.value.trim() ? uiText('cart-11') : uiText('cart-12'));
-                if (!input.value.trim()) {
-                    input.focus();
-                }
-            });
-
-            element.querySelectorAll('.cart__total-order').forEach((button) =>
+            this.element.querySelectorAll('.cart__total-order').forEach((button) =>
                 button.addEventListener('click', (event) => {
                     if (button.getAttribute('aria-disabled') === 'true') {
                         event.preventDefault();
                     }
                 }),
             );
-            if (element.querySelector('[data-cart-total]')) {
-                update();
+            if (this.element.querySelector('[data-cart-total]')) {
+                this.update();
             }
-        });
+
+            return this;
+        }
+
+        rows() {
+            return [...this.element.querySelectorAll('[data-cart-item]')];
+        }
+
+        announce(text) {
+            if (!this.message) {
+                return;
+            }
+
+            this.message.hidden = false;
+            this.message.textContent = text;
+        }
+
+        readItem(row, quantity = 1) {
+            return {
+                price: Number(row.dataset.price),
+                oldPrice: Number(row.dataset.oldPrice),
+                weight: Number(row.dataset.weight),
+                quantity,
+            };
+        }
+
+        selectAccessory(accessory, selected) {
+            const button = accessory.querySelector('.cart-accessory__add');
+
+            accessory.dataset.selected = String(selected);
+            button.setAttribute('aria-pressed', String(selected));
+            button.setAttribute(
+                'aria-label',
+                (selected ? 'Убрать из корзины: ' : 'Добавить: ') +
+                    accessory.querySelector('.cart-accessory__name').textContent,
+            );
+            const icon = button.querySelector('.cart-accessory__icon');
+
+            icon.classList.toggle('icon-cart', !selected);
+            icon.textContent = selected ? '✓' : '';
+        }
+
+        update() {
+            if (!this.element.querySelector('[data-cart-total]')) {
+                return;
+            }
+
+            const items = [];
+
+            this.rows().forEach((row) => {
+                const input = row.querySelector('.quantity-block__input');
+                const quantity = Math.min(9999, Math.max(1, parseInt(input.value, 10) || 1));
+
+                input.value = quantity;
+                items.push(this.readItem(row, quantity));
+                row.querySelector('.cart-item__current').textContent = TextUtils.money(
+                    Number(row.dataset.price) * quantity,
+                );
+                row.querySelectorAll('.cart-accessory[data-selected="true"]').forEach((accessory) =>
+                    items.push(this.readItem(accessory)),
+                );
+            });
+            const totals = CartController.calculateCart(items);
+
+            this.element.querySelector('[data-cart-total]').textContent = TextUtils.money(
+                totals.total,
+            );
+            this.element.querySelector('[data-cart-subtotal]').textContent = TextUtils.money(
+                totals.total + totals.discount,
+            );
+            this.element.querySelector('[data-cart-discount]').textContent =
+                '−' + TextUtils.money(totals.discount);
+            this.element.querySelector('[data-cart-count]').textContent =
+                totals.quantity + ' ' + TextUtils.productWord(totals.quantity);
+            document
+                .querySelectorAll('.main-actions__item.icon-cart .main-actions__quanitity')
+                .forEach((badge) => {
+                    badge.textContent = totals.quantity;
+                    badge.hidden = totals.quantity === 0;
+                });
+            this.element.querySelector('[data-cart-weight]').textContent =
+                totals.weight.toLocaleString('ru-RU', {
+                    maximumFractionDigits: 2,
+                }) + ' кг';
+            this.element.querySelector('.cart__empty').hidden = this.rows().length > 0;
+            const checkout = this.element.querySelector('.cart__total-order');
+
+            if (checkout) {
+                const empty = this.rows().length === 0;
+
+                checkout.disabled = empty;
+                checkout.setAttribute('aria-disabled', String(empty));
+                if (checkout.tagName === 'A') {
+                    if (empty) {
+                        checkout.removeAttribute('href');
+                    } else {
+                        checkout.setAttribute('href', 'checkout.html');
+                    }
+                    checkout.tabIndex = empty ? -1 : 0;
+                }
+            }
+        }
+
+        initSlider(details) {
+            const slider = details.querySelector('.swiper');
+
+            if (!details.open || !slider || typeof Swiper === 'undefined') {
+                return;
+            }
+
+            if (slider.swiper) {
+                slider.swiper.update();
+
+                return;
+            }
+            new Swiper(slider, {
+                slidesPerView: 1,
+                spaceBetween: 10,
+                watchOverflow: true,
+                a11y: {
+                    prevSlideMessage: 'Предыдущая рекомендация',
+                    nextSlideMessage: 'Следующая рекомендация',
+                },
+                breakpoints: {
+                    576: {
+                        slidesPerView: 2,
+                    },
+                },
+                navigation: {
+                    prevEl: slider.querySelector('.swiper-button-prev'),
+                    nextEl: slider.querySelector('.swiper-button-next'),
+                },
+            });
+        }
+
+        handleClick(event) {
+            const remove = event.target.closest('.cart-item__remove');
+
+            if (remove) {
+                const row = remove.closest('[data-cart-item]');
+
+                row.querySelectorAll('.swiper').forEach((slider) => slider.swiper?.destroy());
+                row.remove();
+                this.update();
+
+                return;
+            }
+            const add = event.target.closest('.cart-accessory__add');
+
+            if (add) {
+                const accessory = add.closest('.cart-accessory');
+                const selected = accessory.dataset.selected !== 'true';
+
+                this.selectAccessory(accessory, selected);
+                this.update();
+                if (selected) {
+                    window.NotifyController?.show(
+                        accessory.querySelector('.cart-accessory__name').textContent.trim(),
+                        1,
+                        'cart',
+                    );
+                }
+            }
+            if (event.target.closest('.quantity-block__up, .quantity-block__down')) {
+                this.update();
+            }
+        }
+
+        handleQuantityInput(event) {
+            if (event.target.matches('.quantity-block__input')) {
+                this.update();
+            }
+        }
+
+        async share() {
+            try {
+                await navigator.clipboard.writeText(window.location.href);
+                this.announce('Ссылка на корзину скопирована.');
+                window.NotifyController?.show(window.location.href, 1, 'cart-share');
+            } catch {
+                this.announce('Ссылка на корзину: ' + window.location.href);
+            }
+        }
     }
 
     // === pickup-picker ===
 
-    function pickupPicker(form) {
-        const picker = document.querySelector('#pickup-picker');
-
-        if (!picker || picker.dataset.initialized) {
-            return null;
+    class PickupPicker {
+        constructor() {
+            this.inputs = this.inputs.bind(this);
+            this.setView = this.setView.bind(this);
+            this.updateDelivery = this.updateDelivery.bind(this);
+            this.applyPoint = this.applyPoint.bind(this);
+            this.validate = this.validate.bind(this);
+            this.open = this.open.bind(this);
+            this.showAddForm = this.showAddForm.bind(this);
+            this.showList = this.showList.bind(this);
+            this.selectPoint = this.selectPoint.bind(this);
+            this.addPoint = this.addPoint.bind(this);
         }
 
-        picker.dataset.initialized = 'true';
-        const block = form.querySelector('.checkout__pickup');
-        const address = form.querySelector('.checkout__address');
-        const trigger = block.querySelector('.checkout__pickup-button');
-        const error = block.querySelector('.checkout__pickup-error');
-        const list = picker.querySelector('.address-picker__list');
-        const addForm = picker.querySelector('.address-picker__point-form');
-        const inputs = () => [...list.querySelectorAll('.address-picker__radio')];
-        const defaultId = inputs().find((input) => input.checked)?.value;
-        const map = deliveryMap(addForm);
-        let selectedId = '';
-        let nextId = 0;
-        let modal;
-        const setView = (name) => {
-            picker.querySelectorAll('[data-pickup-view]').forEach((view) => {
+        init(form) {
+            this.form = form;
+            this.picker = document.querySelector('#pickup-picker');
+
+            if (!this.picker || this.picker.dataset.initialized) {
+                return null;
+            }
+
+            this.picker.dataset.initialized = 'true';
+            this.block = this.form.querySelector('.checkout__pickup');
+            this.address = this.form.querySelector('.checkout__address');
+            this.trigger = this.block.querySelector('.checkout__pickup-button');
+            this.error = this.block.querySelector('.checkout__pickup-error');
+            this.list = this.picker.querySelector('.address-picker__list');
+            this.addForm = this.picker.querySelector('.address-picker__point-form');
+
+            this.defaultId = this.inputs().find((input) => input.checked)?.value;
+            this.map = new DeliveryMap().init(this.addForm);
+            this.selectedId = '';
+            this.nextId = 0;
+            this.modal = undefined;
+
+            this.form
+                .querySelectorAll('[name="delivery"]')
+                .forEach((input) => input.addEventListener('change', this.updateDelivery));
+            this.updateDelivery();
+            this.trigger.addEventListener('click', this.open);
+            this.picker
+                .querySelector('.address-picker__add')
+                .addEventListener('click', this.showAddForm);
+            this.picker
+                .querySelector('.address-picker__back')
+                .addEventListener('click', this.showList);
+            this.picker
+                .querySelector('.address-picker__pickup-form')
+                .addEventListener('submit', this.selectPoint);
+            this.addForm.addEventListener('submit', this.addPoint);
+
+            return this;
+        }
+
+        inputs() {
+            return [...this.list.querySelectorAll('.address-picker__radio')];
+        }
+
+        setView(name) {
+            this.picker.querySelectorAll('[data-pickup-view]').forEach((view) => {
                 view.hidden = view.dataset.pickupView !== name;
             });
-            picker.classList.toggle('address-picker--adding', name === 'add');
-            picker.setAttribute(
+            this.picker.classList.toggle('address-picker--adding', name === 'add');
+            this.picker.setAttribute(
                 'aria-labelledby',
                 name === 'add' ? 'pickup-add-title' : 'pickup-picker-title',
             );
-        };
-        const updateDelivery = () => {
-            const pickup = form.elements.delivery.value === 'ozon';
+        }
 
-            address.hidden = pickup;
-            block.hidden = !pickup;
-            address.querySelectorAll('input').forEach((input) => {
+        updateDelivery() {
+            const pickup = this.form.elements.delivery.value === 'ozon';
+
+            this.address.hidden = pickup;
+            this.block.hidden = !pickup;
+            this.address.querySelectorAll('input').forEach((input) => {
                 input.disabled = pickup;
             });
-            block.querySelectorAll('input').forEach((input) => {
+            this.block.querySelectorAll('input').forEach((input) => {
                 input.disabled = !pickup;
             });
-            error.hidden = true;
-        };
-        const applyPoint = (input) => {
-            selectedId = input.value;
-            form.elements.pickup_point.value = selectedId;
-            form.elements.pickup_point_address.value = input.dataset.address;
-            block.classList.add('checkout__pickup--selected');
-            showMessage(block.querySelector('.checkout__pickup-title'), 'pickup-picker-01');
-            block.querySelector('.checkout__pickup-description').hidden = true;
-            block.querySelector('.checkout__pickup-selected').hidden = false;
-            block.querySelector('.checkout__pickup-selected-title').textContent =
-                input.dataset.address;
-            block.querySelector('.checkout__pickup-hours').textContent =
-                input.dataset.hours || uiText('pickup-picker-02');
-            showMessage(trigger.querySelector('.checkout__pickup-button-text'), 'pickup-picker-03');
-            error.hidden = true;
-            modal?.close();
-        };
+            this.error.hidden = true;
+        }
 
-        form.querySelectorAll('[name="delivery"]').forEach((input) =>
-            input.addEventListener('change', updateDelivery),
-        );
-        updateDelivery();
-        trigger.addEventListener('click', () => {
+        applyPoint(input) {
+            this.selectedId = input.value;
+            this.form.elements.pickup_point.value = this.selectedId;
+            this.form.elements.pickup_point_address.value = input.dataset.address;
+            this.block.classList.add('checkout__pickup--selected');
+            TextUtils.showMessage(
+                this.block.querySelector('.checkout__pickup-title'),
+                'Пункт выдачи Озон',
+            );
+            this.block.querySelector('.checkout__pickup-description').hidden = true;
+            this.block.querySelector('.checkout__pickup-selected').hidden = false;
+            this.block.querySelector('.checkout__pickup-selected-title').textContent =
+                input.dataset.address;
+            this.block.querySelector('.checkout__pickup-hours').textContent =
+                input.dataset.hours || 'Ежедневно, 09:00-22:00';
+            TextUtils.showMessage(
+                this.trigger.querySelector('.checkout__pickup-button-text'),
+                'Изменить пункт выдачи',
+            );
+            this.error.hidden = true;
+            this.modal?.close();
+        }
+
+        validate() {
+            const valid = this.form.elements.delivery.value !== 'ozon' || Boolean(this.selectedId);
+
+            this.error.hidden = valid;
+            if (!valid) {
+                this.trigger.focus();
+            }
+
+            return valid;
+        }
+
+        open() {
             if (typeof Fancybox === 'undefined') {
                 return;
             }
 
-            inputs().forEach((input) => {
-                input.checked = input.value === (selectedId || defaultId);
+            this.inputs().forEach((input) => {
+                input.checked = input.value === (this.selectedId || this.defaultId);
             });
-            setView('list');
-            Fancybox.show([{ src: '#pickup-picker', type: 'inline' }], {
-                closeButton: false,
-                dragToClose: false,
-                autoFocus: false,
-                on: {
-                    ready: () => picker.querySelector('.address-picker__radio:checked')?.focus(),
-                    destroy: () => {
-                        map?.reset();
-                        trigger.focus();
+            this.setView('list');
+            Fancybox.show(
+                [
+                    {
+                        src: '#pickup-picker',
+                        type: 'inline',
+                    },
+                ],
+                {
+                    closeButton: false,
+                    dragToClose: false,
+                    autoFocus: false,
+                    on: {
+                        ready: () =>
+                            this.picker.querySelector('.address-picker__radio:checked')?.focus(),
+                        destroy: () => {
+                            this.map?.reset();
+                            this.trigger.focus();
+                        },
                     },
                 },
-            });
-            modal = Fancybox.getInstance();
-        });
-        picker.querySelector('.address-picker__add').addEventListener('click', () => {
-            addForm.reset();
-            map?.reset();
-            setView('add');
-            addForm.elements.city.focus();
-        });
-        picker.querySelector('.address-picker__back').addEventListener('click', () => {
-            map?.reset();
-            setView('list');
-            picker.querySelector('.address-picker__add').focus();
-        });
-        picker.querySelector('.address-picker__pickup-form').addEventListener('submit', (event) => {
+            );
+            this.modal = Fancybox.getInstance();
+        }
+
+        showAddForm() {
+            this.addForm.reset();
+            this.map?.reset();
+            this.setView('add');
+            this.addForm.elements.city.focus();
+        }
+
+        showList() {
+            this.map?.reset();
+            this.setView('list');
+            this.picker.querySelector('.address-picker__add').focus();
+        }
+
+        selectPoint(event) {
             event.preventDefault();
-            const input = inputs().find((input) => input.checked);
+            const input = this.inputs().find((input) => input.checked);
 
             if (input) {
-                applyPoint(input);
+                this.applyPoint(input);
             }
-        });
-        addForm.addEventListener('submit', (event) => {
+        }
+
+        addPoint(event) {
             event.preventDefault();
             for (const name of ['city', 'street']) {
-                addForm.elements[name].value = addForm.elements[name].value.trim();
+                this.addForm.elements[name].value = this.addForm.elements[name].value.trim();
             }
-            if (!window.FormController.validateForm(addForm)) {
+            if (!window.FormController.validateForm(this.addForm)) {
                 return;
             }
 
-            const title = `${addForm.elements.city.value}, ${addForm.elements.street.value}`;
+            const title = `${this.addForm.elements.city.value}, ${this.addForm.elements.street.value}`;
             const key = (value) => value.toLocaleLowerCase('ru').replace(/\s+/g, ' ').trim();
-            let input = inputs().find((item) => key(item.dataset.address) === key(title));
+            let input = this.inputs().find((item) => key(item.dataset.address) === key(title));
 
             if (!input) {
-                const card = list.querySelector('.address-picker__card').cloneNode(true);
+                const card = this.list.querySelector('.address-picker__card').cloneNode(true);
 
                 input = card.querySelector('.address-picker__radio');
-                input.value = `ozon-custom-${++nextId}`;
+                input.value = `ozon-custom-${++this.nextId}`;
                 input.dataset.address = title;
-                input.dataset.hours = uiText('pickup-picker-02');
+                input.dataset.hours = 'Ежедневно, 09:00-22:00';
                 card.querySelector('.address-picker__card-title').textContent = title;
-                list.append(card);
+                this.list.append(card);
             }
             input.checked = true;
-            applyPoint(input);
-        });
-
-        return {
-            validate() {
-                const valid = form.elements.delivery.value !== 'ozon' || Boolean(selectedId);
-
-                error.hidden = valid;
-                if (!valid) {
-                    trigger.focus();
-                }
-
-                return valid;
-            },
-        };
+            this.applyPoint(input);
+        }
     }
 
     // === checkout ===
 
-    function checkout() {
-        const form = document.querySelector('#checkout-form');
-
-        if (!form || form.dataset.initialized) {
-            return;
+    class CheckoutController {
+        constructor() {
+            this.submit = this.submit.bind(this);
         }
 
-        form.dataset.initialized = 'true';
-        const status = form.querySelector('.checkout__status');
-        const announce = (message) => {
-            status.hidden = false;
-            status.textContent = message;
-        };
+        init() {
+            this.form = document.querySelector('#checkout-form');
 
-        addressPicker(form);
-        const pickup = pickupPicker(form);
-
-        form.querySelector('.checkout__promo-button').addEventListener('click', () => {
-            const promo = form.elements.promo;
-
-            announce(promo.value.trim() ? uiText('checkout-01') : uiText('cart-12'));
-            if (!promo.value.trim()) {
-                promo.focus();
-            }
-        });
-        form.addEventListener('submit', (event) => {
-            event.preventDefault();
-            if (pickup && !pickup.validate()) {
+            if (!this.form || this.form.dataset.initialized) {
                 return;
             }
 
-            if (!window.FormController.validateForm(form)) {
+            this.form.dataset.initialized = 'true';
+
+            new AddressPicker().init(this.form);
+            this.pickup = new PickupPicker().init(this.form);
+            this.form.addEventListener('submit', this.submit);
+
+            return this;
+        }
+
+        submit(event) {
+            if (this.pickup && !this.pickup.validate()) {
+                event.preventDefault();
                 return;
             }
-
-            form.dispatchEvent(
-                new CustomEvent('checkout:submit', {
-                    bubbles: true,
-                    detail: Object.fromEntries(new FormData(form)),
-                }),
-            );
-            announce(uiText('checkout-02'));
-        });
+            if (!window.FormController.validateForm(this.form)) {
+                event.preventDefault();
+            }
+        }
     }
 
     // === comparing ===
 
-    function comparisonRows(rows, activeIds, mode = 'all') {
-        return rows.map((row) => {
-            const values = activeIds.map((index) => row.values[index] ?? '—');
-            const different = new Set(values).size > 1;
-            return {
-                ...row,
-                values,
-                visible: mode === 'all' || (mode === 'different' ? different : !different),
-            };
-        });
-    }
+    class ComparisonController {
+        static comparisonRows(rows, activeIds, mode = 'all') {
+            return rows.map((row) => {
+                const values = activeIds.map((index) => row.values[index] ?? '—');
+                const different = new Set(values).size > 1;
+                return {
+                    ...row,
+                    values,
+                    visible: mode === 'all' || (mode === 'different' ? different : !different),
+                };
+            });
+        }
 
-    function comparing() {
-        document.querySelectorAll('.comparing').forEach((root) => {
-            if (root.dataset.initialized || typeof Swiper === 'undefined') {
+        static initAll() {
+            document
+                .querySelectorAll('.comparing')
+                .forEach((root) => new ComparisonController().init(root));
+        }
+
+        constructor() {
+            this.updateRows = this.updateRows.bind(this);
+            this.updateSticky = this.updateSticky.bind(this);
+            this.requestSticky = this.requestSticky.bind(this);
+            this.beginComparisonGesture = this.beginComparisonGesture.bind(this);
+            this.setFilter = this.setFilter.bind(this);
+            this.updateEmpty = this.updateEmpty.bind(this);
+            this.handlePointerDown = this.handlePointerDown.bind(this);
+            this.handleTouchStart = this.handleTouchStart.bind(this);
+            this.handleChange = this.handleChange.bind(this);
+            this.handleClick = this.handleClick.bind(this);
+            this.handleResize = this.handleResize.bind(this);
+        }
+
+        init(root) {
+            const controller = this;
+            this.root = root;
+            if (this.root.dataset.initialized || typeof Swiper === 'undefined') {
                 return;
             }
 
-            root.dataset.initialized = 'true';
-            const body = root.querySelector('.comparing__body');
-            const panel = root.querySelector('.comparing__panel');
-            const anchor = root.querySelector('.comparing__anchor');
-            const empty = root.querySelector('.comparing__empty');
-            const important = root.querySelector('.comparing__important-rows');
-            const rowElements = [...root.querySelectorAll('.comparing__content .comparing__block')];
-            const rows = rowElements.map((element) => ({
+            this.root.dataset.initialized = 'true';
+            this.body = this.root.querySelector('.comparing__body');
+            this.panel = this.root.querySelector('.comparing__panel');
+            this.anchor = this.root.querySelector('.comparing__anchor');
+            this.empty = this.root.querySelector('.comparing__empty');
+            this.important = this.root.querySelector('.comparing__important-rows');
+            this.rowElements = [
+                ...this.root.querySelectorAll('.comparing__content .comparing__block'),
+            ];
+            this.rows = this.rowElements.map((element) => ({
                 element,
                 key: element.dataset.parameter,
                 values: JSON.parse(element.dataset.values),
             }));
-            const items = [
-                ...root.querySelector('[data-compare-column="desktop"] .swiper-wrapper').children,
+            this.items = [
+                ...this.root.querySelector('[data-compare-column="desktop"] .swiper-wrapper')
+                    .children,
             ];
-            const ids = items.map((item) => item.dataset.compareId);
-            const activeIds = ids.map((id, index) => index);
-            const desktopQuery = window.matchMedia('(min-width: 1199.98px)');
-            let mode = 'all';
-            const populatedCategory = root.querySelector('[data-compare-category].is-active')
-                .dataset.compareCategory;
-            let category = populatedCategory;
-            let frame = 0;
-            let naturalHeight = 0;
-            let desktop;
-            const columns = [];
+            this.ids = this.items.map((item) => item.dataset.compareId);
+            this.activeIds = this.ids.map((id, index) => index);
+            this.desktopQuery = window.matchMedia('(min-width: 1199.98px)');
+            this.mode = 'all';
+            this.populatedCategory = this.root.querySelector(
+                '[data-compare-category].is-active',
+            ).dataset.compareCategory;
+            this.category = this.populatedCategory;
+            this.frame = 0;
+            this.naturalHeight = 0;
+            this.desktop = undefined;
+            this.columns = [];
 
-            function updateRows() {
-                const selected = desktopQuery.matches
-                    ? activeIds
-                    : columns
-                          .map((swiper) => activeIds[swiper.activeIndex])
-                          .filter((index) => index !== undefined);
-
-                comparisonRows(rows, selected, mode).forEach(({ element, visible, values }) => {
-                    element.hidden = !visible;
-                    const cells = [...element.querySelectorAll('.comparing__value')];
-
-                    cells.forEach((cell, index) => {
-                        cell.hidden = index >= selected.length;
-                        cell.textContent = values[index] ?? '—';
-                    });
-                });
-                important.replaceChildren();
-                rows.forEach(({ element }) => {
-                    if (!element.querySelector('.comparing__check').checked || element.hidden) {
-                        return;
-                    }
-
-                    important.append(element.cloneNode(true));
-                });
-            }
-
-            function updateSticky() {
-                frame = 0;
-                if (body.hidden) {
-                    panel.classList.remove('is-stuck');
-                    anchor.style.height = '';
-
-                    return;
-                }
-                const top = anchor.getBoundingClientRect().top;
-                const bottom = root
-                    .querySelector('.comparing__desc')
-                    .getBoundingClientRect().bottom;
-                const stuck = top <= 0 && bottom > panel.getBoundingClientRect().height + 30;
-
-                if (!panel.classList.contains('is-stuck')) {
-                    naturalHeight = panel.offsetHeight;
-                }
-                anchor.style.height = stuck ? naturalHeight + 'px' : '';
-                panel.classList.toggle('is-stuck', stuck);
-            }
-
-            function requestSticky() {
-                if (!frame) {
-                    frame = requestAnimationFrame(updateSticky);
-                }
-            }
-
-            root.querySelectorAll('[data-compare-column]').forEach((column) => {
+            this.root.querySelectorAll('[data-compare-column]').forEach((column) => {
                 const isDesktop = column.dataset.compareColumn === 'desktop';
+                const updateEdges = (swiper) => {
+                    column.classList.toggle('has-prev', !swiper.isBeginning && !swiper.isLocked);
+                    column.classList.toggle('has-next', !swiper.isEnd && !swiper.isLocked);
+                };
                 const swiper = new Swiper(column.querySelector('.swiper'), {
                     speed: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 300,
                     touchEventsTarget: 'container',
@@ -1866,7 +2089,6 @@
                     slidesPerView: isDesktop ? 'auto' : 1,
                     spaceBetween: 20,
                     initialSlide: column.dataset.compareColumn === '1' ? 1 : 0,
-                    rewind: true,
                     watchOverflow: true,
                     navigation: {
                         prevEl: column.querySelector('.swiper-button-prev'),
@@ -1875,572 +2097,734 @@
                     pagination: {
                         el: column.querySelector('.comparing__pagination'),
                         type: 'fraction',
-                        renderFraction: (current, total) => {
-                            const fraction = uiFragment('compare-fraction').firstElementChild;
-                            fraction.querySelector('[data-fraction-current]').className = current;
-                            fraction.querySelector('[data-fraction-total]').className = total;
-                            return fraction.outerHTML;
-                        },
+                        renderFraction: (current, total) =>
+                            `<span class="comparing__fraction"><span class="${current}"></span> из <span class="${total}"></span></span>`,
                     },
                     on: {
+                        init() {
+                            updateEdges(this);
+                        },
+                        progress() {
+                            updateEdges(this);
+                        },
+                        update() {
+                            updateEdges(this);
+                        },
                         slideChange() {
-                            updateRows();
+                            controller.updateRows();
                             if (
                                 !isDesktop &&
-                                columns.length === 2 &&
+                                controller.columns.length === 2 &&
                                 this.params.speed > 0 &&
                                 !window.matchMedia('(prefers-reduced-motion: reduce)').matches
                             ) {
                                 const index = Number(column.dataset.compareColumn);
-                                root.querySelectorAll('.comparing__values').forEach((row) => {
-                                    const cell = row.children[index];
-                                    if (cell && !cell.hidden && cell.animate) {
-                                        cell.getAnimations().forEach((animation) =>
-                                            animation.cancel(),
-                                        );
-                                        cell.animate(
-                                            [
+                                controller.root
+                                    .querySelectorAll('.comparing__values')
+                                    .forEach((row) => {
+                                        const cell = row.children[index];
+                                        if (cell && !cell.hidden && cell.animate) {
+                                            cell.getAnimations().forEach((animation) =>
+                                                animation.cancel(),
+                                            );
+                                            cell.animate(
+                                                [
+                                                    {
+                                                        opacity: 0,
+                                                        transform:
+                                                            'translateX(' +
+                                                            (this.swipeDirection === 'prev'
+                                                                ? -24
+                                                                : 24) +
+                                                            'px)',
+                                                    },
+                                                    {
+                                                        opacity: 1,
+                                                        transform: 'translateX(0)',
+                                                    },
+                                                ],
                                                 {
-                                                    opacity: 0,
-                                                    transform:
-                                                        'translateX(' +
-                                                        (this.swipeDirection === 'prev'
-                                                            ? -24
-                                                            : 24) +
-                                                        'px)',
+                                                    duration: this.params.speed,
+                                                    easing: 'ease-out',
                                                 },
-                                                { opacity: 1, transform: 'translateX(0)' },
-                                            ],
-                                            { duration: this.params.speed, easing: 'ease-out' },
-                                        );
-                                    }
-                                });
+                                            );
+                                        }
+                                    });
                             }
                         },
                         resize() {
-                            requestSticky();
+                            updateEdges(this);
+                            controller.requestSticky();
                         },
                         setTranslate() {
                             if (isDesktop) {
-                                root.style.setProperty('--comparing-shift', this.translate + 'px');
+                                controller.root.style.setProperty(
+                                    '--comparing-shift',
+                                    this.translate + 'px',
+                                );
                             }
                         },
                         setTransition(swiper, duration) {
                             if (isDesktop) {
-                                root.style.setProperty('--comparing-duration', duration + 'ms');
+                                controller.root.style.setProperty(
+                                    '--comparing-duration',
+                                    duration + 'ms',
+                                );
                             }
                         },
                         sliderFirstMove() {
-                            root.classList.add('is-dragging');
+                            controller.root.classList.add('is-dragging');
                         },
                         touchEnd() {
-                            root.classList.remove('is-dragging');
+                            controller.root.classList.remove('is-dragging');
                         },
                     },
                 });
 
                 if (isDesktop) {
-                    desktop = swiper;
+                    this.desktop = swiper;
                 } else {
-                    columns.push(swiper);
+                    this.columns.push(swiper);
                 }
             });
 
-            const description = root.querySelector('.comparing__desc');
-            const beginComparisonGesture = (event, point) => {
-                if (event.target.closest('a, button, input, select, textarea, label')) {
-                    return;
-                }
-                const bounds = description.getBoundingClientRect();
-                const index = point.clientX < bounds.left + bounds.width / 2 ? 0 : 1;
-                const swiper = desktopQuery.matches ? desktop : columns[index];
-                if (swiper && !swiper.destroyed) {
-                    // Swiper keeps ownership of threshold, vertical-scroll detection,
-                    // movement, snapping and document-level pointer release.
-                    swiper.onTouchStart(event);
-                }
-            };
-            description.addEventListener('pointerdown', (event) => {
-                if (event.isPrimary && event.button === 0) {
-                    beginComparisonGesture(event, event);
-                }
-            });
-            description.addEventListener(
-                'touchstart',
-                (event) => {
-                    if (event.targetTouches.length === 1) {
-                        // Native touch tracking lets Swiper finish a vertical pan after
-                        // Chrome emits pointercancel, so the next swipe can start.
-                        beginComparisonGesture(event, event.targetTouches[0]);
-                    }
-                },
-                { passive: false },
-            );
+            this.description = this.root.querySelector('.comparing__desc');
 
-            function setFilter(value) {
-                mode = value;
-                root.querySelectorAll('[name="compare-filter"]').forEach((input) => {
-                    input.checked = input.value === mode;
-                });
-                root.querySelector('[data-mobile-differences]').checked = mode === 'different';
-                updateRows();
-                requestSticky();
-            }
-
-            function updateEmpty() {
-                const noItems = category !== populatedCategory || activeIds.length === 0;
-
-                body.hidden = noItems;
-                empty.hidden = !noItems;
-                [...root.querySelectorAll('[data-compare-category]')]
-                    .find((tab) => tab.dataset.compareCategory === populatedCategory)
-                    .querySelector('.comparing__count').textContent = activeIds.length;
-                requestSticky();
-            }
-
-            root.addEventListener('change', (event) => {
-                if (event.target.matches('[name="compare-filter"]')) {
-                    setFilter(event.target.value);
-                }
-                if (event.target.matches('[data-mobile-differences]')) {
-                    setFilter(event.target.checked ? 'different' : 'all');
-                }
-                if (event.target.matches('[data-important]')) {
-                    const key = event.target.dataset.important;
-                    const row = rows.find((item) => item.key === key);
-
-                    row.element.querySelector('.comparing__check').checked = event.target.checked;
-                    updateRows();
-                    requestSticky();
-                }
+            this.description.addEventListener('pointerdown', this.handlePointerDown);
+            this.description.addEventListener('touchstart', this.handleTouchStart, {
+                passive: false,
             });
 
-            root.addEventListener('click', (event) => {
-                const favorite = event.target.closest('.favorite-btn');
+            this.root.addEventListener('change', this.handleChange);
 
-                if (favorite) {
-                    queueMicrotask(() => {
-                        const id = favorite.closest('[data-compare-id]').dataset.compareId;
-                        const active = favorite.classList.contains('active');
+            this.root.addEventListener('click', this.handleClick);
 
-                        root.querySelectorAll('[data-compare-id]').forEach((item) => {
-                            if (item.dataset.compareId !== id) {
-                                return;
-                            }
-
-                            const button = item.querySelector('.favorite-btn');
-
-                            button.classList.toggle('active', active);
-                            button.setAttribute('aria-pressed', String(active));
-                        });
-                    });
-                }
-                const remove = event.target.closest('[data-compare-remove]');
-                const clear = event.target.closest('[data-compare-clear]');
-                const tab = event.target.closest('[data-compare-category]');
-
-                if (tab) {
-                    category = tab.dataset.compareCategory;
-                    root.querySelectorAll('[data-compare-category]').forEach((item) => {
-                        item.classList.toggle('is-active', item === tab);
-                        item.setAttribute('aria-pressed', String(item === tab));
-                    });
-                    updateEmpty();
-                }
-                if (!remove && !clear) {
-                    return;
-                }
-
-                const removed = remove
-                    ? remove.closest('[data-compare-id]').dataset.compareId
-                    : null;
-                const index = removed
-                    ? activeIds.findIndex((original) => ids[original] === removed)
-                    : -1;
-                const slideIndexes = clear ? activeIds.map((id, position) => position) : [index];
-
-                if (clear) {
-                    activeIds.length = 0;
-                } else if (index >= 0) {
-                    activeIds.splice(index, 1);
-                }
-                [desktop, ...columns].forEach((swiper) => {
-                    // Hidden responsive columns may not have measured their slides yet.
-                    swiper.recalcSlides();
-                    swiper.removeSlide(slideIndexes);
-                    swiper.update();
-                });
-                if (clear?.dataset.compareClear === 'all') {
-                    root.querySelectorAll('.comparing__count').forEach((count) => {
-                        count.textContent = '0';
-                    });
-                }
-                updateRows();
-                updateEmpty();
-                root.querySelector('.comparing__status').textContent = remove
-                    ? uiText('comparing-01')
-                    : uiText('comparing-02');
-                if (remove) {
-                    const next = root.querySelector(
-                        '[data-compare-column="' +
-                            (desktopQuery.matches ? 'desktop' : '0') +
-                            '"] .swiper-slide-active [data-compare-remove]',
-                    );
-
-                    (body.hidden ? root.querySelector('.comparing__catalog') : next)?.focus();
-                }
+            window.addEventListener('scroll', this.requestSticky, {
+                passive: true,
             });
-
-            window.addEventListener('scroll', requestSticky, { passive: true });
-            window.addEventListener('resize', () => {
-                panel.classList.remove('is-stuck');
-                anchor.style.height = '';
-                naturalHeight = panel.offsetHeight;
-                updateRows();
-                requestSticky();
-            });
+            window.addEventListener('resize', this.handleResize);
             if (typeof ResizeObserver !== 'undefined') {
-                new ResizeObserver(requestSticky).observe(root.querySelector('.comparing__desc'));
+                new ResizeObserver(this.requestSticky).observe(
+                    this.root.querySelector('.comparing__desc'),
+                );
             }
-            updateRows();
-            updateEmpty();
-        });
+            this.updateRows();
+            this.updateEmpty();
+
+            return this;
+        }
+
+        updateRows() {
+            const selected = this.desktopQuery.matches
+                ? this.activeIds
+                : this.columns
+                      .map((swiper) => this.activeIds[swiper.activeIndex])
+                      .filter((index) => index !== undefined);
+
+            ComparisonController.comparisonRows(this.rows, selected, this.mode).forEach(
+                ({ element, visible, values }) => {
+                    element.hidden = !visible;
+                    const cells = [...element.querySelectorAll('.comparing__value')];
+
+                    cells.forEach((cell, index) => {
+                        cell.hidden = index >= selected.length;
+                        cell.textContent = values[index] ?? '—';
+                    });
+                },
+            );
+            const copies = new Map(
+                [...this.important.children].map((element) => [element.dataset.parameter, element]),
+            );
+            let position = 0;
+            this.rows.forEach(({ element }) => {
+                if (!element.querySelector('.comparing__check').checked || element.hidden) {
+                    return;
+                }
+
+                const key = element.dataset.parameter;
+                const copy = copies.get(key) || element.cloneNode(true);
+                const values = [...element.querySelectorAll('.comparing__value')];
+
+                copy.querySelectorAll('.comparing__value').forEach((cell, index) => {
+                    cell.textContent = values[index].textContent;
+                    cell.hidden = values[index].hidden;
+                });
+                if (this.important.children[position] !== copy) {
+                    this.important.insertBefore(copy, this.important.children[position] || null);
+                }
+                copies.delete(key);
+                position++;
+            });
+            copies.forEach((element) => element.remove());
+        }
+
+        updateSticky() {
+            this.frame = 0;
+            if (this.body.hidden) {
+                this.panel.classList.remove('is-stuck');
+                this.anchor.style.height = '';
+
+                return;
+            }
+            const top = this.anchor.getBoundingClientRect().top;
+            const bottom = this.root
+                .querySelector('.comparing__desc')
+                .getBoundingClientRect().bottom;
+            const stuck = top <= 0 && bottom > this.panel.getBoundingClientRect().height + 30;
+
+            if (!this.panel.classList.contains('is-stuck')) {
+                this.naturalHeight = this.panel.offsetHeight;
+            }
+            this.anchor.style.height = stuck ? this.naturalHeight + 'px' : '';
+            this.panel.classList.toggle('is-stuck', stuck);
+        }
+
+        requestSticky() {
+            if (!this.frame) {
+                this.frame = requestAnimationFrame(this.updateSticky);
+            }
+        }
+
+        beginComparisonGesture(event, point) {
+            if (event.target.closest('a, button, input, select, textarea, label')) {
+                return;
+            }
+            const bounds = this.description.getBoundingClientRect();
+            const index = point.clientX < bounds.left + bounds.width / 2 ? 0 : 1;
+            const swiper = this.desktopQuery.matches ? this.desktop : this.columns[index];
+            if (swiper && !swiper.destroyed) {
+                // Swiper keeps ownership of threshold, vertical-scroll detection,
+                // movement, snapping and document-level pointer release.
+                swiper.onTouchStart(event);
+            }
+        }
+
+        setFilter(value) {
+            this.mode = value;
+            this.root.querySelectorAll('[name="compare-filter"]').forEach((input) => {
+                input.checked = input.value === this.mode;
+            });
+            this.root.querySelector('[data-mobile-differences]').checked =
+                this.mode === 'different';
+            this.updateRows();
+            this.requestSticky();
+        }
+
+        updateEmpty() {
+            const noItems = this.category !== this.populatedCategory || this.activeIds.length === 0;
+
+            this.body.hidden = noItems;
+            this.empty.hidden = !noItems;
+            [...this.root.querySelectorAll('[data-compare-category]')]
+                .find((tab) => tab.dataset.compareCategory === this.populatedCategory)
+                .querySelector('.comparing__count').textContent = this.activeIds.length;
+            this.requestSticky();
+        }
+
+        handlePointerDown(event) {
+            if (event.isPrimary && event.button === 0) {
+                this.beginComparisonGesture(event, event);
+            }
+        }
+
+        handleTouchStart(event) {
+            if (event.targetTouches.length === 1) {
+                // Native touch tracking lets Swiper finish a vertical pan after
+                // Chrome emits pointercancel, so the next swipe can start.
+                this.beginComparisonGesture(event, event.targetTouches[0]);
+            }
+        }
+
+        handleChange(event) {
+            if (event.target.matches('[name="compare-filter"]')) {
+                this.setFilter(event.target.value);
+            }
+            if (event.target.matches('[data-mobile-differences]')) {
+                this.setFilter(event.target.checked ? 'different' : 'all');
+            }
+            if (event.target.matches('[data-important]')) {
+                const key = event.target.dataset.important;
+                const row = this.rows.find((item) => item.key === key);
+
+                row.element.querySelector('.comparing__check').checked = event.target.checked;
+                this.updateRows();
+                this.requestSticky();
+            }
+        }
+
+        handleClick(event) {
+            const favorite = event.target.closest('.favorite-btn');
+
+            if (favorite) {
+                queueMicrotask(() => {
+                    const id = favorite.closest('[data-compare-id]').dataset.compareId;
+                    const active = favorite.classList.contains('active');
+
+                    this.root.querySelectorAll('[data-compare-id]').forEach((item) => {
+                        if (item.dataset.compareId !== id) {
+                            return;
+                        }
+
+                        const button = item.querySelector('.favorite-btn');
+
+                        button.classList.toggle('active', active);
+                        button.setAttribute('aria-pressed', String(active));
+                    });
+                });
+            }
+            const remove = event.target.closest('[data-compare-remove]');
+            const clear = event.target.closest('[data-compare-clear]');
+            const tab = event.target.closest('[data-compare-category]');
+
+            if (tab) {
+                this.category = tab.dataset.compareCategory;
+                this.root.querySelectorAll('[data-compare-category]').forEach((item) => {
+                    item.classList.toggle('is-active', item === tab);
+                    item.setAttribute('aria-pressed', String(item === tab));
+                });
+                this.updateEmpty();
+            }
+            if (!remove && !clear) {
+                return;
+            }
+
+            const removed = remove ? remove.closest('[data-compare-id]').dataset.compareId : null;
+            const index = removed
+                ? this.activeIds.findIndex((original) => this.ids[original] === removed)
+                : -1;
+            const slideIndexes = clear ? this.activeIds.map((id, position) => position) : [index];
+
+            if (clear) {
+                this.activeIds.length = 0;
+            } else if (index >= 0) {
+                this.activeIds.splice(index, 1);
+            }
+            [this.desktop, ...this.columns].forEach((swiper) => {
+                // Hidden responsive columns may not have measured their slides yet.
+                swiper.recalcSlides();
+                swiper.removeSlide(slideIndexes);
+                swiper.update();
+            });
+            if (clear?.dataset.compareClear === 'all') {
+                this.root.querySelectorAll('.comparing__count').forEach((count) => {
+                    count.textContent = '0';
+                });
+            }
+            this.updateRows();
+            this.updateEmpty();
+            this.root.querySelector('.comparing__status').textContent = remove
+                ? 'Товар удалён из сравнения'
+                : 'Сравнение очищено';
+            if (remove) {
+                const next = this.root.querySelector(
+                    '[data-compare-column="' +
+                        (this.desktopQuery.matches ? 'desktop' : '0') +
+                        '"] .swiper-slide-active [data-compare-remove]',
+                );
+
+                (this.body.hidden ? this.root.querySelector('.comparing__catalog') : next)?.focus();
+            }
+        }
+
+        handleResize() {
+            this.panel.classList.remove('is-stuck');
+            this.anchor.style.height = '';
+            this.naturalHeight = this.panel.offsetHeight;
+            this.updateRows();
+            this.requestSticky();
+        }
     }
 
     // === dom ===
 
     // Layout-based visibility also accounts for elements hidden by a parent or CSS.
-    const isVisible = (element) =>
-        Boolean(
-            element &&
-            (element.offsetWidth || element.offsetHeight || element.getClientRects().length),
-        );
+    class Dom {
+        static isVisible(element) {
+            return Boolean(
+                element &&
+                (element.offsetWidth || element.offsetHeight || element.getClientRects().length),
+            );
+        }
+
+        static delegate(root, type, selector, callback) {
+            root.addEventListener(type, (event) => {
+                const element = event.target?.closest?.(selector);
+
+                if (element && root.contains(element)) {
+                    callback(event, element);
+                }
+            });
+        }
+    }
 
     // Pass the matched element explicitly: native currentTarget remains the listener root.
-    function delegate(root, type, selector, callback) {
-        root.addEventListener(type, (event) => {
-            const element = event.target?.closest?.(selector);
-
-            if (element && root.contains(element)) {
-                callback(event, element);
-            }
-        });
-    }
 
     // === effects ===
 
-    const effects = new WeakMap();
-    const displays = new WeakMap();
+    class Effects {
+        static effects = new WeakMap();
 
-    function show(element) {
-        if (!element) {
-            return;
-        }
+        static displays = new WeakMap();
 
-        cancelEffect(element);
-        element.hidden = false;
-        if (element.style.display === 'none') {
-            element.style.display = displays.get(element) || '';
-        }
-        if (getComputedStyle(element).display === 'none') {
-            element.style.display = 'revert';
-        }
-    }
+        static slides = new WeakMap();
 
-    function hide(element) {
-        if (!element) {
-            return;
-        }
-
-        cancelEffect(element);
-        if (element.style.display !== 'none') {
-            displays.set(element, element.style.display);
-        }
-        element.style.display = 'none';
-    }
-
-    function cancelEffect(element) {
-        const running = effects.get(element);
-
-        if (!running) {
-            return;
-        }
-
-        effects.delete(element);
-        clearTimeout(running.timer);
-        running.animation.cancel();
-    }
-
-    function animateVisibility(element, opening, duration, callback) {
-        if (!element) {
-            return;
-        }
-
-        const running = effects.get(element);
-
-        if (running?.opening === opening) {
-            return;
-        }
-
-        const visible = getComputedStyle(element).display !== 'none' && !element.hidden;
-
-        if (!running && visible === opening) {
-            return;
-        }
-
-        const current = getComputedStyle(element);
-        const from = { opacity: current.opacity };
-
-        show(element);
-        const style = getComputedStyle(element);
-        const expanded = { opacity: style.opacity };
-        const collapsed = { opacity: 0 };
-        const finish = () => {
-            if (!opening) {
-                hide(element);
-                element.hidden = true;
+        static show(element) {
+            if (!element) {
+                return;
             }
-            callback?.call(element);
-        };
 
-        if (!element.animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            finish();
-
-            return;
+            Effects.cancelEffect(element);
+            element.hidden = false;
+            if (element.style.display === 'none') {
+                element.style.display = Effects.displays.get(element) || '';
+            }
+            if (getComputedStyle(element).display === 'none') {
+                element.style.display = 'revert';
+            }
         }
-        const animation = element.animate(
-            [running || visible ? from : collapsed, opening ? expanded : collapsed],
-            {
+
+        static hide(element) {
+            if (!element) {
+                return;
+            }
+
+            Effects.cancelEffect(element);
+            if (element.style.display !== 'none') {
+                Effects.displays.set(element, element.style.display);
+            }
+            element.style.display = 'none';
+        }
+
+        static cancelEffect(element) {
+            const running = Effects.effects.get(element);
+
+            if (!running) {
+                return;
+            }
+
+            Effects.effects.delete(element);
+            clearTimeout(running.timer);
+            running.animation.cancel();
+        }
+
+        static animateVisibility(element, opening, duration, callback) {
+            if (!element) {
+                return;
+            }
+
+            const running = Effects.effects.get(element);
+
+            if (running?.opening === opening) {
+                return;
+            }
+
+            const visible = getComputedStyle(element).display !== 'none' && !element.hidden;
+
+            if (!running && visible === opening) {
+                return;
+            }
+
+            const current = getComputedStyle(element);
+            const from = {
+                opacity: current.opacity,
+            };
+
+            Effects.show(element);
+            const style = getComputedStyle(element);
+            const expanded = {
+                opacity: style.opacity,
+            };
+            const collapsed = {
+                opacity: 0,
+            };
+            const finish = () => {
+                if (!opening) {
+                    Effects.hide(element);
+                    element.hidden = true;
+                }
+                callback?.call(element);
+            };
+
+            if (!element.animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                finish();
+
+                return;
+            }
+            const animation = element.animate(
+                [running || visible ? from : collapsed, opening ? expanded : collapsed],
+                {
+                    duration,
+                    easing: 'ease',
+                    fill: 'both',
+                },
+            );
+            const state = {
+                animation,
+                opening,
+            };
+
+            Effects.effects.set(element, state);
+            const complete = () => {
+                if (Effects.effects.get(element) !== state) {
+                    return;
+                }
+
+                Effects.effects.delete(element);
+                clearTimeout(state.timer);
+                animation.cancel();
+                finish();
+            };
+
+            // Background tabs can suspend the animation timeline; keep logical state timely.
+            state.timer = setTimeout(complete, duration);
+            animation.finished.then(complete, () => {});
+        }
+
+        static fade(element, opening, duration = 300, callback) {
+            return Effects.animateVisibility(element, opening, duration, callback);
+        }
+
+        static slide(element, opening, duration = 300) {
+            if (!element) {
+                return;
+            }
+
+            const previous = Effects.slides.get(element);
+
+            if (previous?.opening === opening) {
+                return;
+            }
+
+            const visible = !element.hidden && getComputedStyle(element).display !== 'none';
+
+            if (!previous && visible === opening) {
+                return;
+            }
+
+            const measure = () => {
+                const css = getComputedStyle(element);
+                return {
+                    height: element.getBoundingClientRect().height + 'px',
+                    paddingTop: css.paddingTop,
+                    paddingBottom: css.paddingBottom,
+                    marginTop: css.marginTop,
+                    marginBottom: css.marginBottom,
+                    borderTopWidth: css.borderTopWidth,
+                    borderBottomWidth: css.borderBottomWidth,
+                };
+            };
+            const collapsed = {
+                height: '0px',
+                paddingTop: '0px',
+                paddingBottom: '0px',
+                marginTop: '0px',
+                marginBottom: '0px',
+                borderTopWidth: '0px',
+                borderBottomWidth: '0px',
+            };
+            const from = visible ? measure() : collapsed;
+            const original = previous?.original || {
+                overflow: element.style.overflow,
+                boxSizing: element.style.boxSizing,
+            };
+
+            if (previous) {
+                Effects.slides.delete(element);
+                clearTimeout(previous.timer);
+                previous.animation.cancel();
+            }
+            element.hidden = false;
+            element.style.boxSizing = 'border-box';
+            const expanded = measure();
+            const finish = () => {
+                element.hidden = !opening;
+                element.style.overflow = original.overflow;
+                element.style.boxSizing = original.boxSizing;
+            };
+
+            if (!element.animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                finish();
+
+                return;
+            }
+            element.style.overflow = 'hidden';
+            const animation = element.animate([from, opening ? expanded : collapsed], {
                 duration,
                 easing: 'ease',
                 fill: 'both',
-            },
-        );
-        const state = { animation, opening };
-
-        effects.set(element, state);
-        const complete = () => {
-            if (effects.get(element) !== state) {
-                return;
-            }
-
-            effects.delete(element);
-            clearTimeout(state.timer);
-            animation.cancel();
-            finish();
-        };
-
-        // Background tabs can suspend the animation timeline; keep logical state timely.
-        state.timer = setTimeout(complete, duration);
-        animation.finished.then(complete, () => {});
-    }
-
-    const fade = (element, opening, duration = 300, callback) =>
-        animateVisibility(element, opening, duration, callback);
-
-    const slides = new WeakMap();
-    function slide(element, opening, duration = 300) {
-        if (!element) {
-            return;
-        }
-
-        const previous = slides.get(element);
-
-        if (previous?.opening === opening) {
-            return;
-        }
-
-        const visible = !element.hidden && getComputedStyle(element).display !== 'none';
-
-        if (!previous && visible === opening) {
-            return;
-        }
-
-        const measure = () => {
-            const css = getComputedStyle(element);
-            return {
-                height: element.getBoundingClientRect().height + 'px',
-                paddingTop: css.paddingTop,
-                paddingBottom: css.paddingBottom,
-                marginTop: css.marginTop,
-                marginBottom: css.marginBottom,
-                borderTopWidth: css.borderTopWidth,
-                borderBottomWidth: css.borderBottomWidth,
+            });
+            const state = {
+                animation,
+                original,
+                opening,
             };
-        };
-        const collapsed = {
-            height: '0px',
-            paddingTop: '0px',
-            paddingBottom: '0px',
-            marginTop: '0px',
-            marginBottom: '0px',
-            borderTopWidth: '0px',
-            borderBottomWidth: '0px',
-        };
-        const from = visible ? measure() : collapsed;
-        const original = previous?.original || {
-            overflow: element.style.overflow,
-            boxSizing: element.style.boxSizing,
-        };
 
-        if (previous) {
-            slides.delete(element);
-            clearTimeout(previous.timer);
-            previous.animation.cancel();
+            Effects.slides.set(element, state);
+            const complete = () => {
+                if (Effects.slides.get(element) !== state) {
+                    return;
+                }
+
+                Effects.slides.delete(element);
+                clearTimeout(state.timer);
+                animation.cancel();
+                finish();
+            };
+
+            state.timer = setTimeout(complete, duration);
+            animation.finished.then(complete, () => {});
         }
-        element.hidden = false;
-        element.style.boxSizing = 'border-box';
-        const expanded = measure();
-        const finish = () => {
-            element.hidden = !opening;
-            element.style.overflow = original.overflow;
-            element.style.boxSizing = original.boxSizing;
-        };
 
-        if (!element.animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-            finish();
-
-            return;
+        static scrollToPosition(top) {
+            window.scrollTo({
+                top,
+                behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                    ? 'instant'
+                    : 'smooth',
+            });
         }
-        element.style.overflow = 'hidden';
-        const animation = element.animate([from, opening ? expanded : collapsed], {
-            duration,
-            easing: 'ease',
-            fill: 'both',
-        });
-        const state = {
-            animation,
-            original,
-            opening,
-        };
-
-        slides.set(element, state);
-        const complete = () => {
-            if (slides.get(element) !== state) {
-                return;
-            }
-
-            slides.delete(element);
-            clearTimeout(state.timer);
-            animation.cancel();
-            finish();
-        };
-
-        state.timer = setTimeout(complete, duration);
-        animation.finished.then(complete, () => {});
-    }
-
-    function scrollToPosition(top) {
-        window.scrollTo({
-            top,
-            behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
-                ? 'instant'
-                : 'smooth',
-        });
     }
 
     // === faq ===
 
-    const initialized = new WeakSet();
-    const animations = new WeakMap();
+    class FaqController {
+        static initialized = new WeakSet();
 
-    const faq = () => {
-        document.querySelectorAll('.faq__item').forEach((item) => {
-            const summary = item.querySelector('.faq__question');
+        static animations = new WeakMap();
 
-            if (!summary || initialized.has(item)) {
+        static initAll() {
+            document
+                .querySelectorAll('.faq__item')
+                .forEach((item) => new FaqController().init(item));
+        }
+
+        constructor() {
+            this.toggle = this.toggle.bind(this);
+        }
+
+        init(item) {
+            this.item = item;
+            this.summary = this.item.querySelector('.faq__question');
+
+            if (!this.summary || FaqController.initialized.has(this.item)) {
                 return;
             }
 
-            initialized.add(item);
+            FaqController.initialized.add(this.item);
 
-            summary.addEventListener('click', (event) => {
-                event.preventDefault();
-                const previous = animations.get(item);
-                const opening = previous ? !previous.opening : !item.open;
-                const height = item.getBoundingClientRect().height;
-                const overflow = previous?.overflow ?? item.style.overflow;
+            this.summary.addEventListener('click', this.toggle);
 
-                if (previous) {
-                    animations.delete(item);
-                    clearTimeout(previous.timer);
-                    previous.animation.cancel();
-                }
+            return this;
+        }
 
-                if (
-                    !item.animate ||
-                    window.matchMedia('(prefers-reduced-motion: reduce)').matches
-                ) {
-                    item.open = opening;
-                    item.style.overflow = overflow;
+        toggle(event) {
+            event.preventDefault();
+            const previous = FaqController.animations.get(this.item);
+            const opening = previous ? !previous.opening : !this.item.open;
+            const height = this.item.getBoundingClientRect().height;
+            const overflow = previous?.overflow ?? this.item.style.overflow;
 
+            if (previous) {
+                FaqController.animations.delete(this.item);
+                clearTimeout(previous.timer);
+                previous.animation.cancel();
+            }
+
+            if (
+                !this.item.animate ||
+                window.matchMedia('(prefers-reduced-motion: reduce)').matches
+            ) {
+                this.item.open = opening;
+                this.item.style.overflow = overflow;
+
+                return;
+            }
+
+            this.item.open = true;
+            const css = getComputedStyle(this.item);
+            const target = opening
+                ? this.item.getBoundingClientRect().height
+                : this.summary.getBoundingClientRect().height +
+                  parseFloat(css.borderTopWidth) +
+                  parseFloat(css.borderBottomWidth);
+
+            this.item.style.overflow = 'hidden';
+            const animation = this.item.animate(
+                [
+                    {
+                        height: `${height}px`,
+                    },
+                    {
+                        height: `${target}px`,
+                    },
+                ],
+                {
+                    duration: 300,
+                    easing: 'ease',
+                    fill: 'both',
+                },
+            );
+            const state = {
+                animation,
+                opening,
+                overflow,
+            };
+
+            FaqController.animations.set(this.item, state);
+            const finish = () => {
+                if (FaqController.animations.get(this.item) !== state) {
                     return;
                 }
 
-                item.open = true;
-                const css = getComputedStyle(item);
-                const target = opening
-                    ? item.getBoundingClientRect().height
-                    : summary.getBoundingClientRect().height +
-                      parseFloat(css.borderTopWidth) +
-                      parseFloat(css.borderBottomWidth);
+                FaqController.animations.delete(this.item);
+                clearTimeout(state.timer);
+                this.item.open = opening;
+                animation.cancel();
+                this.item.style.overflow = overflow;
+            };
 
-                item.style.overflow = 'hidden';
-                const animation = item.animate(
-                    [{ height: `${height}px` }, { height: `${target}px` }],
-                    {
-                        duration: 300,
-                        easing: 'ease',
-                        fill: 'both',
-                    },
-                );
-                const state = {
-                    animation,
-                    opening,
-                    overflow,
-                };
-
-                animations.set(item, state);
-                const finish = () => {
-                    if (animations.get(item) !== state) {
-                        return;
-                    }
-
-                    animations.delete(item);
-                    clearTimeout(state.timer);
-                    item.open = opening;
-                    animation.cancel();
-                    item.style.overflow = overflow;
-                };
-
-                // Background tabs can suspend the animation timeline.
-                state.timer = setTimeout(finish, 300);
-                animation.finished.then(finish, () => {});
-            });
-        });
-    };
+            // Background tabs can suspend the animation timeline.
+            state.timer = setTimeout(finish, 300);
+            animation.finished.then(finish, () => {});
+        }
+    }
 
     // === favorites ===
 
-    function favorites() {
-        document.querySelectorAll('.favorites').forEach((root) => {
-            if (root.dataset.favoritesReady) {
+    class FavoritesController {
+        static initAll() {
+            document
+                .querySelectorAll('.favorites')
+                .forEach((root) => new FavoritesController().init(root));
+        }
+
+        constructor() {
+            this.handleClick = this.handleClick.bind(this);
+        }
+
+        init(root) {
+            this.root = root;
+            if (this.root.dataset.favoritesReady) {
                 return;
             }
 
-            root.dataset.favoritesReady = 'true';
-            root.addEventListener('click', (event) => {
-                if (event.target.closest('.favorites__clear')) {
-                    root.querySelectorAll('.favorite-btn').forEach((button) => {
-                        button.classList.remove('active');
-                        button.setAttribute('aria-pressed', 'false');
-                    });
-                }
-                const remove = event.target.closest('[data-remove-category]');
+            this.root.dataset.favoritesReady = 'true';
+            this.root.addEventListener('click', this.handleClick);
 
-                remove?.closest('.favorites__category').remove();
-            });
-        });
+            return this;
+        }
+
+        handleClick(event) {
+            if (event.target.closest('.favorites__clear')) {
+                this.root.querySelectorAll('.favorite-btn').forEach((button) => {
+                    button.classList.remove('active');
+                    button.setAttribute('aria-pressed', 'false');
+                });
+            }
+            const remove = event.target.closest('[data-remove-category]');
+
+            remove?.closest('.favorites__category').remove();
+        }
     }
 
     // === forms ===
@@ -2460,9 +2844,9 @@
         }
 
         init() {
-            delegate(document, 'submit', 'form', (event) => this.handleSubmit(event));
+            Dom.delegate(document, 'submit', 'form', (event) => this.handleSubmit(event));
             for (const type of ['input', 'change']) {
-                delegate(document, type, this.selectors.requiredAttr, (event, field) => {
+                Dom.delegate(document, type, this.selectors.requiredAttr, (event, field) => {
                     if (
                         field.classList.contains(this.selectors.errorClass) ||
                         field
@@ -2481,17 +2865,21 @@
                     });
                 });
             }
-            delegate(document, 'keydown', 'input[type="tel"]', (event) =>
+            Dom.delegate(document, 'keydown', 'input[type="tel"]', (event) =>
                 this.onPhoneKeyDown(event),
             );
-            delegate(document, 'input', 'input[type="tel"]', (event) => this.onPhoneInput(event));
-            delegate(document, 'paste', 'input[type="tel"]', (event) => this.onPhonePaste(event));
-            delegate(document, 'focusin', 'input[type="tel"]', (event, input) => {
+            Dom.delegate(document, 'input', 'input[type="tel"]', (event) =>
+                this.onPhoneInput(event),
+            );
+            Dom.delegate(document, 'paste', 'input[type="tel"]', (event) =>
+                this.onPhonePaste(event),
+            );
+            Dom.delegate(document, 'focusin', 'input[type="tel"]', (event, input) => {
                 if (!input.value) {
                     input.value = '+7 ';
                 }
             });
-            delegate(document, 'reset', 'form', (event, form) => {
+            Dom.delegate(document, 'reset', 'form', (event, form) => {
                 queueMicrotask(() => {
                     if (event.defaultPrevented) {
                         return;
@@ -2542,7 +2930,7 @@
                       : field.name === 'code'
                         ? 'code'
                         : 'text';
-            let issue = !required && !value ? '' : validateFieldValue(kind, value);
+            let issue = !required && !value ? '' : AuthDialogs.validateFieldValue(kind, value);
 
             if (field.type === 'radio' && field.name && field.form) {
                 issue = [...field.form.elements].some(
@@ -2590,9 +2978,9 @@
                 label.id ||= `validation-error-${++this.errorId}`;
                 describedBy.add(label.id);
                 if (error && label === active) {
-                    show(label);
+                    Effects.show(label);
                 } else {
-                    hide(label);
+                    Effects.hide(label);
                 }
             });
             if (describedBy.size) {
@@ -2670,7 +3058,9 @@
             const digitsBeforeCursor = (prefix + value).replace(/\D/g, '').length;
 
             input.value = prefix + value + suffix;
-            this.onPhoneInput({ target: input });
+            this.onPhoneInput({
+                target: input,
+            });
             if (!fullNumber && suffix) {
                 let digitsSeen = 0;
                 let cursor = 0;
@@ -2682,139 +3072,181 @@
                 }
                 input.setSelectionRange(cursor, cursor);
             }
-            input.dispatchEvent(new Event('input', { bubbles: true }));
+            input.dispatchEvent(
+                new Event('input', {
+                    bubbles: true,
+                }),
+            );
         }
-    }
-
-    function subscription() {
-        delegate(document, 'submit', '.subscribe__form', (event, form) => {
-            event.preventDefault();
-            if (!window.FormController.validateForm(form)) {
-                return;
-            }
-
-            form.querySelectorAll('.subscribe__status').forEach((status) => {
-                status.hidden = false;
-            });
-        });
     }
 
     // === mobile-catalog ===
 
-    function mobileCatalog({ closeNavigation }) {
-        const catalog = document.querySelector('.mobile-catalog');
-        const trigger = document.querySelector('.main-actions__item.icon-dots-grid');
-        const desktopTrigger = document.querySelector('.header__catalog');
-
-        if (!catalog || !trigger) {
-            return;
+    class MobileCatalog {
+        constructor() {
+            this.position = this.position.bind(this);
+            this.render = this.render.bind(this);
+            this.close = this.close.bind(this);
+            this.open = this.open.bind(this);
+            this.handleOutsideClick = this.handleOutsideClick.bind(this);
+            this.handleResize = this.handleResize.bind(this);
+            this.handleScroll = this.handleScroll.bind(this);
+            this.handleCatalogClick = this.handleCatalogClick.bind(this);
+            this.goBack = this.goBack.bind(this);
+            this.handleClose = this.handleClose.bind(this);
+            this.handleActionClick = this.handleActionClick.bind(this);
+            this.handleMediaChange = this.handleMediaChange.bind(this);
+            this.handlePageHide = this.handlePageHide.bind(this);
+            this.handleKeydown = this.handleKeydown.bind(this);
         }
 
-        const media = window.matchMedia('(max-width: 767.97px)');
-        const panels = [...catalog.querySelectorAll('.mobile-catalog__panel')];
-        const root = catalog.querySelector('#catalog-root');
-        const body = catalog.querySelector('.mobile-catalog__body');
-        const title = catalog.querySelector('.mobile-catalog__title');
-        const back = catalog.querySelector('.mobile-catalog__back');
-        const closeButton = catalog.querySelector('.mobile-catalog__close');
-        const actions = document.querySelector('.main-actions');
-        let stack = [];
-        let pageScroll = 0;
-        let previousBodyTop = '';
-        let inertElements = [];
-        let activeTrigger = trigger;
-        let locked = false;
-        let mobileLayout = media.matches;
-        const triggers = [trigger, desktopTrigger].filter(Boolean);
+        init({ closeNavigation }) {
+            this.closeNavigation = closeNavigation;
+            this.catalog = document.querySelector('.mobile-catalog');
+            this.trigger = document.querySelector('.main-actions__item.icon-dots-grid');
+            this.desktopTrigger = document.querySelector('.header__catalog');
 
-        function position() {
-            if (media.matches || catalog.hidden) {
+            if (!this.catalog || !this.trigger) {
                 return;
             }
 
-            const rect = activeTrigger.getBoundingClientRect();
+            this.media = window.matchMedia('(max-width: 767.97px)');
+            this.panels = [...this.catalog.querySelectorAll('.mobile-catalog__panel')];
+            this.root = this.catalog.querySelector('#catalog-root');
+            this.body = this.catalog.querySelector('.mobile-catalog__body');
+            this.title = this.catalog.querySelector('.mobile-catalog__title');
+            this.back = this.catalog.querySelector('.mobile-catalog__back');
+            this.closeButton = this.catalog.querySelector('.mobile-catalog__close');
+            this.actions = document.querySelector('.main-actions');
+            this.stack = [];
+            this.pageScroll = 0;
+            this.previousBodyTop = '';
+            this.inertElements = [];
+            this.activeTrigger = this.trigger;
+            this.locked = false;
+            this.mobileLayout = this.media.matches;
+            this.triggers = [this.trigger, this.desktopTrigger].filter(Boolean);
 
-            catalog.style.left = `${Math.max(8, Math.min(rect.left, window.innerWidth - 302))}px`;
-            catalog.style.top = `${rect.bottom + 8}px`;
-            catalog.style.maxHeight = `${Math.max(0, window.innerHeight - rect.bottom - 16)}px`;
+            this.triggers.forEach((button) =>
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    this.activeTrigger = button;
+                    if (this.catalog.hidden) {
+                        this.open();
+                    } else {
+                        this.close(true);
+                    }
+                }),
+            );
+            document.addEventListener('click', this.handleOutsideClick);
+            window.addEventListener('resize', this.handleResize);
+            window.addEventListener('scroll', this.handleScroll, {
+                passive: true,
+            });
+
+            this.catalog.addEventListener('click', this.handleCatalogClick);
+
+            this.back.addEventListener('click', this.goBack);
+            this.closeButton.addEventListener('click', this.handleClose);
+            this.actions?.addEventListener('click', this.handleActionClick);
+            this.media.addEventListener('change', this.handleMediaChange);
+            window.addEventListener('pagehide', this.handlePageHide);
+            document.addEventListener('keydown', this.handleKeydown);
+
+            return this;
         }
 
-        function render() {
-            const current = stack[stack.length - 1];
-            const nested = stack.length > 1;
+        position() {
+            if (this.media.matches || this.catalog.hidden) {
+                return;
+            }
 
-            panels.forEach((panel) => {
+            const rect = this.activeTrigger.getBoundingClientRect();
+
+            this.catalog.style.left = `${Math.max(8, Math.min(rect.left, window.innerWidth - 302))}px`;
+            this.catalog.style.top = `${rect.bottom + 8}px`;
+            this.catalog.style.maxHeight = `${Math.max(0, window.innerHeight - rect.bottom - 16)}px`;
+        }
+
+        render() {
+            const current = this.stack[this.stack.length - 1];
+            const nested = this.stack.length > 1;
+
+            this.panels.forEach((panel) => {
                 panel.hidden = panel !== current.panel;
             });
-            catalog.classList.toggle('mobile-catalog--nested', nested);
-            title.textContent = current.panel.dataset.catalogTitle;
-            title.classList.toggle('title-md', !nested);
-            title.classList.toggle('title-sm', nested);
-            back.hidden = !nested;
-            closeButton.hidden = nested;
-            back.setAttribute(
+            this.catalog.classList.toggle('mobile-catalog--nested', nested);
+            this.title.textContent = current.panel.dataset.catalogTitle;
+            this.title.classList.toggle('title-md', !nested);
+            this.title.classList.toggle('title-sm', nested);
+            this.back.hidden = !nested;
+            this.closeButton.hidden = nested;
+            this.back.setAttribute(
                 'aria-label',
                 nested
-                    ? uiText('mobile-catalog-01', {
-                          value0: stack[stack.length - 2].panel.dataset.catalogTitle,
-                      })
-                    : uiText('mobile-catalog-02'),
+                    ? `Назад: ${this.stack[this.stack.length - 2].panel.dataset.catalogTitle}`
+                    : 'Назад в каталог',
             );
-            body.scrollTop = current.scroll;
+            this.body.scrollTop = current.scroll;
         }
 
-        function close(restoreFocus = false) {
-            if (catalog.hidden) {
+        close(restoreFocus = false) {
+            if (this.catalog.hidden) {
                 return;
             }
 
-            catalog.hidden = true;
-            triggers.forEach((button) => button.setAttribute('aria-expanded', 'false'));
-            catalog
+            this.catalog.hidden = true;
+            this.triggers.forEach((button) => button.setAttribute('aria-expanded', 'false'));
+            this.catalog
                 .querySelectorAll('[data-catalog-target]')
                 .forEach((button) => button.setAttribute('aria-expanded', 'false'));
-            inertElements.forEach((element) => {
+            this.inertElements.forEach((element) => {
                 element.inert = false;
             });
-            inertElements = [];
+            this.inertElements = [];
             document.body.classList.remove('open-mobile-catalog');
-            if (locked) {
-                document.body.style.top = previousBodyTop;
-                window.scrollTo({ top: pageScroll, behavior: 'instant' });
+            if (this.locked) {
+                document.body.style.top = this.previousBodyTop;
+                window.scrollTo({
+                    top: this.pageScroll,
+                    behavior: 'instant',
+                });
             }
-            locked = false;
-            catalog.style.removeProperty('left');
-            catalog.style.removeProperty('top');
-            catalog.style.removeProperty('max-height');
-            stack = [];
+            this.locked = false;
+            this.catalog.style.removeProperty('left');
+            this.catalog.style.removeProperty('top');
+            this.catalog.style.removeProperty('max-height');
+            this.stack = [];
             if (restoreFocus) {
-                activeTrigger.focus({ preventScroll: true });
+                this.activeTrigger.focus({
+                    preventScroll: true,
+                });
             }
         }
 
-        function open() {
-            closeNavigation();
+        open() {
+            this.closeNavigation();
             window.SearchController?.closeSearch();
-            pageScroll = window.scrollY;
-            previousBodyTop = document.body.style.top;
-            stack = [
+            this.pageScroll = window.scrollY;
+            this.previousBodyTop = document.body.style.top;
+            this.stack = [
                 {
-                    panel: root,
+                    panel: this.root,
                     scroll: 0,
                     opener: null,
                 },
             ];
-            render();
-            locked = media.matches;
-            if (locked) {
-                document.body.style.top = `${-pageScroll}px`;
+            this.render();
+            this.locked = this.media.matches;
+            if (this.locked) {
+                document.body.style.top = `${-this.pageScroll}px`;
                 document.body.classList.add('open-mobile-catalog');
             }
-            catalog.hidden = false;
-            triggers.forEach((button) => button.setAttribute('aria-expanded', 'true'));
+            this.catalog.hidden = false;
+            this.triggers.forEach((button) => button.setAttribute('aria-expanded', 'true'));
             // Leave the fixed bottom navigation available while blocking the covered page.
-            inertElements = (
-                locked
+            this.inertElements = (
+                this.locked
                     ? [
                           ...document.querySelectorAll(
                               '.header__content-container > :not(.main-actions), .header__bottom, main, footer, .arrow-top',
@@ -2822,122 +3254,124 @@
                       ]
                     : []
             ).filter((element) => !element.inert);
-            inertElements.forEach((element) => {
+            this.inertElements.forEach((element) => {
                 element.inert = true;
             });
-            position();
-            (media.matches ? closeButton : root.querySelector('button, a')).focus({
+            this.position();
+            (this.media.matches ? this.closeButton : this.root.querySelector('button, a')).focus({
                 preventScroll: true,
             });
         }
 
-        triggers.forEach((button) =>
-            button.addEventListener('click', (event) => {
-                event.preventDefault();
-                activeTrigger = button;
-                if (catalog.hidden) {
-                    open();
-                } else {
-                    close(true);
-                }
-            }),
-        );
-        document.addEventListener('click', (event) => {
+        handleOutsideClick(event) {
             if (
-                !catalog.hidden &&
-                !media.matches &&
-                !catalog.contains(event.target) &&
-                !triggers.some((button) => button.contains(event.target))
+                !this.catalog.hidden &&
+                !this.media.matches &&
+                !this.catalog.contains(event.target) &&
+                !this.triggers.some((button) => button.contains(event.target))
             ) {
-                close();
+                this.close();
             }
-        });
-        window.addEventListener('resize', () => {
+        }
+
+        handleResize() {
             const nextMobileLayout = window.innerWidth < 768;
 
-            if (nextMobileLayout !== mobileLayout) {
-                mobileLayout = nextMobileLayout;
-                close();
+            if (nextMobileLayout !== this.mobileLayout) {
+                this.mobileLayout = nextMobileLayout;
+                this.close();
             } else {
-                position();
+                this.position();
             }
-        });
-        window.addEventListener(
-            'scroll',
-            () => {
-                if (!media.matches) {
-                    close();
-                }
-            },
-            { passive: true },
-        );
+        }
 
-        catalog.addEventListener('click', (event) => {
+        handleScroll() {
+            if (!this.media.matches) {
+                this.close();
+            }
+        }
+
+        handleCatalogClick(event) {
             const button = event.target.closest('[data-catalog-target]');
 
             if (button) {
-                const panel = panels.find((item) => item.id === button.dataset.catalogTarget);
+                const panel = this.panels.find((item) => item.id === button.dataset.catalogTarget);
 
-                if (!panel || stack.some((item) => item.panel === panel)) {
+                if (!panel || this.stack.some((item) => item.panel === panel)) {
                     return;
                 }
 
-                stack[stack.length - 1].scroll = body.scrollTop;
+                this.stack[this.stack.length - 1].scroll = this.body.scrollTop;
                 button.setAttribute('aria-expanded', 'true');
-                stack.push({
+                this.stack.push({
                     panel,
                     scroll: 0,
                     opener: button,
                 });
-                render();
-                title.focus({ preventScroll: true });
+                this.render();
+                this.title.focus({
+                    preventScroll: true,
+                });
             } else if (event.target.closest('a')) {
-                close();
+                this.close();
             }
-        });
+        }
 
-        back.addEventListener('click', () => {
-            if (stack.length < 2) {
+        goBack() {
+            if (this.stack.length < 2) {
                 return;
             }
 
-            const previous = stack.pop();
+            const previous = this.stack.pop();
 
             previous.opener.setAttribute('aria-expanded', 'false');
-            render();
-            previous.opener.focus({ preventScroll: true });
-        });
-        closeButton.addEventListener('click', () => close(true));
-        actions?.addEventListener('click', (event) => {
-            if (event.target.closest('.main-actions__item') !== trigger) {
-                close();
+            this.render();
+            previous.opener.focus({
+                preventScroll: true,
+            });
+        }
+
+        handleClose() {
+            return this.close(true);
+        }
+
+        handleActionClick(event) {
+            if (event.target.closest('.main-actions__item') !== this.trigger) {
+                this.close();
             }
-        });
-        media.addEventListener('change', () => close());
-        window.addEventListener('pagehide', () => close());
-        document.addEventListener('keydown', (event) => {
-            if (catalog.hidden) {
+        }
+
+        handleMediaChange() {
+            return this.close();
+        }
+
+        handlePageHide() {
+            return this.close();
+        }
+
+        handleKeydown(event) {
+            if (this.catalog.hidden) {
                 return;
             }
 
             if (event.key === 'Escape') {
                 event.preventDefault();
-                close(true);
+                this.close(true);
             } else if (event.key === 'Tab') {
-                if (!media.matches) {
+                if (!this.media.matches) {
                     return;
                 }
 
                 const focusable = [
-                    ...catalog.querySelectorAll('button, a'),
-                    ...actions.querySelectorAll('a, button'),
+                    ...this.catalog.querySelectorAll('button, a'),
+                    ...this.actions.querySelectorAll('a, button'),
                 ].filter((element) => !element.closest('[hidden]') && !element.disabled);
                 const first = focusable[0];
                 const last = focusable[focusable.length - 1];
 
                 if (
                     event.shiftKey &&
-                    (document.activeElement === first || document.activeElement === title)
+                    (document.activeElement === first || document.activeElement === this.title)
                 ) {
                     event.preventDefault();
                     last.focus();
@@ -2946,67 +3380,126 @@
                     first.focus();
                 }
             }
-        });
+        }
     }
 
     // === header ===
 
-    function header() {
-        const burger = document.querySelector('.header__burger');
-        const navigation = document.querySelector('#header-menu');
-        const backdrop = document.querySelector('.header__backdrop');
-        const closeNavigation = (restoreFocus = false) => {
-            const wasOpen = navigation?.classList.contains('is-open');
+    class HeaderController {
+        constructor() {
+            this.closeNavigation = this.closeNavigation.bind(this);
+            this.toggleNavigation = this.toggleNavigation.bind(this);
+            this.handleBackdropClick = this.handleBackdropClick.bind(this);
+            this.handleKeydown = this.handleKeydown.bind(this);
+            this.handleMediaChange = this.handleMediaChange.bind(this);
+            this.handleNavigationClick = this.handleNavigationClick.bind(this);
+            this.updateHeight = this.updateHeight.bind(this);
+            this.handleScroll = this.handleScroll.bind(this);
+        }
 
-            navigation?.classList.remove('is-open');
-            if (backdrop) {
-                backdrop.hidden = true;
+        init() {
+            this.burger = document.querySelector('.header__burger');
+            this.navigation = document.querySelector('#header-menu');
+            this.backdrop = document.querySelector('.header__backdrop');
+
+            this.burger?.addEventListener('click', this.toggleNavigation);
+            this.backdrop?.addEventListener('click', this.handleBackdropClick);
+            Dom.delegate(
+                document,
+                'click',
+                '.header__bottom .menu__link, .main-actions__item, .search__toggler',
+                this.handleNavigationClick,
+            );
+            document.addEventListener('keydown', this.handleKeydown);
+            window
+                .matchMedia('(max-width: 767.97px)')
+                .addEventListener('change', this.handleMediaChange);
+            new MobileCatalog().init({
+                closeNavigation: this.closeNavigation,
+            });
+            this.element = document.querySelector('.header');
+
+            if (this.element) {
+                this.updateHeight();
+                if (typeof ResizeObserver !== 'undefined') {
+                    new ResizeObserver(this.updateHeight).observe(this.element);
+                } else {
+                    window.addEventListener('resize', this.updateHeight);
+                }
+
+                window.addEventListener('scroll', this.handleScroll, {
+                    passive: true,
+                });
+            }
+
+            return this;
+        }
+
+        updateHeight() {
+            document.documentElement.style.setProperty(
+                '--header-height',
+                `${this.element.getBoundingClientRect().height}px`,
+            );
+        }
+
+        handleScroll() {
+            if (window.scrollY > 100) {
+                this.element.classList.add('scroll');
+            } else if (window.scrollY <= 10) {
+                this.element.classList.remove('scroll');
+            }
+        }
+
+        closeNavigation(restoreFocus = false) {
+            const wasOpen = this.navigation?.classList.contains('is-open');
+
+            this.navigation?.classList.remove('is-open');
+            if (this.backdrop) {
+                this.backdrop.hidden = true;
             }
             document.body.classList.remove('open-navigation');
-            if (burger) {
-                burger.setAttribute('aria-expanded', 'false');
-                burger.setAttribute('aria-label', uiText('header-01'));
-                burger.classList.remove('icon-close');
-                burger.classList.add('icon-menu');
+            if (this.burger) {
+                this.burger.setAttribute('aria-expanded', 'false');
+                this.burger.setAttribute('aria-label', 'Открыть меню');
+                this.burger.classList.remove('icon-close');
+                this.burger.classList.add('icon-menu');
                 if (wasOpen && restoreFocus) {
-                    burger.focus();
+                    this.burger.focus();
                 }
             }
-        };
+        }
 
-        burger?.addEventListener('click', () => {
-            if (!navigation) {
+        toggleNavigation() {
+            if (!this.navigation) {
                 return;
             }
 
-            if (navigation.classList.contains('is-open')) {
-                return closeNavigation();
+            if (this.navigation.classList.contains('is-open')) {
+                return this.closeNavigation();
             }
 
             window.SearchController?.closeSearch();
-            navigation.classList.add('is-open');
-            if (backdrop) {
-                backdrop.hidden = false;
+            this.navigation.classList.add('is-open');
+            if (this.backdrop) {
+                this.backdrop.hidden = false;
             }
             document.body.classList.add('open-navigation');
-            burger.setAttribute('aria-expanded', 'true');
-            burger.setAttribute('aria-label', uiText('header-02'));
-            burger.classList.replace('icon-menu', 'icon-close');
-        });
-        backdrop?.addEventListener('click', () => closeNavigation(true));
-        delegate(
-            document,
-            'click',
-            '.header__bottom .menu__link, .main-actions__item, .search__toggler',
-            () => closeNavigation(),
-        );
-        document.addEventListener('keydown', (event) => {
-            if (!navigation?.classList.contains('is-open')) {
+            this.burger.setAttribute('aria-expanded', 'true');
+            this.burger.setAttribute('aria-label', 'Закрыть меню');
+            this.burger.classList.replace('icon-menu', 'icon-close');
+        }
+
+        handleBackdropClick() {
+            return this.closeNavigation(true);
+        }
+
+        handleKeydown(event) {
+            if (!this.navigation?.classList.contains('is-open')) {
                 return;
             }
 
             if (event.key === 'Escape') {
-                closeNavigation(true);
+                this.closeNavigation(true);
             }
             if (event.key !== 'Tab') {
                 return;
@@ -3016,7 +3509,7 @@
                 ...document.querySelectorAll(
                     '.header__content a, .header__content button, .header__content input, .header__bottom a, .header__bottom button, .header__bottom input',
                 ),
-            ].filter(isVisible);
+            ].filter(Dom.isVisible);
             const first = items[0];
             const last = items[items.length - 1];
 
@@ -3027,55 +3520,94 @@
                 event.preventDefault();
                 first.focus();
             }
-        });
-        window
-            .matchMedia('(max-width: 767.97px)')
-            .addEventListener('change', () => closeNavigation());
-        mobileCatalog({ closeNavigation });
-        const element = document.querySelector('.header');
-
-        if (element) {
-            const updateHeight = () => {
-                document.documentElement.style.setProperty(
-                    '--header-height',
-                    `${element.getBoundingClientRect().height}px`,
-                );
-            };
-
-            updateHeight();
-            if (typeof ResizeObserver !== 'undefined') {
-                new ResizeObserver(updateHeight).observe(element);
-            } else {
-                window.addEventListener('resize', updateHeight);
-            }
-
-            window.addEventListener(
-                'scroll',
-                () => {
-                    if (window.scrollY > 100) {
-                        element.classList.add('scroll');
-                    } else if (window.scrollY <= 10) {
-                        element.classList.remove('scroll');
-                    }
-                },
-                { passive: true },
-            );
         }
 
-        return { closeNavigation };
+        handleMediaChange() {
+            return this.closeNavigation();
+        }
+
+        handleNavigationClick() {
+            return this.closeNavigation();
+        }
     }
 
     // === interactions ===
 
-    function normalizeQuantity(value) {
-        return Math.min(9999, Math.max(1, parseInt(String(value).replace(/\D/g, ''), 10) || 1));
-    }
-
-    function interactions() {
-        if (typeof Fancybox !== 'undefined' && Fancybox) {
-            Fancybox.bind('[data-fancybox]', { closeExisting: true });
+    class InteractionsController {
+        static normalizeQuantity(value) {
+            return Math.min(9999, Math.max(1, parseInt(String(value).replace(/\D/g, ''), 10) || 1));
         }
-        delegate(document, 'click', '.favorite-btn, .compare-btn', (event, button) => {
+
+        constructor() {
+            this.toggleProductAction = this.toggleProductAction.bind(this);
+            this.toggleReview = this.toggleReview.bind(this);
+        }
+
+        init() {
+            if (typeof Fancybox !== 'undefined' && Fancybox) {
+                Fancybox.bind('[data-fancybox]', {
+                    closeExisting: true,
+                });
+            }
+            Dom.delegate(
+                document,
+                'click',
+                '.favorite-btn, .compare-btn',
+                this.toggleProductAction,
+            );
+            Dom.delegate(document, 'click', '.review__toggle', this.toggleReview);
+            document.querySelectorAll('.quantity-block').forEach((block) => {
+                const input = block.querySelector('.quantity-block__input');
+
+                if (!input) {
+                    return;
+                }
+
+                block.querySelector('.quantity-block__up')?.addEventListener('click', () => {
+                    const value = InteractionsController.normalizeQuantity(input.value);
+
+                    if (value < 9999) {
+                        input.value = value + 1;
+                    }
+                });
+                block.querySelector('.quantity-block__down')?.addEventListener('click', () => {
+                    const value = InteractionsController.normalizeQuantity(input.value);
+
+                    if (value > 1) {
+                        input.value = value - 1;
+                    }
+                });
+                input.addEventListener('input', () => {
+                    input.value = InteractionsController.normalizeQuantity(input.value);
+                });
+                input.addEventListener('paste', (event) => {
+                    if (/\D/.test(event.clipboardData.getData('text'))) {
+                        event.preventDefault();
+                    }
+                });
+            });
+            this.arrows = document.querySelectorAll('.arrow-top');
+
+            if (this.arrows.length) {
+                window.addEventListener(
+                    'scroll',
+                    () =>
+                        this.arrows.forEach((arrow) =>
+                            arrow.classList.toggle('visible', window.scrollY > 300),
+                        ),
+                    {
+                        passive: true,
+                    },
+                );
+                this.arrows.forEach((arrow) =>
+                    arrow.addEventListener('click', () => Effects.scrollToPosition(0)),
+                );
+            }
+
+            return this;
+        }
+
+        toggleProductAction(event, button) {
             const selected = button.classList.toggle('active');
 
             button.setAttribute('aria-pressed', String(selected));
@@ -3096,57 +3628,15 @@
                     button.classList.contains('favorite-btn') ? 'favorite' : 'compare',
                 );
             }
-        });
-        delegate(document, 'click', '.review__toggle', (event, button) => {
+        }
+
+        toggleReview(event, button) {
             const content = button.closest('.review')?.querySelector('.review__content');
             const expanded = button.classList.toggle('is-active');
 
             content?.classList.toggle('expanded', expanded);
             button.setAttribute('aria-expanded', String(expanded));
-            button.textContent = expanded ? uiText('interactions-01') : uiText('interactions-02');
-        });
-        document.querySelectorAll('.quantity-block').forEach((block) => {
-            const input = block.querySelector('.quantity-block__input');
-
-            if (!input) {
-                return;
-            }
-
-            block.querySelector('.quantity-block__up')?.addEventListener('click', () => {
-                const value = normalizeQuantity(input.value);
-
-                if (value < 9999) {
-                    input.value = value + 1;
-                }
-            });
-            block.querySelector('.quantity-block__down')?.addEventListener('click', () => {
-                const value = normalizeQuantity(input.value);
-
-                if (value > 1) {
-                    input.value = value - 1;
-                }
-            });
-            input.addEventListener('input', () => {
-                input.value = normalizeQuantity(input.value);
-            });
-            input.addEventListener('paste', (event) => {
-                if (/\D/.test(event.clipboardData.getData('text'))) {
-                    event.preventDefault();
-                }
-            });
-        });
-        const arrows = document.querySelectorAll('.arrow-top');
-
-        if (arrows.length) {
-            window.addEventListener(
-                'scroll',
-                () =>
-                    arrows.forEach((arrow) =>
-                        arrow.classList.toggle('visible', window.scrollY > 300),
-                    ),
-                { passive: true },
-            );
-            arrows.forEach((arrow) => arrow.addEventListener('click', () => scrollToPosition(0)));
+            button.textContent = expanded ? 'Скрыть отзыв' : 'Показать полностью';
         }
     }
 
@@ -3159,8 +3649,9 @@
             this.cartButtonStates = new WeakMap();
             this.init();
         }
+
         init() {
-            delegate(document, 'click', this.btnSelector, (event, button) => {
+            Dom.delegate(document, 'click', this.btnSelector, (event, button) => {
                 if (button.disabled || button.getAttribute('aria-disabled') === 'true') {
                     return;
                 }
@@ -3170,6 +3661,7 @@
                 }
             });
         }
+
         updateCartButton(button) {
             const original = this.cartButtonStates.get(button);
 
@@ -3231,12 +3723,14 @@
 
             return true;
         }
+
         handleAddToCart(product) {
             this.show(
                 product?.querySelector('.product__name')?.textContent.trim() || '',
                 product?.querySelector('.quantity-block__input')?.value || 1,
             );
         }
+
         show(name, quantity = 1, type = 'cart') {
             const container = document.querySelector(this.containerSelector);
 
@@ -3247,9 +3741,26 @@
             container.setAttribute('aria-live', 'polite');
             container.setAttribute('aria-relevant', 'additions');
             const states = {
-                cart: { title: uiText('interactions-03'), icon: 'icon-cart' },
-                favorite: { title: uiText('interactions-04'), icon: 'icon-heart' },
-                compare: { title: uiText('interactions-05'), icon: 'icon-bars' },
+                cart: {
+                    title: 'В корзине',
+                    icon: 'icon-cart',
+                },
+                favorite: {
+                    title: 'В избранном',
+                    icon: 'icon-heart',
+                },
+                compare: {
+                    title: 'В сравнении',
+                    icon: 'icon-bars',
+                },
+                'order-copy': {
+                    title: 'Номер заказа скопирован',
+                    icon: 'icon-copy',
+                },
+                'cart-share': {
+                    title: 'URL корзины скопирован',
+                    icon: 'icon-copy',
+                },
             };
             const state = states[type] || states.cart;
             const notification = document.createElement('div');
@@ -3275,7 +3786,7 @@
 
             close.type = 'button';
             close.className = 'notify__close icon-close';
-            close.setAttribute('aria-label', uiText('interactions-06'));
+            close.setAttribute('aria-label', 'Закрыть уведомление');
             notification.append(icon, body, close);
             let timer;
             const remove = () => {
@@ -3310,12 +3821,40 @@
 
     // === maps ===
 
-    function maps() {
-        if (!document.querySelector('.map-block')) {
-            return;
+    class MapsController {
+        constructor() {
+            this.initMaps = this.initMaps.bind(this);
         }
 
-        function initMaps(api) {
+        init() {
+            if (!document.querySelector('.map-block')) {
+                return;
+            }
+
+            MapLoader.loadMaps()
+                .then(this.initMaps)
+                .catch(() => {
+                    document.querySelectorAll('.map-block').forEach((container) => {
+                        if (
+                            !container.querySelector('.map-block__status') &&
+                            !container.classList.contains('is-initialized')
+                        ) {
+                            const message = document.createElement('p');
+                            message.className = 'map-block__status';
+                            message.setAttribute('role', 'status');
+                            TextUtils.showMessage(
+                                message,
+                                'Не удалось загрузить карту. Адрес указан в контактной информации.',
+                            );
+                            container.append(message);
+                        }
+                    });
+                });
+
+            return this;
+        }
+
+        initMaps(api) {
             document.querySelectorAll('.map-block').forEach((container) => {
                 if (container.classList.contains('is-initialized') || !container.dataset.coords) {
                     return;
@@ -3331,7 +3870,9 @@
                         zoom: 16,
                         controls: ['zoomControl'],
                     },
-                    { suppressMapOpenBlock: true },
+                    {
+                        suppressMapOpenBlock: true,
+                    },
                 );
 
                 map.geoObjects.add(
@@ -3355,132 +3896,161 @@
                 window.addEventListener('resize', () => map.container.fitToViewport());
             });
         }
-        loadMaps()
-            .then(initMaps)
-            .catch(() => {
-                document.querySelectorAll('.map-block').forEach((container) => {
-                    if (
-                        !container.querySelector('.map-block__status') &&
-                        !container.classList.contains('is-initialized')
-                    ) {
-                        const message = document.createElement('p');
-                        message.className = 'map-block__status';
-                        message.setAttribute('role', 'status');
-                        showMessage(message, 'maps-01');
-                        container.append(message);
-                    }
-                });
-            });
     }
 
     // === news ===
 
     // News cards and pagination are rendered by templates; loading belongs to the server.
-    const news = () => {};
+    class NewsController {
+        init() {
+            return this;
+        }
+    }
 
     // === order-details ===
 
-    function orderDetails() {
-        const root = document.querySelector('[data-order-details]');
-        if (!root || root.dataset.initialized) {
-            return;
+    class OrderDetailsController {
+        constructor() {
+            this.showState = this.showState.bind(this);
+            this.copyOrder = this.copyOrder.bind(this);
         }
-        root.dataset.initialized = 'true';
-        const showState = (container, state) => {
+
+        init() {
+            this.root = document.querySelector('[data-order-details]');
+            if (!this.root || this.root.dataset.initialized) {
+                return;
+            }
+            this.root.dataset.initialized = 'true';
+
+            this.root.querySelector('[data-copy-order]').addEventListener('click', this.copyOrder);
+
+            return this;
+        }
+
+        showState(container, state) {
             container.hidden = false;
             container.querySelectorAll('[data-order-state]').forEach((message) => {
                 message.hidden = message.dataset.orderState !== state;
             });
-        };
-        root.querySelector('[data-copy-order]').addEventListener('click', async () => {
-            const status = root.querySelector('.order-details__announcement');
+        }
+
+        async copyOrder() {
+            const status = this.root.querySelector('.order-details__announcement');
             try {
                 await navigator.clipboard.writeText(
-                    root.querySelector('[data-order-number]').textContent.trim(),
+                    this.root.querySelector('[data-order-number]').textContent.trim(),
                 );
-                showState(status, 'copied');
+                this.showState(status, 'copied');
+                window.NotifyController?.show(
+                    this.root.querySelector('[data-order-number]').textContent.trim(),
+                    1,
+                    'order-copy',
+                );
             } catch {
-                showState(status, 'copy-error');
+                this.showState(status, 'copy-error');
             }
-        });
-        root.querySelectorAll('[data-order-action]').forEach((button) => {
-            button.addEventListener('click', () => {
-                showState(root.querySelector('.order-details__notice'), button.dataset.orderAction);
-            });
-        });
+        }
     }
 
     // === orders ===
 
-    function orders() {
-        const form = document.querySelector('.orders__filters');
-
-        if (!form || form.dataset.initialized) {
-            return;
+    class OrdersController {
+        constructor() {
+            this.submit = this.submit.bind(this);
         }
 
-        form.dataset.initialized = 'true';
-        form.addEventListener('submit', (event) => event.preventDefault());
+        init() {
+            this.form = document.querySelector('.orders__filters');
+
+            if (!this.form || this.form.dataset.initialized) {
+                return;
+            }
+
+            this.form.dataset.initialized = 'true';
+            this.form.addEventListener('submit', this.submit);
+
+            return this;
+        }
+
+        submit(event) {
+            return event.preventDefault();
+        }
     }
 
     // === parts-order ===
 
-    function renderFiles(input) {
-        const list = input.closest('.file-upload')?.querySelector('.file-upload__list');
+    class PartsOrderController {
+        static renderFiles(input) {
+            const list = input.closest('.file-upload')?.querySelector('.file-upload__list');
 
-        if (!list) {
-            return;
+            if (!list) {
+                return;
+            }
+
+            list.replaceChildren();
+            [...input.files].forEach((file, index) => {
+                const item = document.createElement('li');
+
+                item.className = 'file-upload__item';
+                const name = document.createElement('span');
+
+                name.className = 'file-upload__name';
+                name.textContent = file.name;
+                const format = document.createElement('span');
+                const extension = file.name.includes('.')
+                    ? file.name.split('.').pop().toUpperCase()
+                    : 'FILE';
+
+                format.className = 'file-upload__format icon-file';
+                format.dataset.format = extension.slice(0, 5);
+                format.setAttribute('aria-label', 'Формат: ' + extension);
+                const info = document.createElement('span');
+
+                info.className = 'file-upload__info';
+                const size = document.createElement('span');
+
+                size.className = 'file-upload__size';
+                size.textContent =
+                    file.size < 1024 * 1024
+                        ? Math.max(1, Math.ceil(file.size / 1024)) + ' КБ'
+                        : (file.size / (1024 * 1024)).toFixed(1) + ' МБ';
+                info.append(name, size);
+                const remove = document.createElement('button');
+
+                remove.className = 'file-upload__remove icon-close';
+                remove.type = 'button';
+                remove.dataset.fileIndex = index;
+                remove.setAttribute('aria-label', 'Удалить файл: ' + file.name);
+                item.append(format, info, remove);
+                list.append(item);
+            });
+            list.hidden = !input.files.length;
         }
 
-        list.replaceChildren();
-        [...input.files].forEach((file, index) => {
-            const item = document.createElement('li');
+        constructor() {
+            this.handleFileChange = this.handleFileChange.bind(this);
+            this.removeFile = this.removeFile.bind(this);
+            this.resetFiles = this.resetFiles.bind(this);
+        }
 
-            item.className = 'file-upload__item';
-            const name = document.createElement('span');
+        init() {
+            Dom.delegate(
+                document,
+                'change',
+                '.form--parts .form__file-input, .form--request .form__file-input',
+                this.handleFileChange,
+            );
+            Dom.delegate(document, 'click', '.file-upload__remove', this.removeFile);
+            Dom.delegate(document, 'reset', '.form--parts, .form--request', this.resetFiles);
 
-            name.className = 'file-upload__name';
-            name.textContent = file.name;
-            const format = document.createElement('span');
-            const extension = file.name.includes('.')
-                ? file.name.split('.').pop().toUpperCase()
-                : uiText('file-unknown');
+            return this;
+        }
 
-            format.className =
-                'file-upload__format ' + (extension === 'PDF' ? 'icon-pdf' : 'icon-file');
-            format.dataset.format = extension.slice(0, 5);
-            format.setAttribute('aria-label', uiText('parts-order-01') + extension);
-            const info = document.createElement('span');
+        handleFileChange(event, input) {
+            return PartsOrderController.renderFiles(input);
+        }
 
-            info.className = 'file-upload__info';
-            const size = document.createElement('span');
-
-            size.className = 'file-upload__size';
-            size.textContent =
-                file.size < 1024 * 1024
-                    ? Math.max(1, Math.ceil(file.size / 1024)) + uiText('parts-order-02')
-                    : (file.size / (1024 * 1024)).toFixed(1) + uiText('parts-order-03');
-            info.append(name, size);
-            const remove = document.createElement('button');
-
-            remove.className = 'file-upload__remove icon-close';
-            remove.type = 'button';
-            remove.dataset.fileIndex = index;
-            remove.setAttribute('aria-label', uiText('parts-order-04') + file.name);
-            item.append(format, info, remove);
-            list.append(item);
-        });
-        list.hidden = !input.files.length;
-    }
-
-    const partsOrder = () => {
-        delegate(
-            document,
-            'change',
-            '.form--parts .form__file-input, .form--request .form__file-input',
-            (event, input) => renderFiles(input),
-        );
-        delegate(document, 'click', '.file-upload__remove', (event, button) => {
+        removeFile(event, button) {
             const upload = button.closest('.file-upload');
             const input = upload.querySelector('.form__file-input');
             const transfer = new DataTransfer();
@@ -3492,181 +4062,191 @@
                 }
             });
             input.files = transfer.files;
-            input.dispatchEvent(new Event('change', { bubbles: true }));
+            input.dispatchEvent(
+                new Event('change', {
+                    bubbles: true,
+                }),
+            );
             const next =
                 upload.querySelectorAll('.file-upload__remove')[
                     Math.min(index, input.files.length - 1)
                 ];
 
             (next || input).focus();
-        });
-        delegate(document, 'reset', '.form--parts, .form--request', (event, form) => {
+        }
+
+        resetFiles(event, form) {
             queueMicrotask(() => {
                 if (!event.defaultPrevented) {
-                    form.querySelectorAll('.form__file-input').forEach(renderFiles);
+                    form.querySelectorAll('.form__file-input').forEach(
+                        PartsOrderController.renderFiles,
+                    );
                 }
             });
-        });
-
-        // Register after FormController: invalid submissions stop before this listener.
-        delegate(document, 'submit', '.form--parts, .form--request', async (event, form) => {
-            event.preventDefault();
-            if (form.getAttribute('aria-busy') === 'true') {
-                return;
-            }
-
-            const endpoint = form.getAttribute('action');
-            const status = form.querySelector('.form__status');
-            const setStatus = (message) => {
-                if (!status) {
-                    return;
-                }
-
-                status.hidden = false;
-                status.textContent = message;
-            };
-
-            if (!endpoint || endpoint === '#') {
-                setStatus(form.dataset.unavailableMessage);
-
-                return;
-            }
-            const buttons = [...form.querySelectorAll('[type="submit"]')];
-            const disabled = buttons.map((button) => button.disabled);
-
-            form.setAttribute('aria-busy', 'true');
-            buttons.forEach((button) => {
-                button.disabled = true;
-            });
-            setStatus(form.dataset.pendingMessage);
-            try {
-                const response = await fetch(endpoint, {
-                    method: 'POST',
-                    body: new FormData(form),
-                });
-
-                if (!response.ok) {
-                    throw new Error('Request failed');
-                }
-
-                form.reset();
-                setStatus(form.dataset.successMessage);
-            } catch {
-                setStatus(form.dataset.errorMessage);
-            } finally {
-                form.removeAttribute('aria-busy');
-                buttons.forEach((button, index) => {
-                    button.disabled = disabled[index];
-                });
-            }
-        });
-    };
+        }
+    }
 
     // === product-details ===
 
-    function productDetails() {
-        document.querySelectorAll('.product-content').forEach((content) => {
-            if (content.dataset.productContentReady) {
-                return;
-            }
-            content.dataset.productContentReady = 'true';
+    class ProductDetailsController {
+        init() {
+            document.querySelectorAll('.product-content').forEach((content) => {
+                if (content.dataset.productContentReady) {
+                    return;
+                }
+                content.dataset.productContentReady = 'true';
 
-            delegate(content, 'click', '.product-content__expand', (event, button) => {
-                const expanded = button.getAttribute('aria-expanded') !== 'true';
+                Dom.delegate(content, 'click', '.product-content__expand', (event, button) => {
+                    const expanded = button.getAttribute('aria-expanded') !== 'true';
 
-                content.querySelectorAll('.product-content__rich-image--extra').forEach((image) => {
-                    image.hidden = !expanded;
+                    content
+                        .querySelectorAll('.product-content__rich-image--extra')
+                        .forEach((image) => {
+                            image.hidden = !expanded;
+                        });
+                    button.setAttribute('aria-expanded', String(expanded));
+                    button.textContent = expanded ? 'Свернуть' : 'Показать полностью';
                 });
-                button.setAttribute('aria-expanded', String(expanded));
-                button.textContent = expanded
-                    ? uiText('product-details-01')
-                    : uiText('interactions-02');
-            });
-            delegate(content, 'click', '.product-content__tab', (event, tab) => {
-                content
-                    .querySelectorAll('.product-content__tab')
-                    .forEach((link) => link.classList.toggle('active', link === tab));
-            });
-        });
-        document.querySelectorAll('.product-details').forEach((product) => {
-            if (product.dataset.productDetailsReady) {
-                return;
-            }
-            product.dataset.productDetailsReady = 'true';
-
-            const sync = (input) =>
-                product.querySelectorAll('.quantity-block__input').forEach((other) => {
-                    other.value = input.value;
+                Dom.delegate(content, 'click', '.product-content__tab', (event, tab) => {
+                    content
+                        .querySelectorAll('.product-content__tab')
+                        .forEach((link) => link.classList.toggle('active', link === tab));
                 });
+            });
+            document.querySelectorAll('.product-details').forEach((product) => {
+                if (product.dataset.productDetailsReady) {
+                    return;
+                }
+                product.dataset.productDetailsReady = 'true';
 
-            delegate(product, 'input', '.quantity-block__input', (event, input) => sync(input));
-            delegate(
-                product,
-                'click',
-                '.quantity-block__up, .quantity-block__down',
-                (event, button) =>
-                    sync(button.closest('.quantity-block').querySelector('.quantity-block__input')),
-            );
-        });
+                const sync = (input) =>
+                    product.querySelectorAll('.quantity-block__input').forEach((other) => {
+                        other.value = input.value;
+                    });
+
+                Dom.delegate(product, 'input', '.quantity-block__input', (event, input) =>
+                    sync(input),
+                );
+                Dom.delegate(
+                    product,
+                    'click',
+                    '.quantity-block__up, .quantity-block__down',
+                    (event, button) =>
+                        sync(
+                            button
+                                .closest('.quantity-block')
+                                .querySelector('.quantity-block__input'),
+                        ),
+                );
+            });
+
+            return this;
+        }
     }
 
     // === product-listing ===
 
-    function productListing() {
-        const root = document.querySelector('.product-listing');
-
-        if (!root || root.dataset.listingReady) {
-            return;
+    class ProductListingController {
+        constructor() {
+            this.closeFilter = this.closeFilter.bind(this);
+            this.openFilter = this.openFilter.bind(this);
+            this.handleKeydown = this.handleKeydown.bind(this);
+            this.handleMediaChange = this.handleMediaChange.bind(this);
+            this.submitFilter = this.submitFilter.bind(this);
+            this.clearSelectedFilters = this.clearSelectedFilters.bind(this);
+            this.toggleExtraFilters = this.toggleExtraFilters.bind(this);
+            this.toggleTags = this.toggleTags.bind(this);
         }
 
-        root.dataset.listingReady = 'true';
+        init() {
+            this.root = document.querySelector('.product-listing');
 
-        const form = root.querySelector('.listing-filter');
-        const overlay = root.querySelector('.listing-filter-overlay');
-        const opener = root.querySelector('.product-listing__filter-button');
-        let previousOverflow = '';
-
-        function closeFilter() {
-            if (!form.classList.contains('is-open')) {
+            if (!this.root || this.root.dataset.listingReady) {
                 return;
             }
 
-            form.classList.remove('is-open');
-            form.removeAttribute('role');
-            form.removeAttribute('aria-modal');
-            overlay.hidden = true;
-            opener.setAttribute('aria-expanded', 'false');
-            document.body.style.overflow = previousOverflow;
-            opener.focus();
+            this.root.dataset.listingReady = 'true';
+
+            this.form = this.root.querySelector('.listing-filter');
+            this.overlay = this.root.querySelector('.listing-filter-overlay');
+            this.opener = this.root.querySelector('.product-listing__filter-button');
+            this.previousOverflow = '';
+
+            this.opener.addEventListener('click', this.openFilter);
+            this.form
+                .querySelector('.listing-filter__close')
+                .addEventListener('click', this.closeFilter);
+            this.overlay.addEventListener('click', this.closeFilter);
+            document.addEventListener('keydown', this.handleKeydown);
+            window
+                .matchMedia('(min-width: 1199.98px)')
+                .addEventListener('change', this.handleMediaChange);
+            this.form.addEventListener('submit', this.submitFilter);
+            this.root
+                .querySelector('.product-listing__selected')
+                ?.addEventListener('click', this.clearSelectedFilters);
+            this.form
+                .querySelector('.listing-filter__expand')
+                .addEventListener('click', this.toggleExtraFilters);
+            this.root
+                .querySelectorAll('.product-listing__tag:not(.product-listing__tag--more)')
+                .forEach((button) =>
+                    button.addEventListener('click', () => {
+                        this.root.querySelectorAll('.product-listing__tag').forEach((tag) => {
+                            tag.classList.remove('is-active');
+                            tag.setAttribute('aria-pressed', 'false');
+                        });
+                        button.classList.add('is-active');
+                        button.setAttribute('aria-pressed', 'true');
+                    }),
+                );
+            this.root
+                .querySelector('.product-listing__tag--more')
+                .addEventListener('click', this.toggleTags);
+
+            return this;
         }
 
-        opener.addEventListener('click', () => {
-            previousOverflow = document.body.style.overflow;
+        closeFilter() {
+            if (!this.form.classList.contains('is-open')) {
+                return;
+            }
+
+            this.form.classList.remove('is-open');
+            this.form.removeAttribute('role');
+            this.form.removeAttribute('aria-modal');
+            this.overlay.hidden = true;
+            this.opener.setAttribute('aria-expanded', 'false');
+            document.body.style.overflow = this.previousOverflow;
+            this.opener.focus();
+        }
+
+        openFilter() {
+            this.previousOverflow = document.body.style.overflow;
             document.body.style.overflow = 'hidden';
-            form.classList.add('is-open');
-            form.setAttribute('role', 'dialog');
-            form.setAttribute('aria-modal', 'true');
-            overlay.hidden = false;
-            opener.setAttribute('aria-expanded', 'true');
-            form.querySelector('.listing-filter__close').focus();
-        });
-        form.querySelector('.listing-filter__close').addEventListener('click', closeFilter);
-        overlay.addEventListener('click', closeFilter);
-        document.addEventListener('keydown', (event) => {
-            if (!form.classList.contains('is-open')) {
+            this.form.classList.add('is-open');
+            this.form.setAttribute('role', 'dialog');
+            this.form.setAttribute('aria-modal', 'true');
+            this.overlay.hidden = false;
+            this.opener.setAttribute('aria-expanded', 'true');
+            this.form.querySelector('.listing-filter__close').focus();
+        }
+
+        handleKeydown(event) {
+            if (!this.form.classList.contains('is-open')) {
                 return;
             }
 
             if (event.key === 'Escape') {
-                closeFilter();
+                this.closeFilter();
             }
             if (event.key !== 'Tab') {
                 return;
             }
 
-            const focusable = Array.from(form.querySelectorAll('a, button, input, summary')).filter(
-                (element) => element.getClientRects().length,
-            );
+            const focusable = Array.from(
+                this.form.querySelectorAll('a, button, input, summary'),
+            ).filter((element) => element.getClientRects().length);
             const first = focusable[0];
             const last = focusable[focusable.length - 1];
 
@@ -3677,22 +4257,25 @@
                 event.preventDefault();
                 first.focus();
             }
-        });
-        window.matchMedia('(min-width: 1199.98px)').addEventListener('change', (event) => {
+        }
+
+        handleMediaChange(event) {
             if (event.matches) {
-                closeFilter();
+                this.closeFilter();
             }
-        });
-        form.addEventListener('submit', (event) => {
+        }
+
+        submitFilter(event) {
             event.preventDefault();
-            closeFilter();
-        });
-        root.querySelector('.product-listing__selected')?.addEventListener('click', (event) => {
+            this.closeFilter();
+        }
+
+        clearSelectedFilters(event) {
             const chip = event.target.closest('.product-listing__chip');
             const clearChip = (item) => {
                 const names = (item.dataset.filterFields || '').split(',');
 
-                [...form.elements]
+                [...this.form.elements]
                     .filter(
                         (field) =>
                             names.includes(field.name) &&
@@ -3704,7 +4287,11 @@
                         } else {
                             field.value = '';
                         }
-                        field.dispatchEvent(new Event('change', { bubbles: true }));
+                        field.dispatchEvent(
+                            new Event('change', {
+                                bubbles: true,
+                            }),
+                        );
                     });
                 item.remove();
             };
@@ -3713,51 +4300,50 @@
                 clearChip(chip);
             }
             if (event.target.closest('.product-listing__clear')) {
-                root.querySelectorAll('.product-listing__chip').forEach(clearChip);
+                this.root.querySelectorAll('.product-listing__chip').forEach(clearChip);
             }
-            const selected = root.querySelector('.product-listing__selected');
+            const selected = this.root.querySelector('.product-listing__selected');
 
             if (!selected.querySelector('.product-listing__chip')) {
                 selected.hidden = true;
             }
-        });
-        form.querySelector('.listing-filter__expand').addEventListener('click', (event) => {
+        }
+
+        toggleExtraFilters(event) {
             const button = event.currentTarget;
-            const extra = form.querySelector('.listing-filter__extra');
+            const extra = this.form.querySelector('.listing-filter__extra');
 
             extra.hidden = !extra.hidden;
-            button.textContent = extra.hidden
-                ? uiText('product-listing-01')
-                : uiText('product-listing-02');
+            button.textContent = extra.hidden ? 'Показать еще' : 'Скрыть';
             button.setAttribute('aria-expanded', String(!extra.hidden));
-        });
-        root.querySelectorAll('.product-listing__tag:not(.product-listing__tag--more)').forEach(
-            (button) =>
-                button.addEventListener('click', () => {
-                    root.querySelectorAll('.product-listing__tag').forEach((tag) => {
-                        tag.classList.remove('is-active');
-                        tag.setAttribute('aria-pressed', 'false');
-                    });
-                    button.classList.add('is-active');
-                    button.setAttribute('aria-pressed', 'true');
-                }),
-        );
-        root.querySelector('.product-listing__tag--more').addEventListener('click', (event) => {
+        }
+
+        toggleTags(event) {
             const button = event.currentTarget;
             const expanded = button.getAttribute('aria-expanded') !== 'true';
 
-            root.querySelector('.product-listing__tags').classList.toggle('is-expanded', expanded);
+            this.root
+                .querySelector('.product-listing__tags')
+                .classList.toggle('is-expanded', expanded);
             button.setAttribute('aria-expanded', String(expanded));
-            button.textContent = expanded
-                ? uiText('product-listing-02')
-                : uiText('product-listing-01');
-        });
+            button.textContent = expanded ? 'Скрыть' : 'Показать еще';
+        }
     }
 
     // === review ===
 
-    const reviews = () => {
-        delegate(document, 'click', '.review__vote', (event, vote) => {
+    class ReviewsController {
+        constructor() {
+            this.vote = this.vote.bind(this);
+        }
+
+        init() {
+            Dom.delegate(document, 'click', '.review__vote', this.vote);
+
+            return this;
+        }
+
+        vote(event, vote) {
             const card = vote.closest('.review');
 
             if (!card) {
@@ -3779,29 +4365,49 @@
 
                 counter.textContent = String(count);
             });
-        });
-    };
+        }
+    }
 
     // === search-fields ===
 
-    function searchFields() {
-        const sync = (input) => {
+    class SearchFieldsController {
+        constructor() {
+            this.sync = this.sync.bind(this);
+            this.handleInput = this.handleInput.bind(this);
+            this.clear = this.clear.bind(this);
+        }
+
+        init() {
+            document.querySelectorAll('.search-field__input').forEach(this.sync);
+            Dom.delegate(document, 'input', '.search-field__input', this.handleInput);
+            Dom.delegate(document, 'click', '.search-field__clear', this.clear);
+
+            return this;
+        }
+
+        sync(input) {
             const button = input.closest('.search-field')?.querySelector('.search-field__clear');
 
             if (button) {
                 button.hidden = input.value.length === 0;
             }
-        };
+        }
 
-        document.querySelectorAll('.search-field__input').forEach(sync);
-        delegate(document, 'input', '.search-field__input', (event, input) => sync(input));
-        delegate(document, 'click', '.search-field__clear', (event, button) => {
+        handleInput(event, input) {
+            return this.sync(input);
+        }
+
+        clear(event, button) {
             const input = button.closest('.search-field').querySelector('.search-field__input');
 
             input.value = '';
-            input.dispatchEvent(new Event('input', { bubbles: true }));
+            input.dispatchEvent(
+                new Event('input', {
+                    bubbles: true,
+                }),
+            );
             input.focus();
-        });
+        }
     }
 
     // === search ===
@@ -3822,12 +4428,12 @@
         }
 
         init() {
-            delegate(document, 'click', this.selectors.toggler, (event) => {
+            Dom.delegate(document, 'click', this.selectors.toggler, (event) => {
                 event.stopPropagation();
                 this.toggleSearch();
             });
             for (const type of ['input', 'focusin', 'click']) {
-                delegate(document, type, this.selectors.input, (event, input) =>
+                Dom.delegate(document, type, this.selectors.input, (event, input) =>
                     this.handleInput(input),
                 );
             }
@@ -3841,7 +4447,7 @@
                     this.closeSearch(true);
                 }
             });
-            delegate(document, 'submit', '.search__form', (event, form) => {
+            Dom.delegate(document, 'submit', '.search__form', (event, form) => {
                 const input = form.querySelector(this.selectors.input);
 
                 if (!input) {
@@ -3854,7 +4460,7 @@
                     input.focus();
                 }
             });
-            delegate(document, 'keydown', this.selectors.input, (event, input) => {
+            Dom.delegate(document, 'keydown', this.selectors.input, (event, input) => {
                 if (event.key !== 'ArrowDown') {
                     return;
                 }
@@ -3980,25 +4586,41 @@
 
     class CustomSelect {
         static ROOT_CLASS = 'custom-select';
+
         static NATIVE_CLASS = 'custom-select__native';
+
         static TRIGGER_CLASS = 'custom-select__trigger';
+
         static VALUE_CLASS = 'custom-select__value';
+
         static LIST_CLASS = 'custom-select__list';
+
         static OPTION_CLASS = 'custom-select__option';
+
         static GROUP_CLASS = 'custom-select__group';
+
         static GROUP_LABEL_CLASS = 'custom-select__group-label';
+
         static EMPTY_CLASS = 'custom-select__empty';
 
         static OPEN_CLASS = 'is-open';
+
         static OPEN_TOP_CLASS = 'is-open-top';
+
         static DETACHED_CLASS = 'is-detached';
+
         static SELECTED_CLASS = 'is-selected';
+
         static ACTIVE_CLASS = 'is-active';
+
         static DISABLED_CLASS = 'is-disabled';
+
         static FOCUSED_CLASS = 'is-focused';
+
         static INVALID_CLASS = 'is-invalid';
 
         static TYPEAHEAD_TIMEOUT = 500;
+
         static MIRRORED_ATTRIBUTES = ['aria-describedby', 'aria-errormessage', 'title'];
 
         static matchesOption(label, query) {
@@ -4011,12 +4633,13 @@
             appendTo: null,
             maxHeight: 300,
             searchable: false,
-            emptyText: uiText('select-01'),
+            emptyText: 'Нет доступных вариантов',
             formatSelected: (labels) => labels.join(', '),
             triggerIcon: 'icon-chevron-down',
         };
 
         static uid = 0;
+
         static hooksInstalled = false;
 
         /**
@@ -4076,7 +4699,9 @@
         }
 
         static instances = new WeakMap();
+
         static openInstance = null;
+
         static _documentBound = 0;
 
         /**
@@ -4231,8 +4856,8 @@
                 this.search = document.createElement('input');
                 this.search.type = 'search';
                 this.search.className = 'custom-select__search';
-                this.search.placeholder = uiText('select-02');
-                this.search.setAttribute('aria-label', uiText('select-03'));
+                this.search.placeholder = 'Поиск';
+                this.search.setAttribute('aria-label', 'Поиск вариантов');
                 this.search.setAttribute('role', 'combobox');
                 this.search.setAttribute('aria-controls', this.list.id);
                 this.search.setAttribute('aria-autocomplete', 'list');
@@ -4255,9 +4880,7 @@
                 this.clearButton.className = 'custom-select__clear icon-close';
                 this.clearButton.setAttribute(
                     'aria-label',
-                    uiText('select-05', {
-                        value0: this.native.getAttribute('aria-label') || uiText('select-04'),
-                    }),
+                    `Очистить: ${this.native.getAttribute('aria-label') || 'выбор'}`,
                 );
                 this.clearButton.addEventListener('click', () => {
                     this.clear();
@@ -4400,7 +5023,7 @@
                 empty.setAttribute('role', 'status');
                 this.list.append(empty);
             }
-            empty.textContent = query.trim() ? uiText('select-06') : this.options.emptyText;
+            empty.textContent = query.trim() ? 'Ничего не найдено' : this.options.emptyText;
             empty.hidden = this.optionEls.some((el) => !el.hidden);
             this.activeIndex = this.optionEls.indexOf(this.enabledOptions[0]);
             this.updateActiveOption();
@@ -4425,8 +5048,16 @@
             });
             this.syncFromNative();
             if (before !== this._currentValue()) {
-                this.native.dispatchEvent(new Event('input', { bubbles: true }));
-                this.native.dispatchEvent(new Event('change', { bubbles: true }));
+                this.native.dispatchEvent(
+                    new Event('input', {
+                        bubbles: true,
+                    }),
+                );
+                this.native.dispatchEvent(
+                    new Event('change', {
+                        bubbles: true,
+                    }),
+                );
                 this.emit('change');
             }
         }
@@ -4505,7 +5136,9 @@
                     }
 
                     event.preventDefault();
-                    instance.close({ restoreFocus: true });
+                    instance.close({
+                        restoreFocus: true,
+                    });
                 };
 
                 document.addEventListener('pointerdown', CustomSelect._onDocumentPointerDown, true);
@@ -4592,7 +5225,9 @@
             this.updatePosition();
             window.addEventListener('scroll', this._onViewportChange, true);
             window.addEventListener('resize', this._onViewportChange);
-            this.search?.focus({ preventScroll: true });
+            this.search?.focus({
+                preventScroll: true,
+            });
 
             this.emit('open');
         }
@@ -4632,7 +5267,9 @@
 
         toggle() {
             if (this.isOpen) {
-                this.close({ restoreFocus: true });
+                this.close({
+                    restoreFocus: true,
+                });
             } else {
                 this.open();
             }
@@ -4744,8 +5381,16 @@
             this.syncFromNative();
 
             if (this._currentValue() !== previousValue) {
-                this.native.dispatchEvent(new Event('input', { bubbles: true }));
-                this.native.dispatchEvent(new Event('change', { bubbles: true }));
+                this.native.dispatchEvent(
+                    new Event('input', {
+                        bubbles: true,
+                    }),
+                );
+                this.native.dispatchEvent(
+                    new Event('change', {
+                        bubbles: true,
+                    }),
+                );
                 this.emit('change');
             }
 
@@ -4753,7 +5398,9 @@
                 this.activeIndex = this.optionEls.indexOf(option);
                 this.updateActiveOption();
             } else {
-                this.close({ restoreFocus: true });
+                this.close({
+                    restoreFocus: true,
+                });
             }
         }
 
@@ -4800,7 +5447,7 @@
             this.valueEl.classList.toggle(CustomSelect.SELECTED_CLASS, hasValue);
             if (this.native.hasAttribute('data-select-chip')) {
                 this.valueEl.textContent =
-                    (this.native.getAttribute('aria-label') || uiText('select-07')) +
+                    (this.native.getAttribute('aria-label') || 'Выбрано') +
                     (hasValue ? `: ${valueLabels.length}` : '');
                 this.root.classList.toggle('has-value', hasValue);
                 this.clearButton.hidden = !hasValue;
@@ -4819,7 +5466,9 @@
                 this.trigger.setAttribute('aria-activedescendant', active.id);
                 this.search?.setAttribute('aria-activedescendant', active.id);
                 if (typeof active.scrollIntoView === 'function') {
-                    active.scrollIntoView({ block: 'nearest' });
+                    active.scrollIntoView({
+                        block: 'nearest',
+                    });
                 }
             } else {
                 this.trigger.removeAttribute('aria-activedescendant');
@@ -5073,7 +5722,9 @@
             if (key === 'Escape') {
                 if (this.isOpen) {
                     event.preventDefault();
-                    this.close({ restoreFocus: true });
+                    this.close({
+                        restoreFocus: true,
+                    });
                 }
 
                 return;
@@ -5255,63 +5906,229 @@
 
     // === sliders ===
 
-    const controls = (container) => ({
-        navigation: {
-            nextEl: container.querySelector('.swiper-button-next'),
-            prevEl: container.querySelector('.swiper-button-prev'),
-        },
-        pagination: { el: container.querySelector('.swiper-pagination'), clickable: true },
-    });
-
-    function createSlider(element, options) {
-        if (!element || typeof Swiper === 'undefined') {
-            return null;
+    class SlidersController {
+        static controls(container) {
+            return {
+                navigation: {
+                    nextEl: container.querySelector('.swiper-button-next'),
+                    prevEl: container.querySelector('.swiper-button-prev'),
+                },
+                pagination: {
+                    el: container.querySelector('.swiper-pagination'),
+                    clickable: true,
+                },
+            };
         }
 
-        return element.swiper || new Swiper(element, options);
+        static createSlider(element, options) {
+            if (!element || typeof Swiper === 'undefined') {
+                return null;
+            }
+
+            return element.swiper || new Swiper(element, options);
+        }
+
+        init() {
+            if (typeof Swiper === 'undefined') {
+                return;
+            }
+
+            document.querySelectorAll('[data-showcase-slider]').forEach((container) => {
+                const count = Number(container.dataset.showcaseSlider);
+                const breakpoints = {
+                    576: {
+                        slidesPerView: 2,
+                    },
+                    768: {
+                        slidesPerView: 3,
+                    },
+                    992: {
+                        slidesPerView: count === 3 ? 3 : 4,
+                    },
+                    1200: {
+                        slidesPerView: count === 6 ? 5 : count === 5 ? 4 : 3,
+                    },
+                    1320: {
+                        slidesPerView: count,
+                    },
+                };
+
+                SlidersController.createSlider(container.querySelector('.swiper'), {
+                    slidesPerView: 1,
+                    spaceBetween: count === 3 ? 20 : 10,
+                    breakpoints,
+                    watchOverflow: true,
+                    navigation: SlidersController.controls(container).navigation,
+                });
+            });
+            document.querySelectorAll('.marketing__slider').forEach((container) => {
+                SlidersController.createSlider(container.querySelector('.swiper'), {
+                    slidesPerView: 'auto',
+                    spaceBetween: 20,
+                    watchOverflow: true,
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 'auto',
+                        },
+                        992: {
+                            slidesPerView: 'auto',
+                        },
+                        1200: {
+                            slidesPerView: 3,
+                        },
+                    },
+                    navigation: SlidersController.controls(container).navigation,
+                });
+            });
+            document.querySelectorAll('.promotions__slider').forEach((container) => {
+                SlidersController.createSlider(container.querySelector('.swiper'), {
+                    slidesPerView: 1,
+                    rewind: true,
+                    watchOverflow: true,
+                    ...SlidersController.controls(container),
+                });
+            });
+            this.newsBreakpoints = {
+                575.98: {
+                    slidesPerView: 1.5,
+                },
+                767.98: {
+                    slidesPerView: 2,
+                },
+                991.98: {
+                    slidesPerView: 3,
+                },
+                1419.98: {
+                    slidesPerView: 4,
+                },
+            };
+
+            document
+                .querySelectorAll('.news__slider:not([data-showcase-slider])')
+                .forEach((container) => {
+                    SlidersController.createSlider(container.querySelector('.swiper'), {
+                        slidesPerView: 1,
+                        spaceBetween: 20,
+                        watchOverflow: true,
+                        breakpoints: this.newsBreakpoints,
+                        ...SlidersController.controls(container),
+                    });
+                });
+            document.querySelectorAll('.product-details__gallery').forEach((gallery) => {
+                const product = gallery.closest('.product-details');
+
+                if (!product || gallery.querySelector('.swiper')?.swiper) {
+                    return;
+                }
+
+                const thumbs = [...product.querySelectorAll('.product-details__thumb')];
+                const thumbnailContainer = product.querySelector('.product-details__thumbs');
+                const thumbnails = SlidersController.createSlider(
+                    thumbnailContainer.querySelector('.swiper'),
+                    {
+                        slidesPerView: 3,
+                        spaceBetween: 10,
+                        watchOverflow: true,
+                        breakpoints: {
+                            768: {
+                                direction: 'vertical',
+                                slidesPerView: 5,
+                            },
+                        },
+                        on: {
+                            resize() {
+                                const activeIndex =
+                                    gallery.querySelector('.swiper')?.swiper?.activeIndex;
+
+                                this.slideTo(activeIndex ?? 0, 0);
+                            },
+                        },
+                    },
+                );
+                const main = SlidersController.createSlider(gallery.querySelector('.swiper'), {
+                    slidesPerView: 1,
+                    watchOverflow: true,
+                    navigation: SlidersController.controls(thumbnailContainer).navigation,
+                    on: {
+                        slideChange() {
+                            thumbs.forEach((thumb, index) => {
+                                thumb.classList.toggle('active', index === this.activeIndex);
+                                thumb.setAttribute(
+                                    'aria-pressed',
+                                    String(index === this.activeIndex),
+                                );
+                            });
+                            thumbnails?.slideTo(this.activeIndex);
+                            const zoom = gallery.querySelector('.product-details__zoom');
+
+                            if (zoom) {
+                                zoom.href = this.slides[this.activeIndex].href;
+                            }
+                        },
+                    },
+                });
+
+                thumbs.forEach((thumb, index) => {
+                    thumb.classList.toggle('active', index === 0);
+                    thumb.setAttribute('aria-pressed', String(index === 0));
+                });
+                Dom.delegate(product, 'click', '.product-details__thumb', (event, thumb) =>
+                    main?.slideTo(thumbs.indexOf(thumb)),
+                );
+            });
+            ProductGallery.initAll();
+
+            return this;
+        }
     }
 
-    function productGalleries() {
-        document.querySelectorAll('[data-product-gallery]').forEach((gallery) => {
-            const element = gallery.querySelector('.product-tile__slider');
+    class ProductGallery {
+        static initAll() {
+            document
+                .querySelectorAll('[data-product-gallery]')
+                .forEach((gallery) => new ProductGallery().init(gallery));
+        }
+
+        constructor() {
+            this.resetSlide = this.resetSlide.bind(this);
+        }
+
+        init(gallery) {
+            this.gallery = gallery;
+            this.element = this.gallery.querySelector('.product-tile__slider');
 
             if (
-                !element ||
-                element.swiper ||
+                !this.element ||
+                this.element.swiper ||
                 typeof Swiper === 'undefined' ||
-                element.querySelectorAll('.swiper-slide').length <= 1
+                this.element.querySelectorAll('.swiper-slide').length <= 1
             ) {
                 return;
             }
 
-            const slider = createSlider(element, {
+            this.slider = SlidersController.createSlider(this.element, {
                 slidesPerView: 1,
                 nested: true,
                 observer: true,
                 observeParents: true,
                 watchOverflow: true,
                 touchEventsTarget: 'container',
-                a11y: { slideRole: 'link' },
+                a11y: {
+                    slideRole: 'link',
+                },
                 speed: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 200,
                 pagination: {
-                    el: gallery.querySelector('.swiper-pagination'),
+                    el: this.gallery.querySelector('.swiper-pagination'),
                     clickable: true,
-                    renderBullet: (index, className) => {
-                        const bullet = uiFragment('gallery-bullet').firstElementChild;
-                        bullet.className = className;
-                        bullet.setAttribute(
-                            'aria-label',
-                            bullet.getAttribute('aria-label').replace('{number}', index + 1),
-                        );
-                        return bullet.outerHTML;
-                    },
+                    renderBullet: (index, className) =>
+                        `<button class="${className}" type="button" aria-label="Фотография ${index + 1}"></button>`,
                 },
             });
-            const areas = document.createElement('div');
+            this.areas = document.createElement('div');
 
-            areas.className = 'product-tile__areas';
-            areas.setAttribute('aria-hidden', 'true');
-            [...slider.slides].forEach((slide, index) => {
+            this.areas.className = 'product-tile__areas';
+            this.areas.setAttribute('aria-hidden', 'true');
+            [...this.slider.slides].forEach((slide, index) => {
                 const area = document.createElement('a');
 
                 area.className = 'product-tile__area';
@@ -5319,296 +6136,224 @@
                 area.tabIndex = -1;
                 area.addEventListener('pointerenter', (event) => {
                     if (event.pointerType === 'mouse') {
-                        slider.slideTo(index);
+                        this.slider.slideTo(index);
                     }
                 });
-                areas.append(area);
+                this.areas.append(area);
             });
-            element.append(areas);
-            gallery.addEventListener('pointerleave', (event) => {
-                if (event.pointerType === 'mouse') {
-                    slider.slideTo(0);
-                }
-            });
-        });
-    }
+            this.element.append(this.areas);
+            this.gallery.addEventListener('pointerleave', this.resetSlide);
 
-    function sliders() {
-        if (typeof Swiper === 'undefined') {
-            return;
+            return this;
         }
 
-        document.querySelectorAll('[data-showcase-slider]').forEach((container) => {
-            const count = Number(container.dataset.showcaseSlider);
-            const breakpoints = {
-                576: { slidesPerView: 2 },
-                768: { slidesPerView: 3 },
-                992: { slidesPerView: count === 3 ? 3 : 4 },
-                1200: { slidesPerView: count === 6 ? 5 : count === 5 ? 4 : 3 },
-                1320: { slidesPerView: count },
-            };
-
-            createSlider(container.querySelector('.swiper'), {
-                slidesPerView: 1,
-                spaceBetween: count === 3 ? 20 : 10,
-                breakpoints,
-                watchOverflow: true,
-                navigation: controls(container).navigation,
-            });
-        });
-        document.querySelectorAll('.marketing__slider').forEach((container) => {
-            createSlider(container.querySelector('.swiper'), {
-                slidesPerView: 'auto',
-                spaceBetween: 20,
-                watchOverflow: true,
-                breakpoints: {
-                    768: { slidesPerView: 'auto' },
-                    992: { slidesPerView: 'auto' },
-                    1200: { slidesPerView: 3 },
-                },
-                navigation: controls(container).navigation,
-            });
-        });
-        document.querySelectorAll('.promotions__slider').forEach((container) => {
-            createSlider(container.querySelector('.swiper'), {
-                slidesPerView: 1,
-                rewind: true,
-                watchOverflow: true,
-                ...controls(container),
-            });
-        });
-        const newsBreakpoints = {
-            575.98: { slidesPerView: 1.5 },
-            767.98: { slidesPerView: 2 },
-            991.98: { slidesPerView: 3 },
-            1419.98: { slidesPerView: 4 },
-        };
-
-        document
-            .querySelectorAll('.news__slider:not([data-showcase-slider])')
-            .forEach((container) => {
-                createSlider(container.querySelector('.swiper'), {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                    watchOverflow: true,
-                    breakpoints: newsBreakpoints,
-                    ...controls(container),
-                });
-            });
-        document.querySelectorAll('.product-details__gallery').forEach((gallery) => {
-            const product = gallery.closest('.product-details');
-
-            if (!product || gallery.querySelector('.swiper')?.swiper) {
-                return;
+        resetSlide(event) {
+            if (event.pointerType === 'mouse') {
+                this.slider.slideTo(0);
             }
-
-            const thumbs = [...product.querySelectorAll('.product-details__thumb')];
-            const thumbnailContainer = product.querySelector('.product-details__thumbs');
-            const thumbnails = createSlider(thumbnailContainer.querySelector('.swiper'), {
-                slidesPerView: 3,
-                spaceBetween: 10,
-                watchOverflow: true,
-                breakpoints: { 768: { direction: 'vertical', slidesPerView: 5 } },
-                on: {
-                    resize() {
-                        const activeIndex = gallery.querySelector('.swiper')?.swiper?.activeIndex;
-
-                        this.slideTo(activeIndex ?? 0, 0);
-                    },
-                },
-            });
-            const main = createSlider(gallery.querySelector('.swiper'), {
-                slidesPerView: 1,
-                watchOverflow: true,
-                navigation: controls(thumbnailContainer).navigation,
-                on: {
-                    slideChange() {
-                        thumbs.forEach((thumb, index) => {
-                            thumb.classList.toggle('active', index === this.activeIndex);
-                            thumb.setAttribute('aria-pressed', String(index === this.activeIndex));
-                        });
-                        thumbnails?.slideTo(this.activeIndex);
-                        const zoom = gallery.querySelector('.product-details__zoom');
-
-                        if (zoom) {
-                            zoom.href = this.slides[this.activeIndex].href;
-                        }
-                    },
-                },
-            });
-
-            thumbs.forEach((thumb, index) => {
-                thumb.classList.toggle('active', index === 0);
-                thumb.setAttribute('aria-pressed', String(index === 0));
-            });
-            delegate(product, 'click', '.product-details__thumb', (event, thumb) =>
-                main?.slideTo(thumbs.indexOf(thumb)),
-            );
-        });
-        productGalleries();
+        }
     }
 
     // === tooltips ===
 
-    function tooltipPosition(anchor, size, viewport) {
-        const gap = 12;
-        const margin = 8;
-        let side = 'right';
-        let left = anchor.right + gap;
-        let top = (anchor.top + anchor.bottom - size.height) / 2;
+    class Tooltip {
+        static tooltipPosition(anchor, size, viewport) {
+            const gap = 12;
+            const margin = 8;
+            let side = 'right';
+            let left = anchor.right + gap;
+            let top = (anchor.top + anchor.bottom - size.height) / 2;
 
-        if (left + size.width > viewport.width - margin) {
-            side = 'left';
-            left = anchor.left - gap - size.width;
-            if (left < margin) {
-                side =
-                    anchor.bottom + gap + size.height <= viewport.height - margin
-                        ? 'bottom'
-                        : 'top';
-                left = (anchor.left + anchor.right - size.width) / 2;
-                top = side === 'bottom' ? anchor.bottom + gap : anchor.top - gap - size.height;
+            if (left + size.width > viewport.width - margin) {
+                side = 'left';
+                left = anchor.left - gap - size.width;
+                if (left < margin) {
+                    side =
+                        anchor.bottom + gap + size.height <= viewport.height - margin
+                            ? 'bottom'
+                            : 'top';
+                    left = (anchor.left + anchor.right - size.width) / 2;
+                    top = side === 'bottom' ? anchor.bottom + gap : anchor.top - gap - size.height;
+                }
+            }
+
+            return {
+                left: Math.max(margin, Math.min(left, viewport.width - size.width - margin)),
+                top: Math.max(margin, Math.min(top, viewport.height - size.height - margin)),
+                side,
+            };
+        }
+
+        static initAll(scope = document) {
+            scope.querySelectorAll('.tooltip').forEach((root) => new Tooltip().init(root));
+        }
+
+        constructor() {
+            this.position = this.position.bind(this);
+            this.show = this.show.bind(this);
+            this.hide = this.hide.bind(this);
+            this.handlePointerEnter = this.handlePointerEnter.bind(this);
+            this.handlePointerLeave = this.handlePointerLeave.bind(this);
+            this.handleFocusOut = this.handleFocusOut.bind(this);
+            this.handleKeydown = this.handleKeydown.bind(this);
+            this.handleDocumentKeydown = this.handleDocumentKeydown.bind(this);
+            this.handleResize = this.handleResize.bind(this);
+            this.handleScroll = this.handleScroll.bind(this);
+        }
+
+        init(root) {
+            this.root = root;
+            if (this.root.dataset.tooltipReady) {
+                return;
+            }
+
+            this.trigger = this.root.querySelector('.tooltip__trigger');
+            this.content = this.root.querySelector('.tooltip__content');
+
+            if (!this.trigger || !this.content) {
+                return;
+            }
+
+            this.root.dataset.tooltipReady = 'true';
+            this.hovered = false;
+            this.closeTimer = undefined;
+
+            this.root.addEventListener('pointerenter', this.handlePointerEnter);
+            this.root.addEventListener('pointerleave', this.handlePointerLeave);
+            this.root.addEventListener('focusin', this.show);
+            this.root.addEventListener('focusout', this.handleFocusOut);
+            this.root.addEventListener('keydown', this.handleKeydown);
+            document.addEventListener('keydown', this.handleDocumentKeydown);
+            window.addEventListener('resize', this.handleResize);
+            window.addEventListener('scroll', this.handleScroll, {
+                capture: true,
+                passive: true,
+            });
+
+            return this;
+        }
+
+        position() {
+            const anchor = this.trigger.getBoundingClientRect();
+            const size = this.content.getBoundingClientRect();
+            const next = Tooltip.tooltipPosition(anchor, size, {
+                width: window.innerWidth,
+                height: window.innerHeight,
+            });
+
+            this.content.style.position = 'fixed';
+            this.content.style.left = `${next.left}px`;
+            this.content.style.top = `${next.top}px`;
+            this.content.style.transform = 'none';
+            this.content.dataset.side = next.side;
+            this.content.style.setProperty(
+                '--tooltip-arrow-y',
+                `${Math.max(16, Math.min(size.height - 16, (anchor.top + anchor.bottom) / 2 - next.top))}px`,
+            );
+        }
+
+        show() {
+            clearTimeout(this.closeTimer);
+            this.root.classList.remove('is-dismissed');
+            this.position();
+            this.root.classList.add('is-visible');
+        }
+
+        hide() {
+            clearTimeout(this.closeTimer);
+            this.root.classList.remove('is-visible');
+            this.root.classList.add('is-dismissed');
+        }
+
+        handlePointerEnter() {
+            this.hovered = true;
+            this.show();
+        }
+
+        handlePointerLeave() {
+            this.hovered = false;
+            if (!this.root.contains(document.activeElement)) {
+                this.closeTimer = setTimeout(this.hide, 180);
             }
         }
 
-        return {
-            left: Math.max(margin, Math.min(left, viewport.width - size.width - margin)),
-            top: Math.max(margin, Math.min(top, viewport.height - size.height - margin)),
-            side,
-        };
-    }
-
-    function tooltips(scope = document) {
-        scope.querySelectorAll('.tooltip').forEach((root) => {
-            if (root.dataset.tooltipReady) {
-                return;
+        handleFocusOut(event) {
+            if (!this.root.contains(event.relatedTarget) && !this.hovered) {
+                this.hide();
             }
+        }
 
-            const trigger = root.querySelector('.tooltip__trigger');
-            const content = root.querySelector('.tooltip__content');
-
-            if (!trigger || !content) {
-                return;
+        handleKeydown(event) {
+            if (event.key === 'Escape') {
+                this.hide();
             }
+        }
 
-            root.dataset.tooltipReady = 'true';
-            let hovered = false;
-            let closeTimer;
-            const position = () => {
-                const anchor = trigger.getBoundingClientRect();
-                const size = content.getBoundingClientRect();
-                const next = tooltipPosition(anchor, size, {
-                    width: window.innerWidth,
-                    height: window.innerHeight,
-                });
+        handleDocumentKeydown(event) {
+            if (event.key === 'Escape') {
+                this.hide();
+            }
+        }
 
-                content.style.position = 'fixed';
-                content.style.left = `${next.left}px`;
-                content.style.top = `${next.top}px`;
-                content.style.transform = 'none';
-                content.dataset.side = next.side;
-                content.style.setProperty(
-                    '--tooltip-arrow-y',
-                    `${Math.max(16, Math.min(size.height - 16, (anchor.top + anchor.bottom) / 2 - next.top))}px`,
-                );
-            };
-            const show = () => {
-                clearTimeout(closeTimer);
-                root.classList.remove('is-dismissed');
-                position();
-                root.classList.add('is-visible');
-            };
-            const hide = () => {
-                clearTimeout(closeTimer);
-                root.classList.remove('is-visible');
-                root.classList.add('is-dismissed');
-            };
+        handleResize() {
+            if (this.root.classList.contains('is-visible')) {
+                this.position();
+            }
+        }
 
-            root.addEventListener('pointerenter', () => {
-                hovered = true;
-                show();
-            });
-            root.addEventListener('pointerleave', () => {
-                hovered = false;
-                if (!root.contains(document.activeElement)) {
-                    closeTimer = setTimeout(hide, 180);
-                }
-            });
-            root.addEventListener('focusin', show);
-            root.addEventListener('focusout', (event) => {
-                if (!root.contains(event.relatedTarget) && !hovered) {
-                    hide();
-                }
-            });
-            root.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    hide();
-                }
-            });
-            document.addEventListener('keydown', (event) => {
-                if (event.key === 'Escape') {
-                    hide();
-                }
-            });
-            window.addEventListener('resize', () => {
-                if (root.classList.contains('is-visible')) {
-                    position();
-                }
-            });
-            window.addEventListener(
-                'scroll',
-                (event) => {
-                    if (!content.contains(event.target)) {
-                        hide();
-                    }
-                },
-                { capture: true, passive: true },
-            );
-        });
+        handleScroll(event) {
+            if (!this.content.contains(event.target)) {
+                this.hide();
+            }
+        }
     }
 
     // === Application initialization ===
 
-    let appInitialized = false;
+    class Application {
+        static appInitialized = false;
 
-    function init() {
-        if (appInitialized) {
-            return;
+        static init() {
+            if (Application.appInitialized) {
+                return;
+            }
+            Application.appInitialized = true;
+
+            CustomSelect.initAll();
+            Tooltip.initAll();
+            new AddressesController().init();
+            new OrdersController().init();
+            new OrderDetailsController().init();
+            new AccountController().init();
+            new ReviewsController().init();
+            new NewsController().init();
+            FaqController.initAll();
+            const navigation = new HeaderController().init();
+
+            new SearchFieldsController().init();
+            new InteractionsController().init();
+            window.SearchController = new SearchController(navigation);
+            new SlidersController().init();
+            window.FormController = new FormController();
+            new AuthDialogs().init();
+            new PartsOrderController().init();
+            window.NotifyController = new NotifyController();
+            new MapsController().init();
+            ComparisonController.initAll();
+            CartController.initAll();
+            new ProductListingController().init();
+            new ProductDetailsController().init();
+            new CheckoutController().init();
+            FavoritesController.initAll();
         }
-        appInitialized = true;
-
-        CustomSelect.initAll();
-        tooltips();
-        addresses();
-        orders();
-        orderDetails();
-        account();
-        reviews();
-        news();
-        faq();
-        const navigation = header();
-
-        searchFields();
-        interactions();
-        window.SearchController = new SearchController(navigation);
-        sliders();
-        window.FormController = new FormController();
-        authDialogs();
-        partsOrder();
-        subscription();
-        window.NotifyController = new NotifyController();
-        maps();
-        comparing();
-        cart();
-        productListing();
-        productDetails();
-        checkout();
-        favorites();
     }
 
     // Start the application once the document is ready.
     if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', init, { once: true });
+        document.addEventListener('DOMContentLoaded', Application.init, {
+            once: true,
+        });
     } else {
-        init();
+        Application.init();
     }
 })();

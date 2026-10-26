@@ -10,8 +10,12 @@
                 <nav aria-label="Хлебные крошки" class="breadcrumbs">
                     <div class="breadcrumbs__container container">
                         <ul class="breadcrumbs__list">
-                            <li class="breadcrumbs__item"><a href="/" class="breadcrumbs__link">Главная</a></li>
-                            <li class="breadcrumbs__item"><span class="breadcrumbs__link active" aria-current="page">Купить запчасти</span></li>
+                            <li class="breadcrumbs__item">
+                                <a href="/" class="breadcrumbs__link">Главная</a>
+                            </li>
+                            <li class="breadcrumbs__item">
+                                <span class="breadcrumbs__link active" aria-current="page">Купить запчасти</span>
+                            </li>
                         </ul>
                     </div>
                 </nav>
@@ -30,16 +34,20 @@
                                 </ul>
                                 <p class="parts-help__text">После отправки заявки специалист свяжется с Вами в ближайшее время для более подробной консультации.</p>
                                 <div class="parts-help__contacts">
-                                    <p class="parts-help__text">Также Вы можете сами связаться со специалистом<br>по телефонам:</p>
+                                    <p class="parts-help__text">Также Вы можете сами связаться со специалистом
+                                        <br>по телефонам:
+                                    </p>
                                     <a class="parts-help__link" href="tel:+74993436242">+7(499)343-62-42</a>
                                     <a class="parts-help__link" href="tel:+74990052300">+7(499)005-23-00</a>
                                 </div>
                                 <div class="parts-help__question">
                                     <p class="parts-help__text">Остались вопросы?</p>
-                                    <p class="parts-help__text"><a class="parts-help__link" href="mailto:help-global@bort-global.com">Напишите нам</a>, мы обязательно поможем!</p>
+                                    <p class="parts-help__text">
+                                        <a class="parts-help__link" href="mailto:help-global@bort-global.com">Напишите нам</a>, мы обязательно поможем!
+                                    </p>
                                 </div>
                             </aside>
-                            <form class="spare-parts__form form form--parts" action="#" method="post" enctype="multipart/form-data" novalidate data-unavailable-message="Отправка заявки временно недоступна. Пожалуйста, свяжитесь со специалистом по телефонам +7(499)343-62-42 или +7(499)005-23-00." data-pending-message="Отправляем заявку…" data-success-message="Заявка отправлена. Специалист свяжется с Вами в ближайшее время." data-error-message="Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь с нами по телефону.">
+                            <form class="spare-parts__form form form--parts" action="#" method="post" enctype="multipart/form-data" novalidate>
                                 <div class="form__field">
                                     <label class="form__label" for="parts-product">Товар</label>
                                     <input class="form__control" id="parts-product" type="text" name="product" placeholder="Товар" data-required required aria-describedby="parts-product-error">
@@ -68,12 +76,14 @@
                                 <div class="form__field">
                                     <label class="checkbox checkbox--consent">
                                         <input class="checkbox__input hidden" type="checkbox" name="consent" value="1" data-required required aria-describedby="parts-consent-error">
-                                        <span class="checkbox__btn"><span class="checkbox__text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политики Конфиденциальности</a></span></span>
+                                        <span class="checkbox__btn">
+                                            <span class="checkbox__text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политики Конфиденциальности</a>
+                                            </span>
+                                        </span>
                                     </label>
                                     <div class="form__error-message" id="parts-consent-error" aria-live="polite" hidden>Необходимо ваше согласие</div>
                                 </div>
                                 <button class="form__submit btn btn-primary" type="submit">Отправить</button>
-                                <p class="form__status" role="status" aria-live="polite" hidden></p>
                             </form>
                         </div>
                     </div>

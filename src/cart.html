@@ -7,7 +7,9 @@
             <main class="page page--dark">
                 <section class="cart">
                     <div class="cart__container container">
-                        <a href="catalog.html" class="cart__back"><span class="cart__back-icon icon-chevron-left" aria-hidden="true"></span>Вернуться к покупкам</a>
+                        <a href="catalog.html" class="cart__back">
+                            <span class="cart__back-icon icon-chevron-left" aria-hidden="true"></span>Вернуться к покупкам
+                        </a>
                         <div class="cart__heading">
                             <h1 class="cart__title title title-lg title--sans title--bold">Корзина</h1>
                             <button type="button" class="cart__share">
@@ -29,10 +31,22 @@
                                 <div class="cart__total">
                                     <h2 class="cart__total-title title title-sm title--sans">Ваш заказ</h2>
                                     <div class="cart__total-rows" aria-live="polite">
-                                        <div class="cart__total-row"><span class="cart__total-label">Вес заказа</span><span class="cart__total-value" data-cart-weight>10,45 кг</span></div>
-                                        <div class="cart__total-row"><span class="cart__total-label" data-cart-count>4 товара</span><span class="cart__total-value" data-cart-subtotal>20 456 ₽</span></div>
-                                        <div class="cart__total-row cart__total-row--discount"><span class="cart__total-label">Скидка</span><span class="cart__total-value" data-cart-discount>−3 230 ₽</span></div>
-                                        <div class="cart__total-sum"><span class="cart__total-sum-label">Итого</span><span class="cart__total-sum-value" data-cart-total>170 890 ₽</span></div>
+                                        <div class="cart__total-row">
+                                            <span class="cart__total-label">Вес заказа</span>
+                                            <span class="cart__total-value" data-cart-weight>10,45 кг</span>
+                                        </div>
+                                        <div class="cart__total-row">
+                                            <span class="cart__total-label" data-cart-count>4 товара</span>
+                                            <span class="cart__total-value" data-cart-subtotal>20 456 ₽</span>
+                                        </div>
+                                        <div class="cart__total-row cart__total-row--discount">
+                                            <span class="cart__total-label">Скидка</span>
+                                            <span class="cart__total-value" data-cart-discount>−3 230 ₽</span>
+                                        </div>
+                                        <div class="cart__total-sum">
+                                            <span class="cart__total-sum-label">Итого</span>
+                                            <span class="cart__total-sum-value" data-cart-total>170 890 ₽</span>
+                                        </div>
                                     </div>
                                     <form action="#" class="cart__promo" novalidate>
                                         <label class="cart__promo-label" for="cart-promo">Промокод</label>
@@ -50,7 +64,8 @@
             @@include('html/_footer.html', {})
 
             <div id="order" class="popup popup--medium">
-                <h2 class="popup__title title title-md">оформление <span>заказа</span></h2>
+                <h2 class="popup__title title title-md">оформление <span>заказа</span>
+                </h2>
                 <form action="#" class="popup__form order-form" novalidate>
                     <div class="order-form__grid">
                         <div class="order-form__field">

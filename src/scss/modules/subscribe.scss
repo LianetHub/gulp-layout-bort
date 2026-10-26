@@ -2,6 +2,7 @@
 
 // .subscribe
 .subscribe {
+	margin-top: auto;
 	// .subscribe--desktop
 	&--desktop {
 		display: none;
@@ -58,6 +59,10 @@
 			// .subscribe__fields .subscribe__input:focus
 			&:focus {
 				border-color: #ff6201;
+			}
+			// .subscribe__fields .subscribe__input[aria-invalid="true"]
+			&[aria-invalid="true"] {
+				border-color: #ea2046;
 			}
 			// .subscribe__fields .subscribe__input:disabled
 			&:disabled {

@@ -31,8 +31,8 @@ test('reinitializing sliders preserves the active product thumbnail', async ({ p
 test('a card with multiple photos keeps one local gallery instance', async ({ page }) => {
     const html = await renderTemplate('_product-tile-gallery.html', {
         name: 'Галерея',
-        image: 'img/product/caiman-01.png',
-        images: ['01', '03', '04'].map((index) => ({ image: `img/product/caiman-${index}.png` })),
+        image: 'img/goods/caiman-01.png',
+        images: ['01', '03', '04'].map((index) => ({ image: `img/goods/caiman-${index}.png` })),
     });
     await page.goto('/docs/index.html');
     const result = await page.evaluate(async (markup) => {

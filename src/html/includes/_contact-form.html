@@ -1,4 +1,4 @@
-<form class="contact-form form form--request" id="feedback" action="#" method="post" enctype="multipart/form-data" novalidate data-unavailable-message="Отправка сообщения временно недоступна. Пожалуйста, свяжитесь с нами по телефону +7 (499) 705-79-79 или по адресу sales@bort.ru." data-pending-message="Отправляем заявку…" data-success-message="Заявка отправлена. Специалист свяжется с Вами в ближайшее время." data-error-message="Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь с нами по телефону.">
+<form class="contact-form form form--request" id="feedback" action="#" method="post" enctype="multipart/form-data" novalidate>
     <div class="contact-form__heading">
         <h2 class="contact-form__title title title-lg">Обратная связь</h2>
         <p class="contact-form__intro text-body text-body--small">Если вы не нашли ответ на свой вопрос, вы можете отправить нам сообщение, используя форму ниже.</p>
@@ -51,12 +51,14 @@
         <div class="form__field">
             <label class="checkbox checkbox--consent">
                 <input class="checkbox__input hidden" type="checkbox" name="consent" value="1" data-required required aria-describedby="contact-consent-error">
-                <span class="checkbox__btn"><span class="checkbox__text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политики Конфиденциальности</a></span></span>
+                <span class="checkbox__btn">
+                    <span class="checkbox__text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политики Конфиденциальности</a>
+                    </span>
+                </span>
             </label>
             <div class="form__error-message" id="contact-consent-error" aria-live="polite" hidden>Необходимо ваше согласие</div>
         </div>
         <button class="form__submit btn btn-primary" type="submit">Отправить</button>
-        <p class="form__status" role="status" aria-live="polite" hidden></p>
         <p class="contact-form__notice">Нажимая кнопку «Отправить», я подтверждаю свою дееспособность и согласие на получение информации об оформлении и получении заказа, согласие на обработку персональных данных в соответствии с указанным <a class="contact-form__link" href="policy.html">здесь текстом</a>.</p>
     </div>
 </form>

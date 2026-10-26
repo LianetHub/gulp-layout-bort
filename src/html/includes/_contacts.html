@@ -1,8 +1,12 @@
 <nav aria-label="Хлебные крошки" class="breadcrumbs breadcrumbs--compact">
     <div class="breadcrumbs__container container">
         <ul class="breadcrumbs__list">
-            <li class="breadcrumbs__item"><a href="index.html" class="breadcrumbs__link">Главная</a></li>
-            <li class="breadcrumbs__item"><span class="breadcrumbs__link active" aria-current="page">Контакты</span></li>
+            <li class="breadcrumbs__item">
+                <a href="index.html" class="breadcrumbs__link">Главная</a>
+            </li>
+            <li class="breadcrumbs__item">
+                <span class="breadcrumbs__link active" aria-current="page">Контакты</span>
+            </li>
         </ul>
     </div>
 </nav>
@@ -15,8 +19,14 @@
                     <li class="contacts__channel">
                         <address class="contacts__link icon-location">г. Москва, ул. Щукинская, д. 42</address>
                     </li>
-                    <li class="contacts__channel"><a class="contacts__link" href="mailto:sales@bort.ru"><span class="contacts__icon icon-messages" aria-hidden="true"></span>sales@bort.ru</a></li>
-                    <li class="contacts__channel"><a class="contacts__link contacts__link--phone icon-phone" href="tel:+74997057979">+7-499-705-79-79</a></li>
+                    <li class="contacts__channel">
+                        <a class="contacts__link" href="mailto:sales@bort.ru">
+                            <span class="contacts__icon icon-messages" aria-hidden="true"></span>sales@bort.ru
+                        </a>
+                    </li>
+                    <li class="contacts__channel">
+                        <a class="contacts__link contacts__link--phone icon-phone" href="tel:+74997057979">+7-499-705-79-79</a>
+                    </li>
                     <li class="contacts__channel">
                         <p class="contacts__link">
                             <span class="contacts__icon icon-information-circle" aria-hidden="true"></span>
@@ -46,7 +56,7 @@
                     <path class="contacts__bubble" d="M60 67h26M60 100h50"></path>
                 </svg>
             </div>
-            <form action="#" method="post" enctype="multipart/form-data" class="contacts__form form form--request" novalidate data-unavailable-message="Отправка сообщения временно недоступна. Пожалуйста, свяжитесь с нами по телефону +7 (499) 705-79-79 или по адресу sales@bort.ru." data-pending-message="Отправляем заявку…" data-success-message="Заявка отправлена. Специалист свяжется с Вами в ближайшее время." data-error-message="Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь с нами по телефону.">
+            <form action="#" method="post" enctype="multipart/form-data" class="contacts__form form form--request" novalidate>
                 <div class="contacts__fields">
                     <div class="form__field">
                         <label class="form__label" for="contacts-name">Имя</label>
@@ -67,13 +77,15 @@
                     <div class="contacts__consent form__field">
                         <label class="checkbox checkbox--consent">
                             <input class="checkbox__input hidden" type="checkbox" name="consent" value="1" data-required required aria-describedby="contacts-consent-error">
-                            <span class="checkbox__btn"><span class="checkbox__text">Я согласен с <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политикой хранения и обработки персональных данных</a> и <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a></span></span>
+                            <span class="checkbox__btn">
+                                <span class="checkbox__text">Я согласен с <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политикой хранения и обработки персональных данных</a> и <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политикой конфиденциальности</a>
+                                </span>
+                            </span>
                         </label>
                         <div class="form__error-message" id="contacts-consent-error" aria-live="polite" hidden>Необходимо ваше согласие</div>
                     </div>
                     <button type="submit" class="form__submit btn btn-primary">Отправить</button>
                 </div>
-                <p class="form__status" role="status" aria-live="polite" hidden></p>
             </form>
         </div>
     </div>

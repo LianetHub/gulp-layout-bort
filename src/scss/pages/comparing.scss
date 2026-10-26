@@ -223,9 +223,57 @@
 		}
 	}
 	// .comparing__column
-	&__column {
+	// .comparing__values
+	&__column,
+	&__values {
 		min-width: 0;
 		position: relative;
+		// .comparing__column::before
+		// .comparing__column::after
+		// .comparing__values::before
+		// .comparing__values::after
+		&::before,
+		&::after {
+			content: "";
+			display: none;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			z-index: 2;
+			width: rem(24);
+			opacity: 0;
+			pointer-events: none;
+			transition: opacity 0.2s ease;
+			@media (min-width: $md2) {
+				display: block;
+			}
+			@media (prefers-reduced-motion: reduce) {
+				transition: none;
+			}
+		}
+		// .comparing__column::before
+		// .comparing__values::before
+		&::before {
+			left: 0;
+			background: linear-gradient(to right, #fff, transparent);
+		}
+		// .comparing__column::after
+		// .comparing__values::after
+		&::after {
+			right: 0;
+			background: linear-gradient(to left, #fff, transparent);
+		}
+	}
+	// .comparing__column
+	&__column {
+		// .comparing__column.has-prev::before
+		&.has-prev::before {
+			opacity: 1;
+		}
+		// .comparing__column.has-next::after
+		&.has-next::after {
+			opacity: 1;
+		}
 	}
 	// .comparing__swiper
 	&__swiper {
@@ -240,8 +288,9 @@
 	}
 	// .comparing__navigation
 	&__navigation {
-		display: flex;
-		justify-content: space-between;
+		z-index: 3;
+		display: grid;
+		grid-template-columns: rem(36) minmax(0, 1fr) rem(36);
 		align-items: center;
 		position: relative;
 		margin-top: rem(10);
@@ -261,6 +310,7 @@
 	// .comparing__next
 	&__prev,
 	&__next {
+		grid-row: 1;
 		position: static;
 		pointer-events: auto;
 		flex-shrink: 0;
@@ -272,18 +322,23 @@
 	}
 	// .comparing__prev
 	&__prev {
+		grid-column: 1;
 		@media (min-width: $md2) {
 			left: rem(-20);
 		}
 	}
 	// .comparing__next
 	&__next {
+		grid-column: 3;
 		@media (min-width: $md2) {
 			right: rem(-20);
 		}
 	}
 	// .comparing__pagination
 	&__pagination {
+		grid-column: 2;
+		grid-row: 1;
+		justify-self: center;
 		position: static;
 		width: auto;
 		font-size: rem(14);
@@ -434,6 +489,14 @@
 			grid-template-columns: none;
 			gap: rem(20);
 			overflow: hidden;
+		}
+		// .comparing:has(.comparing__desktop .has-prev) .comparing__values::before
+		.comparing:has(.comparing__desktop .has-prev) &::before {
+			opacity: 1;
+		}
+		// .comparing:has(.comparing__desktop .has-next) .comparing__values::after
+		.comparing:has(.comparing__desktop .has-next) &::after {
+			opacity: 1;
 		}
 	}
 	// .comparing__value

@@ -33,12 +33,12 @@
             {"group":"power","value":"375","label":"375","checked":false},
             {"group":"power","value":"390","label":"390","checked":false}
             ])
+            <div class="listing-filter__extra" hidden>
+                @@include('../templates/_listing-choice.html', {"group":"power","value":"560","label":"560","checked":false})
+                @@include('../templates/_listing-choice.html', {"group":"power","value":"780","label":"780","checked":false})
+            </div>
         </div>
         <button type="button" class="listing-filter__expand" aria-expanded="false">Показать еще</button>
-        <div class="listing-filter__extra" hidden>
-            @@include('../templates/_listing-choice.html', {"group":"power","value":"560","label":"560","checked":false})
-            @@include('../templates/_listing-choice.html', {"group":"power","value":"780","label":"780","checked":false})
-        </div>
     </details>
     <details class="listing-filter__group" open>
         <summary class="listing-filter__summary">Тип мотора</summary>

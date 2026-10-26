@@ -1,8 +1,12 @@
 <li class="search__product product">
-    <a href="product.html" class="search__product-image"><img src="@@image" width="60" height="60" alt="@@name" class="search__product-picture"></a>
+    <a href="product.html" class="search__product-image">
+        <img src="@@image" width="60" height="60" alt="@@name" class="search__product-picture">
+    </a>
     <div class="search__product-info">
         <a href="product.html" class="search__product-name product__name">@@name</a>
-        <div class="search__product-prices"><strong class="search__product-price">@@price ₽</strong>@@if(oldPrice){<del class="search__product-old-price">@@oldPrice ₽</del>}</div>
+        <div class="search__product-prices">
+            <strong class="search__product-price">@@price ₽</strong>@@if(oldPrice){<del class="search__product-old-price">@@oldPrice ₽</del>}
+        </div>
     </div>
     <button type="button" class="search__product-cart add-to-cart-btn icon-cart" aria-label="Добавить @@name в корзину" data-cart-added-label="В корзине"></button>
 </li>

@@ -19,7 +19,7 @@ async function render(template, context) {
     return result;
 }
 
-for (const template of ['_product-tile.html', '_product-card-favorite.html', '_search-result.html', '_listing-product.html', '_product-card-compare.html']) {
+for (const template of ['_product-tile.html', '_product-card-favorite.html', '_search-result.html', '_listing-product.html']) {
     test(`${template}: cards have a gallery by default and preserve supplied photos`, async () => {
         for (const extra of [{}, { images: [] }, { images: [images[1]] }]) {
             const html = await render(template, { ...product, ...extra });
@@ -35,6 +35,16 @@ for (const template of ['_product-tile.html', '_product-card-favorite.html', '_s
         assert.doesNotMatch(html, /@@|\$\{/);
     });
 }
+
+test('comparison cards always display only the main product photo', async () => {
+    for (const extra of [{}, { images }]) {
+        const html = await render('_product-card-compare.html', { ...product, ...extra });
+        assert.doesNotMatch(html, /data-product-gallery|product-tile__slider|swiper-pagination/);
+        assert.equal((html.match(/class="comparing-card__picture"/g) || []).length, 1);
+        assert.match(html, /src="one.png"/);
+        assert.doesNotMatch(html, /src="two.png"/);
+    }
+});
 
 test('only the compact sale showcase keeps static product images', async () => {
     for (const compact of [true, false]) {

@@ -1,5 +1,6 @@
-<form class="service__form form form--request" action="#" method="post" enctype="multipart/form-data" novalidate data-unavailable-message="Отправка заявки временно недоступна. Пожалуйста, свяжитесь с установщиком по контактам ниже." data-pending-message="Отправляем заявку…" data-success-message="Заявка отправлена. Специалист свяжется с Вами в ближайшее время." data-error-message="Не удалось отправить заявку. Попробуйте ещё раз или свяжитесь с нами по телефону.">
-    <h2 class="service__form-heading title title-lg">Форма заявки на установку измельчителя</h2><img class="service__form-image" src="@img/shredder.png" alt="Измельчитель пищевых отходов Bort с комплектующими" loading="lazy">
+<form class="service__form form form--request" action="#" method="post" enctype="multipart/form-data" novalidate>
+    <h2 class="service__form-heading title title-lg">Форма заявки на установку измельчителя</h2>
+    <img class="service__form-image" src="@img/goods/shredder.png" alt="Измельчитель пищевых отходов Bort с комплектующими" loading="lazy">
     <div class="service__form-fields">
         <div class="form__field">
             <label class="form__label" for="installation-product">Имя</label>
@@ -33,11 +34,13 @@
         <div class="form__field">
             <label class="checkbox checkbox--consent">
                 <input class="checkbox__input hidden" type="checkbox" name="consent" value="1" data-required required aria-describedby="installation-consent-error">
-                <span class="checkbox__btn"><span class="checkbox__text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политики Конфиденциальности</a></span></span>
+                <span class="checkbox__btn">
+                    <span class="checkbox__text">Настоящим подтверждаю, что я ознакомлен и согласен с условиями <a class="checkbox__link" href="policy.html" target="_blank" rel="noopener">Политики Конфиденциальности</a>
+                    </span>
+                </span>
             </label>
             <div class="form__error-message" id="installation-consent-error" aria-live="polite" hidden>Необходимо ваше согласие</div>
         </div>
         <button class="form__submit btn btn-primary" type="submit">Отправить</button>
-        <p class="form__status" role="status" aria-live="polite" hidden></p>
     </div>
 </form>

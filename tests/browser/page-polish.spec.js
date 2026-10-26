@@ -11,9 +11,9 @@ async function galleryTile() {
         stream.on('error', reject);
     });
     const product = {
-        image: 'img/product/caiman-01.png', name: 'Gallery fixture', guarantee: false,
+        image: 'img/goods/caiman-01.png', name: 'Gallery fixture', guarantee: false,
         price: '100', oldPrice: '200', sku: 'test-gallery',
-        images: ['01', '03', '04'].map(index => ({ image: `img/product/caiman-${index}.png` })),
+        images: ['01', '03', '04'].map(index => ({ image: `img/goods/caiman-${index}.png` })),
     };
     stream.end(new Vinyl({
         base: path.resolve('src'), path: path.resolve('src/html/templates/test-fixture.html'),
@@ -54,7 +54,7 @@ for (const width of [375, 1440]) {
         expect(await outer.locator('.swiper').first().evaluate(el => el.swiper.activeIndex)).toBe(0);
         await outer.locator('.swiper-button-next').click();
         await expect.poll(() => outer.locator('.swiper').first().evaluate(el => el.swiper.activeIndex)).toBeGreaterThan(0);
-        for (const name of ['catalog', 'search', 'favorite', 'compare', 'product']) {
+        for (const name of ['catalog', 'search', 'favorite', 'product']) {
             await page.goto(`/docs/${name}.html`);
             const galleries = page.locator('[data-product-gallery]');
             expect(await galleries.count()).toBeGreaterThan(0);

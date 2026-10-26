@@ -13,10 +13,12 @@
         </div>
     </div>
     <div class="review__content">
-        @@if (positive) {<div class="review__block"><span class="review__label">Достоинства:</span>
+        @@if (positive) {<div class="review__block">
+            <span class="review__label">Достоинства:</span>
             <p class="review__text">@@positive</p>
         </div>}
-        @@if (negative) {<div class="review__block"><span class="review__label">Недостатки:</span>
+        @@if (negative) {<div class="review__block">
+            <span class="review__label">Недостатки:</span>
             <p class="review__text">@@negative</p>
         </div>}
         @@if (comment) {<div class="review__block">@@if (!compact) {<span class="review__label">Комментарий:</span>}
@@ -28,12 +30,20 @@
         <p class="review__reply-author">Ответ Bort</p>
         <p class="review__reply-text">@@reply</p>
     </div>}
-    <span class="review__brand"><img class="review__brand-image" src="@img/@@brand" alt="@@brandName" loading="lazy"></span>
+    <span class="review__brand">
+        <img class="review__brand-image" src="@img/@@brand" alt="@@brandName" loading="lazy">
+    </span>
     @@if (!compact) {<div class="review__footer">
         <span class="review__question">Отзыв полезен?</span>
         <div class="review__votes">
-            <button class="review__vote" type="button" data-vote="helpful" aria-label="Полезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-thumbs-up" aria-hidden="true"></span><span class="review__vote-count">@@helpful</span></button>
-            <button class="review__vote" type="button" data-vote="unhelpful" aria-label="Неполезный отзыв" aria-pressed="false"><span class="review__vote-icon icon-dislike" aria-hidden="true"></span><span class="review__vote-count">@@unhelpful</span></button>
+            <button class="review__vote" type="button" data-vote="helpful" aria-label="Полезный отзыв" aria-pressed="false">
+                <span class="review__vote-icon icon-thumbs-up" aria-hidden="true"></span>
+                <span class="review__vote-count">@@helpful</span>
+            </button>
+            <button class="review__vote" type="button" data-vote="unhelpful" aria-label="Неполезный отзыв" aria-pressed="false">
+                <span class="review__vote-icon icon-dislike" aria-hidden="true"></span>
+                <span class="review__vote-count">@@unhelpful</span>
+            </button>
         </div>
     </div>}
 </article>

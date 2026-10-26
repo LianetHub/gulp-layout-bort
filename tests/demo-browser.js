@@ -41,7 +41,7 @@ const testFavorites = async width => {
     check(first.classList.contains('active') && frame.contentWindow.getComputedStyle(first, '::before').content.includes('\ue944'), `${width}: активное сердечко использует залитый глиф`);
     const sequence = cards.map(card => card.querySelector('.product-tile__name').textContent).join();
     doc.querySelector('.favorites__more').click();
-    doc.querySelectorAll('.favorites__page')[2].click();
+    doc.querySelectorAll('.favorites__pagination .pagination__item')[1].click();
     doc.querySelector('.favorites__sort').value = 'price-asc';
     doc.querySelector('.favorites__sort').dispatchEvent(new frame.contentWindow.Event('change'));
     check(visible(doc).map(card => card.querySelector('.product-tile__name').textContent).join() === sequence, `${width}: пагинация, сортировка и «ещё» не меняют товары`);
@@ -77,7 +77,7 @@ try {
         check(catalogTile.querySelectorAll('.product-tile__picture').length === 3 && catalogTile.querySelector('.product-tile__slider').swiper, `${width}: карточка каталога содержит слайдер`);
         const listing = doc.querySelector('.product-listing__products').innerHTML;
         doc.querySelector('.product-listing__more').click();
-        doc.querySelectorAll('.product-listing__page')[2].click();
+        doc.querySelectorAll('.product-listing__pagination .pagination__item')[1].click();
         check(doc.querySelector('.product-listing__products').innerHTML === listing, `${width}: каталог не переключает страницы`);
         check(doc.documentElement.scrollWidth <= doc.documentElement.clientWidth + 1, `${width}: каталог без горизонтального переполнения`);
         const sw = doc.querySelector('.listing-filter__switch');

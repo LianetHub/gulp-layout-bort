@@ -6,7 +6,7 @@
         "price": "1 620",
         "oldPrice": "18 590",
         "guarantee": true,
-        "image": "@img/product/accessory-01.png"
+        "image": "@img/goods/accessory-01.png"
     },
     {
         "name": "Проталкиватель BORT Waste Tamper/Stopper Проталкиватель",
@@ -15,7 +15,7 @@
         "price": "570",
         "oldPrice": "18 590",
         "guarantee": true,
-        "image": "@img/product/accessory-02.png"
+        "image": "@img/goods/accessory-02.png"
     },
     {
         "name": "Фланец в мойку BORT Washing flange Caiman",
@@ -24,7 +24,7 @@
         "price": "1 200",
         "oldPrice": "18 590",
         "guarantee": false,
-        "image": "@img/product/accessory-03.png"
+        "image": "@img/goods/flange.png"
     },
     {
         "name": "Пневмовыключатель BORT Air switch (black) long",
@@ -33,7 +33,7 @@
         "price": "2 350",
         "oldPrice": "18 590",
         "guarantee": false,
-        "image": "@img/product/accessory-04.png"
+        "image": "@img/goods/accessory-04.png"
     },
     {
         "name": "Пневмовыключатель BORT Air switch (bronze)",
@@ -42,7 +42,7 @@
         "price": "1 620",
         "oldPrice": "18 590",
         "guarantee": false,
-        "image": "@img/product/accessory-05.png"
+        "image": "@img/goods/accessory-05.png"
     },
     {
         "name": "Пневмовыключатель BORT Air switch (polish)",
@@ -51,7 +51,7 @@
         "price": "1 620",
         "oldPrice": "18 590",
         "guarantee": true,
-        "image": "@img/product/accessory-01.png"
+        "image": "@img/goods/accessory-01.png"
     },
     {
         "name": "Проталкиватель BORT Waste Tamper/Stopper Проталкиватель",
@@ -60,7 +60,7 @@
         "price": "570",
         "oldPrice": "18 590",
         "guarantee": true,
-        "image": "@img/product/accessory-02.png"
+        "image": "@img/goods/accessory-02.png"
     },
     {
         "name": "Фланец в мойку BORT Washing flange Caiman",
@@ -69,7 +69,7 @@
         "price": "1 200",
         "oldPrice": "18 590",
         "guarantee": false,
-        "image": "@img/product/accessory-03.png"
+        "image": "@img/goods/flange.png"
     },
     {
         "name": "Пневмовыключатель BORT Air switch (black) long",
@@ -78,7 +78,7 @@
         "price": "2 350",
         "oldPrice": "18 590",
         "guarantee": false,
-        "image": "@img/product/accessory-04.png"
+        "image": "@img/goods/accessory-04.png"
     },
     {
         "name": "Пневмовыключатель BORT Air switch (bronze)",
@@ -87,6 +87,6 @@
         "price": "1 620",
         "oldPrice": "18 590",
         "guarantee": false,
-        "image": "@img/product/accessory-05.png"
+        "image": "@img/goods/accessory-05.png"
     }
 ]
