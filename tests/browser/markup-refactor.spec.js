@@ -1,13 +1,24 @@
 import { test, expect } from '@playwright/test';
 
-test('adding a product updates nested font icons on favorite and comparison cards', async ({ page }) => {
-    for (const name of ['favorite', 'compare']) {
+test('cart buttons toggle and restore their original content', async ({ page }) => {
+    for (const name of ['index', 'catalog', 'search', 'product', 'favorite', 'compare']) {
         await page.goto(`/docs/${name}.html`);
         const button = page.locator('main .add-to-cart-btn').first();
+        const original = await button.innerHTML();
+        const originalLabel = await button.getAttribute('aria-label');
         await button.click();
         await expect(button).toHaveClass(/is-added/);
-        await expect(button.locator('.icon-check')).toHaveCount(1);
-        await expect(button.locator('.icon-cart')).toHaveCount(0);
+        await expect(button).toHaveAttribute('aria-pressed', 'true');
+        expect(await button.evaluate(element => element.matches('.icon-check') || !!element.querySelector('.icon-check'))).toBe(true);
+        const notices = await page.locator('.notify').count();
+        await button.click();
+        await expect(button).not.toHaveClass(/is-added/);
+        await expect(button).toHaveAttribute('aria-pressed', 'false');
+        expect(await button.innerHTML(), name).toBe(original);
+        expect(await button.getAttribute('aria-label'), name).toBe(originalLabel);
+        expect(await page.locator('.notify').count()).toBeLessThanOrEqual(notices);
+        await button.click();
+        await expect(button).toHaveClass(/is-added/);
     }
 });
 

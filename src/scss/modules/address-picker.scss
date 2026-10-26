@@ -164,22 +164,26 @@
 	// .address-picker__radio
 	&__radio {
 		position: absolute;
-		width: 1px;
-		height: 1px;
-		opacity: 0;
+		top: 50%;
+		left: rem(14);
+		z-index: 1;
+		transform: translateY(-50%);
+		appearance: none;
+		width: rem(20);
+		height: rem(20);
+		margin: 0;
+		border: rem(1) solid #b4b8c3;
+		border-radius: 50%;
+		background: #fff;
+		cursor: pointer;
+		// .address-picker__radio:checked
+		&:checked {
+			border: rem(5) solid #ff6201;
+		}
 		// .address-picker__radio:checked + .address-picker__card-body
 		&:checked + .address-picker__card-body {
 			border-color: #ff6201;
 			box-shadow: inset 0 0 0 1px #ff6201;
-		}
-		// .address-picker__radio:checked + .address-picker__card-body .address-picker__indicator
-		&:checked + .address-picker__card-body .address-picker__indicator {
-			color: #ff6201;
-			border-color: transparent;
-			// .address-picker__radio:checked + .address-picker__card-body .address-picker__indicator::before
-			&::before {
-				opacity: 1;
-			}
 		}
 		// .address-picker__radio:focus-visible + .address-picker__card-body
 		&:focus-visible + .address-picker__card-body {
@@ -194,25 +198,9 @@
 		gap: rem(10);
 		width: 100%;
 		padding: rem(14);
+		padding-left: rem(44);
 		border: 1px solid #ebeaea;
 		border-radius: rem(10);
-	}
-	// .address-picker__indicator
-	&__indicator {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		width: rem(20);
-		height: rem(20);
-		flex-shrink: 0;
-		color: #d3d6dd;
-		font-size: rem(20);
-		border: rem(1.5) solid #d3d6dd;
-		border-radius: 50%;
-		// .address-picker__indicator::before
-		&::before {
-			opacity: 0;
-		}
 	}
 	// .address-picker__card-content
 	&__card-content {

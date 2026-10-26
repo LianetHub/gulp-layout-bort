@@ -29,7 +29,7 @@
                                     <div class="checkout__address">
                                         <div class="checkout__address-heading">
                                             <h3 class="checkout__subtitle title title-sm title--sans">Выберите адрес доставки</h3>
-                                            <label class="checkout__save"><input class="checkout__checkbox" type="checkbox" name="save_address"><span class="checkout__save-text">Сохранить адрес</span></label>
+                                            <label class="checkout__save checkbox"><input class="checkbox__input hidden" type="checkbox" name="save_address"><span class="checkout__save-text checkbox__btn">Сохранить адрес</span></label>
                                         </div>
                                         <div class="checkout__selected-address" hidden>
                                             <div class="checkout__selected-main">
@@ -52,7 +52,9 @@
                                             <p class="checkout__pickup-description">Чтобы продолжить оформление, выберите удобный пункт выдачи Озон</p>
                                         </div>
                                         <div class="checkout__pickup-selected" hidden>
-                                            <span class="checkout__location"><span class="checkout__location-icon icon-location" aria-hidden="true"></span></span>
+                                            <span class="checkout__location">
+                                                <span class="checkout__location-icon icon-location" aria-hidden="true"></span>
+                                            </span>
                                             <div class="checkout__selected-content">
                                                 <p class="checkout__pickup-selected-title"></p>
                                                 <p class="checkout__pickup-hours"></p>
@@ -68,7 +70,7 @@
                                     <h2 class="checkout__heading title title-md title--sans">Способ оплаты</h2>
                                     <div class="checkout__options"><label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="online" checked><span class="checkout__option-body"><span class="checkout__option-title">Оплата онлайн</span><span class="checkout__option-description">Мы отправляем заказы только после оплаты</span></span></label>
                                         <label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="receipt"><span class="checkout__option-body"><span class="checkout__option-title">Наличными или картой при получении</span><span class="checkout__option-description">Только для Москвы в пределах МКАД</span></span></label>
-                                        <label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="invoice"><span class="checkout__option-body"><span class="checkout__option-title">Безналичный расчет для юридических лиц <span class="checkout__info icon-information-circle" aria-hidden="true"></span></span><span class="checkout__option-description">Формируем счет на оплату и резервируем товар</span></span></label>
+                                        <div class="checkout__option"><input class="checkout__radio" id="payment-invoice" type="radio" name="payment" value="invoice" aria-describedby="payment-invoice-description"><span class="checkout__option-body"><span class="checkout__option-title"><label class="checkout__option-label" for="payment-invoice">Безналичный расчет для юридических лиц</label><span class="tooltip"><button class="checkout__info tooltip__trigger icon-information-circle" type="button" aria-label="О безналичной оплате" aria-describedby="checkout-invoice-help"></button><span class="tooltip__content" id="checkout-invoice-help" role="tooltip"><span class="tooltip__text">Формируем счет на оплату и резервируем товар. Заказ отправляется после поступления оплаты.</span></span></span></span><span class="checkout__option-description" id="payment-invoice-description">Формируем счет на оплату и резервируем товар</span></span></div>
                                     </div>
                                 </section>
                             </div>
@@ -88,8 +90,16 @@
                                         <dd class="checkout__total-value checkout__total-value--discount">– 3 230 ₽</dd>
                                     </div>
                                 </dl>
-                                <div class="checkout__sum"><span class="checkout__sum-label">Итого</span><span class="checkout__sum-value">170 890 ₽</span></div>
-                                <div class="checkout__promo"><input class="checkout__input checkout__input--promo" name="promo" aria-label="Промокод" placeholder="Промокод"><button class="checkout__promo-button" type="button" aria-label="Применить промокод"><span class="checkout__promo-icon icon-chevron-right" aria-hidden="true"></span></button></div>
+                                <div class="checkout__sum">
+                                    <span class="checkout__sum-label">Итого</span>
+                                    <span class="checkout__sum-value">170 890 ₽</span>
+                                </div>
+                                <div class="checkout__promo">
+                                    <input class="checkout__input checkout__input--promo" name="promo" aria-label="Промокод" placeholder="Промокод">
+                                    <button class="checkout__promo-button" type="button" aria-label="Применить промокод">
+                                        <span class="checkout__promo-icon icon-chevron-right" aria-hidden="true"></span>
+                                    </button>
+                                </div>
                                 <button class="checkout__submit btn btn-primary" type="submit">Оформить заказ</button>
                                 <p class="checkout__status" role="status" hidden></p>
                             </aside>

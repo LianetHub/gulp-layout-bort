@@ -185,6 +185,16 @@
 		font-weight: 500;
 		color: #111;
 	}
+	// .checkout__option-label
+	&__option-label {
+		cursor: pointer;
+		// .checkout__option-label::after
+		&::after {
+			content: "";
+			position: absolute;
+			inset: 0;
+		}
+	}
 	// .checkout__option-description
 	&__option-description {
 		font-size: rem(14);
@@ -193,12 +203,14 @@
 	}
 	// .checkout__info
 	&__info {
+		position: relative;
+		z-index: 1;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
 		flex-shrink: 0;
 		font-size: rem(20);
-		flex-shrink: 0;
+		color: #6a6b6d;
 	}
 	// .checkout__address
 	&__address {
@@ -369,12 +381,6 @@
 	&__save[hidden] {
 		display: none;
 	}
-	// .checkout__checkbox
-	&__checkbox {
-		width: rem(20);
-		height: rem(20);
-		accent-color: #ff6201;
-	}
 	// .checkout__change
 	&__change {
 		display: inline-flex;
@@ -412,11 +418,12 @@
 	}
 	// .checkout__summary
 	&__summary {
+		position: sticky;
+		top: calc($header + 1rem);
 		display: flex;
 		flex-direction: column;
 		gap: rem(20);
 		@media (min-width: $md2) {
-			margin-top: rem(20);
 			padding-inline: rem(20);
 		}
 	}

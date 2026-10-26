@@ -3156,6 +3156,7 @@
             this.productSelector = '.product, .product-details';
             this.btnSelector = '.add-to-cart-btn';
             this.displayTime = 4000;
+            this.cartButtonStates = new WeakMap();
             this.init();
         }
         init() {
@@ -3164,25 +3165,49 @@
                     return;
                 }
 
-                this.updateCartButton(button);
-                this.handleAddToCart(button.closest(this.productSelector));
+                if (this.updateCartButton(button)) {
+                    this.handleAddToCart(button.closest(this.productSelector));
+                }
             });
         }
         updateCartButton(button) {
+            const original = this.cartButtonStates.get(button);
+
+            if (original) {
+                original.text.forEach(([node, value]) => {
+                    node.textContent = value;
+                });
+                original.icon?.classList.replace('icon-check', 'icon-cart');
+                original.replacement?.replaceWith(original.image);
+                if (original.label !== null) {
+                    button.setAttribute('aria-label', original.label);
+                }
+                button.classList.remove('is-added');
+                button.setAttribute('aria-pressed', 'false');
+                this.cartButtonStates.delete(button);
+
+                return false;
+            }
+
             const label = button.dataset.cartAddedLabel;
             const text = button.querySelector('.comparing-card__cart-text');
             const cartIcon = button.querySelector('.icon-cart');
             const image = button.querySelector('img');
+            const nodes = text
+                ? [text]
+                : [...button.childNodes].filter(
+                      (node) => node.nodeType === 3 && node.textContent.trim(),
+                  );
+            const state = {
+                text: nodes.map((node) => [node, node.textContent]),
+                label: button.getAttribute('aria-label'),
+                icon: cartIcon || (button.classList.contains('icon-cart') ? button : null),
+                image,
+            };
 
-            if (text) {
-                text.textContent = label;
-            } else {
-                button.childNodes.forEach((node) => {
-                    if (node.nodeType === 3 && node.textContent.trim()) {
-                        node.textContent = label;
-                    }
-                });
-            }
+            nodes.forEach((node) => {
+                node.textContent = label;
+            });
 
             if (cartIcon) {
                 cartIcon.classList.replace('icon-cart', 'icon-check');
@@ -3192,14 +3217,19 @@
                 icon.className = `${image.className} icon-check`;
                 icon.setAttribute('aria-hidden', 'true');
                 image.replaceWith(icon);
+                state.replacement = icon;
             } else if (button.classList.contains('icon-cart')) {
                 button.classList.replace('icon-cart', 'icon-check');
             }
 
             button.classList.add('is-added');
+            button.setAttribute('aria-pressed', 'true');
+            this.cartButtonStates.set(button, state);
             if (button.hasAttribute('aria-label')) {
                 button.setAttribute('aria-label', label);
             }
+
+            return true;
         }
         handleAddToCart(product) {
             this.show(

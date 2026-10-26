@@ -282,7 +282,7 @@
                                     <div class="checkout__address">
                                         <div class="checkout__address-heading">
                                             <h3 class="checkout__subtitle title title-sm title--sans">Выберите адрес доставки</h3>
-                                            <label class="checkout__save"><input class="checkout__checkbox" type="checkbox" name="save_address"><span class="checkout__save-text">Сохранить адрес</span></label>
+                                            <label class="checkout__save checkbox"><input class="checkbox__input hidden" type="checkbox" name="save_address"><span class="checkout__save-text checkbox__btn">Сохранить адрес</span></label>
                                         </div>
                                         <div class="checkout__selected-address" hidden>
                                             <div class="checkout__selected-main">
@@ -305,7 +305,9 @@
                                             <p class="checkout__pickup-description">Чтобы продолжить оформление, выберите удобный пункт выдачи Озон</p>
                                         </div>
                                         <div class="checkout__pickup-selected" hidden>
-                                            <span class="checkout__location"><span class="checkout__location-icon icon-location" aria-hidden="true"></span></span>
+                                            <span class="checkout__location">
+                                                <span class="checkout__location-icon icon-location" aria-hidden="true"></span>
+                                            </span>
                                             <div class="checkout__selected-content">
                                                 <p class="checkout__pickup-selected-title"></p>
                                                 <p class="checkout__pickup-hours"></p>
@@ -321,7 +323,7 @@
                                     <h2 class="checkout__heading title title-md title--sans">Способ оплаты</h2>
                                     <div class="checkout__options"><label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="online" checked><span class="checkout__option-body"><span class="checkout__option-title">Оплата онлайн</span><span class="checkout__option-description">Мы отправляем заказы только после оплаты</span></span></label>
                                         <label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="receipt"><span class="checkout__option-body"><span class="checkout__option-title">Наличными или картой при получении</span><span class="checkout__option-description">Только для Москвы в пределах МКАД</span></span></label>
-                                        <label class="checkout__option"><input class="checkout__radio" type="radio" name="payment" value="invoice"><span class="checkout__option-body"><span class="checkout__option-title">Безналичный расчет для юридических лиц <span class="checkout__info icon-information-circle" aria-hidden="true"></span></span><span class="checkout__option-description">Формируем счет на оплату и резервируем товар</span></span></label>
+                                        <div class="checkout__option"><input class="checkout__radio" id="payment-invoice" type="radio" name="payment" value="invoice" aria-describedby="payment-invoice-description"><span class="checkout__option-body"><span class="checkout__option-title"><label class="checkout__option-label" for="payment-invoice">Безналичный расчет для юридических лиц</label><span class="tooltip"><button class="checkout__info tooltip__trigger icon-information-circle" type="button" aria-label="О безналичной оплате" aria-describedby="checkout-invoice-help"></button><span class="tooltip__content" id="checkout-invoice-help" role="tooltip"><span class="tooltip__text">Формируем счет на оплату и резервируем товар. Заказ отправляется после поступления оплаты.</span></span></span></span><span class="checkout__option-description" id="payment-invoice-description">Формируем счет на оплату и резервируем товар</span></span></div>
                                     </div>
                                 </section>
                             </div>
@@ -341,8 +343,16 @@
                                         <dd class="checkout__total-value checkout__total-value--discount">– 3 230 ₽</dd>
                                     </div>
                                 </dl>
-                                <div class="checkout__sum"><span class="checkout__sum-label">Итого</span><span class="checkout__sum-value">170 890 ₽</span></div>
-                                <div class="checkout__promo"><input class="checkout__input checkout__input--promo" name="promo" aria-label="Промокод" placeholder="Промокод"><button class="checkout__promo-button" type="button" aria-label="Применить промокод"><span class="checkout__promo-icon icon-chevron-right" aria-hidden="true"></span></button></div>
+                                <div class="checkout__sum">
+                                    <span class="checkout__sum-label">Итого</span>
+                                    <span class="checkout__sum-value">170 890 ₽</span>
+                                </div>
+                                <div class="checkout__promo">
+                                    <input class="checkout__input checkout__input--promo" name="promo" aria-label="Промокод" placeholder="Промокод">
+                                    <button class="checkout__promo-button" type="button" aria-label="Применить промокод">
+                                        <span class="checkout__promo-icon icon-chevron-right" aria-hidden="true"></span>
+                                    </button>
+                                </div>
                                 <button class="checkout__submit btn btn-primary" type="submit">Оформить заказ</button>
                                 <p class="checkout__status" role="status" hidden></p>
                             </aside>
@@ -567,7 +577,6 @@
                             <label class="address-picker__card">
                                 <input class="address-picker__radio" type="radio" name="saved_address" value="address-1" data-city="Москва" data-street="ул. Тверская, д. 12" data-apartment="45" data-entrance="2" data-floor="5" >
                                 <span class="address-picker__card-body">
-                                    <span class="address-picker__indicator icon-checkmark-circle" aria-hidden="true"></span>
                                     <span class="address-picker__card-content">
                                         <span class="address-picker__card-title">Москва, ул. Тверская, д. 12</span>
                                         <span class="address-picker__card-details">Кв. / офис 45 · подъезд 2 · этаж 5</span>
@@ -577,7 +586,6 @@
 <label class="address-picker__card">
                                 <input class="address-picker__radio" type="radio" name="saved_address" value="address-2" data-city="Москва" data-street="пр-т Мира, д. 80" data-apartment="19" data-entrance="1" data-floor="3" checked>
                                 <span class="address-picker__card-body">
-                                    <span class="address-picker__indicator icon-checkmark-circle" aria-hidden="true"></span>
                                     <span class="address-picker__card-content">
                                         <span class="address-picker__card-title">Москва, пр-т Мира, д. 80</span>
                                         <span class="address-picker__card-details">Кв. / офис 19 · подъезд 1 · этаж 3</span>
@@ -587,7 +595,6 @@
 <label class="address-picker__card">
                                 <input class="address-picker__radio" type="radio" name="saved_address" value="address-3" data-city="Москва" data-street="ул. Большая Садовая, д. 10" data-apartment="8" data-entrance="" data-floor="" >
                                 <span class="address-picker__card-body">
-                                    <span class="address-picker__indicator icon-checkmark-circle" aria-hidden="true"></span>
                                     <span class="address-picker__card-content">
                                         <span class="address-picker__card-title">Москва, ул. Большая Садовая, д. 10</span>
                                         <span class="address-picker__card-details">Кв. / офис 8</span>
@@ -648,7 +655,6 @@
                                 <label class="address-picker__card address-picker__card--pickup">
                                     <input class="address-picker__radio" type="radio" name="pickup_point_choice" value="ozon-1" data-address="Красногорск, Красногорский б-р, 23к1" data-hours="Ежедневно, 09:00-22:00" >
                                     <span class="address-picker__card-body">
-                                        <span class="address-picker__indicator icon-checkmark-circle" aria-hidden="true"></span>
                                         <span class="address-picker__card-content">
                                             <span class="address-picker__card-title">Красногорск, Красногорский б-р, 23к1</span>
                                             <span class="address-picker__card-details">Срок хранения заказа - 14 дней</span>
@@ -659,7 +665,6 @@
 <label class="address-picker__card address-picker__card--pickup">
                                     <input class="address-picker__radio" type="radio" name="pickup_point_choice" value="ozon-2" data-address="Нахабино, Почтовая ул., 57" data-hours="Ежедневно, 09:00-22:00" checked>
                                     <span class="address-picker__card-body">
-                                        <span class="address-picker__indicator icon-checkmark-circle" aria-hidden="true"></span>
                                         <span class="address-picker__card-content">
                                             <span class="address-picker__card-title">Нахабино, Почтовая ул., 57</span>
                                             <span class="address-picker__card-details">Срок хранения заказа - 14 дней</span>
@@ -670,7 +675,6 @@
 <label class="address-picker__card address-picker__card--pickup">
                                     <input class="address-picker__radio" type="radio" name="pickup_point_choice" value="ozon-3" data-address="Ильинский б-р, 8, подъезд 1" data-hours="Ежедневно, 09:00-22:00" >
                                     <span class="address-picker__card-body">
-                                        <span class="address-picker__indicator icon-checkmark-circle" aria-hidden="true"></span>
                                         <span class="address-picker__card-content">
                                             <span class="address-picker__card-title">Ильинский б-р, 8, подъезд 1</span>
                                             <span class="address-picker__card-details">Срок хранения заказа - 14 дней</span>
@@ -681,7 +685,6 @@
 <label class="address-picker__card address-picker__card--pickup">
                                     <input class="address-picker__radio" type="radio" name="pickup_point_choice" value="ozon-4" data-address="Красногорск, Красногорский б-р, 18" data-hours="Ежедневно, 09:00-22:00" >
                                     <span class="address-picker__card-body">
-                                        <span class="address-picker__indicator icon-checkmark-circle" aria-hidden="true"></span>
                                         <span class="address-picker__card-content">
                                             <span class="address-picker__card-title">Красногорск, Красногорский б-р, 18</span>
                                             <span class="address-picker__card-details">Срок хранения заказа - 14 дней</span>
@@ -692,7 +695,6 @@
 <label class="address-picker__card address-picker__card--pickup">
                                     <input class="address-picker__radio" type="radio" name="pickup_point_choice" value="ozon-5" data-address="Красногорск, Красногорский б-р, 23к1" data-hours="Ежедневно, 09:00-22:00" >
                                     <span class="address-picker__card-body">
-                                        <span class="address-picker__indicator icon-checkmark-circle" aria-hidden="true"></span>
                                         <span class="address-picker__card-content">
                                             <span class="address-picker__card-title">Красногорск, Красногорский б-р, 23к1</span>
                                             <span class="address-picker__card-details">Срок хранения заказа - 14 дней</span>

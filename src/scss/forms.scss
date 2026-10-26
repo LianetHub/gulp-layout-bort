@@ -351,6 +351,11 @@
 
 	// .checkbox__input
 	&__input {
+		// .checkbox__input:focus-visible ~ .checkbox__btn::before
+		&:focus-visible ~ .checkbox__btn::before {
+			outline: 2px solid $orange;
+			outline-offset: 2px;
+		}
 		// .checkbox__input:checked
 		&:checked {
 			// .checkbox__input:checked ~ .checkbox__btn
