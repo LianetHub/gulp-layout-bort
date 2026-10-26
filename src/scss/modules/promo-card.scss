@@ -3,14 +3,19 @@
 // .promo-card
 .promo-card {
 	position: relative;
-	padding: rem(14) rem(20);
+	padding: rem(13.72) rem(20) rem(20.43);
 	height: auto;
 	min-height: rem(250);
-	border-radius: rem(10);
+	border-radius: rem(4.573);
 	overflow: hidden;
 	background-position: center;
 	background-size: cover;
 	background-repeat: no-repeat;
+	@media (min-width: $md5) {
+		min-height: rem(450);
+		padding: rem(14) rem(20);
+		border-radius: rem(10);
+	}
 	@media (min-width: $md4) {
 		padding: rem(18);
 		min-height: rem(264);
@@ -26,6 +31,12 @@
 	}
 	// .promo-card.swiper-slide
 	&.swiper-slide {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		@media (min-width: $md4) {
+			display: block;
+		}
 		@media (min-width: $md3) {
 			display: flex;
 			flex-direction: column;
@@ -39,17 +50,27 @@
 	&__label {
 		display: block;
 		width: fit-content;
-		padding: rem(3) rem(5);
-		border-radius: rem(8);
-		background: #007d89;
+		padding: rem(1.5) rem(4);
+		border-radius: rem(3);
+		background: #007681;
 		color: #fff;
-		font-size: rem(5);
-		font-weight: 700;
+		font-size: rem(6);
+		font-weight: 600;
+		line-height: math.div(8, 6);
+		@media (min-width: $md5) {
+			border-radius: rem(8);
+			background: #007d89;
+			font-weight: 700;
+			padding: rem(4) rem(10);
+			font-size: rem(12);
+			line-height: math.div(16, 12);
+		}
 		@media (min-width: $md4) {
 			display: block;
 			width: fit-content;
 			padding: rem(3) rem(6);
 			font-size: rem(7);
+			line-height: normal;
 		}
 		@media (min-width: $md3) {
 			font-size: rem(10.8);
@@ -63,11 +84,18 @@
 	// .promo-card__title
 	&__title {
 		position: relative;
-		max-width: rem(200);
-		margin-top: rem(6);
-		color: #ff6900;
+		max-width: rem(203);
+		margin-top: rem(5.28);
+		color: #ff6201;
 		font-size: rem(16);
 		line-height: math.div(22, 16);
+		@media (min-width: $md5) {
+			margin-top: rem(6);
+			color: #ff6900;
+			max-width: rem(338);
+			font-size: rem(24);
+			line-height: math.div(36, 24);
+		}
 		@media (min-width: $md4) {
 			margin-top: rem(8);
 			max-width: rem(311);
@@ -89,13 +117,22 @@
 	// .promo-card__description
 	&__description {
 		position: relative;
-		margin-top: rem(2);
-		color: #ff6900;
+		margin-top: rem(1.52);
+		color: #fb7e00;
 		font-size: rem(8);
-		line-height: math.div(14, 10);
+		font-weight: 500;
+		line-height: math.div(10.061, 8);
+		@media (min-width: $md5) {
+			margin-top: rem(2);
+			color: #ff6900;
+			font-weight: 400;
+			font-size: 1rem;
+			line-height: math.div(22, 16);
+		}
 		@media (min-width: $md4) {
 			margin-top: rem(5);
 			font-size: rem(9);
+			line-height: math.div(14, 10);
 		}
 		@media (min-width: $md3) {
 			font-size: rem(14.4);
@@ -110,13 +147,21 @@
 	// .promo-card__list
 	&__list {
 		display: grid;
-		grid-template-columns: repeat(2, rem(103));
-		gap: rem(3);
-		margin-top: rem(8);
+		grid-template-columns: repeat(2, rem(102.789));
+		gap: rem(2.855);
+		margin-top: rem(6.829);
+		margin-bottom: rem(10);
+		@media (min-width: $md5) {
+			grid-template-columns: repeat(2, rem(165));
+			gap: rem(5);
+			margin-bottom: rem(12);
+			margin-top: rem(8);
+		}
 		@media (min-width: $md4) {
 			grid-template-columns: repeat(2, rem(105));
 			gap: rem(4);
 			margin-top: rem(8);
+			margin-bottom: 0;
 		}
 		@media (min-width: $md3) {
 			grid-template-columns: repeat(2, rem(130));
@@ -131,14 +176,23 @@
 	}
 	// .promo-card__block
 	&__block {
-		padding: rem(8) rem(5);
+		padding: rem(7.424) rem(8.566);
 		text-align: center;
-		border-radius: rem(7);
+		border-radius: rem(4.568);
 		background: #ff8200;
-		font-size: rem(9);
-		line-height: math.div(11, 9);
-		font-weight: 700;
+		font-family: $font-russo;
+		font-size: rem(9.137);
+		line-height: math.div(11.421, 9.137);
+		font-weight: 400;
+		@media (min-width: $md5) {
+			border-radius: rem(7);
+			padding: rem(13) rem(15);
+			font-size: 1rem;
+			line-height: math.div(20, 16);
+		}
 		@media (min-width: $md4) {
+			font-family: $fontfamily, sans-serif;
+			font-weight: 700;
 			font-size: rem(10);
 			padding: rem(8) rem(5);
 			line-height: math.div(12, 10);
@@ -155,19 +209,34 @@
 	}
 	// .promo-card__btn
 	&__btn {
-		padding: rem(6) rem(12);
+		min-height: 0;
+		padding: rem(4.5) rem(11.25);
+		border-radius: rem(4.697);
 		line-height: math.div(16, 12);
 		font-size: rem(12);
 		position: relative;
-		margin-top: rem(12);
+		margin-top: auto;
 		background: #fff;
-		color: #63666a;
+		color: #2b2b2b;
+		@media (min-width: $md5) {
+			border-radius: rem(8);
+			margin-top: auto;
+			min-height: rem(40);
+			padding: rem(8) rem(20);
+			font-size: 1rem;
+			line-height: math.div(22, 16);
+		}
 		// .promo-card__btn.btn-secondary
 		&.btn-secondary {
 			background: #fff;
-			color: #63666a;
+			color: #2b2b2b;
+			@media (min-width: $md5) {
+				color: #63666a;
+			}
 		}
 		@media (min-width: $md4) {
+			margin-top: rem(12);
+			font-size: rem(12);
 			min-height: 0;
 			padding: rem(4.5) rem(11.25);
 			line-height: math.div(16, 12);
@@ -193,7 +262,10 @@
 	}
 	// .promo-card__logo
 	&__logo {
-		width: rem(23);
+		width: rem(31.5);
+		@media (min-width: $md5) {
+			width: rem(41);
+		}
 		@media (min-width: $md4) {
 			width: rem(41);
 		}
@@ -205,7 +277,7 @@
 			height: rem(20);
 		}
 		position: absolute;
-		bottom: rem(10);
+		bottom: rem(11);
 		left: rem(8);
 		@media (min-width: $md4) {
 			bottom: rem(18);
@@ -230,15 +302,26 @@
 	&--small {
 		height: rem(90);
 		min-height: 0;
-		padding: rem(10) rem(8);
+		padding: rem(8.19);
+		border-radius: rem(4.096);
 		color: #fff;
+		@media (min-width: $md5) {
+			border-radius: rem(10);
+			height: rem(150);
+			padding: rem(14) rem(12);
+		}
 		// .promo-card--small .promo-card__title
 		.promo-card__title {
 			margin-top: 0;
 			color: #fff;
-			max-width: rem(240);
-			font-size: rem(8);
-			line-height: math.div(11, 8);
+			max-width: rem(115.904);
+			font-size: rem(8.191);
+			line-height: math.div(11.468, 8.191);
+			@media (min-width: $md5) {
+				max-width: rem(240);
+				font-size: 1rem;
+				line-height: math.div(22, 16);
+			}
 			@media (min-width: $md4) {
 				font-size: rem(12);
 				line-height: math.div(14, 10);
@@ -254,12 +337,19 @@
 		}
 		// .promo-card--small .promo-card__description
 		.promo-card__description {
-			max-width: 65%;
+			max-width: rem(95.017);
 			color: #fff;
-			font-size: rem(5);
-			line-height: math.div(14, 10);
+			font-size: rem(5.734);
+			font-weight: 400;
+			line-height: math.div(8.191, 5.734);
+			@media (min-width: $md5) {
+				max-width: 65%;
+				font-size: rem(12);
+				line-height: math.div(16, 12);
+			}
 			@media (min-width: $md4) {
 				font-size: rem(8);
+				line-height: math.div(14, 10);
 			}
 			@media (min-width: $md3) {
 				font-size: rem(12);
@@ -270,6 +360,13 @@
 		}
 		// .promo-card--small:first-child
 		&:first-child {
+			// .promo-card--small:first-child .promo-card__title
+			.promo-card__title {
+				margin-top: rem(4.1);
+				@media (min-width: $md5) {
+					margin-top: 0;
+				}
+			}
 			// .promo-card--small:first-child .promo-card__description
 			.promo-card__description {
 				@media (min-width: $md2) {

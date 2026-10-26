@@ -151,8 +151,10 @@
 		// .products-showcase--popular .products-showcase__title
 		.products-showcase__title {
 			margin-bottom: rem(20);
+			text-align: center;
 			@media (min-width: $md4) {
 				margin-bottom: 0;
+				text-align: left;
 			}
 		}
 	}

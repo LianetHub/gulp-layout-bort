@@ -48,6 +48,9 @@
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: rem(20);
+		@media (min-width: $md5) {
+			grid-template-columns: repeat(2, 1fr);
+		}
 
 		@media (min-width: $md4) {
 			grid-template-columns: repeat(2, 1fr);

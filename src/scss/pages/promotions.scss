@@ -6,10 +6,12 @@
 	}
 	// .promotions__container
 	&__container {
+		padding: 0;
 		display: grid;
 		grid-template-columns: 1fr;
 		gap: 0;
 		@media (min-width: $md4) {
+			padding-inline: rem(20);
 			grid-template-columns: 2fr 1fr;
 			gap: rem(5);
 		}
@@ -21,7 +23,7 @@
 	&__slider {
 		position: relative;
 		min-width: 0;
-		border-radius: rem(3);
+		border-radius: rem(4.573);
 		@media (min-width: $md4) {
 			border-radius: rem(10);
 		}
@@ -32,6 +34,10 @@
 		position: absolute;
 		display: flex;
 		bottom: rem(20);
+		gap: rem(4.573);
+		@media (min-width: $md5) {
+			gap: rem(10);
+		}
 		@media (min-width: $md4) {
 			bottom: rem(18);
 		}
@@ -46,13 +52,36 @@
 			right: rem(30);
 		}
 		z-index: 2;
+		// .promotions__controls .swiper-pagination.swiper-pagination-bullets
+		.swiper-pagination.swiper-pagination-bullets {
+			margin-right: rem(14.5);
+			gap: rem(3.659);
+			@media (min-width: $md5) {
+				margin-right: rem(18);
+				gap: 0;
+			}
+			// .promotions__controls .swiper-pagination.swiper-pagination-bullets .swiper-pagination-bullet
+			.swiper-pagination-bullet {
+				width: rem(6);
+				height: rem(6);
+				margin: 0;
+				@media (min-width: $md5) {
+					width: rem(8);
+					height: rem(8);
+					margin: 0 rem(2.5);
+				}
+			}
+		}
 	}
 	// .promotions__cards
 	&__cards {
 		display: grid;
 		grid-template-columns: repeat(2, 1fr);
-		margin: rem(10) rem(15) 0;
+		margin: rem(9.146) rem(15) 0;
 		gap: rem(10);
+		@media (min-width: $md5) {
+			margin-top: rem(10);
+		}
 		@media (min-width: $md4) {
 			margin: 0;
 			grid-template-columns: 1fr;

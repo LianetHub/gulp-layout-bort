@@ -787,9 +787,13 @@ $scrollbarColor: $orange;
 		// .swiper-controls--compact .swiper-button-next
 		.swiper-button-prev,
 		.swiper-button-next {
-			width: rem(24);
-			height: rem(24);
+			width: rem(26);
+			height: rem(26);
 			font-size: rem(16);
+			@media (min-width: $md5) {
+				width: rem(24);
+				height: rem(24);
+			}
 			@media (min-width: $md3) {
 				width: rem(40);
 				height: rem(40);

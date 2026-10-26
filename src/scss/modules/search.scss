@@ -13,10 +13,10 @@
 		justify-content: center;
 		width: rem(40);
 		height: rem(36);
-		border: 1px solid #e5e5e5;
-		border-radius: rem(5);
-		font-size: rem(24);
-		color: #63666a;
+		border: rem(1.5) solid #ebeaea;
+		border-radius: rem(8);
+		font-size: rem(20);
+		color: #6a6b6d;
 		// .search__toggler.active
 		&.active {
 			color: $orange;
@@ -70,7 +70,7 @@
 		display: flex;
 		flex-direction: column;
 		width: 100%;
-		height: rem(500);
+		height: auto;
 		max-height: min(rem(500), calc(100dvh - rem(184) - env(safe-area-inset-bottom, 0px)));
 		border-radius: rem(10);
 		background: $white;
@@ -104,9 +104,8 @@
 		&--products {
 			display: flex;
 			flex-direction: column;
-			flex: 1;
+			flex: 0 1 auto;
 			min-height: 0;
-			padding-bottom: rem(20);
 		}
 	}
 	// .search__bar-list
@@ -176,7 +175,7 @@
 	}
 	// .search__products
 	&__products {
-		flex: 1;
+		flex: 0 1 auto;
 		min-height: 0;
 		overflow-y: auto;
 		overscroll-behavior: contain;

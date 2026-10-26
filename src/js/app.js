@@ -3180,7 +3180,7 @@
             this.title.classList.toggle('title-md', !nested);
             this.title.classList.toggle('title-sm', nested);
             this.back.hidden = !nested;
-            this.closeButton.hidden = nested;
+            this.closeButton.hidden = nested && !this.media.matches;
             this.back.setAttribute(
                 'aria-label',
                 nested
@@ -3462,7 +3462,7 @@
                 this.burger.setAttribute('aria-expanded', 'false');
                 this.burger.setAttribute('aria-label', 'Открыть меню');
                 this.burger.classList.remove('icon-close');
-                this.burger.classList.add('icon-menu');
+                this.burger.classList.add('icon-menu-alternate');
                 if (wasOpen && restoreFocus) {
                     this.burger.focus();
                 }
@@ -3486,7 +3486,7 @@
             document.body.classList.add('open-navigation');
             this.burger.setAttribute('aria-expanded', 'true');
             this.burger.setAttribute('aria-label', 'Закрыть меню');
-            this.burger.classList.replace('icon-menu', 'icon-close');
+            this.burger.classList.replace('icon-menu-alternate', 'icon-close');
         }
 
         handleBackdropClick() {
