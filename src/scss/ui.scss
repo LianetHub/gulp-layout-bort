@@ -781,6 +781,22 @@ $scrollbarColor: $orange;
 	display: flex;
 	align-items: center;
 	gap: rem(10);
+	// .swiper-controls--compact
+	&--compact {
+		// .swiper-controls--compact .swiper-button-prev
+		// .swiper-controls--compact .swiper-button-next
+		.swiper-button-prev,
+		.swiper-button-next {
+			width: rem(24);
+			height: rem(24);
+			font-size: rem(16);
+			@media (min-width: $md3) {
+				width: rem(40);
+				height: rem(40);
+				font-size: rem(24);
+			}
+		}
+	}
 
 	// .swiper-controls .swiper-button-prev
 	// .swiper-controls .swiper-button-next

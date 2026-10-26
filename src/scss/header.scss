@@ -80,6 +80,14 @@
 		flex: 1;
 		overflow-x: auto;
 		scrollbar-width: none;
+		@media (min-width: $md4) {
+			margin-right: rem(-20);
+			padding-right: rem(20);
+		}
+		@media (min-width: $md3) {
+			margin-right: 0;
+			padding-right: 0;
+		}
 		// .header__menu::-webkit-scrollbar
 		&::-webkit-scrollbar {
 			display: none;
@@ -197,7 +205,8 @@
 			display: inline-flex;
 			width: rem(54);
 			min-width: rem(54);
-			padding-inline: rem(15);
+			padding-inline: rem(14);
+			border-radius: rem(10);
 			height: rem(44);
 			background: #292929;
 			color: #fff;
@@ -243,6 +252,16 @@
 			// .header__catalog-icon--grid::before
 			&::before {
 				font-size: 1.125em;
+				@media (min-width: $md4) {
+					font-size: 1.5rem;
+					width: 1.5rem;
+					height: 1.5rem;
+				}
+				@media (min-width: $md2) {
+					font-size: 1.125em;
+					width: 1em;
+					height: 1em;
+				}
 			}
 		}
 	}
@@ -395,8 +414,11 @@
 	// .header .main-actions
 	.main-actions {
 		@media (min-width: $md4) {
-			gap: rem(16);
+			gap: 0.625rem;
 			flex-shrink: 0;
+		}
+		@media (min-width: $md3) {
+			gap: 1rem;
 		}
 		@media (min-width: $md2) {
 			gap: rem(21);

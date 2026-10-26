@@ -245,7 +245,7 @@
 	&__poster {
 		border-radius: 1.25rem;
 		overflow: hidden;
-		aspect-ratio: math.div(400, 110);
+		height: rem(110);
 
 		// .news-card__poster img
 		& img {

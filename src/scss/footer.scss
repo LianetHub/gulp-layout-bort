@@ -51,7 +51,10 @@
 
 		@media (min-width: $md4) {
 			grid-template-columns: repeat(2, 1fr);
-			gap: rem(40) rem(20);
+			gap: rem(30) rem(20);
+		}
+		@media (min-width: $md3) {
+			row-gap: rem(40);
 		}
 
 		@media (min-width: $md2) {
@@ -148,6 +151,9 @@
 		flex-wrap: wrap;
 
 		@media (min-width: $md4) {
+			gap: rem(11);
+		}
+		@media (min-width: $md3) {
 			gap: rem(10);
 		}
 
@@ -259,6 +265,12 @@
 		}
 
 		margin-bottom: rem(20);
+		@media (min-width: $md4) {
+			margin-bottom: 0.75rem;
+		}
+		@media (min-width: $md3) {
+			margin-bottom: rem(20);
+		}
 	}
 
 	// .footer__address
@@ -280,6 +292,12 @@
 		}
 
 		margin-top: rem(8);
+		@media (min-width: $md4) {
+			margin-top: 0.6rem;
+		}
+		@media (min-width: $md3) {
+			margin-top: rem(8);
+		}
 	}
 
 	// .footer__address
