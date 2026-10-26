@@ -4,11 +4,7 @@
 .breadcrumbs {
 	position: relative;
 	z-index: 3;
-	padding: rem(15) 0 0;
-
-	@media (min-width: $md4) {
-		padding-top: rem(20);
-	}
+	padding-top: rem(20);
 
 	// .breadcrumbs__list
 	&__list {
@@ -16,7 +12,11 @@
 		flex-wrap: nowrap;
 		overflow: hidden;
 		white-space: nowrap;
-		gap: rem(8);
+		gap: rem(4);
+
+		@media (min-width: $md4) {
+			gap: rem(8);
+		}
 	}
 
 	// .breadcrumbs__item
@@ -40,9 +40,20 @@
 			&::after {
 				@extend %ic;
 				content: "\e92b";
-				display: inline-block;
-				margin-left: rem(8);
+				display: inline-flex;
 				color: #6a6b6d;
+				width: 1rem;
+				height: 1rem;
+				justify-content: center;
+				align-items: center;
+				font-size: 1rem;
+				align-self: center;
+				align-content: center;
+				margin-left: rem(4);
+
+				@media (min-width: $md4) {
+					margin-left: rem(8);
+				}
 			}
 		}
 	}
