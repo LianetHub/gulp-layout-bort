@@ -8,6 +8,7 @@
 	flex-direction: column;
 	gap: rem(10);
 	width: calc(100% - #{rem(24)});
+	max-width: rem(380);
 	right: rem(12);
 	bottom: calc(#{rem(70)} + env(safe-area-inset-bottom, 0px));
 	pointer-events: none;

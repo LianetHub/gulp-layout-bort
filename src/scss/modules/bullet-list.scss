@@ -17,10 +17,14 @@
 			position: absolute;
 			top: rem(9);
 			left: rem(5);
-			width: rem(4);
-			height: rem(4);
+			width: rem(6);
+			height: rem(6);
 			border-radius: 50%;
 			background: $orange;
+			@media (min-width: $md4) {
+				width: rem(6);
+				height: rem(6);
+			}
 		}
 	}
 }

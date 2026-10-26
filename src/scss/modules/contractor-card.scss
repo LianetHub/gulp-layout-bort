@@ -5,22 +5,36 @@
 	display: flex;
 	flex-direction: column;
 	gap: rem(20);
-	padding: rem(30);
+	padding: rem(20);
 	border-radius: rem(10);
 	background: #f7f7f6;
 	font-size: rem(14);
 	line-height: math.div(20, 14);
 	color: #2b2b2b;
+	@media (min-width: $md4) {
+		padding: rem(30);
+	}
 	// .contractor-card__name
 	&__name {
-		font-size: rem(16);
-		font-weight: 600;
-		line-height: math.div(22, 16);
+		font-size: rem(18);
+		font-weight: 400;
+		line-height: math.div(26, 18);
+		@media (min-width: $md4) {
+			font-size: rem(18);
+			font-weight: 400;
+			line-height: math.div(26, 18);
+		}
 	}
 	// .contractor-card__contacts
 	&__contacts {
 		display: grid;
 		gap: rem(10);
+		// .contractor-card__contacts:not(:last-child)
+		&:not(:last-child) {
+			@media (min-width: $md2) {
+				margin-bottom: 1.3rem;
+			}
+		}
 	}
 	// .contractor-card__row
 	&__row {
@@ -52,5 +66,12 @@
 	// .contractor-card__details
 	&__details {
 		margin-top: auto;
+	}
+	// .contractor-card__price
+	&__price {
+		margin-top: rem(10);
+		@media (min-width: $md2) {
+			margin-top: 0.7rem;
+		}
 	}
 }

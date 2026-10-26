@@ -47,12 +47,12 @@
 	}
 
 	// .returns__description + .return-steps
-	&__description+.return-steps {
+	&__description + .return-steps {
 		margin-top: rem(30);
 	}
 
 	// .returns__caption + .return-steps
-	&__caption+.return-steps {
+	&__caption + .return-steps {
 		margin-top: rem(30);
 	}
 }

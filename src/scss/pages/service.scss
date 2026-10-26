@@ -3,87 +3,153 @@
 // .service
 .service {
 	padding: rem(20) 0 rem(40);
+
 	@media (min-width: $md4) {
 		padding-bottom: rem(60);
 	}
+
 	// .service__title
 	&__title {
 		margin-bottom: rem(30);
 	}
+
 	// .service__intro
 	&__intro {
 		margin-top: rem(40);
+
 		@media (min-width: $md4) {
 			margin-top: rem(60);
 		}
 	}
+
 	// .service__caption
 	&__caption {
 		margin-bottom: rem(20);
 	}
+
 	// .service__text
 	&__text {
 		font-size: rem(16);
 		line-height: math.div(22, 16);
 		color: #2b2b2b;
+
+		@media (min-width: $md4) {
+			font-size: rem(18);
+			line-height: math.div(26, 18);
+		}
+
 		// .service__text + .service__text
-		& + & {
-			margin-top: rem(20);
+		&+& {
+			margin-top: rem(22);
+
+			@media (min-width: $md4) {
+				margin-top: rem(26);
+			}
+
+			@media (min-width: $md2) {
+				margin-top: rem(27);
+			}
 		}
 	}
+
 	// .service__notice
 	&__notice {
 		display: inline-flex;
+		width: 100%;
 		align-items: center;
 		gap: rem(10);
 		margin-top: rem(20);
-		padding: rem(10) rem(15);
-		border-radius: rem(5);
-		background: #fff3ec;
-		color: #ff6201;
-		font-size: rem(14);
-		line-height: math.div(20, 14);
+		padding: rem(10) rem(20);
+		border-radius: rem(10);
+		background: rgba(247, 53, 2, 0.1);
+		color: #f73502;
+		font-size: rem(16);
+		line-height: math.div(22, 16);
+
+		@media (min-width: $md4) {
+			width: auto;
+			font-size: rem(18);
+			line-height: math.div(26, 18);
+		}
 	}
+
 	// .service__notice-icon
 	&__notice-icon {
 		flex-shrink: 0;
+		font-size: rem(20);
 	}
+
 	// .service__details
 	&__details {
 		display: grid;
 		gap: rem(20);
 		margin-top: rem(40);
+
 		@media (min-width: $md4) {
 			margin-top: rem(60);
 		}
 	}
+
 	// .service__detail
 	&__detail {
 		display: grid;
 		gap: rem(20);
 		padding: rem(20);
-		border-radius: rem(10);
+		border-radius: rem(20);
 		background: #f7f7f6;
+
 		@media (min-width: $md4) {
-			padding: rem(40);
+			gap: rem(30);
+			padding: rem(20) rem(40);
+			border-radius: rem(20);
 		}
+
 		@media (min-width: $md2) {
-			grid-template-columns: 5fr 6fr;
-			gap: rem(40);
+			grid-template-columns: 520fr 610fr;
+			align-items: start;
+			gap: rem(30);
+			padding: rem(20) rem(40);
+			border-radius: rem(20);
 		}
 	}
+
+	// .service__detail-title
+	&__detail-title {
+		@media (min-width: $md4) {
+			max-width: rem(520);
+		}
+
+		@media (min-width: $md2) {
+			max-width: none;
+		}
+	}
+
+	// .service__list.bullet-list
+	&__list.bullet-list {
+		font-size: rem(16);
+		line-height: math.div(22, 16);
+		color: #404246;
+	}
+
 	// .service__form
 	&__form {
 		margin-top: rem(40);
+		padding-block: rem(30);
+
 		@media (min-width: $md4) {
+			padding-block: rem(40);
 			margin-top: rem(60);
+			gap: rem(30);
 		}
+
 		@media (min-width: $md2) {
 			display: grid;
-			grid-template-columns: 5fr 6fr;
-			column-gap: rem(40);
+			grid-template-columns: 500fr 630fr;
+			row-gap: rem(20);
+			column-gap: rem(30);
 		}
 	}
+
 	// .service__form-heading
 	&__form-heading {
 		@media (min-width: $md2) {
@@ -91,9 +157,11 @@
 			grid-row: 1;
 		}
 	}
+
 	// .service__form-image
 	&__form-image {
 		display: none;
+
 		@media (min-width: $md2) {
 			display: block;
 			align-self: end;
@@ -105,42 +173,81 @@
 			height: auto;
 		}
 	}
+
 	// .service__form-fields
 	&__form-fields {
 		display: flex;
 		flex-direction: column;
 		gap: rem(20);
 		min-width: 0;
+
 		@media (min-width: $md2) {
 			grid-column: 2;
 			grid-row: 1 / 3;
 		}
 	}
+
 	// .service__partners
 	&__partners {
 		margin-top: rem(40);
+
 		@media (min-width: $md4) {
 			margin-top: rem(60);
 		}
+
+		// .service__partners .service__text
+		.service__text {
+			font-weight: 500;
+			color: #404246;
+
+			@media (min-width: $md4) {
+				font-size: rem(16);
+				font-weight: 500;
+				line-height: math.div(22, 16);
+				color: #404246;
+			}
+		}
 	}
+
 	// .service__city
 	&__city {
 		margin-top: rem(30);
+
 		// .service__city + .service__city
-		& + & {
+		&+& {
 			margin-top: rem(40);
 		}
 	}
+
 	// .service__city-title
 	&__city-title {
-		margin-bottom: rem(20);
+		margin-bottom: rem(10);
+
+		@media (min-width: $md4) {
+			margin-bottom: rem(10);
+		}
 	}
+
 	// .service__contractors
 	&__contractors {
 		display: grid;
 		gap: rem(10);
+
 		@media (min-width: $md4) {
 			grid-template-columns: repeat(2, 1fr);
+		}
+
+		// .service__contractors > .contractor-card:only-child
+		>.contractor-card:only-child {
+			@media (min-width: $md4) {
+				grid-column: 1 / -1;
+				min-height: rem(300);
+			}
+
+			@media (min-width: $md2) {
+				grid-column: auto;
+				min-height: 0;
+			}
 		}
 	}
 }

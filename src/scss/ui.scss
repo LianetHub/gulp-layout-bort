@@ -28,6 +28,15 @@
 		font-size: rem(30);
 		line-height: math.div(42, 30);
 	}
+	// .title--compact
+	&--compact {
+		font-size: rem(20);
+		line-height: math.div(28, 20);
+		@media (min-width: $md4) {
+			font-size: rem(30);
+			line-height: math.div(42, 30);
+		}
+	}
 	// .title--sans
 	&--sans {
 		font-family: $fontfamily, sans-serif;
@@ -66,6 +75,15 @@
 	@media (min-width: $md4) {
 		font-size: rem(24);
 		line-height: math.div(36, 24);
+	}
+	// .title-md--compact
+	&--compact {
+		font-size: rem(18);
+		line-height: math.div(26, 18);
+		@media (min-width: $md4) {
+			font-size: rem(24);
+			line-height: math.div(36, 24);
+		}
 	}
 }
 
