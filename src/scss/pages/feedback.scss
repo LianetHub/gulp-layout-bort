@@ -1,40 +1,46 @@
 // .feedback
 .feedback {
 	padding: rem(20) 0 rem(40);
+
 	@media (min-width: $md4) {
 		padding-bottom: rem(60);
 	}
-	// .feedback__container
-	&__container {
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
-	}
+
 	// .feedback__title
 	&__title {
 		margin-bottom: rem(20);
 	}
+
 	// .feedback__layout
 	&__layout {
-		display: grid;
-		align-items: start;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
 		gap: rem(30);
+
 		@media (min-width: $md2) {
-			grid-template-columns: minmax(0, 820fr) minmax(0, 330fr);
+			flex-direction: row;
+			align-items: flex-start;
 			gap: rem(90);
 		}
 	}
+
 	// .feedback__reviews
 	&__reviews {
 		min-width: 0;
+		flex: 1 1 auto;
 	}
+
 	// .feedback__summary
 	&__summary {
 		order: -1;
+
 		@media (min-width: $md2) {
 			order: 0;
+			flex: 0 0 rem(330);
 		}
 	}
+
 	// .feedback__toolbar
 	&__toolbar {
 		display: flex;

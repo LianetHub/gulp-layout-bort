@@ -2,12 +2,6 @@
 
 // .breadcrumbs
 .breadcrumbs {
-	// .breadcrumbs__container
-	&__container {
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
-	}
 	// .breadcrumbs.breadcrumbs--search
 	&.breadcrumbs--search {
 		padding-top: rem(20);

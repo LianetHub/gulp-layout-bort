@@ -6,12 +6,6 @@
 	@media (min-width: $md4) {
 		padding: rem(24) 0 rem(60);
 	}
-	// .cart__container
-	&__container {
-		@media (min-width: $md1) {
-			max-width: rem(1240);
-		}
-	}
 	// .cart__back
 	&__back {
 		display: inline-flex;
@@ -75,7 +69,7 @@
 		align-items: start;
 		gap: rem(20);
 		@media (min-width: $md2) {
-			grid-template-columns: minmax(0, 1fr) rem(330);
+			grid-template-columns: 1fr rem(330);
 		}
 	}
 	// .cart__main

@@ -6,12 +6,6 @@
 	@media (min-width: $md4) {
 		padding-bottom: rem(60);
 	}
-	// .faq__container
-	&__container {
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
-	}
 	// .faq__title
 	&__title {
 		margin-bottom: rem(20);
@@ -22,7 +16,7 @@
 		align-items: start;
 		gap: rem(20);
 		@media (min-width: $md2) {
-			grid-template-columns: rem(295) minmax(0, 1fr);
+			grid-template-columns: rem(295) 1fr;
 		}
 	}
 	// .faq__navigation

@@ -139,17 +139,9 @@
 		flex-wrap: nowrap;
 		align-items: center;
 		gap: rem(15);
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
 		@media (min-width: $md4) {
 			flex-wrap: nowrap;
 			gap: rem(10);
-		}
-		@media (min-width: $md2) {
-			box-sizing: border-box;
-			width: 100%;
-			max-width: rem(1280);
 		}
 		@media (min-width: $md2) {
 			display: flex;
@@ -163,18 +155,9 @@
 		flex-direction: column;
 		align-items: flex-start;
 		gap: rem(20);
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
-		padding-inline: rem(20);
 		@media (min-width: $md4) {
 			flex-direction: row;
 			align-items: center;
-		}
-		@media (min-width: $md2) {
-			box-sizing: border-box;
-			width: 100%;
-			max-width: rem(1280);
 		}
 		@media (min-width: $md2) {
 			display: flex;
@@ -522,7 +505,7 @@
 		}
 	}
 	display: grid;
-	grid-template-columns: repeat(5, minmax(0, 1fr));
+	grid-template-columns: repeat(5, 1fr);
 	position: fixed;
 	bottom: 0;
 	left: 0;

@@ -11,19 +11,13 @@
 	// .solutions__list
 	&__list {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-columns: repeat(2, 1fr);
 		@media (min-width: $md4) {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(3, 1fr);
 		}
 		@media (min-width: $md2) {
-			grid-template-columns: repeat(6, minmax(0, 1fr));
+			grid-template-columns: repeat(6, 1fr);
 		}
 		gap: rem(10);
-	}
-	// .solutions__container
-	&__container {
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
 	}
 }

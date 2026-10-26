@@ -4,10 +4,4 @@
 	@media (min-width: $md4) {
 		padding-bottom: rem(60);
 	}
-	// .policy__container
-	&__container {
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
-	}
 }

@@ -186,7 +186,7 @@
 		}
 		@media (min-width: $md2) {
 			display: grid;
-			grid-template-columns: minmax(0, 1fr) rem(32);
+			grid-template-columns: 1fr rem(32);
 			grid-template-rows: rem(60) auto;
 			gap: rem(10) 0;
 			min-height: rem(152);

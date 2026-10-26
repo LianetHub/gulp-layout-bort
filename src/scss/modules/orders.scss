@@ -4,6 +4,7 @@
 .orders {
 	// .orders__filters
 	&__filters {
+		min-width: 0;
 		display: flex;
 		flex-direction: column;
 		gap: rem(20);
@@ -23,11 +24,12 @@
 	}
 	// .orders__fields
 	&__fields {
+		min-width: 0;
 		display: grid;
 		gap: rem(10);
 		width: 100%;
 		@media (min-width: $md2) {
-			grid-template-columns: minmax(0, 1fr) rem(185);
+			grid-template-columns: 1fr rem(185);
 			gap: rem(20);
 		}
 	}

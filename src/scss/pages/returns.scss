@@ -6,12 +6,6 @@
 	@media (min-width: $md4) {
 		padding-bottom: rem(60);
 	}
-	// .returns__container
-	&__container {
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
-	}
 	// .returns__title
 	&__title {
 		margin-bottom: rem(30);
@@ -32,7 +26,7 @@
 		gap: rem(10);
 		margin: rem(30) 0;
 		@media (min-width: $md4) {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 	// .returns__section

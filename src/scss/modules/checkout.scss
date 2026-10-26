@@ -5,14 +5,6 @@
 	background: #f7f7f7;
 	padding: rem(20) 0 rem(60);
 	color: #2b2b2b;
-	// .checkout__container
-	&__container {
-		box-sizing: border-box;
-		max-width: rem(1280);
-		@media (min-width: $md2) {
-			padding-inline: rem(20);
-		}
-	}
 	// .checkout__back
 	&__back {
 		display: inline-flex;
@@ -36,11 +28,13 @@
 	}
 	// .checkout__layout
 	&__layout {
-		display: grid;
-		align-items: start;
+		display: flex;
+		flex-direction: column;
+		align-items: stretch;
 		gap: rem(20);
 		@media (min-width: $md2) {
-			grid-template-columns: minmax(0, 890fr) minmax(0, 330fr);
+			flex-direction: row;
+			align-items: flex-start;
 		}
 	}
 	// .checkout__main
@@ -48,6 +42,7 @@
 		display: grid;
 		gap: rem(20);
 		min-width: 0;
+		flex: 1 1 auto;
 	}
 	// .checkout__block
 	&__block {
@@ -73,7 +68,7 @@
 		}
 		@media (min-width: $md2) {
 			max-width: none;
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 	// .checkout__field
@@ -140,11 +135,12 @@
 		}
 		@media (min-width: $md2) {
 			max-width: none;
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-columns: repeat(2, 1fr);
 		}
 	}
 	// .checkout__option
 	&__option {
+		min-width: 0;
 		position: relative;
 		display: flex;
 		cursor: pointer;
@@ -168,6 +164,7 @@
 	}
 	// .checkout__option-body
 	&__option-body {
+		min-width: 0;
 		display: flex;
 		flex-direction: column;
 		width: 100%;
@@ -232,7 +229,7 @@
 		padding-top: rem(20);
 		border-top: 1px solid #ebeaea;
 		@media (min-width: $md4) {
-			grid-template-columns: minmax(0, 1fr) auto;
+			grid-template-columns: 1fr auto;
 		}
 		// .checkout__pickup--selected .checkout__pickup-content
 		&--selected .checkout__pickup-content {
@@ -413,11 +410,14 @@
 		display: grid;
 		gap: rem(10);
 		@media (min-width: $md4) {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 	// .checkout__summary
 	&__summary {
+		@media (min-width: $md2) {
+			flex: 0 0 rem(330);
+		}
 		position: sticky;
 		top: calc($header + 1rem);
 		display: flex;

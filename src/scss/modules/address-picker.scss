@@ -296,7 +296,7 @@
 	// .address-picker__details
 	&__details {
 		display: grid;
-		grid-template-columns: repeat(3, minmax(0, 1fr));
+		grid-template-columns: repeat(3, 1fr);
 		gap: rem(10);
 	}
 	// .address-picker__details .checkout__input

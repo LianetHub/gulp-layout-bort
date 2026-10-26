@@ -284,11 +284,11 @@
 	// .auth-dialog__phone-row
 	&__phone-row {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr);
+		grid-template-columns: 1fr;
 		gap: rem(10);
 		align-items: end;
 		@media (min-width: $md6) {
-			grid-template-columns: minmax(0, 1fr) rem(130);
+			grid-template-columns: 1fr rem(130);
 		}
 		@media (min-width: $md5) {
 			gap: rem(15);

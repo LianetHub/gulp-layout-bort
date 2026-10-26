@@ -4,7 +4,8 @@
 .promo-card {
 	position: relative;
 	padding: rem(14) rem(20);
-	height: rem(250);
+	height: auto;
+	min-height: rem(250);
 	border-radius: rem(10);
 	overflow: hidden;
 	background-position: center;
@@ -12,11 +13,27 @@
 	background-repeat: no-repeat;
 	@media (min-width: $md4) {
 		padding: rem(18);
-		height: rem(264);
+		min-height: rem(264);
+	}
+	@media (min-width: $md3) {
+		height: auto;
+		min-height: rem(380);
 	}
 	@media (min-width: $md2) {
 		padding: rem(30);
 		height: rem(450);
+		min-height: 0;
+	}
+	// .promo-card.swiper-slide
+	&.swiper-slide {
+		@media (min-width: $md3) {
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+		}
+		@media (min-width: $md2) {
+			display: block;
+		}
 	}
 	// .promo-card__label
 	&__label {
@@ -33,6 +50,9 @@
 			width: fit-content;
 			padding: rem(3) rem(6);
 			font-size: rem(7);
+		}
+		@media (min-width: $md3) {
+			font-size: rem(10.8);
 		}
 		@media (min-width: $md2) {
 			display: inline-block;
@@ -54,6 +74,11 @@
 			font-size: rem(18);
 			line-height: math.div(26, 18);
 		}
+		@media (min-width: $md3) {
+			max-width: rem(380);
+			font-size: rem(26.4);
+			line-height: math.div(38.4, 26.4);
+		}
 		@media (min-width: $md2) {
 			max-width: rem(509);
 			font-size: rem(30);
@@ -72,24 +97,34 @@
 			margin-top: rem(5);
 			font-size: rem(9);
 		}
+		@media (min-width: $md3) {
+			font-size: rem(14.4);
+			line-height: math.div(20.4, 14.4);
+		}
 		@media (min-width: $md2) {
 			margin-top: rem(10);
 			font-size: rem(16);
+			line-height: math.div(14, 10);
 		}
 	}
 	// .promo-card__list
 	&__list {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, rem(103)));
+		grid-template-columns: repeat(2, rem(103));
 		gap: rem(3);
 		margin-top: rem(8);
 		@media (min-width: $md4) {
-			grid-template-columns: repeat(2, minmax(0, rem(105)));
+			grid-template-columns: repeat(2, rem(105));
 			gap: rem(4);
 			margin-top: rem(8);
 		}
+		@media (min-width: $md3) {
+			grid-template-columns: repeat(2, rem(130));
+			margin-bottom: rem(12);
+		}
 		@media (min-width: $md2) {
 			grid-template-columns: repeat(2, rem(180));
+			margin-bottom: 0;
 			gap: rem(5);
 			margin-top: rem(20);
 		}
@@ -108,6 +143,10 @@
 			padding: rem(8) rem(5);
 			line-height: math.div(12, 10);
 		}
+		@media (min-width: $md3) {
+			font-size: rem(14.4);
+			line-height: math.div(18, 14.4);
+		}
 		@media (min-width: $md2) {
 			padding: rem(12) rem(8);
 			font-size: rem(16);
@@ -119,9 +158,8 @@
 		padding: rem(6) rem(12);
 		line-height: math.div(16, 12);
 		font-size: rem(12);
-		position: absolute;
-		bottom: rem(20);
-		left: rem(20);
+		position: relative;
+		margin-top: rem(12);
 		background: #fff;
 		color: #63666a;
 		// .promo-card__btn.btn-secondary
@@ -130,12 +168,17 @@
 			color: #63666a;
 		}
 		@media (min-width: $md4) {
-			bottom: rem(18);
-			left: rem(18);
 			padding: rem(6) rem(12);
 			line-height: math.div(16, 12);
 		}
+		@media (min-width: $md3) {
+			margin-top: auto;
+			font-size: rem(16.8);
+			line-height: math.div(24, 16.8);
+		}
 		@media (min-width: $md2) {
+			position: absolute;
+			margin-top: 0;
 			bottom: rem(30);
 			left: rem(30);
 			width: rem(129);
@@ -150,6 +193,9 @@
 		width: rem(23);
 		@media (min-width: $md4) {
 			width: rem(41);
+		}
+		@media (min-width: $md3) {
+			width: rem(52);
 		}
 		@media (min-width: $md2) {
 			width: rem(69);
@@ -180,21 +226,27 @@
 	// .promo-card--small
 	&--small {
 		height: rem(90);
+		min-height: 0;
 		padding: rem(10) rem(8);
 		color: #fff;
 		// .promo-card--small .promo-card__title
 		.promo-card__title {
 			margin-top: 0;
 			color: #fff;
-			max-width: 65%;
+			max-width: rem(240);
 			font-size: rem(8);
 			line-height: math.div(11, 8);
 			@media (min-width: $md4) {
 				font-size: rem(12);
 				line-height: math.div(14, 10);
 			}
+			@media (min-width: $md3) {
+				font-size: rem(18);
+				line-height: math.div(25.2, 18);
+			}
 			@media (min-width: $md2) {
 				font-size: rem(20);
+				line-height: math.div(14, 10);
 			}
 		}
 		// .promo-card--small .promo-card__description
@@ -205,6 +257,9 @@
 			line-height: math.div(14, 10);
 			@media (min-width: $md4) {
 				font-size: rem(8);
+			}
+			@media (min-width: $md3) {
+				font-size: rem(12);
 			}
 			@media (min-width: $md2) {
 				font-size: rem(14);

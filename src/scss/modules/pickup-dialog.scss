@@ -80,16 +80,16 @@
 	&__body {
 		display: grid;
 		gap: rem(20);
-		grid-template-columns: minmax(0, 1fr);
+		grid-template-columns: 1fr;
 		@media (min-width: $md4) {
-			grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr);
+			grid-template-columns: 1fr 1fr;
 		}
 		// .pickup-dialog__body--detail
 		&--detail {
 			gap: rem(10);
 			@media (min-width: $md4) {
 				gap: rem(20);
-				grid-template-columns: repeat(2, minmax(0, 1fr));
+				grid-template-columns: repeat(2, 1fr);
 				align-items: stretch;
 			}
 		}

@@ -3,10 +3,10 @@
 // .cart-item
 .cart-item {
 	display: grid;
-	grid-template-columns: rem(70) minmax(0, 1fr);
+	grid-template-columns: rem(70) 1fr;
 	gap: rem(16);
 	@media (min-width: $md4) {
-		grid-template-columns: rem(70) minmax(0, 1fr) auto;
+		grid-template-columns: rem(70) 1fr auto;
 		align-items: start;
 	}
 	// .cart-item__header

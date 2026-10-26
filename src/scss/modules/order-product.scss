@@ -3,19 +3,19 @@
 // .order-product
 .order-product {
 	display: grid;
-	grid-template-columns: rem(50) minmax(0, 1fr) rem(20);
+	grid-template-columns: rem(50) 1fr rem(20);
 	gap: rem(5) rem(10);
 	padding: rem(15) 0;
 	border-top: 1px solid #ebeaea;
 	@media (min-width: $md4) {
-		grid-template-columns: rem(61) minmax(0, 1fr) rem(100) rem(20);
+		grid-template-columns: rem(61) 1fr rem(100) rem(20);
 		align-items: center;
 		padding: rem(20) 0;
 		column-gap: rem(19);
 		row-gap: 0;
 	}
 	@media (min-width: $md2) {
-		grid-template-columns: rem(40) minmax(0, 1fr) rem(100) rem(20);
+		grid-template-columns: rem(40) 1fr rem(100) rem(20);
 		column-gap: rem(40);
 	}
 	// .order-product__image-link

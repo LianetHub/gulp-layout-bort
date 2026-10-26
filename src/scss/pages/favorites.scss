@@ -6,12 +6,6 @@
 	@media (min-width: $md4) {
 		padding-bottom: rem(80);
 	}
-	// .favorites__container
-	&__container {
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
-	}
 	// .favorites__heading
 	&__heading {
 		display: flex;
@@ -57,7 +51,7 @@
 		align-items: start;
 		gap: rem(20);
 		@media (min-width: $md2) {
-			grid-template-columns: rem(302) minmax(0, 1fr);
+			grid-template-columns: rem(302) 1fr;
 		}
 	}
 	// .favorites__categories
@@ -171,9 +165,9 @@
 	&__products {
 		display: grid;
 		gap: rem(10);
-		grid-template-columns: minmax(0, 1fr);
+		grid-template-columns: 1fr;
 		@media (min-width: $md4) {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(3, 1fr);
 		}
 	}
 	// .favorites__more

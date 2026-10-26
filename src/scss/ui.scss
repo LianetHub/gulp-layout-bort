@@ -129,7 +129,7 @@
 			height: rem(40);
 			background: #fff;
 			border-radius: 50%;
-			box-shadow: 0 rem(5) rem(20) #0c131a1a;
+			box-shadow: 0 rem(5) rem(20) 0 rgba(36, 42, 46, 0.15);
 		}
 
 		// .swiper-button-prev--square.swiper-button-prev::before
@@ -158,7 +158,7 @@
 	align-items: center;
 	background: #fff;
 	color: #63666a;
-	box-shadow: 0 0 rem(10) 0 rgba(64, 64, 64, 0.05);
+	box-shadow: 0 rem(5) rem(20) 0 rgba(36, 42, 46, 0.15);
 	border-radius: 50%;
 
 	// .swiper-button-next::before
@@ -253,7 +253,7 @@
 	left: rem(-15);
 
 	@media (min-width: $md4) {
-		left: rem(-20);
+		left: rem(-16);
 	}
 }
 
@@ -274,7 +274,7 @@
 			height: rem(40);
 			background: #fff;
 			border-radius: 50%;
-			box-shadow: 0 rem(5) rem(20) #0c131a1a;
+			box-shadow: 0 rem(5) rem(20) 0 rgba(36, 42, 46, 0.15);
 		}
 
 		// .swiper-button-next--square.swiper-button-next::before
@@ -334,7 +334,7 @@
 	right: rem(-15);
 
 	@media (min-width: $md4) {
-		right: rem(-20);
+		right: rem(-16);
 	}
 }
 
@@ -797,24 +797,6 @@ $scrollbarColor: $orange;
 		align-items: center;
 		margin: 0 rem(18) 0 0;
 		width: auto;
-	}
-
-	// .swiper-controls--compact
-	&--compact {
-		// .swiper-controls--compact .swiper-button-prev
-		// .swiper-controls--compact .swiper-button-next
-		.swiper-button-prev,
-		.swiper-button-next {
-			width: rem(24);
-			height: rem(24);
-			font-size: rem(16);
-
-			@media (min-width: $md2) {
-				width: rem(40);
-				height: rem(40);
-				font-size: rem(24);
-			}
-		}
 	}
 }
 

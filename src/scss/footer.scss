@@ -16,7 +16,7 @@
 		display: grid;
 
 		@media (min-width: $md4) {
-			grid-template-columns: minmax(0, 1fr);
+			grid-template-columns: 1fr;
 		}
 
 		@media (min-width: $md3) {
@@ -46,11 +46,11 @@
 	// .footer__menu
 	&__menu {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr);
+		grid-template-columns: 1fr;
 		gap: rem(20);
 
 		@media (min-width: $md4) {
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-columns: repeat(2, 1fr);
 			gap: rem(40) rem(20);
 		}
 
@@ -73,7 +73,7 @@
 	// .footer__menu-list
 	&__menu-list {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr);
+		grid-template-columns: 1fr;
 		padding-block: 0;
 		border-top: 0;
 		border-bottom: 0;
@@ -91,7 +91,7 @@
 		}
 
 		@media (min-width: $md2) {
-			grid-template-columns: minmax(0, 1fr);
+			grid-template-columns: 1fr;
 		}
 
 		@media (min-width: $md2) {
@@ -220,18 +220,9 @@
 
 	// .footer__container
 	&__container {
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
 		display: grid;
-		grid-template-columns: minmax(0, 1fr);
+		grid-template-columns: 1fr;
 		gap: rem(30);
-
-		@media (min-width: $md2) {
-			box-sizing: border-box;
-			width: 100%;
-			max-width: rem(1280);
-		}
 	}
 
 	@media (min-width: $md2) {

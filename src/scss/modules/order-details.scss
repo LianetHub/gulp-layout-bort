@@ -6,7 +6,7 @@
 	gap: rem(20);
 	align-items: start;
 	@media (min-width: $md2) {
-		grid-template-columns: minmax(0, 1fr) rem(305);
+		grid-template-columns: 1fr rem(305);
 	}
 	// .order-details__main
 	&__main {

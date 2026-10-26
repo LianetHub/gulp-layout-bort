@@ -10,15 +10,6 @@
 		-webkit-line-clamp: unset;
 		min-height: 0;
 	}
-	// .product-details .product-details__container
-	.product-details__container {
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
-		@media (min-width: $md4) {
-			padding-inline: rem(20);
-		}
-	}
 	// .product-details .product-details__promotion
 	.product-details__promotion {
 		display: block;
@@ -40,19 +31,24 @@
 	// .product-details .product-details__header
 	.product-details__header {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr);
+		grid-template-columns: 1fr;
 		gap: rem(20);
 		align-items: start;
 		margin: 0;
 		padding: 0;
 		border-radius: 0;
 		@media (min-width: $md2) {
-			grid-template-columns: minmax(0, 513fr) minmax(0, 697fr);
+			display: flex;
+			align-items: flex-start;
 			gap: rem(30);
 		}
 	}
 	// .product-details .product-details__images
 	.product-details__images {
+		min-width: 0;
+		@media (min-width: $md2) {
+			flex: 0 0 42%;
+		}
 		display: flex;
 		flex-direction: column-reverse;
 		gap: rem(20);
@@ -213,12 +209,13 @@
 	}
 	// .product-details .product-details__main
 	.product-details__main {
+		flex: 1 1 auto;
 		position: relative;
 		display: grid;
 		min-width: 0;
 		gap: rem(20);
 		@media (min-width: $md4) {
-			grid-template-columns: minmax(0, 1fr) rem(330);
+			grid-template-columns: 1fr rem(330);
 			column-gap: rem(30);
 			grid-template-rows: auto auto 1fr;
 		}
@@ -515,7 +512,7 @@
 	// .product-details .product-details__summary-row
 	.product-details__summary-row {
 		display: grid;
-		grid-template-columns: minmax(0, 200fr) minmax(0, 132fr);
+		grid-template-columns: 3fr 2fr;
 		gap: rem(5);
 		padding: rem(10) 0;
 		border-bottom: 1px solid #ebeaea;
@@ -533,10 +530,14 @@
 	}
 	// .product-details .product-details__summary-name
 	.product-details__summary-name {
+		min-width: 0;
+		overflow-wrap: anywhere;
 		color: #44474e;
 	}
 	// .product-details .product-details__summary-value
 	.product-details__summary-value {
+		min-width: 0;
+		overflow-wrap: anywhere;
 		color: #111;
 	}
 	// .product-details .product-details__all

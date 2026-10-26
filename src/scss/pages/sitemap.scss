@@ -7,13 +7,6 @@
 		padding-bottom: rem(60);
 	}
 
-	// .sitemap > .container
-	> .container {
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
-	}
-
 	// .sitemap__title
 	&__title {
 		margin-bottom: rem(30);
@@ -67,13 +60,13 @@
 		@media (min-width: $md4) {
 			grid-template-rows: repeat(8, auto);
 			grid-auto-flow: column;
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-columns: repeat(2, 1fr);
 			gap: rem(10) rem(20);
 		}
 		@media (min-width: $md2) {
 			grid-template-rows: none;
 			grid-auto-flow: row;
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(3, 1fr);
 		}
 
 		// .sitemap__block > .sitemap__list .sitemap__link
@@ -124,7 +117,7 @@
 		padding: 0;
 		list-style: none;
 		@media (min-width: $md2) {
-			grid-template-columns: repeat(3, minmax(0, 1fr));
+			grid-template-columns: repeat(3, 1fr);
 			grid-template-rows: auto auto auto 1fr;
 			column-gap: rem(20);
 		}

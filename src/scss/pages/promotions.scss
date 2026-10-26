@@ -6,16 +6,11 @@
 	}
 	// .promotions__container
 	&__container {
-		padding-inline: 0;
-		box-sizing: border-box;
-		width: 100%;
-		max-width: rem(1280);
 		display: grid;
-		grid-template-columns: minmax(0, 1fr);
+		grid-template-columns: 1fr;
 		gap: 0;
 		@media (min-width: $md4) {
-			padding-inline: rem(20);
-			grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+			grid-template-columns: 2fr 1fr;
 			gap: rem(5);
 		}
 		@media (min-width: $md2) {
@@ -55,14 +50,14 @@
 	// .promotions__cards
 	&__cards {
 		display: grid;
-		grid-template-columns: repeat(2, minmax(0, 1fr));
+		grid-template-columns: repeat(2, 1fr);
 		margin: rem(10) rem(15) 0;
 		gap: rem(10);
 		@media (min-width: $md4) {
 			margin: 0;
-			grid-template-columns: minmax(0, 1fr);
-			grid-template-rows: repeat(2, minmax(0, 1fr));
-			height: rem(264);
+			grid-template-columns: 1fr;
+			grid-template-rows: repeat(2, 1fr);
+			height: auto;
 			gap: rem(5);
 		}
 		@media (min-width: $md2) {

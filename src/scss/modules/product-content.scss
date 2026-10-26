@@ -6,15 +6,6 @@
 	@media (min-width: $md4) {
 		margin-top: rem(60);
 	}
-	// .product-content__container
-	&__container {
-		box-sizing: border-box;
-		max-width: rem(1280);
-		width: 100%;
-		@media (min-width: $md4) {
-			padding-inline: rem(20);
-		}
-	}
 	// .product-content__navigation
 	&__navigation {
 		overflow-x: auto;
@@ -45,7 +36,7 @@
 		display: grid;
 		gap: rem(20);
 		@media (min-width: $md4) {
-			grid-template-columns: minmax(0, 1fr) rem(250);
+			grid-template-columns: 1fr rem(250);
 			gap: rem(30);
 		}
 	}
@@ -122,19 +113,19 @@
 	// .product-content__stats
 	&__stats {
 		display: grid;
-		grid-template-columns: minmax(0, 1fr);
+		grid-template-columns: 1fr;
 		gap: rem(10);
 		@media (min-width: $md2) {
 			grid-template-rows: repeat(12, auto);
 			grid-auto-flow: column;
-			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-columns: repeat(2, 1fr);
 			column-gap: rem(30);
 		}
 	}
 	// .product-content__stat
 	&__stat {
 		display: grid;
-		grid-template-columns: minmax(0, 2fr) minmax(0, 1fr);
+		grid-template-columns: 2fr 1fr;
 		gap: rem(10);
 		font-size: rem(14);
 		line-height: math.div(20, 14);
