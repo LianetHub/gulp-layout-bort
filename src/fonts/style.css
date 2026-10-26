@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icons';
-  src:  url('fonts/icons.eot?osfzd5');
-  src:  url('fonts/icons.eot?osfzd5#iefix') format('embedded-opentype'),
-    url('fonts/icons.ttf?osfzd5') format('truetype'),
-    url('fonts/icons.woff?osfzd5') format('woff'),
-    url('fonts/icons.svg?osfzd5#icons') format('svg');
+  src:  url('fonts/icons.eot?fg9evf');
+  src:  url('fonts/icons.eot?fg9evf#iefix') format('embedded-opentype'),
+    url('fonts/icons.ttf?fg9evf') format('truetype'),
+    url('fonts/icons.woff?fg9evf') format('woff'),
+    url('fonts/icons.svg?fg9evf#icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,24 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-heart-fill:before {
+  content: "\e943";
+}
+.icon-star-fill:before {
+  content: "\e944";
+}
+.icon-clip:before {
+  content: "\e945";
+}
+.icon-clock:before {
+  content: "\e946";
+}
+.icon-eye:before {
+  content: "\e947";
+}
+.icon-eye-off:before {
+  content: "\e948";
+}
 .icon-chevron-left:before {
   content: "\e942";
 }
@@ -225,22 +243,4 @@
 }
 .icon-heart:before {
   content: "\e940";
-}
-
-.icon-star-fill:before { content: "\e943"; }
-
-.icon-heart-fill:before {
-  content: "\e944";
-}
-
-.icon-eye:before {
-  content: "\e945";
-}
-
-.icon-eye-off:before {
-  content: "\e946";
-}
-
-.icon-clip:before {
-  content: "\e947";
 }

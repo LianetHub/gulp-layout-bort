@@ -28,7 +28,7 @@ for (const width of [375, 1440]) {
         const tile = await galleryTile();
         await page.route('**/docs/index.html', async route => {
             const html = await readFile('docs/index.html', 'utf8');
-            await route.fulfill({ contentType: 'text/html', body: html.replace(/<article class="product product-tile[\s\S]*?<\/article>/, tile) });
+            await route.fulfill({ contentType: 'text/html', body: html.replace(/<div class="product product-tile[\s\S]*?class="product-tile__cart[\s\S]*?<\/button>\s*<\/div>/, tile) });
         });
         await page.goto('/docs/index.html');
         const gallery = page.locator('[data-product-gallery]').first();

@@ -49,7 +49,7 @@ test('comparison cards always display only the main product photo', async () => 
 test('only the compact sale showcase keeps static product images', async () => {
     for (const compact of [true, false]) {
         const html = await render('../includes/_products-showcase.html', { title: 'Products', link: 'catalog.html', compact, popular: false });
-        const cards = html.match(/<article\b[\s\S]*?<\/article>/g);
+        const cards = html.match(/<div class="product product-tile[\s\S]*?class="product-tile__cart[\s\S]*?<\/button>\s*<\/div>/g) || [];
         assert.ok(cards.length > 0);
         for (const card of cards) {
             assert.equal(card.includes('data-product-gallery'), !compact);

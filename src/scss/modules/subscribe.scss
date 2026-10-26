@@ -32,7 +32,7 @@
 		font-size: rem(14);
 		line-height: math.div(20, 14);
 		@media (min-width: $md4) {
-			font-size: rem(16);
+			font-size: 1rem;
 			line-height: math.div(22, 16);
 		}
 		color: #777;
@@ -96,9 +96,7 @@
 				color: #8b8f95;
 			}
 			@media (min-width: $md4) {
-				padding: rem(14) rem(30);
-				font-size: rem(14);
-				line-height: math.div(20, 14);
+				padding: rem(13) rem(23.6);
 			}
 		}
 	}

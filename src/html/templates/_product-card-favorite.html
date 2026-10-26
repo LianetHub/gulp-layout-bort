@@ -1,4 +1,4 @@
-<article class="product product-tile product-tile--favorite">
+<div class="product product-tile product-tile--favorite">
     <div class="product-tile__visual">
         @@if(guarantee){<span class="product-tile__guarantee">
             <span class="product-tile__guarantee-icon icon-thumbs-up" aria-hidden="true"></span>5 лет гарантии
@@ -11,8 +11,7 @@
     </div>
     <div class="product-tile__meta">
         <span class="product-tile__text">Артикул: @@sku</span>
-        <span class="product-tile__rating">
-            <span class="product-tile__rating-icon icon-star-fill" aria-hidden="true"></span>
+        <span class="product-tile__rating icon-star-fill">
             <strong class="product-tile__rating-value">4.0</strong> (2180)
         </span>
     </div>
@@ -24,4 +23,4 @@
     <button type="button" class="product-tile__cart add-to-cart-btn" data-cart-added-label="В корзине">
         <span class="product-tile__cart-icon icon-cart" aria-hidden="true"></span>2 сентября
     </button>
-</article>
+</div>

@@ -419,8 +419,8 @@
 	justify-content: center;
 	align-items: center;
 	gap: rem(10);
-	min-height: rem(48);
-	padding: rem(12) rem(25);
+	min-height: rem(44);
+	padding: rem(10) rem(20);
 	border: 1px solid transparent;
 	border-radius: rem(8);
 	font-size: rem(16);
@@ -451,6 +451,36 @@
 	&:focus-visible {
 		outline: 2px solid #ff6201;
 		outline-offset: 3px;
+	}
+
+	// .btn.btn-md
+	&.btn-md {
+		flex-shrink: 0;
+		min-height: 0;
+		padding: rem(9) rem(12);
+		font-size: rem(14);
+		line-height: math.div(22, 14);
+		@media (min-width: 375px) {
+			font-size: rem(16);
+			line-height: math.div(22, 16);
+		}
+		// .btn.btn-md::before
+		&::before {
+			order: 1;
+		}
+	}
+
+	// .btn.btn-grey
+	&.btn-grey {
+		background: #f2f2f2;
+		color: #2b2b2b;
+		@media (any-hover: hover) {
+			// .btn.btn-grey:hover
+			&:hover {
+				background: #ebeaea;
+				color: #ff6201;
+			}
+		}
 	}
 
 	// .btn.btn-primary

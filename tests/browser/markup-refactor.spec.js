@@ -9,7 +9,7 @@ test('cart buttons toggle and restore their original content', async ({ page }) 
         await button.click();
         await expect(button).toHaveClass(/is-added/);
         await expect(button).toHaveAttribute('aria-pressed', 'true');
-        expect(await button.evaluate(element => element.matches('.icon-check') || !!element.querySelector('.icon-check'))).toBe(true);
+        expect(await button.evaluate(element => element.matches('.icon-tick') || !!element.querySelector('.icon-tick'))).toBe(true);
         const notices = await page.locator('.notify').count();
         await button.click();
         await expect(button).not.toHaveClass(/is-added/);

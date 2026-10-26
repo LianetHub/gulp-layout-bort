@@ -23,7 +23,7 @@
 		display: block;
 		width: fit-content;
 		padding: rem(3) rem(5);
-		border-radius: rem(4);
+		border-radius: rem(8);
 		background: #007d89;
 		color: #fff;
 		font-size: rem(5);
@@ -138,7 +138,9 @@
 		@media (min-width: $md2) {
 			bottom: rem(30);
 			left: rem(30);
-			padding: rem(10) rem(20);
+			width: rem(129);
+			min-height: rem(40);
+			padding: rem(9) rem(20);
 			font-size: 1rem;
 			line-height: math.div(20, 16);
 		}
@@ -151,6 +153,7 @@
 		}
 		@media (min-width: $md2) {
 			width: rem(69);
+			height: rem(20);
 		}
 		position: absolute;
 		bottom: rem(10);
@@ -162,6 +165,16 @@
 		@media (min-width: $md2) {
 			bottom: rem(25);
 			left: rem(20);
+		}
+	}
+	// .promo-card__image
+	&__image {
+		display: block;
+		width: 100%;
+		height: auto;
+		object-fit: contain;
+		@media (min-width: $md2) {
+			height: 100%;
 		}
 	}
 	// .promo-card--small
@@ -195,6 +208,15 @@
 			}
 			@media (min-width: $md2) {
 				font-size: rem(14);
+			}
+		}
+		// .promo-card--small:first-child
+		&:first-child {
+			// .promo-card--small:first-child .promo-card__description
+			.promo-card__description {
+				@media (min-width: $md2) {
+					margin-top: rem(8);
+				}
 			}
 		}
 		@media (min-width: $md4) {

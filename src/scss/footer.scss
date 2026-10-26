@@ -323,6 +323,7 @@
 		margin-top: rem(16);
 		font-size: rem(12);
 		line-height: math.div(16, 12);
+		max-width: rem(1165);
 
 		@media (min-width: $md2) {
 			margin-top: rem(12);

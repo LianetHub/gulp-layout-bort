@@ -1,4 +1,4 @@
-<article class="product product-tile swiper-slide@@if(typeof listing !== 'undefined' && listing){ product-tile--listing}">
+<div class="product product-tile swiper-slide@@if(typeof listing !== 'undefined' && listing){ product-tile--listing}">
     <div class="product-tile__visual">
         @@if(guarantee){<span class="product-tile__guarantee icon-like">5 лет гарантии</span>}
         <div class="product-tile__actions">
@@ -9,9 +9,7 @@
     </div>
     <div class="product-tile__meta">
         <span class="product-tile__text">Артикул: @@sku</span>
-        <span class="product-tile__rating">
-            <span class="product-tile__star">★</span> 4.0 (2180)
-        </span>
+        <span class="product-tile__rating icon-star-fill">4.0 (2180)</span>
     </div>
     <a href="product.html" class="product__name product-tile__name">@@name</a>
     <div class="product-tile__price">
@@ -19,4 +17,4 @@
         <del class="product-tile__old-price">@@oldPrice ₽</del>
     </div>
     <button type="button" class="product-tile__cart add-to-cart-btn icon-cart" data-cart-added-label="В корзине">В корзину</button>
-</article>
+</div>

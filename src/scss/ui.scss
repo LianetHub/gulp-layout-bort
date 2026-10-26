@@ -404,7 +404,7 @@
 	&.active {
 		// .favorite-btn.active::before
 		&::before {
-			content: "\e944";
+			content: "\e943";
 			color: $orange;
 			animation: favorite-pulse 0.3s ease-in-out;
 
@@ -776,43 +776,6 @@ $scrollbarColor: $orange;
 	}
 }
 
-// .section-more
-.section-more {
-	transition: color 0.3s ease;
-	flex-shrink: 0;
-	display: inline-flex;
-	align-items: center;
-	gap: rem(10);
-	padding: rem(10) rem(12);
-	border-radius: rem(8);
-	background: #f3f3f3;
-	color: #63666a;
-	font-size: rem(14);
-	font-weight: 500;
-	line-height: math.div(22, 14);
-
-	@media (min-width: 375px) {
-		padding-inline: rem(15);
-		font-size: rem(16);
-		line-height: math.div(22, 16);
-	}
-
-	@media (min-width: $md4) {
-		padding-block: rem(11);
-		padding-inline: rem(20);
-	}
-
-	// .section-more::before
-	&::before {
-		order: 1;
-	}
-
-	// .section-more:hover
-	&:hover {
-		color: #ff6900;
-	}
-}
-
 // .swiper-controls
 .swiper-controls {
 	display: flex;
@@ -862,6 +825,13 @@ $scrollbarColor: $orange;
 	font-weight: 400;
 	line-height: math.div(28, 20);
 	color: $white;
+	// .title-h5--sans
+	&--sans {
+		font-family: $fontfamily, sans-serif;
+		font-size: 1.125rem;
+		font-weight: 600;
+		line-height: math.div(144, 100);
+	}
 }
 
 // .parts-help__title
@@ -878,7 +848,7 @@ $scrollbarColor: $orange;
 		align-items: center;
 		gap: rem(7);
 		margin: 0;
-		padding: rem(9) 0 rem(14);
+		padding: 0 0 rem(14);
 		width: 100%;
 
 		// .swiper-pagination--product.swiper-pagination-bullets .swiper-pagination-bullet

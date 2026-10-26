@@ -3669,7 +3669,7 @@
                 original.text.forEach(([node, value]) => {
                     node.textContent = value;
                 });
-                original.icon?.classList.replace('icon-check', 'icon-cart');
+                original.icon?.classList.replace('icon-tick', 'icon-cart');
                 original.replacement?.replaceWith(original.image);
                 if (original.label !== null) {
                     button.setAttribute('aria-label', original.label);
@@ -3702,16 +3702,16 @@
             });
 
             if (cartIcon) {
-                cartIcon.classList.replace('icon-cart', 'icon-check');
+                cartIcon.classList.replace('icon-cart', 'icon-tick');
             } else if (image) {
                 const icon = document.createElement('span');
 
-                icon.className = `${image.className} icon-check`;
+                icon.className = `${image.className} icon-tick`;
                 icon.setAttribute('aria-hidden', 'true');
                 image.replaceWith(icon);
                 state.replacement = icon;
             } else if (button.classList.contains('icon-cart')) {
-                button.classList.replace('icon-cart', 'icon-check');
+                button.classList.replace('icon-cart', 'icon-tick');
             }
 
             button.classList.add('is-added');
@@ -5985,6 +5985,10 @@
                     slidesPerView: 1,
                     rewind: true,
                     watchOverflow: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
                     ...SlidersController.controls(container),
                 });
             });
@@ -6114,26 +6118,27 @@
                 watchOverflow: true,
                 touchEventsTarget: 'container',
                 a11y: {
-                    slideRole: 'link',
+                    slideRole: 'group',
                 },
                 speed: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 200,
                 pagination: {
                     el: this.gallery.querySelector('.swiper-pagination'),
                     clickable: true,
                     renderBullet: (index, className) =>
-                        `<button class="${className}" type="button" aria-label="Фотография ${index + 1}"></button>`,
+                        `<span class="${className}" aria-label="Фотография ${index + 1}"></span>`,
                 },
+            });
+            this.gallery.querySelector('.swiper-pagination')?.addEventListener('click', (event) => {
+                event.preventDefault();
             });
             this.areas = document.createElement('div');
 
             this.areas.className = 'product-tile__areas';
             this.areas.setAttribute('aria-hidden', 'true');
             [...this.slider.slides].forEach((slide, index) => {
-                const area = document.createElement('a');
+                const area = document.createElement('span');
 
                 area.className = 'product-tile__area';
-                area.href = slide.href;
-                area.tabIndex = -1;
                 area.addEventListener('pointerenter', (event) => {
                     if (event.pointerType === 'mouse') {
                         this.slider.slideTo(index);

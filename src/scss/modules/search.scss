@@ -83,7 +83,7 @@
 		@media (min-width: $md4) {
 			top: calc(100% + rem(5));
 			height: auto;
-			max-height: min(rem(455), calc(100dvh - rem(84)));
+			max-height: none;
 		}
 	}
 	// .search__bar-block
@@ -93,6 +93,12 @@
 			flex-shrink: 0;
 			padding: rem(20);
 			border-bottom: 1px solid #e9e9e9;
+			// .search__bar-block--categories .search__bar-caption
+			.search__bar-caption {
+				@media (min-width: $md4) {
+					margin-bottom: rem(10);
+				}
+			}
 		}
 		// .search__bar-block--products
 		&--products {
@@ -176,6 +182,9 @@
 		overscroll-behavior: contain;
 		scrollbar-width: thin;
 		scrollbar-color: #a1a1aa transparent;
+		@media (min-width: $md4) {
+			overflow-y: visible;
+		}
 		// .search__products::-webkit-scrollbar
 		&::-webkit-scrollbar {
 			width: rem(5);
@@ -210,7 +219,7 @@
 		display: block;
 		width: 100%;
 		height: 100%;
-		object-fit: fill;
+		object-fit: contain;
 	}
 	// .search__product-info
 	&__product-info {
