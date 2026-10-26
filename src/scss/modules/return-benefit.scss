@@ -5,30 +5,35 @@
 	padding: rem(20);
 	border-radius: rem(10);
 	background: #f2f2f2;
+
 	@media (min-width: $md2) {
 		padding: rem(30);
 		min-height: rem(220);
 	}
-	// .return-benefit__heading
-	&__heading {
+
+	// .return-benefit__title
+	&__title {
 		display: flex;
 		align-items: center;
 		gap: rem(15);
 		margin-bottom: rem(10);
+
+		&::before {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			flex-shrink: 0;
+			width: rem(36);
+			height: rem(36);
+			border-radius: 50%;
+			background: #ff7a00;
+			color: #fff;
+			font-size: rem(20);
+
+		}
 	}
-	// .return-benefit__icon
-	&__icon {
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
-		width: rem(36);
-		height: rem(36);
-		border-radius: 50%;
-		background: #ff7a00;
-		color: #fff;
-		font-size: rem(20);
-	}
+
+
 	// .return-benefit__text
 	&__text {
 		font-size: rem(14);

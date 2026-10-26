@@ -3,45 +3,56 @@
 // .returns
 .returns {
 	padding: rem(20) 0 rem(40);
+
 	@media (min-width: $md4) {
 		padding-bottom: rem(60);
 	}
+
 	// .returns__title
 	&__title {
 		margin-bottom: rem(30);
 	}
+
 	// .returns__caption
 	&__caption {
 		margin-bottom: rem(20);
 	}
+
 	// .returns__description
 	&__description {
 		font-size: rem(16);
 		line-height: math.div(22, 16);
 		color: #2b2b2b;
 	}
+
 	// .returns__benefits
 	&__benefits {
 		display: grid;
 		gap: rem(10);
 		margin: rem(30) 0;
+
 		@media (min-width: $md4) {
 			grid-template-columns: repeat(3, 1fr);
+			gap: rem(20);
 		}
 	}
+
 	// .returns__section
 	&__section {
 		margin-top: rem(40);
+
 		@media (min-width: $md4) {
 			margin-top: rem(60);
 		}
 	}
+
 	// .returns__description + .return-steps
-	&__description + .return-steps {
+	&__description+.return-steps {
 		margin-top: rem(30);
 	}
+
 	// .returns__caption + .return-steps
-	&__caption + .return-steps {
+	&__caption+.return-steps {
 		margin-top: rem(30);
 	}
 }

@@ -12,11 +12,7 @@
 		flex-wrap: nowrap;
 		overflow: hidden;
 		white-space: nowrap;
-		gap: rem(4);
-
-		@media (min-width: $md4) {
-			gap: rem(8);
-		}
+		gap: rem(5);
 	}
 
 	// .breadcrumbs__item
@@ -44,16 +40,13 @@
 				color: #6a6b6d;
 				width: 1rem;
 				height: 1rem;
+				flex-shrink: 0;
 				justify-content: center;
 				align-items: center;
 				font-size: 1rem;
-				align-self: center;
 				align-content: center;
-				margin-left: rem(4);
-
-				@media (min-width: $md4) {
-					margin-left: rem(8);
-				}
+				align-self: center;
+				margin-left: rem(5);
 			}
 		}
 	}
@@ -70,6 +63,7 @@
 			transition: color 0.3s ease;
 
 			@media (any-hover: hover) {
+
 				// .breadcrumbs__link:is(a):hover
 				&:hover {
 					color: $orange;
