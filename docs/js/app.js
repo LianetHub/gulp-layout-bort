@@ -1509,6 +1509,76 @@
 
     // === cart ===
 
+    class ActionCounter {
+        constructor(icon, label) {
+            this.icon = icon;
+            this.label = label;
+            this.quantity = 0;
+        }
+
+        changeQuantity(delta, animate = true) {
+            const previous = this.quantity;
+
+            this.quantity = Math.max(0, previous + delta);
+            if (this.quantity !== previous) {
+                this.render(previous, animate);
+            }
+        }
+
+        render(previous = 0, animate = false) {
+            const quantity = this.quantity;
+            const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            document.querySelectorAll(`.main-actions__item.${this.icon}`).forEach((link) => {
+                link.setAttribute(
+                    'aria-label',
+                    quantity
+                        ? `${this.label}: ${quantity} ${TextUtils.productWord(quantity)}`
+                        : this.label,
+                );
+                const badge = link.querySelector('.main-actions__quanitity');
+
+                if (!badge) {
+                    return;
+                }
+
+                if (!quantity || !animate || reducedMotion) {
+                    badge.getAnimations().forEach((animation) => animation.cancel());
+                }
+                badge.textContent = quantity || '';
+                badge.hidden = quantity === 0;
+                if (!animate || reducedMotion || previous > 0 || quantity === 0) {
+                    return;
+                }
+
+                const frames = [
+                    {
+                        scale: '0.4',
+                        opacity: 0,
+                    },
+                    {
+                        scale: '1.22',
+                        opacity: 1,
+                        offset: 0.55,
+                    },
+                    {
+                        scale: '1',
+                        opacity: 1,
+                    },
+                ];
+
+                badge.animate(frames, {
+                    duration: 320,
+                    easing: 'cubic-bezier(0.22, 0.61, 0.36, 1)',
+                });
+            });
+        }
+    }
+
+    const cartCounter = new ActionCounter('icon-cart', 'Корзина');
+    const favoriteCounter = new ActionCounter('icon-heart', 'Избранное');
+    const comparisonCounter = new ActionCounter('icon-bars', 'Сравнение');
+
     class CartController {
         static calculateCart(items) {
             return items.reduce(
@@ -1655,12 +1725,11 @@
                 '−' + TextUtils.money(totals.discount);
             this.element.querySelector('[data-cart-count]').textContent =
                 totals.quantity + ' ' + TextUtils.productWord(totals.quantity);
-            document
-                .querySelectorAll('.main-actions__item.icon-cart .main-actions__quanitity')
-                .forEach((badge) => {
-                    badge.textContent = totals.quantity;
-                    badge.hidden = totals.quantity === 0;
-                });
+            cartCounter.changeQuantity(
+                totals.quantity - (this.quantity || 0),
+                this.quantity !== undefined,
+            );
+            this.quantity = totals.quantity;
             this.element.querySelector('[data-cart-weight]').textContent =
                 totals.weight.toLocaleString('ru-RU', {
                     maximumFractionDigits: 2,
@@ -2065,6 +2134,7 @@
             ];
             this.ids = this.items.map((item) => item.dataset.compareId);
             this.activeIds = this.ids.map((id, index) => index);
+            comparisonCounter.changeQuantity(this.activeIds.length, false);
             this.desktopQuery = window.matchMedia('(min-width: 1199.98px)');
             this.mode = 'all';
             this.populatedCategory = this.root.querySelector(
@@ -2353,25 +2423,6 @@
         }
 
         handleClick(event) {
-            const favorite = event.target.closest('.favorite-btn');
-
-            if (favorite) {
-                queueMicrotask(() => {
-                    const id = favorite.closest('[data-compare-id]').dataset.compareId;
-                    const active = favorite.classList.contains('active');
-
-                    this.root.querySelectorAll('[data-compare-id]').forEach((item) => {
-                        if (item.dataset.compareId !== id) {
-                            return;
-                        }
-
-                        const button = item.querySelector('.favorite-btn');
-
-                        button.classList.toggle('active', active);
-                        button.setAttribute('aria-pressed', String(active));
-                    });
-                });
-            }
             const remove = event.target.closest('[data-compare-remove]');
             const clear = event.target.closest('[data-compare-clear]');
             const tab = event.target.closest('[data-compare-category]');
@@ -2393,12 +2444,14 @@
                 ? this.activeIds.findIndex((original) => this.ids[original] === removed)
                 : -1;
             const slideIndexes = clear ? this.activeIds.map((id, position) => position) : [index];
+            const previousCount = this.activeIds.length;
 
             if (clear) {
                 this.activeIds.length = 0;
             } else if (index >= 0) {
                 this.activeIds.splice(index, 1);
             }
+            comparisonCounter.changeQuantity(this.activeIds.length - previousCount);
             [this.desktop, ...this.columns].forEach((swiper) => {
                 // Hidden responsive columns may not have measured their slides yet.
                 swiper.recalcSlides();
@@ -2627,6 +2680,10 @@
             }
 
             this.root.dataset.favoritesReady = 'true';
+            favoriteCounter.changeQuantity(
+                this.root.querySelectorAll('.favorite-btn.active').length,
+                false,
+            );
             this.root.addEventListener('click', this.handleClick);
 
             return this;
@@ -2634,6 +2691,9 @@
 
         handleClick(event) {
             if (event.target.closest('.favorites__clear')) {
+                favoriteCounter.changeQuantity(
+                    -this.root.querySelectorAll('.favorite-btn.active').length,
+                );
                 this.root.querySelectorAll('.favorite-btn').forEach((button) => {
                     button.classList.remove('active');
                     button.setAttribute('aria-pressed', 'false');
@@ -3427,8 +3487,27 @@
 
         toggleProductAction(event, button) {
             const selected = button.classList.toggle('active');
+            const counter = button.classList.contains('favorite-btn')
+                ? favoriteCounter
+                : comparisonCounter;
 
             button.setAttribute('aria-pressed', String(selected));
+            counter.changeQuantity(selected ? 1 : -1);
+            const comparedItem = button.closest('[data-compare-id]');
+
+            if (counter === favoriteCounter && comparedItem) {
+                comparedItem
+                    .closest('.comparing')
+                    .querySelectorAll('[data-compare-id]')
+                    .forEach((item) => {
+                        if (item.dataset.compareId === comparedItem.dataset.compareId) {
+                            const favorite = item.querySelector('.favorite-btn');
+
+                            favorite.classList.toggle('active', selected);
+                            favorite.setAttribute('aria-pressed', String(selected));
+                        }
+                    });
+            }
             if (selected) {
                 const product = button.closest(
                     '.product, .product-details, .comparing-card, .order-product, .cart-item',
@@ -3495,6 +3574,7 @@
                 button.classList.remove('is-added');
                 button.setAttribute('aria-pressed', 'false');
                 this.cartButtonStates.delete(button);
+                cartCounter.changeQuantity(-original.quantity);
 
                 return false;
             }
@@ -3513,6 +3593,13 @@
                 label: button.getAttribute('aria-label'),
                 icon: cartIcon || (button.classList.contains('icon-cart') ? button : null),
                 image,
+                quantity: InteractionsController.normalizeQuantity(
+                    button
+                        .closest(
+                            '.product-details__purchase-controls, .product, .product-details, .product-tile, .comparing-card, .search__product',
+                        )
+                        ?.querySelector('.quantity-block__input')?.value || 1,
+                ),
             };
 
             nodes.forEach((node) => {
@@ -3535,6 +3622,7 @@
             button.classList.add('is-added');
             button.setAttribute('aria-pressed', 'true');
             this.cartButtonStates.set(button, state);
+            cartCounter.changeQuantity(state.quantity);
             if (button.hasAttribute('aria-label')) {
                 button.setAttribute('aria-label', label);
             }
@@ -6582,6 +6670,9 @@
             window.FormController = new FormController();
             new AuthDialogs().init();
             new PartsOrderController().init();
+            [cartCounter, favoriteCounter, comparisonCounter].forEach((counter) =>
+                counter.render(),
+            );
             window.NotifyController = new NotifyController();
             new MapsController().init();
             ComparisonController.initAll();
