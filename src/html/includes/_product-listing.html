@@ -1,9 +1,11 @@
 <section class="product-listing">
     <div class="product-listing__container container">
         <div class="product-listing__heading">
-            <h1 class="product-listing__title title title-lg title--sans title--bold">Измельчители отходов</h1>
-            <span class="product-listing__count">46 товаров</span>
-            <a href="service.html" class="product-listing__advice icon-information-circle">Советы по выбору измельчителя</a>
+            <div class="product-listing__heading-main">
+                <h1 class="product-listing__title title title-lg title-lg--wide">Измельчители отходов</h1>
+                <span class="product-listing__count">48 товаров</span>
+            </div>
+            <a href="service.html" class="product-listing__advice icon-lamp-on">Советы по выбору измельчителя</a>
         </div>
         <div class="product-listing__layout">
             @@include('_listing-filter.html')
@@ -11,7 +13,7 @@
                 <div role="group" class="product-listing__tags" aria-label="Подборки товаров">
                     @@loop('../templates/_listing-tag.html', [
                     {"name":"Промышленные","active":true}, {"name":"Бытовые","active":false},
-                    {"name":"Мощные","active":false}, {"name":"Электрические","active":false},
+                    {"name":"Мощные","active":false}, {"name":"Электронные","active":false},
                     {"name":"Бесшумные","active":false}, {"name":"С авто-реверсом","active":false},
                     {"name":"Маленькие","active":false}, {"name":"Легкие","active":false}
                     ])
@@ -29,13 +31,19 @@
                     </div>
                     <button type="button" class="product-listing__filter-button icon-filter-horizontal" aria-controls="listing-filter" aria-expanded="false">Фильтры</button>
                 </div>
-                <div role="group" class="product-listing__selected" aria-label="Выбранные фильтры" hidden></div>
+                <div role="group" class="product-listing__selected" aria-label="Выбранные фильтры">
+                    <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="motor" data-filter-value="bldc">Бесщеточный</button>
+                    <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="power" data-filter-value="1200">Мощность: 1 200 Вт</button>
+                    <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="min_price,max_price">Цена: от 8 090 до 218 690</button>
+                    <button class="product-listing__chip icon-cancel-circle" type="button" data-filter-fields="stock" data-filter-value="yes">В наличии</button>
+                    <button class="product-listing__clear icon-cancel-circle" type="button">Очистить все</button>
+                </div>
                 <div class="product-listing__products">
                     @@loop('../templates/_listing-product.html', './html/json/listing-products.json')
                 </div>
                 <p class="product-listing__empty" hidden>По выбранным параметрам товары не найдены. Попробуйте изменить фильтры.</p>
                 <button type="button" class="product-listing__more icon-loading">Показать еще</button>
-                @@include('_pagination.html', {"className":"product-listing__pagination", "label":"Страницы каталога", "lastPage":4})
+                @@include('_pagination.html', {"className":"product-listing__pagination pagination--compact", "label":"Страницы каталога", "lastPage":40})
             </div>
         </div>
     </div>

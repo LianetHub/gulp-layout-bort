@@ -2,6 +2,30 @@
 
 // .pagination
 .pagination {
+	// .pagination--compact
+	&--compact {
+		// .pagination--compact .pagination__item
+		// .pagination--compact .pagination__prev
+		// .pagination--compact .pagination__next
+		.pagination__item,
+		.pagination__prev,
+		.pagination__next {
+			width: rem(36);
+			min-width: rem(36);
+			height: rem(36);
+			padding: 0;
+			background: #fff;
+		}
+		// .pagination--compact .pagination__item.active
+		.pagination__item.active {
+			background: #fff;
+			color: #ff6201;
+		}
+		// .pagination--compact .pagination__label
+		.pagination__label {
+			display: none;
+		}
+	}
 	--pagination-gap: clamp(#{rem(2)}, calc((100vw - #{rem(315)}) / 6), #{rem(10)});
 	// .pagination[hidden]
 	&[hidden] {

@@ -4125,7 +4125,7 @@
             this.handleKeydown = this.handleKeydown.bind(this);
             this.handleMediaChange = this.handleMediaChange.bind(this);
             this.submitFilter = this.submitFilter.bind(this);
-            this.clearSelectedFilters = this.clearSelectedFilters.bind(this);
+            this.handleSelectedFilters = this.handleSelectedFilters.bind(this);
             this.toggleExtraFilters = this.toggleExtraFilters.bind(this);
             this.toggleTags = this.toggleTags.bind(this);
         }
@@ -4143,6 +4143,7 @@
             this.overlay = this.root.querySelector('.listing-filter-overlay');
             this.opener = this.root.querySelector('.product-listing__filter-button');
             this.previousOverflow = '';
+            this.openSelectedGroup = '';
 
             this.opener.addEventListener('click', this.openFilter);
             this.form
@@ -4154,9 +4155,53 @@
                 .matchMedia('(min-width: 1199.98px)')
                 .addEventListener('change', this.handleMediaChange);
             this.form.addEventListener('submit', this.submitFilter);
+            this.form.addEventListener('change', () => this.renderSelectedFilters());
+            this.form.addEventListener('input', () => this.renderSelectedFilters());
+            this.form.addEventListener('reset', (event) => {
+                event.preventDefault();
+                [...this.form.elements].forEach((field) => {
+                    if (field.type === 'checkbox' || field.type === 'radio') {
+                        field.checked = false;
+                    } else if (field.tagName === 'INPUT') {
+                        field.value = '';
+                    }
+                });
+                this.renderSelectedFilters();
+            });
             this.root
                 .querySelector('.product-listing__selected')
-                ?.addEventListener('click', this.clearSelectedFilters);
+                ?.addEventListener('click', this.handleSelectedFilters);
+            this.root
+                .querySelector('.product-listing__selected')
+                .addEventListener('change', (event) => {
+                    const input = event.target.closest('.product-listing__dropdown input');
+                    if (!input) {
+                        return;
+                    }
+
+                    const source = [...this.form.elements].find(
+                        (field) =>
+                            field.name === input.dataset.filterFields &&
+                            field.value === input.value,
+                    );
+                    if (source) {
+                        source.checked = input.checked;
+                        source.dispatchEvent(
+                            new Event('change', {
+                                bubbles: true,
+                            }),
+                        );
+                    }
+                });
+            const closeSelectedOutside = (event) => {
+                const group = this.selectedDropdownGroup();
+                if (group && !group.contains(event.target)) {
+                    this.closeSelectedDropdown();
+                }
+            };
+            document.addEventListener('pointerdown', closeSelectedOutside);
+            document.addEventListener('focusin', closeSelectedOutside);
+            window.addEventListener('resize', () => this.closeSelectedDropdown());
             this.form
                 .querySelector('.listing-filter__expand')
                 .addEventListener('click', this.toggleExtraFilters);
@@ -4176,6 +4221,8 @@
                 .querySelector('.product-listing__tag--more')
                 .addEventListener('click', this.toggleTags);
 
+            this.renderSelectedFilters();
+
             return this;
         }
 
@@ -4194,6 +4241,7 @@
         }
 
         openFilter() {
+            this.closeSelectedDropdown();
             this.previousOverflow = document.body.style.overflow;
             document.body.style.overflow = 'hidden';
             this.form.classList.add('is-open');
@@ -4205,6 +4253,12 @@
         }
 
         handleKeydown(event) {
+            if (event.key === 'Escape' && this.openSelectedGroup) {
+                event.preventDefault();
+                this.closeSelectedDropdown(true);
+                return;
+            }
+
             if (!this.form.classList.contains('is-open')) {
                 return;
             }
@@ -4242,42 +4296,246 @@
             this.closeFilter();
         }
 
-        clearSelectedFilters(event) {
+        handleSelectedFilters(event) {
             const chip = event.target.closest('.product-listing__chip');
-            const clearChip = (item) => {
-                const names = (item.dataset.filterFields || '').split(',');
+            if (event.target.closest('.product-listing__clear')) {
+                this.form.reset();
+                return;
+            }
 
-                [...this.form.elements]
-                    .filter(
-                        (field) =>
-                            names.includes(field.name) &&
-                            (!item.dataset.filterValue || field.value === item.dataset.filterValue),
-                    )
-                    .forEach((field) => {
-                        if (field.type === 'checkbox' || field.type === 'radio') {
-                            field.checked = false;
-                        } else {
-                            field.value = '';
-                        }
-                        field.dispatchEvent(
-                            new Event('change', {
-                                bubbles: true,
-                            }),
-                        );
-                    });
-                item.remove();
+            if (!chip) {
+                return;
+            }
+
+            if (
+                chip.classList.contains('product-listing__chip--group') &&
+                !event.target.closest('.product-listing__chip-remove')
+            ) {
+                const name = chip.dataset.filterFields;
+                if (this.openSelectedGroup === name) {
+                    this.closeSelectedDropdown();
+                } else {
+                    this.closeSelectedDropdown();
+                    this.openSelectedGroup = name;
+                    this.showSelectedDropdown();
+                }
+                return;
+            }
+
+            const names = chip.dataset.filterFields.split(',');
+            [...this.form.elements]
+                .filter(
+                    (field) =>
+                        names.includes(field.name) &&
+                        (!chip.dataset.filterValue || field.value === chip.dataset.filterValue),
+                )
+                .forEach((field) => {
+                    if (field.type === 'checkbox' || field.type === 'radio') {
+                        field.checked = false;
+                    } else {
+                        field.value = '';
+                    }
+                });
+            this.renderSelectedFilters();
+        }
+
+        selectedDropdownGroup() {
+            return [...this.root.querySelectorAll('.product-listing__filter-group')].find(
+                (group) => group.dataset.filterGroup === this.openSelectedGroup,
+            );
+        }
+
+        closeSelectedDropdown(restoreFocus = false) {
+            const group = this.selectedDropdownGroup();
+            this.openSelectedGroup = '';
+            if (group) {
+                group.querySelector('.product-listing__dropdown').hidden = true;
+                const toggle = group.querySelector('.product-listing__chip-toggle');
+                toggle.setAttribute('aria-expanded', 'false');
+                if (restoreFocus) {
+                    toggle.focus();
+                }
+            }
+        }
+
+        showSelectedDropdown() {
+            const group = this.selectedDropdownGroup();
+            if (!group) {
+                this.openSelectedGroup = '';
+                return;
+            }
+
+            const dropdown = group.querySelector('.product-listing__dropdown');
+            dropdown.hidden = false;
+            group
+                .querySelector('.product-listing__chip-toggle')
+                .setAttribute('aria-expanded', 'true');
+            dropdown.style.left = '0px';
+            dropdown.classList.remove('is-above');
+            dropdown.style.maxHeight = '';
+            const bounds = dropdown.getBoundingClientRect();
+            const anchor = group.getBoundingClientRect();
+            const viewport = document.documentElement.clientWidth;
+            const shift = Math.max(15 - bounds.left, Math.min(0, viewport - 15 - bounds.right));
+            dropdown.style.left = `${shift}px`;
+            const below = window.innerHeight - anchor.bottom - 20;
+            const above = anchor.top - 20;
+            const opensAbove = bounds.height > below && above > below;
+            dropdown.classList.toggle('is-above', opensAbove);
+            dropdown.style.maxHeight = `${Math.max(40, Math.min(320, opensAbove ? above : below))}px`;
+        }
+
+        renderSelectedFilters() {
+            const selected = this.root.querySelector('.product-listing__selected');
+            const activeInput = document.activeElement.closest('.product-listing__dropdown input');
+            const focusedGroup = this.openSelectedGroup;
+            const focusedValue = activeInput?.value;
+            const previousScroll =
+                this.selectedDropdownGroup()?.querySelector('.product-listing__dropdown')
+                    .scrollTop || 0;
+            const formatNumber = (value) =>
+                Number(value)
+                    .toLocaleString('ru-RU')
+                    .replace(/\u00a0/g, ' ');
+            const appendChip = (text, fields, value = '') => {
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'product-listing__chip icon-cancel-circle';
+                button.textContent = text;
+                button.dataset.filterFields = fields;
+                button.dataset.filterValue = value;
+                button.setAttribute('aria-label', `Удалить фильтр: ${text}`);
+                selected.append(button);
+            };
+            const appendChoiceGroup = (group, label, singleLabel) => {
+                const choices = [...group.querySelectorAll('input[type="checkbox"]')];
+                const checked = choices.filter((field) => field.checked);
+                if (!checked.length) {
+                    return;
+                }
+
+                const name = checked[0].name;
+                if (checked.length === 1) {
+                    const field = checked[0];
+                    const valueLabel = field.closest('label').textContent.trim();
+                    appendChip(
+                        singleLabel ? singleLabel(field, valueLabel) : `${label}: ${valueLabel}`,
+                        name,
+                        field.value,
+                    );
+                    return;
+                }
+
+                const wrapper = document.createElement('div');
+                wrapper.className = 'product-listing__filter-group';
+                wrapper.dataset.filterGroup = name;
+                const chip = document.createElement('div');
+                chip.className = 'product-listing__chip product-listing__chip--group';
+                chip.dataset.filterFields = name;
+                const remove = document.createElement('button');
+                remove.type = 'button';
+                remove.className = 'product-listing__chip-remove icon-close';
+                remove.setAttribute('aria-label', `Очистить группу: ${label}`);
+                const toggle = document.createElement('button');
+                toggle.type = 'button';
+                toggle.className = 'product-listing__chip-toggle';
+                toggle.textContent = `${label}: ${checked.length}`;
+                toggle.setAttribute('aria-label', toggle.textContent);
+                toggle.setAttribute('aria-expanded', 'false');
+                toggle.setAttribute('aria-controls', `listing-dropdown-${name}`);
+                const dropdown = document.createElement('div');
+                dropdown.className = 'product-listing__dropdown';
+                dropdown.id = `listing-dropdown-${name}`;
+                dropdown.hidden = true;
+                dropdown.setAttribute('role', 'group');
+                dropdown.setAttribute('aria-label', label);
+                choices.forEach((field) => {
+                    const option = field.closest('label').cloneNode(true);
+                    option.className = 'product-listing__dropdown-choice checkbox';
+                    option.removeAttribute('for');
+                    const input = option.querySelector('input');
+                    input.removeAttribute('id');
+                    input.removeAttribute('name');
+                    input.dataset.filterFields = name;
+                    input.checked = field.checked;
+                    input.setAttribute(
+                        'aria-label',
+                        option.querySelector('.checkbox__text').textContent.trim(),
+                    );
+                    dropdown.append(option);
+                });
+                chip.append(remove, toggle);
+                wrapper.append(chip, dropdown);
+                selected.append(wrapper);
+            };
+            const appendRange = (min, max, label) => {
+                const from = this.form.elements.namedItem(min)?.value || '';
+                const to = this.form.elements.namedItem(max)?.value || '';
+                if (from !== '' || to !== '') {
+                    const values = [
+                        from !== '' ? `от ${formatNumber(from)}` : '',
+                        to !== '' ? `до ${formatNumber(to)}` : '',
+                    ]
+                        .filter(Boolean)
+                        .join(' ');
+                    appendChip(`${label}: ${values}`, `${min},${max}`);
+                }
             };
 
-            if (chip) {
-                clearChip(chip);
+            selected.replaceChildren();
+            for (const name of ['motor', 'power']) {
+                const group = this.form
+                    .querySelector(`input[name="${name}"]`)
+                    .closest('.listing-filter__group');
+                appendChoiceGroup(
+                    group,
+                    name === 'power' ? 'Мощность' : 'Тип мотора',
+                    (field, label) =>
+                        name === 'power'
+                            ? `Мощность: ${formatNumber(field.value)} Вт`
+                            : label.replace(/\s*\(.*\)$/, ''),
+                );
             }
-            if (event.target.closest('.product-listing__clear')) {
-                this.root.querySelectorAll('.product-listing__chip').forEach(clearChip);
+            appendRange('min_price', 'max_price', 'Цена');
+            if (this.form.elements.namedItem('stock').checked) {
+                appendChip('В наличии', 'stock', 'yes');
             }
-            const selected = this.root.querySelector('.product-listing__selected');
+            this.form
+                .querySelectorAll('.listing-filter__advanced .listing-filter__group')
+                .forEach((group) => {
+                    const label = group.querySelector('summary').textContent.trim();
+                    appendChoiceGroup(group, label);
+                    const range = group.querySelectorAll('input[type="number"]');
+                    if (range.length === 2) {
+                        appendRange(range[0].name, range[1].name, label);
+                    }
+                });
+            selected.hidden = !selected.children.length;
+            if (!selected.hidden) {
+                const clear = document.createElement('button');
+                clear.type = 'button';
+                clear.className = 'product-listing__clear icon-cancel-circle';
+                clear.textContent = 'Очистить все';
+                selected.append(clear);
+            }
 
-            if (!selected.querySelector('.product-listing__chip')) {
-                selected.hidden = true;
+            this.showSelectedDropdown();
+            const dropdown = this.selectedDropdownGroup()?.querySelector(
+                '.product-listing__dropdown',
+            );
+            if (dropdown) {
+                dropdown.scrollTop = previousScroll;
+            }
+            if (activeInput) {
+                const next = [...(dropdown?.querySelectorAll('input') || [])].find(
+                    (input) => input.value === focusedValue,
+                );
+                const single = [...selected.querySelectorAll('button.product-listing__chip')].find(
+                    (button) => button.dataset.filterFields === focusedGroup,
+                );
+                (next || single || selected.querySelector('button'))?.focus({
+                    preventScroll: true,
+                });
             }
         }
 

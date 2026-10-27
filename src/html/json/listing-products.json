@@ -6,11 +6,35 @@
         "image": "@img/goods/titan-5000.png",
         "price": "23 490",
         "amount": 23490,
-        "oldPrice": "31 990",
+        "oldPrice": "27 590",
         "power": 375,
         "motor": "pmdc",
         "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
+        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом",
+        "guarantee": true,
+        "sale": true,
+        "images": [
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            },
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            },
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            },
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            },
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            }
+        ]
     },
     {
         "order": 2,
@@ -19,11 +43,35 @@
         "image": "@img/goods/BHK-20LI.png",
         "price": "24 690",
         "amount": 24690,
-        "oldPrice": "28 990",
+        "oldPrice": "18 590",
         "power": 1200,
         "motor": "bldc",
         "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
+        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие",
+        "guarantee": true,
+        "sale": false,
+        "images": [
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            },
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            },
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            },
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            },
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            }
+        ]
     },
     {
         "order": 3,
@@ -32,11 +80,35 @@
         "image": "@img/goods/BRS-18LI-X.png",
         "price": "20 690",
         "amount": 20690,
-        "oldPrice": "24 590",
+        "oldPrice": "18 590",
         "power": 390,
         "motor": "induction",
         "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
+        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом",
+        "guarantee": false,
+        "sale": false,
+        "images": [
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            },
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            },
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            },
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            },
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            }
+        ]
     },
     {
         "order": 4,
@@ -45,11 +117,35 @@
         "image": "@img/goods/titan-5000.png",
         "price": "23 490",
         "amount": 23490,
-        "oldPrice": "31 990",
+        "oldPrice": "18 590",
         "power": 375,
         "motor": "pmdc",
         "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
+        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие",
+        "guarantee": true,
+        "sale": false,
+        "images": [
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            },
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            },
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            },
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            },
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            }
+        ]
     },
     {
         "order": 5,
@@ -58,11 +154,35 @@
         "image": "@img/goods/BHK-20LI.png",
         "price": "24 690",
         "amount": 24690,
-        "oldPrice": "28 990",
+        "oldPrice": "18 590",
         "power": 1200,
         "motor": "bldc",
         "stock": false,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
+        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом",
+        "guarantee": true,
+        "sale": false,
+        "images": [
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            },
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            },
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            },
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            },
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            }
+        ]
     },
     {
         "order": 6,
@@ -71,11 +191,35 @@
         "image": "@img/goods/BRS-18LI-X.png",
         "price": "20 690",
         "amount": 20690,
-        "oldPrice": "24 590",
+        "oldPrice": "18 590",
         "power": 390,
         "motor": "induction",
         "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
+        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие",
+        "guarantee": false,
+        "sale": false,
+        "images": [
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            },
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            },
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            },
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            },
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            }
+        ]
     },
     {
         "order": 7,
@@ -84,11 +228,35 @@
         "image": "@img/goods/titan-5000.png",
         "price": "23 490",
         "amount": 23490,
-        "oldPrice": "31 990",
+        "oldPrice": "18 590",
         "power": 375,
         "motor": "pmdc",
         "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
+        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом",
+        "guarantee": true,
+        "sale": false,
+        "images": [
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            },
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            },
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            },
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            },
+            {
+                "image": "@img/goods/titan-5000.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 5000"
+            }
+        ]
     },
     {
         "order": 8,
@@ -97,11 +265,35 @@
         "image": "@img/goods/BHK-20LI.png",
         "price": "24 690",
         "amount": 24690,
-        "oldPrice": "28 990",
+        "oldPrice": "18 590",
         "power": 1200,
         "motor": "bldc",
         "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
+        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие",
+        "guarantee": true,
+        "sale": false,
+        "images": [
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            },
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            },
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            },
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            },
+            {
+                "image": "@img/goods/BHK-20LI.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 6000"
+            }
+        ]
     },
     {
         "order": 9,
@@ -110,491 +302,34 @@
         "image": "@img/goods/BRS-18LI-X.png",
         "price": "20 690",
         "amount": 20690,
-        "oldPrice": "24 590",
+        "oldPrice": "18 590",
         "power": 390,
         "motor": "induction",
         "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 10,
-        "sku": "2809810",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": false,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 11,
-        "sku": "2809811",
-        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/goods/BHK-20LI.png",
-        "price": "24 690",
-        "amount": 24690,
-        "oldPrice": "28 990",
-        "power": 1200,
-        "motor": "bldc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 12,
-        "sku": "2809812",
-        "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/goods/BRS-18LI-X.png",
-        "price": "20 690",
-        "amount": 20690,
-        "oldPrice": "24 590",
-        "power": 390,
-        "motor": "induction",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 13,
-        "sku": "2809813",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 14,
-        "sku": "2809814",
-        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/goods/BHK-20LI.png",
-        "price": "24 690",
-        "amount": 24690,
-        "oldPrice": "28 990",
-        "power": 1200,
-        "motor": "bldc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 15,
-        "sku": "2809815",
-        "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/goods/BRS-18LI-X.png",
-        "price": "20 690",
-        "amount": 20690,
-        "oldPrice": "24 590",
-        "power": 390,
-        "motor": "induction",
-        "stock": false,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 16,
-        "sku": "2809816",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 17,
-        "sku": "2809817",
-        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/goods/BHK-20LI.png",
-        "price": "24 690",
-        "amount": 24690,
-        "oldPrice": "28 990",
-        "power": 1200,
-        "motor": "bldc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 18,
-        "sku": "2809818",
-        "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/goods/BRS-18LI-X.png",
-        "price": "20 690",
-        "amount": 20690,
-        "oldPrice": "24 590",
-        "power": 390,
-        "motor": "induction",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 19,
-        "sku": "2809819",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 20,
-        "sku": "2809820",
-        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/goods/BHK-20LI.png",
-        "price": "24 690",
-        "amount": 24690,
-        "oldPrice": "28 990",
-        "power": 1200,
-        "motor": "bldc",
-        "stock": false,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 21,
-        "sku": "2809821",
-        "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/goods/BRS-18LI-X.png",
-        "price": "20 690",
-        "amount": 20690,
-        "oldPrice": "24 590",
-        "power": 390,
-        "motor": "induction",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 22,
-        "sku": "2809822",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 23,
-        "sku": "2809823",
-        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/goods/BHK-20LI.png",
-        "price": "24 690",
-        "amount": 24690,
-        "oldPrice": "28 990",
-        "power": 1200,
-        "motor": "bldc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 24,
-        "sku": "2809824",
-        "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/goods/BRS-18LI-X.png",
-        "price": "20 690",
-        "amount": 20690,
-        "oldPrice": "24 590",
-        "power": 390,
-        "motor": "induction",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 25,
-        "sku": "2809825",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": false,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 26,
-        "sku": "2809826",
-        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/goods/BHK-20LI.png",
-        "price": "24 690",
-        "amount": 24690,
-        "oldPrice": "28 990",
-        "power": 1200,
-        "motor": "bldc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 27,
-        "sku": "2809827",
-        "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/goods/BRS-18LI-X.png",
-        "price": "20 690",
-        "amount": 20690,
-        "oldPrice": "24 590",
-        "power": 390,
-        "motor": "induction",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 28,
-        "sku": "2809828",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 29,
-        "sku": "2809829",
-        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/goods/BHK-20LI.png",
-        "price": "24 690",
-        "amount": 24690,
-        "oldPrice": "28 990",
-        "power": 1200,
-        "motor": "bldc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 30,
-        "sku": "2809830",
-        "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/goods/BRS-18LI-X.png",
-        "price": "20 690",
-        "amount": 20690,
-        "oldPrice": "24 590",
-        "power": 390,
-        "motor": "induction",
-        "stock": false,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 31,
-        "sku": "2809831",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 32,
-        "sku": "2809832",
-        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/goods/BHK-20LI.png",
-        "price": "24 690",
-        "amount": 24690,
-        "oldPrice": "28 990",
-        "power": 1200,
-        "motor": "bldc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 33,
-        "sku": "2809833",
-        "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/goods/BRS-18LI-X.png",
-        "price": "20 690",
-        "amount": 20690,
-        "oldPrice": "24 590",
-        "power": 390,
-        "motor": "induction",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 34,
-        "sku": "2809834",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 35,
-        "sku": "2809835",
-        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/goods/BHK-20LI.png",
-        "price": "24 690",
-        "amount": 24690,
-        "oldPrice": "28 990",
-        "power": 1200,
-        "motor": "bldc",
-        "stock": false,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 36,
-        "sku": "2809836",
-        "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/goods/BRS-18LI-X.png",
-        "price": "20 690",
-        "amount": 20690,
-        "oldPrice": "24 590",
-        "power": 390,
-        "motor": "induction",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 37,
-        "sku": "2809837",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 38,
-        "sku": "2809838",
-        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/goods/BHK-20LI.png",
-        "price": "24 690",
-        "amount": 24690,
-        "oldPrice": "28 990",
-        "power": 1200,
-        "motor": "bldc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 39,
-        "sku": "2809839",
-        "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/goods/BRS-18LI-X.png",
-        "price": "20 690",
-        "amount": 20690,
-        "oldPrice": "24 590",
-        "power": 390,
-        "motor": "induction",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 40,
-        "sku": "2809840",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": false,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 41,
-        "sku": "2809841",
-        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/goods/BHK-20LI.png",
-        "price": "24 690",
-        "amount": 24690,
-        "oldPrice": "28 990",
-        "power": 1200,
-        "motor": "bldc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 42,
-        "sku": "2809842",
-        "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/goods/BRS-18LI-X.png",
-        "price": "20 690",
-        "amount": 20690,
-        "oldPrice": "24 590",
-        "power": 390,
-        "motor": "induction",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 43,
-        "sku": "2809843",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 44,
-        "sku": "2809844",
-        "name": "Измельчитель пищевых отходов BORT TITAN 6000",
-        "image": "@img/goods/BHK-20LI.png",
-        "price": "24 690",
-        "amount": 24690,
-        "oldPrice": "28 990",
-        "power": 1200,
-        "motor": "bldc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
-    },
-    {
-        "order": 45,
-        "sku": "2809845",
-        "name": "Измельчитель пищевых отходов BORT TITAN 4000",
-        "image": "@img/goods/BRS-18LI-X.png",
-        "price": "20 690",
-        "amount": 20690,
-        "oldPrice": "24 590",
-        "power": 390,
-        "motor": "induction",
-        "stock": false,
-        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом"
-    },
-    {
-        "order": 46,
-        "sku": "2809846",
-        "name": "Измельчитель пищевых отходов BORT TITAN 5000",
-        "image": "@img/goods/titan-5000.png",
-        "price": "23 490",
-        "amount": 23490,
-        "oldPrice": "31 990",
-        "power": 375,
-        "motor": "pmdc",
-        "stock": true,
-        "tags": "Промышленные|Электрические|Бытовые|Маленькие|Легкие"
+        "tags": "Промышленные|Электрические|Мощные|Бесшумные|С авто-реверсом",
+        "guarantee": false,
+        "sale": false,
+        "images": [
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            },
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            },
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            },
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            },
+            {
+                "image": "@img/goods/BRS-18LI-X.png",
+                "name": "Измельчитель пищевых отходов BORT TITAN 4000"
+            }
+        ]
     }
 ]

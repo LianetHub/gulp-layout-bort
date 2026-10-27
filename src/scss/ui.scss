@@ -110,6 +110,13 @@
 		font-size: rem(36);
 		line-height: math.div(48, 36);
 	}
+	// .title-lg--wide
+	&--wide {
+		@media (min-width: $md4) {
+			font-size: rem(36);
+			line-height: math.div(48, 36);
+		}
+	}
 }
 
 // .title-xl

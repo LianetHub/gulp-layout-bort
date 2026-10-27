@@ -13,14 +13,14 @@
     </div>
     <label class="listing-filter__stock">
         <span class="listing-filter__caption">В наличии</span>
-        <input type="checkbox" name="stock" class="listing-filter__switch" value="yes">
+        <input type="checkbox" name="stock" class="listing-filter__switch" value="yes" @@if(typeof search==='undefined' || !search){checked}>
     </label>
     <fieldset class="listing-filter__price">
         <legend class="listing-filter__caption">Цена, ₽</legend>
         <div class="listing-filter__range">
-            <input type="number" class="listing-filter__input" name="min_price" @@if(typeof search !=='undefined' && search){value="8090" } aria-label="Минимальная цена" min="0" placeholder="8 990">
+            <input type="number" class="listing-filter__input" name="min_price" value="8090" aria-label="Минимальная цена" min="0" placeholder="От">
             <span class="listing-filter__dash">–</span>
-            <input type="number" class="listing-filter__input" name="max_price" @@if(typeof search !=='undefined' && search){value="218690" } aria-label="Максимальная цена" min="0" placeholder="218 690">
+            <input type="number" class="listing-filter__input" name="max_price" value="218690" aria-label="Максимальная цена" min="0" placeholder="До">
         </div>
     </fieldset>
     <details class="listing-filter__group" open>
@@ -28,7 +28,7 @@
         <div class="listing-filter__choices">
             @@loop('../templates/_listing-choice.html', [
             {"group":"power","value":"1125","label":"1 125","checked":false},
-            {"group":"power","value":"1200","label":"1 200","checked":@@if(typeof search !== 'undefined' && search){true}@@if(typeof search === 'undefined' || !search){false}},
+            {"group":"power","value":"1200","label":"1 200","checked":true},
             {"group":"power","value":"1470","label":"1 470","checked":false},
             {"group":"power","value":"375","label":"375","checked":false},
             {"group":"power","value":"390","label":"390","checked":false}
@@ -44,7 +44,7 @@
         <summary class="listing-filter__summary">Тип мотора</summary>
         <div class="listing-filter__choices">
             @@loop('../templates/_listing-choice.html', [
-            {"group":"motor","value":"bldc","label":"Бесщеточный (BLDC)","checked":@@if(typeof search !== 'undefined' && search){true}@@if(typeof search === 'undefined' || !search){false}},
+            {"group":"motor","value":"bldc","label":"Бесщеточный (BLDC)","checked":true},
             {"group":"motor","value":"induction","label":"Бесщеточный (индукционный)","checked":false},
             {"group":"motor","value":"pmdc","label":"Щеточный (PMDC)","checked":false}
             ])
