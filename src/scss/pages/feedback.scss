@@ -1,9 +1,9 @@
 // .feedback
 .feedback {
-	padding: rem(20) 0 rem(40);
-
-	@media (min-width: $md4) {
-		padding-bottom: rem(60);
+	padding: rem(20) 0 rem(60);
+	// .feedback__container
+	&__container {
+		padding-inline: rem(20);
 	}
 
 	// .feedback__title
@@ -18,7 +18,7 @@
 		align-items: stretch;
 		gap: rem(30);
 
-		@media (min-width: $md2) {
+		@media (min-width: $md3) {
 			flex-direction: row;
 			align-items: flex-start;
 			gap: rem(90);
@@ -35,7 +35,9 @@
 	&__summary {
 		order: -1;
 
-		@media (min-width: $md2) {
+		@media (min-width: $md3) {
+			position: sticky;
+			top: calc(#{$header} + 1rem);
 			order: 0;
 			flex: 0 0 rem(330);
 		}

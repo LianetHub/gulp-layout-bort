@@ -2462,18 +2462,13 @@
     // === effects ===
 
     class Effects {
-        static effects = new WeakMap();
-
         static displays = new WeakMap();
-
-        static slides = new WeakMap();
 
         static show(element) {
             if (!element) {
                 return;
             }
 
-            Effects.cancelEffect(element);
             element.hidden = false;
             if (element.style.display === 'none') {
                 element.style.display = Effects.displays.get(element) || '';
@@ -2488,191 +2483,10 @@
                 return;
             }
 
-            Effects.cancelEffect(element);
             if (element.style.display !== 'none') {
                 Effects.displays.set(element, element.style.display);
             }
             element.style.display = 'none';
-        }
-
-        static cancelEffect(element) {
-            const running = Effects.effects.get(element);
-
-            if (!running) {
-                return;
-            }
-
-            Effects.effects.delete(element);
-            clearTimeout(running.timer);
-            running.animation.cancel();
-        }
-
-        static animateVisibility(element, opening, duration, callback) {
-            if (!element) {
-                return;
-            }
-
-            const running = Effects.effects.get(element);
-
-            if (running?.opening === opening) {
-                return;
-            }
-
-            const visible = getComputedStyle(element).display !== 'none' && !element.hidden;
-
-            if (!running && visible === opening) {
-                return;
-            }
-
-            const current = getComputedStyle(element);
-            const from = {
-                opacity: current.opacity,
-            };
-
-            Effects.show(element);
-            const style = getComputedStyle(element);
-            const expanded = {
-                opacity: style.opacity,
-            };
-            const collapsed = {
-                opacity: 0,
-            };
-            const finish = () => {
-                if (!opening) {
-                    Effects.hide(element);
-                    element.hidden = true;
-                }
-                callback?.call(element);
-            };
-
-            if (!element.animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                finish();
-
-                return;
-            }
-            const animation = element.animate(
-                [running || visible ? from : collapsed, opening ? expanded : collapsed],
-                {
-                    duration,
-                    easing: 'ease',
-                    fill: 'both',
-                },
-            );
-            const state = {
-                animation,
-                opening,
-            };
-
-            Effects.effects.set(element, state);
-            const complete = () => {
-                if (Effects.effects.get(element) !== state) {
-                    return;
-                }
-
-                Effects.effects.delete(element);
-                clearTimeout(state.timer);
-                animation.cancel();
-                finish();
-            };
-
-            // Background tabs can suspend the animation timeline; keep logical state timely.
-            state.timer = setTimeout(complete, duration);
-            animation.finished.then(complete, () => {});
-        }
-
-        static fade(element, opening, duration = 300, callback) {
-            return Effects.animateVisibility(element, opening, duration, callback);
-        }
-
-        static slide(element, opening, duration = 300) {
-            if (!element) {
-                return;
-            }
-
-            const previous = Effects.slides.get(element);
-
-            if (previous?.opening === opening) {
-                return;
-            }
-
-            const visible = !element.hidden && getComputedStyle(element).display !== 'none';
-
-            if (!previous && visible === opening) {
-                return;
-            }
-
-            const measure = () => {
-                const css = getComputedStyle(element);
-                return {
-                    height: element.getBoundingClientRect().height + 'px',
-                    paddingTop: css.paddingTop,
-                    paddingBottom: css.paddingBottom,
-                    marginTop: css.marginTop,
-                    marginBottom: css.marginBottom,
-                    borderTopWidth: css.borderTopWidth,
-                    borderBottomWidth: css.borderBottomWidth,
-                };
-            };
-            const collapsed = {
-                height: '0px',
-                paddingTop: '0px',
-                paddingBottom: '0px',
-                marginTop: '0px',
-                marginBottom: '0px',
-                borderTopWidth: '0px',
-                borderBottomWidth: '0px',
-            };
-            const from = visible ? measure() : collapsed;
-            const original = previous?.original || {
-                overflow: element.style.overflow,
-                boxSizing: element.style.boxSizing,
-            };
-
-            if (previous) {
-                Effects.slides.delete(element);
-                clearTimeout(previous.timer);
-                previous.animation.cancel();
-            }
-            element.hidden = false;
-            element.style.boxSizing = 'border-box';
-            const expanded = measure();
-            const finish = () => {
-                element.hidden = !opening;
-                element.style.overflow = original.overflow;
-                element.style.boxSizing = original.boxSizing;
-            };
-
-            if (!element.animate || window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-                finish();
-
-                return;
-            }
-            element.style.overflow = 'hidden';
-            const animation = element.animate([from, opening ? expanded : collapsed], {
-                duration,
-                easing: 'ease',
-                fill: 'both',
-            });
-            const state = {
-                animation,
-                original,
-                opening,
-            };
-
-            Effects.slides.set(element, state);
-            const complete = () => {
-                if (Effects.slides.get(element) !== state) {
-                    return;
-                }
-
-                Effects.slides.delete(element);
-                clearTimeout(state.timer);
-                animation.cancel();
-                finish();
-            };
-
-            state.timer = setTimeout(complete, duration);
-            animation.finished.then(complete, () => {});
         }
 
         static scrollToPosition(top) {
@@ -3895,15 +3709,6 @@
                 map.container.fitToViewport();
                 window.addEventListener('resize', () => map.container.fitToViewport());
             });
-        }
-    }
-
-    // === news ===
-
-    // News cards and pagination are rendered by templates; loading belongs to the server.
-    class NewsController {
-        init() {
-            return this;
         }
     }
 
@@ -6331,7 +6136,6 @@
             new OrderDetailsController().init();
             new AccountController().init();
             new ReviewsController().init();
-            new NewsController().init();
             FaqController.initAll();
             const navigation = new HeaderController().init();
 

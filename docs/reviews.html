@@ -430,7 +430,7 @@
                     <div class="feedback__container container">
                         <h1 class="feedback__title title title-lg" id="feedback-title">Отзывы</h1>
                         <div class="feedback__layout">
-                            <div class="feedback__reviews review-group">
+                            <div class="feedback__reviews review-group review-group--full">
                                 <div class="feedback__toolbar"><div class="review-sort">
     <label class="review-sort__label hidden" for="review-sort">Сортировка отзывов</label>
     <div class="custom-select custom-select--sort">
@@ -441,11 +441,11 @@
             <option class="review-sort__option" value="lowest">С низкой оценкой</option>
         </select>
     </div>
-    <span class="review-sort__icon" aria-hidden="true"></span>
+    <span class="review-sort__icon icon-sort" aria-hidden="true"></span>
 </div>
 </div>
                                 <div role="group" class="review-group__list" aria-label="Отзывы покупателей">
-                                    <article class="review">
+                                    <div class="review review--compact">
                                         <div class="review__header">
                                             <span class="review__avatar icon-user-fill" aria-hidden="true"></span>
                                             <div class="review__identity">
@@ -475,21 +475,21 @@
                                                 <time class="review__date" datetime="2026-03-16">16 марта 2026</time>
                                             </div>
                                         </div>
-                                        <div class="review__content">
+                                        <blockquote class="review__content">
                                             
                                             
                                             <div class="review__block">
                                                 <p class="review__text">Второй измельчитель, первый, от другого производителя сдох через месяц после установки.</p>
                                             </div>
-                                        </div>
+                                        </blockquote>
                                         
                                         
                                         <span class="review__brand">
                                             <img class="review__brand-image" src="img/marketplaces/ozon.svg" alt="Ozon" loading="lazy">
                                         </span>
                                         
-                                    </article>
-<article class="review">
+                                    </div>
+<div class="review review--compact">
                                         <div class="review__header">
                                             <span class="review__avatar icon-user-fill" aria-hidden="true"></span>
                                             <div class="review__identity">
@@ -519,21 +519,21 @@
                                                 <time class="review__date" datetime="2026-03-16">16 марта 2026</time>
                                             </div>
                                         </div>
-                                        <div class="review__content">
+                                        <blockquote class="review__content">
                                             
                                             
                                             <div class="review__block">
                                                 <p class="review__text">Легок в установке, не показался шумным, но сравнивать не с чем. Куриные кости перемалывает на «ура», очистки от картохи или моркови вообще не замечает.</p>
                                             </div>
-                                        </div>
+                                        </blockquote>
                                         
                                         
                                         <span class="review__brand">
                                             <img class="review__brand-image" src="img/marketplaces/wb-short.svg" alt="Wildberries" loading="lazy">
                                         </span>
                                         
-                                    </article>
-<article class="review">
+                                    </div>
+<div class="review review--compact">
                                         <div class="review__header">
                                             <span class="review__avatar icon-user-fill" aria-hidden="true"></span>
                                             <div class="review__identity">
@@ -563,20 +563,20 @@
                                                 <time class="review__date" datetime="2026-03-16">16 марта 2026</time>
                                             </div>
                                         </div>
-                                        <div class="review__content">
+                                        <blockquote class="review__content">
                                             
                                             
                                             <div class="review__block">
                                                 <p class="review__text">С легкостью справляется с куриными костями. Это второй измельчитель, первый увы начал течь на ранних сроках эксплуатации (брак), сервисный центр признал брак, вернули деньги.</p>
                                             </div>
-                                        </div>
+                                        </blockquote>
                                         
                                         
                                         <span class="review__brand">
                                             <img class="review__brand-image" src="img/marketplaces/ya_market.svg" alt="Яндекс Маркет" loading="lazy">
                                         </span>
                                         
-                                    </article>
+                                    </div>
 
                                 </div>
                                 
@@ -606,7 +606,6 @@
                                     </nav>
                                 
 
-                                <p class="review-group__status hidden" role="status" aria-live="polite"></p>
                             </div>
                             <aside class="feedback__summary" aria-label="Рейтинг покупателей">
                                 <div class="rating-summary rating-summary--compact">

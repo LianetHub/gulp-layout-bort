@@ -6,14 +6,15 @@
             <div class="reviews__list review-group__list">
                 @@loop('../templates/_review.html', './html/json/product-reviews.json')
             </div>
-            <p class="review-group__status hidden" aria-live="polite"></p>
             @@include('./_pagination.html')
         </div>
         <aside class="reviews__sidebar">
             <div class="rating-summary">
                 <div class="rating-summary__main">
                     <strong class="rating-summary__score">4.8</strong>
-                    <div class="rating-summary__info">@@include('./_rating-stars.html', {"rating": "4.8"})<p class="rating-summary__count">На основе 276 отзывов</p>
+                    <div class="rating-summary__info">
+                        @@include('./_rating-stars.html', {"rating": "4.8"})
+                        <p class="rating-summary__count">На основе 276 отзывов</p>
                     </div>
                 </div>
                 <div class="rating-summary__bars">

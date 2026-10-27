@@ -2,6 +2,90 @@
 
 // .review
 .review {
+	// .review--compact
+	&--compact {
+		--review-star-size: #{rem(16)};
+		// .review--compact:last-child
+		&:last-child {
+			border-bottom: 0;
+			padding-bottom: 0;
+		}
+		// .review--compact .review__header
+		.review__header {
+			position: relative;
+			margin-bottom: rem(15);
+		}
+		// .review--compact .review__avatar
+		.review__avatar {
+			background: #d5d6d9;
+		}
+		// .review--compact .review__identity
+		.review__identity {
+			gap: rem(5);
+		}
+		// .review--compact .rating-stars
+		.rating-stars {
+			--star-color: #f69709;
+			margin-block: rem(2);
+		}
+		// .review--compact .review__row
+		.review__row {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0;
+			@media (min-width: $md4) {
+				flex-direction: row;
+				align-items: center;
+				row-gap: rem(4);
+			}
+			column-gap: rem(10);
+		}
+		// .review--compact .review__name
+		.review__name {
+			font-size: rem(16);
+			font-weight: 500;
+			line-height: math.div(22, 16);
+		}
+		// .review--compact .review__experience
+		// .review--compact .review__meta
+		.review__experience,
+		.review__meta {
+			color: #6a6b6d;
+		}
+		// .review--compact .review__meta
+		.review__meta {
+			position: absolute;
+			top: 0;
+			right: 0;
+			@media (min-width: $md4) {
+				position: static;
+			}
+		}
+		// .review--compact .review__content
+		.review__content {
+			@media (min-width: $md4) {
+				min-height: rem(30);
+				padding-right: rem(170);
+			}
+		}
+		// .review--compact .review__brand
+		.review__brand {
+			width: max-content;
+			height: auto;
+			margin: rem(20) 0 0;
+			@media (min-width: $md4) {
+				top: rem(92);
+				bottom: auto;
+				margin: 0;
+			}
+		}
+		// .review--compact .review__brand-image
+		.review__brand-image {
+			width: auto;
+			height: auto;
+			max-width: 100%;
+		}
+	}
 	// .review--product
 	&--product {
 		// .review--product .review__text
@@ -12,7 +96,7 @@
 		}
 	}
 	position: relative;
-	padding: rem(24) 0 rem(30);
+	padding: rem(30) 0;
 	border-bottom: rem(1) solid #efefef;
 	color: #2b2b2b;
 	@media (min-width: $md4) {
@@ -54,7 +138,7 @@
 	}
 	// .review__identity .rating-stars
 	&__identity .rating-stars {
-		--star-size: #{rem(14)};
+		--star-size: var(--review-star-size, #{rem(14)});
 	}
 	// .review__experience
 	&__experience {
@@ -111,6 +195,7 @@
 	&__content {
 		display: grid;
 		gap: rem(20);
+		margin: 0;
 		@media (min-width: $md4) {
 			min-height: rem(44);
 			padding-right: rem(160);

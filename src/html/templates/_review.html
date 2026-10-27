@@ -1,4 +1,4 @@
-<article class="review@@if(typeof productReview !== 'undefined' && productReview){ review--product}">
+<div class="review@@if(typeof productReview !== 'undefined' && productReview){ review--product}@@if(compact){ review--compact}">
     <div class="review__header">
         <span class="review__avatar icon-user-fill" aria-hidden="true"></span>
         <div class="review__identity">
@@ -12,7 +12,7 @@
             <time class="review__date" datetime="@@dateISO">@@date</time>
         </div>
     </div>
-    <div class="review__content">
+    <blockquote class="review__content">
         @@if (positive) {<div class="review__block">
             <span class="review__label">Достоинства:</span>
             <p class="review__text">@@positive</p>
@@ -24,7 +24,7 @@
         @@if (comment) {<div class="review__block">@@if (!compact) {<span class="review__label">Комментарий:</span>}
             <p class="review__text">@@comment</p>
         </div>}
-    </div>
+    </blockquote>
     @@if (!compact) {<button class="review__toggle icon-chevron-down" type="button" aria-expanded="false">Показать полностью</button>}
     @@if (reply) {<div class="review__reply">
         <p class="review__reply-author">Ответ Bort</p>
@@ -46,4 +46,4 @@
             </button>
         </div>
     </div>}
-</article>
+</div>

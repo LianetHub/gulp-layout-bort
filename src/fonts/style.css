@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icons';
-  src: url('fonts/icons.eot?fg9evf');
-  src: url('fonts/icons.eot?fg9evf#iefix') format('embedded-opentype'),
-    url('fonts/icons.ttf?fg9evf') format('truetype'),
-    url('fonts/icons.woff?fg9evf') format('woff'),
-    url('fonts/icons.svg?fg9evf#icons') format('svg');
+  src:  url('fonts/icons.eot?hdv7rh');
+  src:  url('fonts/icons.eot?hdv7rh#iefix') format('embedded-opentype'),
+    url('fonts/icons.ttf?hdv7rh') format('truetype'),
+    url('fonts/icons.woff?hdv7rh') format('woff'),
+    url('fonts/icons.svg?hdv7rh#icons') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,294 +25,225 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.icon-sort:before {
+  content: "\e949";
+}
 .icon-heart-fill:before {
   content: "\e943";
 }
-
 .icon-star-fill:before {
   content: "\e944";
 }
-
 .icon-clip:before {
   content: "\e945";
 }
-
 .icon-clock:before {
   content: "\e946";
 }
-
 .icon-eye:before {
   content: "\e947";
 }
-
 .icon-eye-off:before {
   content: "\e948";
 }
-
 .icon-chevron-left:before {
   content: "\e942";
 }
-
 .icon-loading:before {
   content: "\e941";
 }
-
 .icon-home:before {
   content: "\e900";
 }
-
 .icon-hot-price:before {
   content: "\e901";
 }
-
 .icon-information-circle:before {
   content: "\e902";
 }
-
 .icon-layout:before {
   content: "\e903";
 }
-
 .icon-like:before {
   content: "\e904";
 }
-
 .icon-location:before {
   content: "\e905";
 }
-
 .icon-login:before {
   content: "\e906";
 }
-
 .icon-marker-pin:before {
   content: "\e907";
 }
-
 .icon-menu:before {
   content: "\e908";
 }
-
 .icon-menu-alternate:before {
   content: "\e909";
 }
-
 .icon-messages:before {
   content: "\e90a";
 }
-
 .icon-more-horizontal-circle:before {
   content: "\e90b";
 }
-
 .icon-navigation-pointer:before {
   content: "\e90c";
 }
-
 .icon-paragraph-bullets-point:before {
   content: "\e90d";
 }
-
 .icon-pdf:before {
   content: "\e90e";
 }
-
 .icon-phone:before {
   content: "\e90f";
 }
-
 .icon-placemark:before {
   content: "\e910";
 }
-
 .icon-placemark-alternate:before {
   content: "\e911";
 }
-
 .icon-renewable-energy:before {
   content: "\e912";
 }
-
 .icon-rows:before {
   content: "\e913";
 }
-
 .icon-sale:before {
   content: "\e914";
 }
-
 .icon-sale-alternate:before {
   content: "\e915";
 }
-
 .icon-search:before {
   content: "\e916";
 }
-
 .icon-setting:before {
   content: "\e917";
 }
-
 .icon-star:before {
   content: "\e918";
 }
-
 .icon-thumbs-up:before {
   content: "\e919";
 }
-
 .icon-tick:before {
   content: "\e91a";
 }
-
 .icon-trash:before {
   content: "\e91b";
 }
-
 .icon-truck:before {
   content: "\e91c";
 }
-
 .icon-truck-delivery:before {
   content: "\e91d";
 }
-
 .icon-user:before {
   content: "\e91e";
 }
-
 .icon-user-circle:before {
   content: "\e91f";
 }
-
 .icon-user-fill:before {
   content: "\e920";
 }
-
 .icon-wallet:before {
   content: "\e921";
 }
-
 .icon-arrow-down:before {
   content: "\e922";
 }
-
 .icon-bars:before {
   content: "\e923";
 }
-
 .icon-box:before {
   content: "\e924";
 }
-
 .icon-calculator:before {
   content: "\e925";
 }
-
 .icon-cancel-circle:before {
   content: "\e926";
 }
-
 .icon-cart:before {
   content: "\e927";
 }
-
 .icon-cart-alternate:before {
   content: "\e928";
 }
-
 .icon-checkmark-circle:before {
   content: "\e929";
 }
-
 .icon-chevron-down:before {
   content: "\e92a";
 }
-
 .icon-chevron-right:before {
   content: "\e92b";
 }
-
 .icon-chevron-up:before {
   content: "\e92c";
 }
-
 .icon-close:before {
   content: "\e92d";
 }
-
 .icon-compare:before {
   content: "\e92e";
 }
-
 .icon-copy:before {
   content: "\e92f";
 }
-
 .icon-credit-card:before {
   content: "\e930";
 }
-
 .icon-dashboard-square:before {
   content: "\e931";
 }
-
 .icon-delete:before {
   content: "\e932";
 }
-
 .icon-discount:before {
   content: "\e933";
 }
-
 .icon-discount-tag:before {
   content: "\e934";
 }
-
 .icon-dislike:before {
   content: "\e935";
 }
-
 .icon-doc:before {
   content: "\e936";
 }
-
 .icon-document-attachment:before {
   content: "\e937";
 }
-
 .icon-dots-grid:before {
   content: "\e938";
 }
-
 .icon-download:before {
   content: "\e939";
 }
-
 .icon-edit:before {
   content: "\e93a";
 }
-
 .icon-edit-alternate:before {
   content: "\e93b";
 }
-
 .icon-edit-fill:before {
   content: "\e93c";
 }
-
 .icon-file:before {
   content: "\e93d";
 }
-
 .icon-filter:before {
   content: "\e93e";
 }
-
 .icon-filter-horizontal:before {
   content: "\e93f";
 }
-
 .icon-heart:before {
   content: "\e940";
 }

@@ -26,12 +26,20 @@
 	// .review-sort__icon
 	&__icon {
 		position: absolute;
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		top: 50%;
 		left: 0;
 		width: rem(24);
 		height: rem(24);
-		background: url("@img/review-sort.svg") center no-repeat;
+		color: #6a6b6d;
+		font-size: rem(8.55788);
 		transform: translateY(-50%);
 		pointer-events: none;
+		// .review-sort__icon::before
+		&::before {
+			width: rem(13.4994);
+		}
 	}
 }

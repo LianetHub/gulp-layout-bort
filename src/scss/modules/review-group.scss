@@ -1,5 +1,22 @@
 // .review-group
 .review-group {
+	// .review-group--full
+	&--full {
+		// .review-group--full .review__block
+		.review__block {
+			display: block;
+		}
+		// .review-group--full .review__text
+		.review__text {
+			display: block;
+			overflow: visible;
+			-webkit-line-clamp: unset;
+		}
+		// .review-group--full .review__toggle
+		.review__toggle {
+			display: none;
+		}
+	}
 	scroll-margin-top: calc(var(--header-height, 7rem) + #{rem(20)});
 	// .review-group__list
 	&__list {

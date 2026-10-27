@@ -39,7 +39,7 @@
 		}
 
 		// .service__text + .service__text
-		&+& {
+		& + & {
 			margin-top: rem(22);
 
 			@media (min-width: $md4) {
@@ -214,7 +214,7 @@
 		margin-top: rem(30);
 
 		// .service__city + .service__city
-		&+& {
+		& + & {
 			margin-top: rem(40);
 		}
 	}
@@ -238,7 +238,7 @@
 		}
 
 		// .service__contractors > .contractor-card:only-child
-		>.contractor-card:only-child {
+		> .contractor-card:only-child {
 			@media (min-width: $md4) {
 				grid-column: 1 / -1;
 				min-height: rem(300);

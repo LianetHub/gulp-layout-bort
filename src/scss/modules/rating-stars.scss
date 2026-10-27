@@ -23,15 +23,21 @@
 		gap: rem(2);
 		width: clamp(0%, calc(var(--rating, 0) / 5 * 100%), 100%);
 		overflow: hidden;
-		color: $orange;
+		color: var(--star-color, #{$orange});
 	}
 	// .rating-stars .rating-stars__star
 	& &__star {
+		display: flex;
+		align-items: center;
+		justify-content: center;
 		flex-shrink: 0;
 		width: var(--star-size);
 		height: var(--star-size);
 		color: inherit;
-		font-size: var(--star-size);
+		font-size: calc(var(--star-size) - #{rem(1)});
 		line-height: math.div(1, 1);
+		@media (min-width: $md4) {
+			font-size: calc(var(--star-size) - #{rem(2)});
+		}
 	}
 }

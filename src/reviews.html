@@ -23,13 +23,12 @@
                     <div class="feedback__container container">
                         <h1 class="feedback__title title title-lg" id="feedback-title">Отзывы</h1>
                         <div class="feedback__layout">
-                            <div class="feedback__reviews review-group">
+                            <div class="feedback__reviews review-group review-group--full">
                                 <div class="feedback__toolbar">@@include('html/includes/_review-sort.html')</div>
                                 <div role="group" class="review-group__list" aria-label="Отзывы покупателей">
                                     @@loop('html/templates/_review.html', './html/json/reviews.json')
                                 </div>
                                 @@include('html/includes/_pagination.html')
-                                <p class="review-group__status hidden" role="status" aria-live="polite"></p>
                             </div>
                             <aside class="feedback__summary" aria-label="Рейтинг покупателей">
                                 @@include('html/includes/_rating-summary.html')

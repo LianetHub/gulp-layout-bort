@@ -17,6 +17,15 @@ for (const width of [375, 1440]) {
             });
             reference ||= styles;
             expect(styles, name).toEqual(reference);
+            if (width === 375 || width === 1440) {
+                expect(styles).toEqual(['40px', '40px', '14px', '8px', 'rgb(255, 98, 1)', 'rgb(255, 255, 255)']);
+                await expect(pagination).toHaveCSS('gap', '10px');
+                await expect(pagination.locator('.pagination__pages')).toHaveCSS('gap', '10px');
+                await expect(pagination.locator('.pagination__next')).toHaveCSS('height', '40px');
+                await pagination.locator('.pagination__item.active').hover();
+                await expect(pagination.locator('.pagination__item.active')).toHaveCSS('background-color', 'rgb(255, 98, 1)');
+                await expect(pagination.locator('.pagination__item.active')).toHaveCSS('color', 'rgb(255, 255, 255)');
+            }
             expect(await pagination.locator('.pagination__item').last().textContent()).toBe(name === 'blog' ? '40' : ['catalog', 'search'].includes(name) ? '4' : '6');
         }
     });
