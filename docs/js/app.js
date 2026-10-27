@@ -2538,6 +2538,8 @@
             const height = this.item.getBoundingClientRect().height;
             const overflow = previous?.overflow ?? this.item.style.overflow;
 
+            this.item.classList.toggle('is-closing', !opening);
+
             if (previous) {
                 FaqController.animations.delete(this.item);
                 clearTimeout(previous.timer);
@@ -2549,6 +2551,7 @@
                 window.matchMedia('(prefers-reduced-motion: reduce)').matches
             ) {
                 this.item.open = opening;
+                this.item.classList.remove('is-closing');
                 this.item.style.overflow = overflow;
 
                 return;
@@ -2593,6 +2596,7 @@
                 FaqController.animations.delete(this.item);
                 clearTimeout(state.timer);
                 this.item.open = opening;
+                this.item.classList.remove('is-closing');
                 animation.cancel();
                 this.item.style.overflow = overflow;
             };
@@ -3696,8 +3700,8 @@
                         {
                             iconLayout: 'default#image',
                             iconImageHref: container.dataset.placemarkLogo,
-                            iconImageSize: [40, 40],
-                            iconImageOffset: [-20, -20],
+                            iconImageSize: [48, 59],
+                            iconImageOffset: [-24, -59],
                         },
                     ),
                 );

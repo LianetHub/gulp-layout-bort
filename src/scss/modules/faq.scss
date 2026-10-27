@@ -6,6 +6,10 @@
 	@media (min-width: $md4) {
 		padding-bottom: rem(60);
 	}
+	// .faq__container
+	&__container {
+		padding-inline: rem(20);
+	}
 	// .faq__title
 	&__title {
 		margin-bottom: rem(20);
@@ -15,7 +19,11 @@
 		display: grid;
 		align-items: start;
 		gap: rem(20);
+		@media (min-width: $md4) {
+			gap: rem(30);
+		}
 		@media (min-width: $md2) {
+			gap: rem(20);
 			grid-template-columns: rem(295) 1fr;
 		}
 	}
@@ -28,12 +36,27 @@
 	// .faq__sections
 	&__sections {
 		display: none;
+		padding-block: rem(15);
 		@media (min-width: $md2) {
 			display: block;
 		}
 	}
 	// .faq__categories
 	&__categories {
+		// .faq__categories .faq__navigation-list
+		.faq__navigation-list {
+			display: grid;
+			gap: rem(15);
+		}
+		// .faq__categories .faq__filter
+		.faq__filter {
+			padding: 0;
+			min-height: rem(24);
+			// .faq__categories .faq__filter.is-active
+			&.is-active {
+				background: transparent;
+			}
+		}
 		@media (min-width: $md2) {
 			display: none;
 		}
@@ -48,7 +71,7 @@
 	}
 	// .faq__navigation-caption
 	&__navigation-caption {
-		margin-bottom: rem(5);
+		margin-bottom: 0;
 		font-size: rem(14);
 		line-height: math.div(20, 14);
 		color: #a7a8aa;
@@ -84,6 +107,9 @@
 		color: #a7a8aa;
 		font-size: rem(14);
 		font-weight: 400;
+		@media (min-width: $md4) {
+			margin-left: rem(4);
+		}
 	}
 	// .faq__questions
 	&__questions {
@@ -104,20 +130,18 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		gap: rem(20);
+		gap: 0;
 		width: 100%;
-		padding: rem(20);
+		padding: rem(20) rem(10) rem(20) rem(20);
 		border-radius: inherit;
 		text-align: left;
 		cursor: pointer;
 		list-style: none;
-		font-size: rem(14);
+		font-size: rem(16);
 		font-weight: 500;
-		line-height: math.div(20, 14);
+		line-height: math.div(22, 16);
 		@media (min-width: $md4) {
-			padding: rem(22) rem(30);
-			font-size: rem(16);
-			line-height: math.div(22, 16);
+			padding: rem(20) rem(20) rem(20) rem(30);
 		}
 		// .faq__question:focus-visible
 		&:focus-visible {
@@ -136,20 +160,27 @@
 	// .faq__arrow
 	&__arrow {
 		flex-shrink: 0;
+		font-size: rem(24);
 		color: #a7a8aa;
-		// .faq__item[open] .faq__arrow
-		.faq__item[open] & {
+		transition:
+			transform 0.3s ease,
+			color 0.3s ease;
+		@media (prefers-reduced-motion: reduce) {
+			transition: none;
+		}
+		// .faq__item[open]:not(.is-closing) .faq__arrow
+		.faq__item[open]:not(.is-closing) & {
 			transform: rotate(180deg);
 			color: $orange;
 		}
 	}
 	// .faq__answer
 	&__answer {
-		margin: 0 rem(20);
+		margin: 0 rem(10) 0 rem(20);
 		padding: rem(20) 0;
 		border-top: rem(1) solid #efefef;
 		@media (min-width: $md4) {
-			margin-inline: rem(30);
+			margin-inline: rem(30) rem(20);
 		}
 	}
 	// .faq__link

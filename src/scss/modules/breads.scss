@@ -5,6 +5,10 @@
 	position: relative;
 	z-index: 3;
 	padding-top: rem(20);
+	// .breadcrumbs:has(+ .faq) .breadcrumbs__container
+	&:has(+ .faq) .breadcrumbs__container {
+		padding-inline: rem(20);
+	}
 
 	// .breadcrumbs__list
 	&__list {

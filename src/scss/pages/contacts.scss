@@ -12,9 +12,11 @@
 		font-weight: 600;
 		line-height: math.div(125, 100);
 		font-size: 1rem;
+
 		// .contacts__item-value:is(a)
 		&:is(a) {
 			transition: color 0.3s ease;
+
 			@media (any-hover: hover) {
 				// .contacts__item-value:is(a):hover
 				&:hover {
@@ -23,25 +25,35 @@
 			}
 		}
 	}
-	padding: rem(20) 0 rem(60);
+
+	padding: rem(20) 0 rem(40);
+
+	@media (min-width: $md4) {
+		padding-bottom: rem(60);
+	}
+
 	// .contacts__title
 	&__title {
 		margin-bottom: rem(20);
 	}
+
 	// .contacts__form.form--request
 	.contacts__form.form--request {
 		min-width: 0;
 		padding: 0;
 		border-radius: 0;
 		box-shadow: none;
+
 		// .contacts__form.form--request .form__file-btn
 		.form__file-btn {
 			justify-content: flex-start;
 			color: #2b2b2b;
 		}
+
 		// .contacts__form.form--request .form__submit.btn
 		.form__submit.btn {
 			width: 100%;
+
 			@media (min-width: $md4) {
 				order: -1;
 				flex: 0 0 rem(184);
@@ -49,14 +61,22 @@
 			}
 		}
 	}
+
 	// .contacts .checkbox__btn
 	.checkbox__btn {
 		font-size: rem(12);
-		line-height: math.div(20, 12);
+		line-height: math.div(16, 12);
+
+		@media (min-width: $md4) {
+			font-size: rem(14);
+			line-height: math.div(20, 14);
+		}
 	}
+
 	// .contacts .checkbox__link
 	.checkbox__link {
-		text-decoration: underline;
+		text-decoration: none;
+
 		@media (any-hover: hover) {
 			// .contacts .checkbox__link:hover
 			&:hover {
@@ -77,27 +97,32 @@
 		padding: rem(20);
 		border-radius: rem(20);
 		background: #fff;
+
 		@media (min-width: $md4) {
-			gap: rem(40);
+			gap: rem(50);
 			padding: rem(40);
 		}
+
 		@media (min-width: $md2) {
-			grid-template-columns: 1fr 1fr;
+			grid-template-columns: minmax(0, 1fr) minmax(0, rem(570));
 			gap: rem(50);
 		}
 	}
+
 	// .contacts__details
 	&__details {
 		min-width: 0;
 	}
+
 	// .contacts__channels
 	&__channels {
 		display: grid;
-		gap: rem(16);
+		gap: rem(15);
 		padding: rem(20);
-		border-radius: rem(8);
+		border-radius: rem(10);
 		background: #f7f7f6;
 	}
+
 	// .contacts__link
 	&__link {
 		transition: color 0.3s ease;
@@ -106,18 +131,25 @@
 		gap: rem(10);
 		font-style: normal;
 		font-size: rem(16);
-		line-height: math.div(24, 16);
+		line-height: math.div(22, 16);
 		color: #2b2b2b;
+
 		// .contacts__link::before
 		&::before {
 			flex: 0 0 rem(24);
-			font-size: rem(24);
+			font-size: 1.5rem;
 			color: $orange;
+		}
+
+		// .contacts__link.icon-mail::before
+		&.icon-mail::before {
+			font-size: 1.125rem;
 		}
 		// .contacts__link--phone
 		&--phone {
 			font-weight: 600;
 		}
+
 		@media (any-hover: hover) {
 			// .contacts__link[href]:hover
 			&[href]:hover {
@@ -125,24 +157,17 @@
 			}
 		}
 	}
-	// .contacts__icon
-	&__icon {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
-		font-size: rem(24);
-		flex: 0 0 rem(24);
-		color: $orange;
-	}
+
 	// .contacts__requisites
 	&__requisites {
 		margin-top: rem(20);
 	}
+
 	// .contacts__caption
 	&__caption {
 		margin-bottom: rem(10);
 	}
+
 	// .contacts__requisites-list
 	&__requisites-list {
 		display: grid;
@@ -151,6 +176,7 @@
 		line-height: math.div(22, 16);
 		color: #2b2b2b;
 	}
+
 	// .contacts__feedback
 	&__feedback {
 		display: grid;
@@ -159,18 +185,38 @@
 		padding: rem(20);
 		border-radius: rem(20);
 		background: #fff;
+
 		@media (min-width: $md4) {
 			gap: rem(30);
 			padding: rem(40);
 		}
+
 		@media (min-width: $md2) {
-			grid-template-columns: 1fr 2fr;
-			gap: rem(50);
+			grid-template-columns: rem(420) 1fr;
+			gap: rem(30);
 		}
 	}
+
+	// .contacts__feedback-title
+	&__feedback-title {
+		font-size: rem(20);
+		line-height: math.div(28, 20);
+
+		@media (min-width: $md4) {
+			font-size: rem(28);
+			line-height: math.div(36, 28);
+		}
+	}
+
+	// .contacts__requisite-label
+	&__requisite-label {
+		font-weight: 500;
+	}
+
 	// .contacts__illustration
 	&__illustration {
 		display: none;
+
 		@media (min-width: $md2) {
 			display: block;
 			margin-top: rem(60);
@@ -180,24 +226,36 @@
 			color: #ff7900;
 		}
 	}
+
+	// .contacts__illustration-image
+	&__illustration-image {
+		display: block;
+		margin: 15.66px;
+	}
+
 	// .contacts__fields
 	&__fields {
 		display: grid;
 		gap: rem(20);
+
 		@media (min-width: $md4) {
 			grid-template-columns: repeat(2, 1fr);
 		}
 	}
+
 	// .contacts__actions
 	&__actions {
 		display: flex;
 		flex-direction: column;
 		align-items: flex-start;
 		gap: rem(20);
+
 		@media (min-width: $md4) {
 			flex-direction: row;
+			align-items: center;
 		}
 	}
+
 	// .contacts__consent
 	&__consent {
 		min-width: 0;
