@@ -530,13 +530,6 @@
 			display: flex;
 		}
 	}
-	// .wrapper:has(.product-details) .main-actions
-	.wrapper:has(.product-details) & {
-		display: none;
-		@media (min-width: $md4) {
-			display: flex;
-		}
-	}
 	display: grid;
 	grid-template-columns: repeat(5, 1fr);
 	position: fixed;

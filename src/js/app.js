@@ -3909,24 +3909,36 @@
                     const expanded = button.getAttribute('aria-expanded') !== 'true';
 
                     content
-                        .querySelectorAll('.product-content__rich-image--extra')
-                        .forEach((image) => {
-                            image.hidden = !expanded;
-                        });
+                        .querySelector('.product-content__rich')
+                        ?.classList.toggle('product-content__rich--expanded', expanded);
                     button.setAttribute('aria-expanded', String(expanded));
                     button.textContent = expanded ? 'Свернуть' : 'Показать полностью';
                 });
-                Dom.delegate(content, 'click', '.product-content__tab', (event, tab) => {
-                    content
-                        .querySelectorAll('.product-content__tab')
-                        .forEach((link) => link.classList.toggle('active', link === tab));
-                });
+                this.initNavigation(content);
             });
             document.querySelectorAll('.product-details').forEach((product) => {
                 if (product.dataset.productDetailsReady) {
                     return;
                 }
                 product.dataset.productDetailsReady = 'true';
+
+                const mobilePurchase = product.querySelector('.product-details__mobile-purchase');
+                const updateMobileLayout = () => {
+                    const mobile = window.matchMedia('(max-width: 767.97px)').matches;
+
+                    document.documentElement.style.setProperty(
+                        '--product-purchase-height',
+                        `${mobile ? mobilePurchase?.getBoundingClientRect().height || 0 : 0}px`,
+                    );
+                };
+
+                updateMobileLayout();
+                window.addEventListener('resize', updateMobileLayout);
+                if (mobilePurchase && typeof ResizeObserver !== 'undefined') {
+                    const observer = new ResizeObserver(updateMobileLayout);
+
+                    observer.observe(mobilePurchase);
+                }
 
                 const sync = (input) =>
                     product.querySelectorAll('.quantity-block__input').forEach((other) => {
@@ -3950,6 +3962,157 @@
             });
 
             return this;
+        }
+
+        initNavigation(content) {
+            const navigation = content.querySelector('.product-content__navigation');
+            const links = [...content.querySelectorAll('.product-content__tab')];
+            const sections = links.map((link) => content.querySelector(link.hash));
+            const slider = SlidersController.createSlider(navigation.querySelector('.swiper'), {
+                slidesPerView: 'auto',
+                centeredSlides: true,
+                centeredSlidesBounds: true,
+                spaceBetween: 20,
+                watchOverflow: true,
+                breakpoints: {
+                    768: {
+                        spaceBetween: 30,
+                    },
+                },
+                navigation: SlidersController.controls(navigation).navigation,
+            });
+            let activeIndex = -1;
+            let pendingIndex = null;
+            let frame = null;
+            let scrollTimer;
+
+            const activate = (index) => {
+                if (activeIndex === index) {
+                    return;
+                }
+
+                activeIndex = index;
+                links.forEach((link, linkIndex) => {
+                    link.classList.toggle('active', linkIndex === index);
+                    if (linkIndex === index) {
+                        link.setAttribute('aria-current', 'location');
+                    } else {
+                        link.removeAttribute('aria-current');
+                    }
+                });
+                slider?.slideTo(index);
+            };
+            const getOffset = () =>
+                (document.querySelector('.header')?.getBoundingClientRect().height || 0) +
+                navigation.getBoundingClientRect().height +
+                16;
+            const update = () => {
+                frame = null;
+                content.style.setProperty(
+                    '--product-navigation-height',
+                    `${navigation.getBoundingClientRect().height}px`,
+                );
+                if (pendingIndex !== null) {
+                    return;
+                }
+
+                const offset = getOffset() + 2;
+                let index = 0;
+
+                sections.forEach((section, sectionIndex) => {
+                    if (section && section.getBoundingClientRect().top <= offset) {
+                        index = sectionIndex;
+                    }
+                });
+                activate(index);
+            };
+            const schedule = () => {
+                if (frame === null) {
+                    frame = requestAnimationFrame(update);
+                }
+            };
+            const finishScroll = () => {
+                pendingIndex = null;
+                schedule();
+            };
+            const refreshSlider = () => {
+                slider?.update();
+                slider?.slideTo(Math.max(activeIndex, 0), 0);
+                schedule();
+            };
+
+            document.fonts?.ready.then(refreshSlider);
+
+            Dom.delegate(
+                document,
+                'click',
+                '.product-content__tab, .product-details__all, .product-details__rating',
+                (event, link) => {
+                    const index = sections.findIndex(
+                        (section) => section?.id === link.hash.slice(1),
+                    );
+
+                    if (
+                        index < 0 ||
+                        event.ctrlKey ||
+                        event.metaKey ||
+                        event.shiftKey ||
+                        event.altKey
+                    ) {
+                        return;
+                    }
+
+                    event.preventDefault();
+                    pendingIndex = index;
+                    activate(index);
+                    if (window.location.hash !== link.hash) {
+                        window.history.pushState(null, '', link.hash);
+                    }
+                    window.scrollTo({
+                        top:
+                            sections[index].getBoundingClientRect().top +
+                            window.scrollY -
+                            getOffset(),
+                        behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches
+                            ? 'instant'
+                            : 'smooth',
+                    });
+                    clearTimeout(scrollTimer);
+                    scrollTimer = setTimeout(finishScroll, 180);
+                },
+            );
+            window.addEventListener(
+                'scroll',
+                () => {
+                    schedule();
+                    clearTimeout(scrollTimer);
+                    scrollTimer = setTimeout(finishScroll, 180);
+                },
+                {
+                    passive: true,
+                },
+            );
+            window.addEventListener('scrollend', finishScroll);
+            window.addEventListener('wheel', finishScroll, {
+                passive: true,
+            });
+            window.addEventListener('touchstart', finishScroll, {
+                passive: true,
+            });
+            window.addEventListener('resize', refreshSlider);
+            window.addEventListener('hashchange', finishScroll);
+            if (typeof ResizeObserver !== 'undefined') {
+                const observer = new ResizeObserver(schedule);
+
+                observer.observe(navigation);
+                observer.observe(content);
+                const header = document.querySelector('.header');
+
+                if (header) {
+                    observer.observe(header);
+                }
+            }
+            schedule();
         }
     }
 
@@ -5744,6 +5907,11 @@
 
             document.querySelectorAll('[data-showcase-slider]').forEach((container) => {
                 const count = Number(container.dataset.showcaseSlider);
+                const isProductRecommendation = Boolean(
+                    container.closest(
+                        '.products-showcase--product:not(.products-showcase--popular)',
+                    ),
+                );
                 const breakpoints = {
                     576: {
                         slidesPerView: 2,
@@ -5755,7 +5923,13 @@
                         slidesPerView: count === 3 ? 3 : 4,
                     },
                     1200: {
-                        slidesPerView: count === 6 ? 5 : count === 5 ? 4 : 3,
+                        slidesPerView: isProductRecommendation
+                            ? count
+                            : count === 6
+                              ? 5
+                              : count === 5
+                                ? 4
+                                : 3,
                     },
                     1320: {
                         slidesPerView: count,

@@ -16,6 +16,23 @@
 		right: rem(24);
 		bottom: rem(24);
 	}
+	// body:has(.product-details) .notify-container
+	body:has(.product-details) & {
+		bottom: calc(
+			var(--product-purchase-height, calc(#{rem(134)} + env(safe-area-inset-bottom, 0px))) +
+				#{rem(16)}
+		);
+		@media (min-width: $md4) {
+			bottom: rem(24);
+		}
+	}
+	// body:has(.product-details):has(.arrow-top.visible) .notify-container
+	body:has(.product-details):has(.arrow-top.visible) & {
+		width: calc(100% - #{rem(116)});
+		@media (min-width: $md4) {
+			width: calc(100% - #{rem(24)});
+		}
+	}
 }
 
 // .notify

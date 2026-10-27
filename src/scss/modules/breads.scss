@@ -5,6 +5,44 @@
 	position: relative;
 	z-index: 3;
 	padding-top: rem(20);
+	// .breadcrumbs--scroll
+	&--scroll {
+		overflow-x: auto;
+		scrollbar-width: none;
+		// .breadcrumbs--scroll::-webkit-scrollbar
+		&::-webkit-scrollbar {
+			display: none;
+		}
+		// .breadcrumbs--scroll .breadcrumbs__list
+		.breadcrumbs__list {
+			width: max-content;
+			min-width: 100%;
+			overflow: visible;
+			padding-right: rem(15);
+			@media (min-width: $md4) {
+				padding-right: rem(20);
+			}
+		}
+		// .breadcrumbs--scroll .breadcrumbs__item
+		.breadcrumbs__item {
+			flex-shrink: 0;
+			overflow: visible;
+			text-overflow: clip;
+		}
+		// .breadcrumbs--scroll .breadcrumbs__link
+		.breadcrumbs__link {
+			word-break: normal;
+			overflow: visible;
+			text-overflow: clip;
+		}
+	}
+	// .breadcrumbs:has(+ .product-details)
+	&:has(+ .product-details) {
+		padding-top: rem(15);
+		@media (min-width: $md4) {
+			padding-top: rem(20);
+		}
+	}
 	// .breadcrumbs:has(+ .faq) .breadcrumbs__container
 	&:has(+ .faq) .breadcrumbs__container {
 		padding-inline: rem(20);

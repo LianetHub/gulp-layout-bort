@@ -1,70 +1,63 @@
 <section class="product-content">
     <div class="product-content__container container">
         <nav class="product-content__navigation" aria-label="Информация о товаре">
-            <ul class="product-content__menu">
-                <li class="product-content__menu-item">
-                    <a class="tab product-content__tab active" href="#description">Описание</a>
-                </li>
-                <li class="product-content__menu-item">
-                    <a class="tab product-content__tab" href="#stats">Характеристики</a>
-                </li>
-                <li class="product-content__menu-item">
-                    <a class="tab product-content__tab" href="#complect">Комплектация</a>
-                </li>
-                <li class="product-content__menu-item">
-                    <a class="tab product-content__tab" href="#warranty">Гарантийные обязательства</a>
-                </li>
-                <li class="product-content__menu-item">
-                    <a class="tab product-content__tab" href="#collections">Подборки товаров</a>
-                </li>
-                <li class="product-content__menu-item">
-                    <a class="tab product-content__tab" href="#reviews">Отзывы о товаре</a>
-                </li>
-            </ul>
+            <div class="product-content__slider swiper">
+                <ul class="product-content__menu swiper-wrapper">
+                    <li class="product-content__menu-item swiper-slide">
+                        <a class="product-content__tab active" href="#description" aria-current="location">Описание</a>
+                    </li>
+                    <li class="product-content__menu-item swiper-slide">
+                        <a class="product-content__tab" href="#stats">Характеристики</a>
+                    </li>
+                    <li class="product-content__menu-item swiper-slide">
+                        <a class="product-content__tab" href="#complect">Комплектация</a>
+                    </li>
+                    <li class="product-content__menu-item swiper-slide">
+                        <a class="product-content__tab" href="#warranty">Гарантийные обязательства</a>
+                    </li>
+                    <li class="product-content__menu-item swiper-slide">
+                        <a class="product-content__tab" href="#collections">Подборки товаров</a>
+                    </li>
+                    <li class="product-content__menu-item swiper-slide">
+                        <a class="product-content__tab" href="#reviews">Отзывы о товаре</a>
+                    </li>
+                </ul>
+            </div>
+            <button class="product-content__prev swiper-button-prev" type="button" aria-label="Предыдущие разделы"></button>
+            <button class="product-content__next swiper-button-next" type="button" aria-label="Следующие разделы"></button>
         </nav>
         <div class="product-content__block" id="description">
             <h2 class="product-content__title title title-md">Описание</h2>
             <div class="product-content__description">
                 <div class="product-content__description-main">
                     <div class="product-content__rich" id="product-rich-description">
-                        <img class="product-content__rich-image" src="@img/goods/description-03.png" alt="Caiman Control: компактный измельчитель с беспроводным управлением для семьи из 3 человек" loading="lazy">
-                        <img class="product-content__rich-image" src="@img/goods/description-01.png" alt="Производительность 3,2 кг/мин, камера 860 мл, 3000 об/мин, мощность 375 Вт" loading="lazy">
-                        <img class="product-content__rich-image" src="@img/goods/description-04.png" alt="Удобное управление беспроводной кнопкой с расстояния до 20 метров" loading="lazy">
-                        <img class="product-content__rich-image product-content__rich-image--extra" src="@img/goods/description-02.png" alt="Решает проблемы засоров в трубах, неприятных запахов и появления грызунов" loading="lazy" hidden>
+                        <img src="@img/goods/description-03.png" width="925" alt="Caiman Control: компактный измельчитель с беспроводным управлением для семьи из 3 человек">
+                        <img src="@img/goods/description-01.png" width="925" alt="Производительность 3,2 кг/мин, камера 860 мл, 3000 об/мин, мощность 375 Вт">
+                        <img src="@img/goods/description-04.png" width="925" alt="Удобное управление беспроводной кнопкой с расстояния до 20 метров">
                     </div>
                     <button class="product-content__expand" type="button" aria-expanded="false" aria-controls="product-rich-description">Показать полностью</button>
                 </div>
                 <ul class="product-content__benefits">
-                    <li class="product-content__benefit">
-                        <span class="product-content__benefit-icon" aria-hidden="true">
-                            <span class="product-content__benefit-image icon-checkmark-circle" aria-hidden="true"></span>
-                        </span>Расширенная гарантия 5 лет
+                    <li class="product-content__benefit icon-checkmark-circle">
+                        Расширенная гарантия 5 лет
                     </li>
-                    <li class="product-content__benefit">
-                        <span class="product-content__benefit-icon" aria-hidden="true">
-                            <span class="product-content__benefit-image icon-messages" aria-hidden="true"></span>
-                        </span>Оповещение по SMS
+                    <li class="product-content__benefit icon-messages">
+                        Оповещение по SMS
                     </li>
-                    <li class="product-content__benefit">
-                        <span class="product-content__benefit-icon" aria-hidden="true">
-                            <span class="product-content__benefit-image icon-renewable-energy" aria-hidden="true"></span>
-                        </span>Возврат и обмен — без проблем
+                    <li class="product-content__benefit icon-renewable-energy">
+                        Возврат и обмен — без проблем
                     </li>
-                    <li class="product-content__benefit">
-                        <span class="product-content__benefit-icon" aria-hidden="true">
-                            <span class="product-content__benefit-image icon-credit-card" aria-hidden="true"></span>
-                        </span>Различные способы оплаты
+                    <li class="product-content__benefit icon-credit-card">
+                        Различные способы оплаты
                     </li>
-                    <li class="product-content__benefit">
-                        <span class="product-content__benefit-icon" aria-hidden="true">
-                            <span class="product-content__benefit-image icon-checkmark-circle" aria-hidden="true"></span>
-                        </span>Только оригинальные товары
+                    <li class="product-content__benefit icon-checkmark-circle">
+                        Только оригинальные товары
                     </li>
                 </ul>
             </div>
         </div>
         <div class="product-content__block">
-            <h2 class="product-content__title title title-md">Особенности</h2>
+            <h2 class="product-content__title title title-md title-md--fixed">Особенности</h2>
             <div class="product-content__prose">
                 <p class="product-content__text">Измельчитель пищевых отходов BORT Caiman Control — это компактное устройство для кухни, которое решает проблему утилизации органических отходов. Модель создана для тех, кто хочет избавиться от мусорного ведра с неприятными запахами и реже выносить отходы, ценя при этом современные решения. Благодаря сочетанию достаточной мощности (375 Вт) и производительности (3,2 кг/мин), этот диспоузер справляется с повседневными задачами на кухне в семье из 2–3 человек.</p>
                 <p class="product-content__text">Измельчитель оснащен щеточным (PMDC) мотором, который обеспечивает высокий крутящий момент и стабильную скорость вращения в 3000 об/мин на холостом ходу. Три ступени измельчения и камера объемом 860 мл эффективно перерабатывают большинство мягких и твердых отходов: от очистков овощей и фруктов до мелких куриных костей. Удлиненный фланец в конструкции позволяет установить устройство на раковину из металла или камня толщиной до 30 мм.</p>

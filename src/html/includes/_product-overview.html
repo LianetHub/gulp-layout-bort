@@ -1,4 +1,4 @@
-<nav aria-label="Хлебные крошки" class="breadcrumbs">
+<nav aria-label="Хлебные крошки" class="breadcrumbs breadcrumbs--scroll">
     <div class="breadcrumbs__container container">
         <ul class="breadcrumbs__list">
             <li class="breadcrumbs__item">
@@ -45,106 +45,110 @@
                 </div>
             </div>
             <div class="product-details__main">
-                <div class="product-details__tools">
-                    <button class="product-details__tool compare-btn icon-bars" type="button" aria-pressed="false">Сравнить</button>
-                    <button class="product-details__tool favorite-btn icon-heart" type="button" aria-pressed="false">В избранное</button>
-                </div>
-                <div class="product-details__identity">
-                    <h1 class="product-details__title product__name title title-md">Измельчитель пищевых отходов BORT Caiman Control</h1>
-                    <div class="product-details__info">
-                        <span class="product-details__sku">Артикул: <strong class="product-details__sku-value">93419597</strong>
-                        </span>
-                        <a class="product-details__rating" href="#reviews">
-                            <span class="product-details__star icon-star" aria-hidden="true"></span>
-                            <strong class="product-details__grade">4.8</strong>
-                            <span class="product-details__rating-count">(276 отзывов)</span>
-                        </a>
-                    </div>
-                </div>
-                <fieldset class="product-details__variants">
-                    <legend class="product-details__variant-caption">Мощность, Вт:</legend>
-                    <div class="product-details__variant-options">
-                        <label class="product-details__variant">
-                            <input class="product-details__variant-input" type="radio" name="power" value="500">
-                            <span class="product-details__variant-value">500</span>
-                        </label>
-                        <label class="product-details__variant">
-                            <input class="product-details__variant-input" type="radio" name="power" value="600" checked>
-                            <span class="product-details__variant-value">600</span>
-                        </label>
-                        <label class="product-details__variant">
-                            <input class="product-details__variant-input" type="radio" name="power" value="650">
-                            <span class="product-details__variant-value">650</span>
-                        </label>
-                    </div>
-                </fieldset>
-                <div class="product-details__purchase">
-                    <span class="product-details__stock icon-checkmark-circle">В наличии (10 шт.)</span>
-                    @@include('./_product-purchase-controls.html')
-                    <p class="product-details__delivery-date">Доставим <strong class="product-details__delivery-value">12 сентября</strong>
-                    </p>
-                </div>
-                <div class="product-details__summary">
-                    <p class="product-details__summary-title">Характеристики:</p>
-                    <dl class="product-details__summary-list">
-                        <div class="product-details__summary-row">
-                            <dt class="product-details__summary-name">Скорость вращения, об/мин:</dt>
-                            <dd class="product-details__summary-value">Сталь</dd>
+                <div class="product-details__information">
+                    <div class="product-details__identity">
+                        <h1 class="product-details__title product__name title title-md title-md--fixed">Измельчитель пищевых отходов BORT Caiman Control</h1>
+                        <div class="product-details__info">
+                            <span class="product-details__sku">Артикул: <strong class="product-details__sku-value">93419597</strong>
+                            </span>
+                            <a class="product-details__rating" href="#reviews">
+                                <span class="product-details__star icon-star" aria-hidden="true"></span>
+                                <strong class="product-details__grade">4.8</strong>
+                                <span class="product-details__rating-count">(276 отзывов)</span>
+                            </a>
                         </div>
-                        <div class="product-details__summary-row">
-                            <dt class="product-details__summary-name">Объем перемалывающей камеры, мл:</dt>
-                            <dd class="product-details__summary-value">15х15 мм</dd>
+                    </div>
+                    <fieldset class="product-details__variants">
+                        <legend class="product-details__variant-caption">Мощность, Вт:</legend>
+                        <div class="product-details__variant-options">
+                            <label class="product-details__variant">
+                                <input class="product-details__variant-input" type="radio" name="power" value="500">
+                                <span class="product-details__variant-value">500</span>
+                            </label>
+                            <label class="product-details__variant">
+                                <input class="product-details__variant-input" type="radio" name="power" value="600" checked>
+                                <span class="product-details__variant-value">600</span>
+                            </label>
+                            <label class="product-details__variant">
+                                <input class="product-details__variant-input" type="radio" name="power" value="650">
+                                <span class="product-details__variant-value">650</span>
+                            </label>
                         </div>
-                        <div class="product-details__summary-row">
-                            <dt class="product-details__summary-name">Мощность, Вт: <span class="tooltip">
-                                    <button class="tooltip__trigger icon-information-circle" type="button" aria-label="Подробнее о мощности" aria-describedby="product-power-help"></button>
-                                    <span class="tooltip__content" id="product-power-help" role="tooltip">
-                                        <span class="tooltip__text">Максимальная активная мощность, которую устройство может отдавать на подключённые нагрузки без перегрузки. Важно для правильного расчёта подключаемого оборудования.</span>
+                    </fieldset>
+                    <div class="product-details__summary">
+                        <p class="product-details__summary-title">Характеристики:</p>
+                        <dl class="product-details__summary-list">
+                            <div class="product-details__summary-row">
+                                <dt class="product-details__summary-name">Скорость вращения, об/мин:</dt>
+                                <dd class="product-details__summary-value">Сталь</dd>
+                            </div>
+                            <div class="product-details__summary-row">
+                                <dt class="product-details__summary-name">Объем перемалывающей камеры, мл:</dt>
+                                <dd class="product-details__summary-value">15х15 мм</dd>
+                            </div>
+                            <div class="product-details__summary-row">
+                                <dt class="product-details__summary-name">Мощность, Вт: <span class="tooltip">
+                                        <button class="tooltip__trigger icon-information-circle" type="button" aria-label="Подробнее о мощности" aria-describedby="product-power-help"></button>
+                                        <span class="tooltip__content" id="product-power-help" role="tooltip">
+                                            <span class="tooltip__text">Максимальная активная мощность, которую устройство может отдавать на подключённые нагрузки без перегрузки. Важно для правильного расчёта подключаемого оборудования.</span>
+                                        </span>
                                     </span>
-                                </span>
-                            </dt>
-                            <dd class="product-details__summary-value">6 м</dd>
-                        </div>
-                        <div class="product-details__summary-row">
-                            <dt class="product-details__summary-name">Материал камеры:</dt>
-                            <dd class="product-details__summary-value">Нержавеющая сталь</dd>
-                        </div>
-                        <div class="product-details__summary-row">
-                            <dt class="product-details__summary-name">Диаметр, мм:</dt>
-                            <dd class="product-details__summary-value">145</dd>
-                        </div>
-                    </dl>
-                    <a class="product-details__all icon-chevron-right" href="#stats">Все характеристики</a>
+                                </dt>
+                                <dd class="product-details__summary-value">6 м</dd>
+                            </div>
+                            <div class="product-details__summary-row">
+                                <dt class="product-details__summary-name">Материал камеры:</dt>
+                                <dd class="product-details__summary-value">Нержавеющая сталь</dd>
+                            </div>
+                            <div class="product-details__summary-row">
+                                <dt class="product-details__summary-name">Диаметр, мм:</dt>
+                                <dd class="product-details__summary-value">145</dd>
+                            </div>
+                        </dl>
+                        <a class="product-details__all icon-chevron-right" href="#stats">Все характеристики</a>
+                    </div>
                 </div>
-                <div class="product-details__services">
-                    <div class="product-details__service">
-                        <p class="product-details__service-title">
-                            <span class="product-details__service-icon icon-truck" aria-hidden="true"></span>Доставка
+                <div class="product-details__aside">
+                    <div class="product-details__tools">
+                        <button class="product-details__tool compare-btn icon-bars" type="button" aria-pressed="false">Сравнить</button>
+                        <button class="product-details__tool favorite-btn icon-heart" type="button" aria-pressed="false">В избранное</button>
+                    </div>
+                    <div class="product-details__purchase">
+                        <span class="product-details__stock icon-checkmark-circle">В наличии (10 шт.)</span>
+                        @@include('./_product-purchase-controls.html')
+                        <p class="product-details__delivery-date">Доставим <strong class="product-details__delivery-value">12 сентября</strong>
                         </p>
-                        <ul class="product-details__service-list">
-                            <li class="product-details__service-item">При сумме заказа более 3000 руб. доставка Почтой России и курьерской службой до двери осуществляется бесплатно.</li>
-                            <li class="product-details__service-item">*При сумме заказа менее 3000 руб. стоимость доставки Почтой России и курьерской службой до двери составляет 350 руб.</li>
-                        </ul>
                     </div>
-                    <div class="product-details__service">
-                        <p class="product-details__service-title">
-                            <span class="product-details__service-icon icon-wallet" aria-hidden="true"></span>Оплата
-                        </p>
-                        <ul class="product-details__service-list">
-                            <li class="product-details__service-item">Оплата банковской картой онлайн</li>
-                            <li class="product-details__service-item">Наличными или картой при получении</li>
-                            <li class="product-details__service-item">Безналичный расчет для юридических лиц</li>
-                        </ul>
-                    </div>
-                    <div class="product-details__service">
-                        <p class="product-details__service-title">Документация</p>
-                        <a class="product-details__file icon-file" href="https://bort.ru/index.php?attachment_id=1225&amp;dispatch=attachments.getfile" target="_blank" rel="noopener">Инструкция <span class="product-details__file-size">(1.4 Мб)</span>
-                        </a>
-                    </div>
-                    <div class="product-details__service">
-                        <p class="product-details__service-title">Фирменная установка измельчителей</p>
-                        <a class="product-details__file icon-file" href="service.html">Инструкция <span class="product-details__file-size">(1.4 Мб)</span>
-                        </a>
+                    <div class="product-details__services">
+                        <div class="product-details__service">
+                            <p class="product-details__service-title">
+                                <span class="product-details__service-icon icon-truck" aria-hidden="true"></span>Доставка
+                            </p>
+                            <ul class="product-details__service-list">
+                                <li class="product-details__service-item">При сумме заказа более 3000 руб. доставка Почтой России и курьерской службой до двери осуществляется бесплатно.</li>
+                                <li class="product-details__service-item">*При сумме заказа менее 3000 руб. стоимость доставки Почтой России и курьерской службой до двери составляет 350 руб.</li>
+                            </ul>
+                        </div>
+                        <div class="product-details__service">
+                            <p class="product-details__service-title">
+                                <span class="product-details__service-icon icon-wallet" aria-hidden="true"></span>Оплата
+                            </p>
+                            <ul class="product-details__service-list">
+                                <li class="product-details__service-item">Оплата банковской картой онлайн</li>
+                                <li class="product-details__service-item">Наличными или картой при получении</li>
+                                <li class="product-details__service-item">Безналичный расчет для юридических лиц</li>
+                            </ul>
+                        </div>
+                        <div class="product-details__service">
+                            <p class="product-details__service-title">Документация</p>
+                            <a class="product-details__file icon-file" href="https://bort.ru/index.php?attachment_id=1225&amp;dispatch=attachments.getfile" target="_blank" rel="noopener">Инструкция <span class="product-details__file-size">(1.4 Мб)</span>
+                            </a>
+                        </div>
+                        <div class="product-details__service">
+                            <p class="product-details__service-title">Фирменная установка измельчителей</p>
+                            <a class="product-details__file icon-file" href="service.html">Инструкция <span class="product-details__file-size">(1.4 Мб)</span>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>

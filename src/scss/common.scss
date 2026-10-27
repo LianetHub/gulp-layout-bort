@@ -87,7 +87,10 @@ body {
 
 	// .wrapper:has(.product-details)
 	&:has(.product-details) {
-		padding-bottom: calc(#{rem(144)} + env(safe-area-inset-bottom, 0px));
+		padding-bottom: var(
+			--product-purchase-height,
+			calc(#{rem(134)} + env(safe-area-inset-bottom, 0px))
+		);
 
 		@media (min-width: $md4) {
 			padding-bottom: 0;
@@ -110,6 +113,10 @@ body {
 
 // .page
 .page {
+	// .page:has(.product-content)
+	&:has(.product-content) {
+		overflow-x: clip;
+	}
 	flex: 1 1 auto;
 	// .page:has(> .subscribe)
 	&:has(> .subscribe) {
