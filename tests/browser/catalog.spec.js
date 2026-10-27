@@ -126,3 +126,49 @@ test('motor and advanced checkbox groups also share a chip and clear together', 
     await expect(page.locator('.product-listing__chip')).toHaveCount(0);
     await expect(form.locator('input:checked')).toHaveCount(0);
 });
+
+for (const width of [1440, 768, 375]) {
+    test(`search and catalog share the same listing at ${width}px`, async ({ page }) => {
+        await page.setViewportSize({ width, height: 1000 });
+        const layouts = [];
+        for (const name of ['catalog', 'search']) {
+            await page.goto(`/docs/${name}.html`);
+            await page.evaluate(() => document.fonts.ready);
+            await expect(page.locator('.product-listing__item:visible')).toHaveCount(9);
+            await expect(page.locator('.product-listing__chip')).toHaveCount(4);
+            layouts.push(await page.evaluate(() => {
+                const selectors = ['.product-listing__tags', '.product-listing__tag', '.product-listing__toolbar',
+                    '.product-listing__selected', '.product-listing__chip', '.product-listing__products',
+                    '.product-listing__item', '.product-tile', '.product-tile__name', '.product-tile__price',
+                    '.product-listing__more', '.product-listing__pagination'];
+                return selectors.map(selector => {
+                    const element = document.querySelector(selector);
+                    const style = getComputedStyle(element);
+                    const box = element.getBoundingClientRect();
+                    return { selector, width: box.width, height: box.height,
+                        font: style.font, gap: style.gap, padding: style.padding,
+                        columns: style.gridTemplateColumns, radius: style.borderRadius };
+                });
+            }));
+        }
+        expect(layouts[1]).toEqual(layouts[0]);
+        await expect(page.locator('h1')).toContainText('По запросу');
+        await expect(page.locator('h1')).toHaveCSS('font-size', '18px');
+        await expect(page.locator('.breadcrumbs')).toHaveCSS('overflow-x', 'auto');
+    });
+}
+
+test('search uses grouped filter dropdowns and clears all selections', async ({ page }) => {
+    await page.setViewportSize({ width: 1440, height: 1000 });
+    await page.goto('/docs/search.html');
+    await expect(page.locator('.product-listing__chip')).toHaveCount(4);
+    await page.locator('.listing-filter [name="power"][value="1125"]').check({ force: true });
+    const group = page.locator('.product-listing__filter-group[data-filter-group="power"]');
+    await group.getByRole('button', { name: 'Мощность: 2', exact: true }).click();
+    await expect(group.locator('.product-listing__dropdown')).toBeVisible();
+    await group.getByText('1 125', { exact: true }).click();
+    await expect(group).toHaveCount(0);
+    await page.locator('.product-listing__clear').click();
+    await expect(page.locator('.product-listing__selected')).toBeHidden();
+    await expect(page.locator('.listing-filter input:checked')).toHaveCount(0);
+});

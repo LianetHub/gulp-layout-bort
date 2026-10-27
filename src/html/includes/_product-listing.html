@@ -1,11 +1,17 @@
 <section class="product-listing">
     <div class="product-listing__container container">
-        <div class="product-listing__heading">
+        <div class="product-listing__heading@@if(typeof search !== 'undefined' && search){ product-listing__heading--search}">
+            @@if(typeof search !== 'undefined' && search){
+            <h1 class="product-listing__title title title-sm title-sm--fixed title--sans title--medium">По запросу <span class="product-listing__query">измельчитель</span> найдено <span class="product-listing__total">18&nbsp;товаров</span>
+            </h1>
+            }
+            @@if(typeof search === 'undefined' || !search){
             <div class="product-listing__heading-main">
                 <h1 class="product-listing__title title title-lg title-lg--wide">Измельчители отходов</h1>
                 <span class="product-listing__count">48 товаров</span>
             </div>
             <a href="service.html" class="product-listing__advice icon-lamp-on">Советы по выбору измельчителя</a>
+            }
         </div>
         <div class="product-listing__layout">
             @@include('_listing-filter.html')
@@ -43,7 +49,7 @@
                 </div>
                 <p class="product-listing__empty" hidden>По выбранным параметрам товары не найдены. Попробуйте изменить фильтры.</p>
                 <button type="button" class="product-listing__more icon-loading">Показать еще</button>
-                @@include('_pagination.html', {"className":"product-listing__pagination pagination--compact", "label":"Страницы каталога", "lastPage":40})
+                @@include('_pagination.html', {"className":"product-listing__pagination pagination--compact", "label":"Страницы товаров", "lastPage":40})
             </div>
         </div>
     </div>

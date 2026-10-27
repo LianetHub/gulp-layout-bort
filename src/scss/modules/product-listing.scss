@@ -25,6 +25,10 @@
 			align-items: center;
 			margin-bottom: rem(30);
 		}
+		// .product-listing__heading--search
+		&--search {
+			margin-bottom: rem(30);
+		}
 	}
 
 	// .product-listing__heading-main
@@ -123,7 +127,6 @@
 		white-space: nowrap;
 
 		@media (any-hover: hover) {
-
 			// .product-listing__tag:hover
 			&:hover {
 				background: #ebeaea;
@@ -278,7 +281,6 @@
 		}
 
 		@media (any-hover: hover) {
-
 			// .product-listing__chip:hover
 			&:hover {
 				background: #ff6201;
@@ -299,7 +301,6 @@
 			}
 
 			@media (any-hover: hover) {
-
 				// .product-listing__chip--group:hover
 				&:hover {
 					background: #2b2b2b;
@@ -411,7 +412,6 @@
 		}
 
 		@media (any-hover: hover) {
-
 			// .product-listing__dropdown-choice:hover
 			&:hover {
 				background: #f2f2f2;
@@ -457,7 +457,6 @@
 		}
 
 		@media (any-hover: hover) {
-
 			// .product-listing__clear:hover
 			&:hover {
 				background: #ebeaea;
@@ -608,138 +607,5 @@
 		height: 1px;
 		overflow: hidden;
 		clip-path: inset(50%);
-	}
-}
-
-// .product-listing
-.product-listing {
-
-	// .product-listing--search
-	&--search {
-		padding: rem(20) 0 rem(60);
-
-		// .product-listing--search .product-listing__item:nth-child(n)
-		.product-listing__item:nth-child(n) {
-			order: 0;
-			grid-area: auto;
-		}
-
-		// .product-listing--search .product-listing__tags
-		.product-listing__tags {
-			max-width: rem(290);
-
-			@media (min-width: $md4) {
-				max-width: none;
-			}
-		}
-
-		// .product-listing--search .product-listing__heading
-		.product-listing__heading {
-			margin-bottom: rem(30);
-		}
-
-		// .product-listing--search .product-listing__count
-		.product-listing__count {
-			color: inherit;
-			font-size: inherit;
-		}
-
-		// .product-listing--search .product-listing__layout
-		.product-listing__layout {
-			@media (min-width: $md2) {
-				grid-template-columns: rem(302) 1fr;
-			}
-		}
-
-		// .product-listing--search .product-listing__tags
-		.product-listing__tags {
-			gap: rem(5);
-			margin-bottom: rem(20);
-		}
-
-		// .product-listing--search .product-listing__tag
-		.product-listing__tag {
-			padding: rem(8) rem(15);
-			font-size: rem(12);
-			line-height: math.div(20, 12);
-		}
-
-		// .product-listing--search .product-listing__tag:nth-child(7)
-		// .product-listing--search .product-listing__tag:nth-child(8)
-		.product-listing__tag:nth-child(7),
-		.product-listing__tag:nth-child(8) {
-			@media (min-width: $md2) {
-				display: none;
-			}
-		}
-
-		// .product-listing--search .product-listing__tags.is-expanded .product-listing__tag
-		.product-listing__tags.is-expanded .product-listing__tag {
-			display: block;
-		}
-
-		// .product-listing--search .product-listing__chip:not(.product-listing__chip--group)
-		.product-listing__chip:not(.product-listing__chip--group) {
-			font-size: rem(14);
-			line-height: math.div(20, 14);
-			padding: rem(6) rem(10);
-		}
-
-		// .product-listing--search .product-listing__clear
-		.product-listing__clear {
-			font-size: rem(14);
-			padding: rem(6) rem(12);
-			border-radius: rem(20);
-			background: #fff;
-		}
-
-		// .product-listing--search .product-listing__selected
-		.product-listing__selected {
-			gap: rem(5);
-		}
-
-		// .product-listing--search .product-listing__chip[data-filter="motor"]
-		.product-listing__chip[data-filter="motor"] {
-			order: -3;
-		}
-
-		// .product-listing--search .product-listing__chip[data-filter="power"]
-		.product-listing__chip[data-filter="power"] {
-			order: -2;
-		}
-
-		// .product-listing--search .product-listing__chip[data-filter="min_price"]
-		.product-listing__chip[data-filter="min_price"] {
-			order: -1;
-		}
-
-		// .product-listing--search .product-listing__toolbar
-		.product-listing__toolbar {
-			margin-bottom: rem(20);
-		}
-
-		// .product-listing--search .product-listing__sort
-		.product-listing__sort {
-			width: rem(200);
-			font-size: rem(16);
-			line-height: math.div(22, 16);
-		}
-
-		// .product-listing--search .product-listing__products
-		.product-listing__products {
-			gap: rem(10);
-		}
-
-		// .product-listing--search .product-listing__more
-		.product-listing__more {
-			margin-top: rem(20);
-			padding: rem(12);
-			line-height: math.div(20, 14);
-		}
-
-		// .product-listing--search .product-listing__pagination
-		.product-listing__pagination {
-			margin-top: rem(20);
-		}
 	}
 }
