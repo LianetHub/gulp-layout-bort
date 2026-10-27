@@ -1631,6 +1631,30 @@
 
 
 
+            <dialog class="favorite-dialog" id="favorite-remove-dialog" aria-labelledby="favorite-remove-dialog-title" aria-describedby="favorite-remove-dialog-message">
+                <button type="button" class="favorite-dialog__close" aria-label="Закрыть окно">
+                    <span class="favorite-dialog__icon icon-close" aria-hidden="true"></span>
+                </button>
+                <h2 class="favorite-dialog__title title title-md title-md--small title--sans" id="favorite-remove-dialog-title">Удалить из избранного</h2>
+                <p class="favorite-dialog__message" id="favorite-remove-dialog-message">Вы хотите удалить <span class='favorite-dialog__category'></span> из избранного?</p>
+                <div class="favorite-dialog__actions">
+                    <button type="button" class="favorite-dialog__confirm">Удалить</button>
+                    <button type="button" class="favorite-dialog__cancel" autofocus>Отменить</button>
+                </div>
+            </dialog>
+
+            <dialog class="favorite-dialog" id="favorite-clear-dialog" aria-labelledby="favorite-clear-dialog-title" aria-describedby="favorite-clear-dialog-message">
+                <button type="button" class="favorite-dialog__close" aria-label="Закрыть окно">
+                    <span class="favorite-dialog__icon icon-close" aria-hidden="true"></span>
+                </button>
+                <h2 class="favorite-dialog__title title title-md title-md--small title--sans" id="favorite-clear-dialog-title">Очистить избранное</h2>
+                <p class="favorite-dialog__message" id="favorite-clear-dialog-message">Вы хотите удалить все товары из избранного?</p>
+                <div class="favorite-dialog__actions">
+                    <button type="button" class="favorite-dialog__confirm">Удалить</button>
+                    <button type="button" class="favorite-dialog__cancel" autofocus>Отменить</button>
+                </div>
+            </dialog>
+
             <!-- plugins -->
             <script src="js/libs/fancybox.umd.js"></script>
             <script src="js/libs/swiper-bundle.min.js"></script>

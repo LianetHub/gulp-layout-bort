@@ -100,15 +100,13 @@
             this.form = form;
             this.container = this.form.querySelector('.address-picker__map');
             this.toggle = this.form.querySelector('.address-picker__map-toggle');
-            this.status = this.form.querySelector('.address-picker__map-status');
 
-            if (!this.container || !this.toggle || !this.status) {
+            if (!this.container || !this.toggle) {
                 return;
             }
 
             this.map = undefined;
             this.loading = false;
-            this.request = 0;
 
             this.toggle.addEventListener('click', this.toggleMap);
 
@@ -116,11 +114,8 @@
         }
 
         reset() {
-            this.request++;
             this.container.hidden = true;
             this.toggle.setAttribute('aria-expanded', 'false');
-            this.status.hidden = true;
-            this.map?.geoObjects.removeAll();
         }
 
         async toggleMap() {
@@ -130,10 +125,8 @@
                 return;
             }
 
-            this.status.hidden = false;
             if (this.map) {
                 this.map.container.fitToViewport();
-                TextUtils.showMessage(this.status, 'Нажмите на карте, чтобы выбрать адрес.');
 
                 return;
             }
@@ -142,7 +135,6 @@
             }
 
             this.loading = true;
-            TextUtils.showMessage(this.status, 'Загрузка карты…');
             try {
                 const api = await MapLoader.loadMaps();
 
@@ -151,57 +143,8 @@
                     zoom: 11,
                     controls: ['zoomControl'],
                 });
-                if (!this.container.hidden) {
-                    TextUtils.showMessage(this.status, 'Нажмите на карте, чтобы выбрать адрес.');
-                }
-                this.map.events.add('click', async (event) => {
-                    const current = ++this.request;
-                    const coords = event.get('coords');
-
-                    TextUtils.showMessage(this.status, 'Определяем адрес…');
-                    try {
-                        const result = await api.geocode(coords);
-
-                        if (current !== this.request || this.container.hidden) {
-                            return;
-                        }
-
-                        const place = result.geoObjects.get(0);
-
-                        if (!place) {
-                            throw new Error('Address not found');
-                        }
-
-                        this.form.elements.city.value =
-                            place.getLocalities()[0] || place.getAdministrativeAreas()[0] || '';
-                        this.form.elements.street.value = [
-                            place.getThoroughfare(),
-                            place.getPremiseNumber(),
-                        ]
-                            .filter(Boolean)
-                            .join(', ');
-                        this.map.geoObjects.removeAll();
-                        this.map.geoObjects.add(new api.Placemark(coords));
-                        TextUtils.showMessage(
-                            this.status,
-                            'Адрес выбран. Проверьте город и улицу перед добавлением.',
-                        );
-                    } catch {
-                        if (current === this.request) {
-                            TextUtils.showMessage(
-                                this.status,
-                                'Не удалось определить адрес. Заполните город и улицу вручную.',
-                            );
-                        }
-                    }
-                });
             } catch {
-                this.container.hidden = true;
-                this.toggle.setAttribute('aria-expanded', 'false');
-                TextUtils.showMessage(
-                    this.status,
-                    'Не удалось загрузить карту. Адрес можно ввести вручную.',
-                );
+                this.map = undefined;
             } finally {
                 this.loading = false;
             }
@@ -2680,6 +2623,39 @@
             }
 
             this.root.dataset.favoritesReady = 'true';
+            this.removeDialog = document.querySelector('#favorite-remove-dialog');
+            this.clearDialog = document.querySelector('#favorite-clear-dialog');
+            [this.removeDialog, this.clearDialog].forEach((dialog) => {
+                if (!dialog) {
+                    return;
+                }
+
+                dialog.addEventListener('click', (event) => {
+                    if (event.target.closest('.favorite-dialog__confirm')) {
+                        this.pendingAction?.();
+                        dialog.close();
+                    } else if (
+                        event.target.closest('.favorite-dialog__cancel, .favorite-dialog__close')
+                    ) {
+                        dialog.close();
+                    } else if (event.target === dialog) {
+                        const bounds = dialog.getBoundingClientRect();
+
+                        if (
+                            event.clientX < bounds.left ||
+                            event.clientX > bounds.right ||
+                            event.clientY < bounds.top ||
+                            event.clientY > bounds.bottom
+                        ) {
+                            dialog.close();
+                        }
+                    }
+                });
+                dialog.addEventListener('close', () => {
+                    this.pendingAction = null;
+                });
+            });
+
             favoriteCounter.changeQuantity(
                 this.root.querySelectorAll('.favorite-btn.active').length,
                 false,
@@ -2691,17 +2667,38 @@
 
         handleClick(event) {
             if (event.target.closest('.favorites__clear')) {
-                favoriteCounter.changeQuantity(
-                    -this.root.querySelectorAll('.favorite-btn.active').length,
-                );
-                this.root.querySelectorAll('.favorite-btn').forEach((button) => {
-                    button.classList.remove('active');
-                    button.setAttribute('aria-pressed', 'false');
+                this.confirm(this.clearDialog, () => {
+                    favoriteCounter.changeQuantity(
+                        -this.root.querySelectorAll('.favorite-btn.active').length,
+                    );
+                    this.root.querySelectorAll('.favorite-btn').forEach((button) => {
+                        button.classList.remove('active');
+                        button.setAttribute('aria-pressed', 'false');
+                    });
                 });
+
+                return;
             }
+
             const remove = event.target.closest('[data-remove-category]');
 
-            remove?.closest('.favorites__category').remove();
+            if (remove && this.removeDialog) {
+                const category = remove.closest('.favorites__category');
+
+                this.removeDialog.querySelector('.favorite-dialog__category').textContent = category
+                    .querySelector('.favorites__filter')
+                    .firstChild.textContent.trim();
+                this.confirm(this.removeDialog, () => category.remove());
+            }
+        }
+
+        confirm(dialog, action) {
+            if (!dialog || dialog.open) {
+                return;
+            }
+
+            this.pendingAction = action;
+            dialog.showModal();
         }
     }
 

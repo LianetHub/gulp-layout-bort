@@ -55,6 +55,8 @@
 
             </main>
             @@include('html/_footer.html', {})
+            @@include('html/includes/_favorite-dialog.html', {"id":"favorite-remove-dialog", "title":"Удалить из избранного", "message":"Вы хотите удалить <span class='favorite-dialog__category'></span> из избранного?"})
+            @@include('html/includes/_favorite-dialog.html', {"id":"favorite-clear-dialog", "title":"Очистить избранное", "message":"Вы хотите удалить все товары из избранного?"})
             @@include('html/_js.html', {})
         </div>
     </body>

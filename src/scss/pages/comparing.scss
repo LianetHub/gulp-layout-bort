@@ -69,8 +69,13 @@
 		gap: rem(10);
 		overflow-x: auto;
 		margin-top: rem(20);
+		margin-right: calc(50% - 50vw);
 		scrollbar-width: none;
 		padding-bottom: rem(2);
+		padding-right: rem(15);
+		@media (min-width: $md4) {
+			padding-right: rem(20);
+		}
 	}
 	// .comparing__category
 	&__category {
@@ -142,9 +147,17 @@
 	}
 	// .comparing__panel-container
 	&__panel-container {
+		padding-inline: 0;
 		@media (min-width: $md2) {
 			display: grid;
 			grid-template-columns: 28% 1fr;
+		}
+		// .comparing__panel.is-stuck .comparing__panel-container
+		.comparing__panel.is-stuck & {
+			padding-inline: rem(15);
+			@media (min-width: $md4) {
+				padding-inline: rem(20);
+			}
 		}
 	}
 	// .comparing__filters

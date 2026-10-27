@@ -19,6 +19,7 @@
 	// .favorite-dialog__title
 	&__title {
 		margin-bottom: rem(10);
+		color: inherit;
 	}
 	// .favorite-dialog__message
 	&__message {
@@ -29,7 +30,7 @@
 	}
 	// .favorite-dialog__category
 	&__category {
-		font-weight: 600;
+		font-weight: 500;
 	}
 	// .favorite-dialog__close
 	&__close {
@@ -41,6 +42,7 @@
 		width: rem(28);
 		height: rem(28);
 		background: #f2f2f2;
+		color: #6a6b6d;
 		border-radius: 50%;
 	}
 	// .favorite-dialog__icon
