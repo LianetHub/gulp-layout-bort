@@ -15,6 +15,15 @@
 	// .delivery__caption
 	&__caption {
 		margin-bottom: rem(10);
+
+		// .delivery__section:first-of-type .delivery__caption
+		.delivery__section:first-of-type & {
+			margin-bottom: rem(20);
+
+			@media (min-width: $md2) {
+				margin-bottom: rem(10);
+			}
+		}
 	}
 	// .delivery__payments
 	&__payments {

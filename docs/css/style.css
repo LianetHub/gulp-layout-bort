@@ -10753,6 +10753,14 @@ body:has(.arrow-top.visible) .notify-container {
 .delivery__caption {
   margin-bottom: 0.625rem;
 }
+.delivery__section:first-of-type .delivery__caption {
+  margin-bottom: 1.25rem;
+}
+@media (min-width: 1199.98px) {
+  .delivery__section:first-of-type .delivery__caption {
+    margin-bottom: 0.625rem;
+  }
+}
 .delivery__payments {
   display: -ms-grid;
   display: grid;
