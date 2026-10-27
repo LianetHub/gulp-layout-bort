@@ -11,11 +11,8 @@
                             <span class="cart__back-icon icon-chevron-left" aria-hidden="true"></span>Вернуться к покупкам
                         </a>
                         <div class="cart__heading">
-                            <h1 class="cart__title title title-lg title--sans title--bold">Корзина</h1>
-                            <button type="button" class="cart__share">
-                                <span class="cart__share-icon icon-copy" aria-hidden="true"></span>
-                                <span class="cart__share-text">Поделиться корзиной</span>
-                            </button>
+                            <h1 class="cart__title title title-lg">Корзина</h1>
+                            <button type="button" class="cart__share icon-share">Поделиться корзиной</button>
                         </div>
                         <div class="cart__layout">
                             <div class="cart__main">
@@ -29,7 +26,7 @@
                             </div>
                             <aside class="cart__sidebar" aria-label="Итоги заказа">
                                 <div class="cart__total">
-                                    <h2 class="cart__total-title title title-sm title--sans">Ваш заказ</h2>
+                                    <h2 class="cart__total-title title title-md title--sans title-md--small">Ваш заказ</h2>
                                     <div class="cart__total-rows" aria-live="polite">
                                         <div class="cart__total-row">
                                             <span class="cart__total-label">Вес заказа</span>
@@ -51,7 +48,9 @@
                                     <form action="#" class="cart__promo" novalidate>
                                         <label class="cart__promo-label" for="cart-promo">Промокод</label>
                                         <input id="cart-promo" class="cart__promo-input" name="promocode" placeholder="Промокод" autocomplete="off">
-                                        <button type="submit" class="cart__promo-submit" aria-label="Применить промокод">→</button>
+                                        <button type="submit" class="cart__promo-submit" aria-label="Применить промокод">
+                                            <span class="cart__promo-icon icon-arrow-down" aria-hidden="true"></span>
+                                        </button>
                                     </form>
                                     <p class="cart__message" role="status" hidden></p>
                                     <a href="checkout.html" class="cart__total-order btn btn-primary btn--cart">Перейти к оформлению</a>

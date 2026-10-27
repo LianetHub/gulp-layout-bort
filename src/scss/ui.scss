@@ -82,6 +82,11 @@
 		font-size: rem(24);
 		line-height: math.div(36, 24);
 	}
+	// .title-md--small
+	&--small {
+		font-size: rem(20);
+		line-height: math.div(28, 20);
+	}
 	// .title-md--fixed
 	&--fixed {
 		font-size: rem(24);
@@ -244,6 +249,40 @@
 		&:hover {
 			background: $orange;
 			color: #fff;
+		}
+	}
+	// .swiper-button-next--small
+	// .swiper-button-prev--small
+	&--small {
+		width: rem(32);
+		height: rem(32);
+		margin-top: rem(-16);
+		font-size: rem(20);
+		// .swiper-button-next--small::before
+		// .swiper-button-prev--small::before
+		&::before {
+			content: "\e92b";
+			transform: none;
+		}
+		// .swiper-button-next--small.swiper-button-next::before
+		&.swiper-button-next::before {
+			transform: none;
+		}
+		// .swiper-button-prev--small.swiper-button-prev::before
+		&.swiper-button-prev::before {
+			transform: rotate(180deg);
+		}
+		// .swiper-button-next--small:disabled
+		// .swiper-button-prev--small:disabled
+		// .swiper-button-next--small.swiper-button-disabled
+		// .swiper-button-prev--small.swiper-button-disabled
+		// .swiper-button-next--small[aria-disabled="true"]
+		// .swiper-button-prev--small[aria-disabled="true"]
+		&:disabled,
+		&.swiper-button-disabled,
+		&[aria-disabled="true"] {
+			display: flex;
+			opacity: 1;
 		}
 	}
 }

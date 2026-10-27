@@ -1690,7 +1690,7 @@
             const icon = button.querySelector('.cart-accessory__icon');
 
             icon.classList.toggle('icon-cart', !selected);
-            icon.textContent = selected ? '✓' : '';
+            icon.classList.toggle('icon-tick', selected);
         }
 
         update() {
@@ -1779,8 +1779,8 @@
                     },
                 },
                 navigation: {
-                    prevEl: slider.querySelector('.swiper-button-prev'),
-                    nextEl: slider.querySelector('.swiper-button-next'),
+                    prevEl: details.querySelector('.swiper-button-prev'),
+                    nextEl: details.querySelector('.swiper-button-next'),
                 },
             });
         }
