@@ -352,6 +352,39 @@
   content: "\e940";
 }
 
+.map-button {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.3125rem;
+  width: -webkit-fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
+  font-size: 0.875rem;
+  line-height: 1.4285714286;
+  font-weight: 500;
+}
+.map-button__icon {
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  color: #ff6201;
+  font-size: 1.25rem;
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .notify-container {
   position: fixed;
   z-index: 25;
@@ -8564,6 +8597,9 @@ body:has(.arrow-top.visible) .notify-container {
     padding: 1.875rem;
   }
 }
+.address-picker--map {
+  max-width: 40.625rem;
+}
 .address-picker--pickup {
   height: 39.375rem;
   max-height: calc(100dvh - 1.875rem);
@@ -8872,21 +8908,6 @@ body:has(.arrow-top.visible) .notify-container {
   display: -ms-grid;
   display: grid;
   gap: 0.625rem;
-}
-.address-picker__map-toggle {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.3125rem;
-  width: -webkit-fit-content;
-  width: -moz-fit-content;
-  width: fit-content;
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  font-weight: 500;
 }
 .address-picker__details {
   display: -ms-grid;
@@ -10038,7 +10059,7 @@ body:has(.arrow-top.visible) .notify-container {
   height: 1.25rem;
 }
 .comparing-card__icon {
-  color: #404246;
+  color: #a7a8aa;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -16378,11 +16399,8 @@ body:has(.arrow-top.visible) .notify-container {
   color: #6a6b6d;
   line-height: 1.375;
 }
-.addresses__status {
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-}
 .addresses__icon {
+  color: #8b8f95;
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -16442,18 +16460,8 @@ body:has(.arrow-top.visible) .notify-container {
   gap: 1.25rem;
 }
 .address-dialog__map-toggle {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  gap: 0.3125rem;
   -ms-grid-column-align: start;
       justify-self: start;
-  font-size: 0.875rem;
-  font-weight: 500;
-  line-height: 1.4285714286;
 }
 .address-dialog__details {
   display: -ms-grid;
@@ -16476,68 +16484,6 @@ body:has(.arrow-top.visible) .notify-container {
   padding: 0.75rem 1.25rem;
   line-height: 1.375;
 }
-.address-dialog__map {
-  height: 20.625rem;
-  border-radius: 1.25rem;
-  overflow: hidden;
-  background: #f7f7f6;
-}
-@media (min-width: 767.98px) {
-  .address-dialog__map {
-    height: 28.125rem;
-  }
-}
-.address-dialog__status {
-  font-size: 0.875rem;
-  line-height: 1.4285714286;
-  margin-top: 0.625rem;
-}
-.address-dialog__selection {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  gap: 0.625rem;
-  margin-top: 1.25rem;
-}
-@media (min-width: 767.98px) {
-  .address-dialog__selection {
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-align: stretch;
-        -ms-flex-align: stretch;
-            align-items: stretch;
-  }
-}
-.address-dialog__selected {
-  -webkit-box-flex: 1;
-      -ms-flex: 1;
-          flex: 1;
-  padding: 0.75rem 1.25rem;
-  background: #f7f7f6;
-  border-radius: 0.5rem;
-  font-size: 1rem;
-  line-height: 1.375;
-}
-.address-dialog__choose.btn-primary {
-  padding: 0.75rem 1.875rem;
-  background: #ff6201;
-  border-radius: 0.5rem;
-}
-.address-dialog__choose.btn-primary:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-.address-dialog__back {
-  margin-top: 0.9375rem;
-  font-size: 0.875rem;
-  text-decoration: underline;
-}
 .address-dialog__close-icon {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
@@ -16554,21 +16500,64 @@ body:has(.arrow-top.visible) .notify-container {
   width: 1.25rem;
   height: 1.25rem;
 }
-.address-dialog__map-icon {
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
-  font-size: 1.25rem;
-  width: 1.25rem;
-  height: 1.25rem;
+
+.address-map__title {
+  margin-bottom: 1.25rem;
+  padding-right: 0.9375rem;
+}
+.address-map__canvas {
+  height: 20.625rem;
+  border-radius: 1.25rem;
+  overflow: hidden;
+  background: #f7f7f6;
+}
+@media (min-width: 767.98px) {
+  .address-map__canvas {
+    height: 28.125rem;
+  }
+}
+.address-map__selection {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.625rem;
+  margin-top: 1.25rem;
+}
+@media (min-width: 767.98px) {
+  .address-map__selection {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+}
+.address-map__selected {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-width: 0;
+  width: 100%;
+  padding: 0.75rem 1.25rem;
+  background: #f7f7f6;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  line-height: 1.375;
+}
+.address-map__selected:focus-visible {
+  outline: 0.125rem solid #ff6201;
+  outline-offset: 0.125rem;
+}
+.address-map__choose.btn-primary {
+  padding: 0.75rem 1.875rem;
+  background: #ff6201;
+  border-radius: 0.5rem;
 }
 
 .pickup-dialog {
@@ -16867,7 +16856,7 @@ body:has(.arrow-top.visible) .notify-container {
   font-size: 0.875rem;
   line-height: 1.4285714286;
 }
-.pickup-dialog__info-icon {
+.pickup-dialog__row::before {
   display: -webkit-inline-box;
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -16877,8 +16866,6 @@ body:has(.arrow-top.visible) .notify-container {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  -ms-flex-negative: 0;
-      flex-shrink: 0;
   font-size: 1.25rem;
   -webkit-box-flex: 0;
       -ms-flex: 0 0 1.25rem;

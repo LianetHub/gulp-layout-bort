@@ -90,6 +90,44 @@
         }
     }
 
+    class AddressMap {
+        constructor(root) {
+            this.root = root;
+            this.container = root.querySelector('.address-map__canvas');
+            this.loading = false;
+        }
+
+        async show() {
+            if (this.map) {
+                this.map.container.fitToViewport();
+
+                return;
+            }
+            if (this.loading) {
+                return;
+            }
+
+            this.loading = true;
+            try {
+                const api = await MapLoader.loadMaps();
+
+                if (!this.root.isConnected || this.root.closest('[hidden]')) {
+                    return;
+                }
+
+                this.map = new api.Map(this.container, {
+                    center: this.container.dataset.mapCenter.split(',').map(Number),
+                    zoom: 13,
+                    controls: ['zoomControl'],
+                });
+            } catch {
+                this.map = undefined;
+            } finally {
+                this.loading = false;
+            }
+        }
+    }
+
     class DeliveryMap {
         constructor() {
             this.reset = this.reset.bind(this);
@@ -219,6 +257,9 @@
             }
 
             this.dialog.dataset.initialized = 'true';
+            this.removeDialog = new ConfirmationDialog(
+                document.querySelector('#pickup-remove-dialog'),
+            );
             this.catalog = [...this.dialog.querySelectorAll('[data-pickup-id]')].map((button) => ({
                 id: button.dataset.pickupId,
                 title: button.querySelector('.pickup-dialog__point-title').textContent.trim(),
@@ -490,12 +531,17 @@
                 this.open(event.target.closest('button'), id);
             }
             if (event.target.closest('.addresses__delete')) {
-                this.points = PickupState.removePickup(this.points, id);
-                this.render();
-                (
-                    this.list.querySelector('.addresses__edit') ||
-                    this.root.querySelector('.addresses__add')
-                ).focus();
+                this.removeDialog.open(() => {
+                    const name = card.querySelector('.addresses__name').textContent.trim();
+
+                    this.points = PickupState.removePickup(this.points, id);
+                    this.render();
+                    window.NotifyController?.show(name, 1, 'pickup-remove');
+                    (
+                        this.list.querySelector('.addresses__edit') ||
+                        this.root.querySelector('.addresses__add')
+                    ).focus();
+                });
             }
         }
     }
@@ -630,7 +676,7 @@
             this.addressFields = ['city', 'street', 'entrance', 'floor', 'apartment'];
             this.selectedId = null;
             this.modal = undefined;
-            this.map = new DeliveryMap().init(this.addForm);
+            this.map = new AddressMap(this.picker.querySelector('.address-map'));
 
             this.form.querySelectorAll('.checkout__change').forEach((button) =>
                 button.addEventListener('click', () => {
@@ -683,6 +729,13 @@
                 .querySelector('.address-picker__selection')
                 .addEventListener('submit', this.selectAddress);
             this.addForm.addEventListener('submit', this.addAddress);
+            this.picker
+                .querySelector('.address-picker__map-toggle')
+                .addEventListener('click', () => {
+                    this.setView('map');
+                    this.picker.querySelector('.address-picker__close').focus();
+                    this.map.show();
+                });
 
             return this;
         }
@@ -691,9 +744,14 @@
             this.picker.querySelectorAll('[data-address-view]').forEach((view) => {
                 view.hidden = view.dataset.addressView !== name;
             });
+            this.picker.classList.toggle('address-picker--map', name === 'map');
             this.picker.setAttribute(
                 'aria-labelledby',
-                name === 'add' ? 'address-add-title' : 'address-picker-title',
+                name === 'map'
+                    ? 'address-picker-map-title'
+                    : name === 'add'
+                      ? 'address-add-title'
+                      : 'address-picker-title',
             );
         }
 
@@ -719,7 +777,6 @@
 
         showAddForm() {
             this.addForm.reset();
-            this.map?.reset();
             this.setView('add');
             this.addForm.elements.city.focus();
         }
@@ -775,7 +832,6 @@
 
     class AddressesController {
         constructor() {
-            this.report = this.report.bind(this);
             this.empty = this.empty.bind(this);
             this.fillCard = this.fillCard.bind(this);
             this.view = this.view.bind(this);
@@ -784,8 +840,6 @@
             this.add = this.add.bind(this);
             this.handleAddressAction = this.handleAddressAction.bind(this);
             this.saveAddress = this.saveAddress.bind(this);
-            this.backToForm = this.backToForm.bind(this);
-            this.chooseMapAddress = this.chooseMapAddress.bind(this);
             this.showMap = this.showMap.bind(this);
         }
 
@@ -809,19 +863,16 @@
             this.form = this.dialog.querySelector('form');
             this.title = this.dialog.querySelector('#address-dialog-title');
             this.submit = this.dialog.querySelector('.address-dialog__submit');
-            this.status = this.root.querySelector('.addresses__status');
+            this.removeDialog = new ConfirmationDialog(
+                document.querySelector('#address-remove-dialog'),
+            );
             this.fields = ['city', 'street', 'entrance', 'floor', 'apartment', 'comment'];
             this.editing = null;
             this.trigger = undefined;
             this.modal = undefined;
-            this.map = undefined;
-            this.mapAddress = undefined;
-            this.request = 0;
+            this.map = new AddressMap(this.dialog.querySelector('.address-map'));
 
             this.empty();
-
-            this.dialog.querySelector('[data-dialog-view="map"] .address-dialog__title').id =
-                'address-map-title';
 
             this.root.querySelector('.addresses__add').addEventListener('click', this.add);
             this.list.addEventListener('change', this.empty);
@@ -854,21 +905,10 @@
                 this.activate(this.tabs.find((tab) => tab.dataset.addressTab === 'pickup'));
             }
             this.dialog
-                .querySelector('.address-dialog__back')
-                .addEventListener('click', this.backToForm);
-            this.dialog
-                .querySelector('.address-dialog__choose')
-                .addEventListener('click', this.chooseMapAddress);
-            this.dialog
                 .querySelector('.address-dialog__map-toggle')
                 .addEventListener('click', this.showMap);
 
             return this;
-        }
-
-        report(message) {
-            this.status.textContent = message;
-            this.status.hidden = false;
         }
 
         empty() {
@@ -903,7 +943,6 @@
         }
 
         view(name) {
-            this.request++;
             this.dialog.classList.toggle('address-dialog--map', name === 'map');
             this.dialog.querySelectorAll('[data-dialog-view]').forEach((part) => {
                 part.hidden = part.dataset.dialogView !== name;
@@ -944,7 +983,6 @@
                     on: {
                         ready: () => this.form.elements.city.focus(),
                         destroy: () => {
-                            this.request++;
                             this.trigger?.focus();
                         },
                     },
@@ -971,7 +1009,6 @@
             this.root.querySelector('.addresses__title').textContent = pickup
                 ? 'Адреса и пункты выдачи'
                 : 'Адреса доставки';
-            this.status.hidden = true;
             this.pickups?.refresh();
             this.empty();
         }
@@ -999,18 +1036,21 @@
                 this.open(event.target.closest('button'), card);
             }
             if (event.target.closest('.addresses__delete')) {
-                const checked = card.querySelector('input').checked;
+                this.removeDialog.open(() => {
+                    const checked = card.querySelector('input').checked;
+                    const name = card.querySelector('.addresses__name').textContent.trim();
 
-                card.remove();
-                if (checked && this.list.querySelector('input')) {
-                    this.list.querySelector('input').checked = true;
-                }
-                this.empty();
-                this.report('Адрес удалён.');
-                (
-                    this.list.querySelector('.addresses__edit') ||
-                    this.root.querySelector('.addresses__add')
-                ).focus();
+                    card.remove();
+                    if (checked && this.list.querySelector('input')) {
+                        this.list.querySelector('input').checked = true;
+                    }
+                    this.empty();
+                    window.NotifyController?.show(name, 1, 'address-remove');
+                    (
+                        this.list.querySelector('.addresses__edit') ||
+                        this.root.querySelector('.addresses__add')
+                    ).focus();
+                });
             }
         }
 
@@ -1042,114 +1082,10 @@
             this.modal?.close();
         }
 
-        backToForm() {
-            this.view('form');
-            this.form.elements.city.focus();
-        }
-
-        chooseMapAddress() {
-            if (!this.mapAddress) {
-                return;
-            }
-
-            this.form.elements.city.value = this.mapAddress.city;
-            this.form.elements.street.value = this.mapAddress.street;
-            this.view('form');
-            this.form.elements.street.focus();
-        }
-
-        async showMap() {
+        showMap() {
             this.view('map');
-            this.mapAddress = null;
-            const choose = this.dialog.querySelector('.address-dialog__choose');
-            const message = this.dialog.querySelector('.address-dialog__status');
-
-            choose.disabled = true;
-            TextUtils.showMessage(
-                this.dialog.querySelector('.address-dialog__selected'),
-                'Выберите точку на карте',
-            );
-            TextUtils.showMessage(message, 'Загрузка карты…');
-            const current = this.request;
-            try {
-                const api = await MapLoader.loadMaps();
-
-                if (current !== this.request) {
-                    return;
-                }
-
-                if (!this.map) {
-                    this.map = new api.Map(this.dialog.querySelector('.address-dialog__map'), {
-                        center: this.dialog
-                            .querySelector('.address-dialog__map')
-                            .dataset.mapCenter.split(',')
-                            .map(Number),
-                        zoom: 13,
-                        controls: ['zoomControl'],
-                    });
-                    this.map.events.add('click', async (event) => {
-                        const pending = ++this.request;
-
-                        choose.disabled = true;
-                        const coords = event.get('coords');
-
-                        TextUtils.showMessage(message, 'Определяем адрес…');
-                        try {
-                            const result = await api.geocode(coords);
-
-                            if (pending !== this.request) {
-                                return;
-                            }
-
-                            const place = result.geoObjects.get(0);
-                            const city =
-                                place?.getLocalities()[0] || place?.getAdministrativeAreas()[0];
-                            const street = [place?.getThoroughfare(), place?.getPremiseNumber()]
-                                .filter(Boolean)
-                                .join(', ');
-
-                            if (!city || !street) {
-                                throw new Error('No street address');
-                            }
-
-                            this.mapAddress = {
-                                city,
-                                street,
-                            };
-                            this.map.geoObjects.removeAll();
-                            this.map.geoObjects.add(
-                                new api.Placemark(
-                                    coords,
-                                    {},
-                                    {
-                                        preset: 'islands#orangeDotIcon',
-                                    },
-                                ),
-                            );
-                            this.dialog.querySelector('.address-dialog__selected').textContent =
-                                city + ', ' + street;
-                            message.textContent = '';
-                            choose.disabled = false;
-                        } catch {
-                            if (pending === this.request) {
-                                TextUtils.showMessage(
-                                    message,
-                                    'Не удалось определить адрес. Выберите другую точку или введите адрес вручную.',
-                                );
-                            }
-                        }
-                    });
-                }
-                this.map.container.fitToViewport();
-                TextUtils.showMessage(message, 'Нажмите на карте, чтобы выбрать адрес.');
-            } catch {
-                if (current === this.request) {
-                    TextUtils.showMessage(
-                        message,
-                        'Не удалось загрузить карту. Вернитесь к вводу адреса вручную.',
-                    );
-                }
-            }
+            this.dialog.querySelector('.address-dialog__close').focus();
+            this.map.show();
         }
     }
 
@@ -2605,6 +2541,52 @@
 
     // === favorites ===
 
+    class ConfirmationDialog {
+        constructor(dialog) {
+            this.dialog = dialog;
+            if (!dialog) {
+                return;
+            }
+
+            dialog.addEventListener('click', (event) => {
+                if (event.target.closest('.favorite-dialog__confirm')) {
+                    const action = this.pendingAction;
+
+                    this.pendingAction = null;
+                    dialog.close();
+                    action?.();
+                } else if (
+                    event.target.closest('.favorite-dialog__cancel, .favorite-dialog__close')
+                ) {
+                    dialog.close();
+                } else if (event.target === dialog) {
+                    const bounds = dialog.getBoundingClientRect();
+
+                    if (
+                        event.clientX < bounds.left ||
+                        event.clientX > bounds.right ||
+                        event.clientY < bounds.top ||
+                        event.clientY > bounds.bottom
+                    ) {
+                        dialog.close();
+                    }
+                }
+            });
+            dialog.addEventListener('close', () => {
+                this.pendingAction = null;
+            });
+        }
+
+        open(action) {
+            if (!this.dialog || this.dialog.open) {
+                return;
+            }
+
+            this.pendingAction = action;
+            this.dialog.showModal();
+        }
+    }
+
     class FavoritesController {
         static initAll() {
             document
@@ -2624,37 +2606,10 @@
 
             this.root.dataset.favoritesReady = 'true';
             this.removeDialog = document.querySelector('#favorite-remove-dialog');
-            this.clearDialog = document.querySelector('#favorite-clear-dialog');
-            [this.removeDialog, this.clearDialog].forEach((dialog) => {
-                if (!dialog) {
-                    return;
-                }
-
-                dialog.addEventListener('click', (event) => {
-                    if (event.target.closest('.favorite-dialog__confirm')) {
-                        this.pendingAction?.();
-                        dialog.close();
-                    } else if (
-                        event.target.closest('.favorite-dialog__cancel, .favorite-dialog__close')
-                    ) {
-                        dialog.close();
-                    } else if (event.target === dialog) {
-                        const bounds = dialog.getBoundingClientRect();
-
-                        if (
-                            event.clientX < bounds.left ||
-                            event.clientX > bounds.right ||
-                            event.clientY < bounds.top ||
-                            event.clientY > bounds.bottom
-                        ) {
-                            dialog.close();
-                        }
-                    }
-                });
-                dialog.addEventListener('close', () => {
-                    this.pendingAction = null;
-                });
-            });
+            this.removeConfirmation = new ConfirmationDialog(this.removeDialog);
+            this.clearConfirmation = new ConfirmationDialog(
+                document.querySelector('#favorite-clear-dialog'),
+            );
 
             favoriteCounter.changeQuantity(
                 this.root.querySelectorAll('.favorite-btn.active').length,
@@ -2667,7 +2622,7 @@
 
         handleClick(event) {
             if (event.target.closest('.favorites__clear')) {
-                this.confirm(this.clearDialog, () => {
+                this.clearConfirmation.open(() => {
                     favoriteCounter.changeQuantity(
                         -this.root.querySelectorAll('.favorite-btn.active').length,
                     );
@@ -2688,17 +2643,8 @@
                 this.removeDialog.querySelector('.favorite-dialog__category').textContent = category
                     .querySelector('.favorites__filter')
                     .firstChild.textContent.trim();
-                this.confirm(this.removeDialog, () => category.remove());
+                this.removeConfirmation.open(() => category.remove());
             }
-        }
-
-        confirm(dialog, action) {
-            if (!dialog || dialog.open) {
-                return;
-            }
-
-            this.pendingAction = action;
-            dialog.showModal();
         }
     }
 
@@ -3663,6 +3609,14 @@
                 'cart-share': {
                     title: 'URL корзины скопирован',
                     icon: 'icon-copy',
+                },
+                'address-remove': {
+                    title: 'Адрес удалён',
+                    icon: 'icon-trash',
+                },
+                'pickup-remove': {
+                    title: 'Пункт выдачи удалён',
+                    icon: 'icon-trash',
                 },
             };
             const state = states[type] || states.cart;

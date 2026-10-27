@@ -10,8 +10,8 @@
                 <input class="account__input" name="city" placeholder="Город" autocomplete="address-level2" required data-required>
                 <span class="form__error-message" hidden aria-live="polite">Поле обязательно для заполнения</span>
             </label>
-            <button class="address-dialog__map-toggle" type="button">
-                <span class="address-dialog__map-icon icon-marker-pin" aria-hidden="true"></span>Выбрать адрес на карте
+            <button class="address-dialog__map-toggle map-button" type="button">
+                <span class="address-dialog__map-icon map-button__icon icon-placemark-alternate" aria-hidden="true"></span>Выбрать адрес на карте
             </button>
             <label class="form__field account__field">
                 <span class="account__label">Улица</span>
@@ -37,13 +37,6 @@
         </form>
     </div>
     <div class="address-dialog__view" data-dialog-view="map" hidden>
-        <h2 class="address-dialog__title title title-md">Выберите адрес на карте</h2>
-        <div class="address-dialog__map" data-map-center="55.678,37.565"></div>
-        <p class="address-dialog__status" role="status"></p>
-        <div class="address-dialog__selection">
-            <p class="address-dialog__selected">Выберите точку на карте</p>
-            <button class="address-dialog__choose btn btn-primary" type="button" disabled>Выбрать</button>
-        </div>
-        <button class="address-dialog__back" type="button">Вернуться к вводу адреса</button>
+        @@include('_address-map.html', {"id":"address-map"})
     </div>
 </div>

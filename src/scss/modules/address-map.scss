@@ -1,0 +1,53 @@
+@use "sass:math";
+
+// .address-map
+.address-map {
+	// .address-map__title
+	&__title {
+		margin-bottom: rem(20);
+		padding-right: rem(15);
+	}
+	// .address-map__canvas
+	&__canvas {
+		height: rem(330);
+		border-radius: rem(20);
+		overflow: hidden;
+		background: #f7f7f6;
+		@media (min-width: $md4) {
+			height: rem(450);
+		}
+	}
+	// .address-map__selection
+	&__selection {
+		display: flex;
+		flex-direction: column;
+		gap: rem(10);
+		margin-top: rem(20);
+		@media (min-width: $md4) {
+			flex-direction: row;
+			align-items: stretch;
+		}
+	}
+	// .address-map__selected
+	&__selected {
+		flex: 1;
+		min-width: 0;
+		width: 100%;
+		padding: rem(12) rem(20);
+		background: #f7f7f6;
+		border-radius: rem(8);
+		font-size: rem(16);
+		line-height: math.div(22, 16);
+		// .address-map__selected:focus-visible
+		&:focus-visible {
+			outline: rem(2) solid #ff6201;
+			outline-offset: rem(2);
+		}
+	}
+	// .address-map__choose.btn-primary
+	&__choose.btn-primary {
+		padding: rem(12) rem(30);
+		background: #ff6201;
+		border-radius: rem(8);
+	}
+}

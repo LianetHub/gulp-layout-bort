@@ -166,13 +166,9 @@
 		color: #6a6b6d;
 		line-height: math.div(22, 16);
 	}
-	// .addresses__status
-	&__status {
-		font-size: rem(14);
-		line-height: math.div(20, 14);
-	}
 	// .addresses__icon
 	&__icon {
+		color: #8b8f95;
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;

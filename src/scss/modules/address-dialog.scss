@@ -45,13 +45,7 @@
 	}
 	// .address-dialog__map-toggle
 	&__map-toggle {
-		display: inline-flex;
-		align-items: center;
-		gap: rem(5);
 		justify-self: start;
-		font-size: rem(14);
-		font-weight: 500;
-		line-height: math.div(20, 14);
 	}
 	// .address-dialog__details
 	&__details {
@@ -73,71 +67,8 @@
 		padding: rem(12) rem(20);
 		line-height: math.div(22, 16);
 	}
-	// .address-dialog__map
-	&__map {
-		height: rem(330);
-		border-radius: rem(20);
-		overflow: hidden;
-		background: #f7f7f6;
-		@media (min-width: $md4) {
-			height: rem(450);
-		}
-	}
-	// .address-dialog__status
-	&__status {
-		font-size: rem(14);
-		line-height: math.div(20, 14);
-		margin-top: rem(10);
-	}
-	// .address-dialog__selection
-	&__selection {
-		display: flex;
-		flex-direction: column;
-		gap: rem(10);
-		margin-top: rem(20);
-		@media (min-width: $md4) {
-			flex-direction: row;
-			align-items: stretch;
-		}
-	}
-	// .address-dialog__selected
-	&__selected {
-		flex: 1;
-		padding: rem(12) rem(20);
-		background: #f7f7f6;
-		border-radius: rem(8);
-		font-size: rem(16);
-		line-height: math.div(22, 16);
-	}
-	// .address-dialog__choose.btn-primary
-	&__choose.btn-primary {
-		padding: rem(12) rem(30);
-		background: #ff6201;
-		border-radius: rem(8);
-		// .address-dialog__choose:disabled
-		&:disabled {
-			opacity: 0.5;
-			cursor: default;
-		}
-	}
-	// .address-dialog__back
-	&__back {
-		margin-top: rem(15);
-		font-size: rem(14);
-		text-decoration: underline;
-	}
 	// .address-dialog__close-icon
 	&__close-icon {
-		display: inline-flex;
-		align-items: center;
-		justify-content: center;
-		flex-shrink: 0;
-		font-size: rem(20);
-		width: rem(20);
-		height: rem(20);
-	}
-	// .address-dialog__map-icon
-	&__map-icon {
 		display: inline-flex;
 		align-items: center;
 		justify-content: center;
