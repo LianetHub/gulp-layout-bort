@@ -1,12 +1,10 @@
+@use "sass:math";
+
 // .text-content
 .text-content {
 	display: grid;
 	gap: rem(20);
 	min-width: 0;
-	// .text-content--spacious
-	&--spacious {
-		gap: rem(30);
-	}
 	// .text-content__gallery
 	&__gallery {
 		display: grid;
@@ -17,6 +15,35 @@
 	// .text-content > a[data-fancybox]
 	> a[data-fancybox] {
 		margin-block: rem(10);
+	}
+	// .text-content--spacious
+	&--spacious {
+		gap: rem(22);
+
+		@media (min-width: $md4) {
+			gap: rem(26);
+		}
+
+		// .text-content--spacious .text-content__gallery
+		// .text-content--spacious > a[data-fancybox]
+		.text-content__gallery,
+		> a[data-fancybox] {
+			margin-block: rem(18);
+
+			@media (min-width: $md4) {
+				margin-block: rem(14);
+			}
+		}
+
+		// .text-content--spacious > a[data-fancybox] img
+		> a[data-fancybox] img {
+			aspect-ratio: math.div(345, 208);
+			object-fit: cover;
+
+			@media (min-width: $md4) {
+				aspect-ratio: auto;
+			}
+		}
 	}
 	// .text-content img
 	img {

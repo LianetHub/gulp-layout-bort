@@ -11,16 +11,22 @@
 		display: flex;
 		flex-direction: column;
 		align-items: stretch;
-		gap: rem(40);
+		gap: rem(30);
+
+		@media (min-width: $md4) {
+			gap: rem(40);
+		}
 
 		@media (min-width: $md2) {
+			gap: rem(20);
 			flex-direction: row;
 			align-items: flex-start;
 		}
+
 		// .article__layout .partner-card
 		.partner-card {
 			@media (min-width: $md2) {
-				flex: 0 0 rem(380);
+				flex: 0 0 rem(400);
 			}
 		}
 	}
