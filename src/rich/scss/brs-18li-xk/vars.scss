@@ -1,0 +1,40 @@
+@import "bks-218-li/vars";
+
+#brt-rich.brt-rich.brt-rich--brs-18li-xk,
+.brt-rich.brt-rich--brs-18li-xk {
+  --rich-max-width: 942px; // 910px content and two 16px gutters.
+  --rich-section-gap: 20px;
+  --rich-split-gap: 20px;
+  --rich-row-gap: 20px;
+  --rich-radius-md: 20px;
+  --rich-color-accent: #ff8000;
+  --rich-font-size-body: 20px;
+  --rich-font-size-section-title: 29px;
+  --rich-font-size-hero-title: 24px;
+  --rich-font-size-hero-model: 24px;
+  --rich-hero-card-height: 403px;
+  --rich-specs-icon-grid-gap: 6px;
+  --rich-specs-icon-card-min-height: 92.6px;
+  --rich-specs-icon-card-padding-x: 32px;
+  --rich-specs-icon-card-padding-y: 14px;
+  --rich-specs-icon-card-icon-slot: 64px;
+  --rich-specs-icon-card-icon-max-height: 56px;
+  --rich-specs-icon-card-gap: 40px;
+  --rich-media-text-aside-height: 401px;
+  --rich-advantages-panel-gap: 5px;
+  --rich-advantages-panel-padding: 10px;
+  --rich-advantages-grid-gap: 10px;
+  --rich-advantages-text-card-title-height: 44px;
+  --rich-advantages-text-card-min-height: 187px;
+  --rich-advantages-text-card-padding: 20px 16px 16px;
+
+  @media (max-width: 767.98px) {
+    --rich-font-size-body: 18px;
+    --rich-font-size-section-title: 24px;
+    --rich-specs-icon-card-value-size-sm: 26px;
+    --rich-specs-icon-card-unit-size-sm: 16px;
+    --rich-specs-icon-card-icon-slot: 50px;
+    --rich-specs-icon-card-padding-x: 16px;
+    --rich-specs-icon-card-gap: 12px;
+  }
+}
