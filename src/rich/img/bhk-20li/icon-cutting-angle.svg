@@ -1,0 +1,15 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="104.514" height="105.683" viewBox="0 0 104.514 105.683" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Group 1552">
+<g id="Subtract">
+<use xlink:href="#stroke0_0_50" fill="#FB7E00"/>
+<mask id="stroke1_0_50" fill="white">
+<use xlink:href="#stroke0_0_50"/>
+</mask>
+<path d="M10.5635 57.3896C35.3138 58.0165 55.1846 78.2773 55.1846 103.179L55.1787 103.684H51.1777C51.1797 103.516 51.1846 103.347 51.1846 103.179C51.1846 80.0914 32.4691 61.3752 9.38184 61.375C6.49213 61.375 3.67091 61.6683 0.946289 62.2266V58.1533C3.68067 57.6442 6.49989 57.375 9.38184 57.375L10.5635 57.3896Z" stroke-width="8" stroke="#FB7E00" mask="url(#stroke1_0_50)"/>
+</g>
+<path id="Vector 635" d="M2 2V103.683H102.514" stroke-width="4" stroke-linecap="round" stroke-linejoin="round" stroke="#FB7E00"/>
+</g>
+<defs>
+<path id="stroke0_0_50" d="M10.5635 57.3896C35.3138 58.0165 55.1846 78.2773 55.1846 103.179L55.1787 103.684H51.1777C51.1797 103.516 51.1846 103.347 51.1846 103.179C51.1846 80.0914 32.4691 61.3752 9.38184 61.375C6.49213 61.375 3.67091 61.6683 0.946289 62.2266V58.1533C3.68067 57.6442 6.49989 57.375 9.38184 57.375L10.5635 57.3896Z"/>
+</defs>
+</svg>

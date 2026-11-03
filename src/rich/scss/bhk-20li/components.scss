@@ -1,0 +1,219 @@
+@import "bks-218-li/components";
+
+body.brt-rich-page--bhk-20li { margin: 0; }
+
+// Only the BHK composition differs; shared Rich components are imported above.
+#brt-rich.brt-rich.brt-rich--bhk-20li,
+.brt-rich.brt-rich--bhk-20li {
+  .brt-rich__section { padding-block: 0 var(--rich-section-gap); }
+  .brt-rich__text { line-height: 1.08 !important; }
+  .brt-rich__text + .brt-rich__text { margin-top: 17px !important; }
+  .brt-rich__media { border-radius: var(--rich-radius-lg); overflow: hidden; }
+  .brt-rich__media img { display: block; }
+  .brt-rich__hero-badges-section { padding-top: 35px; padding-bottom: 20px; }
+  .brt-rich__hero-badges { --rich-gutter-x: 15px; --rich-gutter-y: 10px; margin: -10px -7.5px 0; }
+  .brt-rich__hero-badge { min-height: 54px; padding: 3px 12px; border-width: 2px; }
+  .brt-rich__hero-badge-text { font: 500 15px/18px var(--rich-font-family) !important; }
+
+  .brt-rich__hero-card--bhk {
+    position: relative; min-height: 403px; padding: 0; overflow: hidden; isolation: isolate;
+    .brt-rich__hero-card-content { position: relative; z-index: 1; width: 55%; padding: 53px 20px 33px 64px; }
+    .brt-rich__hero-card-title { font-size: 24px !important; line-height: 1.2 !important; text-transform: uppercase !important; }
+    p.brt-rich__hero-card-model { margin-top: 7px !important; font: 600 24px/1.2 var(--rich-font-family) !important; color: var(--rich-color-accent) !important; }
+    .brt-rich__hero-card-list-block { margin: 20px 0 0 !important; padding-left: 20px !important; font-size: 20px !important; line-height: 23px !important; color: var(--rich-color-text-heading) !important; }
+    .brt-rich__hero-card-list-block li + li { margin-top: 5px !important; }
+    p.brt-rich__hero-card-desc { margin-top: 39px !important; padding-left: 7px; font: 400 20px/1.2 var(--rich-font-family) !important; }
+    .brt-rich__hero-media { position: absolute; inset: 0; z-index: 0; width: 100%; height: 100%; margin: 0; border-radius: var(--rich-radius-lg); overflow: hidden; }
+    .brt-rich__hero-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--rich-color-bg-muted) 17.885%, rgba(242, 242, 242, 0) 59.615%); }
+    .brt-rich__hero-media-photo { display: block; width: 100%; height: 100%; object-fit: cover; }
+  }
+
+  .brt-rich__split-stats-row, .brt-rich__motor-row {
+    display: grid; gap: 10px; margin: 0;
+    > [class*="brt-rich-col"] { width: auto; max-width: none; padding: 0; margin: 0; min-width: 0; }
+  }
+  .brt-rich__split-stats-row { grid-template-columns: minmax(0, 479fr) minmax(0, 421fr); }
+  .brt-rich__split-stats-media { align-items: center; }
+  .brt-rich__split-stats-photo { width: 100%; height: auto; }
+  .brt-rich__specs-icon-grid-list--stack { gap: 6px; }
+  .brt-rich__specs-icon-card { padding: 8px 12px 8px 36px; }
+  .brt-rich__specs-icon-card-icon-wrap { height: 61px; }
+  p.brt-rich__specs-icon-card-value { white-space: nowrap; }
+  p.brt-rich__specs-icon-card-label { font-size: 17px !important; line-height: 1.15 !important; color: var(--rich-color-text-heading) !important; }
+  .brt-rich__specs-icon-card-icon--speed { width: 49px; height: 49px; }
+  .brt-rich__specs-icon-card-icon--power { width: 53.5px; height: 51.5px; }
+  .brt-rich__specs-icon-card-icon--diameter { width: 43.6528px; height: 45.1372px; }
+  .brt-rich__specs-icon-card-icon--voltage { width: 37.1196px; height: 61.4856px; }
+  .brt-rich__specs-icon-card-icon--weight { width: 51.3905px; height: 49px; }
+  .brt-rich__cutting-depth-card { display: grid; grid-template-columns: 105px 224px minmax(0, 1fr); align-items: center; gap: 30px; min-height: 167px; padding: 18px 30px 18px 41px; }
+  .brt-rich__cutting-depth-icon img { display: block; max-width: 100%; height: auto; }
+  p.brt-rich__heading.brt-rich__cutting-depth-number { margin: 0 0 10px; font: 400 40px/1.2 var(--rich-font-family-display) !important; color: var(--rich-color-text-heading) !important; }
+  .brt-rich__cutting-depth-number span { font-size: 20px !important; }
+  h2.brt-rich__heading.brt-rich__cutting-depth-title { margin: 0; font: 400 20px/1.2 var(--rich-font-family-display) !important; color: var(--rich-color-text-heading) !important; text-transform: uppercase !important; }
+  .brt-rich__cutting-depth-title strong { color: var(--rich-color-accent); font-weight: inherit; }
+  p.brt-rich__cutting-depth-desc { line-height: 1.15 !important; color: var(--rich-color-text-heading) !important; }
+  .brt-rich__logo-card-section { padding-bottom: 20px; }
+  .brt-rich__logo-card--brushless { display: flex; align-items: center; min-height: 194px; padding: 28px 23px 28px 53px; }
+  .brt-rich__logo-card--brushless .brt-rich__logo-card-inner { width: 100%; gap: 64px; }
+  .brt-rich__logo-card--brushless .brt-rich__card-logo { flex: 0 1 357px; min-width: 0; }
+  .brt-rich__logo-card--brushless .brt-rich__logo-card-body { flex: 1 1 413px; min-width: 0; }
+  .brt-rich__logo-card--brushless .brt-rich__card-text { font-size: 20px !important; line-height: 1.08 !important; }
+  .brt-rich__motor-row { grid-template-columns: minmax(0, 432fr) minmax(0, 423fr); gap: 55px; }
+  .brt-rich__media-text-aside { height: auto; min-height: 0; }
+  .brt-rich__media-text-aside .brt-rich__media-text-photo { position: static; width: 100%; height: auto; }
+  h2.brt-rich__heading.brt-rich__media-text-title { font: 600 29px/1.17 var(--rich-font-family) !important; }
+  .brt-rich__construction-list { margin-top: 20px !important; padding-left: 16px !important; }
+  .brt-rich__construction-list li { font-size: 20px !important; line-height: 1.08 !important; margin-bottom: 12px !important; color: var(--rich-color-text-heading) !important; }
+  .brt-rich__construction-list li strong { font-weight: 600 !important; }
+  p.brt-rich__construction-note { margin-top: 17px !important; margin-left: 0 !important; font: 400 20px/1.08 var(--rich-font-family) !important; color: var(--rich-color-text-heading) !important; }
+
+  .brt-rich__applications-grid, .brt-rich__advantages-grid, .brt-rich__benefits-grid { display: grid; gap: 10px; }
+  .brt-rich__applications-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .brt-rich__info-cards-section .brt-rich__info-card { height: 100%; padding: 0; overflow: hidden; }
+  .brt-rich__info-cards-section .brt-rich__info-card-media { height: auto; border-radius: 20px 20px 0 0; }
+  .brt-rich__info-cards-section .brt-rich__info-card-media img { width: 100%; height: 100%; object-fit: cover; }
+  .brt-rich__applications-section .brt-rich__info-card-media { aspect-ratio: 450 / 190; }
+  .brt-rich__applications-section .brt-rich__info-card-body { padding: 28px 18px 30px 25px; gap: 0; }
+  .brt-rich__applications-section p.brt-rich__text.brt-rich__info-card-desc { font-size: 20px !important; line-height: 1.08 !important; }
+  .brt-rich__applications-grid > :nth-child(-n + 2) { min-height: 407px; }
+  .brt-rich__applications-grid > :nth-child(n + 3) { min-height: 387px; }
+  .brt-rich__dust-section { padding-bottom: 30px; }
+  .brt-rich__dust-card { position: relative; isolation: isolate; min-height: 280px; padding: 0; overflow: hidden; }
+  .brt-rich__dust-body { position: relative; z-index: 1; width: 50%; padding: 61px 0 40px 37px; }
+  .brt-rich__dust-media { position: absolute; inset: 0 0 0 auto; width: 69.45%; }
+  .brt-rich__dust-media img { display: block; width: 100%; height: 100%; object-fit: cover; }
+  .brt-rich__dust-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--rich-color-accent) 15.665%, rgba(255, 128, 0, 0) 50%); }
+  .brt-rich__benefits-section { padding-bottom: 10px; }
+  h2.brt-rich__heading.brt-rich__section-heading { margin: 0 0 15px; font: 600 var(--rich-font-size-section-title)/1.21 var(--rich-font-family) !important; text-align: center !important; }
+  .brt-rich__benefits-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .brt-rich__benefit-card { min-height: 257px; padding: 25px 18px 25px 25px; }
+  h3.brt-rich__heading.brt-rich__benefit-card-title { min-height: 0; padding: 0; margin: 0 -14px 10px 0; background: transparent; font: 400 18px/22px var(--rich-font-family-display) !important; }
+  .brt-rich__benefit-card .brt-rich__text { padding: 0; font-size: 15px !important; line-height: 18px !important; color: var(--rich-color-text-heading) !important; }
+  .brt-rich__handle-section { padding-bottom: 10px; }
+  .brt-rich__handle-card { display: grid; grid-template-columns: minmax(0, 323fr) minmax(0, 587fr); min-height: 305px; padding: 0; overflow: hidden; }
+  .brt-rich__handle-media img { display: block; width: 100%; height: auto; }
+  .brt-rich__handle-body { padding: 30px 23px 24px 10px; }
+  h2.brt-rich__heading.brt-rich__handle-title { margin: 0 0 10px; font: 400 20px/24px var(--rich-font-family-display) !important; color: var(--rich-color-text-heading) !important; }
+  .brt-rich__handle-body .brt-rich__text { line-height: 1.15 !important; }
+  .brt-rich__advantages-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .brt-rich__features-section .brt-rich__info-card-media { aspect-ratio: 298 / 174; }
+  .brt-rich__features-section .brt-rich__info-card-body { padding: 20px 18px 22px 25px; gap: 10px; }
+  .brt-rich__features-section .brt-rich__info-card h3.brt-rich__heading.brt-rich__info-card-title { margin: 0; font: 400 18px/22px var(--rich-font-family-display) !important; color: var(--rich-color-text-heading) !important; }
+  .brt-rich__features-section p.brt-rich__text.brt-rich__info-card-desc { font-size: 15px !important; line-height: 18px !important; color: var(--rich-color-text-heading) !important; }
+  .brt-rich__advantages-grid > :nth-child(-n + 3) { min-height: 444px; }
+  .brt-rich__advantages-grid > :nth-child(n + 4) { min-height: 452px; }
+  .brt-rich__disc-list { display: grid; gap: 10px; }
+  .brt-rich__disc-row { display: grid; grid-template-columns: 298px minmax(0, 1fr); gap: 62px; align-items: center; }
+  .brt-rich__disc-media img { width: 100%; height: auto; }
+  .brt-rich__disc-body .brt-rich__text { line-height: 1.15 !important; color: var(--rich-color-text-heading) !important; }
+  .brt-rich__disc-row:first-child .brt-rich__disc-body { padding-right: 56px; }
+  .brt-rich__disc-row--reverse { grid-template-columns: minmax(0, 1fr) 298px; gap: 24px; align-items: start; }
+  .brt-rich__disc-row--reverse .brt-rich__disc-media { order: 2; }
+  .brt-rich__disc-row--reverse .brt-rich__disc-body { padding-top: 16px; }
+  .brt-rich__kit-intro-section { padding-bottom: 10px; }
+  .brt-rich__kit-intro { min-height: 120px; padding: 26px 20px 20px; }
+  h2.brt-rich__heading.brt-rich__kit-intro-title { font: 600 29px/1.21 var(--rich-font-family) !important; }
+  .brt-rich__battery-section { padding-bottom: 15px; }
+  .brt-rich__battery-card { display: grid; grid-template-columns: 145px minmax(0, 1fr); align-items: center; gap: 30px; min-height: 219px; padding: 30px; }
+  .brt-rich__battery-card .brt-rich__card-logo { padding: 0; min-height: 0; }
+  .brt-rich__battery-card .brt-rich__card-logo-img { width: 145px; height: auto; }
+  .brt-rich__battery-card .brt-rich__card-text { font-size: 20px !important; line-height: 1.08 !important; }
+  .brt-rich__battery-card .brt-rich__card-text + .brt-rich__card-text { margin-top: 22px; }
+  .brt-rich__contents-section { padding-bottom: 31px; }
+  .brt-rich__contents { padding: 20px 10px 10px; background: var(--rich-color-bg-muted); border-radius: var(--rich-radius-lg); }
+  h2.brt-rich__heading.brt-rich__contents-title { margin: 0 0 20px; font: 600 29px/1.21 var(--rich-font-family) !important; text-align: center !important; }
+  .brt-rich__contents-top, .brt-rich__contents-bottom { display: grid; gap: 10px; }
+  .brt-rich__contents-top { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .brt-rich__contents-bottom { grid-template-columns: repeat(4, minmax(0, 1fr)); margin-top: 10px; }
+  .brt-rich__contents-item { min-height: 287px; border-radius: 10px; }
+  .brt-rich__contents-item-media { flex: 0 0 auto; height: 213px; min-height: 0; padding: 10px; }
+  .brt-rich__contents-item-media img { max-height: 100%; max-width: 100%; width: auto; height: auto; }
+  p.brt-rich__contents-item-label { padding: 0 8px 2px; font-size: 20px !important; line-height: 1.2 !important; }
+  .brt-rich__nowrap { white-space: nowrap; }
+  .brt-rich__summary .brt-rich__text + .brt-rich__text { margin-top: 22px !important; }
+  .brt-rich__summary-section { padding-bottom: 50px; }
+
+  @media (min-width: 992px) {
+    .brt-rich__hero-badges > li:nth-child(1), .brt-rich__hero-badges > li:nth-child(2) { width: 25%; }
+    .brt-rich__hero-badges > li:nth-child(3) { width: 28%; }
+    .brt-rich__hero-badges > li:nth-child(4) { width: 22%; }
+  }
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .brt-rich__hero-card--bhk .brt-rich__hero-card-content { width: 60%; padding-left: 30px; }
+    .brt-rich__hero-card--bhk .brt-rich__hero-card-list-block { font-size: 18px !important; }
+    .brt-rich__specs-icon-card { padding-inline: 16px 10px; gap: 16px; }
+    .brt-rich__specs-icon-card-icon-wrap { width: 50px; flex-basis: 50px; }
+    .brt-rich__specs-icon-card-number { font-size: 28px !important; }
+    .brt-rich__specs-icon-card-unit { font-size: 16px !important; }
+    .brt-rich__cutting-depth-card { grid-template-columns: 85px 200px minmax(0, 1fr); padding: 24px; gap: 20px; }
+    .brt-rich__motor-row { gap: 30px; }
+    .brt-rich__construction-list { padding-left: 14px !important; }
+    .brt-rich__construction-list li, p.brt-rich__construction-note { font-size: 18px !important; }
+    .brt-rich__logo-card--brushless { padding-inline: 30px; }
+    .brt-rich__logo-card--brushless .brt-rich__logo-card-inner { gap: 30px; }
+    .brt-rich__dust-body { padding: 35px 0 35px 25px; }
+    .brt-rich__handle-body { padding: 24px 20px; }
+    .brt-rich__disc-row { grid-template-columns: 32% minmax(0, 1fr); gap: 30px; }
+    .brt-rich__disc-row--reverse { grid-template-columns: minmax(0, 1fr) 32%; }
+    .brt-rich__disc-row:first-child .brt-rich__disc-body { padding-right: 0; }
+  }
+  @media (min-width: 576px) and (max-width: 991.98px) {
+    .brt-rich__advantages-grid, .brt-rich__contents-bottom { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  }
+  @media (max-width: 767.98px) {
+    .brt-rich__hero-badges-section { padding-top: 20px; }
+    .brt-rich__hero-card--bhk {
+      min-height: 0;
+      .brt-rich__hero-card-content { width: 100%; padding: 24px 20px; }
+      .brt-rich__hero-card-title { font-size: clamp(21px, 4.6vw, 24px) !important; }
+      .brt-rich__hero-card-list-block { font-size: 18px !important; line-height: 1.35 !important; }
+      p.brt-rich__hero-card-desc { margin-top: 24px !important; font-size: 18px !important; }
+      .brt-rich__hero-media { position: relative; height: auto; aspect-ratio: 440 / 403; }
+      .brt-rich__hero-media::after { display: none; }
+      .brt-rich__hero-media-photo { object-position: right center; }
+    }
+    .brt-rich__split-stats-row, .brt-rich__motor-row, .brt-rich__applications-grid, .brt-rich__benefits-grid, .brt-rich__handle-card, .brt-rich__disc-row, .brt-rich__battery-card { grid-template-columns: minmax(0, 1fr); }
+    .brt-rich__split-stats-row, .brt-rich__motor-row { gap: 20px; }
+    .brt-rich__specs-icon-card { padding-inline: 16px; }
+    p.brt-rich__specs-icon-card-label { font-size: 16px !important; }
+    .brt-rich__cutting-depth-card { grid-template-columns: 85px minmax(0, 1fr); gap: 20px; padding: 24px 20px; }
+    .brt-rich__cutting-depth-desc { grid-column: 1 / -1; }
+    h2.brt-rich__heading.brt-rich__cutting-depth-title { font-size: 17px !important; }
+    .brt-rich__logo-card--brushless { padding: 24px 20px; min-height: 0; }
+    .brt-rich__logo-card--brushless .brt-rich__logo-card-inner { gap: 24px; }
+    .brt-rich__logo-card--brushless .brt-rich__card-logo, .brt-rich__logo-card--brushless .brt-rich__logo-card-body { flex: 0 1 auto; }
+    .brt-rich__logo-card--brushless .brt-rich__card-text { font-size: 18px !important; line-height: 1.25 !important; }
+    h2.brt-rich__heading.brt-rich__media-text-title { font-size: 26px !important; }
+    .brt-rich__construction-list { padding-left: 14px !important; }
+    .brt-rich__construction-list li { font-size: 18px !important; line-height: 1.25 !important; }
+    p.brt-rich__construction-note { font-size: 16px !important; }
+    .brt-rich__applications-grid > .brt-rich__info-card, .brt-rich__advantages-grid > .brt-rich__info-card, .brt-rich__benefit-card { min-height: 0; }
+    .brt-rich__applications-section .brt-rich__info-card-body { padding: 24px 20px; }
+    .brt-rich__applications-section p.brt-rich__text.brt-rich__info-card-desc { font-size: 18px !important; line-height: 1.25 !important; }
+    .brt-rich__dust-card { min-height: 0; }
+    .brt-rich__dust-body { width: 100%; padding: 24px 20px; }
+    .brt-rich__dust-media { position: relative; width: 100%; }
+    .brt-rich__dust-media img { height: auto; }
+    .brt-rich__dust-media::after { display: none; }
+    .brt-rich__benefit-card { padding: 24px 20px; }
+    .brt-rich__handle-media { max-width: 323px; width: 100%; margin-inline: auto; }
+    .brt-rich__handle-body { padding: 0 20px 24px; }
+    .brt-rich__disc-row { gap: 20px; }
+    .brt-rich__disc-media { max-width: 350px; width: 100%; margin-inline: auto; }
+    .brt-rich__disc-row--reverse .brt-rich__disc-media { order: 0; }
+    .brt-rich__disc-row .brt-rich__disc-body { padding: 0; }
+    .brt-rich__disc-list { gap: 24px; }
+    .brt-rich__kit-intro { min-height: 0; padding: 24px 16px; }
+    h2.brt-rich__heading.brt-rich__kit-intro-title { font-size: 23px !important; }
+    .brt-rich__battery-card { padding: 24px 20px; gap: 24px; }
+    .brt-rich__battery-card .brt-rich__card-logo { display: flex; justify-content: center; }
+    .brt-rich__battery-card .brt-rich__card-text { font-size: 18px !important; line-height: 1.25 !important; }
+    .brt-rich__contents-top { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .brt-rich__contents-item { min-height: 0; }
+    p.brt-rich__contents-item-label { font-size: 18px !important; }
+    .brt-rich__summary .brt-rich__text { font-size: 18px !important; line-height: 1.4 !important; }
+  }
+  @media (max-width: 575.98px) {
+    .brt-rich__advantages-grid, .brt-rich__contents-top, .brt-rich__contents-bottom { grid-template-columns: minmax(0, 1fr); }
+  }
+}

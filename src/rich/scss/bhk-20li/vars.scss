@@ -1,0 +1,30 @@
+@import "bks-218-li/vars";
+
+#brt-rich.brt-rich.brt-rich--bhk-20li,
+.brt-rich.brt-rich--bhk-20li {
+  --rich-max-width: 942px; // 910px content with two 16px gutters.
+  --rich-section-gap: 15px;
+  --rich-row-gap: 10px;
+  --rich-radius-md: 20px;
+  --rich-color-accent: #ff8000;
+  --rich-font-size-body: 20px;
+  --rich-font-size-section-title: 29px;
+  --rich-specs-icon-grid-gap: 6px;
+  --rich-specs-icon-card-min-height: 77px;
+  --rich-specs-icon-card-padding-x: 12px;
+  --rich-specs-icon-card-padding-y: 8px;
+  --rich-specs-icon-card-icon-slot: 64px;
+  --rich-specs-icon-card-icon-max-height: 62px;
+  --rich-specs-icon-card-gap: 40px;
+  --rich-contents-item-media-min-height: 215px;
+
+  @media (max-width: 767.98px) {
+    --rich-section-gap: 20px;
+    --rich-font-size-body: 18px;
+    --rich-font-size-section-title: 24px;
+    --rich-specs-icon-card-value-size-sm: 24px;
+    --rich-specs-icon-card-unit-size-sm: 14px;
+    --rich-specs-icon-card-icon-slot: 50px;
+    --rich-specs-icon-card-gap: 12px;
+  }
+}
