@@ -1,0 +1,28 @@
+// Reuse the chainsaw theme; only the new product's tokens differ.
+@import "bks-218-li/vars";
+
+#brt-rich.brt-rich.brt-rich--bks-2112-li,
+.brt-rich.brt-rich--bks-2112-li {
+  --rich-max-width: 942px; // 910px artwork + two 16px container gutters.
+  --rich-section-gap: 30px;
+  --rich-split-gap: 30px;
+  --rich-hero-card-height: 397px;
+  --rich-font-size-hero-title: 38px;
+  --rich-font-size-hero-model: 40px;
+  --rich-font-size-body: 20px;
+  --rich-media-text-aside-height: 370px;
+  --rich-specs-icon-grid-gap: 5px;
+  --rich-specs-icon-card-icon-slot: 70px;
+  --rich-specs-icon-card-icon-max-width: 70px;
+  --rich-specs-icon-card-icon-max-height: 70px;
+  --rich-specs-icon-card-gap: 26px;
+  --rich-radius-lg: 20px;
+
+  @media (max-width: 767.98px) {
+    --rich-section-gap: 24px;
+    --rich-font-size-body: 18px;
+    --rich-font-size-hero-desc: 18px;
+    --rich-font-size-hero-title: clamp(23px, 5vw, 32px);
+    --rich-font-size-hero-model: 32px;
+  }
+}

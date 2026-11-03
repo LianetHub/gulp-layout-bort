@@ -17,6 +17,29 @@ export const richSharedBlocks = [
 
 export const richProducts = [
 	{
+		id: "bks-2112-li",
+		blocks: [
+			{
+				src: "bks-2112-li/vars.scss",
+				id: "rich-vars",
+				out: "bks-2112-li/_styles-vars.html",
+				comment: "THEME VARIABLES — общая тема BKS и переменные BKS-2112-LI.",
+			},
+			{
+				src: "bks-2112-li/theme.scss",
+				id: "rich-theme",
+				out: "bks-2112-li/_styles-theme.html",
+				comment: "THEME STYLES — переиспользование типографики и цветов BKS-218-Li.",
+			},
+			{
+				src: "bks-2112-li/components.scss",
+				id: "rich-components",
+				out: "bks-2112-li/_styles-components.html",
+				comment: "COMPONENT-SPECIFIC STYLES — компоненты BKS и локальные отличия BKS-2112-LI.",
+			},
+		],
+	},
+	{
 		id: "bss-1630",
 		blocks: [
 			{
