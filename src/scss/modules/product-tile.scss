@@ -292,6 +292,7 @@
 	// .product-tile__guarantee
 	&__guarantee {
 		position: absolute;
+		cursor: pointer;
 		z-index: 3;
 		top: 0;
 		left: rem(-4);

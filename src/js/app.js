@@ -464,7 +464,6 @@
                 ],
                 {
                     closeButton: false,
-                    dragToClose: false,
                     autoFocus: false,
                     on: {
                         ready: () => {
@@ -699,7 +698,6 @@
                         ],
                         {
                             closeButton: false,
-                            dragToClose: false,
                             autoFocus: false,
                             on: {
                                 done: () =>
@@ -978,7 +976,6 @@
                 ],
                 {
                     closeButton: false,
-                    dragToClose: false,
                     autoFocus: false,
                     on: {
                         ready: () => this.form.elements.city.focus(),
@@ -1263,7 +1260,6 @@
                 ],
                 {
                     closeButton: false,
-                    dragToClose: false,
                     autoFocus: true,
                     triggerEl: trigger,
                     on: {
@@ -1852,7 +1848,6 @@
                 ],
                 {
                     closeButton: false,
-                    dragToClose: false,
                     autoFocus: false,
                     on: {
                         ready: () =>
@@ -3366,6 +3361,12 @@
 
         init() {
             if (typeof Fancybox !== 'undefined' && Fancybox) {
+                const defaults = Fancybox.getDefaults();
+
+                defaults.dragToClose = (instance) => instance.getSlide()?.type === 'image';
+                defaults.Carousel.gestures = (carousel) =>
+                    carousel.getSlides().some((slide) => slide.type === 'image');
+
                 Fancybox.bind('[data-fancybox]', {
                     closeExisting: true,
                 });
