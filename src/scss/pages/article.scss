@@ -41,4 +41,9 @@
 		min-width: 0;
 		flex: 1 1 auto;
 	}
+	// .article__body--narrow
+	&__body--narrow {
+		max-width: 820px;
+		margin-inline: auto;
+	}
 }

@@ -27,8 +27,8 @@ body {
 	margin-right: 0 !important;
 	background: #fff;
 
-	// body:has(.favorite-dialog[open])
-	&:has(.favorite-dialog[open]) {
+	// body:has(.confirmation-dialog[open])
+	&:has(.confirmation-dialog[open]) {
 		overflow: hidden;
 	}
 

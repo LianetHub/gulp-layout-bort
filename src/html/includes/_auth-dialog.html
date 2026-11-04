@@ -29,14 +29,14 @@
         <form action="#" class="auth-dialog__form" data-auth-form="phone" id="auth-phone-panel" role="tabpanel" aria-labelledby="auth-phone-tab" novalidate hidden>
             <div class="auth-dialog__fields">
                 @@include('../templates/_auth-field.html', {"id":"auth-phone","label":"Телефон","type":"tel","name":"phone","autocomplete":"tel","placeholder":"+7 (999) 999-99-99"})
-                <div class="form__field auth-dialog__field">
+                <div class="form__field auth-dialog__field" hidden>
                     <label class="auth-dialog__label" for="auth-code">Код из СМС</label>
-                    <input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required data-required>
+                    <input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" disabled required data-required>
                     <span class="form__error-message auth-dialog__error" hidden aria-live="polite">Введите 4 цифры из СМС</span>
                 </div>
             </div>
-            <button class="auth-dialog__resend" type="button" data-auth-send="phone">Получить код</button>
-            <button class="auth-dialog__submit" type="submit">Войти</button>
+            <button class="auth-dialog__resend auth-dialog__resend--primary" type="button" data-auth-send="phone">Получить код</button>
+            <button class="auth-dialog__submit" type="submit" disabled>Войти</button>
             <p class="auth-dialog__footer">Ещё нет учётной записи?
                 <br>
                 <button class="auth-dialog__link" type="button" data-auth-go="register">Зарегистрироваться</button>

@@ -16,19 +16,19 @@
 	// .product-details .product-details__promotion
 	.product-details__promotion {
 		display: block;
-		height: rem(40);
+		height: 80px;
 		margin-bottom: rem(10);
 		border-radius: rem(8);
 		overflow: hidden;
-		@media (min-width: $md4) {
-			height: rem(80);
+		@media (min-width: $md2) {
 			margin-bottom: rem(20);
 		}
 	}
 	// .product-details .product-details__promotion-image
 	.product-details__promotion-image {
+		display: block;
 		width: 100%;
-		height: 100%;
+		height: 80px;
 		object-fit: cover;
 	}
 	// .product-details .product-details__header

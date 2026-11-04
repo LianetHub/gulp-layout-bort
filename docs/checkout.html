@@ -33,12 +33,12 @@
         <!-- favicon -->
 
         <!-- plugins -->
-        <link rel="stylesheet" href="css/libs/swiper-bundle.min.css?_v=20261102185145">
-        <link rel="stylesheet" href="css/libs/fancybox.min.css?_v=20261102185145">
+        <link rel="stylesheet" href="css/libs/swiper-bundle.min.css?_v=20261104161027">
+        <link rel="stylesheet" href="css/libs/fancybox.min.css?_v=20261104161027">
         <!-- plugins -->
 
-        <link rel="stylesheet" href="css/reset.min.css?_v=20261102185145">
-        <link rel="stylesheet" href="css/style.min.css?_v=20261102185145">
+        <link rel="stylesheet" href="css/reset.min.css?_v=20261104161027">
+        <link rel="stylesheet" href="css/style.min.css?_v=20261104161027">
 
     </head>
 
@@ -200,7 +200,7 @@
                             </ul>
                         </nav>
                         <div class="header__delivery">
-                            Адрес доставки: <address class="header__address">ул. Авиационная, д.10</address>
+                            Адрес доставки: <button class="header__address" type="button" data-address-open aria-haspopup="dialog" aria-controls="address-picker">ул. Авиационная, д.10</button>
                         </div>
                     </div>
                 </div>
@@ -628,25 +628,25 @@
                             <a href="mailto:sales@bort.ru" class="footer__email">sales@bort.ru</a>
                             <a href="" class="footer__link">Показать на карте</a>
                             <div class="footer__socials">
-                                <a href="https://vk.com/bort_global" aria-label="Мы в Вконтакте" class="footer__social">
+                                <a href="https://vk.com/bort_global" aria-label="Мы в Вконтакте" class="footer__social" target="_blank" rel="noopener noreferrer">
                                     <img src="img/icons/vk.svg" alt="Вконтакте" class="footer__image">
                                 </a>
-                                <a href="https://dzen.ru/bort_global" aria-label="Мы в Дзен" class="footer__social">
+                                <a href="https://dzen.ru/bort_global" aria-label="Мы в Дзен" class="footer__social" target="_blank" rel="noopener noreferrer">
                                     <img src="img/icons/dzen.svg" alt="Дзен" class="footer__image">
                                 </a>
-                                <a href="https://rutube.ru/channel/23658298/" aria-label="Мы в Rutube" class="footer__social">
+                                <a href="https://rutube.ru/channel/23658298/" aria-label="Мы в Rutube" class="footer__social" target="_blank" rel="noopener noreferrer">
                                     <img src="img/icons/rutube.svg" alt="Rutube" class="footer__image">
                                 </a>
-                                <a href="https://www.youtube.com/c/BORTGlobal" aria-label="Мы в Youtube" class="footer__social">
+                                <a href="https://www.youtube.com/c/BORTGlobal" aria-label="Мы в Youtube" class="footer__social" target="_blank" rel="noopener noreferrer">
                                     <img src="img/icons/youtube.svg" alt="Youtube" class="footer__image">
                                 </a>
-                                <a href="https://www.drive2.ru/o/BortGlobal" aria-label="Мы в drive2" class="footer__social">
+                                <a href="https://www.drive2.ru/o/BortGlobal" aria-label="Мы в drive2" class="footer__social" target="_blank" rel="noopener noreferrer">
                                     <img src="img/icons/d2.svg" alt="drive2" class="footer__image">
                                 </a>
-                                <a href="https://t.me/bort_global" aria-label="Мы в Telegram" class="footer__social">
+                                <a href="https://t.me/bort_global" aria-label="Мы в Telegram" class="footer__social" target="_blank" rel="noopener noreferrer">
                                     <img src="img/icons/telegram.svg" alt="telegram" class="footer__image">
                                 </a>
-                                <a href="https://max.ru/id6321450605_biz" aria-label="Мы в Max" class="footer__social">
+                                <a href="https://max.ru/id6321450605_biz" aria-label="Мы в Max" class="footer__social" target="_blank" rel="noopener noreferrer">
                                     <img src="img/icons/max.svg" alt="max" class="footer__image">
                                 </a>
                             </div>
@@ -738,6 +738,11 @@
             </footer>
             <button type="button" aria-label="Вернуться в начало страницы" class="arrow-top icon-chevron-up"></button>
             <div class="notify-container" aria-live="polite" aria-relevant="additions"></div>
+            <aside class="cookie-notice" aria-label="Использование cookie" hidden>
+                <p class="cookie-notice__text">Мы используем cookie для работы сайта. Подробнее — в <a class="cookie-notice__link" href="policy.html">Политике конфиденциальности</a>.</p>
+                <button class="cookie-notice__accept btn btn-primary" type="button" data-cookie-accept>Принять</button>
+            </aside>
+
             <div role="dialog" id="sign-in" class="auth-dialog" aria-labelledby="auth-title">
                 <button type="button" class="auth-dialog__close" data-fancybox-close aria-label="Закрыть">
                     <span class="auth-dialog__close-icon icon-close" aria-hidden="true"></span>
@@ -789,14 +794,14 @@
                                 <span class="form__error-message auth-dialog__error" hidden aria-live="polite">Введите корректный номер телефона</span>
                             </div>
 
-                            <div class="form__field auth-dialog__field">
+                            <div class="form__field auth-dialog__field" hidden>
                                 <label class="auth-dialog__label" for="auth-code">Код из СМС</label>
-                                <input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" required data-required>
+                                <input class="auth-dialog__input" id="auth-code" name="code" inputmode="numeric" autocomplete="one-time-code" maxlength="4" pattern="[0-9]{4}" disabled required data-required>
                                 <span class="form__error-message auth-dialog__error" hidden aria-live="polite">Введите 4 цифры из СМС</span>
                             </div>
                         </div>
-                        <button class="auth-dialog__resend" type="button" data-auth-send="phone">Получить код</button>
-                        <button class="auth-dialog__submit" type="submit">Войти</button>
+                        <button class="auth-dialog__resend auth-dialog__resend--primary" type="button" data-auth-send="phone">Получить код</button>
+                        <button class="auth-dialog__submit" type="submit" disabled>Войти</button>
                         <p class="auth-dialog__footer">Ещё нет учётной записи?
                             <br>
                             <button class="auth-dialog__link" type="button" data-auth-go="register">Зарегистрироваться</button>
@@ -982,7 +987,7 @@
                         <h2 class="address-map__title title title-md" id="address-picker-map-title">Выберите адрес на карте</h2>
                         <div class="address-map__canvas" data-map-center="55.678,37.565"></div>
                         <div class="address-map__selection">
-                            <input class="address-map__selected" type="text" name="map_address" placeholder="Выберите точку на карте" aria-label="Адрес" autocomplete="street-address">
+                            <input class="address-map__selected" type="text" name="map_address" placeholder="Выберите точку на карте" aria-label="Адрес" autocomplete="address-line1">
                             <button class="address-map__choose btn btn-primary" type="button">Выбрать</button>
                         </div>
                     </div>
@@ -1101,11 +1106,11 @@
             </div>
 
             <!-- plugins -->
-            <script src="js/libs/fancybox.umd.js?_v=20261102185145"></script>
-            <script src="js/libs/swiper-bundle.min.js?_v=20261102185145"></script>
+            <script src="js/libs/fancybox.umd.js?_v=20261104161027"></script>
+            <script src="js/libs/swiper-bundle.min.js?_v=20261104161027"></script>
             <!-- plugins -->
 
-            <script src="js/app.js?_v=20261102185145"></script>
+            <script src="js/app.js?_v=20261104161027"></script>
 
         </div>
     </body>

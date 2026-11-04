@@ -9,6 +9,7 @@
 	gap: rem(10);
 	width: calc(100% - #{rem(24)});
 	max-width: rem(380);
+	margin-bottom: var(--cookie-notice-space, 0px);
 	right: rem(12);
 	bottom: calc(#{rem(70)} + env(safe-area-inset-bottom, 0px));
 	pointer-events: none;
@@ -26,8 +27,8 @@
 			bottom: rem(24);
 		}
 	}
-	// body:has(.product-details):has(.arrow-top.visible) .notify-container
-	body:has(.product-details):has(.arrow-top.visible) & {
+	// body:has(.arrow-top.visible) .notify-container
+	body:has(.arrow-top.visible) & {
 		width: calc(100% - #{rem(116)});
 		@media (min-width: $md4) {
 			width: calc(100% - #{rem(24)});

@@ -100,6 +100,10 @@
 	&__description-main {
 		min-width: 0;
 	}
+	// .product-content__features
+	&__features {
+		margin-top: rem(40);
+	}
 	// .product-content__rich
 	&__rich {
 		position: relative;

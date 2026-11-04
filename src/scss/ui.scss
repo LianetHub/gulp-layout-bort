@@ -303,8 +303,7 @@
 		&:disabled,
 		&.swiper-button-disabled,
 		&[aria-disabled="true"] {
-			display: flex;
-			opacity: 1;
+			display: none;
 		}
 	}
 }
@@ -729,6 +728,7 @@
 
 // .arrow-top
 .arrow-top {
+	margin-bottom: var(--cookie-notice-space, 0px);
 	// body:has(.product-details) .arrow-top
 	body:has(.product-details) & {
 		bottom: calc(

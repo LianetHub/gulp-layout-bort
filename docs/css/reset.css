@@ -80,15 +80,12 @@ a {
   outline: none;
   border: none;
   color: inherit;
+  -webkit-tap-highlight-color: transparent;
 }
 
 a:focus,
 a:active {
   outline: none;
-}
-
-a {
-  -webkit-tap-highlight-color: transparent;
 }
 
 :focus,

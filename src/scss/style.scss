@@ -117,7 +117,7 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 @import "modules/listing-filter";
 
 @import "pages/favorites";
-@import "modules/favorite-dialog";
+@import "modules/confirmation-dialog";
 @import "modules/auth-dialog";
 
 @import "modules/page-heading";
@@ -130,3 +130,4 @@ $ui-index-6: 6; // Для элементов, перекрывающих все
 @import "modules/order-summary";
 @import "modules/order-details";
 @import "modules/order-product";
+@import "modules/cookie-notice";

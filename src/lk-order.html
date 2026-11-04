@@ -5,7 +5,7 @@
         <div class="wrapper">
             @@include('html/_header.html', { "auth": true })
             <main class="page page--dark">
-                <section class="account">
+                <section class="account account--order">
                     <div class="account__container container">
                         @@include('html/includes/_page-heading.html', {"title":"Мои заказы","backHref":"lk-orders.html","backLabel":"Вернуться к заказам"})
                         <div class="account__body">
@@ -73,8 +73,8 @@
                                     </div>
                                     <div class="order-details__actions">
                                         <button class="order-details__button order-details__button--primary btn" type="button">Оплатить онлайн</button>
-                                        <button class="order-details__button btn" type="button">Отменить заказ</button>
-                                        <a class="order-details__button btn" href="cart.html">Повторить заказ</a>
+                                        <button class="order-details__button btn" type="button" data-order-action="cancel">Отменить заказ</button>
+                                        <a class="order-details__button btn" href="cart.html" data-order-action="repeat">Повторить заказ</a>
                                     </div>
                                 </aside>
                                 <p class="order-details__announcement" role="status" aria-live="polite">
@@ -87,6 +87,7 @@
                 </section>
             </main>
             @@include('html/_footer.html', {})
+            @@include('html/includes/_confirmation-dialog.html', {"id":"order-confirmation","title":"Подтверждение действия","message":"","confirmLabel":"Да","cancelLabel":"Нет"})
             @@include('html/_js.html', {})
         </div>
     </body>

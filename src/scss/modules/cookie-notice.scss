@@ -1,0 +1,55 @@
+@use "sass:math";
+
+// .cookie-notice
+.cookie-notice {
+	position: fixed;
+	z-index: 24;
+	right: rem(12);
+	bottom: calc(#{rem(70)} + env(safe-area-inset-bottom, 0px));
+	display: flex;
+	flex-direction: column;
+	gap: rem(12);
+	width: calc(100% - #{rem(24)});
+	max-width: rem(540);
+	padding: rem(16);
+	border: 1px solid #ebeaea;
+	border-radius: rem(15);
+	background: #fff;
+	color: #2b2b2b;
+	box-shadow: 0 rem(5) rem(20) rgba(12, 19, 26, 0.12);
+	@media (min-width: $md4) {
+		right: rem(24);
+		bottom: rem(24);
+		flex-direction: row;
+		align-items: center;
+		padding: rem(20);
+	}
+	// body:has(.product-details) .cookie-notice
+	body:has(.product-details) & {
+		bottom: calc(
+			var(--product-purchase-height, calc(#{rem(134)} + env(safe-area-inset-bottom, 0px))) +
+				#{rem(16)}
+		);
+		@media (min-width: $md4) {
+			bottom: rem(24);
+		}
+	}
+	// .cookie-notice[hidden]
+	&[hidden] {
+		display: none;
+	}
+	// .cookie-notice__text
+	&__text {
+		font-size: rem(14);
+		line-height: math.div(20, 14);
+	}
+	// .cookie-notice__link
+	&__link {
+		color: $orange;
+		text-decoration: underline;
+	}
+	// .cookie-notice__accept
+	&__accept {
+		flex-shrink: 0;
+	}
+}

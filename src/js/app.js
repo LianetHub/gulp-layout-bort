@@ -661,7 +661,7 @@
             this.addAddress = this.addAddress.bind(this);
         }
 
-        init(form) {
+        init(form = document.querySelector('#checkout-form')) {
             this.form = form;
             this.picker = document.querySelector('#address-picker');
 
@@ -673,50 +673,57 @@
             this.list = this.picker.querySelector('.address-picker__list');
             this.addForm = this.picker.querySelector('.address-picker__form');
             this.addressFields = ['city', 'street', 'entrance', 'floor', 'apartment'];
-            this.selectedId = null;
+            this.selectedId = this.list.querySelector(':checked')?.value;
             this.modal = undefined;
             this.map = new AddressMap(this.picker.querySelector('.address-map'));
 
-            this.form.querySelectorAll('.checkout__change').forEach((button) =>
-                button.addEventListener('click', () => {
-                    if (typeof Fancybox === 'undefined') {
-                        return;
-                    }
+            document
+                .querySelectorAll('[data-address-open], #checkout-form .checkout__change')
+                .forEach((button) =>
+                    button.addEventListener('click', () => {
+                        if (typeof Fancybox === 'undefined') {
+                            return;
+                        }
 
-                    this.setView('list');
-                    if (this.selectedId) {
-                        this.list.querySelectorAll('.address-picker__radio').forEach((input) => {
-                            input.checked = input.value === this.selectedId;
-                        });
-                    }
-                    Fancybox.show(
-                        [
+                        this.setView('list');
+                        if (this.selectedId) {
+                            this.list
+                                .querySelectorAll('.address-picker__radio')
+                                .forEach((input) => {
+                                    input.checked = input.value === this.selectedId;
+                                });
+                        }
+                        Fancybox.show(
+                            [
+                                {
+                                    src: '#address-picker',
+                                    type: 'inline',
+                                },
+                            ],
                             {
-                                src: '#address-picker',
-                                type: 'inline',
+                                closeButton: false,
+                                autoFocus: false,
+                                triggerEl: button,
+                                on: {
+                                    ready: () =>
+                                        this.picker
+                                            .querySelector('.address-picker__radio:checked')
+                                            ?.focus(),
+                                    destroy: () =>
+                                        (button.hidden && this.form
+                                            ? this.form.querySelector(
+                                                  '.checkout__selected-address .checkout__change',
+                                              )
+                                            : button
+                                        )?.focus({
+                                            preventScroll: true,
+                                        }),
+                                },
                             },
-                        ],
-                        {
-                            closeButton: false,
-                            autoFocus: false,
-                            on: {
-                                done: () =>
-                                    this.picker
-                                        .querySelector('.address-picker__radio:checked')
-                                        ?.focus(),
-                                destroy: () =>
-                                    (button.hidden
-                                        ? this.form.querySelector(
-                                              '.checkout__selected-address .checkout__change',
-                                          )
-                                        : button
-                                    ).focus(),
-                            },
-                        },
-                    );
-                    this.modal = Fancybox.getInstance();
-                }),
-            );
+                        );
+                        this.modal = Fancybox.getInstance();
+                    }),
+                );
             this.picker
                 .querySelector('.address-picker__add')
                 .addEventListener('click', this.showAddForm);
@@ -758,18 +765,25 @@
             const description = AddressPicker.describeAddress(address);
 
             this.selectedId = input.value;
-            this.addressFields.forEach((name) => {
-                this.form.elements[name].value = address[name] || '';
-                this.form.elements[name].required = false;
+            document.querySelectorAll('[data-address-open]').forEach((button) => {
+                button.textContent = address.street;
             });
-            this.form.querySelector('.checkout__selected-title').textContent = description.title;
-            this.form.querySelector('.checkout__selected-details').textContent =
-                description.details;
-            this.form.querySelector('.checkout__selected-details').hidden = !description.details;
-            this.form.querySelector('.checkout__selected-address').hidden = false;
-            this.form.querySelector('.checkout__address-fields').hidden = true;
-            this.form.querySelector('.checkout__address > .checkout__change').hidden = true;
-            this.form.querySelector('.checkout__save').hidden = true;
+            if (this.form) {
+                this.addressFields.forEach((name) => {
+                    this.form.elements[name].value = address[name] || '';
+                    this.form.elements[name].required = false;
+                });
+                this.form.querySelector('.checkout__selected-title').textContent =
+                    description.title;
+                this.form.querySelector('.checkout__selected-details').textContent =
+                    description.details;
+                this.form.querySelector('.checkout__selected-details').hidden =
+                    !description.details;
+                this.form.querySelector('.checkout__selected-address').hidden = false;
+                this.form.querySelector('.checkout__address-fields').hidden = true;
+                this.form.querySelector('.checkout__address > .checkout__change').hidden = true;
+                this.form.querySelector('.checkout__save').hidden = true;
+            }
             this.modal?.close();
         }
 
@@ -1210,6 +1224,14 @@
 
             form.elements.code.value = '';
             window.FormController.toggleErrorState(form.elements.code, false);
+            if (name === 'phone') {
+                form.elements.code.closest('.auth-dialog__field').hidden = true;
+                form.elements.code.disabled = true;
+                form.querySelector('[type="submit"]').disabled = true;
+                form.querySelector('[data-auth-send]').classList.add(
+                    'auth-dialog__resend--primary',
+                );
+            }
             if (name === 'register') {
                 form.querySelector('.auth-dialog__get-code').hidden = false;
                 form.querySelector('.auth-dialog__field--code').hidden = true;
@@ -1226,6 +1248,14 @@
             }
             this.codePhones[name] = TextUtils.digits(form.elements.phone.value);
             form.elements.code.value = '';
+            if (name === 'phone') {
+                form.elements.code.closest('.auth-dialog__field').hidden = false;
+                form.elements.code.disabled = false;
+                form.querySelector('[type="submit"]').disabled = false;
+                form.querySelector('[data-auth-send]').classList.remove(
+                    'auth-dialog__resend--primary',
+                );
+            }
             if (name === 'register') {
                 form.querySelector('.auth-dialog__get-code').hidden = true;
                 form.querySelector('.auth-dialog__field--code').hidden = false;
@@ -1249,6 +1279,7 @@
 
             this.opener = trigger;
             window.SearchController?.closeSearch();
+            this.resetCode('phone');
             this.switchView('login');
             this.switchMethod('email');
             Fancybox.show(
@@ -1314,6 +1345,15 @@
 
         handleTabKeydown(event) {
             if (
+                event.key === 'Enter' &&
+                event.target === this.forms.phone.elements.phone &&
+                !this.codePhones.phone
+            ) {
+                event.preventDefault();
+                this.showCodeInput('phone');
+                return;
+            }
+            if (
                 !event.target.matches('[data-auth-tab]') ||
                 !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)
             ) {
@@ -1369,6 +1409,11 @@
 
         submit(event) {
             const form = event.target;
+            if (form === this.forms.phone && !this.codePhones.phone) {
+                event.preventDefault();
+                this.showCodeInput('phone');
+                return;
+            }
             let firstInvalid;
             form.querySelectorAll('input[required]:not(:disabled)').forEach((input) => {
                 if (!this.validate(input)) {
@@ -1928,7 +1973,6 @@
 
             this.form.dataset.initialized = 'true';
 
-            new AddressPicker().init(this.form);
             this.pickup = new PickupPicker().init(this.form);
             this.form.addEventListener('submit', this.submit);
 
@@ -2534,7 +2578,7 @@
         }
     }
 
-    // === favorites ===
+    // === confirmation-dialog ===
 
     class ConfirmationDialog {
         constructor(dialog) {
@@ -2544,14 +2588,16 @@
             }
 
             dialog.addEventListener('click', (event) => {
-                if (event.target.closest('.favorite-dialog__confirm')) {
+                if (event.target.closest('.confirmation-dialog__confirm')) {
                     const action = this.pendingAction;
 
                     this.pendingAction = null;
                     dialog.close();
                     action?.();
                 } else if (
-                    event.target.closest('.favorite-dialog__cancel, .favorite-dialog__close')
+                    event.target.closest(
+                        '.confirmation-dialog__cancel, .confirmation-dialog__close',
+                    )
                 ) {
                     dialog.close();
                 } else if (event.target === dialog) {
@@ -2569,6 +2615,9 @@
             });
             dialog.addEventListener('close', () => {
                 this.pendingAction = null;
+                this.opener?.focus({
+                    preventScroll: true,
+                });
             });
         }
 
@@ -2578,9 +2627,12 @@
             }
 
             this.pendingAction = action;
+            this.opener = document.activeElement;
             this.dialog.showModal();
         }
     }
+
+    // === favorites ===
 
     class FavoritesController {
         static initAll() {
@@ -2635,9 +2687,8 @@
             if (remove && this.removeDialog) {
                 const category = remove.closest('.favorites__category');
 
-                this.removeDialog.querySelector('.favorite-dialog__category').textContent = category
-                    .querySelector('.favorites__filter')
-                    .firstChild.textContent.trim();
+                this.removeDialog.querySelector('.confirmation-dialog__subject').textContent =
+                    category.querySelector('.favorites__filter').firstChild.textContent.trim();
                 this.removeConfirmation.open(() => category.remove());
             }
         }
@@ -3481,6 +3532,31 @@
         }
     }
 
+    class CookieNotice {
+        init() {
+            this.root = document.querySelector('.cookie-notice');
+            if (!this.root) {
+                return;
+            }
+
+            const accepted = document.cookie
+                .split(';')
+                .some((cookie) => cookie.trim() === 'bort_cookie_consent=accepted');
+            this.root.hidden = accepted;
+            const updateOffset = () => {
+                const height = this.root.hidden ? 0 : this.root.getBoundingClientRect().height + 12;
+                document.documentElement.style.setProperty('--cookie-notice-space', `${height}px`);
+            };
+            this.root.querySelector('[data-cookie-accept]').addEventListener('click', () => {
+                document.cookie = `bort_cookie_consent=accepted; Max-Age=31536000; Path=/; SameSite=Lax${location.protocol === 'https:' ? '; Secure' : ''}`;
+                this.root.hidden = true;
+                updateOffset();
+            });
+            new ResizeObserver(updateOffset).observe(this.root);
+            updateOffset();
+        }
+    }
+
     class NotifyController {
         constructor() {
             this.containerSelector = '.notify-container';
@@ -3772,6 +3848,24 @@
             this.root.dataset.initialized = 'true';
 
             this.root.querySelector('[data-copy-order]').addEventListener('click', this.copyOrder);
+            const dialog = document.querySelector('#order-confirmation');
+            this.confirmation = new ConfirmationDialog(dialog);
+            this.root.querySelectorAll('[data-order-action]').forEach((button) => {
+                button.addEventListener('click', (event) => {
+                    event.preventDefault();
+                    const repeat = button.dataset.orderAction === 'repeat';
+                    const number = this.root
+                        .querySelector('[data-order-number]')
+                        .textContent.trim();
+                    dialog.querySelector('.confirmation-dialog__message').textContent =
+                        `Вы хотите ${repeat ? 'повторить' : 'отменить'} заказ №${number}?`;
+                    this.confirmation.open(() => {
+                        if (repeat) {
+                            window.location.assign(button.href);
+                        }
+                    });
+                });
+            });
 
             return this;
         }
@@ -6632,6 +6726,8 @@
             new ProductListingController().init();
             new ProductDetailsController().init();
             new CheckoutController().init();
+            new AddressPicker().init();
+            new CookieNotice().init();
             FavoritesController.initAll();
         }
     }

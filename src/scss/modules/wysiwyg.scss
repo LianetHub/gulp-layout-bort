@@ -54,4 +54,12 @@
 		padding-left: rem(24);
 		margin-block: rem(20);
 	}
+	// .wysiwyg ul
+	ul {
+		list-style: disc;
+	}
+	// .wysiwyg ol
+	ol {
+		list-style: decimal;
+	}
 }
