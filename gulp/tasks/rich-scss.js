@@ -34,7 +34,7 @@ function writeStylesAll(product) {
 
 	const content = [
 		`@@include('partials/${product.id}/_styles-vars.html')`,
-		`@@include('partials/_shared/_styles-base.html')`,
+		`@@include('${product.baseInclude || "partials/_shared/_styles-base.html"}')`,
 		`@@include('partials/${product.id}/_styles-theme.html')`,
 		`@@include('partials/${product.id}/_styles-components.html')`,
 	].join("\n") + "\n";
@@ -54,7 +54,16 @@ function compileBlock(block, scssDir, partialsDir) {
 		loadPaths: [scssDir],
 	});
 
-	fs.writeFileSync(outPath, wrapRichStyle(result.css, block), "utf8");
+	// Convert imported shared styles too, without changing other products.
+	const css = block.units === "rem"
+		? result.css.replace(
+			/url\([^)]*\)|\/\*[\s\S]*?\*\/|"(?:\\.|[^"\\])*"|'(?:\\.|[^'\\])*'|(-?(?:\d*\.)?\d+)px\b/gi,
+			(token, pixels) => pixels === undefined
+				? token
+				: `${Number((Number(pixels) / 16).toFixed(6))}rem`,
+		)
+		: result.css;
+	fs.writeFileSync(outPath, wrapRichStyle(css, block), "utf8");
 }
 
 export const richScss = (done) => {
@@ -62,7 +71,10 @@ export const richScss = (done) => {
 	const partialsDir = path.resolve(`${app.path.srcFolder}/rich/partials`);
 	const blocks = [
 		...richSharedBlocks,
-		...richProducts.flatMap((product) => product.blocks),
+		...richProducts.flatMap((product) => product.blocks.map((block) => ({
+			...block,
+			units: product.units,
+		}))),
 		...richStandaloneBlocks,
 	];
 

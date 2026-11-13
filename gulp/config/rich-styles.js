@@ -17,6 +17,27 @@ export const richSharedBlocks = [
 
 export const richProducts = [
 	{
+		id: "alligator-plus-control",
+		units: "rem",
+		baseInclude: "partials/alligator-plus-control/_styles-base.html",
+		blocks: [
+			{ src: "alligator-plus-control/vars.scss", id: "rich-vars", out: "alligator-plus-control/_styles-vars.html", comment: "THEME VARIABLES — общая тема диспоузеров и параметры ALLIGATOR PLUS CONTROL." },
+			{ src: "alligator-plus-control/base.scss", id: "rich-base", out: "alligator-plus-control/_styles-base.html", comment: "STRUCTURAL STYLES — общая структура диспоузеров в rem." },
+			{ src: "alligator-plus-control/theme.scss", id: "rich-theme", out: "alligator-plus-control/_styles-theme.html", comment: "THEME STYLES — переиспользование компонентов CAIMAN CONTROL." },
+			{ src: "alligator-plus-control/components.scss", id: "rich-components", out: "alligator-plus-control/_styles-components.html", comment: "COMPONENT-SPECIFIC STYLES — композиция ALLIGATOR PLUS CONTROL." },
+		],
+	},
+	{
+		id: "caiman-control",
+		baseInclude: "partials/caiman-control/_styles-base.html",
+		blocks: [
+			{ src: "caiman-control/vars.scss", id: "rich-vars", out: "caiman-control/_styles-vars.html", comment: "THEME VARIABLES — исходные переменные CAIMAN CONTROL." },
+			{ src: "caiman-control/base.scss", id: "rich-base", out: "caiman-control/_styles-base.html", comment: "STRUCTURAL STYLES — общая структура диспоузеров." },
+			{ src: "caiman-control/theme.scss", id: "rich-theme", out: "caiman-control/_styles-theme.html", comment: "THEME STYLES — исходные компоненты CAIMAN CONTROL." },
+			{ src: "caiman-control/components.scss", id: "rich-components", out: "caiman-control/_styles-components.html", comment: "COMPONENT-SPECIFIC STYLES — исходные правила CAIMAN CONTROL." },
+		],
+	},
+	{
 		id: "bhk-20li",
 		blocks: [
 			{ src: "bhk-20li/vars.scss", id: "rich-vars", out: "bhk-20li/_styles-vars.html", comment: "THEME VARIABLES — общая тема BKS и переменные BHK-20Li." },

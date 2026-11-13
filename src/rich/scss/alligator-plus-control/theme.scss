@@ -1,0 +1,86 @@
+@import "caiman-control/theme";
+
+@font-face {
+  font-family: "Rich Alligator Roboto";
+  src: url("../fonts/Roboto-VariableFont_wdth,wght.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Rich Alligator Russo";
+  src: url("../fonts/RussoOne-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+#brt-rich.brt-rich.brt-rich--alligator-plus-control,
+.brt-rich.brt-rich--alligator-plus-control {
+  color: #000;
+  .brt-rich__heading { font-family: var(--rich-font-family) !important; font-size: 2rem !important; font-weight: 600 !important; line-height: 1.1 !important; color: inherit !important; text-transform: none !important; }
+  .brt-rich__text { font: 400 1.25rem/1.2 var(--rich-font-family) !important; color: inherit !important; }
+  strong { font-weight: 600; }
+  .brt-rich__hero-title { font: 400 2.25rem/1.2 var(--rich-font-family-display) !important; color: #2b2b2b !important; }
+  h1.brt-rich__heading.brt-rich__hero-title { text-transform: uppercase !important; }
+  .brt-rich__hero-model { font-size: 2rem !important; font-weight: 700 !important; line-height: 1.2 !important; color: var(--rich-color-accent) !important; }
+  .brt-rich__hero-perks .brt-rich__text { font-size: 1rem !important; line-height: 1.1875rem !important; }
+  .brt-rich__hero-perks strong { font-weight: 700; }
+  .brt-rich__scene--comfort .brt-rich__text { font-size: 1.5rem !important; line-height: 1.1 !important; }
+  .brt-rich__gallery-text-content .brt-rich__heading { color: var(--rich-color-accent) !important; }
+  .brt-rich__gallery-text-content .brt-rich__accent-note .brt-rich__text { font-size: 1.375rem !important; line-height: 1.4 !important; }
+  .brt-rich__specs-icon-card-label { font-size: 0.9375rem !important; line-height: 1.125rem !important; }
+  .brt-rich__specs-icon-card-number { font-size: 2.25rem !important; }
+  .brt-rich__specs-icon-card-unit { font-size: 1.375rem !important; }
+  .brt-rich__specs-icon-card-value, .brt-rich__specs-icon-card-number, .brt-rich__specs-icon-card-unit { color: var(--rich-color-accent) !important; line-height: 2.6875rem !important; }
+  .brt-rich__specs-notes .brt-rich__text { font-size: 1rem !important; line-height: 1.1875rem !important; }
+  .brt-rich__scene--apples .brt-rich__text { font-size: 1.375rem !important; font-weight: 500 !important; line-height: 1.1 !important; }
+  .brt-rich__scene--controls .brt-rich__heading, .brt-rich__scene--child .brt-rich__heading { line-height: 1.2 !important; }
+  .brt-rich__scene--controls .brt-rich__control-options .brt-rich__text { font-size: 0.9375rem !important; line-height: 1.4 !important; }
+  .brt-rich__control-note { font-size: 0.9375rem !important; line-height: 1.1 !important; font-weight: 600 !important; }
+  .brt-rich__scene--child .brt-rich__control-options .brt-rich__text { font-size: 1.125rem !important; line-height: 1.2 !important; }
+  .brt-rich__grinding-stages .brt-rich__text, .brt-rich__grind-able-item-text { font-size: 1.125rem !important; line-height: .94 !important; }
+  .brt-rich__grind-able-list > .brt-rich__heading { font-size: 1.25rem !important; font-weight: 500 !important; line-height: 1.5rem !important; }
+  .brt-rich__scene--quiet, .brt-rich__scene--boost { color: #fff; }
+  .brt-rich__scene--quiet .brt-rich__text { line-height: 1.5rem !important; }
+  .brt-rich__scene--quiet .brt-rich__text span { display: block; font-size: 1rem; line-height: 1.5rem; }
+  .brt-rich__sink-fit-content .brt-rich__heading { line-height: 1.3 !important; }
+  .brt-rich__sink-fit-description { font-size: 1.5rem !important; line-height: 1.3 !important; }
+  .brt-rich__sink-fit-material-label { font-size: 1rem !important; line-height: 1.1875rem !important; }
+  .brt-rich__sink-fit-note { line-height: 1.1 !important; color: #2b2b2b !important; }
+  .brt-rich__scene--kit .brt-rich__heading, .brt-rich__scene--daily .brt-rich__heading { font-weight: 500 !important; }
+  .brt-rich__scene--daily .brt-rich__heading strong { font-weight: 700; line-height: 1.4; }
+  .brt-rich__scene--daily .brt-rich__text { font-size: 1rem !important; line-height: 1.2 !important; }
+  .brt-rich__summary .brt-rich__text { line-height: 1.08 !important; }
+  .brt-rich__scene--video .brt-rich__heading { font-size: 2.5rem !important; line-height: 2.9375rem !important; }
+  @media (max-width: 64.37375rem) and (min-width: 48rem) {
+    .brt-rich__heading { font-size: 1.625rem !important; }
+    .brt-rich__text { font-size: 1.125rem !important; }
+    .brt-rich__hero-title { font-size: 1.875rem !important; }
+    .brt-rich__hero-model { font-size: 1.625rem !important; }
+    .brt-rich__specs-icon-card-number { font-size: 1.875rem !important; }
+    .brt-rich__specs-icon-card-unit { font-size: 1.125rem !important; }
+    .brt-rich__grinding-stages .brt-rich__text, .brt-rich__grind-able-item-text { font-size: 1rem !important; line-height: 1.1 !important; }
+    .brt-rich__sink-fit-description { font-size: 1.25rem !important; }
+    .brt-rich__scene--video .brt-rich__heading { font-size: 2rem !important; }
+  }
+  @media (max-width: 47.99875rem) {
+    .brt-rich__heading { font-size: 1.75rem !important; }
+    .brt-rich__text { font-size: 1.125rem !important; }
+    .brt-rich__hero-title { font-size: 1.875rem !important; }
+    .brt-rich__hero-model { font-size: 1.5rem !important; }
+    .brt-rich__scene--video .brt-rich__heading { font-size: 1.75rem !important; line-height: 1.2 !important; }
+    .brt-rich__sink-fit-description { font-size: 1.375rem !important; }
+    .brt-rich__gallery-text-content .brt-rich__accent-note .brt-rich__text { font-size: 1.25rem !important; }
+    .brt-rich__grinding-stages .brt-rich__text, .brt-rich__grind-able-item-text { line-height: 1.2 !important; }
+  }
+  @media (max-width: 35.99875rem) {
+    .brt-rich__heading { font-size: 1.5625rem !important; }
+    .brt-rich__hero-title { font-size: 1.5625rem !important; }
+    .brt-rich__hero-model { font-size: 1.375rem !important; }
+    .brt-rich__specs-icon-card-number { font-size: 1.875rem !important; }
+    .brt-rich__specs-icon-card-unit { font-size: 1.125rem !important; }
+    .brt-rich__specs-icon-card-label { font-size: 0.875rem !important; }
+    .brt-rich__sink-fit-description { font-size: 1.25rem !important; }
+  }
+}

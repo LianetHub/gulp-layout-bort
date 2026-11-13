@@ -1,0 +1,306 @@
+<style id="rich-vars">
+/*
+ * THEME VARIABLES — исходные переменные CAIMAN CONTROL.
+ */
+/*
+ * THEME VARIABLES — редактируйте этот блок для кастомизации под конкретный сайт.
+ * Все компоненты используют эти переменные через var().
+ */
+#brt-rich.brt-rich,
+.brt-rich {
+  /* --- Spacing (4px-шкала) --- */
+  --rich-space-2xs: 4px;
+  --rich-space-xs: 8px;
+  --rich-space-sm: 12px;
+  --rich-space-md: 16px;
+  --rich-space-lg: 24px;
+  --rich-space-xl: 32px;
+  --rich-space-2xl: 40px;
+  --rich-space-3xl: 48px;
+  /* --- Layout (Структура) --- */
+  --rich-max-width: 1024px;
+  --rich-padding-x: 16px;
+  --rich-section-gap: var(--rich-space-lg);
+  --rich-split-left: 50%;
+  --rich-split-gap: var(--rich-space-xl);
+  --rich-row-gap: var(--rich-split-gap);
+  --rich-gutter-x: var(--rich-row-gap);
+  --rich-gutter-y: var(--rich-space-xs);
+  /* --- Hero --- */
+  --rich-hero-header-gap: 20px;
+  --rich-hero-card-gap: var(--rich-space-sm);
+  --rich-hero-card-height: 284px;
+  --rich-hero-media-width: 392px;
+  --rich-hero-title-model-gap: var(--rich-space-xs);
+  --rich-hero-model-desc-gap: var(--rich-space-sm);
+  --rich-hero-desc-perks-gap: 28px;
+  --rich-hero-perk-min-height: 76px;
+  /* --- Cards Accent --- */
+  --rich-cards-accent-media-height: 180px;
+  /* --- Icon Accent Cards --- */
+  --rich-icon-accent-cards-padding: var(--rich-space-sm);
+  --rich-icon-accent-card-min-height: 100px;
+  --rich-icon-accent-card-padding-x: var(--rich-space-2xl);
+  --rich-icon-accent-card-padding-y: var(--rich-space-md);
+  --rich-icon-accent-card-gap: 28px;
+  --rich-icon-accent-card-icon-max-width: 65px;
+  --rich-icon-accent-card-icon-max-height: 75px;
+  /* --- Grind Dual --- */
+  --rich-grind-dual-card-padding-y: 23px;
+  --rich-grind-dual-card-padding-x: 43px;
+  --rich-grind-dual-body-padding-x: 10px;
+  --rich-grind-dual-card-min-height: 446px;
+  --rich-grind-dual-split-wide: 60%;
+  --rich-grind-dual-split-narrow: 40%;
+  --rich-grind-dual-heading-gap: var(--rich-space-md);
+  --rich-grind-dual-item-gap: 5px;
+  --rich-grind-dual-item-min-height: 70px;
+  --rich-grind-dual-item-padding-x: 41px;
+  --rich-grind-dual-item-icon-gap: var(--rich-space-lg);
+  --rich-grind-dual-item-icon-max-width: 64px;
+  --rich-grind-dual-item-icon-max-height: 56px;
+  /* --- Crush Cams --- */
+  --rich-crush-cams-card-min-height: 556px;
+  --rich-crush-cams-card-padding-x: 26px;
+  --rich-crush-cams-card-padding-bottom: 26px;
+  --rich-crush-cams-banner-height: 288px;
+  --rich-crush-cams-row-gap: 30px;
+  --rich-crush-cams-aside-radius: 10px;
+  /* --- PMDC Motor --- */
+  --rich-pmdc-motor-card-min-height: 369px;
+  --rich-pmdc-motor-body-padding-top: 15px;
+  --rich-pmdc-motor-body-padding-bottom: 15px;
+  --rich-pmdc-motor-body-padding-left: 35px;
+  --rich-pmdc-motor-body-padding-x-mobile: 20px;
+  --rich-pmdc-motor-media-max-height-mobile: 300px;
+  --rich-pmdc-motor-media-max-height: 369px;
+  --rich-pmdc-motor-body-gap: 15px;
+  --rich-pmdc-motor-intro-padding-top: 50px;
+  --rich-pmdc-motor-intro-width: 40fr;
+  --rich-pmdc-motor-features-width: 37fr;
+  --rich-pmdc-motor-media-width: 20fr;
+  --rich-pmdc-motor-side-content-width: 60fr;
+  --rich-pmdc-motor-side-media-width: 40fr;
+  --rich-pmdc-motor-title-gap: 21px;
+  --rich-pmdc-motor-title-line-height: 1.05;
+  --rich-pmdc-motor-intro-size: 22px;
+  --rich-pmdc-motor-text-max-width: 372px;
+  --rich-pmdc-motor-text-max-width-md: 500px;
+  --rich-pmdc-motor-feature-gap: 7px;
+  --rich-pmdc-motor-feature-min-height: 109px;
+  --rich-pmdc-motor-feature-padding-x: 22px;
+  --rich-pmdc-motor-feature-icon-gap: 22px;
+  --rich-pmdc-motor-feature-icon-1-width: 66px;
+  --rich-pmdc-motor-feature-icon-1-height: 58px;
+  --rich-pmdc-motor-feature-icon-2-width: 69px;
+  --rich-pmdc-motor-feature-icon-2-height: 52px;
+  --rich-pmdc-motor-feature-icon-3-width: 65px;
+  --rich-pmdc-motor-feature-icon-3-height: 53px;
+  --rich-pmdc-motor-feature-text-size: 15px;
+  /* --- Parts Showcase --- */
+  --rich-parts-showcase-card-min-height: 1086px;
+  --rich-parts-showcase-body-gap: 42px;
+  --rich-parts-showcase-list-gap: 28px;
+  --rich-parts-showcase-item-gap: 45px;
+  --rich-parts-showcase-item-media-width: 145px;
+  --rich-parts-showcase-item-title-size: 22px;
+  --rich-parts-showcase-item-desc-size: 22px;
+  --rich-parts-showcase-bottom-gap: 30px;
+  --rich-parts-showcase-bottom-list-gap: 24px;
+  --rich-parts-showcase-hero-width: 211px;
+  --rich-parts-showcase-panel-gap: 10px;
+  --rich-parts-showcase-panel-padding: 20px;
+  --rich-parts-showcase-panel-media-radius: 5px;
+  --rich-parts-showcase-panel-text-size: 20px;
+  --rich-parts-showcase-panel-min-height-top: 523px;
+  --rich-parts-showcase-panel-min-height-bottom: 533px;
+  --rich-parts-showcase-row-margin-top-md: var(--rich-parts-showcase-body-gap);
+  /* --- Accent Bar --- */
+  --rich-accent-bar-padding-y: var(--rich-space-xl);
+  --rich-accent-bar-padding-x: var(--rich-space-2xl);
+  --rich-accent-bar-icon-size: 144px;
+  /* --- Accent Cards --- */
+  --rich-section-heading-gap: 20px;
+  --rich-accent-card-media-height: 200px;
+  --rich-accent-card-min-height: 472px;
+  --rich-accent-card-padding-x: var(--rich-space-lg);
+  --rich-accent-card-padding-y: var(--rich-space-lg);
+  --rich-accent-card-body-gap: var(--rich-space-lg);
+  --rich-accent-card-text-gap: var(--rich-space-md);
+  /* --- Media Text --- */
+  --rich-media-text-aside-width: 268px;
+  --rich-media-text-aside-height: 328px;
+  --rich-media-text-title-gap: var(--rich-space-md);
+  /* --- Overlay Badges --- */
+  --rich-overlay-badge-size: 108px;
+  --rich-overlay-badge-height: 104px;
+  --rich-overlay-badges-gap: 64px;
+  /* --- Feature Grid --- */
+  --rich-feature-grid-gap: 10px;
+  --rich-feature-grid-title-gap: 15px;
+  --rich-feature-grid-card-padding-x: 35px;
+  --rich-feature-grid-card-padding-y: 28px;
+  --rich-feature-grid-fixation-min-height: 231px;
+  --rich-feature-grid-tank-min-height: 174px;
+  --rich-feature-grid-text-min-height: 293px;
+  --rich-feature-grid-tank-icon-size: 82px;
+  --rich-feature-grid-blow-media-height: 117px;
+  --rich-feature-grid-body-gap: 14px;
+  /* --- Product Params --- */
+  --rich-params-info-min-height: 232px;
+  --rich-params-info-padding: 28px 44px;
+  --rich-params-info-title-gap: 28px;
+  --rich-params-stat-min-height: 140px;
+  --rich-params-stat-number-size: 64px;
+  --rich-params-stat-unit-size: 32px;
+  --rich-params-stat-unit-small-size: 20px;
+  /* --- Specs Icon Grid --- */
+  --rich-specs-icon-grid-gap: var(--rich-feature-grid-gap);
+  --rich-specs-icon-card-min-height: 90px;
+  --rich-specs-icon-card-padding-x: 20px;
+  --rich-specs-icon-card-padding-y: 16px;
+  --rich-specs-icon-card-gap: 14px;
+  --rich-specs-icon-card-icon-max-width: 57px;
+  --rich-specs-icon-card-icon-max-height: 49px;
+  --rich-specs-icon-card-label-size: 15px;
+  --rich-specs-icon-card-value-size: 28px;
+  --rich-specs-icon-card-value-size-sm: var(--rich-font-size-page-title);
+  --rich-specs-icon-card-unit-size: 22px;
+  --rich-specs-icon-card-unit-size-sm: var(--rich-font-size-h3);
+  --rich-specs-icon-card-title-size: 18px;
+  --rich-specs-icon-card-title-max-width-sm: 150px;
+  --rich-specs-icon-grid-callout-min-height: 138px;
+  --rich-specs-icon-grid-callout-padding-x: 24px;
+  --rich-specs-icon-grid-callout-padding-left: 135px;
+  --rich-specs-icon-grid-callout-padding-right: 100px;
+  --rich-specs-icon-grid-callout-padding-inline-sm: 20px;
+  --rich-specs-icon-grid-callout-gap: 50px;
+  --rich-specs-icon-grid-callout-icon-max-width: 73px;
+  --rich-specs-icon-grid-callout-icon-max-height: 85px;
+  /* --- Advantages --- */
+  --rich-info-card-body-padding-x: 20px;
+  --rich-info-card-body-padding-bottom: 28px;
+  --rich-info-card-media-aspect-ratio: 297 / 190;
+  --rich-info-card-icon-min-height: 194px;
+  --rich-info-card-icon-area-min-height: 110px;
+  --rich-info-card-icon-max-width: 105px;
+  --rich-info-card-icon-max-height: 82px;
+  /* --- Gallery Text --- */
+  --rich-gallery-grid-gap: var(--rich-space-sm);
+  --rich-gallery-grid-media-ratio: 249 / 196;
+  --rich-gallery-text-size: 25px;
+  --rich-gallery-text-max-width: 333px;
+  --rich-gallery-text-icon-width: 23px;
+  --rich-gallery-text-icon-gap-top: 22px;
+  --rich-gallery-text-icon-gap-bottom: var(--rich-space-xl);
+  /* --- Photo Row --- */
+  --rich-photo-row-gap: var(--rich-space-sm);
+  --rich-photo-row-media-ratio: 297 / 176;
+  --rich-photo-row-title-size: 29px;
+  --rich-photo-row-subtitle-size: 25px;
+  --rich-photo-row-title-gap: var(--rich-section-heading-gap);
+  --rich-photo-row-subtitle-gap: 15px;
+  --rich-photo-row-intro-gap: var(--rich-space-xl);
+  /* --- Sink Fit --- */
+  --rich-sink-fit-split-wide: 60%;
+  --rich-sink-fit-split-narrow: 40%;
+  --rich-sink-fit-card-padding-y: 34px;
+  --rich-sink-fit-card-padding-x: 45px;
+  --rich-sink-fit-card-padding-x-sm: var(--rich-space-lg);
+  --rich-sink-fit-heading-gap: var(--rich-space-md);
+  --rich-sink-fit-text-gap: var(--rich-space-xl);
+  --rich-sink-fit-hero-gap: var(--rich-space-sm);
+  --rich-sink-fit-hero-margin-top: var(--rich-space-xl);
+  --rich-sink-fit-hero-min-height: 375px;
+  --rich-sink-fit-materials-margin-top: var(--rich-space-3xl);
+  --rich-sink-fit-materials-gap: var(--rich-space-sm);
+  --rich-sink-fit-material-label-size: 20px;
+  --rich-sink-fit-material-media-ratio: 306 / 209;
+  --rich-sink-fit-material-radius: 10px;
+  /* --- Kit --- */
+  --rich-section-heading-size: 40px;
+  --rich-contents-item-main-media-min-height: 336px;
+  --rich-contents-item-media-min-height: 140px;
+  --rich-contents-item-bottom-media-min-height: 120px;
+  --rich-contents-label-padding: var(--rich-space-sm) var(--rich-space-sm) var(--rich-space-md);
+  --rich-contents-kit-item-min-height: 104px;
+  --rich-contents-kit-media-size: 104px;
+  --rich-contents-kit-label-size: 20px;
+  --rich-contents-kit-item-gap: 40px;
+  --rich-contents-kit-splash-label-max-width: 160px;
+  --rich-contents-kit-grid-gap: var(--rich-space-sm);
+  --rich-contents-kit-mobile-gap: 20px;
+  /* --- Summary --- */
+  --rich-summary-paragraph-gap: 10px;
+  --rich-summary-line-height: 1.08;
+  /* --- Video CTA --- */
+  --rich-video-cta-min-height: 114px;
+  --rich-video-cta-font-size: 40px;
+  --rich-video-cta-video-gap: 20px;
+  --rich-video-embed-ratio: 16 / 9;
+  /* --- Card --- */
+  --rich-card-padding-y: 28px;
+  --rich-card-padding-x: 36px;
+  --rich-card-padding: 20px;
+  --rich-card-padding-lg: 40px;
+  --rich-card-shadow: 0 2px 12px var(--rich-color-shadow);
+  /* --- Logo Card Icon Title --- */
+  --rich-logo-card-icon-title-gap: 25px;
+  --rich-logo-card-icon-width: 56px;
+  /* --- Filters --- */
+  --rich-columns-card-min-height: 320px;
+  --rich-columns-card-feature-height: 168px;
+  --rich-columns-card-feature-padding: 28px;
+  --rich-columns-card-lead-gap: var(--rich-space-xs);
+  /* --- Colors (Цвета) --- */
+  --rich-color-accent: #fb7e00;
+  --rich-color-accent-fill: #ff9b35;
+  --rich-color-accent-light: #ffa940;
+  --rich-color-bg: #ffffff;
+  --rich-color-bg-muted: #f2f2f2;
+  --rich-color-bg-card: var(--rich-color-bg);
+  --rich-color-text: #000000;
+  --rich-color-text-heading: #2b2b2b;
+  --rich-color-text-muted: #666666;
+  --rich-color-text-inverse: #ffffff;
+  --rich-color-sku: #ff6200;
+  --rich-color-border: #e8e8e8;
+  --rich-color-shadow: rgba(0, 0, 0, 0.08);
+  /* --- Typography (Типографика) — брендбук Bort --- */
+  --rich-font-family: "Roboto", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  --rich-font-family-display: "Russo One", "Roboto", sans-serif;
+  --rich-font-size-spec: 32px;
+  --rich-font-size-product-name: 24px;
+  --rich-font-size-sku: 24px;
+  --rich-font-size-section: 29px;
+  --rich-font-size-subheading: 25px;
+  --rich-font-size-text: 20px;
+  --rich-font-size-caption: 15px;
+  --rich-font-size-h1: var(--rich-font-size-spec);
+  --rich-font-size-h2: var(--rich-font-size-product-name);
+  --rich-font-size-h3: var(--rich-font-size-section);
+  --rich-font-size-h4: 18px;
+  --rich-font-size-section-title: var(--rich-font-size-section);
+  --rich-font-size-page-title: var(--rich-font-size-product-name);
+  --rich-font-size-body: var(--rich-font-size-text);
+  --rich-font-size-hero-title: var(--rich-font-size-product-name);
+  --rich-font-size-hero-model: var(--rich-font-size-product-name);
+  --rich-font-size-hero-desc: var(--rich-font-size-text);
+  --rich-font-size-hero-perk: var(--rich-font-size-caption);
+  --rich-font-size-small: var(--rich-font-size-caption);
+  --rich-font-size-badge: 16px;
+  --rich-font-size-stat: var(--rich-font-size-spec);
+  --rich-font-size-spec-value: var(--rich-font-size-spec);
+  --rich-font-size-display: 56px;
+  --rich-line-height: 1.5;
+  --rich-font-weight-bold: 700;
+  --rich-font-weight-semibold: 600;
+  --rich-font-weight-normal: 400;
+  /* --- Border radius (Скругления) --- */
+  --rich-radius-sm: 8px;
+  --rich-radius-md: 12px;
+  --rich-radius-lg: 20px;
+  --rich-radius-pill: 48px;
+  --rich-radius-round: 50%;
+}
+</style>
